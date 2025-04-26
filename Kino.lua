@@ -27,6 +27,12 @@ SMODS.Atlas {
     py = 95,
     path =  'kino_jokers_legendary.png'
 }
+SMODS.Atlas {
+    key = "kino_exotic",
+    px = 71,
+    py = 95,
+    path =  'kino_exotic.png'
+}
 
 SMODS.Atlas {
     key = "kino_atlas_1",
@@ -258,6 +264,8 @@ end
 
 -- Register the Jokers
 local _usedjokers = {}
+
+-- Config options checks
 local _options = {
     {kino_config.vampire_jokers, vampire_objects},
     {kino_config.sci_fi_enhancement, sci_fi_objects},
@@ -267,6 +275,11 @@ local _options = {
     {kino_config.romance_enhancement, romance_objects},
     {kino_config.jumpscare_mechanic, jumpscare_objects}
 }
+
+-- Cross mod check
+if not Cryptid then
+    _options[#_options + 1] = {false, cryptid_objects}
+end
 
 for _i, joker in ipairs(joker_list) do
     -- for each joker_list

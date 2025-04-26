@@ -2379,6 +2379,14 @@ return {
                     "gives {X:mult,C:white}X1{} + {X:mult,C:white}X#1#{} Mult",
                     "for each scoring {C:attention}Queen{}"
                 }
+            },
+
+            -- Exotics
+            j_kino_shrek_1 = {
+                name = "Shrek",
+                text = {
+                    "Shrek from the movie Shrek"
+                }
             }
         },
         Enhanced = {

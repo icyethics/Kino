@@ -292,9 +292,12 @@ joker_list = {
 -- UNIMPLEMENTED Bringing Up Baby 1930s
 -- UNIMPLEMENTED Wings 1920s
 
--- 7.1 Jokers
+---- EXOTIC
+"shrek_1",
 
--- "inception",
+
+
+-- 7.1 Jokers
 -- "frankenstein"
 -- "when_harry_met_sally"
 
@@ -452,4 +455,16 @@ Kino.legendaries = {
     -- "indiana_jones_1",
     -- "ratatouille",
     -- "barbie"
+}
+
+-- Crossmod Content
+cryptid_objects = {
+    jokers = {
+        "shrek_1"
+    },
+    enhancements = {},
+    confections = {},
+    planets = {},
+    tarots = {},
+    vouchers = {},
 }
