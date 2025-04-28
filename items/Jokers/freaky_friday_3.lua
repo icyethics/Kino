@@ -27,19 +27,14 @@ SMODS.Joker {
         cast = {},
     },
     pools, k_genre = {"Comedy", "Family", "Fantasy"},
-    in_pool = function(self, args)
-        -- Check for the right frequency
-        local enhancement_gate = false
-        if G.playing_cards then
-            for k, v in pairs(G.playing_cards) do
-                if not v.edition == nil then
-                    enhancement_gate = true
-                    break
-                end
-            end
-        end
+    set_ability = function(self, card, initial, delay_sprites)
+        if card.area and card.area.config.collection then
 
-        return enhancement_gate
+        else
+            local edition = poll_edition('freaky_friday_3', nil, true, true)
+            card:set_edition(edition, true)
+        end
+        
     end,
 
     loc_vars = function(self, info_queue, card)

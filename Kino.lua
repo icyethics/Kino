@@ -220,6 +220,7 @@ Game.init_game_object = function(self)
     
 
     ret.modifiers.genre_bonus = {}
+    ret.last_played_hand = Kino.dummy_codex
 
     ret.current_round.scrap_total = 0
     ret.current_round.matches_made = 0

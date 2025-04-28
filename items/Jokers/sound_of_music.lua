@@ -1,6 +1,7 @@
 SMODS.Joker {
     key = "sound_of_music",
     order = 41,
+    generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
             flavour_texts = {

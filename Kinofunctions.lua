@@ -13,6 +13,9 @@
 -- Director tooltip
 
 function genre_match(_listA, _listB)
+    if type(_listA) ~= "table" then
+        _listA = {_listA}
+    end
     if type(_listB) ~= "table" then
         _listB = {_listB}
     end
@@ -924,6 +927,10 @@ end
 ----------------------
 
 ------------ Helpers ------------
+function Kino.debugfunc(inc)
+    print(G.GAME.last_played_hand[inc])
+end
+
 function Kino.rank_to_string(rank)
 
     local _string = "nil"

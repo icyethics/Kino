@@ -774,3 +774,25 @@ G.GAME.cards_destroyed = G.GAME.cards_destroyed + (#destroyed_cards or 0)
 '''
 match_indent = true
 times = 1
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''
+scoring_hand = final_scoring_hand
+'''
+position = "after"
+payload = '''
+
+G.GAME.last_played_hand = Kino.dummy_codex
+
+for _, _pcard in ipairs(scoring_hand) do
+    G.GAME.last_played_hand[_] = _pcard
+end
+
+
+'''
+match_indent = true
+times = 1
+# 

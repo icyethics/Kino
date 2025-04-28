@@ -1305,9 +1305,9 @@ return {
             j_kino_man_who_laughs = {
                 name= "The Man Who Laughs",
                 text = {
-                    "{X:mult,C:white}X#2#{} Mult for each",
+                    "{X:mult,C:white}X#1#{} Mult for each",
                     "other joker card you have",
-                    "{C:inactive}(Currently: {X:mult,C:white}X#3#{C:inactive} Mult)"
+                    "{C:inactive}(Currently: {X:mult,C:white}X#2#{C:inactive} Mult)"
                 }
             },
             j_kino_mars_attacks = {
@@ -3274,6 +3274,7 @@ return {
                 text = {
                     "Choose {C:attention}#1#{} of",
                     "up to {C:attention}#2# Confections{}",
+                    "{C:inactive}(Must have room)"
                 }
             },
             p_kino_snack_booster_jumbo = {
@@ -3281,6 +3282,7 @@ return {
                 text = {
                     "Choose {C:attention}#1#{} of",
                     "up to {C:attention}#2# Confections{}",
+                    "{C:inactive}(Must have room)"
                 }
             },
             p_kino_snack_booster_mega = {
@@ -3288,6 +3290,7 @@ return {
                 text = {
                     "Choose {C:attention}#1#{} of",
                     "up to {C:attention}#2# Confections{}",
+                    "{C:inactive}(Must have room)"
                 }
             },
             

@@ -40,7 +40,7 @@ SMODS.Joker {
             end
         end
 
-        return suit_count >= self.config.card.starting_amount + 1 and true or false
+        return suit_count >= 14 and true or false
     end,
 
     loc_vars = function(self, info_queue, card)

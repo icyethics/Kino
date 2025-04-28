@@ -35,10 +35,14 @@ SMODS.Consumable {
         end
 
         -- Checks if it can be added to the inventory
-        if card.area == G.pack_cards and 
-        (#G.consumeables.cards < G.consumeables.config.card_limit or 
-        (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
-            return true
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
         end
 
         return true
@@ -47,13 +51,13 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        if card.area ~= G.pack_cards then
+        if card.area ~= G.pack_cards and card.area ~= nil then
             play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
             play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
             card.active = true
 
             local eval = function(card) return card.active end
-            juice_card_until(card, eval, true)
+            juice_card_until(card, eval, true, 0.05)
         end
     end,
     calculate = function(self, card, context)
@@ -95,10 +99,14 @@ SMODS.Consumable {
         end
 
         -- Checks if it can be added to the inventory
-        if card.area == G.pack_cards and 
-        (#G.consumeables.cards < G.consumeables.config.card_limit or 
-        (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
-            return true
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
         end
 
         return true
@@ -107,7 +115,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        if card.area ~= G.pack_cards then
+        if card.area ~= G.pack_cards and card.area ~= nil then
             play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
             play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
             card.active = true
@@ -155,10 +163,14 @@ SMODS.Consumable {
         end
 
         -- Checks if it can be added to the inventory
-        if card.area == G.pack_cards and 
-        (#G.consumeables.cards < G.consumeables.config.card_limit or 
-        (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
-            return true
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
         end
 
         return true
@@ -167,7 +179,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        if card.area ~= G.pack_cards then
+        if card.area ~= G.pack_cards and card.area ~= nil then
             play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
             play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
             card.active = true
@@ -227,10 +239,14 @@ SMODS.Consumable {
         end
 
         -- Checks if it can be added to the inventory
-        if card.area == G.pack_cards and 
-        (#G.consumeables.cards < G.consumeables.config.card_limit or 
-        (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
-            return true
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
         end
 
         return true
@@ -239,7 +255,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        if card.area ~= G.pack_cards then
+        if card.area ~= G.pack_cards and card.area ~= nil then
             play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
             play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
             card.active = true
@@ -290,10 +306,14 @@ SMODS.Consumable {
         end
 
         -- Checks if it can be added to the inventory
-        if card.area == G.pack_cards and 
-        (#G.consumeables.cards < G.consumeables.config.card_limit or 
-        (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
-            return true
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
         end
 
         return true
@@ -302,7 +322,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        if card.area ~= G.pack_cards then
+        if card.area ~= G.pack_cards and card.area ~= nil then
             play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
             play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
             card.active = true
@@ -379,10 +399,14 @@ SMODS.Consumable {
         end
 
         -- Checks if it can be added to the inventory
-        if card.area == G.pack_cards and 
-        (#G.consumeables.cards < G.consumeables.config.card_limit or 
-        (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
-            return true
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
         end
 
         return true
@@ -391,7 +415,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        if card.area ~= G.pack_cards then
+        if card.area ~= G.pack_cards and card.area ~= nil then
             play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
             play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
             card.active = true
@@ -458,10 +482,14 @@ SMODS.Consumable {
         end
 
         -- Checks if it can be added to the inventory
-        if card.area == G.pack_cards and 
-        (#G.consumeables.cards < G.consumeables.config.card_limit or 
-        (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
-            return true
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
         end
 
         return true
@@ -470,7 +498,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        if card.area ~= G.pack_cards then
+        if card.area ~= G.pack_cards and card.area ~= nil then
             play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
             play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
             card.active = true
@@ -544,10 +572,14 @@ SMODS.Consumable {
         end
 
         -- Checks if it can be added to the inventory
-        if card.area == G.pack_cards and 
-        (#G.consumeables.cards < G.consumeables.config.card_limit or 
-        (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
-            return true
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
         end
 
         return true
@@ -556,7 +588,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        if card.area ~= G.pack_cards then
+        if card.area ~= G.pack_cards and card.area ~= nil then
             play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
             play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
             card.active = true
@@ -605,10 +637,14 @@ SMODS.Consumable {
         end
 
         -- Checks if it can be added to the inventory
-        if card.area == G.pack_cards and 
-        (#G.consumeables.cards < G.consumeables.config.card_limit or 
-        (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
-            return true
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
         end
 
         return true
@@ -617,7 +653,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        if card.area ~= G.pack_cards then
+        if card.area ~= G.pack_cards and card.area ~= nil then
             play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
             play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
             card.active = true
@@ -665,10 +701,14 @@ SMODS.Consumable {
         end
 
         -- Checks if it can be added to the inventory
-        if card.area == G.pack_cards and 
-        (#G.consumeables.cards < G.consumeables.config.card_limit or 
-        (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
-            return true
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
         end
 
         return true
@@ -677,7 +717,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        if card.area ~= G.pack_cards then
+        if card.area ~= G.pack_cards and card.area ~= nil then
             play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
             play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
             card.active = true
@@ -746,10 +786,14 @@ SMODS.Consumable {
         end
 
         -- Checks if it can be added to the inventory
-        if card.area == G.pack_cards and 
-        (#G.consumeables.cards < G.consumeables.config.card_limit or 
-        (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
-            return true
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
         end
 
         return true
@@ -758,7 +802,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        if card.area ~= G.pack_cards then
+        if card.area ~= G.pack_cards and card.area ~= nil then
             play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
             play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
             card.active = true

@@ -64,7 +64,7 @@ end
 ---@return table?
 function Kino.check_codex_optional(card, codex, checking_cards, solved_codex)
     local _solved_codex = solved_codex
-    local _played_hand = checking_cards
+    local _played_hand = G.GAME.last_played_hand
     local _result = true
 
     for i = 1, #_played_hand do
