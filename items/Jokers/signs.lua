@@ -44,7 +44,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- Abduct a random unscored card. Gives +2 Mult for each card abducted
-        card.ability.extra.num_cards_abducted_non = #card.ability.extra.cards_abducted or 0
+        card.ability.extra.num_cards_abducted_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
 
         if context.before then
             card.ability.extra.valid_targets = {}

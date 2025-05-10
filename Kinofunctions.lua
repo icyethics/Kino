@@ -252,6 +252,7 @@ end
 
 -- For everything that needs to be done when the shop is closed.
 function end_shopping()
+    print("entered")
     G.GAME.current_round.sci_fi_upgrades_last_round = 0
 end
 
@@ -575,7 +576,7 @@ function Card:set_multiplication_bonus(card, source, num, is_actor)
     -- keys ending in "_non"
     -- non-integers
     -- "time_"
-    if not card or not kino_config.actor_synergy or not card.config.center.kino_joker then
+    if not card or not card.config or not card.config.center or not kino_config.actor_synergy or not card.config.center.kino_joker then
         return false
     end
 
@@ -828,6 +829,7 @@ function upgrade_hand(card, hand, chips, mult, x_chips, x_mult, instant)
         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
             play_sound('tarot1')
             if card and card.juice_up then card:juice_up(0.8, 0.5) end
+            update_hand_text({immediate = true, nopulse = nil, delay = 0}, {handname=localize(hand, 'poker_hands'), level=G.GAME.hands[hand].level})
             G.TAROT_INTERRUPT_PULSE = true
             return true end }))
         update_hand_text({delay = 0}, {mult = G.GAME.hands[hand].mult, StatusText = true})
@@ -852,24 +854,24 @@ function upgrade_hand(card, hand, chips, mult, x_chips, x_mult, instant)
 end
 
 -- Hook to add repetition tag functionality
-local smods_calculate_repetitions = SMODS.calculate_repetitions
-SMODS.calculate_repetitions = function(card, context, reps)
+-- local smods_calculate_repetitions = SMODS.calculate_repetitions
+-- SMODS.calculate_repetitions = function(card, context, reps)
     
-    -- tag
-    for i = 1, #G.GAME.tags do
-        local _reps = G.GAME.tags[i]:apply_to_run({type = 'repetition_check', card = card})
+--     -- tag
+--     for i = 1, #G.GAME.tags do
+--         local _reps = G.GAME.tags[i]:apply_to_run({type = 'repetition_check', card = card})
 
-        if _reps and _reps.repetitions then
-            for r = 1, _reps.repetitions do
-                reps[#reps + 1] = {key = _reps}
-            end        
-        end 
-    end
+--         if _reps and _reps.repetitions then
+--             for r = 1, _reps.repetitions do
+--                 reps[#reps + 1] = {key = _reps}
+--             end        
+--         end 
+--     end
 
-    reps = smods_calculate_repetitions(card, context, reps)
+--     reps = smods_calculate_repetitions(card, context, reps)
 
-    return reps
-end
+--     return reps
+-- end
 
 -- Hook to add card upgrade tag functionality
 local smods_score_card = SMODS.score_card
@@ -930,6 +932,12 @@ end
 ------------ Helpers ------------
 function Kino.debugfunc(inc)
     print(G.GAME.last_played_hand[inc])
+end
+
+function Kino.print_contexts(context)
+    for _key, _value in pairs(context) do
+        print(_key)
+    end
 end
 
 function Kino.rank_to_string(rank)

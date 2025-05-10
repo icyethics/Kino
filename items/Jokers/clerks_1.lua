@@ -42,7 +42,8 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             if not context.blueprint then
-                card.ability.extra.stacks = card.ability.extra.stacks + context.other_card:get_id()
+
+                card.ability.extra.stacks = card.ability.extra.stacks + math.max(context.other_card:get_id(), 0)
             end
 
             if card.ability.extra.stacks >= card.ability.extra.threshold then

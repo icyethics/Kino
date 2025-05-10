@@ -39,7 +39,7 @@ SMODS.Joker {
         -- When you play a high card, add its chips to this joker
         if context.individual and context.cardarea == G.play and
         context.scoring_name == "High Card" and not context.blueprint then
-            card.ability.extra.chips = card.ability.extra.chips + context.other_card:get_id()
+            card.ability.extra.chips = card.ability.extra.chips + context.other_card.base.nominal
             return {
                 message = localize('k_upgrade_ex'),
                 card = card,

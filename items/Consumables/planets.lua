@@ -153,6 +153,13 @@ SMODS.Consumable {
 			end
 		end
 
+        update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, {
+            handname=localize(_hand, 'poker_hands'),
+            chips = G.GAME.hands[_hand].chips, 
+            mult = G.GAME.hands[_hand].mult, 
+            level=G.GAME.hands[_hand].level
+        })
+
         if pseudorandom("krypton") < (((G.GAME.probabilities.normal + 1 ) * (2 ^ (G.GAME.current_round.kryptons_used - 1))) / card.ability.extra.chance_max) then
             level_up_hand(card, _hand, nil, (-1 * G.GAME.hands[_hand].level) + 1)
         else
@@ -182,7 +189,7 @@ SMODS.Consumable {
 	end,
     config = {
         extra = {
-            x_mult = 0.1
+            x_mult = 0.25
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -254,6 +261,12 @@ SMODS.Consumable {
             SMODS.debuff_card(_card, true, card.config.center.key)
         end
 
+        update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, {
+            handname=localize(_hand, 'poker_hands'),
+            chips = G.GAME.hands[_hand].chips, 
+            mult = G.GAME.hands[_hand].mult, 
+            level=G.GAME.hands[_hand].level
+        })
         level_up_hand(card, _hand, nil, 1)
         update_hand_text(
 			{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },

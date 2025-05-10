@@ -108,7 +108,10 @@ SMODS.Voucher {
         return { vars = {} }
     end,
     calculate = function(self, card, context)
-        if context.end_of_round and G.GAME.blind.boss and not context.individual then
+        if context.end_of_round and G.GAME.blind.boss and 
+        context.main_eval and not context.repetition and not context.individual then
+            print("triggering")
+            Kino.print_contexts(context)
             local _targets = {}
 
             for _, _joker in ipairs(G.jokers.cards) do

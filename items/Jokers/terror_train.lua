@@ -62,7 +62,7 @@ SMODS.Joker {
             end
         end
 
-        if context.destroying_card and #card.ability.extra.destroy_cards > 0 then
+        if context.destroying_card and #card.ability.extra.destroy_cards > 0 and not context.blueprint then
             for i, card in ipairs(card.ability.extra.destroy_cards) do
                 if context.destroying_card == card then
                     return true

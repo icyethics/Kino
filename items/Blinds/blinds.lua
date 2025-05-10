@@ -279,7 +279,7 @@ SMODS.Blind{
                         offset = {x = 0, y = -1},
                         silent = true
                     })
-                    ease_dollars(-10)
+                    ease_dollars(-5)
                     play_sound('tarot2', 1, 0.4)
                     blind:wiggle()
                 return true end }))

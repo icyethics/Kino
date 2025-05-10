@@ -120,6 +120,10 @@ Kino.unabduct_cards = function(card)
         end
     end
 
+    if #_table == 0 then
+        _table = {}
+    end
+
     return _table
 
 end

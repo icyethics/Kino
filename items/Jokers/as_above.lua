@@ -50,7 +50,7 @@ SMODS.Joker {
             }
         end
 
-        if context.end_of_round and not context.blueprint then
+        if context.end_of_round and not context.blueprint and not context.individual then
             card.ability.extra.chips = 0
             return {
                 message = localize('k_reset'),

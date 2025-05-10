@@ -44,7 +44,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- If you play a High Card, abduct it
         -- Gives 20 chips for each card currently abducted
-        card.ability.extra.num_cards_abducted_non = #card.ability.extra.cards_abducted or 0
+        card.ability.extra.num_cards_abducted_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
 
         if context.joker_main then
             return {

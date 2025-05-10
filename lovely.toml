@@ -130,12 +130,8 @@ G.GAME.hands[hand].chips = G.GAME.hands[hand].chips + (G.GAME.hands[hand].chips_
 # 
 [[patches]]
 [patches.pattern]
-target = 'functions/buttons_callbacks.lua'
-pattern = '''
-    if G.shop then 
-      for i = 1, #G.jokers.cards do
-        G.jokers.cards[i]:calculate_joker({ending_shop = true})
-      end'''
+target = 'functions/button_callbacks.lua'
+pattern = 'SMODS.calculate_context({ending_shop = true})'
 position = 'after'
 match_indent = true
 payload = '''

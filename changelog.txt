@@ -1,3 +1,40 @@
+V 0.9.0c:
+Bug Fixes:
+
+- Clerks, Lady and the Tramp and Home Alone no longer have strange interactions with rankless cards
+- Abduction Jokers should no longer crash the game if you have no abducted cards at the end of the blind
+- They Live will still pay out during Boss-blinds
+- Jump Scare jokers will no longer crash the game when blueprinted
+- Spartacus no longer crashes the game when it interacts with a destroy effect
+- Shang-Chi should no longer crash the game when affected by powerboosts
+- The Dark Knight should no longer crash if another effect that destroy jokers is also triggering
+- As Above So Below no longer triggres its reset for every card in hand at the end of the round
+
+- Resolved crashes due to the multiplier system being able to target non-jokers
+- Removed the tag functionalities to prevent conflicts with other mods
+- Award Show voucher only triggers once per ante, instead of four
+- Producer Tarot card now allows use when earning money while it's present
+- The Flying Monkey enhancement shouldn't naturally spawn anymore
+- Peanuts now decrease interest if they're destroyed after activation, instead of permanently upgrading it
+- Upgrading a hand in a non-levelling way will show the hand name
+- Cybertron and the Cade Yaeger cosplay challenge now properly reset
+
+Balance changes:
+Blinds:
+- Gordon Gekko: money lost $10 > money lost $5
+
+Consumables:
+- Peanuts: $1 interest > $2 additional interest
+- Candy: +1 handsize > +2 handsize
+- Ice Cream: +10 chips > +20 chips
+- Popcorn: +2 mult > +4 mult
+- Large Soda: 2 retriggers > 3 retriggers
+- Chocolate Bar: 2 Cards drawn > 4 Cards drawn
+- Chocolate Bar, Chocolate Covered: 1 Chocolate Bonus > 2 Chocolate Bonus
+- Fries: 10 Chips Upgrade > 25 Chips Upgrade
+- Fries, Chocolate Covered: 5 Chips Chocolate Bonus > 25 Chips Chocolate Bonus
+- Gum: 1 additional discard > 2 additional discards
+- Cybertron: x0.1 per sci-fi card used > x0.25 per sci-fi card used
 
 V 0.9.0b:
 Bug Fixes:

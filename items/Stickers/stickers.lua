@@ -25,6 +25,7 @@ SMODS.Sticker{
 
         if card.ability.kino_award then return end
         card.ability[self.key] = val
+        print(card.ability[self.key])
         card:set_multiplication_bonus(card)
     end,
     badge_colour = HEX('ffd081'),

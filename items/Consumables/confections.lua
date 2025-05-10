@@ -12,7 +12,7 @@ SMODS.Consumable {
         extra = {
             active = false,
             times_used = 0,
-            mult = 2
+            mult = 4
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -81,7 +81,7 @@ SMODS.Consumable {
         choco_bonus = 5,
         extra = {
             times_used = 0,
-            chips = 10
+            chips = 20
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -145,7 +145,7 @@ SMODS.Consumable {
         choco_bonus = 1,
         extra = {
             times_used = 0,
-            hand_size = 1
+            hand_size = 2
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -222,7 +222,7 @@ SMODS.Consumable {
         choco_bonus = 1,
         extra = {
             times_used = 0,
-            extra = 1
+            extra = 2
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -274,7 +274,13 @@ SMODS.Consumable {
             G.GAME.interest_amount = G.GAME.interest_amount - _interest
             Kino.confection_trigger(card)
         end
-    end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+		if card.active then
+            local _interest = card.ability.kino_choco and (card.ability.extra.extra + card.ability.choco_mult) or card.ability.extra.extra
+            G.GAME.interest_amount = G.GAME.interest_amount - _interest
+        end
+	end,
 }
 
 -- Retrigger the first card of each suit a second time this round.
@@ -382,7 +388,7 @@ SMODS.Consumable {
         choco_bonus = 1,
         extra = {
             times_used = 0,
-            repetition = 2
+            repetition = 3
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -461,11 +467,11 @@ SMODS.Consumable {
     pos = {x = 0, y = 1},
     atlas = "kino_confections",
     config = {
-        choco_bonus = 1,
+        choco_bonus = 2,
         extra = {
             active = false,
             times_used = 0,
-            cards_drawn = 2
+            cards_drawn = 4
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -552,10 +558,10 @@ SMODS.Consumable {
     pos = {x = 1, y = 1},
     atlas = "kino_confections",
     config = {
-        choco_bonus = 5,
+        choco_bonus = 25,
         extra = {
             times_used = 0,
-            bonus_chips = 10
+            bonus_chips = 25
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -769,7 +775,7 @@ SMODS.Consumable {
         choco_bonus = 1,
         extra = {
             times_used = 0,
-            discards = 1
+            discards = 2
         }
     },
     loc_vars = function(self, info_queue, card)

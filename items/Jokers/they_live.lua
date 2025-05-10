@@ -6,7 +6,8 @@ SMODS.Joker {
         extra = {
             cards_abducted = {},
             num_cards_abducted_non = 0,
-            a_dollar = 1
+            a_dollar = 1,
+            payout_non = 0
         }
     },
     rarity = 3,
@@ -38,15 +39,18 @@ SMODS.Joker {
                 card.ability.extra.num_cards_abducted_non,
                 card.ability.extra.a_dollar,
                 card.ability.extra.num_cards_abducted_non * card.ability.extra.a_dollar,
+                card.ability.extra.payout_non
             }
         }
     end,
     calculate = function(self, card, context)
         -- Abduct every card on your first discard. Give $1 per abducted card at the end of the round
-        card.ability.extra.num_cards_abducted_non = #card.ability.extra.cards_abducted or 0
+        card.ability.extra.num_cards_abducted_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
 
         if context.discard and context.cardarea == G.jokers and G.GAME.current_round.discards_used <= 0 then
+            card.ability.extra.payout_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
             Kino.abduct_card(card, context.other_card)
+            card.ability.extra.payout_non = card.ability.extra.payout_non + 1
         end
 
         if context.abduction_ending and not context.blueprint and not context.retrigger then
@@ -55,7 +59,7 @@ SMODS.Joker {
         
     end,
     calc_dollar_bonus = function(self, card)
-        return card.ability.extra.num_cards_abducted_non * card.ability.extra.a_dollar
+        return card.ability.extra.payout_non * card.ability.extra.a_dollar
     end,
     add_to_deck = function(self, card, from_debuff)
         card.children.abduction_display = Kino.create_abduction_ui(card)

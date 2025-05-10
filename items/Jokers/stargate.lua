@@ -45,7 +45,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- abduct stone cards. return them unstoned and get +25 chips for each one
-        card.ability.extra.num_cards_abducted_non = #card.ability.extra.cards_abducted or 0
+        card.ability.extra.num_cards_abducted_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
 
         if context.joker_main then
             return {

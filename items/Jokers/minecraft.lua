@@ -36,20 +36,38 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play then
-            if SMODS.has_enhancement(context.other_card, 'm_stone') then
-                if pseudorandom("minecraft") < 1 / 2 then
-                    context.other_card:set_ability("m_steel")
-                    return {
-                        message = localize("k_minecraft_1")
-                    }
-                else
-                    context.other_card:set_ability("m_gold")
-                    return {
-                        message = localize("k_minecraft_2")
-                    }
+        if context.after and context.cardarea == G.jokers then
+            for _, _scoring_card in ipairs(context.scoring_hand) do
+                if SMODS.has_enhancement(_scoring_card, 'm_stone') then
+                    local _target_card = _scoring_card
+                    if pseudorandom("minecraft") < 1 / 2 then
+                        G.E_MANAGER:add_event(Event({
+                            trigger = "after",
+                            delay = 0.4,
+                            func = function()
+                                card:juice_up(0.3, 0.4)
+                                _target_card:juice_up(0.3, 0.4)
+                                _target_card:set_ability("m_steel")
+                                return true
+                            end,
+                        }))
+                        card_eval_status_text(card, 'extra', nil, nil, nil,
+                        { message = localize("k_minecraft_1"), colour = G.C.MULT})
+                    else
+                        G.E_MANAGER:add_event(Event({
+                            trigger = "after",
+                            delay = 0.4,
+                            func = function()
+                                card:juice_up(0.3, 0.4)
+                                _target_card:juice_up(0.3, 0.4)
+                                _target_card:set_ability("m_gold")
+                                return true
+                            end,
+                        }))
+                        card_eval_status_text(card, 'extra', nil, nil, nil,
+                        { message = localize("k_minecraft_2"), colour = G.C.MULT})
+                    end
                 end
-                
             end
         end
     end

@@ -73,9 +73,11 @@ SMODS.Joker {
 
         if context.joker_main then
             card.ability.extra.cur_spell_non = card.ability.extra.cur_spell_non + card.ability.extra.inc_spell_non
-            if card.ability.extra.cur_spell_non > 10 then
+            if card.ability.extra.cur_spell_non > 10 or card.ability.extra.cur_spell_non < 0 then
                 card.ability.extra.cur_spell_non = 1
             end
+
+            card.ability.extra.cur_spell_non = round_number(card.ability.extra.cur_spell_non)
 
             return cast_spell(_spell_list[card.ability.extra.cur_spell_non], pseudorandom_element({1, 2, 3, 4}, pseudoseed("shangchi")))
         end

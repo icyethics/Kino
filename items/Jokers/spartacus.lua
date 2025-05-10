@@ -37,9 +37,10 @@ SMODS.Joker {
         -- If you play only a single card on your final hand
         -- turn every card into a copy of it
         if context.after and #context.full_hand == 1 and G.GAME.current_round.hands_left == 0 then
+            local _basecard = context.full_hand[1]
             for i = 1, #G.hand.cards do
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
-                    local new_card = copy_card(context.full_hand[1], G.hand.cards[i])
+                    local new_card = copy_card(_basecard, G.hand.cards[i])
                     new_card:juice_up()
 
                     local _number = pseudorandom_element({1,2,3}, pseudoseed("spartacus"))

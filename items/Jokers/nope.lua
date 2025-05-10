@@ -46,7 +46,7 @@ SMODS.Joker {
         -- When your hand contains 5 cards, abduct a random card
         -- When the abduction ends, return it to the hand debuffed
         -- and increase mult by 3
-        card.ability.extra.num_cards_abducted_non = #card.ability.extra.cards_abducted or 0
+        card.ability.extra.num_cards_abducted_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
 
         if context.joker_main then
             return {

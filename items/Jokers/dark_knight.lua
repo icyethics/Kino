@@ -46,7 +46,7 @@ SMODS.Joker {
         if context.setting_blind and not card.getting_sliced and not context.blueprint then
             local _jokers_destroyed = 0
             for i = 1, #G.jokers.cards do
-                if not G.jokers.cards[i].config.center.j_is_batman and not G.jokers.cards[i].ability.eternal then
+                if not G.jokers.cards[i].config.center.j_is_batman and G.jokers.cards[i]:can_calculate() then
                     _jokers_destroyed = _jokers_destroyed + 1
                     G.jokers.cards[i].getting_sliced = true
                     G.E_MANAGER:add_event(Event({func = function()
