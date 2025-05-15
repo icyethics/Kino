@@ -37,7 +37,8 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- if your hand contains only 1 card, upgrade each card in hand with chips equal to its rank
-        if context.after and #context.full_hand == 1 then
+        if context.after and #context.full_hand == 1 and
+        G.GAME.current_round.hands_played == to_big(0) then
             local _value = context.full_hand[1].base.id
 
             for _, _pcard in ipairs(G.hand.cards) do

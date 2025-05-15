@@ -4,7 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            repetitions = 2,
+            repetitions = 3,
             chosen_card = nil
         }
     },
@@ -38,17 +38,19 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.before and not context.repetition and not context.blueprint then
-            card.ability.extra.chosen_card = pseudorandom_element(context.scoring_hand, pseudoseed("thor"))
-        end
+        if context.scoring_hand and #context.scoring_hand >= 2 then
+            if context.before and not context.repetition and not context.blueprint then
+                card.ability.extra.chosen_card = pseudorandom_element(context.scoring_hand, pseudoseed("thor"))
+            end
 
-        if context.cardarea == G.play and context.repetition and not context.repetition_only and
-        context.other_card == card.ability.extra.chosen_card then
-            return {
-                message = 'This card... I like it!',
-                repetitions = card.ability.extra.repetitions,
-                card = context.other_card
-            }
+            if context.cardarea == G.play and context.repetition and not context.repetition_only and
+            context.other_card == card.ability.extra.chosen_card then
+                return {
+                    message = 'This card... I like it!',
+                    repetitions = card.ability.extra.repetitions,
+                    card = context.other_card
+                }
+            end
         end
     end
 }

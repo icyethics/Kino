@@ -54,8 +54,13 @@ SMODS.Joker {
                 }
 
                 for _key, _upgrade in pairs(upgrades) do
-                    context.other_card.ability[_key] = context.other_card.ability[_key] or 0
-                    context.other_card.ability[_key] = context.other_card.ability[_key] + _upgrade
+                    if context.other_card.ability[_key] and context.other_card.ability[_key] > _upgrade then
+                        
+                    else
+                        context.other_card.ability[_key] = _upgrade
+                    end
+
+                    
                 end
 
                 return {

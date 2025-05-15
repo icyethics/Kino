@@ -8,7 +8,7 @@ SMODS.Consumable {
     pos = {x = 0, y = 0},
     atlas = "kino_confections",
     config = {
-        choco_mult = 1,
+        choco_bonus = 1,
         extra = {
             active = false,
             times_used = 0,
@@ -18,7 +18,7 @@ SMODS.Consumable {
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.mult
         if card.ability.kino_chocolate then
-            _return = _return + self.config.choco_mult
+            _return = _return + self.config.choco_bonus
         end
         return {
             
@@ -63,7 +63,7 @@ SMODS.Consumable {
     calculate = function(self, card, context)
 
         if context.before and card.active then
-            local _mult = card.ability.kino_choco and (card.ability.extra.mult + card.ability.choco_mult) or card.ability.extra.mult
+            local _mult = card.ability.kino_choco and (card.ability.extra.mult + card.ability.choco_bonus) or card.ability.extra.mult
             upgrade_hand(nil, context.scoring_name, 0, _mult)
             Kino.confection_trigger(card)
         end
@@ -260,7 +260,7 @@ SMODS.Consumable {
             play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
             play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
             card.active = true
-            local _interest = card.ability.kino_choco and (card.ability.extra.extra + card.ability.choco_mult) or card.ability.extra.extra
+            local _interest = card.ability.kino_choco and (card.ability.extra.extra + card.ability.choco_bonus) or card.ability.extra.extra
             G.GAME.interest_amount = G.GAME.interest_amount + _interest
 
             local eval = function(card) return card.active end
@@ -270,14 +270,14 @@ SMODS.Consumable {
     end,
     calculate = function(self, card, context)
         if context.kino_enter_shop and card.active then
-            local _interest = card.ability.kino_choco and (card.ability.extra.extra + card.ability.choco_mult) or card.ability.extra.extra
+            local _interest = card.ability.kino_choco and (card.ability.extra.extra + card.ability.choco_bonus) or card.ability.extra.extra
             G.GAME.interest_amount = G.GAME.interest_amount - _interest
             Kino.confection_trigger(card)
         end
     end,
     remove_from_deck = function(self, card, from_debuff)
 		if card.active then
-            local _interest = card.ability.kino_choco and (card.ability.extra.extra + card.ability.choco_mult) or card.ability.extra.extra
+            local _interest = card.ability.kino_choco and (card.ability.extra.extra + card.ability.choco_bonus) or card.ability.extra.extra
             G.GAME.interest_amount = G.GAME.interest_amount - _interest
         end
 	end,
@@ -515,7 +515,7 @@ SMODS.Consumable {
         end
 
         if G.GAME.blind.in_blind then
-            local _cards_drawn = card.ability.kino_choco and (card.ability.extra.cards_drawn + card.ability.choco_mult) or card.ability.extra.cards_drawn
+            local _cards_drawn = card.ability.kino_choco and (card.ability.extra.cards_drawn + card.ability.choco_bonus) or card.ability.extra.cards_drawn
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
                 card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_eaten'), colour = G.C.MULT})
@@ -533,7 +533,7 @@ SMODS.Consumable {
     calculate = function(self, card, context)
 
         if context.hand_drawn and card.active then
-            local _cards_drawn = card.ability.kino_choco and (card.ability.extra.cards_drawn + card.ability.choco_mult) or card.ability.extra.cards_drawn
+            local _cards_drawn = card.ability.kino_choco and (card.ability.extra.cards_drawn + card.ability.choco_bonus) or card.ability.extra.cards_drawn
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
                 card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_eaten'), colour = G.C.MULT})

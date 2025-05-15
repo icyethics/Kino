@@ -39,16 +39,28 @@ SMODS.Joker {
         -- your highest card scores two additional times
         if context.cardarea == G.play and context.repetition and not context.repetition_only then
             local _rank = context.other_card:get_id()
+            local _handplacement = nil
             local _isheighest = true
+            local _isfinal = nil
 
             for _, _pcard in ipairs(context.scoring_hand) do
                 if _rank < _pcard:get_id() then
                     _isheighest = false
                     break
                 end
+                if _rank == _pcard:get_id() and
+                _isfinal == true then
+                    context.other_card:juice_up()
+                    _isfinal = false
+                    break
+                end
+                if _pcard == context.other_card then
+                    _isfinal = true
+                end
+
             end
 
-            if _isheighest then
+            if _isheighest and _isfinal then
                 return {
                     message = 'Again!',
                     repetitions = card.ability.extra.repetitions,

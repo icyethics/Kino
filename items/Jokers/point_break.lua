@@ -4,9 +4,10 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
+            a_mult = 2,
         }
     },
-    rarity = 3,
+    rarity = 2,
     atlas = "kino_atlas_3",
     pos = { x = 1, y = 1},
     cost = 7,
@@ -30,6 +31,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
+                card.ability.extra.a_mult
             }
         }
     end,
@@ -39,17 +41,12 @@ SMODS.Joker {
         if context.before and context.cardarea == G.jokers 
         and context.scoring_name == "Pair" then
             local _card = pseudorandom_element(G.hand.cards)
-
-            local _rank = 0
-            if _card.config.center ~= G.P_CENTERS.m_stone then
-                _rank = _card.base.id
-            end 
             
             _card.marked_to_destroy_by_point_break = true
 
             for i, v in ipairs(context.scoring_hand) do
                 v.ability.perma_mult = v.ability.perma_mult or 0
-                v.ability.perma_mult = v.ability.perma_mult + _rank
+                v.ability.perma_mult = v.ability.perma_mult + card.ability.extra.a_mult
                 card_eval_status_text(v, 'extra', nil, nil, nil,
                 { message = localize("k_upgrade_ex"), colour = G.C.MULT })
             end

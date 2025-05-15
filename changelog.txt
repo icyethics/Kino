@@ -1,3 +1,19 @@
+V 0.9.0d:
+Bug Fixes:
+- Certain confections no longer crash the game when chocolate-dipped
+- Horror cards no longer trigger when played
+- Sci-fi cards now also display the mult + xmult upgrades
+
+Balance Changes:
+- 24 Hour Party People can no longer give more money than you are able to earn as interest
+- Up now only retriggers the final highest card, instead of every
+- Thor now only triggers if your hand contains more than 1 scoring card
+- Thor now retriggers 3 times
+- Skyscraper now gives half a mult
+- La La Land now only works on the first played hand
+- Point Break now gives a default of +2 mult
+- Point Break: Rare > Uncommon
+
 V 0.9.0c:
 Bug Fixes:
 

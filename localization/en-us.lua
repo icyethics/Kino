@@ -474,10 +474,8 @@ return {
                 name = "Contagion",
                 text = {
                     "When a card scores",
-                    "upgrade it equal",
-                    "to the upgrades",
-                    "on the first scoring",
-                    "card"
+                    "set its upgrades equal",
+                    "to those of the first scoring card"
                 }
             },
             j_kino_creature_from_the_black_lagoon = {
@@ -1231,7 +1229,7 @@ return {
             j_kino_la_la_land = {
                 name = "La La Land",
                 text = {
-                    "If your played hand contains",
+                    "If your first played hand contains",
                     "only 1 card, upgrade every",
                     "card in hand with {C:chips}Chips",
                     "equal to the played card's rank"
@@ -1641,8 +1639,7 @@ return {
                     "When you play a {C:attention}Pair{}",
                     "destroy a random card in",
                     "your hand, and give all",
-                    "scoring cards {C:mult}Bonus Mult{}",
-                    "equal to its rank"
+                    "scoring cards {C:mult}+#1#{} Mult",
                 }
             },
             j_kino_polar_express = {
@@ -2107,7 +2104,9 @@ return {
                 name = "Thor",
                 text = {
                     "Retrigger a random",
-                    "card {C:attention}#1#{} times"
+                    "card {C:attention}#1#{} times",
+                    "if you played more than 2",
+                    "scoring cards"
                 }
             },
             j_kino_three_musketeers_1 = {
@@ -2204,7 +2203,8 @@ return {
                 name = "Up",
                 text = {
                     "Retrigger your heighest",
-                    "scoring card {C:attention}#1# times{}"
+                    "scoring card {C:attention}#1# times{}",
+                    "{C:inactive}(Will target last one if multiple are present)"
                 }
             },
             j_kino_us = {
@@ -2409,7 +2409,9 @@ return {
                 text = {
                     "Gains {C:mult}+#1#{} Mult and {C:chips}+#2#{} Chips",
                     "whenever this card gets scored",
-                    "{C:inactive}(Upgraded {C:attention}#6#{C:inactive} times)"
+                    "{C:inactive}(Upgraded {C:attention}#6#{C:inactive} times)",
+                    "{C:mult}+#4#{} extra mult",
+                    "{X:mult,C:white}X#5#{} extra mult"
                 }
             },
             m_kino_demonic = {
