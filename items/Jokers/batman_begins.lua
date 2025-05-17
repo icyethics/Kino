@@ -43,7 +43,7 @@ SMODS.Joker {
         if G.STAGE == G.STAGES.RUN then
             card.ability.extra.total_non = (G.jokers.config.card_limit - #G.jokers.cards) * card.ability.extra.money
             for i = 1, #G.jokers.cards do
-                if G.jokers.cards[i].config.center.j_is_batman then card.ability.extra.total_non = card.ability.extra.total_non * card.ability.extra.money end
+                if G.jokers.cards[i].config.center.j_is_batman then card.ability.extra.total_non = card.ability.extra.total_non + 1 * card.ability.extra.money end
             end
         end
     end,

@@ -5,7 +5,7 @@ SMODS.Joker {
     config = {
         extra = {
             cur_chance = 1,
-            chance = 3
+            chance = 2
         }
     },
     rarity = 2,

@@ -34,7 +34,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.after and context.cardarea == G.jokers then
+        if context.after and context.scoring_hand and context.cardarea == G.jokers then
             -- iterate through scoring hand
             for i = 1, #context.scoring_hand do
                 local i_card = context.scoring_hand[i]

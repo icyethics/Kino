@@ -36,7 +36,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.after then
+        if context.after and context.scoring_hand then
             local _hasKing = false
             for _, _pcard in ipairs(context.scoring_hand) do
                 if _pcard:get_id() == 13 then
@@ -46,13 +46,8 @@ SMODS.Joker {
             end
 
             if _hasKing then
-                print("hasking")
                 for _, _pcard in ipairs(context.scoring_hand) do
-                    print(_)
-                    print(_pcard:get_id())
-                    print(_pcard:is_face())
                     if _pcard:is_face() ~= true then
-                        print("in")
                         local _target = _pcard
                         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
                             _target:juice_up(0.8, 0.5)

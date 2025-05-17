@@ -1,3 +1,15 @@
+V 0.9.0e:
+Bug Fixes:
+- Big Daddy has some protections for crashes when playing with other mods
+- Batman Begins no longer doubles money earned for each batman joker
+
+Balance Changes:
+- Sausage Party: 1/3 chance > 1/2 chance
+
+Localization Changes:
+- Big Daddy's description now properly describes its effect
+- Junior now shows a counter
+
 V 0.9.0d:
 Bug Fixes:
 - Certain confections no longer crash the game when chocolate-dipped

@@ -889,7 +889,7 @@ SMODS.Blind{
     end,
 
     calculate = function(self, blind, context)
-        if context.after then
+        if context.after and context.scoring_hand then
             for _, _pcard in ipairs(context.scoring_hand) do
                 _pcard.ability.perma_p_dollars = _pcard.ability.perma_p_dollars or 0
                 _pcard.ability.perma_p_dollars = _pcard.ability.perma_p_dollars - 1

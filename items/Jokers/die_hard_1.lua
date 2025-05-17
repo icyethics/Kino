@@ -38,7 +38,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- Gain $3 for every action card played
-        if context.after and context.cardarea == G.jokers then
+        if context.after and context.scoring_hand and context.cardarea == G.jokers then
             local _payout = 0
             for _, _pcard in ipairs(context.scoring_hand) do
                 if SMODS.has_enhancement(_pcard, 'm_kino_action') then

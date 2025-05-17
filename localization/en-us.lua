@@ -237,7 +237,7 @@ return {
                 name = "Big Daddy",
                 text = {
                     "When a {C:attention}King{} is scored",
-                    "turn all non-face cards into {C:attention}2's{}"
+                    "turn all scoring non-face cards into {C:attention}2's{}"
                 }
             },
             j_kino_big_short = {
@@ -1166,7 +1166,8 @@ return {
                 text = {
                     "Whenever {C:attention}10 {C:attention}Kings{}",
                     "or {C:attention}Jack{} have scored",
-                    "create a random {C:attention}Polychrome 2"
+                    "create a random {C:attention}Polychrome 2",
+                    "{C:inactive}(Currently: #1# triggers)"
                 }
             },
             j_kino_jurassic_park_1 = {
