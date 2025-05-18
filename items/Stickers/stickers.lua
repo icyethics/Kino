@@ -23,9 +23,13 @@ SMODS.Sticker{
         -- once the increase val function for kino jokers is implemented
         -- this should increase by x2
 
-        if card.ability.kino_award then return end
+        if card.ability[self.key .. "_times"] and not G.GAME.used_vouchers.v_kino_egot then
+            return 
+        end
+
+
         card.ability[self.key] = val
-        print(card.ability[self.key])
+        card.ability[self.key .. "_times"] = (card.ability[self.key .. "_times"] or 0) + 1
         card:set_multiplication_bonus(card)
     end,
     badge_colour = HEX('ffd081'),

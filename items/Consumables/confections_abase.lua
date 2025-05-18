@@ -67,6 +67,10 @@ SMODS.Consumable {
             upgrade_hand(nil, context.scoring_name, 0, _mult)
             Kino.confection_trigger(card)
         end
+
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
+        end
     end
 }
 
@@ -130,6 +134,10 @@ SMODS.Consumable {
             local _chips = card.ability.kino_choco and (card.ability.extra.chips + card.ability.choco_bonus) or card.ability.extra.chips
             upgrade_hand(nil, context.scoring_name, _chips, 0)
             Kino.confection_trigger(card)
+        end
+
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
         end
     end
 }
@@ -208,6 +216,10 @@ SMODS.Consumable {
             G.GAME.round_resets.temp_handsize = (G.GAME.round_resets.temp_handsize or 0) + _hand_size
             Kino.confection_trigger(card)
         end
+
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
+        end
     end
 }
 
@@ -273,6 +285,10 @@ SMODS.Consumable {
             local _interest = card.ability.kino_choco and (card.ability.extra.extra + card.ability.choco_bonus) or card.ability.extra.extra
             G.GAME.interest_amount = G.GAME.interest_amount - _interest
             Kino.confection_trigger(card)
+        end
+        
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
         end
     end,
     remove_from_deck = function(self, card, from_debuff)
@@ -374,6 +390,10 @@ SMODS.Consumable {
         if context.after and card.active then
             Kino.confection_trigger(card)
         end
+
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
+        end
     end
 }
 
@@ -455,6 +475,10 @@ SMODS.Consumable {
 
         if context.after and card.active then
             Kino.confection_trigger(card)
+        end
+        
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
         end
     end
 }
@@ -547,6 +571,10 @@ SMODS.Consumable {
 
             Kino.confection_trigger(card)
         end
+        
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
+        end
     end
 }
 
@@ -612,6 +640,11 @@ SMODS.Consumable {
             context.other_card.ability.perma_bonus = context.other_card.ability.perma_bonus + _chips 
             Kino.confection_trigger(card)
         end
+
+        
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
+        end
     end
 }
 
@@ -675,6 +708,11 @@ SMODS.Consumable {
             local _level = card.ability.kino_choco and (card.ability.extra.level + card.ability.choco_bonus) or card.ability.extra.level
             level_up_hand(card, context.scoring_name, nil, _level)
             Kino.confection_trigger(card)
+        end
+
+        
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
         end
     end
 }
@@ -759,6 +797,11 @@ SMODS.Consumable {
             }))
 
             Kino.confection_trigger(card)
+        end
+
+        
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
         end
     end
 }
@@ -845,6 +888,11 @@ SMODS.Consumable {
 
             Kino.confection_trigger(card)
         end
+
+        
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
+        end
     end
 }
 
@@ -873,6 +921,23 @@ Kino.confection_trigger = function(card)
                 return true
             end)
         }))
+    end
+end
+
+Kino.powerboost_confection = function(card)
+    if G.GAME.used_vouchers.v_kino_heavenly_treats then
+
+        for _key, _value in pairs(card.ability.extra) do
+            if type(_value) == "number" and _key ~= 'times_used' then
+                card.ability.extra[_key] = card.ability.extra[_key] * 2
+            end
+        end
+
+        card.ability.choco_bonus = card.ability.choco_bonus * 2
+
+        card:juice_up()
+        card_eval_status_text(card, 'extra', nil, nil, nil,
+        { message = localize('k_kino_blessedconf'), colour = G.C.MONEY})
     end
 end
 

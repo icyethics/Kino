@@ -1,0 +1,36 @@
+-- if Cryptid then
+-- SMODS.Consumable {
+--     key = "rename",
+--     order = 100,
+--     pos = {x = 0, y = 0},
+--     atlas = "kino_cryptid_consumables",
+--     config = {
+--         choco_bonus = 1,
+--         extra = {
+--             active = false,
+--             times_used = 0,
+--             jollies = 1
+--         }
+--     },
+--     dependencies = {
+-- 		items = {
+-- 			"set_cry_m",
+-- 			"banana",
+-- 		},
+-- 	},
+--     loc_vars = function(self, info_queue, card)
+--         local _return = card.ability.extra.jollies
+--         if card.ability.kino_chocolate then
+--             _return = _return + self.config.choco_bonus
+--         end
+
+--         if _return >= 200 then _return = 200 end
+--         return {
+            
+--             vars = {
+--                 _return
+--             }
+--         } 
+--     end,
+-- }
+-- end

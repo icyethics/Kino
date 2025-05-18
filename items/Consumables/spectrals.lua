@@ -18,13 +18,11 @@ if kino_config.actor_synergy then
         can_use = function(self, card)
             return #G.jokers.highlighted == 1
                 and G.jokers.highlighted[1].config.center.kino_joker
+                and ( not G.jokers.highlighted[1].ability.kino_award or
+                G.GAME.used_vouchers.v_kino_egot)
         end,
         use = function(self, card, area, copier)
-            if not G.jokers.highlighted[1].ability.kino_award then
-                SMODS.Stickers['kino_award']:apply(G.jokers.highlighted[1], true)
-            else
-                SMODS.Stickers['kino_award']:apply(G.jokers.highlighted[1], false)
-            end
+            SMODS.Stickers['kino_award']:apply(G.jokers.highlighted[1], true)
         end
     }
 end

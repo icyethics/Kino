@@ -180,6 +180,14 @@ SMODS.Atlas {
     path = 'kino_sleeves.png'
 }
 
+-- Crossmod Atlases
+SMODS.Atlas {
+    key = "kino_cryptid_consumables",
+    px = 71,
+    py = 95,
+    path = 'kino_cryptid.png'
+}
+
 local helper, load_error = SMODS.load_file("card_ui.lua")
 if load_error then
     sendDebugMessage ("The error is: "..load_error)

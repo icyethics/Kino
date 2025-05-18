@@ -408,7 +408,7 @@ function check_genre_synergy()
         end
     end
 
-    G.jokers.config.synergyslots = #five_of_genres
+    G.jokers.config.synergyslots = (#five_of_genres * Kino.genre_synergy_slots)
 
     G.jokers.config.card_limit = G.jokers.config.card_limit + G.jokers.config.synergyslots
 end
@@ -609,7 +609,7 @@ function Card:set_multiplication_bonus(card, source, num, is_actor)
 
     -- Check for the award sticker
     if card.ability.kino_award then
-        _multipliers["kino_award"] = Kino.award_mult
+        _multipliers["kino_award"] = Kino.award_mult ^ card.ability.kino_award_times
     end
     local _cardextra = card and card.ability.extra
     local _baseextra = card.ability.base
@@ -630,7 +630,9 @@ function Card:set_multiplication_bonus(card, source, num, is_actor)
 end
 
 function Card:get_multiplier_by_source(card, source)
-    if not card.ability.multipliers or not card.ability.multipliers[source] then
+    if not card or not card.ability or 
+    not card.ability.multipliers or 
+    not card.ability.multipliers[source] then
         return false
     end
 
@@ -657,7 +659,7 @@ function check_variable_validity_for_mult(name)
     local _non_valid_element = {
         {"base_", 5},
         {"stacked_", 8},
-        {"time_", 4},
+        {"time_", 5},
         {"_non", 4},
         {"rank_", 5}
     }
@@ -669,7 +671,9 @@ function check_variable_validity_for_mult(name)
     end
 
     for i = 1, #_non_valid_element do
-        if _non_valid_element[i][1][1] == "_" then
+
+        
+        if string.sub(_non_valid_element[i][1], 1, 1) == "_" then
             if string.sub(name, -_non_valid_element[i][2]) == _non_valid_element[i][1] then
                 return false
             end
@@ -679,7 +683,7 @@ function check_variable_validity_for_mult(name)
             end
         end
     end
-
+    print("Accepting: " .. name)
     return true
 end
 
@@ -1062,8 +1066,10 @@ Kino.xl_chance = 1
 
 Kino.awardschance = 1
 
+Kino.genre_synergy_slots = 1
 Kino.actor_synergy = {1, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.25, 2.5, 3}
 Kino.award_mult = 2
+Kino.awards_max = 1
 
 Kino.crime_chips = 5
 Kino.bullet_magazine_max = 6

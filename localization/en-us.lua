@@ -2774,6 +2774,33 @@ return {
                     "with {C:mult}Confections{}",
                     "{C:inactive}(Currently: {C:attention}#1#{C:inactive} Confections)"
                 }
+            },
+            -- CROSSMOD Confections
+            c_kino_mam = {
+                name = "M&M's",
+                text = {
+                    "Create {C:attention}#1#{} {C:dark_edition}Negative{}",
+                    "Jolly Joker(s) for each",
+                    "Pair in your next hand"
+                }
+            },
+            c_kino_nutrition = {
+                name = "Nutrition Pulp",
+                text = {
+                    "Permanently boost the power",
+                    "of your leftmost joker",
+                    "by {C:attention}#1#%{}",
+                    "next hand"
+
+                }
+            },
+            c_kino_monster_energy = {
+                name = "Monster Energy",
+                text = {
+                    "Retrigger a random",
+                    "joker {C:attention}#1#{} times",
+                    "next hand"
+                }
             }
         },
         Back = {
@@ -3562,6 +3589,40 @@ return {
                     "less joker to",
                     "synergize"
                 }
+            },
+            -- Cryptid crossmod Vouchers
+            v_kino_confection_acclimator = {
+                name = "Confection Acclimator",
+                text = {
+					"{C:mult}Confection{} cards appear",
+					"{C:attention}X#1#{} more frequently",
+					"in the shop",
+					"Allows control of the",
+					"shop's {C:mult}Confection Rate{}",
+					"{C:inactive}(Check {C:attention}Run Info{C:inactive})",
+                }
+            },
+            v_kino_heavenly_treats = {
+                name = "Heavenly Treats",
+                text = {
+                    "When defeating a blind",
+                    "upgrade each {C:mult}Confection's{}",
+                    "power by {C:attention}#2#%{}"
+                }
+            },
+            v_kino_egot = {
+                name = "EGOT Winner",
+                text = {
+                    "Jokers can be {C:money}awarded{}",
+                    "an unlimited number of times"
+                }
+            },
+            v_kino_datacenter = {
+                name = "Data Centre",
+                text = {
+                    "All {C:attention}actor{} and {C:attention}genre synergies{} are",
+                    "{C:attention}twice{} as effective"
+                }
             }
         },
         Spell = {
@@ -3853,6 +3914,8 @@ return {
 
             -- Confection Barks
             k_eaten = "Eaten",
+            k_extra_large = "Took a Bite",
+            k_kino_blessedconf = "Blessed be this meal",
 
             -- Seals
             k_kino_sportsseal_1 = "Coached",
