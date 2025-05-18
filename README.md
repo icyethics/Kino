@@ -1,4 +1,4 @@
-# Balatro Goes Kino V.0.9.0e
+# Balatro Goes Kino V 0.9.0e-Cryptid:
 
 By Ice/IcyEthics
 
