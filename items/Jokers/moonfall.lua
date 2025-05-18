@@ -55,7 +55,7 @@ SMODS.Joker {
         -- Gives +5 chips for each clubs in your starting deck
         card.ability.extra.num_cards_abducted_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
 
-        if context.after and context.cardarea == G.jokers
+        if context.after and context.scoring_hand and context.cardarea == G.jokers
         and G.GAME.current_round.hands_played == 0 then
             for _, _card in ipairs(context.scoring_hand) do
                 if SMODS.has_no_suit(_card) or not _card:is_suit("Clubs") then

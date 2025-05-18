@@ -36,7 +36,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- If you play only a single card on your final hand
         -- turn every card into a copy of it
-        if context.after and #context.full_hand == 1 and G.GAME.current_round.hands_left == 0 then
+        if context.after and context.full_hand and #context.full_hand == 1 and G.GAME.current_round.hands_left == 0 then
             local _basecard = context.full_hand[1]
             for i = 1, #G.hand.cards do
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()

@@ -36,7 +36,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- Turn scored face cards into random non-face card
-        if context.after then 
+        if context.after and context.scoring_hand then 
             for i = 1, #context.scoring_hand do
                 local i_card = context.scoring_hand[i]
                 if i_card:is_face() then

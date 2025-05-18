@@ -2203,7 +2203,7 @@ return {
             j_kino_up = {
                 name = "Up",
                 text = {
-                    "Retrigger your heighest",
+                    "Retrigger your highest",
                     "scoring card {C:attention}#1# times{}",
                     "{C:inactive}(Will target last one if multiple are present)"
                 }

@@ -1,6 +1,6 @@
 V 0.9.0e:
 Bug Fixes:
-- Big Daddy has some protections for crashes when playing with other mods
+- A crash relating to the after context has been fixed in around 25 objects in the mod
 - Batman Begins no longer doubles money earned for each batman joker
 
 Balance Changes:
@@ -9,6 +9,7 @@ Balance Changes:
 Localization Changes:
 - Big Daddy's description now properly describes its effect
 - Junior now shows a counter
+- Up's spelling error was fixed
 
 V 0.9.0d:
 Bug Fixes:

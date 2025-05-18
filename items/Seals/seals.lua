@@ -30,7 +30,7 @@ SMODS.Seal{
     sound = { sound = 'generic1', per = 1.2, vol = 0.4 },
 
     calculate = function(self, card, context)
-        if context.after and context.cardarea == G.play then
+        if context.after and context.scoring_hand and context.cardarea == G.play then
             local _toright = nil
             for _, _pcard in ipairs(context.scoring_hand) do
                 if _pcard == card and context.scoring_hand[_ + 1] then

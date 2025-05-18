@@ -44,7 +44,7 @@ SMODS.Joker {
         --     card.ability.extra.temp_card = context.full_hand[1]
         -- end
 
-        if context.after and #context.full_hand == 1 and not context.blueprint and not context.repetition then
+        if context.after and context.full_hand and #context.full_hand == 1 and not context.blueprint and not context.repetition then
             local _cards = {}
 
             for i = 1, card.ability.extra.selected_cards do

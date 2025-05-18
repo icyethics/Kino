@@ -36,7 +36,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.after and context.cardarea == G.jokers then
+        if context.after and context.scoring_hand and context.cardarea == G.jokers then
             for _, _scoring_card in ipairs(context.scoring_hand) do
                 if SMODS.has_enhancement(_scoring_card, 'm_stone') then
                     local _target_card = _scoring_card
