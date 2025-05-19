@@ -1,3 +1,7 @@
+V 0.9.1a:
+Bug fixes:
+- Fixed a crash due to Cryptid crossmod reliance
+
 V 0.9.1:
 Config updates:
 - All existing content toggles have been updated

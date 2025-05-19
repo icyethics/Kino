@@ -6,7 +6,7 @@
     "prefix": "kino",
     "main_file": "Kino.lua",
     "badge_colour": "1b61ad",
-    "version": "0.9.0f",
+    "version": "0.9.1a",
     "dependencies": ["Steamodded (>=1.0.0~BETA-0427a)", "Lovely (>=0.7.1)"]
     
 }

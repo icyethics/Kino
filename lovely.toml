@@ -807,7 +807,7 @@ pattern = '''
 position = "after"
 payload = '''
 
-next(SMODS.find_card("v_kino_confection_acclimator")) and {
+(next(SMODS.find_card("v_kino_confection_acclimator")) and Cryptid) and {
     n = G.UIT.R,
     config = { align = "cm" },
     nodes = {
@@ -855,6 +855,7 @@ pattern = '''
 '''
 position = "at"
 payload = '''
-table.insert(rates, { type = v, val = G.GAME[v:lower()..'_rate'] * ((G.GAME.cry_percrate[v:lower()] or 100) / 100) })
+local num = G.GAME.cry_percrate and G.GAME.cry_percrate[v:lower()] or 100
+table.insert(rates, { type = v, val = G.GAME[v:lower()..'_rate'] * ((num or 100) / 100) })
 '''
 match_indent = true
