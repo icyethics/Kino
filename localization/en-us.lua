@@ -3803,11 +3803,15 @@ return {
             kino_settings_demonic_enhancement = "Demonic Cards?",
             kino_settings_horror_enhancement = "Horror/Monster Cards?",
             kino_settings_romance_enhancement = "Romance Cards?",
+            kino_settings_crime_enhancement = "Crime Cards?",
+            kino_settings_action_enhancement = "Action Cards?",
+
 
             kino_settings_jumpscare_mechanic = "Jumpscare Jokers?",
             kino_settings_vampire_jokers = "Vampiric Jokers?",
             kino_settings_time_based_jokers = "Timing Jokers?",
-            kino_settings_speed_factor = "Quick Timer", 
+            kino_settings_speed_factor = "Quick Timer",
+            kino_settings_confection_mechanic = "Confections?", 
 
             kino_settings_actor_synergy = "Actors?",
             kino_settings_genre_synergy = "Genre?",

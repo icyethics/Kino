@@ -38,7 +38,6 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- Sci-fi jokers are 50% stronger
         if context.card_added then
-            print("test")
             -- and context.card.set == "Joker" 
             for _, _joker in ipairs(G.jokers.cards) do
                 if _joker.config.center.key ~= 'j_kino_paul' and is_genre(_joker, "Sci-fi") then

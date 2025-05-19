@@ -21,7 +21,6 @@ function Kino.check_codex(card, codex, checking_cards, solved_codex)
         local _suitmatch = false
         local _rankmatch = false
 
-        print((codex[i].suit or "nil") .. " || " .. (codex[i].rank or "nil"))
         if _solved_codex[i].suit ~= nil then
             _suitmatch = true
         elseif codex[i].suit ~= nil and _card and _card:is_suit(codex[i].suit) then

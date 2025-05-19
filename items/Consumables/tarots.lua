@@ -189,9 +189,6 @@ SMODS.Consumable {
         }
     end,
     can_use = function(self, card)
-        print("-- checking --")
-        print(#G.jokers.highlighted)
-        print(G.GAME.dollars)
 		return #G.jokers.highlighted == 1
 			and G.jokers.highlighted[1].config.center.kino_joker
             and (to_big(G.GAME.dollars) >= to_big(G.GAME.bankrupt_at + 5))
@@ -275,7 +272,7 @@ SMODS.Consumable {
 --         end
 --     }
 -- end
-
+if kino_config.confection_mechanic then
 SMODS.Consumable {
     key = "chef",
     set = "Tarot",
@@ -311,3 +308,4 @@ SMODS.Consumable {
         if #G.consumeables.cards < G.consumeables.config.card_limit or card.area == G.consumeables then return true end
     end
 }
+end

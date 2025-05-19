@@ -1,3 +1,4 @@
+if kino_config.confection_mechanic then
 SMODS.ConsumableType {
     key = "confection",
     primary_colour = HEX("4F6367"),
@@ -16,3 +17,4 @@ SMODS.UndiscoveredSprite {
     atlas = "kino_confections",
     pos = {x = 0, y = 3} 
 }
+end

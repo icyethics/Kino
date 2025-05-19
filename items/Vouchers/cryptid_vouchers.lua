@@ -1,6 +1,7 @@
 if Cryptid then
 
     -- Implemented
+if kino_config.confection_mechanic then
 SMODS.Voucher {
     key = "confection_acclimator",
     atlas = "kino_cryptid_consumables",
@@ -69,6 +70,9 @@ SMODS.Voucher {
 
     end
 }
+end
+
+if kino_config.actor_synergy then
     -- Implemented
 SMODS.Voucher {
     key = "egot",
@@ -140,4 +144,5 @@ SMODS.Voucher {
         Kino.genre_synergy_slots = 1
     end
 }
+end
 end

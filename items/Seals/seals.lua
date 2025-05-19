@@ -1,3 +1,4 @@
+if kino_config.confection_mechanic then
 SMODS.Seal{
     key = "cheese",
     atlas = "kino_enhancements",
@@ -21,6 +22,7 @@ SMODS.Seal{
         end
     end,
 }
+end
 
 SMODS.Seal{
     key = "sports",
@@ -104,9 +106,7 @@ SMODS.Seal{
 
     calculate = function(self, card, context)
         if context.after and context.cardarea == G.play then
-            print(#context.scoring_hand)
             card.ability.seal.stacks = card.ability.seal.stacks + (card.ability.seal.a_stacks * #context.scoring_hand)
-            print(card.ability.seal.stacks)
             return {
                 message = localize("k_kino_adventureseal_1") 
             }

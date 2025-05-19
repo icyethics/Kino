@@ -1,3 +1,14 @@
+V 0.9.1:
+Config updates:
+- All existing content toggles have been updated
+- Crime and Action cards and related jokers can now be toggled off
+- Confections and related content can now be toggled off.
+
+Bug Fixes:
+- Removed debugging print statements
+- fixed Dark Knight crossmod issues related to destroying cards
+- Fixed power raising system affecting values it shouldn't touch
+
 V 0.9.0e-Cryptid:
 Cryptid crossmod content:
 New Vouchers:

@@ -1,5 +1,4 @@
-if Cryptid then
-
+if Cryptid and kino_config.confection_mechanic then
 -- Upgrade the next hand you play with +2 mult
 SMODS.Consumable {
     key = "mam",
@@ -279,31 +278,25 @@ SMODS.Consumable {
         and context.retrigger_joker_check and 
         not context.retrigger_joker and context.other_card ~= self then
             card.ability.extra.debug_var = card.ability.extra.debug_var + 1
-            print(card.ability.extra.debug_var)
 			local _target = card.ability.extra.target
             local _total_retriggers = card.ability.extra.retriggers
             if card.ability.kino_chocolate then
                 _total_retriggers = _total_retriggers + card.ability.choco_bonus
             end
 
-            print("TESTING")
             if context.other_card == _target then
-                print("returning")
                 card.ability.extra.has_retriggered = true
-				print("still returning")
                 return {
 					message = localize("k_again_ex"),
 					repetitions = math.min(25, _total_retriggers),
 					card = card,
 				}
 			else
-                print("death_upon_me")
 				return nil, true
 			end
 		end
 
         if context.after and card.ability.extra.has_retriggered == true then
-            print("ending operations")
             card.ability.extra.has_retriggered = false
             Kino.confection_trigger(card)
         end

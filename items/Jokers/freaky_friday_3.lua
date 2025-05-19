@@ -28,7 +28,6 @@ SMODS.Joker {
     },
     pools, k_genre = {"Comedy", "Family", "Fantasy"},
     set_ability = function(self, card, initial, delay_sprites)
-        print(card.area)
         if card.area and card.area.config.collection then
 
         else

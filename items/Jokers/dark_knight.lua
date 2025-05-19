@@ -50,8 +50,10 @@ SMODS.Joker {
                     _jokers_destroyed = _jokers_destroyed + 1
                     G.jokers.cards[i].getting_sliced = true
                     G.E_MANAGER:add_event(Event({func = function()
-                        (context.blueprint_card or card):juice_up(0.8, 0.8)
-                        G.jokers.cards[i]:start_dissolve({G.C.RED}, nil, 1.6)
+                        if G.jokers and G.jokers.cards and G.jokers.cards[i] then
+                            (context.blueprint_card or card):juice_up(0.8, 0.8)
+                            G.jokers.cards[i]:start_dissolve({G.C.RED}, nil, 1.6)
+                        end
                     return true end }))
                 end
             end

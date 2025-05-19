@@ -179,7 +179,7 @@ SMODS.Consumable {
 --     end
 -- }
 
-
+if kino_config.confection_mechanic then
 SMODS.Consumable {
     key = "ambrosia",
     set = "Spectral",
@@ -217,3 +217,4 @@ SMODS.Consumable {
         }))
     end
 }
+end

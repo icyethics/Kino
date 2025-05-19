@@ -1,3 +1,4 @@
+if kino_config.confection_mechanic then
 SMODS.Voucher {
     key = "confection_merchant",
     atlas = "kino_vouchers",
@@ -75,7 +76,9 @@ SMODS.Voucher {
         return { vars = {} }
     end
 }
+end
 
+if kino_config.actor_synergy then
 SMODS.Voucher {
     key = "awardsbait",
     atlas = "kino_vouchers",
@@ -184,3 +187,4 @@ SMODS.Voucher {
         G.GAME.current_round["actors_table_offset"] = G.GAME.current_round["actors_table_offset"] - 1
     end
 }
+end

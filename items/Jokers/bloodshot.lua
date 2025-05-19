@@ -59,8 +59,6 @@ SMODS.Joker {
         and not context.blueprint and not context.repetition then
             local _found_target = false
             for _, _pcard in ipairs(G.deck.cards) do
-                print(_)
-                print(_pcard:get_seal())
                 if _pcard:get_seal() == 'Red' then
                     _pcard:set_seal()
                     _found_target = true

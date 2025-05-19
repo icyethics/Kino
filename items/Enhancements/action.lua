@@ -15,7 +15,6 @@ SMODS.Enhancement {
     calculate = function(self, card, context, effect)
         if context.repetition and context.cardarea == G.play and context.other_card == card then
             local _bullet_count = Kino.count_bullets()
-            print(_bullet_count)
 
             return {
                 repetitions = _bullet_count,

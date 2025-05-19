@@ -1,5 +1,4 @@
--- Most confections create a tag when used in specific contents.
-
+if kino_config.confection_mechanic then
 -- Upgrade the next hand you play with +2 mult
 SMODS.Consumable {
     key = "popcorn",
@@ -973,3 +972,4 @@ SMODS.Consumable {
     end
 }
 
+end

@@ -266,6 +266,10 @@ end
 -- Register the Jokers
 local _usedjokers = {}
 local _options = {
+    {kino_config.action_enhancement, action_objects},
+    {kino_config.crime_enhancement, crime_objects},
+    {kino_config.mystery_enhancement, mystery_objects},
+    {kino_config.confection_mechanic, confection_object},
     {kino_config.vampire_jokers, vampire_objects},
     {kino_config.sci_fi_enhancement, sci_fi_objects},
     {kino_config.spellcasting, spellcasting_objects},

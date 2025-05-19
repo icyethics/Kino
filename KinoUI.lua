@@ -48,12 +48,15 @@ local enhancement_types_toggles = {
 	{ref_value = "demonic_enhancement", label = "kino_settings_demonic_enhancement"},
 	{ref_value = "horror_enhancement", label = "kino_settings_horror_enhancement"},
 	{ref_value = "romance_enhancement", label = "kino_settings_romance_enhancement"},
+	{ref_value = "action_enhancement", label = "kino_settings_action_enhancement"},
+	{ref_value = "crime_enhancement", label = "kino_settings_crime_enhancement"}
 }
 local joker_mechanics_toggles = {
 	-- Joker Mechanics
 	{ref_value = "jumpscare_mechanic", label = "kino_settings_jumpscare_mechanic"},
 	{ref_value = "vampire_jokers", label = "kino_settings_vampire_jokers"},
 	{ref_value = "time_based_jokers", label = "kino_settings_time_based_jokers"},
+	{ref_value = "confection_mechanic", label = "kino_settings_confection_mechanic"}
 }
 local mod_mechanics_toggles = {
 	-- Mod Mechanics

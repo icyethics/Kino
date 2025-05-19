@@ -42,7 +42,6 @@ SMODS.Joker {
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Clubs") then
                 local money = math.floor((G.GAME.dollars + (G.GAME.dollar_buffer or 0)) / card.ability.extra.threshold)
-                print(money)
                 local max_money = (G.GAME.interest_cap / 5) * G.GAME.interest_amount
                 if to_big(max_money) < money then
                     money = max_money

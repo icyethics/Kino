@@ -49,7 +49,6 @@ SMODS.Blind{
 
         if context.destroy_card and context.cardarea == G.hand and
         to_big((hand_chips * mult)) + to_big(G.GAME.chips) >= to_big(G.GAME.blind.chips) then
-            print("return {remove = true}")
             return {remove = true}
         end
     end
@@ -736,7 +735,6 @@ SMODS.Blind{
 
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
                 blind.debuff.suit = _suit.key
-                print(_suit.key)
                 attention_text({
                     text = localize('k_blind_loki'),
                     scale = 1.3, 
@@ -968,8 +966,6 @@ SMODS.Blind{
                 G.E_MANAGER:add_event(Event({func = function()
                     local _suit = pseudorandom_element(SMODS.Suits, pseudoseed("kino_source_code"))
                     local _rank = pseudorandom_element(SMODS.Ranks, pseudoseed("kino_source_code"))
-                    print(_suit.key)
-                    print(_rank.key)
                     blind:wiggle()
                     _pcard:flip()
                     SMODS.change_base(_pcard, _suit.key, _rank.key)

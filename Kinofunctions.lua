@@ -139,30 +139,13 @@ function get_least_played_hand()
     local _tally = nil
     local _hands = {}
     for k, v in ipairs(G.handlist) do
-        print(G.GAME.hands[v].played)
-        print(_tally)
-
-        if G.GAME.hands[v].visible then
-            print("testing, yes visible")
-        end
-        if (_tally == nil or G.GAME.hands[v].played < _tally) then
-            print("testing, no tally")
-        end
-        if G.GAME.hands[v].played ~= 0 then
-            print("testing, played ~= 0")
-        end
-        
-
-
         if G.GAME.hands[v].visible and (_tally == nil or G.GAME.hands[v].played < _tally) and G.GAME.hands[v].played ~= 0 then
-            print("found new low")
             _hands = {}
             _hands[#_hands + 1] = v
             
             _tally = G.GAME.hands[v].played
         end
         if G.GAME.hands[v].visible and (_tally == nil or G.GAME.hands[v].played == _tally) and not G.GAME.hands[v].played == 0 then
-            print("adding new hand")
             _hands[#_hands + 1] = v
         end
     end
@@ -252,7 +235,6 @@ end
 
 -- For everything that needs to be done when the shop is closed.
 function end_shopping()
-    print("entered")
     G.GAME.current_round.sci_fi_upgrades_last_round = 0
 end
 
@@ -683,7 +665,6 @@ function check_variable_validity_for_mult(name)
             end
         end
     end
-    print("Accepting: " .. name)
     return true
 end
 

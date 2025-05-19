@@ -1,3 +1,4 @@
+if kino_config.confection_mechanic then
 SMODS.Booster {
     key = "snack_booster_normal",
     kind = "confection",
@@ -102,3 +103,4 @@ SMODS.Booster {
         return _card
     end
 }
+end

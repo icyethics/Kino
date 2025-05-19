@@ -306,18 +306,71 @@ joker_list = {
 
 }
 
+action_objects = {
+    jokers = {
+        "die_hard_1",
+        "hot_fuzz",
+        "john_wick_1",
+        "pain_and_gain",
+        "source_code",
+    },
+
+    -- enhancements
+    enhancements = {"action",},
+    confections = {},
+    planets = {},
+    tarots = {"soldier"},
+    vouchers = {},
+}
+
+crime_objects = {
+    jokers = {
+        "con_air",
+        "dick_tracy",
+        "scarface_1",
+        "scarface_2",
+        "limitless",
+        "oceans_12"
+    },
+
+    -- enhancements
+    enhancements = {"crime",},
+    confections = {},
+    planets = {},
+    tarots = {"gangster"},
+    vouchers = {},
+}
+
+mystery_objects = {
+    jokers = {
+    },
+
+    -- enhancements
+    enhancements = {"mystery",},
+    confections = {},
+    planets = {},
+    tarots = {"detective"},
+    vouchers = {},
+}
+
+
 sci_fi_objects = {
     -- jokers
     jokers = {
         "ai_artificial",
         "ex_machina",
+        "her",
         "i_robot",
         "iron_giant",
         "iron_man_1",
         "m3gan",
         "matrix_1",
+        "metropolis",
+        "terminator_1",
+        "terminator_2",
         "robocop_1",
         "wall_e",
+        "2001_odyssey",
     },
 
     -- enhancements
@@ -330,13 +383,17 @@ sci_fi_objects = {
 
 spellcasting_objects = {
     jokers = {
+        "big_trouble_little_china",
         "dark_crystal",
+        "doctor_strange_1",
         "dungeons_and_dragons_1",
-        "dungeons_and_dragons_2",
+        "dungeons_and_dragons_4",
         "encanto",
         "fantasia",
         "harry_potter_1",
         "shang_chi",
+        "shazam_1",
+        "smurfs_1",
         "sorcerers_apprentice",
     },
     enhancements = {
@@ -352,9 +409,12 @@ spellcasting_objects = {
 
 demonic_objects = {
     jokers = {
+        "demon_knight",
+        "evil_dead_1",
         "exorcist_1",
         "ghost_rider_1",
         "ghoulies",
+        "hellboy_1",
         "omen",
         "poltergeist",
         "smile",
@@ -373,12 +433,15 @@ demonic_objects = {
 
 horror_objects = {
     jokers = {
+        "friday_the_13th",
         "halloween",
+        "gremlins_1",
         "incredible_hulk",
         "nightmare_on_elm_street",
         "sleepy_hollow",
         "us",
-        "childs_play_1"
+        "childs_play_1",
+        "wolf_man_1",
     },
     enhancements = {
         "monster",
@@ -396,7 +459,10 @@ romance_objects = {
     jokers = {
         "10_things_i_hate_about_you",
         "50_first_dates",
+        "always",
         "anora",
+        "heart_eyes",
+        "her",
         "only_lovers_left_alive",
         "starman",
         "pride_and_prejudice",
@@ -446,10 +512,33 @@ vampire_objects = {
     vouchers = {},
 }
 
+-- 
+confection_object = {
+    jokers = {
+        "charlie_and_the_chocolate_factory",
+        "chef",
+        "cocktail",
+        "dinner_with_andre",
+        "martian",
+        "menu",
+        "sausage_party",
+        "wonka",
+
+
+    },
+    enhancements = {},
+    confections = {},
+    planets = {},
+    tarots = {
+        "chef"
+    },
+    vouchers = {},
+}
+
 Kino.legendaries = {
     -- "citizen_kane",
     "2001_odyssey",
-    -- "indiana_jones_1",
+    "indiana_jones_1",
     -- "ratatouille",
-    -- "barbie"
+    "barbie"
 }

@@ -41,7 +41,6 @@ SMODS.Joker {
             local _hands = get_least_played_hand()
 
             for _, _hand in ipairs(_hands) do
-                print(_hand)
                 if _hand == context.scoring_name then
                     return {
                         level_up = card.ability.extra.levels

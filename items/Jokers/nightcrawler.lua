@@ -68,7 +68,6 @@ SMODS.Joker {
         if context.end_of_round and context.cardarea == G.jokers and not context.retrigger_joker and not context.blueprint then
             local _newtable = {}
             for _, _value in ipairs(card.ability.extra.counters_non) do
-                print(_value)
                 if _value - 1 > 0 then
                     _newtable[#_newtable + 1] = _value -1
                 end
