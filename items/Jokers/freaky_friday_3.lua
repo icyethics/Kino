@@ -32,7 +32,7 @@ SMODS.Joker {
 
         else
             local edition = poll_edition('freaky_friday_3', nil, true, true)
-            card:set_edition(edition, true)
+            card:set_edition({foil = true}, true)
         end
         
     end,

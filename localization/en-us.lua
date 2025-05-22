@@ -1332,7 +1332,7 @@ return {
                     "{C:chips}+#1#{} Chips for",
                     "every {C:attention}Sci-fi card{}",
                     "in your deck",
-                    "{C:inactive}(Currently {C:chips}#2#{C:inactive} Chips)"
+                    "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
                 }
             },
             j_kino_megalopolis = {
@@ -1983,9 +1983,8 @@ return {
             j_kino_star_wars_vii = {
                 name = "Star Wars Episode VII: The Force Awakens",
                 text = {
-                    "Scoring cards give {C:chips}+#1#{} Chips",
-                    "for each {C:planet}Planet{} used",
-                    "{C:inactive}(Currently: {C:chips}+#2#{C:inactive} Chips)"
+                    "Scoring cards give {C:mult}+#1#{} mult",
+                    "for each level of the scoring poker hand"
                 }
             },
             j_kino_stargate = {
@@ -2617,6 +2616,16 @@ return {
                     "Add a {C:red}Cheese Seal{}",
                     "to {C:attention}1{} selected",
                     "card in your hand",
+                }
+            },
+
+            -- Cryptid crossmod
+            c_kino_award_cryptid = {
+                name = "Award",
+                text = {
+                    "Give an award to any {C:attention}Joker",
+                    "doubling it's stats",
+                    "{C:inactive}(Jokers can only be awarded once)"
                 }
             },
         },
@@ -3361,6 +3370,13 @@ return {
                 }
             },
 
+            kino_additional_genres = {
+                name = "Additional Genres",
+                text = {
+                    "{E:1}#1#{}"
+                }
+            },
+
 
             -- Keywords
             gloss_least_played = {
@@ -3448,6 +3464,34 @@ return {
                 text = {
                     "Doubles the power",
                     "of Movie Joker"
+                }
+            },
+            kino_award_cryptid = {
+                name = "Awarded",
+                text = {
+                    "Doubles the power",
+                    "of a Joker"
+                }
+            },
+            kino_choco = {
+                name = "Choco",
+                text = {
+                    "Increases potency",
+                    "of this confection"
+                }
+            },
+            kino_goldleaf = {
+                name = "Goldleaf",
+                text = {
+                    "Earn {C:money}$1{} when",
+                    "this confection is used"
+                }
+            },
+            kino_extra_large = {
+                name = "Extra Large",
+                text = {
+                    "This confection has",
+                    "an additional use"
                 }
             },
 
@@ -4119,6 +4163,9 @@ return {
         },
         labels = {
             kino_award = "Awarded",
+            kino_choco = "Chocolate-Dipped",
+            kino_goldleaf = "Goldleaf",
+            kino_extra_large = "Extra Large",
             kino_family_seal = "Family Seal",
             kino_cheese_seal = "Cheese Seal",
             kino_adventure_seal = "Adventure Seal",

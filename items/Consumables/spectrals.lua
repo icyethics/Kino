@@ -1,4 +1,5 @@
 if kino_config.actor_synergy then
+if not Cryptid then
     SMODS.Consumable {
         key = "award",
         set = "Spectral",
@@ -25,6 +26,34 @@ if kino_config.actor_synergy then
             SMODS.Stickers['kino_award']:apply(G.jokers.highlighted[1], true)
         end
     }
+end
+if Cryptid then
+    SMODS.Consumable {
+        key = "award_cryptid",
+        set = "Spectral",
+        config = {max_highlighted = 1},
+        pos = {x = 0, y = 2},
+        atlas = "kino_tarot",
+        cost = 4,
+        unlocked = true,
+        discovered = true,
+        loc_vars = function(self, info_queue, card)
+            return {
+                vars = {
+                    self.config.max_highlighted
+                }
+            }
+        end,
+        can_use = function(self, card)
+            return #G.jokers.highlighted == 1
+                and ( not G.jokers.highlighted[1].ability.kino_award or
+                G.GAME.used_vouchers.v_kino_egot)
+        end,
+        use = function(self, card, area, copier)
+            SMODS.Stickers['kino_award_cryptid']:apply(G.jokers.highlighted[1], true)
+        end
+    }
+end
 end
 
 SMODS.Consumable {

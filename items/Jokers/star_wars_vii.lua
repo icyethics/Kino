@@ -39,8 +39,9 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- scoring cards give chips equal to the number of planets used
         if context.individual and context.cardarea == G.play then
+            local _level = to_number(G.GAME.hands[context.scoring_name].level) * card.ability.extra.factor
             return {
-                chips = (G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.planet or 0) * card.ability.extra.factor
+                mult = _level
             }
         end
     end

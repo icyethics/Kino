@@ -678,8 +678,9 @@ end
 Kino.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
     SMODS.Center.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
 
-    if not card then return end
 
+    if not card or not card.ability then return end
+    print("test")
 
     if card.ability.multipliers then
         local _multiplier = 1
@@ -703,7 +704,24 @@ Kino.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_va
         end
     end
 
+    if card.ability.kino_additional_genres then
+        print("test")
+        
+        if #card.ability.kino_additional_genres > 1 then
+            local _genrestring = ""
 
+            for i = 1, #card.ability.kino_additional_genres do
+                if i == 1 then
+                    _genrestring = _genrestring .. card.ability.kino_additional_genres[i]
+                else
+
+                    _genrestring = _genrestring .. ", " .. card.ability.kino_additional_genres[i]
+                end
+            end
+
+            info_queue[#info_queue+1] = {set = 'Other', key = "kino_additional_genres", vars = {3}}
+        end
+    end
     
 
     full_UI_table.name = {
@@ -726,6 +744,60 @@ Kino.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_va
         }
     }
 end
+
+
+-- -- local o_genui = SMODS.Center.generate_ui
+-- local o_cardgenui = Card.generate_UIBox_ability_table
+-- -- function SMODS.Center.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+-- function Card.generate_UIBox_ability_table(vars_only)
+--     -- o_genui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+--     o_cardgenui(self, vars_only)
+--     local card = self
+
+--     if not card or not card.ability then return end
+--     print("test")
+
+--     if card.ability.multipliers then
+--         local _multiplier = 1
+--         for _source, _mult in pairs(card.ability.multipliers) do
+--             _multiplier = _multiplier * _mult
+--         end
+
+--         if _multiplier > 1 then
+--             info_queue[#info_queue+1] = {set = 'Other', key = "synergy_mult", vars = {_multiplier}}
+--         end
+--     end
+
+--     if card.ability.output_powerchange then
+--         local _multiplier = 1
+--         for _source, _mult in pairs(card.ability.output_powerchange) do
+--             _multiplier = _multiplier * _mult
+--         end
+
+--         if _multiplier < 1 then
+--             info_queue[#info_queue+1] = {set = 'Other', key = "output_powerchange", vars = {_multiplier}}
+--         end
+--     end
+
+--     if card.ability.kino_additional_genres then
+--         print("test")
+        
+--         if #card.ability.kino_additional_genres > 1 then
+--             local _genrestring = ""
+
+--             for i = 1, #card.ability.kino_additional_genres do
+--                 if i == 1 then
+--                     _genrestring = _genrestring .. card.ability.kino_additional_genres[i]
+--                 else
+
+--                     _genrestring = _genrestring .. ", " .. card.ability.kino_additional_genres[i]
+--                 end
+--             end
+
+--             info_queue[#info_queue+1] = {set = 'Other', key = "kino_additional_genres", vars = _genrestring}
+--         end
+--     end
+-- end
 
 -- UI indicators
 local blind_indicator_sprite

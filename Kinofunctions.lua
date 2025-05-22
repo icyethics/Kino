@@ -31,14 +31,28 @@ function genre_match(_listA, _listB)
     return false
 end
 
-function is_genre(joker, genre)
+function is_genre(joker, genre, debug)
     if G.GAME.modifiers.egg_genre == genre then
         return true
     end
 
     if joker.config.center.k_genre then
         for i = 1, #joker.config.center.k_genre do
+            if debug then
+            
+                print("Checking: " .. genre)
+                print(joker.config.center.k_genre[i])
+            end
             if genre == joker.config.center.k_genre[i] then
+                if debug then print("------ TRUE") end
+                return true
+            end
+        end
+    end
+
+    if joker.ability and joker.ability.kino_additional_genres then
+        for i = 1, #joker.ability.kino_additional_genres do
+            if genre == joker.ability.kino_additional_genres[i] then
                 return true
             end
         end
@@ -559,9 +573,21 @@ function Card:set_multiplication_bonus(card, source, num, is_actor)
     -- non-integers
     -- "time_"
     if not card or not card.config or not card.config.center or not kino_config.actor_synergy or not card.config.center.kino_joker then
+        if Cryptid and card and card.config and card.config.center then
+            if not Card.no(card, "immutable", true) then
+                Cryptid.with_deck_effects(card, function(cards)
+                    Cryptid.misprintize(
+                        cards,
+                        { min = num, max = num},
+                        nil,
+                        true
+                    )
+                end)
+                return true
+            end
+        end
         return false
     end
-
     if not card.ability.multipliers then
         card.ability.base = {}
         for key, val in pairs(card.ability.extra) do

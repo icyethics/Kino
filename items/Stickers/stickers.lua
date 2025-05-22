@@ -41,6 +41,33 @@ SMODS.Sticker{
     atlas = 'kino_stickers'
 }
 
+if Cryptid then
+SMODS.Sticker{
+    key = 'award_cryptid',
+
+    apply = function(self, card, val)
+        -- once the increase val function for kino jokers is implemented
+        -- this should increase by x2
+
+        if card.ability[self.key .. "_times"] and not G.GAME.used_vouchers.v_kino_egot then
+            return 
+        end
+
+
+        card.ability.kino_award = val
+        card.ability.kino_award_times = (card.ability.kino_award_times or 0) + 1
+        card:set_multiplication_bonus(card, "kino_award", Kino.award_mult)
+    end,
+    badge_colour = HEX('ffd081'),
+    no_collection = true,
+
+    order = 6,
+
+    pos = { x = 1, y = 0},
+    atlas = 'kino_stickers'
+}
+end
+
 SMODS.Sticker{
     key = 'choco',
 
@@ -49,7 +76,7 @@ SMODS.Sticker{
         card.ability.kino_choco then return end
         card.ability[self.key] = val
     end,
-    hide_badge = true,
+    -- hide_badge = true,
     badge_colour = HEX('ffd081'),
     no_collection = true,
 
@@ -67,7 +94,7 @@ SMODS.Sticker{
         card.ability.kino_goldleaf then return end
         card.ability[self.key] = val
     end,
-    hide_badge = true,
+    -- hide_badge = true,
     badge_colour = HEX('ffd081'),
     no_collection = true,
 
@@ -85,7 +112,7 @@ SMODS.Sticker{
         card.ability.kino_extra_large then return end
         card.ability[self.key] = val
     end,
-    hide_badge = true,
+    -- hide_badge = true,
     badge_colour = HEX('ffd081'),
     no_collection = true,
 

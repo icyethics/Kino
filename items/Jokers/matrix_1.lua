@@ -4,7 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            chips = 10,
+            chips = 25,
             total = 0
         }
     },
@@ -34,7 +34,7 @@ SMODS.Joker {
         return {
             vars = {
                 card.ability.extra.chips,
-                card.ability.extra.total
+                card.ability.extra.total * card.ability.extra.chips
             }
         }
     end,

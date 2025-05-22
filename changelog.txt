@@ -1,3 +1,23 @@
+
+
+V 0.9.1b:
+
+Bug Fixes
+- Removed Hannibal Lecter's test effect of giving 50 chips
+- Matrix now properly displays the chips it's giving
+- Close Encounters of the Third Kind no longer crashes when hovered over in the collection after finishing a run
+- Tree of Life now properly triggers
+- Freaky Friday no longer crashes the collection when playing with other mods
+
+Balance Changes:
+- Matrix now gives 25 chips per sci-fi card
+- Freaky Friday now always spawns as a foil, rather than a random edition
+- Star Wars Episode VII: The Force Awakens effect overhaul: Each card gives +1 mult for each level of the scoring poker hand
+
+Other Changes:
+- Fixed order of the jokers in the collection
+- Kino and Cryptid's respective powerboost systems are now compatible with another
+
 V 0.9.1a:
 Bug fixes:
 - Fixed a crash due to Cryptid crossmod reliance

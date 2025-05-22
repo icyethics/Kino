@@ -41,12 +41,6 @@ SMODS.Blind{
     end,
     calculate = function(self, blind, context)
 
-        if context.individual and context.cardarea == G.play then
-            return {
-                chips = 50
-            }
-        end
-
         if context.destroy_card and context.cardarea == G.hand and
         to_big((hand_chips * mult)) + to_big(G.GAME.chips) >= to_big(G.GAME.blind.chips) then
             return {remove = true}
