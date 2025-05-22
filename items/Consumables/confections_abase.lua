@@ -921,6 +921,8 @@ Kino.confection_trigger = function(card)
             end)
         }))
     end
+
+    SMODS.calculate_context({post_confection_used = true, other_confection = card, times_used = card.ability.extra.times_used})
 end
 
 Kino.powerboost_confection = function(card)
@@ -968,6 +970,14 @@ SMODS.Consumable {
     use = function(self, card, area, copier)
         if Kino.snackbag then
             Kino.snackbag.states.visible = not Kino.snackbag.states.visible
+        end
+    end,
+    calculate = function(self, card, context)
+        if Kino.snackbag then
+            if #Kino.snackbag.cards <= 0 then
+                card:start_dissolve()
+                Kino.snackbag.states.visible = false
+            end
         end
     end
 }

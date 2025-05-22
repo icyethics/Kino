@@ -122,3 +122,70 @@ SMODS.Back {
 --         end
 --     end
 -- }
+
+if not Cryptid then
+if kino_config.confection_mechanic then
+SMODS.Back {
+    name = "Snack Deck",
+    key = "snackdeck",
+    atlas = "kino_backs",
+    pos = {x = 0, y = 2},
+    config = {
+        vouchers = {
+            "v_kino_special_treats",
+            "v_kino_snackbag",
+        }
+    },
+    apply = function()
+    end
+}
+end
+SMODS.Back {
+    name = "Trophy Deck",
+    key = "trophydeck",
+    atlas = "kino_backs",
+    pos = {x = 1, y = 2},
+    config = {
+        vouchers = {
+            "v_kino_awardsbait",
+            "v_kino_awardsshow",
+        }
+    },
+    apply = function()
+    end
+}
+else
+if kino_config.confection_mechanic then
+SMODS.Back {
+    name = "Snack Deck",
+    key = "snackdeck_cryptid",
+    atlas = "kino_backs",
+    pos = {x = 0, y = 2},
+    config = {
+        vouchers = {
+            "v_kino_special_treats",
+            "v_kino_snackbag",
+            "v_kino_heavenly_treats"
+        }
+    },
+    apply = function()
+    end
+}
+end
+
+SMODS.Back {
+    name = "Trophy Deck",
+    key = "trophydeck_cryptid",
+    atlas = "kino_backs",
+    pos = {x = 1, y = 2},
+    config = {
+        vouchers = {
+            "v_kino_awardsbait",
+            "v_kino_awardsshow",
+            "v_kino_egot"
+        }
+    },
+    apply = function()
+    end
+}
+end

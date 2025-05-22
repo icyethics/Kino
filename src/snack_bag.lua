@@ -57,3 +57,19 @@ function CardArea:emplace(card, location, stay_flipped)
 
     cae(self, card, location, stay_flipped)
 end
+
+local o_can_sell_card = Card.can_sell_card
+function Card:can_sell_card(context)
+    if (G.play and #G.play.cards > 0) or
+        (G.CONTROLLER.locked) or
+        (G.GAME.STOP_USE and G.GAME.STOP_USE > 0)
+    then
+        return false
+    end
+    if self.area and
+        self.area.config.type == 'extra_deck' and
+        not self.ability.eternal then
+        return true
+    end
+    return o_can_sell_card(self, context)
+end

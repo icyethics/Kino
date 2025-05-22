@@ -680,7 +680,6 @@ Kino.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_va
 
 
     if not card or not card.ability then return end
-    print("test")
 
     if card.ability.multipliers then
         local _multiplier = 1
@@ -705,7 +704,6 @@ Kino.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_va
     end
 
     if card.ability.kino_additional_genres then
-        print("test")
         
         if #card.ability.kino_additional_genres > 1 then
             local _genrestring = ""

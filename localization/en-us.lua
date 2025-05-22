@@ -2721,7 +2721,7 @@ return {
             c_kino_peanuts = {
                 name = "Peanut Snack",
                 text = {
-                    "Gain double interest",
+                    "Gain {C:money}#1# more{} interest",
                     "next round"
                 }
             },
@@ -2737,8 +2737,8 @@ return {
             c_kino_soda = {
                 name = "Soda Drink",
                 text = {
-                    "Retrigger the first",
-                    "card scored twice",
+                    "{C:attention}Retrigger{} the first",
+                    "card scored {C:attention}#1# times{}",
                     "next round"
                 }
             },
@@ -2759,7 +2759,7 @@ return {
                 name = "Hotdog",
                 text = {
                     "Level up the next",
-                    "hand played"
+                    "hand played by #1#"
                 }
             },
             c_kino_cookie = {
@@ -2912,6 +2912,41 @@ return {
                     "from the same {C:attention}Director{}",
                     "in order of release date"
 
+                }
+            },
+            b_kino_snackdeck = {
+                name = "Snack Deck",
+                text = {
+                    "Start your run with the",
+                    "{C:attention}Special Treats{} and",
+                    "{C:attention}Snack Bag{} vouchers"
+                }
+            },
+            b_kino_trophydeck = {
+                name = "Trophy Deck",
+                text = {
+                    "Start your run with the",
+                    "{C:attention}Award's Bait{} and",
+                    "and {C:attention}Award Show{} vouchers"
+                }
+            },
+
+
+            -- Cryptid Crossmod decks
+            b_kino_snackdeck_cryptid = {
+                name = "Snack Deck",
+                text = {
+                    "Start your run with the",
+                    "{C:attention}Special Treats{}, {C:attention}Snack Bag{},",
+                    "and {C:attention}Heavenly Treats{} vouchers"
+                }
+            },
+            b_kino_trophydeck_cryptid = {
+                name = "Trophy Deck",
+                text = {
+                    "Start your run with the",
+                    "{C:attention}Award's Bait{}, {C:attention}Award Show{},",
+                    "and {C:attention}EGOT Winner{} vouchers"
                 }
             }
         },
@@ -3831,6 +3866,42 @@ return {
                     "based on it's {C:attention}Profit Margin"
                 }
             },
+
+            sleeve_kino_snackdeck = {
+                name = "Snack Deck",
+                text = {
+                    "Start your run with the",
+                    "{C:attention}Special Treats{} and",
+                    "{C:attention}Snack Bag{} vouchers"
+                }
+            },
+            sleeve_kino_trophydeck = {
+                name = "Trophy Deck",
+                text = {
+                    "Start your run with the",
+                    "{C:attention}Award's Bait{} and",
+                    "and {C:attention}Award Show{} vouchers"
+                }
+            },
+
+
+            -- Cryptid Crossmod decks
+            sleeve_kino_snackdeck_cryptid = {
+                name = "Snack Deck",
+                text = {
+                    "Start your run with the",
+                    "{C:attention}Special Treats{}, {C:attention}Snack Bag{},",
+                    "and {C:attention}Heavenly Treats{} vouchers"
+                }
+            },
+            sleeve_kino_trophydeck_cryptid = {
+                name = "Trophy Deck",
+                text = {
+                    "Start your run with the",
+                    "{C:attention}Award's Bait{}, {C:attention}Award Show{},",
+                    "and {C:attention}EGOT Winner{} vouchers"
+                }
+            }
         },
     },
     misc = {

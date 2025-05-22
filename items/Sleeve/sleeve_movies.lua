@@ -77,4 +77,59 @@ if CardSleeves then
             end
         end
     }
+
+    
+    if not Cryptid then
+    if kino_config.confection_mechanic then
+        CardSleeves.Sleeve {
+            key = "snackdeck",
+            atlas = "kino_sleeves",
+            pos = {x = 0, y = 2},
+            config = {
+                vouchers = {
+                    "v_kino_special_treats",
+                    "v_kino_snackbag",
+                }
+            }
+        }
+    end
+    CardSleeves.Sleeve {
+        key = "trophydeck",
+        atlas = "kino_sleeves",
+        pos = {x = 1, y = 2},
+        config = {
+            vouchers = {
+                "v_kino_awardsbait",
+                "v_kino_awardsshow",
+            }
+        }
+    }
+    else
+    if kino_config.confection_mechanic then
+        CardSleeves.Sleeve {
+            key = "snackdeck_cryptid",
+            atlas = "kino_sleeves",
+            pos = {x = 0, y = 2},
+            config = {
+                vouchers = {
+                    "v_kino_special_treats",
+                    "v_kino_snackbag",
+                    "v_kino_heavenly_treats"
+                }
+            }
+        }
+    end
+    CardSleeves.Sleeve {
+        key = "trophydeck_cryptid",
+        atlas = "kino_sleeves",
+        pos = {x = 1, y = 2},
+        config = {
+            vouchers = {
+                "v_kino_awardsbait",
+                "v_kino_awardsshow",
+                "v_kino_egot"
+            }
+        }
+    }
+    end
 end

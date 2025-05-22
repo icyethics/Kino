@@ -1,6 +1,10 @@
 
 
-V 0.9.1b:
+V 0.9.2:
+New Content:
+Decks & Sleeves:
+- Snack Deck: Start with all confection related vouchers
+- Trophy Deck: Start with all award related vouchers
 
 Bug Fixes
 - Removed Hannibal Lecter's test effect of giving 50 chips
@@ -8,6 +12,7 @@ Bug Fixes
 - Close Encounters of the Third Kind no longer crashes when hovered over in the collection after finishing a run
 - Tree of Life now properly triggers
 - Freaky Friday no longer crashes the collection when playing with other mods
+- Snackbag properly disappears when you have no confections present
 
 Balance Changes:
 - Matrix now gives 25 chips per sci-fi card
@@ -17,6 +22,7 @@ Balance Changes:
 Other Changes:
 - Fixed order of the jokers in the collection
 - Kino and Cryptid's respective powerboost systems are now compatible with another
+- Rewrote some confection descriptions to allow for scaling numbers to be shown
 
 V 0.9.1a:
 Bug fixes:
