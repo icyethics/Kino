@@ -232,6 +232,7 @@ SMODS.Consumable {
     config = {
         choco_bonus = 1,
         extra = {
+            interest_raised_by = {2},
             times_used = 0,
             extra = 2
         }
@@ -273,6 +274,7 @@ SMODS.Consumable {
             card.active = true
             local _interest = card.ability.kino_choco and (card.ability.extra.extra + card.ability.choco_bonus) or card.ability.extra.extra
             G.GAME.interest_amount = G.GAME.interest_amount + _interest
+            card.ability.extra.interest_raised_by[1] = _interest
 
             local eval = function(card) return card.active end
             juice_card_until(card, eval, true)
@@ -281,9 +283,9 @@ SMODS.Consumable {
     end,
     calculate = function(self, card, context)
         if context.kino_enter_shop and card.active then
-            local _interest = card.ability.kino_choco and (card.ability.extra.extra + card.ability.choco_bonus) or card.ability.extra.extra
-            G.GAME.interest_amount = G.GAME.interest_amount - _interest
+            G.GAME.interest_amount = G.GAME.interest_amount - card.ability.extra.interest_raised_by[1]
             Kino.confection_trigger(card)
+
         end
         
         if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
@@ -292,8 +294,7 @@ SMODS.Consumable {
     end,
     remove_from_deck = function(self, card, from_debuff)
 		if card.active then
-            local _interest = card.ability.kino_choco and (card.ability.extra.extra + card.ability.choco_bonus) or card.ability.extra.extra
-            G.GAME.interest_amount = G.GAME.interest_amount - _interest
+            G.GAME.interest_amount = G.GAME.interest_amount - card.ability.extra.interest_raised_by[1]
         end
 	end,
 }
@@ -895,52 +896,6 @@ SMODS.Consumable {
     end
 }
 
-Kino.confection_trigger = function(card)
-    card_eval_status_text(card, 'extra', nil, nil, nil,
-    { message = localize('k_eaten'), colour = G.C.MULT})
-
-    if card.ability.kino_goldleaf then
-        ease_dollars(1)
-    end
-
-    card.ability.extra.times_used = card.ability.extra.times_used + 1
-    SMODS.calculate_context({confection_used = true, other_confection = card, times_used = card.ability.extra.times_used})
-
-    if card.ability.kino_extra_large and
-    card.ability.extra.times_used < 2 then
-        card:juice_up(0.8, 0.5)
-        card_eval_status_text(card, 'extra', nil, nil, nil,
-        { message = localize('k_extra_large'), colour = G.C.MULT})
-        card.active = false
-    else
-        card.active = false
-        G.E_MANAGER:add_event(Event({
-            func = (function()
-                card:start_dissolve()
-                return true
-            end)
-        }))
-    end
-
-    SMODS.calculate_context({post_confection_used = true, other_confection = card, times_used = card.ability.extra.times_used})
-end
-
-Kino.powerboost_confection = function(card)
-    if G.GAME.used_vouchers.v_kino_heavenly_treats then
-
-        for _key, _value in pairs(card.ability.extra) do
-            if type(_value) == "number" and _key ~= 'times_used' then
-                card.ability.extra[_key] = card.ability.extra[_key] * 2
-            end
-        end
-
-        card.ability.choco_bonus = card.ability.choco_bonus * 2
-
-        card:juice_up()
-        card_eval_status_text(card, 'extra', nil, nil, nil,
-        { message = localize('k_kino_blessedconf'), colour = G.C.MONEY})
-    end
-end
 
 SMODS.Consumable {
     key = "snackbag",

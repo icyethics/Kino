@@ -32,33 +32,30 @@ SMODS.Seal{
     sound = { sound = 'generic1', per = 1.2, vol = 0.4 },
 
     calculate = function(self, card, context)
-        if context.after and context.scoring_hand and context.cardarea == G.play then
-            local _toright = nil
-            for _, _pcard in ipairs(context.scoring_hand) do
-                if _pcard == card and context.scoring_hand[_ + 1] then
-                    if card:get_id() > context.scoring_hand[_ + 1]:get_id() then
-                        local _card = context.scoring_hand[_+1]
-                        G.E_MANAGER:add_event(Event({
-                            func = function() 
-                                _card:flip()
-                                _card:juice_up()
-                                SMODS.modify_rank(context.scoring_hand[_+1], 1)
-                                _card:flip()
-                                card_eval_status_text(card, 
-                                'extra', nil, nil, nil, {message = localize("k_kino_sportsseal_1"), colour = G.C.CHIPS})                
-                                
-                                return true
-                            end}))
-                   
-                        return {
-                            message = localize("k_kino_sportsseal_2")
-                        }
-                    end
+        if context.after and context.scoring_hand and #context.full_hand == 1 and context.cardarea == G.play then
+            for _, _pcard in ipairs(G.hand.cards) do
+                if card:get_id() > G.hand.cards[_]:get_id() then
+                    local _card = G.hand.cards[_]
+                    G.E_MANAGER:add_event(Event({
+                        func = function() 
+                            _card:flip()
+                            _card:juice_up()
+                            SMODS.modify_rank(_card, 1)
+                            _card:flip()
+                            card_eval_status_text(_card, 
+                            'extra', nil, nil, nil, {message = localize("k_kino_sportsseal_1"), colour = G.C.CHIPS})                
+                            
+                            return true
+                        end}))
+                
+                    card_eval_status_text(card, 
+                            'extra', nil, nil, nil, {message = localize("k_kino_sportsseal_2"), colour = G.C.CHIPS})                
                 end
             end
         end
     end,
 }
+
 
 SMODS.Seal{
     key = "family",

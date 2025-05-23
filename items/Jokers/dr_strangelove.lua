@@ -61,7 +61,7 @@ SMODS.Joker {
 
         if context.joker_main and context.scoring_name == card.ability.extra.hand_name then
             return {
-                x_mult = card.ability.extra.xmult
+                x_mult = card.ability.extra.x_mult
             }
         end
 

@@ -1,4 +1,9 @@
 
+V 0.9.2a:
+Bug Fixes:
+- Dr. Strangelove now gives mult
+- Fixed a cryptid interaction related to the Award's Bait voucher
+- Peanut no longer has issues when the values are changed by setting your interest to a negative number
 
 V 0.9.2:
 New Content:

@@ -3540,16 +3540,13 @@ return {
                     'learn what it does'
                 }
             },
-
-            -- Seals
             kino_sports_seal={
                 name="Sports Seal",
                 text={
-                    "When this card is played",
-                    "and scored increase the",
-                    "rank of the card",
-                    "to the right if lower",
-                    "than this card"
+                    "If this card is the only",
+                    "played card then increase",
+                    "the rank of every card in hand",
+                    "lower than this card by {C:attention}#1# "
                 },
             },
             kino_family_seal={
