@@ -180,6 +180,13 @@ SMODS.Atlas {
     path = 'kino_sleeves.png'
 }
 
+SMODS.Atlas {
+    key = "kino_seg_display",
+    px = 71,
+    py = 95,
+    path = 'kino_seg_display.png'
+}
+
 -- Crossmod Atlases
 SMODS.Atlas {
     key = "kino_cryptid_consumables",
@@ -260,6 +267,25 @@ Game.init_game_object = function(self)
     ret.current_round.boss_blind_blofeld_counter = 10000
     ret.current_round.boss_blind_agent_smith_rank_discards = {}
     ret.current_round.boss_blind_thanos_cards = {}
+
+    -- -- Set up visual information 
+
+    -- Setting up the Sci-fi display sprites
+    self.shared_segdisp = {
+        {},
+        {},
+        {},
+        {}
+    }
+    for i = 1, 14 do
+        for j = 1, 4 do
+            self.shared_segdisp[j][i] = Sprite(0, 0, self.CARD_W, self.CARD_H,
+                G.ASSET_ATLAS["kino_seg_display"], {
+                    x = i - 1,
+                    y = 4 - j
+                })
+        end
+    end
     return ret
 end
 
@@ -457,6 +483,13 @@ if load_error then
 end
 
 local helper, load_error = SMODS.load_file("src/cryptid.lua")
+if load_error then
+    sendDebugMessage ("The error is: "..load_error)
+    else
+    helper()
+end
+
+local helper, load_error = SMODS.load_file("src/spritemanipulation.lua")
 if load_error then
     sendDebugMessage ("The error is: "..load_error)
     else

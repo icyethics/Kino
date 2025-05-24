@@ -4,6 +4,13 @@ Bug Fixes:
 - Dr. Strangelove now gives mult
 - Fixed a cryptid interaction related to the Award's Bait voucher
 - Peanut no longer has issues when the values are changed by setting your interest to a negative number
+- Fixed a series of crossmod crashes related to indexing hands in specific contexts
+
+Content Changes:
+- Overhauled Sports Seal's effect
+
+Visual Changes:
+- Sci-fi cards have a visual indicator for card level
 
 V 0.9.2:
 New Content:

@@ -39,7 +39,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- if your hand contains no more than 2 cards, gain 30 chips and 30 mult
-        if context.joker_main and #context.full_hand == 2 then
+        if context.joker_main and context.full_hand and #context.full_hand == 2 then
             return {
                 chips = card.ability.extra.chips,
                 mult = card.ability.extra.mult,

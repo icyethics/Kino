@@ -46,7 +46,7 @@ SMODS.Joker {
         end
 
         if context.discard and not context.blueprint and 
-        G.GAME.current_round.discards_used <= 0 and #context.full_hand == 1 then
+        G.GAME.current_round.discards_used <= 0 and context.full_hand and #context.full_hand == 1 then
             Kino.increase_money_stolen(card.ability.extra.money)
             return {
                 remove = true

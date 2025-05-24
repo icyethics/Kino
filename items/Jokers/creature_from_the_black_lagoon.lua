@@ -41,7 +41,7 @@ SMODS.Joker {
 
         -- Checks if only 1 card is played, and if it's a Queen.
         if context.destroying_card and not context.blueprint then 
-            if #context.full_hand == 1 and context.full_hand[1]:get_id() == 12 then
+            if context.full_hand and #context.full_hand == 1 and context.full_hand[1]:get_id() == 12 then
                 -- Iterate through every owned card.
                 for i, v in ipairs(G.playing_cards) do
                     v.ability.perma_mult = v.ability.perma_mult or 0

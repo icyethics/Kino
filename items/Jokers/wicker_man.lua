@@ -40,7 +40,8 @@ SMODS.Joker {
         -- destroy it and gain mult equal to its chips       
         -- resets after you defeat a boss blind
 
-        if context.discard and G.GAME.current_round.discards_used <= 0 and #context.full_hand == 1
+        if context.discard and G.GAME.current_round.discards_used <= 0
+        and context.full_hand and #context.full_hand == 1
         and not context.hook and not context.blueprint then
             card.ability.extra.mult = card.ability.extra.mult + context.other_card.base.nominal + context.other_card.ability.perma_bonus
             return {

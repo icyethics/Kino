@@ -41,6 +41,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- If you play a single card, drain half its rank and gain x5 chips for each rank drained
         if context.before
+        and context.full_hand
         and #context.full_hand == 1
         and not context.blueprint and not context.repetition then
             local i_card = context.scoring_hand[1]

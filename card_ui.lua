@@ -829,3 +829,77 @@ SMODS.DrawStep {
     end,
     conditions = {vortex = false, facing = 'front'}
 }
+
+-- ===== Card upgrade steps ===== --
+-- SMODS.DrawStep {
+--     key = "card_buff_reader",
+--     order = 40,
+--     func = function(self, layer)
+--         if self and self.ability and self.ability.set == 'Default' then
+--             if self.ability.perma_bonus > 0 then
+--                 -- Add 
+--                 if not self.children.card_buff_reader_perma_bonus then
+--                     self.children.card_buff_reader_perma_bonus = Kino.create_upgrade_ui_element(self, G.C.CHIPS)
+--                 end
+--             end
+--         end
+
+--     end,
+--     conditions = {vortex = false, facing = 'front'}
+-- }
+
+-- -- UIBox element
+-- Kino.create_upgrade_ui_element = function(card, colour, type)
+--     local _usedColour = colour or G.C.CHIPS
+
+--     local returnUI = UIBox {
+--         definition = {
+--             n = G.UIT.ROOT,
+--             config = {
+--                 minh = 0.01,
+--                 maxh = 2,
+--                 minw = 0.01,
+--                 maxw = 2,
+--                 r = 0.001,
+--                 padding = 0.05,
+--                 align = 'cm',
+--                 colour = _usedColour,
+--                 shadow = false,
+--                 ref_table = card
+--             },
+--             nodes = {
+--                 {
+--                     n = G.UIT.C,
+--                     config = {
+--                         align = 'cm',
+--                         colour = G.C.CLEAR,
+--                         hover = true
+--                     },
+--                     nodes = {
+--                         {
+--                             n = G.UIT.T,
+--                             config = {
+--                                 ref_table = card.ability,
+--                                 ref_value = "perma_bonus",
+--                                 colour = G.C.WHITE, 
+--                                 scale = 0.2, 
+--                                 shadow = true
+--                             }  
+--                         }
+--                     }
+--                 }
+--             }
+--         },
+--         config = {
+--             align = "cl",
+--             bond = 'Strong',
+--             parent = card,
+--         },
+--         states = {
+--             collide = {can = false},
+--             drag = { can = true }
+--         }
+--     }
+
+--     return returnUI
+-- end

@@ -42,7 +42,9 @@ SMODS.Joker {
         -- with all odds increased by 1
 
         if context.destroying_card and context.cardarea == G.play and not context.blueprint then
-            if #context.full_hand == 1 and context.full_hand[1].ability.effect == "Lucky Card" then
+            if context.full_hand and #context.full_hand == 1 
+            and context.full_hand[1].ability and 
+            context.full_hand[1].ability.effect == "Lucky Card" then
                 G.E_MANAGER:add_event(Event({
 					trigger = "after",
 					delay = 0.4,

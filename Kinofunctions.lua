@@ -938,7 +938,7 @@ function Tag:set_chocolate_bonus(chocolate_bonus)
     return true
 end
 
-----------------------
+-------------
 
 ------------ Helpers ------------
 function Kino.debugfunc(inc)

@@ -52,7 +52,7 @@ SMODS.Joker {
             }
         end
 
-        if context.after and context.cardarea == G.jokers and #context.scoring_hand == 1 then
+        if context.after and context.cardarea == G.jokers and context.scoring_hand and #context.scoring_hand == 1 then
             Kino.abduct_card(card, context.scoring_hand[1])
         end
 

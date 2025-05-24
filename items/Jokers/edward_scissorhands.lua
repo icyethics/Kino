@@ -38,7 +38,7 @@ SMODS.Joker {
         -- cut it in half after scoring.
 
         if context.joker_main and context.cardarea == G.jokers and G.GAME.current_round.hands_played == 0 then
-            if #context.full_hand == 1 then
+            if context.full_hand and #context.full_hand == 1 then
                 context.full_hand[1].marked_to_be_destroyed_by_scissorhands = true
             end
         end

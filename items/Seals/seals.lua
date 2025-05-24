@@ -32,7 +32,7 @@ SMODS.Seal{
     sound = { sound = 'generic1', per = 1.2, vol = 0.4 },
 
     calculate = function(self, card, context)
-        if context.after and context.scoring_hand and #context.full_hand == 1 and context.cardarea == G.play then
+        if context.after and context.full_hand and #context.full_hand == 1 and context.cardarea == G.play then
             for _, _pcard in ipairs(G.hand.cards) do
                 if card:get_id() > G.hand.cards[_]:get_id() then
                     local _card = G.hand.cards[_]
