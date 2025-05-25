@@ -51,13 +51,15 @@ SMODS.Joker {
 
         if context.individual and context.cardarea == G.play then
             -- Turner
-            if G.jokers.cards[1] == card and not context.blueprint then
+            if G.jokers.cards[1] ~= card and not context.blueprint then
+                print("test")
                 card.ability.extra.evidence_non = card.ability.extra.evidence_non + card.ability.extra.a_evidence
             end
         end
 
-        if context.joker_main and G.jokers.cards[1] ~= card then
+        if context.joker_main and G.jokers.cards[1] == card then
             -- Hooch
+            print("active test")
             return {
                 mult = card.ability.extra.evidence_non * card.ability.extra.a_mult
             }

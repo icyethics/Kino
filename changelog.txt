@@ -1,4 +1,12 @@
 
+V 0.9.2b:
+Bug Fixes:
+- Fixed pool selection for some jokers
+- Clown no longer ignores joker limit
+
+Balance Changes:
+- Clown now gives +3 mult for each Clown instead of +4 mult total.
+
 V 0.9.2a:
 Bug Fixes:
 - Dr. Strangelove now gives mult

@@ -4,7 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            mult = 4
+            mult = 3
         }
     },
     rarity = 1,
@@ -37,12 +37,18 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.joker_main then
+            local num = 0
+            for i, _joker in ipairs(G.jokers.cards) do
+                if _joker.config.center == G.P_CENTERS.j_kino_clown then
+                    num = num + 1
+                end
+            end
             return {
-                mult = card.ability.extra.mult
+                mult = card.ability.extra.mult * num
             }
         end
 
-        if context.end_of_round and context.cardarea == G.jokers and (G.jokers.config.card_limit - #G.jokers.cards) > 0 then
+        if context.end_of_round and context.cardarea == G.jokers and (G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer)) > 0 then
             G.GAME.joker_buffer = G.GAME.joker_buffer + 1
             G.E_MANAGER:add_event(Event({
                 func = function() 

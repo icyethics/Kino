@@ -434,9 +434,10 @@ return {
             j_kino_clown = {
                 name = "Clown",
                 text = {
-                    "{C:mult}+#1#{} Mult",
+                    "{C:mult}+#1#{} Mult per Clown",
                     "Create another {C:attention}Clown",
-                    "at the end of a blind"
+                    "at the end of a blind",
+                    "{C:inactive}(Must have room)"
                 }
             },
             j_kino_cocktail = {

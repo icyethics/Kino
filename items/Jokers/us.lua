@@ -28,6 +28,21 @@ SMODS.Joker {
         cast = {},
     },
     pools, k_genre = {"Horror"},
+    in_pool = function(self, args)
+        -- Check for the right frequency
+        local enhancement_gate = false
+        if G.playing_cards then
+            for k, v in pairs(G.playing_cards) do
+                if SMODS.has_enhancement(v, "m_kino_horror") or
+                SMODS.has_enhancement(v, "m_kino_monster") then
+                    enhancement_gate = true
+                    break
+                end
+            end
+        end
+
+        return enhancement_gate
+    end,
 
     loc_vars = function(self, info_queue, card)
         return {
