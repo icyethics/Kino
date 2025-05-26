@@ -10,7 +10,7 @@ SMODS.Enhancement {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.x_chips,
+                card.ability.x_chips_return,
                 G.GAME.probabilities.normal,
                 card.ability.chance
             }
@@ -36,8 +36,9 @@ SMODS.Enhancement {
                     }
                 end
             else 
+                print("test")
                 return {
-                    x_chips_return = card.ability.x_chips
+                    x_chips = card.ability.x_chips_return
                 }
             end
         end

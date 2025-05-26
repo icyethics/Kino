@@ -775,6 +775,10 @@ function Card:get_chip_bonus()
     
     local ret = base_gcb(self)
 
+    if not G.jokers or not G.jokers.cards then
+        return ret
+    end
+
     local _factor = 1
 
     for i, joker in ipairs(G.jokers.cards) do

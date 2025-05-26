@@ -1,7 +1,5 @@
-print("testing this")
 local o_gamerun = Game.start_up
 function Game:start_up()
-    print("entering this func")
     o_gamerun()
 
 

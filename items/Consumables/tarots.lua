@@ -7,8 +7,13 @@ if kino_config.horror_enhancement then
         atlas = "kino_tarot",
         config = {
             mod_conv = 'm_kino_horror', 
-            max_highlighted = 1,
+            max_highlighted = 2,
         },
+        get_weight_mod = function()
+            if G.GAME.kino_genre_weight["Horror"] and G.GAME.kino_genre_weight["Horror"] > 0 then
+                return 2
+            end
+        end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_horror
             return {
@@ -31,6 +36,11 @@ if kino_config.sci_fi_enhancement then
             mod_conv = 'm_kino_sci_fi', 
             max_highlighted = 1,
         },
+        get_weight_mod = function()
+            if G.GAME.kino_genre_weight["Sci-fi"] and G.GAME.kino_genre_weight["Sci-fi"] > 0 then
+                return 2
+            end
+        end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_sci_fi
             return {
@@ -53,6 +63,11 @@ if kino_config.demonic_enhancement then
             mod_conv = 'm_kino_demonic', 
             max_highlighted = 1,
         },
+        get_weight_mod = function()
+            if G.GAME.kino_genre_weight["Horror"] and G.GAME.kino_genre_weight["Horror"] > 0 then
+                return 2
+            end
+        end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_demonic
             return {
@@ -75,6 +90,11 @@ if kino_config.romance_enhancement then
             mod_conv = 'm_kino_romance', 
             max_highlighted = 2,
         },
+        get_weight_mod = function()
+            if G.GAME.kino_genre_weight["Romance"] and G.GAME.kino_genre_weight["Romance"] > 0 then
+                return 2
+            end
+        end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_romance
             return {
@@ -117,6 +137,11 @@ if kino_config.spellcasting then
             mod_conv = 'm_kino_fantasy', 
             max_highlighted = 1,
         },
+        get_weight_mod = function()
+            if G.GAME.kino_genre_weight["Fantasy"] and G.GAME.kino_genre_weight["Fantasy"] > 0 then
+                return 2
+            end
+        end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_fantasy
             return {
@@ -158,6 +183,11 @@ SMODS.Consumable {
         mod_conv = 'm_kino_action', 
         max_highlighted = 2,
     },
+    get_weight_mod = function()
+        if G.GAME.kino_genre_weight["Crime"] and G.GAME.kino_genre_weight["Crime"] > 0 then
+            return 2
+        end
+    end,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_action
         return {

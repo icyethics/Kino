@@ -195,6 +195,13 @@ SMODS.Atlas {
     path = 'kino_cryptid.png'
 }
 
+SMODS.Atlas {
+    key = "kino_morefluff_enhancements",
+    px = 71,
+    py = 95,
+    path = 'kino_morefluff_enhancements.png'
+}
+
 local helper, load_error = SMODS.load_file("card_ui.lua")
 if load_error then
     sendDebugMessage ("The error is: "..load_error)
@@ -286,6 +293,12 @@ Game.init_game_object = function(self)
                 })
         end
     end
+
+    ret.kino_genre_weight = {}
+    for _, _genre in ipairs(kino_genres) do
+        ret.kino_genre_weight[_genre] = 0
+    end
+
     return ret
 end
 
@@ -462,6 +475,13 @@ if load_error then
 end
 
 local helper, load_error = SMODS.load_file("src/quest.lua")
+if load_error then
+    sendDebugMessage ("The error is: "..load_error)
+    else
+    helper()
+end
+
+local helper, load_error = SMODS.load_file("src/per_card_rarity.lua")
 if load_error then
     sendDebugMessage ("The error is: "..load_error)
     else

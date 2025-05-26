@@ -2481,7 +2481,74 @@ return {
                     "the first three cards",
                     "held in your hand"
                 }
+            },
+
+            -- Crossmod enhanced
+            -- Morefluff
+            m_kino_error = {
+                name = "name = 'ERROR'",
+                text = {
+                    "text = {",
+                    "[c:chips]x#1#[] Chips while",
+                    "held in hand",
+                    "held in hand",
+                    "print('testdebugerrorcard')",
+                    "}"
+                }
+            },
+            m_kino_wifi = {
+                name = "Wi-fi Card",
+                text = {
+                    "Gives chips equal",
+                    "to the rank of all",
+                    "other Wi-fi cards in",
+                    "your deck",
+                    "{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)"
+                }
+            },
+            m_kino_angelic = {
+                name = "Angelic Card",
+                text = {
+                    "This effect is TBD"
+                }
+            },
+            m_kino_finance = {
+                name = "Finance Card",
+                text = {
+                    "When this card scores",
+                    "start {C:green}INVESTING ALL YOUR {C:money}MONEY",
+                    "If you already are",
+                    "pay out your investment",
+                    "{C:inactive}(Current investment: {C:money}$#2#{C:inactive} for #1# Rounds)"
+                }
+            },
+            m_kino_factory = {
+                name = "Factory Card",
+                text = {
+                    "Create a random",
+                    "consumable based on",
+                    "the cards in hand"
+                }
+            },
+            m_kino_time = {
+                name = "Time Card",
+                text = {
+                    "Gives {C:chips}+#1#{} Chips",
+                    "decreasing every second"
+                }
+            },
+            m_kino_fraction = {
+                name = "Fraction Card",
+                text = {
+                    "Gives {C:mult}+(X/Y){} Mult",
+                    "Where X is the chips total of",
+                    "the card to the left and Y is",
+                    "this card's chip total",
+                    "{C:inactive}(Currently: {C:mult}+#2#/#1#{C:inactive} Mult)"
+                }
             }
+
+
         },
         Tarot = {
             c_kino_slasher = {
@@ -2818,8 +2885,8 @@ return {
                 name = "Spooky Deck",
                 text = {
                     "{C:attention}Horror jokers{} are",
-                    "{C:attention}50%{} stronger and",
-                    "all {C:attention}Genre Packs{} are",
+                    "{C:attention}50%{} stronger, {C:attention}3x times as common",
+                    "and all {C:attention}Genre Packs{} are",
                     "always {C:attention}Horror Packs{}",
                     "and {C:attention}Twice as Frequent"                    
                 }
@@ -2828,9 +2895,9 @@ return {
                 name = "Flirty Deck",
                 text = {
                     "{C:attention}Romance jokers{} are",
-                    "{C:attention}50%{} stronger and",
-                    "all {C:attention}Genre Packs{} are",
-                    "always {C:attention}Romance Packs{}",
+                    "{C:attention}50%{} stronger, {C:attention}3x times as common",
+                    "and all {C:attention}Genre Packs{} are",
+                    "always {C:attention}Horror Packs{}",
                     "and {C:attention}Twice as Frequent"                    
                 }
             },
@@ -2838,30 +2905,30 @@ return {
                 name = "Dangerous Deck",
                 text = {
                     "{C:attention}Action jokers{} are",
-                    "{C:attention}50%{} stronger and",
-                    "all {C:attention}Genre Packs{} are",
-                    "always {C:attention}Action Packs{}",
-                    "and {C:attention}Twice as Frequent"
+                    "{C:attention}50%{} stronger, {C:attention}3x times as common",
+                    "and all {C:attention}Genre Packs{} are",
+                    "always {C:attention}Horror Packs{}",
+                    "and {C:attention}Twice as Frequent"     
                 }
             },
             b_kino_tech = {
                 name = "Tech_Deck",
                 text = {
                     "{C:attention}Sci-fi jokers{} are",
-                    "{C:attention}50%{} stronger and",
-                    "all {C:attention}Genre Packs{} are",
-                    "always {C:attention}Sci-fi Packs{}",
-                    "and {C:attention}Twice as Frequent"
+                    "{C:attention}50%{} stronger, {C:attention}3x times as common",
+                    "and all {C:attention}Genre Packs{} are",
+                    "always {C:attention}Horror Packs{}",
+                    "and {C:attention}Twice as Frequent"     
                 }
             },
             b_kino_enchanted = {
                 name = "Enchanted Deck",
                 text = {
                     "{C:attention}Fantasy jokers{} are",
-                    "{C:attention}50%{} stronger and",
-                    "all {C:attention}Genre Packs{} are",
-                    "always {C:attention}Fantasy Packs{}",
-                    "and {C:attention}Twice as Frequent"
+                    "{C:attention}50%{} stronger, {C:attention}3x times as common",
+                    "and all {C:attention}Genre Packs{} are",
+                    "always {C:attention}Horror Packs{}",
+                    "and {C:attention}Twice as Frequent"     
                 }
             },
             b_kino_bacon = {
@@ -3547,7 +3614,7 @@ return {
                     "If this card is the only",
                     "played card then increase",
                     "the rank of every card in hand",
-                    "lower than this card by {C:attention}#1# "
+                    "lower than this card by {C:attention}1 "
                 },
             },
             kino_family_seal={
@@ -4023,11 +4090,16 @@ return {
             k_kino_star_wars_i = "Now this is pod racing", 
             k_kino_k_kino_big_daddy = "Big. Daddy.",
             k_kino_tmnt_1 = "Cowabunga!",
+               
+
 
             -- Enhancement Barks
             k_monster_turn = "ROAR!",
             k_crime_card = "Stolen",
             k_action_card = "Bang!",
+                 -- CROSS MOD BARKS
+            k_kino_finance_investing = "Investing!",
+            k_kino_finance_investing_2 = "Time for Payouts!",
 
             -- Confection Barks
             k_eaten = "Eaten",

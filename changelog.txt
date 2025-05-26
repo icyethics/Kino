@@ -1,8 +1,17 @@
 
+V 0.9.3:
+Bug Fixes:
+- Horror cards properly give xchips when held in hand
+
+Balance Changes:
+- Slasher creates 2 horror cards instead of 1
+
 V 0.9.2b:
 Bug Fixes:
 - Fixed pool selection for some jokers
 - Clown no longer ignores joker limit
+- Genre packs now account for rarity (legendaries will no longer show up in their corresponding genre packs without meeting any criteria)
+
 
 Balance Changes:
 - Clown now gives +3 mult for each Clown instead of +4 mult total.

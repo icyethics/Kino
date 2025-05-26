@@ -40,13 +40,11 @@ SMODS.Joker {
             local _hash = {}
             local _count = 0
             for _, _card in ipairs(G.hand.cards) do
-                print("test")
                 local _id = _card.overrides_base_rank and 0 or _card:get_id()
 
                 if not _hash[_id] then
                     _hash[_id] = true
                     _count = _count + 1
-                    print(_count)
                 end
             end
 

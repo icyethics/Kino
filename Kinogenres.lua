@@ -31,24 +31,38 @@ kino_genres = {
     "Western"
 }
 
+for _, _key in ipairs(Kino.jokers) do
+    if SMODS.Centers[_key].k_genre then
+        SMODS.Centers[_key].pools = {}
+        for __, _genre in ipairs(SMODS.Centers[_key].k_genre) do
+            SMODS.Centers[_key].pools[_genre] = true
+        end
+    end
+end
+
 -- Creates an object for each genre
 for i, genre in ipairs(kino_genres) do
     local genre_config = {
         key = genre,
         default = "j_jimbo",
-        cards = {},
-        inject = function(self)
-            SMODS.ObjectType.inject(self)
-            for i, v in ipairs(Kino.jokers) do
-                if SMODS.Centers[v].k_genre then
-                    for j, genre_in_list in ipairs(SMODS.Centers[v].k_genre) do
-                        if genre_in_list == genre then
-                            self.cards[v] = true
-                        end
-                    end
-                end    
-            end
-        end
+        -- cards = {},
+        rarities = {
+            { key = "Common" },
+            { key = "Uncommon" },
+            { key = "Rare" },
+        },
+        -- inject = function(self)
+        --     SMODS.ObjectType.inject(self)
+        --     for i, v in ipairs(Kino.jokers) do
+        --         if SMODS.Centers[v].k_genre then
+        --             for j, genre_in_list in ipairs(SMODS.Centers[v].k_genre) do
+        --                 if genre_in_list == genre then
+        --                     self.cards[v] = true
+        --                 end
+        --             end
+        --         end    
+        --     end
+        -- end
     }
 
     SMODS["ObjectType"](genre_config)
