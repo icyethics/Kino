@@ -1,7 +1,9 @@
 
-V 0.9.3:
+V 0.9.2c:
 Bug Fixes:
 - Horror cards properly give xchips when held in hand
+- Sports Seal no longer crashes the game
+- Turner and Hooch trigger properly
 
 Balance Changes:
 - Slasher creates 2 horror cards instead of 1
