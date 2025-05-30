@@ -2509,7 +2509,12 @@ return {
             m_kino_angelic = {
                 name = "Angelic Card",
                 text = {
-                    "This effect is TBD"
+                    "{C:chips}+#1#{} Chips for each",
+                    "card held in hand",
+                    "{C:green}#1# in #2#{} chance",
+                    "to create an {C:attention}Angelic{} copy",
+                    "of a random card from your full deck",
+                    "to your hand"
                 }
             },
             m_kino_finance = {
@@ -2525,9 +2530,11 @@ return {
             m_kino_factory = {
                 name = "Factory Card",
                 text = {
-                    "Create a random",
-                    "consumable based on",
-                    "the cards in hand"
+                    "Gathers materials from scoring cards",
+                    "and creates a consumable when",
+                    "10 of any materials are gathered",
+                    "{C:inactive}(Does not need room)",
+                    "(H: #1#, D: #2#, C: #3#, S: #4#, S: #5#, O: #6#)"
                 }
             },
             m_kino_time = {
@@ -2879,6 +2886,80 @@ return {
                     "next hand"
                 }
             }
+        },
+        Rotarot = {
+           c_kino_rot_slasher = {
+                name = "The Slasher!",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s"
+                }   
+            },
+            c_kino_rot_droid = {
+                name = "The Droid!",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s"
+                }   
+            },            
+            c_kino_rot_demon = {
+                name = "The Demon!",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s"
+                }   
+            },
+            c_kino_rot_meetcute = {
+                name = "The Meetcute!",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s"
+                }   
+            },
+            c_kino_rot_witch = {
+                name = "The Witch!",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s"
+                }   
+            },
+            c_kino_rot_gangster = {
+                name = "The Gangster!",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s"
+                }   
+            },
+            c_kino_rot_soldier = {
+                name = "The Soldier!",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s"
+                }   
+            },
+            c_kino_rot_producer = {
+                name = "The Producer!",
+                text = {
+                    "Set your money equal",
+                    "to the Box Office of",
+                    "a selected movie joker",
+                    "divided by {C:money}1 Million{}"
+                }   
+            },
+            c_kino_rot_chef = {
+                name = "The chef!",
+                text = {
+                    "Strengthen all {C:mult}Confections{}"
+                }   
+            },
+
         },
         Back = {
             b_kino_spooky = {
@@ -4100,6 +4181,7 @@ return {
                  -- CROSS MOD BARKS
             k_kino_finance_investing = "Investing!",
             k_kino_finance_investing_2 = "Time for Payouts!",
+            k_kino_angelic_create = "Be Blessed, Child",
 
             -- Confection Barks
             k_eaten = "Eaten",

@@ -19,6 +19,4 @@ function Game:start_up()
                 })
         end
     end
-
-    print(#self.shared_segdisp[1])
 end

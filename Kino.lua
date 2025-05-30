@@ -202,6 +202,13 @@ SMODS.Atlas {
     path = 'kino_morefluff_enhancements.png'
 }
 
+SMODS.Atlas {
+    key = "kino_mf_rotarots",
+    px = 107,
+    py = 107,
+    path = 'kino_rotarot.png'
+}
+
 local helper, load_error = SMODS.load_file("card_ui.lua")
 if load_error then
     sendDebugMessage ("The error is: "..load_error)
@@ -278,6 +285,14 @@ Game.init_game_object = function(self)
     -- -- Set up visual information 
 
     -- Setting up the Sci-fi display sprites
+    self.shared_enhancement_sprites = {
+        angelic_sprite = Sprite(0, 0, self.CARD_W, self.CARD_H,
+            G.ASSET_ATLAS["kino_morefluff_enhancements"], {
+                x = 0,
+                y = 5
+            })
+    }
+
     self.shared_segdisp = {
         {},
         {},

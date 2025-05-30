@@ -25,8 +25,16 @@ function Cryptid.misprintize(card, override, force_reset, stack)
     else
         o_misprinterize(card, override, force_reset, stack)
     end
+end
 
-    
+local o_csa = Card.set_ability
+function Card:set_ability(center, y, z)
+    if type(center) == 'string' then
+        assert(G.P_CENTERS[center], ("Could not find center \"%s\""):format(center))
+        center = G.P_CENTERS[center]
+    end
+
+    o_csa(self, center, y, z)
 end
 
 
