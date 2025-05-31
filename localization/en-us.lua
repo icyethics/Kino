@@ -2967,7 +2967,7 @@ return {
                 name = "Spooky Deck",
                 text = {
                     "{C:attention}Horror jokers{} are",
-                    "{C:attention}50%{} stronger and",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "all {C:attention}Genre Packs{} are",
                     "always {C:attention}Horror Packs{}",
                     "and {C:attention}Twice as Frequent"                    
@@ -2977,7 +2977,7 @@ return {
                 name = "Flirty Deck",
                 text = {
                     "{C:attention}Romance jokers{} are",
-                    "{C:attention}50%{} stronger and",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "all {C:attention}Genre Packs{} are",
                     "always {C:attention}Romance Packs{}",
                     "and {C:attention}Twice as Frequent"                    
@@ -2987,7 +2987,7 @@ return {
                 name = "Dangerous Deck",
                 text = {
                     "{C:attention}Action jokers{} are",
-                    "{C:attention}50%{} stronger and",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "all {C:attention}Genre Packs{} are",
                     "always {C:attention}Action Packs{}",
                     "and {C:attention}Twice as Frequent"
@@ -2997,7 +2997,7 @@ return {
                 name = "Tech_Deck",
                 text = {
                     "{C:attention}Sci-fi jokers{} are",
-                    "{C:attention}50%{} stronger and",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "all {C:attention}Genre Packs{} are",
                     "always {C:attention}Sci-fi Packs{}",
                     "and {C:attention}Twice as Frequent"
@@ -3007,7 +3007,7 @@ return {
                 name = "Enchanted Deck",
                 text = {
                     "{C:attention}Fantasy jokers{} are",
-                    "{C:attention}50%{} stronger and",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "all {C:attention}Genre Packs{} are",
                     "always {C:attention}Fantasy Packs{}",
                     "and {C:attention}Twice as Frequent"
