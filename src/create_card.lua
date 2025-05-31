@@ -1,7 +1,7 @@
 
 local _occ = create_card
 function create_card(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
-    
+    print("hook 1")
     if key_append == 'sho' or key_append == 'buf' then
         if G.GAME.current_round.joker_queue[_type] and #G.GAME.current_round.joker_queue[_type] > 0 then
             forced_key = G.GAME.current_round.joker_queue[_type][1].forced_key

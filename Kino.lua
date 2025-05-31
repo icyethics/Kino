@@ -209,6 +209,13 @@ SMODS.Atlas {
     path = 'kino_rotarot.png'
 }
 
+SMODS.Atlas {
+    key = "kino_mf_time",
+    px = 71,
+    py = 71,
+    path = 'kino_timecard_special_asset.png'
+}
+
 local helper, load_error = SMODS.load_file("card_ui.lua")
 if load_error then
     sendDebugMessage ("The error is: "..load_error)
@@ -290,7 +297,12 @@ Game.init_game_object = function(self)
             G.ASSET_ATLAS["kino_morefluff_enhancements"], {
                 x = 0,
                 y = 5
-            })
+            }),
+        time_sprite = Sprite(0, 0, self.CARD_W, self.CARD_W,
+            G.ASSET_ATLAS["kino_morefluff_enhancements"], {
+                x = 1,
+                y = 5
+            }),
     }
 
     self.shared_segdisp = {

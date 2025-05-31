@@ -2532,16 +2532,17 @@ return {
                 text = {
                     "Gathers materials from scoring cards",
                     "and creates a consumable when",
-                    "10 of any materials are gathered",
+                    "#1# of any materials are gathered",
                     "{C:inactive}(Does not need room)",
-                    "(H: #1#, D: #2#, C: #3#, S: #4#, S: #5#, O: #6#)"
                 }
             },
             m_kino_time = {
                 name = "Time Card",
                 text = {
                     "Gives {C:chips}+#1#{} Chips",
-                    "decreasing every second"
+                    "going down by {C:chips}+#2#{} Chips",
+                    "every {C:attention}5 seconds since it was drawn",
+                    "{C:inactive}(Currently: {C:chips}+#3#{C:inactive} Chips)"
                 }
             },
             m_kino_fraction = {
@@ -4319,7 +4320,6 @@ return {
 
         },
         v_dictionary = {
-
             
             -- Payout Info
             kino_sci_fi_payout = "Sci-Fi Cards Upgraded ($#1# each)",

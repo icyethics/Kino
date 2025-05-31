@@ -243,7 +243,7 @@ SMODS.Enhancement {
             Suitless = 0,
             Overflow = 0,
         },
-        threshold = 3,
+        threshold = 5,
         reward_per_suit = {
             Hearts = "Tarot",
             Spades = "Rotarot",
@@ -253,15 +253,46 @@ SMODS.Enhancement {
         }
     },
     loc_vars = function(self, info_queue, card)
+        -- 
+        local _ui = {}
+
+        for _suit, _value in pairs(card.ability.factory_stored_suits) do
+            if _value > 0 and G.C.SUITS[_suit] then
+                local _suitstring = "Overflow"
+                if G.C.SUITS[_suit] then
+                    _suitstring = localize(_suit, "suits_plural")
+                elseif _suit == "Suitless" then
+                    _suitstring = "Suitless"
+                end
+
+                local _text = _suitstring .. ": " .. _value .. ""
+
+                _ui[#_ui + 1] = {
+                    n = G.UIT.R,
+                    config = {   
+                        r = 0.1,
+                        align = 'lm'
+                    },
+                    nodes = {
+                        {
+                            n = G.UIT.T,
+                            config = {
+                                text = _text,
+                                colour = G.C.UI.TEXT_DARK, 
+                                scale = 0.25, 
+                                shadow = false
+                            }
+                        }
+                    }
+                }
+            end
+        end
+
         return {
             vars = {
-                card.ability.factory_stored_suits.Hearts,
-                card.ability.factory_stored_suits.Diamonds,
-                card.ability.factory_stored_suits.Clubs,
-                card.ability.factory_stored_suits.Spades,
-                card.ability.factory_stored_suits.Suitless,
-                card.ability.factory_stored_suits.Overflow,
-            }
+                card.ability.threshold
+            },
+            main_end = _ui 
         }
     end,
     calculate = function(self, card, context, effect)
@@ -312,17 +343,65 @@ SMODS.Enhancement {
     atlas = "kino_morefluff_enhancements",
     pos = { x = 0, y = 1},
     config = {
-
+        base_chips = 120,
+        decay_rate = 10,
+        current_chips = 0,
+        angle = 0,
+        started_decay = false,
+        tick = 0
     },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-
+                card.ability.base_chips,
+                card.ability.decay_rate,
+                math.max(card.ability.current_chips, 0)
             }
         }
     end,
     calculate = function(self, card, context, effect)
+        -- When drawn to hand, start counting down
+        if context.hand_drawn then
+            for i, _pcard in ipairs(context.hand_drawn) do
+                if _pcard == card then
+                    card.ability.started_decay = true
+                    card.ability.current_chips = 60
+                    local event
+                    event = Event {
+                        blockable = false,
+                        blocking = false,
+                        pause_force = true,
+                        no_delete = true,
+                        trigger = "after",
+                        delay = 5/3,
+                        timer = "UPTIME",
+                        func = function()
+                            card.ability.tick = card.ability.tick + 1
+                            if card.ability.tick == 3 then
+                                card.ability.tick = 0
+                                card.ability.current_chips = card.ability.current_chips - card.ability.decay_rate
+                            end
+                            
+                            card.ability.angle = card.ability.angle + 10
 
+                            if card.ability.current_chips > 0 then
+                                event.start_timer = false
+                            else
+                                return true
+                            end
+                        end
+                    }
+
+                    G.E_MANAGER:add_event(event)
+                end
+            end
+        end
+
+        if context.joker_main then
+            return {
+                chips = math.max(card.ability.current_chips, 0)
+            }
+        end
     end,
 }
 
@@ -404,7 +483,29 @@ SMODS.DrawStep {
             if G.shared_enhancement_sprites and G.shared_enhancement_sprites.angelic_sprite then
                 local _updown = 0.25 - ((5) * (0.07 + 0.02*math.sin(1.8*G.TIMERS.REAL) + 0.00*math.sin((G.TIMERS.REAL - math.floor(G.TIMERS.REAL))*math.pi*14)*(1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL)))^3))
                 G.shared_enhancement_sprites.angelic_sprite.role.draw_major = card 
-                G.shared_enhancement_sprites.angelic_sprite :draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, nil, _updown, nil, 0.6)
+                G.shared_enhancement_sprites.angelic_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, nil, _updown, nil, 0.6)
+            end
+        end
+    end,
+    conditions = {vortex = false, facing = 'front'}
+}
+
+SMODS.DrawStep {
+    key = "kino_morefluff_time",
+    order = 30,
+    func = function(card, layer)
+        if card and SMODS.has_enhancement(card, 'm_kino_time') then
+            if G.shared_enhancement_sprites and G.shared_enhancement_sprites.time_sprite then
+                card.kino_time_card_rotation = card.kino_time_card_rotation or 0
+                local _currentrotation_target = (card.ability.angle / 360) * 2*math.pi
+                local _difference = _currentrotation_target - card.kino_time_card_rotation
+                card.kino_time_card_rotation = card.kino_time_card_rotation + (_difference * 0.02*math.sin(0.1*G.TIMERS.REAL)) 
+                
+                -- print(_currentrotation)
+
+                G.shared_enhancement_sprites.time_sprite.role.draw_major = card 
+                G.shared_enhancement_sprites.time_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, _currentrotation_target, nil, nil, nil, 0.6)
+                -- (_shader, _shadow_height, _send, _no_tilt, other_obj, ms, mr, mx, my, custom_shader, tilt_shadow)
             end
         end
     end,

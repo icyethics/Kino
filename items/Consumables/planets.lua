@@ -22,6 +22,9 @@ SMODS.Consumable {
             }
         }
     end,
+    get_weight_mod = function()
+        return 0.5
+    end,
     use = function(self, card, area, copier)
         -- Select random planet
         local _hand = get_random_hand()
@@ -54,6 +57,9 @@ SMODS.Consumable {
                 card.ability.extra.chips,
             }
         }
+    end,
+    get_weight_mod = function()
+        return 0.3
     end,
     use = function(self, card, area, copier)
 
@@ -98,6 +104,9 @@ SMODS.Consumable {
             }
         }
     end,
+    get_weight_mod = function()
+        return 0.5
+    end,
     use = function(self, card, area, copier)
 
         local _hands = get_least_played_hand()
@@ -141,6 +150,9 @@ SMODS.Consumable {
                 G.GAME.current_round.kryptons_used
             }
         }
+    end,
+    get_weight_mod = function()
+        return 0.1
     end,
     use = function(self, card, area, copier)
 
@@ -192,6 +204,9 @@ SMODS.Consumable {
             x_mult = 0.25
         }
     },
+    get_weight_mod = function()
+        return 0.25
+    end,
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -229,6 +244,9 @@ SMODS.Consumable {
             debuff_num = 2
         }
     },
+    get_weight_mod = function()
+        return 0.8
+    end,
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -286,7 +304,7 @@ SMODS.Consumable {
         local _eligible_targets = {}
 
         for _, _joker in ipairs(G.jokers.cards) do
-            if _joker:can_calculate() then
+            if not _joker.ability.eternal then
                 _eligible_targets[#_eligible_targets + 1] = _joker
             end
         end
@@ -299,6 +317,9 @@ SMODS.Consumable {
             
         }
     },
+    get_weight_mod = function()
+        return 0.3
+    end,
     loc_vars = function(self, info_queue, card)
         return {
             vars = {

@@ -30,6 +30,7 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
             _available_rarities[_key] = _rarity
         end
     end
+
     -- Collect the total weights of all rarities
     local _rarity_weight = 0
     for _,v in pairs(_available_rarities) do
@@ -148,6 +149,12 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
                 weight = 0
             end
 
+            if _cardobject.legendary_conditions then
+                local _garb, rarity_test = _cardobject:legendary_conditions(self, _cardobject)
+                rarity_test = tostring(6 - rarity_test)
+                weight = _available_rarities[rarity_test] and _available_rarities[rarity_test].weight or 0
+            end
+
             weight = Kino.modify_weight(_cardobject, weight)
 
             _total_weight = _total_weight + weight
@@ -163,7 +170,7 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
         _total_weight = 1
         if SMODS.ObjectTypes[_type] and SMODS.ObjectTypes[_type].default and G.P_CENTERS[SMODS.ObjectTypes[_type].default] then
             _pool[#_pool+1] = { key = default_key or SMODS.ObjectTypes[_type].default, weight = 1 }
-        elseif _type == 'Tarot' or _type == 'Tarot_Planet' then _pool[#_pool + 1] = { key = default_key or "c_strength", weight = 1 }
+        elseif _type == 'Tarot' or _type == 'Tarot_Planet' or _type == "Consumeables" then _pool[#_pool + 1] = { key = default_key or "c_strength", weight = 1 }
         elseif _type == 'Planet' then _pool[#_pool + 1] = { key = default_key or "c_pluto", weight = 1 }
         elseif _type == 'Spectral' then _pool[#_pool + 1] = { key = default_key or "c_incantation", weight = 1 }
         elseif _type == 'Joker' then _pool[#_pool + 1] = {key = default_key or "j_joker", weight = 1}
@@ -188,7 +195,7 @@ Kino.modify_weight = function(card, starting_weight)
 
 
     -- Adjust for Card
-    local weight_mod_from_card = card.get_weight_mod and card:get_weight_mod() or 0
+    local weight_mod_from_card = card.get_weight_mod and card:get_weight_mod() or 1
 
     -- Adjust for genre
     local weight_mod_from_genre = 0
@@ -202,7 +209,7 @@ Kino.modify_weight = function(card, starting_weight)
     -- Adjust for other features
     local weight_from_other_adjustments = 0
     -- Calc final weight
-    final_weight = final_weight * (1 + weight_mod_from_card + weight_mod_from_genre + weight_from_other_adjustments)
+    final_weight = final_weight * (weight_mod_from_card + weight_mod_from_genre + weight_from_other_adjustments)
     return final_weight
 end
 
@@ -221,6 +228,7 @@ end
 
 local o_create_card = create_card
 function create_card(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
+    print("hook 2")
     local key = nil
     if not forced_key then
         local _rarity = (legendary and 4) or

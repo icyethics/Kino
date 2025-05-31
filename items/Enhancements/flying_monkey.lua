@@ -33,8 +33,8 @@ SMODS.Enhancement {
             
         end
 
-        if context.destroying_card and context.cardarea == G.play then
-            if card.ability.extra.turns >= 3 and context.destroying_card == card then
+        if context.destroy_card and context.cardarea == G.play then
+            if card.ability.extra.turns >= 3 and context.destroy_card == card then
                 return {
                     remove = true
                 } 

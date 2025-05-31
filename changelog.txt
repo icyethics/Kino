@@ -1,4 +1,32 @@
 
+V 0.9.3:
+Mechanical Changes:
+- Cards now have the chance to have individual spawn chances
+- Every genre deck is reworked to incorporate these spawn chances
+- The Kino planets each have had their spawn rates adjusted
+
+Bug Fixes:
+- Abyss properly destroys cards
+- Edward Scissorhands properly destroys cards
+
+Mod Compatibility:
+- Removed Cryptid compatibility code and implemented changes into Cryptid
+
+Mod Crossover Content:
+- Morefluff:
+- 7 New enhancements
+-- Error Card
+-- Wifi Card
+-- Angelic Card
+-- Finance Card
+-- Factory Card
+-- Time Card
+-- Fraction Card
+
+- 9 new 45 Degree Rotated Tarots:
+- One per new enhancement and the Chef! and the Producer!
+
+
 V 0.9.2c:
 Bug Fixes:
 - Horror cards properly give xchips when held in hand

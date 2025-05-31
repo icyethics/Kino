@@ -50,8 +50,8 @@ Kino.confection_trigger = function(card)
     SMODS.calculate_context({post_confection_used = true, other_confection = card, times_used = card.ability.extra.times_used})
 end
 
-Kino.powerboost_confection = function(card)
-    if G.GAME.used_vouchers.v_kino_heavenly_treats then
+Kino.powerboost_confection = function(card, forced)
+    if G.GAME.used_vouchers.v_kino_heavenly_treats or forced then
 
         for _key, _value in pairs(card.ability.extra) do
             if type(_value) == "number" and _key ~= 'times_used' then

@@ -43,7 +43,7 @@ SMODS.Joker {
             end
         end
 
-        if context.destroying_card and context.destroying_card.marked_to_be_destroyed_by_scissorhands then
+        if context.destroying_card and context.destroy_card.marked_to_be_destroyed_by_scissorhands then
             local _suit = string.sub(context.destroying_card.base.suit, 1, 1).."_"
             local _rank = math.floor(context.destroying_card.base.id / 2, 2)
             local _uneven = false
@@ -77,7 +77,10 @@ SMODS.Joker {
                         G.hand:sort()
                         return true
                     end}))
+
             end
+
+            return true
         end
     end
 }

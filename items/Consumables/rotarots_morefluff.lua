@@ -281,7 +281,8 @@ if next(SMODS.find_mod("MoreFluff")) then
         discovered = true,
         display_size = { w = 107, h = 107 },
         can_use = function(self, card)
-            return #G.hand.highlighted >= 1 and #G.hand.highlighted <= card.ability.max_highlighted
+            return #G.jokers.highlighted == 1
+                and G.jokers.highlighted[1].config.center.kino_joker
         end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_finance
@@ -290,6 +291,22 @@ if next(SMODS.find_mod("MoreFluff")) then
             card and card.ability.max_highlighted or self.config.max_highlighted,
             localize{type = 'name_text', set = 'Enhanced', key = self.config.mod_conv}
             } }
+        end,
+        get_weight_mod = function()
+            return 0.1
+        end,
+        use = function(self, card)
+            local _movie_info = G.jokers.highlighted[1].config.center.kino_joker
+
+            -- calc profit
+            if _movie_info.budget <= 100 then
+                print(G.jokers.highlighted[1].config.center.key .. " has no registered budget and should be fixed")
+                return
+            end
+
+
+            local reward = math.floor(_movie_info.box_office / 1000000)
+            ease_dollars(reward - G.GAME.dollars)
         end
     })
 
@@ -309,7 +326,7 @@ if next(SMODS.find_mod("MoreFluff")) then
         discovered = true,
         display_size = { w = 107, h = 107 },
         can_use = function(self, card)
-            return #G.hand.highlighted >= 1 and #G.hand.highlighted <= card.ability.max_highlighted
+            return true
         end,
         loc_vars = function(self, info_queue, card)
 
@@ -317,6 +334,19 @@ if next(SMODS.find_mod("MoreFluff")) then
             card and card.ability.max_highlighted or self.config.max_highlighted,
             localize{type = 'name_text', set = 'Enhanced', key = self.config.mod_conv}
             } }
+        end,
+        use = function(self, card, area, copier)
+            for i = 1, #G.consumeables.cards do
+                if G.consumeables.cards[i].ability.set == "confection" then
+                    Kino.powerboost_confection(G.consumeables.cards[i], true)
+                end
+            end
+
+            for i = 1, #Kino.snackbag.cards do
+                if Kino.snackbag.cards[i].ability.set == "confection" then
+                    Kino.powerboost_confection(Kino.snackbag.cards[i], true)
+                end
+            end
         end
     })
 end
