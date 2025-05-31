@@ -2511,7 +2511,7 @@ return {
                 text = {
                     "{C:chips}+#1#{} Chips for each",
                     "card held in hand",
-                    "{C:green}#1# in #2#{} chance",
+                    "{C:green}#2# in #3#{} chance",
                     "to create an {C:attention}Angelic{} copy",
                     "of a random card from your full deck",
                     "to your hand"
