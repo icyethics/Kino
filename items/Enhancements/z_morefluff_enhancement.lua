@@ -187,12 +187,9 @@ SMODS.Enhancement {
                 local _max = 1.5
 
                 local _total_rounds = G.GAME.round - card.ability.started_investing
-                print(_totalpercentage)
                 for i = 1, _total_rounds do
                     local value = pseudorandom("m_kino_finance_interest", _min, _max)
-                    print(_totalpercentage .. " x " .. value)
                     _totalpercentage = _totalpercentage * value
-                    print(_totalpercentage)
                 end
 
                 local _final_result = card.ability.money_invested * _totalpercentage

@@ -1,4 +1,4 @@
-# Balatro Goes Kino V 0.9.2c:
+# Balatro Goes Kino V0.9.3:
 
 By Ice/IcyEthics
 
@@ -16,6 +16,11 @@ Balatro Goes Kino is a mod made to turn a game for poker nerds into a game for p
 - **New Consumable: Confections!** Popcorn, soda and cookies. Items to nourish your run and give them a little boost.
 - **New Mechanics:** Earn extra joker slots by playing movies of the same genre. Start slinging spells. Even alien abduction!
 
+### Mod-Crossover Content
+Balatro Goes Kino adds content that's exclusively available when playing with certain mods. These are:
+- **CardSleeves**: https://github.com/larswijn/CardSleeves
+- **Cryptid**: https://github.com/SpectralPack/Cryptid
+- **MoreFluff**: https://github.com/notmario/MoreFluff
 
 ### FAQ:
 *I'm here to look at the code and see if I can learn from it for my own mod. What can I take?*

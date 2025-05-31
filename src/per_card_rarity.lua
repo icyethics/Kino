@@ -228,7 +228,6 @@ end
 
 local o_create_card = create_card
 function create_card(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
-    print("hook 2")
     local key = nil
     if not forced_key then
         local _rarity = (legendary and 4) or
