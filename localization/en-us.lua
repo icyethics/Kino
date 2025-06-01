@@ -4054,6 +4054,7 @@ return {
     misc = {
         dictionary = {
             ---- UI elements ----
+            b_confection_rate = "Confection Rate",
 
             -- Mod Config --
             kino_settings_header_enhancements = "Card Enhancements",

@@ -14,7 +14,8 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
     local _available_rarities = {}
     local _raritycount = 0
     if _rarity then
-        _available_rarities[_rarity] = {key = _rarity, weight = 1}
+        if _rarity == 0 then _rarity = 1 end
+        _available_rarities[tostring(_rarity)] = {key = _rarity, weight = 1}
         _raritycount = 1
     else
         local _temp_rarities = (starting_pool and SMODS.ObjectTypes[_type]) and copy_table(SMODS.ObjectTypes[starting_pool].rarities) or {}

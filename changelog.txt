@@ -1,3 +1,6 @@
+V 0.9.3b:
+Bugfix:
+- Fixed a minor issue with the new rarity system
 
 V 0.9.3a:
 Bugfix:

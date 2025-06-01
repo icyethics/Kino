@@ -798,64 +798,64 @@ times = 1
 #### CROSSMOD PATCHES (FIND ALTERNATIVES) #####
 
 ## Cryptid ##
-[[patches]]
-[patches.pattern]
-target = '''=[SMODS Cryptid "lib/modifiers.lua"]'''
-pattern = '''
--- tarot/planet acclimator sliders
-'''
-position = "after"
-payload = '''
+# [[patches]]
+# [patches.pattern]
+# target = '''=[SMODS Cryptid "lib/modifiers.lua"]'''
+# pattern = '''
+# -- tarot/planet acclimator sliders
+# '''
+# position = "after"
+# payload = '''
 
-(next(SMODS.find_card("v_kino_confection_acclimator")) and Cryptid) and {
-    n = G.UIT.R,
-    config = { align = "cm" },
-    nodes = {
-        create_slider({
-            label = localize("b_confection_rate"),
-            label_scale = 0.4,
-            text_scale = 0.3,
-            w = 4,
-            h = 0.4,
-            ref_table = G.GAME.cry_percrate,
-            ref_value = "confection",
-            colour = G.C.SECONDARY_SET.Mult,
-            min = 0,
-            max = 100,
-        }),
-    },
-} or nil,
+# (next(SMODS.find_card("v_kino_confection_acclimator")) and Cryptid) and {
+#     n = G.UIT.R,
+#     config = { align = "cm" },
+#     nodes = {
+#         create_slider({
+#             label = localize("b_confection_rate"),
+#             label_scale = 0.4,
+#             text_scale = 0.3,
+#             w = 4,
+#             h = 0.4,
+#             ref_table = G.GAME.cry_percrate,
+#             ref_value = "confection",
+#             colour = G.C.SECONDARY_SET.Mult,
+#             min = 0,
+#             max = 100,
+#         }),
+#     },
+# } or nil,
 
 
 
-'''
-match_indent = true
-times = 1
+# '''
+# match_indent = true
+# times = 1
 
-## Direct parallel to the cryptid patches used for the acclimator vouchers ##
+# ## Direct parallel to the cryptid patches used for the acclimator vouchers ##
 
-# initialise the other helpful variables
-# tarot/planet percrates appear here too because why not
-[[patches]]
-[patches.pattern]
-target = "game.lua"
-pattern = '''cry_percrate = {tarot = 100, planet = 100},'''
-position = "at"
-payload = '''
-cry_percrate = {tarot = 100, planet = 100, confection = 100},
-'''
-match_indent = true
+# # initialise the other helpful variables
+# # tarot/planet percrates appear here too because why not
+# [[patches]]
+# [patches.pattern]
+# target = "game.lua"
+# pattern = '''cry_percrate = {tarot = 100, planet = 100},'''
+# position = "at"
+# payload = '''
+# cry_percrate = {tarot = 100, planet = 100, confection = 100},
+# '''
+# match_indent = true
 
-# control the planet/tarot rates
-[[patches]]
-[patches.pattern]
-target = "functions/UI_definitions.lua"
-pattern = '''
-            table.insert(rates, { type = v, val = G.GAME[v:lower()..'_rate'] })
-'''
-position = "at"
-payload = '''
-local num = G.GAME.cry_percrate and G.GAME.cry_percrate[v:lower()] or 100
-table.insert(rates, { type = v, val = G.GAME[v:lower()..'_rate'] * ((num or 100) / 100) })
-'''
-match_indent = true
+# # control the planet/tarot rates
+# [[patches]]
+# [patches.pattern]
+# target = "functions/UI_definitions.lua"
+# pattern = '''
+#             table.insert(rates, { type = v, val = G.GAME[v:lower()..'_rate'] })
+# '''
+# position = "at"
+# payload = '''
+# local num = G.GAME.cry_percrate and G.GAME.cry_percrate[v:lower()] or 100
+# table.insert(rates, { type = v, val = G.GAME[v:lower()..'_rate'] * ((num or 100) / 100) })
+# '''
+# match_indent = true

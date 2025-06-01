@@ -40,7 +40,11 @@ local enh_table = {
     m_kino_mystery = {"mystery"},
     m_kino_fantasy = {"fantasy", "spellcasting"},
 }
-Cryptid.load_enhancement_aliases(enh_table)
+
+if Cryptid.load_enhancement_aliases then
+    Cryptid.load_enhancement_aliases(enh_table)
+end
+
 
 -- IF MOREFLUFF ADD this
 -- Morefluff crossmod enhancements
@@ -53,6 +57,11 @@ local more_fluff_add = {
     m_kino_time = {"time", "clock"},
     m_kino_fraction = {"fraction"}
 }
+if Cryptid.load_enhancement_aliases and next(SMODS.find_mod("MoreFluff")) then
+    Cryptid.load_enhancement_aliases(more_fluff_add)
+end
 
-
+if Cryptid.setup_voucher_rate_adjuster then
+    Cryptid.setup_voucher_rate_adjuster("v_kino_confection_acclimator", "b_confection_rate", "confection", G.C.SECONDARY_SET.Mult)
+end
 end
