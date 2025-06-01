@@ -12,8 +12,10 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
     local _pool_size = 0
     local _total_weight = 0
     local _available_rarities = {}
+    local _raritycount = 0
     if _rarity then
         _available_rarities[_rarity] = {key = _rarity, weight = 1}
+        _raritycount = 1
     else
         local _temp_rarities = (starting_pool and SMODS.ObjectTypes[_type]) and copy_table(SMODS.ObjectTypes[starting_pool].rarities) or {}
         for _, _rarity in ipairs(_temp_rarities) do
@@ -28,8 +30,10 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
             end
 
             _available_rarities[_key] = _rarity
+            _raritycount = _raritycount + 1
         end
     end
+
 
     -- Collect the total weights of all rarities
     local _rarity_weight = 0
@@ -127,25 +131,14 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
         if _cardobject.no_pool_flag and G.GAME.pool_flags[_cardobject.no_pool_flag] then add = nil end
         if _cardobject.yes_pool_flag and not G.GAME.pool_flags[_cardobject.yes_pool_flag] then add = nil end
 
-        -- check for overrides
-        -- if _cardobject.in_pool and type(_cardobject.in_pool) == 'function' then
-        --     add = in_pool and (add or pool_opts.override_base_checks)
-        -- end
-
         -- set weight and add to pool if not banned
         if add and not G.GAME.banned_keys[_cardobject.key] then
 
+            
             local weight = _cardobject.rarity and _available_rarities[_cardobject.rarity] and _available_rarities[_cardobject.rarity].weight or 1
             local passtrue = true
 
-            -- for _, _raritytable in pairs(_available_rarities) do
-            --     if _raritytable.key == _cardobject.rarity then
-            --         passtrue = false
-            --     end
-            -- end
-
-            -- if (_cardobject.rarity and not _available_rarities[_cardobject.rarity]) or passtrue == false then
-            if (_cardobject.rarity and not _available_rarities[tostring(_cardobject.rarity)]) then
+            if _raritycount > 0 and (_cardobject.rarity and not _available_rarities[tostring(_cardobject.rarity)]) then
                 weight = 0
             end
 
@@ -160,7 +153,6 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
             _total_weight = _total_weight + weight
 
             _pool[#_pool + 1] = {key = _cardobject.key, weight = weight}
-            
             _pool_size = _pool_size + 1
         end
     end
