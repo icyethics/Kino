@@ -27,4 +27,32 @@ function Cryptid.misprintize(card, override, force_reset, stack)
     end
 end
 
+
+local enh_table = {
+    m_kino_action = {"action"},
+    m_kino_crime = {"crime"},
+    m_kino_sci_fi = {"sci-fi", "scifi", "sci fi", "sci_fi"},
+    m_kino_demonic = {"demonic"},
+    m_kino_romance = {"romance"},
+	m_kino_horror = { "horror", "horor" },
+    m_kino_monster = {"monster"},
+    m_kino_flying_monkey = {"flying monkey", "monkey", "flying ape"},
+    m_kino_mystery = {"mystery"},
+    m_kino_fantasy = {"fantasy", "spellcasting"},
+}
+Cryptid.load_enhancement_aliases(enh_table)
+
+-- IF MOREFLUFF ADD this
+-- Morefluff crossmod enhancements
+local more_fluff_add = {
+    m_kino_error = {"error"},
+    m_kino_wifi = {"wi-fi", "wifi", "wi fi", "wi_fi"},
+    m_kino_angelic = {"angelic", "angel"},
+    m_kino_finance = {"finance"},
+    m_kino_factory = {"factory"},
+    m_kino_time = {"time", "clock"},
+    m_kino_fraction = {"fraction"}
+}
+
+
 end
