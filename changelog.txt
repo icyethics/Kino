@@ -1,4 +1,7 @@
 
+V 0.9.3a:
+Bugfix:
+- Fixed a major mod compatibility issue that made other mods unable to spawn objects properly in certain circumstances
 V 0.9.3:
 Mechanical Changes:
 - Cards now have the chance to have individual spawn chances
