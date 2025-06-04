@@ -1,3 +1,8 @@
+V 0.9.3c:
+Bugfixes:
+- Darth Vader Blind fixed
+- Fixed crashes that could happen due to improper nill checks
+
 V 0.9.3b:
 Bugfix:
 - Fixed a minor issue with the new rarity system

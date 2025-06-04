@@ -44,7 +44,7 @@ SMODS.Consumable {
         -- Checks if it can be added to the inventory
         if card.area == G.pack_cards then
             if (#G.consumeables.cards < G.consumeables.config.card_limit or 
-            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
+            (G.GAME.used_vouchers.v_kino_snackbag and Kino.snackbag and Kino.snackbag.cards and #Kino.snackbag.cards < Kino.snackbag.cards.card_limit)) then
                 return true
             else
                 return false

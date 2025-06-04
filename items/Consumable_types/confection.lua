@@ -53,6 +53,8 @@ end
 Kino.powerboost_confection = function(card, forced)
     if G.GAME.used_vouchers.v_kino_heavenly_treats or forced then
 
+        if card == G.P_CENTERS.c_snackbag then return true end
+
         for _key, _value in pairs(card.ability.extra) do
             if type(_value) == "number" and _key ~= 'times_used' then
                 card.ability.extra[_key] = card.ability.extra[_key] * 2

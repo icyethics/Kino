@@ -96,7 +96,7 @@ SMODS.Blind{
     end,
     calculate = function(self, blind, context)
 
-        if context.after then
+        if context.after and G.jokers and G.jokers.cards and #G.jokers.cards > 0 then
             G.jokers.cards[1].ability.vader_triggers = G.jokers.cards[1].ability.vader_triggers and G.jokers.cards[1].ability.vader_triggers +1 or 1
 
             if G.jokers.cards[1].ability.vader_triggers > 3 then
