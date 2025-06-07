@@ -88,9 +88,13 @@ SMODS.Consumable {
         }
     },
     loc_vars = function(self, info_queue, card)
+        local _return = card.ability.extra.chips
+        if card.ability.kino_chocolate then
+            _return = _return + self.config.choco_bonus
+        end
         return {
             vars = {
-                card.ability.extra.chips
+                _return
             }
         } 
     end,
@@ -156,9 +160,13 @@ SMODS.Consumable {
         }
     },
     loc_vars = function(self, info_queue, card)
+        local _return = card.ability.extra.hand_size
+        if card.ability.kino_chocolate then
+            _return = _return + self.config.choco_bonus
+        end
         return {
             vars = {
-                card.ability.extra.hand_size
+                _return
             }
         } 
     end,
@@ -238,9 +246,13 @@ SMODS.Consumable {
         }
     },
     loc_vars = function(self, info_queue, card)
+        local _return = card.ability.extra.extra
+        if card.ability.kino_chocolate then
+            _return = _return + self.config.choco_bonus
+        end
         return {
             vars = {
-                card.ability.extra.extra
+                _return
             }
         } 
     end,
@@ -315,9 +327,13 @@ SMODS.Consumable {
         }
     },
     loc_vars = function(self, info_queue, card)
+        local _return = card.ability.extra.repetition
+        if card.ability.kino_chocolate then
+            _return = _return + self.config.choco_bonus
+        end
         return {
             vars = {
-                card.ability.extra.repetition 
+                _return
             }
         } 
     end,
@@ -412,9 +428,13 @@ SMODS.Consumable {
         }
     },
     loc_vars = function(self, info_queue, card)
+        local _return = card.ability.extra.repetition
+        if card.ability.kino_chocolate then
+            _return = _return + self.config.choco_bonus
+        end
         return {
             vars = {
-                card.ability.extra.repetition 
+                _return
             }
         } 
     end,
@@ -499,9 +519,13 @@ SMODS.Consumable {
         }
     },
     loc_vars = function(self, info_queue, card)
+        local _return = card.ability.extra.cards_drawn
+        if card.ability.kino_chocolate then
+            _return = _return + self.config.choco_bonus
+        end
         return {
             vars = {
-                card.ability.extra.cards_drawn
+                _return
             }
         } 
     end, 
@@ -593,9 +617,13 @@ SMODS.Consumable {
         }
     },
     loc_vars = function(self, info_queue, card)
+        local _return = card.ability.extra.bonus_chips
+        if card.ability.kino_chocolate then
+            _return = _return + self.config.choco_bonus
+        end
         return {
             vars = {
-                card.ability.extra.bonus_chips
+                _return
             }
         } 
     end,
@@ -663,9 +691,13 @@ SMODS.Consumable {
         }
     },
     loc_vars = function(self, info_queue, card)
+        local _return = card.ability.extra.level
+        if card.ability.kino_chocolate then
+            _return = _return + self.config.choco_bonus
+        end
         return {
             vars = {
-                card.ability.extra.level
+                _return
             }
         } 
     end,
@@ -732,9 +764,13 @@ SMODS.Consumable {
         }
     },
     loc_vars = function(self, info_queue, card)
+        local _return = card.ability.extra.hands
+        if card.ability.kino_chocolate then
+            _return = _return + self.config.choco_bonus
+        end
         return {
             vars = {
-                card.ability.extra.hands
+                _return
             }
         } 
     end,
@@ -822,9 +858,13 @@ SMODS.Consumable {
         }
     },
     loc_vars = function(self, info_queue, card)
+        local _return = card.ability.extra.discards
+        if card.ability.kino_chocolate then
+            _return = _return + self.config.choco_bonus
+        end
         return {
             vars = {
-                card.ability.extra.discards
+                _return
             }
         } 
     end,
@@ -918,7 +958,7 @@ SMODS.Consumable {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                Kino.snackbag and #Kino.snackbag.cards or 0
+                Kino.snackbag and Kino.snackbag.cards and #Kino.snackbag.cards or 0
             }
         }
     end,

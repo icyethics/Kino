@@ -164,6 +164,9 @@ function get_least_played_hand()
         end
     end
 
+    if #_hands == 0 then 
+        pseudorandom_element(G.handlist, pseudoseed("random_least_played_hand")) 
+    end
     return _hands
 end
 
@@ -822,6 +825,9 @@ function upgrade_hand(card, hand, chips, mult, x_chips, x_mult, instant)
     x_chips = x_chips or 0
     x_mult = x_mult or 0
 
+    if not hand then
+        print("No hand was assigned! crash prevented")
+    end
     -- upgrades should be put into an array with whether they were a level up.
     -- the level_up_hand function should be modified to upgrade the hand
     -- after the normal level calc is done.

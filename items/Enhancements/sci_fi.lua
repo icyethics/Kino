@@ -27,6 +27,7 @@ SMODS.Enhancement {
     upgrade = function(self, card)
         card.ability.times_upgraded = card.ability.times_upgraded + 1
 
+        if card.ability.times_upgraded_ui < 99 then
         G.E_MANAGER:add_event(Event({
             trigger = 'immediate',
             func = (function() 
@@ -34,6 +35,7 @@ SMODS.Enhancement {
 
                 return true end)
         }))
+        end
         card.ability.bonus = card.ability.bonus + card.ability.a_chips
 
         if next(find_joker('j_kino_terminator_2')) then

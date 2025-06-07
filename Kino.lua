@@ -508,6 +508,13 @@ if load_error then
     helper()
 end
 
+local helper, load_error = SMODS.load_file("src/malverk.lua")
+if load_error then
+    sendDebugMessage ("The error is: "..load_error)
+    else
+    helper()
+end
+
 local helper, load_error = SMODS.load_file("src/per_card_rarity.lua")
 if load_error then
     sendDebugMessage ("The error is: "..load_error)

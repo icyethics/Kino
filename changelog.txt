@@ -1,7 +1,16 @@
 V 0.9.3c:
+Content Changes:
+NEW TEXTURE PACK: Kino now includes a texture pack! It's accessible in the texture pack menu if you have Malverk installed.
+It adds pixel art more in line with the Balatro style for specific jokers.
+
 Bugfixes:
 - Darth Vader Blind fixed
 - Fixed crashes that could happen due to improper nill checks
+- Fixed an issue where the game would crash if another mod added cards that act like Soul or Black Hole
+- Fixed an issue where hovering over the snackbag in the collection would crash the game
+- Fixed a crash where planets would fail to assign a hand
+- Fixed confections not showing the correct value when power boosted or chocolate-dipped
+- Sci-fi cards no longer add to the event queue when upgrading slowly
 
 V 0.9.3b:
 Bugfix:
