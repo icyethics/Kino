@@ -1,3 +1,11 @@
+V 0.9.3d:
+Texture Pack additions:
+18 new joker artworks added to the texture pack
+
+Changes:
+- The rarity system rework has been turned into a toggle. It is recommended to turn it off when playing with other mods
+-
+
 V 0.9.3c:
 Content Changes:
 NEW TEXTURE PACK: Kino now includes a texture pack! It's accessible in the texture pack menu if you have Malverk installed.

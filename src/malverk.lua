@@ -8,11 +8,16 @@ AltTexture{
     path = '001_kino_jokerresprite.png',
     original_sheet = true,
     keys = {
+        'j_kino_nosferatu_1',
+        'j_kino_elf',
         'j_kino_creature_from_the_black_lagoon',
         'j_kino_robocop',
+        'j_kino_pink_panther_1',
+        'j_kino_secretary',
         'j_kino_angel_hearts',
         'j_kino_party_people',
         'j_kino_et',
+        'j_kino_home_alone_1',
         'j_kino_turner_and_hooch'
     },
 }
@@ -24,7 +29,9 @@ AltTexture{
     original_sheet = true,
     keys = {
         'j_kino_shopaholic',
+        'j_kino_big_short',
         'j_kino_thing',
+        'j_kino_mr_and_mrs_smith',
         'j_kino_get_out',
         'j_kino_nope',
         'j_kino_clockwork_orange',
@@ -32,6 +39,8 @@ AltTexture{
         'j_kino_edward_scissorhands',
         'j_kino_beetlejuice_1988',
         'j_kino_ed_wood',
+        'j_kino_avatar',
+        'j_kino_ghostbusters_1',
         'j_kino_twins'
     },
 }
@@ -43,8 +52,35 @@ AltTexture{
     original_sheet = true,
     keys = {
         'j_kino_alien_3',
+        'j_kino_ai_artificial',
+        'j_kino_close_encounters',
         'j_kino_jurassic_park_1',
+        'j_kino_interstellar'
+    },
+}
 
+AltTexture{
+    key = 'kino_atlas_4',
+    set = 'Joker',
+    path = '004_kino_jokerresprite.png',
+    original_sheet = true,
+    keys = {
+        'j_kino_alien_1',
+        'j_kino_oceans_11',
+        'j_kino_anora',
+        'j_kino_baby_geniuses'
+    },
+}
+
+AltTexture{
+    key = 'kino_atlas_5',
+    set = 'Joker',
+    path = '005_kino_jokerresprite.png',
+    original_sheet = true,
+    keys = {
+        'j_kino_6_underground',
+        'j_kino_founder',
+        'j_kino_west_side_story_1'
     },
 }
 
@@ -54,6 +90,8 @@ TexturePack{
         'kino_atlas_1',
         'kino_atlas_2',
         'kino_atlas_3',
+        'kino_atlas_4',
+        'kino_atlas_5'
     },
     loc_txt = {
         name = 'Kino Retextured',

@@ -63,6 +63,7 @@ local mod_mechanics_toggles = {
 	{ref_value = "actor_synergy", label = "kino_settings_actor_synergy"},
 	{ref_value = "genre_synergy", label = "kino_settings_genre_synergy"},
 	{ref_value = "movie_jokers_only", label = "kino_settings_movie_jokers_only"},
+	{ref_value = "custom_rarity", label = "kino_settings_custom_rarity"},
 }
 
 local mod_mechanics_sliders = {

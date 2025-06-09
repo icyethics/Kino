@@ -8,6 +8,7 @@ return {
     ["vampire_jokers"] = true,
     ["confection_mechanic"] = true,
     ["jumpscare_mechanic"] = true,
+    ["custom_rarity"] = false,
 
     -- -- Enhancements
     ["action_enhancement"] = true,

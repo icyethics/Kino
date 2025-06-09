@@ -1,6 +1,6 @@
 -- Code for this feature is heavily based on code by nh6574
 -- based on custom_pool.lua from JoyousSpring
-
+if kino_config.custom_rarity then
 Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool, default_key, key_append, allow_duplicates)
     -- local _starting_pool = get_current_pool(_type, _rarity, _legendary, _append)
     if _legendary then _rarity = "4" end
@@ -270,4 +270,6 @@ function SMODS.create_card(t)
     t.key = key or t.key
 
     return o_smods_create_card(t)
+end
+
 end
