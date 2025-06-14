@@ -3,12 +3,12 @@ SMODS.Joker {
     order = 99,
     config = {
         extra = {
-            is_used = false,
             chips = 0,
             mult = 0,
-            xmult = 0,
-            xchips = 0
-
+            xmult = 1,
+            dollars = 0,
+            xchips = 1,
+            factor = 1,
         }
     },
     rarity = 2,
@@ -33,41 +33,49 @@ SMODS.Joker {
     pools, k_genre = {"Horror", "Fantasy"},
 
     loc_vars = function(self, info_queue, card)
-        local _string = "Experimenting"
-        if card.ability.extra.is_used then
-            _string = "Built"
-        end
+
 
         return {
             vars = {
-                _string,
-                card.ability.extra.is_used,
                 card.ability.extra.chips,
                 card.ability.extra.mult,
                 card.ability.extra.xmult,
-                card.ability.extra.xchips
+                card.ability.extra.dollars,
+                card.ability.extra.xchips,
+                card.ability.extra.factor
             }
         }
     end,
     calculate = function(self, card, context)
-        -- When a card is destroyed, gain all its upgrades
+        -- When a card is destroyed, gain bonuses based on its suit
 
-        if context.destroying_card and not context.blueprint 
-        and not context.repetition and not card.ability.extra.is_used then
-            local _card = context.destroying_card
-            card.ability.extra.chips = card.ability.extra.chips + _card.ability.extra.base  + _card.ability.extra.bonus
-            card.ability.extra.mult = card.ability.extra.mult + _card.ability.extra.mult + _card.ability.extra.perma_mult
-            card.ability.extra.xmult = card.ability.extra.xmult + _card.ability.extra.perma_xmult
-            card.ability.extra.x_chips = card.ability.extra.x_chips + _card.ability.extra.base  + _card.ability.extra.perma_xchips
-            return true
+        if context.remove_playing_cards and not context.blueprint then
+            for _, _pcard in ipairs(context.removed) do
+                local _suits = SMODS.Suits
+                for _suitname, _suitdata in pairs(_suits) do
+                    if _pcard:is_suit(_suitname) then
+                        if _suitname == 'Diamonds' then
+                            card.ability.extra.dollars = card.ability.extra.dollars + (card.ability.extra.factor / 2)
+                        elseif _suitname == 'Hearts' then
+                            card.ability.extra.xmult = card.ability.extra.xmult + (card.ability.extra.factor * 0.1)
+                        elseif _suitname == 'Spades' then
+                            card.ability.extra.chips = card.ability.extra.chips + (card.ability.extra.factor * 3)
+                        elseif _suitname == 'Clubs' then
+                            card.ability.extra.mult = card.ability.extra.mult + (card.ability.extra.factor)
+                        else
+                            card.ability.extra.x_chips = card.ability.extra.x_chips + (card.ability.extra.factor * 0.1)
+                        end
+                    end
+                end
+            end
+
+
+
         end
 
-        if context.after and not context.repetition and not context.blueprint then
-            card.ability.extra.is_used = true
-        end
-
-        if context.joker_main and card.ability.extra.is_used then
+        if context.joker_main then
             return {
+                dollars = card.ability.extra.dollars,
                 chips = card.ability.extra.chips,
                 mult = card.ability.extra.mult,
                 x_mult = card.ability.extra.x_mult,

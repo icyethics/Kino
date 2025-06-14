@@ -111,7 +111,7 @@ return {
                     "Each scored {C:hearts}Hearts{} ",
                     "gives {C:mult}+#2#{} Mult, then",
                     "doubles the Mult given",
-                    "{C:inactive}(Resets after each hand)"
+                    "{C:inactive}(Resets at end of round)"
                 }
             },
             j_kino_anora = {
@@ -812,14 +812,11 @@ return {
             j_kino_frankenstein = {
                 name = "Frankenstein",
                 text = {
-                    "{C:attention}#1#",
-                    "If still Experimenting",
-                    "destroy the next hand",
-                    "you play and upgrade this",
-                    "joker with all stats of the",
-                    "destroyed cards",
-                    "{C:inactive}(Currently: {C:chips}+#3#{C:inactive} Chips, {C:mult}+#4#{C:inactive} Mult)",
-                    "{C:inactive}({X:mult,C:white}X#5#{C:inactive}, {X:chips,C:white}X#6#{C:inactive})"
+                    "When you destroy a Playing Card",
+                    "Upgrade this joker #6# times", 
+                    "based on its suit",
+                    "{C:inactive}(Currently: {C:chips} +#1#{C:inactive} Chips, {C:mult} +#2#{C:inactive} Mult)",
+                    "{C:inactive}({X:mult,C:white}x#3#{C:inactive} Mult, {C:money}$#4#{C:inactive}, {X:chips,C:white}X#5#{C:inactive} Chips)"
                 }
             },
             j_kino_freaky_friday_3 = {
@@ -1456,6 +1453,14 @@ return {
                     "{C:inactive}(#2# hands remaining){}"
                 }
             },
+            j_kino_ponyo = {
+                name = "Ponyo",
+                text = {
+                    "{C:attention}Active:{} {X:mult,C:white}X#2#{} Mult",
+                    "{C:attention}Inactive:{} Gain {X:mult,C:white}X#1#{} Mult",
+                    "for each unscored card"
+                }
+            },
             j_kino_nightcrawler = {
                 name = "Nightcrawler",
                 text = {
@@ -1630,9 +1635,7 @@ return {
                     "{C:mult}+#1#{} Mult on your final hand",
                     "and increase by {C:mult}+#2#{} Mult",
                     "whenever a card scores in a",
-                    "non-final hand",
-                    "resets each round"
-                    
+                    "non-final hand, then reset",
                 }
             },
             j_kino_point_break = {
@@ -1971,6 +1974,25 @@ return {
                     "with {C:chips}+#2#{} Chips"
                 }
             },
+            j_kino_star_wars_ii = {
+                name = "Star Wars Episode II: Attack of the Clones",
+                text = {
+                    "When a playing card is destroyed",
+                    "{C:attention}Upgrade{} each card with",
+                    "the same rank in your deck with",
+                    "{C:attention}#1#x{} times its upgrades"
+                }
+            },
+            j_kino_star_wars_iii = {
+                name = "Star Wars Episode III: Revenge of the Sith",
+                text = {
+                    "On the first hand each round",
+                    "destroy the joker to the right",
+                    "and upgrade every {C:attention}scoring card{}",
+                    "with {X:mult,C:white}X#1#{} mult equal to the",
+                    "sell value"
+                }
+            },
             j_kino_star_wars_iv = {
                 name = "Star Wars",
                 text = {
@@ -1981,11 +2003,45 @@ return {
                     "{C:inactive}(Currently: {C:attention}#1#{C:inactive} value scored)"
                 }
             },
+            j_kino_star_wars_v = {
+                name = "Star Wars Episode V: The Empire Strikes Back",
+                text = {
+                    "Gives {C:mult}+#1#{} Mult",
+                    "{C:mult}-#2#{} per hand",
+                    "{C:mult}+#3#{} when you use a {C:planet}Planet"
+                }
+            },
+            j_kino_star_wars_vi = {
+                name = "Star Wars Episode VI: The Return of the Jedi",
+                text = {
+                    "Gives {C:chips}+#1#{} Chips",
+                    "Multiply by {C:attention}x#2#{} when you use a {C:planet}Planet",
+                    "{C:attention}x#3#{} when you play a hand"
+                }
+            },
             j_kino_star_wars_vii = {
                 name = "Star Wars Episode VII: The Force Awakens",
                 text = {
                     "Scoring cards give {C:mult}+#1#{} mult",
                     "for each level of the scoring poker hand"
+                }
+            },
+            j_kino_star_wars_viii = {
+                name = "Star Wars Episode VIII: The Last Jedi",
+                text = {
+                    "Scoring cards give {C:mult}+#2#{} mult",
+                    "for each stack, then consume a stack",
+                    "When selecting a blind, set stacks",
+                    "equal to #2# times total {C:planet}Planets used{}",
+                    "{C:inactive}(Currently {C:attention}#3#{C:planet} Planets{C:inactive} used)"
+                }
+            },
+            j_kino_star_wars_ix = {
+                name = "Star Wars Episode IX: The Rise of Skywalker",
+                text = {
+                    "Gain {C:attention}+#1#{} Handsize",
+                    "for each {C:planet}Planet{} used",
+                    "since last round"
                 }
             },
             j_kino_stargate = {
@@ -2382,7 +2438,26 @@ return {
                     "gives {X:mult,C:white}X1{} + {X:mult,C:white}X#1#{} Mult",
                     "for each scoring {C:attention}Queen{}"
                 }
+            },
+            j_kino_ratatouille = {
+                name = "Ratatouille",
+                text = {
+                    "When you select a blind",
+                    "destroy a non-active {C:mult}Confection{} and {C:attention}Upgrade",
+                    "every future Confection's values with {C:attention}+#1#" 
+                }
+            },
+            j_kino_citizen_kane = {
+                name = "Citizen Kane",
+                text = {
+                    "Gain {X:mult,C:white}X#1#{} Mult mult when you",
+                    "Play or Discard a hand",
+                    "and double the gain until",
+                    "the end of the round",
+                    "{C:inactive}(Currently: {X:mult,C:white}X#2#{C:inactive} Mult)"
+                }
             }
+
         },
         Enhanced = {
             m_kino_action = {
@@ -2797,7 +2872,7 @@ return {
             c_kino_peanuts = {
                 name = "Peanut Snack",
                 text = {
-                    "Gain {C:money}#1# more{} interest",
+                    "Gain {C:money}$#1# more{} interest",
                     "next round"
                 }
             },
@@ -2807,7 +2882,7 @@ return {
                     "{C:inactive}Quatro Formaggi{}",
                     "The first card of",
                     "each suit retriggers",
-                    "next round"
+                    "{C:attention}#1#{} times next hand"
                 }
             },
             c_kino_soda = {
@@ -2835,7 +2910,7 @@ return {
                 name = "Hotdog",
                 text = {
                     "Level up the next",
-                    "hand played by #1#"
+                    "hand played by {C:attention}#1#"
                 }
             },
             c_kino_cookie = {
@@ -2850,6 +2925,15 @@ return {
                 text = {
                     "Gain {C:mult}+1{}",
                     "discard this round"
+                }
+            },
+            c_kino_ratatouille = {
+                name = "Ratatouille Snack",
+                text = {
+                    "Permanently {C:attention}increase",
+                    "the value of all",
+                    "confections by {C:attention}#1#",
+                    "{C:inactive}(Except for Ratatouille)"
                 }
             },
             c_kino_snackbag = {
@@ -3229,8 +3313,8 @@ return {
                 name = "Ernst Stavro Blofeld",
                 text = {
                     "If your played hand",
-                    "is larger than your",
-                    "last played hand",
+                    "is as big or larger than",
+                    "your previous hand",
                     "it doesn't score"
                 }
             },
@@ -3319,6 +3403,14 @@ return {
                     "a hand"
                 }
             },
+            bl_kino_beachthatmakesyouold = {
+                name = "Beach That Makes You Old",
+                text = {
+                    "Every #1# seconds, increase the rank",
+                    "of a random card in your hand",
+                    "or destroy it if it's an Ace"
+                }
+            },
             bl_kino_thanos = {
                 name = "Thanos",
                 text = {
@@ -3336,19 +3428,19 @@ return {
             bl_kino_palpatine = {
                 name = "Emperor Palapatine",
                 text = {
-                    "If your played hand",
-                    "is larger than your",
-                    "last played hand",
-                    "it doesn't score"
+                    "{C:attention}Force Choke{} the",
+                    "every joker weakening it",
+                    "by {C:attention}20% each round",
+                    "After being {C:attention}Force Choked",
+                    "five times, destroy the joker"
                 }
             },
             bl_kino_dr_evil = {
                 name = "Dr. Evil",
                 text = {
-                    "If your played hand",
-                    "is larger than your",
-                    "last played hand",
-                    "it doesn't score"
+                    "Each subsequent hand",
+                    "must be larger than",
+                    "the previous hand"
                 }
             }
         },
@@ -3668,8 +3760,9 @@ return {
             kino_goldleaf = {
                 name = "Goldleaf",
                 text = {
-                    "Earn {C:money}$1{} when",
-                    "this confection is used"
+                    "Earn {C:money}$1{} for each",
+                    "goldleaf confection used",
+                    "when this confection activates"
                 }
             },
             kino_extra_large = {
@@ -4055,6 +4148,7 @@ return {
         dictionary = {
             ---- UI elements ----
             b_confection_rate = "Confection Rate",
+            b_kino_pull = "TAKE",
 
             -- Mod Config --
             kino_settings_header_enhancements = "Card Enhancements",
@@ -4175,6 +4269,10 @@ return {
             k_kino_star_wars_i = "Now this is pod racing", 
             k_kino_k_kino_big_daddy = "Big. Daddy.",
             k_kino_tmnt_1 = "Cowabunga!",
+            k_kino_ratatouille = "Delicious Flavours!",
+            k_kino_starwars_ii = "Strengthen the Clone Army",
+            k_kino_starwars_viii = "See you around, kid",
+            k_kino_ponyo = "Ponyo!",
                
 
 
@@ -4305,6 +4403,58 @@ return {
             k_barbie_quest_6 = {
                 "Have a The Lovers, The Empress,",
                 "and Venus in your inventory"
+            },
+
+            -- Ratatouille Quests
+            k_ratatouille_quest_1 = {
+                "Posses 2 Animation",
+                "or Family Jokers"
+            },
+            k_ratatouille_quest_2 = {
+                "Have used 10 or more",
+                "Confection cards"
+            },
+            k_ratatouille_quest_3 = {
+                "Have at least ten",
+                "2's in your starting Deck"
+            },
+            k_ratatouille_quest_4 = {
+                "Posses a Movie Joker",
+                "that shares an actor"
+            },
+            k_ratatouille_quest_5 = {
+                "Posses a Movie Joker",
+                "released in the 2000s"
+            },
+            k_ratatouille_quest_6 = {
+                "Have a Pluto, Popcorn Snack,",
+                "and Pizza in your inventory"
+            },
+
+            -- Citizen Kane Quests
+            k_citizen_kane_quest_1 = {
+                "Posses 2 Mystery",
+                "or Drama Jokers"
+            },
+            k_citizen_kane_quest_2 = {
+                "Posses a Movie Joker",
+                "released in the 1940s"
+            },
+            k_citizen_kane_quest_3 = {
+                "Posses a Movie Joker",
+                "that shares an actor"
+            },
+            k_citizen_kane_quest_4 = {
+                "Have at least ten",
+                "cards with different enhancements",
+                "in your starting Deck"
+            },
+            k_citizen_kane_quest_5 = {
+                "Have $50 or more"
+            },
+            k_citizen_kane_quest_6 = {
+                "Have a The Emperor, The Hermit,",
+                "and The Earth in your inventory"
             },
         },
         challenge_names = {

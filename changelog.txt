@@ -1,10 +1,52 @@
+V 0.9.4:
+New Jokers:
+- Ratatouille (Legendary)
+- Citizen Kane (Legendary)
+
+- Pitch Black
+- Star Wars: Attack of the Clones
+- Star Wars: Revenge of the Sith
+- Star Wars: The Empire Strikes Back
+- Star Wars: The Return of the Jedi
+- Star Wars: The Last Jedi
+- Star Wars: The Rise of Skywalker
+- Ponyo
+- Frankenstein
+
+New Confection:
+- Ratatouille
+
+New Blinds:
+- Beach That Makes You Old
+- Deckard Shaw
+- Palpatine (Showdown blind)
+- Dr. Evil (Showdown Blind)
+
+Balance Changes:
+- Angel Hearts: Reset per hand > Reset per round
+- Treasure Planet: $1 when you use a planet > $3 when you use a planet
+- Treasure Planet: [HIDDEN EFFECT] > [HIDDEN EFFECT]
+- Goldleaf Sticker: Gain $1 when this triggers > Gain $1 for each time a goldleaf confection was triggered this game
+
+Content Changes:
+- Added more new textures to the Malverk texture pack
+- Bonnie & Clyde blind only rerolls between antes, no longer between blinds
+- Blofeld blind now requires subsequent hands to be smaller rather than allowing them to be the same size
+
+Bug fixes:
+- Confections no longer have a use button outside of the consumable area
+- Confections can no longer be bought infinitely if you have a snackbag and a free slot
+- Confections can be sold from the Snackbag
+- Bonnie and Clyde now correctly display the name of the card, rather than the internal id
+- Cryptid compatibility: Popeye shouldn't infinitely stack anymore
+- Cryptid compatibility: The BFG should properly track score increases in cryptid/talisman runs
+
 V 0.9.3d:
 Texture Pack additions:
 18 new joker artworks added to the texture pack
 
 Changes:
 - The rarity system rework has been turned into a toggle. It is recommended to turn it off when playing with other mods
--
 
 V 0.9.3c:
 Content Changes:

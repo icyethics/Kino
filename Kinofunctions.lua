@@ -227,6 +227,10 @@ function reset_raiders_card()
 end
 
 function reset_bonnieandclyde()
+    if G.GAME.round % 3 ~= 0 then
+        return false
+    end
+
     if not G.GAME.current_round.bonnierank then
         G.GAME.current_round.bonnierank = 2
         G.GAME.current_round.clydesuit = "Spades"
@@ -564,7 +568,7 @@ function Card:kino_synergy(card)
     return _return_count
 end
 
-function Card:set_multiplication_bonus(card, source, num, is_actor)
+function Card:set_multiplication_bonus(card, source, num, is_actor, reset_from_value_for_cryptid)
 
     -- Keys that should be exempt:
     -- goal
@@ -578,10 +582,15 @@ function Card:set_multiplication_bonus(card, source, num, is_actor)
     if not card or not card.config or not card.config.center or not kino_config.actor_synergy or not card.config.center.kino_joker then
         if Cryptid and card and card.config and card.config.center then
             if not Card.no(card, "immutable", true) then
+                local _val = num
+                if reset_from_value_for_cryptid then
+                    _val = 1 / reset_from_value_for_cryptid
+                end
+                print(_val)
                 Cryptid.with_deck_effects(card, function(cards)
                     Cryptid.misprintize(
                         cards,
-                        { min = num, max = num},
+                        { min = _val, max = _val},
                         nil,
                         true
                     )
@@ -999,6 +1008,72 @@ function Kino.rank_to_value(rank)
     end
 
     return _string
+end
+
+-- Discard input card
+Kino.discard_given_card = function(list_of_cards, hook)
+    print("entered")
+    stop_use()
+
+    local highlighted_count = #list_of_cards
+    if highlighted_count > 0 then 
+        update_hand_text({immediate = true, nopulse = true, delay = 0}, {mult = 0, chips = 0, level = '', handname = ''})
+        table.sort(list_of_cards, function(a,b) return a.T.x < b.T.x end)
+        inc_career_stat('c_cards_discarded', highlighted_count)
+        for j = 1, #G.jokers.cards do
+            G.jokers.cards[j]:calculate_joker({pre_discard = true, full_hand = list_of_cards, hook = hook})
+        end
+        local cards = {}
+        local destroyed_cards = {}
+        for i=1, highlighted_count do
+            list_of_cards[i]:calculate_seal({discard = true})
+            local removed = false
+            for j = 1, #G.jokers.cards do
+                local eval = nil
+                eval = G.jokers.cards[j]:calculate_joker({discard = true, other_card = list_of_cards[i], full_hand = list_of_cards})
+                if eval then
+                    if eval.remove then removed = true end
+                    card_eval_status_text(G.jokers.cards[j], 'jokers', nil, 1, nil, eval)
+                end
+            end
+            table.insert(cards, list_of_cards[i])
+            if removed then
+                destroyed_cards[#destroyed_cards + 1] = list_of_cards[i]
+                if list_of_cards[i].ability.name == 'Glass Card' then 
+                    list_of_cards[i]:shatter()
+                else
+                    list_of_cards[i]:start_dissolve()
+                end
+            else 
+                list_of_cards[i].ability.discarded = true
+                draw_card(G.hand, G.discard, i*100/highlighted_count, 'down', false, list_of_cards[i])
+            end
+        end
+
+        if destroyed_cards[1] then 
+            for j=1, #G.jokers.cards do
+                eval_card(G.jokers.cards[j], {cardarea = G.jokers, remove_playing_cards = true, removed = destroyed_cards})
+            end
+        end
+
+        G.GAME.round_scores.cards_discarded.amt = G.GAME.round_scores.cards_discarded.amt + #cards
+        check_for_unlock({type = 'discard_custom', cards = cards})
+        if not hook then
+            if G.GAME.modifiers.discard_cost then
+                ease_dollars(-G.GAME.modifiers.discard_cost)
+            end
+            ease_discard(-1)
+            G.GAME.current_round.discards_used = G.GAME.current_round.discards_used + 1
+            G.STATE = G.STATES.DRAW_TO_HAND
+            G.E_MANAGER:add_event(Event({
+                trigger = 'immediate',
+                func = function()
+                    G.STATE_COMPLETE = false
+                    return true
+                end
+            }))
+        end
+    end
 end
 
 ----------------------

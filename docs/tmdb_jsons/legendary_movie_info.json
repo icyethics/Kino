@@ -1,0 +1,647 @@
+{
+    "Barbie1": {
+        "adult": false,
+        "backdrop_path": "/mbYTRO33LJAgpCMrIn9ibiWHbMH.jpg",
+        "belongs_to_collection": {
+            "id": 1402107,
+            "name": "Barbie - Saga",
+            "poster_path": "/de6PG3BUhpBpKLqWSKkvpKElacQ.jpg",
+            "backdrop_path": null
+        },
+        "budget": 145000000,
+        "genres": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 12,
+                "name": "Adventure"
+            }
+        ],
+        "homepage": "https://www.barbie-themovie.com",
+        "id": 346698,
+        "imdb_id": "tt1517268",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Barbie",
+        "overview": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
+        "popularity": 29.8925,
+        "poster_path": "/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
+        "production_companies": [
+            {
+                "id": 82968,
+                "logo_path": "/gRROMOG5bpF6TIDMbfaa5gnFFzl.png",
+                "name": "LuckyChap Entertainment",
+                "origin_country": "US"
+            },
+            {
+                "id": 437,
+                "logo_path": "/nu20mtwbEIhUNnQ5NXVhHsNknZj.png",
+                "name": "Heyday Films",
+                "origin_country": "GB"
+            },
+            {
+                "id": 181486,
+                "logo_path": null,
+                "name": "NB/GG Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 6220,
+                "logo_path": "/cAj69EL1zSXmZH6STbMGZrunyMD.png",
+                "name": "Mattel",
+                "origin_country": "US"
+            },
+            {
+                "id": 174,
+                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            },
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2023-07-19",
+        "revenue": 1445638421,
+        "runtime": 114,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "She's everything. He's just Ken.",
+        "title": "Barbie",
+        "video": false,
+        "vote_average": 7.0,
+        "vote_count": 9800
+    },
+    "The Avengers2": {
+        "adult": false,
+        "backdrop_path": "/9BBTo63ANSmhC4e6r62OJFuK2GL.jpg",
+        "belongs_to_collection": {
+            "id": 86311,
+            "name": "The Avengers Collection",
+            "poster_path": "/yFSIUVTCvgYrpalUktulvk3Gi5Y.jpg",
+            "backdrop_path": "/zuW6fOiusv4X9nnW3paHGfXcSll.jpg"
+        },
+        "budget": 220000000,
+        "genres": [
+            {
+                "id": 878,
+                "name": "Science Fiction"
+            },
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 12,
+                "name": "Adventure"
+            }
+        ],
+        "homepage": "https://www.marvel.com/movies/the-avengers",
+        "id": 24428,
+        "imdb_id": "tt0848228",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "The Avengers",
+        "overview": "When an unexpected enemy emerges and threatens global safety and security, Nick Fury, director of the international peacekeeping agency known as S.H.I.E.L.D., finds himself in need of a team to pull the world back from the brink of disaster. Spanning the globe, a daring recruitment effort begins!",
+        "popularity": 46.7321,
+        "poster_path": "/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg",
+        "production_companies": [
+            {
+                "id": 420,
+                "logo_path": "/hUzeosd33nzE5MCNsZxCGEKTXaQ.png",
+                "name": "Marvel Studios",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2012-04-25",
+        "revenue": 1518815515,
+        "runtime": 143,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "Hindi",
+                "iso_639_1": "hi",
+                "name": "\u0939\u093f\u0928\u094d\u0926\u0940"
+            },
+            {
+                "english_name": "Russian",
+                "iso_639_1": "ru",
+                "name": "P\u0443\u0441\u0441\u043a\u0438\u0439"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Some assembly required.",
+        "title": "The Avengers",
+        "video": false,
+        "vote_average": 7.739,
+        "vote_count": 31608
+    },
+    "Ratatouille3": {
+        "adult": false,
+        "backdrop_path": "/xgDj56UWyeWQcxQ44f5A3RTWuSs.jpg",
+        "belongs_to_collection": null,
+        "budget": 150000000,
+        "genres": [
+            {
+                "id": 16,
+                "name": "Animation"
+            },
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 10751,
+                "name": "Family"
+            },
+            {
+                "id": 14,
+                "name": "Fantasy"
+            }
+        ],
+        "homepage": "http://disney.go.com/disneypictures/ratatouille",
+        "id": 2062,
+        "imdb_id": "tt0382932",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Ratatouille",
+        "overview": "Remy, a resident of Paris, appreciates good food and has quite a sophisticated palate. He would love to become a chef so he can create and enjoy culinary masterpieces to his heart's delight. The only problem is, Remy is a rat. When he winds up in the sewer beneath one of Paris' finest restaurants, the rodent gourmet finds himself ideally placed to realize his dream.",
+        "popularity": 24.4103,
+        "poster_path": "/t3vaWRPSf6WjDSamIkKDs1iQWna.jpg",
+        "production_companies": [
+            {
+                "id": 3,
+                "logo_path": "/1TjvGVDMYsj6JBxOAkUHpPEwLf7.png",
+                "name": "Pixar",
+                "origin_country": "US"
+            },
+            {
+                "id": 2,
+                "logo_path": "/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
+                "name": "Walt Disney Pictures",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2007-06-28",
+        "revenue": 623726000,
+        "runtime": 111,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "Danish",
+                "iso_639_1": "da",
+                "name": "Dansk"
+            },
+            {
+                "english_name": "French",
+                "iso_639_1": "fr",
+                "name": "Fran\u00e7ais"
+            }
+        ],
+        "status": "Released",
+        "tagline": "He's dying to become a chef.",
+        "title": "Ratatouille",
+        "video": false,
+        "vote_average": 7.826,
+        "vote_count": 17435
+    },
+    "Forrest Gump4": {
+        "adult": false,
+        "backdrop_path": "/ghgfzbEV7kbpbi1O8eIILKVXEA8.jpg",
+        "belongs_to_collection": null,
+        "budget": 55000000,
+        "genres": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 10749,
+                "name": "Romance"
+            }
+        ],
+        "homepage": "https://www.paramountmovies.com/movies/forrest-gump",
+        "id": 13,
+        "imdb_id": "tt0109830",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Forrest Gump",
+        "overview": "A man with a low IQ has accomplished great things in his life and been present during significant historic events\u2014in each case, far exceeding what anyone imagined he could do. But despite all he has achieved, his one true love eludes him.",
+        "popularity": 27.4853,
+        "poster_path": "/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg",
+        "production_companies": [
+            {
+                "id": 4,
+                "logo_path": "/gz66EfNoYPqHTYI4q9UEN4CbHRc.png",
+                "name": "Paramount Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 21920,
+                "logo_path": null,
+                "name": "The Steve Tisch Company",
+                "origin_country": "US"
+            },
+            {
+                "id": 412,
+                "logo_path": null,
+                "name": "Wendy Finerman Productions",
+                "origin_country": ""
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1994-06-23",
+        "revenue": 677387716,
+        "runtime": 142,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "The world will never be the same once you've seen it through the eyes of Forrest Gump.",
+        "title": "Forrest Gump",
+        "video": false,
+        "vote_average": 8.468,
+        "vote_count": 28113
+    },
+    "The Godfather5": {
+        "adult": false,
+        "backdrop_path": "/tmU7GeKVybMWFButWEGl2M4GeiP.jpg",
+        "belongs_to_collection": {
+            "id": 230,
+            "name": "The Godfather Collection",
+            "poster_path": "/zVb22YOMgljCEYbXlvCvEiN4VwT.jpg",
+            "backdrop_path": "/mDMCET9Ens5ANvZAWRpluBsMAtS.jpg"
+        },
+        "budget": 6000000,
+        "genres": [
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 80,
+                "name": "Crime"
+            }
+        ],
+        "homepage": "http://www.thegodfather.com/",
+        "id": 238,
+        "imdb_id": "tt0068646",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "The Godfather",
+        "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.",
+        "popularity": 45.0423,
+        "poster_path": "/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+        "production_companies": [
+            {
+                "id": 4,
+                "logo_path": "/gz66EfNoYPqHTYI4q9UEN4CbHRc.png",
+                "name": "Paramount Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 10211,
+                "logo_path": null,
+                "name": "Alfran Productions",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1972-03-14",
+        "revenue": 245066411,
+        "runtime": 175,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "Italian",
+                "iso_639_1": "it",
+                "name": "Italiano"
+            },
+            {
+                "english_name": "Latin",
+                "iso_639_1": "la",
+                "name": "Latin"
+            }
+        ],
+        "status": "Released",
+        "tagline": "An offer you can't refuse.",
+        "title": "The Godfather",
+        "video": false,
+        "vote_average": 8.7,
+        "vote_count": 21352
+    },
+    "Strangers on a Train6": {
+        "adult": false,
+        "backdrop_path": "/gX2GxGsSVIPbRnrb1Tmc4HQ3HWy.jpg",
+        "belongs_to_collection": null,
+        "budget": 1200000,
+        "genres": [
+            {
+                "id": 80,
+                "name": "Crime"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "homepage": "https://www.warnerbros.com/movies/strangers-train",
+        "id": 845,
+        "imdb_id": "tt0044079",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Strangers on a Train",
+        "overview": "Having met on a train, a smooth-talking psychotic socialite shares his theory on how two complete strangers can get away with murder to an amateur tennis player \u2014 a theory he plans to test out.",
+        "popularity": 4.7647,
+        "poster_path": "/ihC083U7ef56Ui4x0P0dobojrZ1.jpg",
+        "production_companies": [
+            {
+                "id": 174,
+                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1951-06-27",
+        "revenue": 7000000,
+        "runtime": 101,
+        "spoken_languages": [
+            {
+                "english_name": "French",
+                "iso_639_1": "fr",
+                "name": "Fran\u00e7ais"
+            },
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "It starts with a shriek of a train whistle... and ends with shrieking excitement!",
+        "title": "Strangers on a Train",
+        "video": false,
+        "vote_average": 7.664,
+        "vote_count": 1734
+    },
+    "Citizen Kane7": {
+        "adult": false,
+        "backdrop_path": "/ruF3Lmd4A8MHbnEBE6lxPMbsHGL.jpg",
+        "belongs_to_collection": null,
+        "budget": 839727,
+        "genres": [
+            {
+                "id": 9648,
+                "name": "Mystery"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "homepage": "",
+        "id": 15,
+        "imdb_id": "tt0033467",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Citizen Kane",
+        "overview": "Newspaper magnate Charles Foster Kane is taken from his mother as a boy and made the ward of a rich industrialist. As a result, every well-meaning, tyrannical or self-destructive move he makes for the rest of his life appears in some way to be a reaction to that deeply wounding event.",
+        "popularity": 5.2508,
+        "poster_path": "/sav0jxhqiH0bPr2vZFU0Kjt2nZL.jpg",
+        "production_companies": [
+            {
+                "id": 11447,
+                "logo_path": null,
+                "name": "Mercury Productions",
+                "origin_country": ""
+            },
+            {
+                "id": 6,
+                "logo_path": "/n53F7K9scQWFXYbrCablqLKqJdp.png",
+                "name": "RKO Radio Pictures",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1941-04-17",
+        "revenue": 23218000,
+        "runtime": 119,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Some called him a hero...others called him a heel.",
+        "title": "Citizen Kane",
+        "video": false,
+        "vote_average": 7.999,
+        "vote_count": 5650
+    },
+    "Bringing Up Baby8": {
+        "adult": false,
+        "backdrop_path": "/fzJgCQh2NBnUYlms8EGyr4bPNz3.jpg",
+        "belongs_to_collection": null,
+        "budget": 1073000,
+        "genres": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 10749,
+                "name": "Romance"
+            }
+        ],
+        "homepage": "",
+        "id": 900,
+        "imdb_id": "tt0029947",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Bringing Up Baby",
+        "overview": "David Huxley is waiting to get a bone he needs for his museum collection. Through a series of strange circumstances, he meets Susan Vance, and the duo have a series of misadventures which include a leopard called Baby.",
+        "popularity": 2.8546,
+        "poster_path": "/vTNNOtemaYmtx3k2NpsLMRJKEwZ.jpg",
+        "production_companies": [
+            {
+                "id": 6,
+                "logo_path": "/n53F7K9scQWFXYbrCablqLKqJdp.png",
+                "name": "RKO Radio Pictures",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1938-02-18",
+        "revenue": 0,
+        "runtime": 102,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "And so begins the hilarious adventure of Professor David Huxley and Miss Susan Vance, a flutter-brained vixen with love in her heart!",
+        "title": "Bringing Up Baby",
+        "video": false,
+        "vote_average": 7.535,
+        "vote_count": 999
+    },
+    "Wings9": {
+        "adult": false,
+        "backdrop_path": "/u90ajspDd9911ISbx74rtofQZfO.jpg",
+        "belongs_to_collection": null,
+        "budget": 2000000,
+        "genres": [
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 10752,
+                "name": "War"
+            },
+            {
+                "id": 10749,
+                "name": "Romance"
+            }
+        ],
+        "homepage": "",
+        "id": 28966,
+        "imdb_id": "tt0018578",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Wings",
+        "overview": "Two young men, one rich, one middle class, both in love with the same woman, become US Air Corps fighter pilots and, eventually, heroic flying aces during World War I. Devoted best friends, their mutual love of the girl eventually threatens their bond. Meanwhile, a hometown girl who's the lovestruck lifelong next door neighbor of one of them pines away.",
+        "popularity": 2.46,
+        "poster_path": "/kEl6KCBgdmT1Nex3ka0EIWAOmtm.jpg",
+        "production_companies": [
+            {
+                "id": 33333,
+                "logo_path": null,
+                "name": "Paramount Famous Lasky Corporation",
+                "origin_country": ""
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1927-08-12",
+        "revenue": 3600000,
+        "runtime": 144,
+        "spoken_languages": [
+            {
+                "english_name": "No Language",
+                "iso_639_1": "xx",
+                "name": "No Language"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Youth, hitting the clouds! Laughing at danger! Fighting, loving, dodging death! That's \"WINGS\"",
+        "title": "Wings",
+        "video": false,
+        "vote_average": 7.247,
+        "vote_count": 283
+    }
+}

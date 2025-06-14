@@ -1,7 +1,5 @@
 if AltTexture and TexturePack then
 
-print("testing")
-
 AltTexture{
     key = 'kino_atlas_1',
     set = 'Joker',
@@ -84,6 +82,48 @@ AltTexture{
     },
 }
 
+AltTexture{
+    key = 'kino_atlas_6',
+    set = 'Joker',
+    path = '006_kino_jokerresprite.png',
+    original_sheet = true,
+    keys = {
+        'j_kino_dinner_with_andre',
+        'j_kino_clerks',
+        'j_kino_children_of_the_corn',
+        'j_kino_exorcist_1',
+        'j_kino_asteroid_city',
+        'j_kino_they_live',
+        'j_kino_zardoz',
+        'j_kino_smurfs_1',
+        'j_kino_hustle'
+    },
+}
+
+AltTexture{
+    key = 'kino_atlas_7',
+    set = 'Joker',
+    path = '007_kino_jokerresprite.png',
+    original_sheet = true,
+    keys = {
+        'j_kino_hard_eight',
+        'j_kino_baby_driver',
+        'j_kino_men_in_black_1',
+        'j_kino_as_above_so_below'
+    },
+}
+
+AltTexture{
+    key = 'kino_atlas_8',
+    set = 'Joker',
+    path = '008_kino_jokerresprite.png',
+    original_sheet = true,
+    keys = {
+        'j_kino_up',
+        'j_kino_scarface_2'
+    },
+}
+
 TexturePack{
     key = 'kino_retextured',
     textures = {
@@ -91,7 +131,10 @@ TexturePack{
         'kino_atlas_2',
         'kino_atlas_3',
         'kino_atlas_4',
-        'kino_atlas_5'
+        'kino_atlas_5',
+        'kino_atlas_6',
+        'kino_atlas_7',
+        'kino_atlas_8'
     },
     loc_txt = {
         name = 'Kino Retextured',

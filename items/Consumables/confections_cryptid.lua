@@ -21,7 +21,7 @@ SMODS.Consumable {
 		},
 	},
     loc_vars = function(self, info_queue, card)
-        local _return = card.ability.extra.jollies
+        local _return = card.ability.extra.jollies + G.GAME.confections_powerboost
         if card.ability.kino_chocolate then
             _return = _return + self.config.choco_bonus
         end
@@ -37,7 +37,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true then
+        if card.active == true or card.area.config.type == 'shop' then
 		    return false
         end
 
@@ -85,7 +85,7 @@ SMODS.Consumable {
             for _rank, _count in pairs(_ranks) do
                 if _count >= 2 then
 
-                    _triggers= _triggers + card.ability.extra.jollies
+                    _triggers = (_triggers + card.ability.extra.jollies) + G.GAME.confections_powerboost
                     if card.ability.kino_chocolate then
                         _triggers= _triggers + card.ability.choco_bonus
                     end
@@ -128,7 +128,7 @@ SMODS.Consumable {
 		},
 	},
     loc_vars = function(self, info_queue, card)
-        local _return = card.ability.extra.powerboost
+        local _return = card.ability.extra.powerboost + G.GAME.confections_powerboost
         if card.ability.kino_chocolate then
             _return = _return + self.config.choco_bonus
         end
@@ -142,7 +142,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true then
+        if card.active == true or card.area.config.type == 'shop' then
 		    return false
         end
 
@@ -181,7 +181,7 @@ SMODS.Consumable {
                 if _target:can_calculate() then
                     local _multiplier = _target:get_multiplier_by_source(_target, "kino_nutrition") or 1
                     
-                    local _addition = card.ability.extra.powerboost
+                    local _addition = card.ability.extra.powerboost + G.GAME.confections_powerboost
                     if card.ability.kino_chocolate then
                         _addition = _addition + card.ability.choco_bonus
                     end
@@ -222,7 +222,7 @@ SMODS.Consumable {
 		},
 	},
     loc_vars = function(self, info_queue, card)
-        local _return = card.ability.extra.retriggers
+        local _return = card.ability.extra.retriggers + G.GAME.confections_powerboost
         if card.ability.kino_chocolate then
             _return = _return + self.config.choco_bonus
         end
@@ -238,7 +238,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true then
+        if card.active == true or card.area.config.type == 'shop' then
 		    return false
         end
 
@@ -277,9 +277,9 @@ SMODS.Consumable {
         if card.active and card.ability.extra.target 
         and context.retrigger_joker_check and 
         not context.retrigger_joker and context.other_card ~= self then
-            card.ability.extra.debug_var = card.ability.extra.debug_var + 1
+
 			local _target = card.ability.extra.target
-            local _total_retriggers = card.ability.extra.retriggers
+            local _total_retriggers = card.ability.extra.retriggers + G.GAME.confections_powerboost
             if card.ability.kino_chocolate then
                 _total_retriggers = _total_retriggers + card.ability.choco_bonus
             end

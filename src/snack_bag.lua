@@ -52,24 +52,36 @@ function CardArea:emplace(card, location, stay_flipped)
             G.consumeables:emplace(_snackbag)
         end
         Kino.snackbag:emplace(card, location, stay_flipped)
-        return 
+        card:set_card_area(Kino.snackbag)
+        
+        self:set_ranks()
+        self:align_cards()
+        return true
     end
-
     cae(self, card, location, stay_flipped)
 end
 
 local o_can_sell_card = Card.can_sell_card
 function Card:can_sell_card(context)
-    if (G.play and #G.play.cards > 0) or
-        (G.CONTROLLER.locked) or
-        (G.GAME.STOP_USE and G.GAME.STOP_USE > 0)
-    then
-        return false
-    end
+    
     if self.area and
-        self.area.config.type == 'extra_deck' and
-        not self.ability.eternal then
+    self.area == Kino.snackbag and
+    not self.ability.eternal then
         return true
     end
     return o_can_sell_card(self, context)
+end
+
+local o_sellcard = Card.sell_card
+function Card:sell_card()
+    local area = self.area
+    o_sellcard(self)
+end
+
+function debugcardareaprint(area)
+    if area == Kino.snackbag then print('snack') end
+    if area == G.kino_snackbag then print('snackbag in G') end
+    if area == G.jokers then print('jokers') end
+    if area == G.consumeables then print('consum') end
+    if not area then print('nil') end
 end

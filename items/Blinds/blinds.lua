@@ -68,7 +68,7 @@ SMODS.Blind{
 
     end,
     set_blind = function(self)
-        G.GAME.current_round.boss_blind_indicator = true
+        G.GAME.current_round.boss_blind_indicator = "kinoblind_vader"
         if G.jokers.cards and G.jokers.cards[1] then
             local _startingvalue = 1
             G.jokers.cards[1].ability.vader_triggers = 1
@@ -82,10 +82,10 @@ SMODS.Blind{
         
     end,
     disable = function(self)
-        G.GAME.current_round.boss_blind_indicator = false
+        G.GAME.current_round.boss_blind_indicator = nil
     end,
     defeat = function(self)
-        G.GAME.current_round.boss_blind_indicator = false
+        G.GAME.current_round.boss_blind_indicator = nil
         for _, _joker in ipairs(G.jokers.cards) do
             Kino.setpowerchange(_joker, "kinoblind_vader", 1)
             G.jokers.cards[1].ability.vader_triggers = nil
@@ -399,18 +399,20 @@ SMODS.Blind{
     debuff = {
     },
     loc_vars = function(self)
+        local _rankasvalue = Kino.rank_to_value(G.GAME.current_round.bonnierank)
         return {
             vars = {
-                G.GAME.current_round.bonnierank,
-                G.GAME.current_round.clydesuit
+                localize(_rankasvalue, 'ranks'),
+                localize(G.GAME.current_round.clydesuit, 'suits_plural')
+                
             }
         }
     end,
     collection_loc_vars = function(self)
         return {
             vars = {
-                2,
-                "Spades"
+                localize("2", 'ranks'),
+                localize("Spades", 'suits_plural')
             }
         }
     end,
@@ -679,7 +681,7 @@ SMODS.Blind{
     end,
     calculate = function(self, blind, context)
         if context.after then
-            G.GAME.current_round.boss_blind_blofeld_counter = #context.full_hand
+            G.GAME.current_round.boss_blind_blofeld_counter = #context.full_hand - 1
         end
     end,
     debuff_hand = function(self, cards, hand, handname, check)
@@ -890,39 +892,63 @@ SMODS.Blind{
     end
 }
 
--- NO FUNCTIONALITY
--- SMODS.Blind{
---     key = "deckard_shaw",
---     dollars = 5,
---     mult = 2,
---     boss_colour = HEX('3d5a82'),
---     atlas = 'kino_blinds', 
---     boss = {min = 4, max = 10},
---     pos = { x = 0, y = 19},
---     debuff = {
---         chips_debuff = 10,
---         mult_debuff = 1,
---     },
---     loc_vars = function(self)
+SMODS.Blind{
+    key = "deckard_shaw",
+    dollars = 5,
+    mult = 2,
+    boss_colour = HEX('3d5a82'),
+    atlas = 'kino_blinds', 
+    boss = {min = 4, max = 10},
+    pos = { x = 0, y = 19},
+    debuff = {
+        timer = 5,
+        active = false,
+        defeated = false
+    },
+    loc_vars = function(self)
 
---     end,
---     collection_loc_vars = function(self)
+    end,
+    collection_loc_vars = function(self)
 
---     end,
+    end,
+    disable = function(self)
 
---     press_play = function(self)
---         if G.GAME.current_round.hands_played > 1 then
---             if G.jokers.cards and #G.jokers.cards > 2 and G.jokers.cards[3] then
---                 if not G.jokers.cards[3].getting_sliced then
---                     G.E_MANAGER:add_event(Event({func = function()
---                         G.jokers.cards[3]:juice_up(0.8, 0.8)
---                         G.jokers.cards[3]:start_dissolve({G.C.RED}, nil, 1.6)
---                     return true end }))
---                 end
---             end
---         end
---     end,
--- }
+    end,
+    defeat = function(self)
+        self.debuff.defeated = true
+    end,
+    calculate = function(self, blind, context)
+        if context.first_hand_drawn then
+            local _timer = blind.debuff.timer
+            blind.debuff.active = true
+
+            local event
+            event = Event {
+                blockable = false,
+                blocking = false,
+                pause_force = true,
+                no_delete = true,
+                trigger = "after",
+                delay = _timer,
+                timer = "UPTIME",
+                func = function()
+                    if self.debuff.active and #G.hand.cards > 0 then
+                        local _randomtarget = pseudorandom_element(G.hand.cards, pseudoseed("kino_deckshaw"))
+                        Kino.discard_given_card({_randomtarget}, true)
+                    end
+                    if self.debuff.defeated == false and G.hand then
+                        event.start_timer = false
+                    else
+                        return true
+                    end
+                end
+            }
+            
+
+            G.E_MANAGER:add_event(event)
+        end
+    end
+}
 
 -- WORKS
 SMODS.Blind{
@@ -972,41 +998,6 @@ SMODS.Blind{
         end
     end
 }
-
--- Lower ranks of cards in hand when 
--- SMODS.Blind{
---     key = "humungus",
---     dollars = 5,
---     mult = 2,
---     boss_colour = HEX('8f6623'),
---     atlas = 'kino_blinds', 
---     boss = {min = 4, max = 10},
---     pos = { x = 0, y = 21},
---     debuff = {
---     },
---     loc_vars = function(self)
-
---     end,
---     collection_loc_vars = function(self)
-
---     end,
-
---     calculate = function(self, blind, context)
---         if context.individual and context.cardarea == G.play then
---             for _, _pcard in ipairs(G.hand.cards) do
---                 G.E_MANAGER:add_event(Event({func = function()
-
---                     blind:wiggle()
---                     _pcard:flip()
---                     SMODS.modify_rank(_pcard, -1)
---                     _pcard:flip()
---                     blind:wiggle()
-
---                 return true end }))
---             end
---         end
---     end
--- }
 
 -- When you discard or play, discard the top 3 cards from your deck
 SMODS.Blind{
@@ -1238,6 +1229,79 @@ SMODS.Blind{
     end
 }
 
+SMODS.Blind{
+    key = "beachthatmakesyouold",
+    dollars = 5,
+    mult = 2,
+    boss_colour = HEX('8cc8d5'),
+    atlas = 'kino_blinds', 
+    boss = {min = 4, max = 10},
+    pos = { x = 0, y = 26},
+    debuff = {
+        timer = 2,
+        active = false,
+        defeated = false
+    },
+    loc_vars = function(self)
+        return {
+            vars = {
+                self.debuff.timer,
+            }
+        }
+    end,
+    collection_loc_vars = function(self)
+        return {
+            vars = {
+                self.debuff.timer,
+            }
+        }
+    end,
+    disable = function(self)
+
+    end,
+    defeat = function(self)
+        self.debuff.defeated = true
+    end,
+    calculate = function(self, blind, context)
+        if context.first_hand_drawn then
+            local _timer = blind.debuff.timer
+            blind.debuff.active = true
+
+            local event
+            event = Event {
+                blockable = false,
+                blocking = false,
+                pause_force = true,
+                no_delete = true,
+                trigger = "after",
+                delay = _timer,
+                timer = "UPTIME",
+                func = function()
+                    if self.debuff.active and #G.hand.cards > 0 then
+                        local _randomtarget = pseudorandom_element(G.hand.cards, pseudoseed("kino_deckshaw"))
+                        if _randomtarget:get_id() == 14 and _randomtarget:can_calculate() then
+                            SMODS.destroy_cards(_randomtarget)
+                        else
+                            _randomtarget:flip()
+                            delay(0.3)
+                            SMODS.modify_rank(_randomtarget, 1)
+                            _randomtarget:flip()
+                        end
+                    end
+                    if self.debuff.defeated == false and G.hand then
+                        event.start_timer = false
+                    else
+                        return true
+                    end
+                end
+            }
+            
+
+            G.E_MANAGER:add_event(event)
+        end
+    end
+}
+
 -- NO FUNCTIONALITY
 SMODS.Blind{
     key = "thanos",
@@ -1371,139 +1435,119 @@ SMODS.Blind{
     end
 }
 
--- -- NO FUNCTIONALITY
--- SMODS.Blind{
---     key = "palpatine",
---     dollars = 5,
---     mult = 2,
---     boss_colour = HEX('3f5634'),
---     atlas = 'kino_blinds', 
---     boss = {min = 4, max = 10},
---     pos = { x = 0, y = 31},
---     debuff = {
---         chips_debuff = 10,
---         mult_debuff = 1,
---     },
---     loc_vars = function(self)
-
---     end,
---     collection_loc_vars = function(self)
-
---     end,
-
---     press_play = function(self)
---         if G.GAME.current_round.hands_played > 1 then
---             if G.jokers.cards and #G.jokers.cards > 2 and G.jokers.cards[3] then
---                 if not G.jokers.cards[3].getting_sliced then
---                     G.E_MANAGER:add_event(Event({func = function()
---                         G.jokers.cards[3]:juice_up(0.8, 0.8)
---                         G.jokers.cards[3]:start_dissolve({G.C.RED}, nil, 1.6)
---                     return true end }))
---                 end
---             end
---         end
---     end,
--- }
-
--- SMODS.Blind{
---     key = "palpatine",
---     dollars = 5,
---     mult = 2,
---     boss_colour = HEX('3f5634'),
---     atlas = 'kino_blinds', 
---     boss = {min = 4, max = 10, showdown = true},
---     pos = { x = 0, y = 31},
---     debuff = {
---         palp_damage = 0.2,
---         triggers = 5
---     },
---     loc_vars = function(self)
+SMODS.Blind{
+    key = "palpatine",
+    dollars = 5,
+    mult = 2,
+    boss_colour = HEX('3f5634'),
+    atlas = 'kino_blinds', 
+    boss = {min = 4, max = 10, showdown = true},
+    pos = { x = 0, y = 31},
+    debuff = {
+        palp_damage = 0.2,
+        triggers = 5
+    },
+    loc_vars = function(self)
         
---     end,
---     collection_loc_vars = function(self)
+    end,
+    collection_loc_vars = function(self)
 
---     end,
---     set_blind = function(self)
---         -- G.GAME.current_round.boss_blind_indicator = true
---         -- if G.jokers.cards and G.jokers.cards[1] then
---         --     local _startingvalue = 1
---         --     G.jokers.cards[1].ability.vader_triggers = 1
---         --     if G.jokers.cards[1].ability.output_powerchange and G.jokers.cards[1].ability.output_powerchange.kinoblind_palpatine then
---         --         _startingvalue = G.jokers.cards[1].ability.output_powerchange.kinoblind_palpatine
---         --     end
---         --     Kino.setpowerchange(G.jokers.cards[1], "kinoblind_palpatine", _startingvalue - self.debuff.palp_damage)
---         -- end
---     end,
---     drawn_to_hand = function(self)
+    end,
+    set_blind = function(self)
+        G.GAME.current_round.boss_blind_indicator = 'kinoblind_palp'
+        if not G.jokers and not G.jokers.cards then return end
+
+        for _, _joker in ipairs(G.jokers.cards) do
+            local _startingvalue = 1
+            _joker.ability.vader_triggers = 1
+            if _joker.ability.output_powerchange and _joker.ability.output_powerchange.kinoblind_palpatine then
+                _startingvalue = _joker.ability.output_powerchange.kinoblind_palpatine
+            end
+            print("testing")
+            print(_startingvalue - self.debuff.palp_damage)
+            Kino.setpowerchange(_joker, "kinoblind_palpatine", _startingvalue - self.debuff.palp_damage)
+        end
+    end,
+    drawn_to_hand = function(self)
         
---     end,
---     disable = function(self)
---         G.GAME.current_round.boss_blind_indicator = false
---     end,
---     defeat = function(self)
---         G.GAME.current_round.boss_blind_indicator = false
---         for _, _joker in ipairs(G.jokers.cards) do
---             Kino.setpowerchange(_joker, "kinoblind_palpatine", 1)
---             G.jokers.cards[1].ability.vader_triggers = nil
---         end
---     end,
---     press_play = function(self)
+    end,
+    disable = function(self)
+        G.GAME.current_round.boss_blind_indicator = false
+    end,
+    defeat = function(self)
+        G.GAME.current_round.boss_blind_indicator = false
+        for _, _joker in ipairs(G.jokers.cards) do
+            Kino.setpowerchange(_joker, "kinoblind_palpatine", 1)
+            G.jokers.cards[1].ability.vader_triggers = nil
+        end
+    end,
+    press_play = function(self)
         
---     end,
---     calculate = function(self, blind, context)
+    end,
+    calculate = function(self, blind, context)
 
---         if context.after then
---             G.jokers.cards[1].ability.vader_triggers = G.jokers.cards[1].ability.vader_triggers and G.jokers.cards[1].ability.vader_triggers +1 or 1
+        if context.after then
+            for _, _joker in ipairs(G.jokers.cards) do
+                _joker.ability.vader_triggers = _joker.ability.vader_triggers and _joker.ability.vader_triggers +1 or 1
 
---             if G.jokers.cards[1].ability.vader_triggers > 3 then
---                 G.jokers.cards[1].getting_sliced = true
-                
---                 G.E_MANAGER:add_event(Event({func = function()
---                     blind:wiggle()
---                     card_eval_status_text(G.jokers.cards[1], 'extra', nil, nil, nil,
---                     { message = localize('k_blind_vader_1'), colour = G.C.BLACK})
---                     G.jokers.cards[1]:start_dissolve({G.C.RED}, nil, 1.6)
---                 return true end }))
---             end
---             local _startingvalue = 1
---             if G.jokers.cards[1].ability.output_powerchange and G.jokers.cards[1].ability.output_powerchange.kinoblind_vader then
---                 _startingvalue = G.jokers.cards[1].ability.output_powerchange.kinoblind_vader
---             end
---             Kino.setpowerchange(G.jokers.cards[1], "kinoblind_vader", _startingvalue - self.debuff.vader_damage)
---         end
---     end
--- }
+                if _joker.ability.vader_triggers > 5 then
+                    _joker.getting_sliced = true
+                    
+                    G.E_MANAGER:add_event(Event({func = function()
+                        blind:wiggle()
+                        card_eval_status_text(_joker, 'extra', nil, nil, nil,
+                        { message = localize('k_blind_vader_1'), colour = G.C.BLACK})
+                        _joker:start_dissolve({G.C.RED}, nil, 1.6)
+                    return true end }))
+                end
+                local _startingvalue = 1
+                if _joker.ability.output_powerchange and _joker.ability.output_powerchange.kinoblind_vader then
+                    _startingvalue = _joker.ability.output_powerchange.kinoblind_vader
+                end
+                Kino.setpowerchange(_joker, "kinoblind_palpatine", _startingvalue - self.debuff.palp_damage)
+            end
+        end
+    end
+}
 
--- NO FUNCTIONALITY
--- SMODS.Blind{
---     key = "dr_evil",
---     dollars = 5,
---     mult = 2,
---     boss_colour = HEX('3f5634'),
---     atlas = 'kino_blinds', 
---     boss = {min = 4, max = 10},
---     pos = { x = 0, y = 29},
---     debuff = {
---         chips_debuff = 10,
---         mult_debuff = 1,
---     },
---     loc_vars = function(self)
+SMODS.Blind{
+    key = "dr_evil",
+    dollars = 5,
+    mult = 2,
+    boss_colour = HEX('dcdcdc'),
+    atlas = 'kino_blinds', 
+    boss = {min = 4, max = 10},
+    pos = { x = 0, y = 29},
+    debuff = {
+        h_size_le = G.GAME and G.GAME.current_round.boss_blind_blofeld_counter or 100000
+    },
+    loc_vars = function(self)
 
---     end,
---     collection_loc_vars = function(self)
+    end,
+    collection_loc_vars = function(self)
 
---     end,
+    end,
+    set_blind = function(self)
+        G.GAME.current_round.boss_blind_blofeld_counter = 0
+    end,
+    defeat = function(self)
+        G.GAME.current_round.boss_blind_blofeld_counter = 10000
+    end,
+    disable = function(self)
+        G.GAME.current_round.boss_blind_blofeld_counter = 10000
+    end,
+    calculate = function(self, blind, context)
+        if context.after then
+            G.GAME.current_round.boss_blind_blofeld_counter = #context.full_hand
+        end
+    end,
+    debuff_hand = function(self, cards, hand, handname, check)
+        if (G.GAME.current_round.boss_blind_blofeld_counter or 100000) >= #cards then
+            return true
+        end
 
---     press_play = function(self)
---         if G.GAME.current_round.hands_played > 1 then
---             if G.jokers.cards and #G.jokers.cards > 2 and G.jokers.cards[3] then
---                 if not G.jokers.cards[3].getting_sliced then
---                     G.E_MANAGER:add_event(Event({func = function()
---                         G.jokers.cards[3]:juice_up(0.8, 0.8)
---                         G.jokers.cards[3]:start_dissolve({G.C.RED}, nil, 1.6)
---                     return true end }))
---                 end
---             end
---         end
---     end,
--- }
+        return false
+
+        
+    end
+}

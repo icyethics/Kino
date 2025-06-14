@@ -193,7 +193,6 @@ if amt > 1 then
 	G.GAME.current_round.beaten_run_high = G.GAME.current_round.beaten_run_high + 1
 end
 '''
-
 ## Add reroll cards to the code
 [[patches]]
 [patches.pattern]
@@ -233,6 +232,7 @@ elseif card.config.center.set == 'confection' then
 	if not G.GAME.consumeable_usage_total.confection then
 		G.GAME.consumeable_usage_total.confection = 0
 	end
+    G.GAME.current_round.confection_used = true
 	G.GAME.consumeable_usage_total.confection = G.GAME.consumeable_usage_total.confection + 1
 '''
 
@@ -439,6 +439,7 @@ match_indent = true
 times = 1
 
 
+            # -- card_w = G.CARD_W * 0.7,
 # Card Areas
 [[patches]]
 [patches.pattern]
@@ -463,15 +464,15 @@ payload = '''
 
     -- Confection Mechanics
     self.kino_snackbag = CardArea(
-        G.consumeables.T.x + 2.25,
+        G.consumeables.T.x + 2,
         G.consumeables.T.y + G.consumeables.T.h + 1,
-        self.CARD_W * 2.2,
+        self.CARD_W * 2,
         self.CARD_H * 0.95,
         {
             card_limit = 4,
             type = 'joker',
             highlight_limit = 1,
-            -- card_w = G.CARD_W * 0.7,
+            card_w = G.CARD_W * 0.1,
         }
     )
     self.kino_snackbag.states.visible = false
@@ -791,7 +792,34 @@ end
 '''
 match_indent = true
 times = 1
-# 
+
+# Button realigment
+# Code taken almost exactly from Horoscope.toml from the Maximus mod
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+config = {align=
+        ((self.area == G.jokers) or (self.area == G.consumeables)) and "cr" or
+        "bmi"
+    , offset = 
+        ((self.area == G.jokers) or (self.area == G.consumeables)) and {x=x_off - 0.4,y=0} or
+        {x=0,y=0.65},
+    parent =self}
+'''
+position = "at"
+payload = '''
+config = {align=
+        ((self.area == G.jokers) or (self.area == G.consumeables) or (self.area == Kino.snackbag)) and "cr" or
+        "bmi"
+    , offset = 
+        ((self.area == G.jokers) or (self.area == G.consumeables) or (self.area == Kino.snackbag)) and {x=x_off - 0.4,y=0} or
+        {x=0,y=0.65},
+    parent =self}
+'''
+match_indent = true
+
+
 
 
 

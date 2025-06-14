@@ -82,12 +82,13 @@ SMODS.Atlas {
     py = 95,
     path =  'kino_jokers_9.png'
 }
--- SMODS.Atlas {
---     key = "kino_atlas_10",
---     px = 71,
---     py = 95,
---     path =  'kino_jokers_10.png'
--- }
+
+SMODS.Atlas {
+    key = "kino_atlas_10",
+    px = 71,
+    py = 95,
+    path =  'kino_jokers_10.png'
+}
 
 SMODS.Atlas {
     key = 'modicon',
@@ -277,6 +278,10 @@ Game.init_game_object = function(self)
     -- 
 
     ret.confections_used = 0
+    ret.confections_powerboost = 0
+    ret.confections_goldleaf_bonus = 1
+    ret.current_round.confections_temp_boost = 0
+    ret.current_round.confection_used = false
 
     ret.current_round.abduction_waitinglist = {}
 
@@ -290,6 +295,13 @@ Game.init_game_object = function(self)
     ret.current_round.boss_blind_thanos_cards = {}
 
     -- -- Set up visual information 
+    self.shared_indicator_sprites = {
+        powerchange_sprite = Sprite(0, 0, self.CARD_W, self.CARD_W,
+            G.ASSET_ATLAS["kino_ui"], {
+                x = 6,
+                y = 0
+            }),
+    }
 
     -- Setting up the Sci-fi display sprites
     self.shared_enhancement_sprites = {
@@ -544,6 +556,13 @@ if load_error then
 end
 
 local helper, load_error = SMODS.load_file("src/spritemanipulation.lua")
+if load_error then
+    sendDebugMessage ("The error is: "..load_error)
+    else
+    helper()
+end
+
+local helper, load_error = SMODS.load_file("src/consumable_functions.lua")
 if load_error then
     sendDebugMessage ("The error is: "..load_error)
     else

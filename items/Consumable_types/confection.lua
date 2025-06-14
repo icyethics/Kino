@@ -25,7 +25,8 @@ Kino.confection_trigger = function(card)
     { message = localize('k_eaten'), colour = G.C.MULT})
 
     if card.ability.kino_goldleaf then
-        ease_dollars(1)
+        ease_dollars(G.GAME.confections_goldleaf_bonus)
+        G.GAME.confections_goldleaf_bonus = G.GAME.confections_goldleaf_bonus + 1
     end
 
     card.ability.extra.times_used = card.ability.extra.times_used + 1
@@ -54,6 +55,7 @@ Kino.powerboost_confection = function(card, forced)
     if G.GAME.used_vouchers.v_kino_heavenly_treats or forced then
 
         if card == G.P_CENTERS.c_snackbag then return true end
+        if card.ability.immutable then return true end
 
         for _key, _value in pairs(card.ability.extra) do
             if type(_value) == "number" and _key ~= 'times_used' then

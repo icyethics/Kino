@@ -79,7 +79,7 @@ joker_list = {
 "pink_panther_1",
 "pinocchio_2022",
 "piranha_2",
--- "pitch_black",
+"pitch_black",
 "pride_and_prejudice",
 "psycho",
 "ready_player_one",
@@ -274,10 +274,10 @@ joker_list = {
 
 ------ Legendary
 
--- "citizen_kane",
+"citizen_kane",
 "2001_odyssey",
 "indiana_jones_1",
--- "ratatouille",
+"ratatouille",
 "barbie",
 
 -- "barbie", 2020s
@@ -303,6 +303,14 @@ joker_list = {
 -- "zodiac",
 -- "young_frankenstein",
 -- "arrival",
+'star_wars_ii',
+'star_wars_iii',
+'star_wars_v',
+'star_wars_vi',
+'star_wars_viii',
+'star_wars_ix',
+'ponyo',
+'frankenstein'
 
 }
 
@@ -536,9 +544,9 @@ confection_object = {
 }
 
 Kino.legendaries = {
-    -- "citizen_kane",
+    "citizen_kane",
     "2001_odyssey",
     "indiana_jones_1",
-    -- "ratatouille",
+    "ratatouille",
     "barbie"
 }

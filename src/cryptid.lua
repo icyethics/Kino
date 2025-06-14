@@ -64,4 +64,19 @@ end
 if Cryptid.setup_voucher_rate_adjuster then
     Cryptid.setup_voucher_rate_adjuster("v_kino_confection_acclimator", "b_confection_rate", "confection", G.C.SECONDARY_SET.Mult)
 end
+
+function check_and_set_high_score(score, amt)
+    if to_big(math.floor(amt)) > to_big(1) then
+	    G.GAME.current_round.beaten_run_high = G.GAME.current_round.beaten_run_high + 1
+    end
+    if G.GAME.round_scores[score] and to_big(math.floor(amt)) > to_big(G.GAME.round_scores[score].amt) then
+      G.GAME.round_scores[score].amt = to_big(math.floor(amt))
+    end
+    if  G.GAME.seeded  then return end
+    --[[if G.PROFILES[G.SETTINGS.profile].high_scores[score] and math.floor(amt) > G.PROFILES[G.SETTINGS.profile].high_scores[score].amt then
+      if G.GAME.round_scores[score] then G.GAME.round_scores[score].high_score = true end
+      G.PROFILES[G.SETTINGS.profile].high_scores[score].amt = math.floor(amt)
+      G:save_settings()
+    end--]] --going to hold off on modifying this until proper save loading exists
+end
 end
