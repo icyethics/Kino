@@ -91,6 +91,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = "kino_exotic",
+    px = 71,
+    py = 95,
+    path =  'kino_exotic.png'
+}
+
+SMODS.Atlas {
     key = 'modicon',
     px = 32,
     py = 32,
@@ -354,7 +361,7 @@ local _options = {
     {kino_config.demonic_enhancement, demonic_objects},
     {kino_config.horror_enhancement, horror_objects},
     {kino_config.romance_enhancement, romance_objects},
-    {kino_config.jumpscare_mechanic, jumpscare_objects}
+    {kino_config.jumpscare_mechanic, jumpscare_objects},
 }
 
 for _i, joker in ipairs(joker_list) do

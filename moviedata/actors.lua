@@ -58927,7 +58927,7 @@ return {
   ID_33185 = {
     name = "Jeremy Bulloch",
     gender = 2,
-    popularity = 0.5579,
+    popularity = 1.2557,
     acting = {
       "1891",
       "1892",
@@ -58939,7 +58939,7 @@ return {
   ID_151529 = {
     name = "Jason Wingreen",
     gender = 2,
-    popularity = 0.9805,
+    popularity = 1.1755,
     acting = {
       "1891",
       "1892",
@@ -58950,7 +58950,7 @@ return {
   ID_27165 = {
     name = "John Hollis",
     gender = 2,
-    popularity = 0.628,
+    popularity = 0.6463,
     acting = {
       "1891",
     },
@@ -58960,7 +58960,7 @@ return {
   ID_117714 = {
     name = "Marjorie Eaton",
     gender = 1,
-    popularity = 0.5189,
+    popularity = 0.6878,
     acting = {
       "1891",
     },
@@ -58970,7 +58970,7 @@ return {
   ID_20128 = {
     name = "Clive Revill",
     gender = 2,
-    popularity = 1.2511,
+    popularity = 1.5846,
     acting = {
       "1891",
     },
@@ -58980,7 +58980,7 @@ return {
   ID_10734 = {
     name = "Kenneth Colley",
     gender = 2,
-    popularity = 1.4279,
+    popularity = 1.4841,
     acting = {
       "1891",
       "1892",
@@ -58991,7 +58991,7 @@ return {
   ID_740 = {
     name = "Julian Glover",
     gender = 2,
-    popularity = 1.6806,
+    popularity = 2.1928,
     acting = {
       "1891",
     },
@@ -59001,7 +59001,17 @@ return {
   ID_47520 = {
     name = "Michael Culver",
     gender = 2,
-    popularity = 0.7966,
+    popularity = 1.2018,
+    acting = {
+      "1891",
+    },
+    directing = {
+    },
+  },
+  ID_1429986 = {
+    name = "John Dicks",
+    gender = 0,
+    popularity = 0.4482,
     acting = {
       "1891",
     },
@@ -59011,7 +59021,7 @@ return {
   ID_24625 = {
     name = "Milton Johns",
     gender = 2,
-    popularity = 0.5524,
+    popularity = 0.7125,
     acting = {
       "1891",
     },
@@ -59021,7 +59031,7 @@ return {
   ID_1229839 = {
     name = "Mark Jones",
     gender = 2,
-    popularity = 0.6111,
+    popularity = 0.8416,
     acting = {
       "1891",
     },
@@ -59031,7 +59041,7 @@ return {
   ID_1221792 = {
     name = "Oliver Maguire",
     gender = 2,
-    popularity = 0.7232,
+    popularity = 0.8748,
     acting = {
       "1891",
     },
@@ -59041,7 +59051,7 @@ return {
   ID_1429987 = {
     name = "Robin Scobey",
     gender = 2,
-    popularity = 0.2933,
+    popularity = 0.305,
     acting = {
       "1891",
     },
@@ -59051,7 +59061,7 @@ return {
   ID_47808 = {
     name = "Christopher Malcolm",
     gender = 2,
-    popularity = 1.0604,
+    popularity = 1.2005,
     acting = {
       "1891",
     },
@@ -59061,7 +59071,7 @@ return {
   ID_1181937 = {
     name = "Richard Oldfield",
     gender = 0,
-    popularity = 0.2531,
+    popularity = 0.4294,
     acting = {
       "1891",
     },
@@ -59071,7 +59081,7 @@ return {
   ID_1430007 = {
     name = "John Morton",
     gender = 2,
-    popularity = 0.2832,
+    popularity = 0.4416,
     acting = {
       "1891",
     },
@@ -59081,7 +59091,7 @@ return {
   ID_79957 = {
     name = "Ian Liston",
     gender = 2,
-    popularity = 0.3903,
+    popularity = 0.4313,
     acting = {
       "1891",
     },
@@ -59091,7 +59101,7 @@ return {
   ID_1211845 = {
     name = "Jack McKenzie",
     gender = 2,
-    popularity = 0.6557,
+    popularity = 0.9027,
     acting = {
       "1891",
     },
@@ -59101,7 +59111,7 @@ return {
   ID_1270880 = {
     name = "Jerry Harte",
     gender = 2,
-    popularity = 0.6341,
+    popularity = 0.7177,
     acting = {
       "1891",
     },
@@ -59111,7 +59121,7 @@ return {
   ID_116123 = {
     name = "Norman Chancer",
     gender = 2,
-    popularity = 0.9091,
+    popularity = 0.7417,
     acting = {
       "1891",
     },
@@ -59121,7 +59131,7 @@ return {
   ID_1430038 = {
     name = "Norwich Duff",
     gender = 2,
-    popularity = 0.2705,
+    popularity = 0.3201,
     acting = {
       "1891",
     },
@@ -59131,7 +59141,7 @@ return {
   ID_1250671 = {
     name = "Ray Hassett",
     gender = 2,
-    popularity = 0.4032,
+    popularity = 0.4978,
     acting = {
       "1891",
     },
@@ -59141,7 +59151,7 @@ return {
   ID_1430048 = {
     name = "Brigitte Kahn",
     gender = 1,
-    popularity = 0.4466,
+    popularity = 0.7165,
     acting = {
       "1891",
     },
@@ -59151,7 +59161,7 @@ return {
   ID_184980 = {
     name = "Burnell Tucker",
     gender = 2,
-    popularity = 0.8985,
+    popularity = 1.1876,
     acting = {
       "1891",
     },
@@ -59161,7 +59171,7 @@ return {
   ID_202711 = {
     name = "Bob Anderson",
     gender = 2,
-    popularity = 0.3476,
+    popularity = 0.5088,
     acting = {
       "1891",
     },
@@ -59171,7 +59181,7 @@ return {
   ID_1271059 = {
     name = "Lightning Bear",
     gender = 2,
-    popularity = 0.4944,
+    popularity = 0.6291,
     acting = {
       "1891",
     },
@@ -59181,7 +59191,7 @@ return {
   ID_1473717 = {
     name = "Richard Bonehill",
     gender = 0,
-    popularity = 0.3486,
+    popularity = 0.3669,
     acting = {
       "1891",
       "1892",
@@ -59192,7 +59202,7 @@ return {
   ID_1230632 = {
     name = "John Cannon",
     gender = 2,
-    popularity = 0.453,
+    popularity = 0.5552,
     acting = {
       "1891",
       "1892",
@@ -59203,7 +59213,7 @@ return {
   ID_1520024 = {
     name = "Mark Capri",
     gender = 2,
-    popularity = 0.3755,
+    popularity = 0.4824,
     acting = {
       "1891",
     },
@@ -59213,7 +59223,7 @@ return {
   ID_1355100 = {
     name = "Martin Dew",
     gender = 0,
-    popularity = 0.3874,
+    popularity = 0.5782,
     acting = {
       "1891",
     },
@@ -59223,7 +59233,7 @@ return {
   ID_1212168 = {
     name = "Stuart Fell",
     gender = 2,
-    popularity = 0.6997,
+    popularity = 0.8542,
     acting = {
       "1891",
     },
@@ -59233,7 +59243,7 @@ return {
   ID_2175140 = {
     name = "Tony Smart",
     gender = 2,
-    popularity = 0.5556,
+    popularity = 0.7443,
     acting = {
       "1891",
     },
@@ -59243,7 +59253,7 @@ return {
   ID_964699 = {
     name = "Alan Harris",
     gender = 2,
-    popularity = 0.5326,
+    popularity = 0.5338,
     acting = {
       "1891",
       "1892",
@@ -59254,7 +59264,7 @@ return {
   ID_1572550 = {
     name = "Ralph McQuarrie",
     gender = 2,
-    popularity = 0.3596,
+    popularity = 0.5585,
     acting = {
       "1891",
     },
@@ -59264,7 +59274,7 @@ return {
   ID_1230662 = {
     name = "Ralph G. Morse",
     gender = 0,
-    popularity = 0.4158,
+    popularity = 0.5906,
     acting = {
       "1891",
     },
@@ -59274,7 +59284,7 @@ return {
   ID_1229106 = {
     name = "Terry Richards",
     gender = 2,
-    popularity = 0.5039,
+    popularity = 0.8006,
     acting = {
       "1891",
     },
@@ -59284,7 +59294,7 @@ return {
   ID_4515 = {
     name = "Treat Williams",
     gender = 2,
-    popularity = 3.0336,
+    popularity = 3.4055,
     acting = {
       "1891",
     },
@@ -59294,7 +59304,7 @@ return {
   ID_185986 = {
     name = "Shaun Curry",
     gender = 2,
-    popularity = 0.5751,
+    popularity = 0.751,
     acting = {
       "1891",
     },
@@ -59304,7 +59314,7 @@ return {
   ID_1415957 = {
     name = "Jim Dowdall",
     gender = 2,
-    popularity = 1.3192,
+    popularity = 1.1878,
     acting = {
       "1891",
     },
@@ -59314,7 +59324,7 @@ return {
   ID_1220323 = {
     name = "Maurice Bush",
     gender = 2,
-    popularity = 0.474,
+    popularity = 0.4117,
     acting = {
       "1891",
       "1892",
@@ -59325,7 +59335,7 @@ return {
   ID_151961 = {
     name = "Tony Clarkin",
     gender = 2,
-    popularity = 0.3743,
+    popularity = 0.4528,
     acting = {
       "1891",
       "1892",
@@ -59336,7 +59346,7 @@ return {
   ID_219382 = {
     name = "Mike Edmonds",
     gender = 2,
-    popularity = 0.6463,
+    popularity = 0.9507,
     acting = {
       "1891",
       "1892",
@@ -59347,7 +59357,7 @@ return {
   ID_1406400 = {
     name = "Walter Henry",
     gender = 2,
-    popularity = 0.3972,
+    popularity = 0.5273,
     acting = {
       "1891",
       "1892",
@@ -59358,7 +59368,7 @@ return {
   ID_1230439 = {
     name = "Paul Jerricho",
     gender = 2,
-    popularity = 0.5769,
+    popularity = 0.7693,
     acting = {
       "1891",
     },
@@ -59368,9 +59378,20 @@ return {
   ID_2250902 = {
     name = "Steven Meek",
     gender = 2,
-    popularity = 0.3247,
+    popularity = 0.4659,
     acting = {
       "1891",
+    },
+    directing = {
+    },
+  },
+  ID_3307 = {
+    name = "Peter Roy",
+    gender = 2,
+    popularity = 0.3216,
+    acting = {
+      "1891",
+      "1892",
     },
     directing = {
     },
@@ -59378,7 +59399,7 @@ return {
   ID_4091766 = {
     name = "Stephanie English",
     gender = 1,
-    popularity = 0.3816,
+    popularity = 0.4718,
     acting = {
       "1891",
     },
@@ -59388,7 +59409,7 @@ return {
   ID_1729623 = {
     name = "Michael Leader",
     gender = 2,
-    popularity = 0.4977,
+    popularity = 0.6199,
     acting = {
       "1891",
     },
@@ -59398,7 +59419,7 @@ return {
   ID_2487126 = {
     name = "Colin Hunt",
     gender = 0,
-    popularity = 0.3261,
+    popularity = 0.2997,
     acting = {
       "1891",
       "1892",
@@ -59409,7 +59430,7 @@ return {
   ID_10930 = {
     name = "Irvin Kershner",
     gender = 2,
-    popularity = 1.3758,
+    popularity = 1.594,
     acting = {
     },
     directing = {
@@ -59419,7 +59440,7 @@ return {
   ID_28235 = {
     name = "Sebastian Shaw",
     gender = 2,
-    popularity = 1.0527,
+    popularity = 1.3206,
     acting = {
       "1892",
     },
@@ -59429,7 +59450,7 @@ return {
   ID_199055 = {
     name = "Michael Carter",
     gender = 2,
-    popularity = 1.0972,
+    popularity = 1.2884,
     acting = {
       "1892",
     },
@@ -59439,7 +59460,7 @@ return {
   ID_114761 = {
     name = "Tim Rose",
     gender = 2,
-    popularity = 0.6511,
+    popularity = 0.7637,
     acting = {
       "1892",
       "181808",
@@ -59450,7 +59471,7 @@ return {
   ID_17484 = {
     name = "Dermot Crowley",
     gender = 2,
-    popularity = 1.1522,
+    popularity = 1.5173,
     acting = {
       "1892",
     },
@@ -59460,7 +59481,7 @@ return {
   ID_37442 = {
     name = "Caroline Blakiston",
     gender = 1,
-    popularity = 0.9713,
+    popularity = 1.3007,
     acting = {
       "1892",
     },
@@ -59470,7 +59491,7 @@ return {
   ID_137295 = {
     name = "Femi Taylor",
     gender = 1,
-    popularity = 0.5749,
+    popularity = 0.6648,
     acting = {
       "1892",
     },
@@ -59480,7 +59501,7 @@ return {
   ID_692664 = {
     name = "Claire Davenport",
     gender = 1,
-    popularity = 0.2836,
+    popularity = 0.3661,
     acting = {
       "1892",
     },
@@ -59490,7 +59511,7 @@ return {
   ID_995639 = {
     name = "Malcolm Dixon",
     gender = 2,
-    popularity = 0.5734,
+    popularity = 0.6475,
     acting = {
       "1892",
     },
@@ -59500,7 +59521,7 @@ return {
   ID_1430494 = {
     name = "Adam Bareham",
     gender = 2,
-    popularity = 0.5029,
+    popularity = 0.5852,
     acting = {
       "1892",
     },
@@ -59510,7 +59531,7 @@ return {
   ID_1430499 = {
     name = "Jonathan Oliver",
     gender = 2,
-    popularity = 0.2645,
+    popularity = 0.2724,
     acting = {
       "1892",
     },
@@ -59520,7 +59541,7 @@ return {
   ID_110422 = {
     name = "Pip Miller",
     gender = 2,
-    popularity = 0.6529,
+    popularity = 0.7352,
     acting = {
       "1892",
     },
@@ -59530,7 +59551,7 @@ return {
   ID_147482 = {
     name = "Tom Mannion",
     gender = 2,
-    popularity = 0.6714,
+    popularity = 0.6081,
     acting = {
       "1892",
     },
@@ -59540,7 +59561,7 @@ return {
   ID_81414 = {
     name = "Bobby Bell",
     gender = 0,
-    popularity = 0.4611,
+    popularity = 0.4858,
     acting = {
       "1892",
     },
@@ -59550,7 +59571,7 @@ return {
   ID_1430569 = {
     name = "Peter Burroughs",
     gender = 2,
-    popularity = 0.3596,
+    popularity = 0.516,
     acting = {
       "1892",
     },
@@ -59560,7 +59581,7 @@ return {
   ID_1430580 = {
     name = "Willie Coppen",
     gender = 2,
-    popularity = 0.4057,
+    popularity = 0.3191,
     acting = {
       "1892",
     },
@@ -59570,7 +59591,7 @@ return {
   ID_121478 = {
     name = "Sadie Corre",
     gender = 1,
-    popularity = 0.4066,
+    popularity = 0.5691,
     acting = {
       "1892",
     },
@@ -59590,7 +59611,7 @@ return {
   ID_1430595 = {
     name = "Sal Fondacaro",
     gender = 2,
-    popularity = 0.3697,
+    popularity = 0.6555,
     acting = {
       "1892",
     },
@@ -59600,7 +59621,7 @@ return {
   ID_19751 = {
     name = "Daniel Frishman",
     gender = 2,
-    popularity = 0.8198,
+    popularity = 1.125,
     acting = {
       "1892",
     },
@@ -59610,7 +59631,7 @@ return {
   ID_1224317 = {
     name = "Michael Gilden",
     gender = 2,
-    popularity = 0.7157,
+    popularity = 0.9604,
     acting = {
       "1892",
     },
@@ -59620,7 +59641,57 @@ return {
   ID_1430611 = {
     name = "Paul Grant",
     gender = 2,
-    popularity = 0.3985,
+    popularity = 0.5025,
+    acting = {
+      "1892",
+    },
+    directing = {
+    },
+  },
+  ID_1430613 = {
+    name = "Lydia Green",
+    gender = 0,
+    popularity = 0.3747,
+    acting = {
+      "1892",
+    },
+    directing = {
+    },
+  },
+  ID_1430615 = {
+    name = "Lars Green",
+    gender = 0,
+    popularity = 0.2672,
+    acting = {
+      "1892",
+    },
+    directing = {
+    },
+  },
+  ID_1430919 = {
+    name = "Nancy MacLean",
+    gender = 1,
+    popularity = 0.3283,
+    acting = {
+      "1892",
+    },
+    directing = {
+    },
+  },
+  ID_362851 = {
+    name = "Peter Mandell",
+    gender = 2,
+    popularity = 0.2666,
+    acting = {
+      "1892",
+    },
+    directing = {
+    },
+  },
+  ID_1430922 = {
+    name = "Chris Nunn",
+    gender = 0,
+    popularity = 0.296,
     acting = {
       "1892",
     },
@@ -59630,7 +59701,7 @@ return {
   ID_1430957 = {
     name = "Nicholas Read",
     gender = 2,
-    popularity = 0.3528,
+    popularity = 0.2534,
     acting = {
       "1892",
     },
@@ -59640,7 +59711,7 @@ return {
   ID_33853 = {
     name = "Felix Silla",
     gender = 2,
-    popularity = 1.0868,
+    popularity = 1.2222,
     acting = {
       "1892",
     },
@@ -59650,7 +59721,17 @@ return {
   ID_1430978 = {
     name = "Linda Spriggs",
     gender = 0,
-    popularity = 0.3422,
+    popularity = 0.2985,
+    acting = {
+      "1892",
+    },
+    directing = {
+    },
+  },
+  ID_1473715 = {
+    name = "Mark Dodson",
+    gender = 2,
+    popularity = 0.3825,
     acting = {
       "1892",
     },
@@ -59660,7 +59741,7 @@ return {
   ID_1249957 = {
     name = "Mike Quinn",
     gender = 2,
-    popularity = 0.7499,
+    popularity = 1.1641,
     acting = {
       "1892",
       "181808",
@@ -59672,7 +59753,7 @@ return {
   ID_1729666 = {
     name = "Bill Kipsang Rotich",
     gender = 2,
-    popularity = 0.3872,
+    popularity = 0.4225,
     acting = {
       "1892",
       "181812",
@@ -59680,10 +59761,20 @@ return {
     directing = {
     },
   },
+  ID_1250666 = {
+    name = "Gerald Home",
+    gender = 2,
+    popularity = 0.2662,
+    acting = {
+      "1892",
+    },
+    directing = {
+    },
+  },
   ID_1329519 = {
     name = "David Alan Barclay",
     gender = 2,
-    popularity = 0.3832,
+    popularity = 0.4979,
     acting = {
       "1892",
     },
@@ -59693,7 +59784,7 @@ return {
   ID_1370604 = {
     name = "Jasper Jacob",
     gender = 2,
-    popularity = 0.4001,
+    popularity = 0.6862,
     acting = {
       "1892",
     },
@@ -59703,7 +59794,7 @@ return {
   ID_1227911 = {
     name = "Peter Allen",
     gender = 2,
-    popularity = 0.6448,
+    popularity = 1.0216,
     acting = {
       "1892",
     },
@@ -59713,7 +59804,7 @@ return {
   ID_1218998 = {
     name = "John Altman",
     gender = 2,
-    popularity = 0.6078,
+    popularity = 0.7393,
     acting = {
       "1892",
     },
@@ -59723,7 +59814,7 @@ return {
   ID_47861 = {
     name = "Glyn Baker",
     gender = 2,
-    popularity = 0.3542,
+    popularity = 0.5348,
     acting = {
       "1892",
     },
@@ -59733,7 +59824,7 @@ return {
   ID_1495190 = {
     name = "Dickey Beer",
     gender = 2,
-    popularity = 0.7741,
+    popularity = 0.8598,
     acting = {
       "1892",
     },
@@ -59743,7 +59834,7 @@ return {
   ID_9142 = {
     name = "Paul Brooke",
     gender = 2,
-    popularity = 0.8579,
+    popularity = 1.2381,
     acting = {
       "1892",
     },
@@ -59753,7 +59844,7 @@ return {
   ID_1935711 = {
     name = "Kenneth Coombs",
     gender = 2,
-    popularity = 0.421,
+    popularity = 0.4086,
     acting = {
       "1892",
     },
@@ -59763,7 +59854,27 @@ return {
   ID_101911 = {
     name = "Richard Driscoll",
     gender = 2,
-    popularity = 0.4077,
+    popularity = 0.6017,
+    acting = {
+      "1892",
+    },
+    directing = {
+    },
+  },
+  ID_1695655 = {
+    name = "Douglas Farrell",
+    gender = 2,
+    popularity = 0.3267,
+    acting = {
+      "1892",
+    },
+    directing = {
+    },
+  },
+  ID_1048621 = {
+    name = "Ernie Fosselius",
+    gender = 0,
+    popularity = 0.3868,
     acting = {
       "1892",
     },
@@ -59773,7 +59884,7 @@ return {
   ID_1271076 = {
     name = "Isaac Grand",
     gender = 0,
-    popularity = 0.3337,
+    popularity = 0.447,
     acting = {
       "1892",
     },
@@ -59783,7 +59894,7 @@ return {
   ID_1901493 = {
     name = "Gordon Hann",
     gender = 0,
-    popularity = 0.3576,
+    popularity = 0.5859,
     acting = {
       "1892",
     },
@@ -59793,7 +59904,7 @@ return {
   ID_28480 = {
     name = "Philip Herbert",
     gender = 0,
-    popularity = 0.386,
+    popularity = 0.5954,
     acting = {
       "1892",
     },
@@ -59803,7 +59914,7 @@ return {
   ID_195981 = {
     name = "Larry Holt",
     gender = 2,
-    popularity = 1.0967,
+    popularity = 1.124,
     acting = {
       "1892",
     },
@@ -59813,7 +59924,7 @@ return {
   ID_219736 = {
     name = "William Hoyland",
     gender = 2,
-    popularity = 0.5737,
+    popularity = 0.6557,
     acting = {
       "1892",
     },
@@ -59823,7 +59934,7 @@ return {
   ID_207310 = {
     name = "Eiji Kusuhara",
     gender = 2,
-    popularity = 0.5849,
+    popularity = 0.623,
     acting = {
       "1892",
     },
@@ -59833,7 +59944,7 @@ return {
   ID_1012562 = {
     name = "Anthony Lang",
     gender = 0,
-    popularity = 0.5049,
+    popularity = 0.7131,
     acting = {
       "1892",
     },
@@ -59843,7 +59954,17 @@ return {
   ID_558896 = {
     name = "Julius LeFlore",
     gender = 2,
-    popularity = 0.7928,
+    popularity = 1.0017,
+    acting = {
+      "1892",
+    },
+    directing = {
+    },
+  },
+  ID_1924773 = {
+    name = "Paul Markham",
+    gender = 0,
+    popularity = 0.2533,
     acting = {
       "1892",
     },
@@ -59853,7 +59974,7 @@ return {
   ID_19800 = {
     name = "Richard Marquand",
     gender = 2,
-    popularity = 0.7422,
+    popularity = 0.8532,
     acting = {
       "1892",
     },
@@ -59864,7 +59985,7 @@ return {
   ID_72705 = {
     name = "Hilton McRae",
     gender = 2,
-    popularity = 0.5578,
+    popularity = 1.0899,
     acting = {
       "1892",
     },
@@ -59874,7 +59995,7 @@ return {
   ID_55911 = {
     name = "Billy J. Mitchell",
     gender = 2,
-    popularity = 0.9937,
+    popularity = 1.1132,
     acting = {
       "1892",
     },
@@ -59884,7 +60005,7 @@ return {
   ID_1119361 = {
     name = "Amanda Noar",
     gender = 1,
-    popularity = 0.3613,
+    popularity = 0.6544,
     acting = {
       "1892",
     },
@@ -59894,7 +60015,7 @@ return {
   ID_126960 = {
     name = "Errol Shaker",
     gender = 0,
-    popularity = 0.4573,
+    popularity = 0.5307,
     acting = {
       "1892",
     },
@@ -59904,7 +60025,7 @@ return {
   ID_1708535 = {
     name = "Guy Standeven",
     gender = 2,
-    popularity = 0.7297,
+    popularity = 1.0476,
     acting = {
       "1892",
     },
@@ -59914,7 +60035,7 @@ return {
   ID_711 = {
     name = "Robert Watts",
     gender = 2,
-    popularity = 0.6498,
+    popularity = 0.6917,
     acting = {
       "1892",
     },
@@ -59924,7 +60045,7 @@ return {
   ID_10203 = {
     name = "Paul Weston",
     gender = 2,
-    popularity = 0.8161,
+    popularity = 0.8823,
     acting = {
       "1892",
       "330459",
@@ -59932,10 +60053,40 @@ return {
     directing = {
     },
   },
+  ID_112652 = {
+    name = "Michael Stevens",
+    gender = 2,
+    popularity = 0.2823,
+    acting = {
+      "1892",
+    },
+    directing = {
+    },
+  },
   ID_3021273 = {
     name = "Michael McCormick",
     gender = 2,
-    popularity = 0.3228,
+    popularity = 0.3194,
+    acting = {
+      "1892",
+    },
+    directing = {
+    },
+  },
+  ID_3535183 = {
+    name = "David Stone",
+    gender = 0,
+    popularity = 0.461,
+    acting = {
+      "1892",
+    },
+    directing = {
+    },
+  },
+  ID_2262410 = {
+    name = "Paul Springer",
+    gender = 2,
+    popularity = 0.3917,
     acting = {
       "1892",
     },
@@ -59945,7 +60096,7 @@ return {
   ID_4242581 = {
     name = "Larry Ward",
     gender = 2,
-    popularity = 0.3432,
+    popularity = 0.3522,
     acting = {
       "1892",
     },
@@ -59955,7 +60106,7 @@ return {
   ID_17244 = {
     name = "Hayden Christensen",
     gender = 2,
-    popularity = 6.8047,
+    popularity = 7.4501,
     acting = {
       "1894",
       "1895",
@@ -59967,7 +60118,7 @@ return {
   ID_7242 = {
     name = "Temuera Morrison",
     gender = 2,
-    popularity = 2.3509,
+    popularity = 2.7965,
     acting = {
       "1894",
       "1895",
@@ -59978,7 +60129,7 @@ return {
   ID_33181 = {
     name = "Jimmy Smits",
     gender = 2,
-    popularity = 1.8264,
+    popularity = 2.3327,
     acting = {
       "1894",
       "1895",
@@ -59990,7 +60141,7 @@ return {
   ID_12536 = {
     name = "Jack Thompson",
     gender = 2,
-    popularity = 1.9301,
+    popularity = 2.2755,
     acting = {
       "1894",
     },
@@ -60000,7 +60151,7 @@ return {
   ID_93114 = {
     name = "Leeanna Walsman",
     gender = 1,
-    popularity = 0.7862,
+    popularity = 1.0306,
     acting = {
       "1894",
     },
@@ -60010,7 +60161,7 @@ return {
   ID_33188 = {
     name = "Ron Falk",
     gender = 2,
-    popularity = 0.5405,
+    popularity = 0.6473,
     acting = {
       "1894",
     },
@@ -60020,7 +60171,7 @@ return {
   ID_33182 = {
     name = "Jay Laga'aia",
     gender = 2,
-    popularity = 0.6155,
+    popularity = 0.7051,
     acting = {
       "1894",
       "1895",
@@ -60031,7 +60182,7 @@ return {
   ID_33198 = {
     name = "Andy Secombe",
     gender = 2,
-    popularity = 0.6005,
+    popularity = 0.6771,
     acting = {
       "1894",
     },
@@ -60041,7 +60192,7 @@ return {
   ID_33191 = {
     name = "Ayesha Dharker",
     gender = 1,
-    popularity = 0.8638,
+    popularity = 1.2391,
     acting = {
       "1894",
     },
@@ -60051,7 +60202,7 @@ return {
   ID_33189 = {
     name = "Daniel Logan",
     gender = 2,
-    popularity = 0.6133,
+    popularity = 0.721,
     acting = {
       "1894",
     },
@@ -60061,7 +60212,7 @@ return {
   ID_33192 = {
     name = "Joel Edgerton",
     gender = 2,
-    popularity = 2.2155,
+    popularity = 2.1278,
     acting = {
       "1894",
       "1895",
@@ -60072,7 +60223,7 @@ return {
   ID_131634 = {
     name = "Bonnie Piesse",
     gender = 1,
-    popularity = 0.2677,
+    popularity = 0.5024,
     acting = {
       "1894",
       "1895",
@@ -60083,7 +60234,7 @@ return {
   ID_75742 = {
     name = "Anthony Phelan",
     gender = 2,
-    popularity = 1.1684,
+    popularity = 1.3208,
     acting = {
       "1894",
     },
@@ -60093,7 +60244,7 @@ return {
   ID_79106 = {
     name = "Alethea McGrath",
     gender = 1,
-    popularity = 0.3599,
+    popularity = 0.4973,
     acting = {
       "1894",
     },
@@ -60103,7 +60254,7 @@ return {
   ID_51671 = {
     name = "Susie Porter",
     gender = 1,
-    popularity = 1.6428,
+    popularity = 1.7029,
     acting = {
       "1894",
     },
@@ -60113,27 +60264,17 @@ return {
   ID_33186 = {
     name = "Alan Ruscoe",
     gender = 2,
-    popularity = 0.3153,
+    popularity = 0.5525,
     acting = {
       "1894",
     },
     directing = {
     },
   },
-  ID_39679 = {
-    name = "Steve John Shepherd",
+  ID_1167087 = {
+    name = "David Bowers",
     gender = 2,
-    popularity = 0.5226,
-    acting = {
-      "1894",
-    },
-    directing = {
-    },
-  },
-  ID_1427935 = {
-    name = "Bodie Taylor",
-    gender = 2,
-    popularity = 0.2512,
+    popularity = 0.2775,
     acting = {
       "1894",
       "1895",
@@ -60141,10 +60282,20 @@ return {
     directing = {
     },
   },
+  ID_39679 = {
+    name = "Steve John Shepherd",
+    gender = 2,
+    popularity = 0.8877,
+    acting = {
+      "1894",
+    },
+    directing = {
+    },
+  },
   ID_56504 = {
     name = "Steven Boyle",
     gender = 2,
-    popularity = 0.4477,
+    popularity = 0.4773,
     acting = {
       "1894",
     },
@@ -60154,17 +60305,17 @@ return {
   ID_986518 = {
     name = "Khan Bonfils",
     gender = 2,
-    popularity = 0.3479,
+    popularity = 0.4085,
     acting = {
       "1894",
     },
     directing = {
     },
   },
-  ID_1428222 = {
-    name = "Amy Allen",
-    gender = 1,
-    popularity = 0.2965,
+  ID_1428220 = {
+    name = "Tux Akindoyeni",
+    gender = 0,
+    popularity = 0.2847,
     acting = {
       "1894",
       "1895",
@@ -60175,7 +60326,7 @@ return {
   ID_1418470 = {
     name = "Nicolas Anastassiou",
     gender = 0,
-    popularity = 0.5054,
+    popularity = 0.6048,
     acting = {
       "1894",
     },
@@ -60185,7 +60336,7 @@ return {
   ID_1454930 = {
     name = "Jason Baird",
     gender = 2,
-    popularity = 0.2874,
+    popularity = 0.3115,
     acting = {
       "1894",
     },
@@ -60195,7 +60346,7 @@ return {
   ID_590313 = {
     name = "Don Bies",
     gender = 0,
-    popularity = 0.4261,
+    popularity = 0.4899,
     acting = {
       "1894",
     },
@@ -60205,7 +60356,7 @@ return {
   ID_2544500 = {
     name = "Douglas Bunn",
     gender = 0,
-    popularity = 0.4659,
+    popularity = 0.7278,
     acting = {
       "1894",
     },
@@ -60215,7 +60366,7 @@ return {
   ID_1617512 = {
     name = "David John Clark",
     gender = 2,
-    popularity = 0.3943,
+    popularity = 0.5459,
     acting = {
       "1894",
     },
@@ -60225,7 +60376,27 @@ return {
   ID_1048421 = {
     name = "Justin Dix",
     gender = 2,
-    popularity = 0.3107,
+    popularity = 0.2645,
+    acting = {
+      "1894",
+    },
+    directing = {
+    },
+  },
+  ID_2650321 = {
+    name = "Nicole Fantl",
+    gender = 0,
+    popularity = 0.3122,
+    acting = {
+      "1894",
+    },
+    directing = {
+    },
+  },
+  ID_1985718 = {
+    name = "Hilton Howson",
+    gender = 0,
+    popularity = 0.3219,
     acting = {
       "1894",
     },
@@ -60235,7 +60406,7 @@ return {
   ID_2157275 = {
     name = "Luke Kearney",
     gender = 2,
-    popularity = 0.4592,
+    popularity = 0.5257,
     acting = {
       "1894",
     },
@@ -60245,7 +60416,7 @@ return {
   ID_1235784 = {
     name = "Katie Lucas",
     gender = 0,
-    popularity = 0.4413,
+    popularity = 0.5683,
     acting = {
       "1894",
       "1895",
@@ -60253,10 +60424,30 @@ return {
     directing = {
     },
   },
-  ID_1916323 = {
-    name = "Kevin Scott",
+  ID_2650325 = {
+    name = "Kyle Rowling",
     gender = 2,
-    popularity = 0.2859,
+    popularity = 0.2782,
+    acting = {
+      "1894",
+    },
+    directing = {
+    },
+  },
+  ID_1434647 = {
+    name = "Joseph Jett Sally",
+    gender = 0,
+    popularity = 0.2785,
+    acting = {
+      "1894",
+    },
+    directing = {
+    },
+  },
+  ID_2650327 = {
+    name = "Zeynep Selcuk",
+    gender = 0,
+    popularity = 0.7188,
     acting = {
       "1894",
     },
@@ -60266,7 +60457,7 @@ return {
   ID_2283476 = {
     name = "Richard Stride",
     gender = 0,
-    popularity = 0.3334,
+    popularity = 0.3045,
     acting = {
       "1894",
       "1895",
@@ -60277,7 +60468,7 @@ return {
   ID_15537 = {
     name = "Leonard L. Thomas",
     gender = 2,
-    popularity = 0.9026,
+    popularity = 1.128,
     acting = {
       "1894",
     },
@@ -60287,7 +60478,7 @@ return {
   ID_1230837 = {
     name = "Christopher Truswell",
     gender = 0,
-    popularity = 0.4101,
+    popularity = 0.7686,
     acting = {
       "1894",
     },
@@ -60297,7 +60488,7 @@ return {
   ID_11335 = {
     name = "Ian Watkin",
     gender = 2,
-    popularity = 0.4458,
+    popularity = 0.6876,
     acting = {
       "1894",
     },
@@ -60307,7 +60498,7 @@ return {
   ID_1391695 = {
     name = "R. Christopher White",
     gender = 2,
-    popularity = 0.3631,
+    popularity = 0.3901,
     acting = {
       "1894",
     },
@@ -60317,7 +60508,7 @@ return {
   ID_1224391 = {
     name = "Ian Roberts",
     gender = 2,
-    popularity = 0.558,
+    popularity = 0.9539,
     acting = {
       "1894",
     },
@@ -60327,7 +60518,7 @@ return {
   ID_15293 = {
     name = "Keisha Castle-Hughes",
     gender = 1,
-    popularity = 1.2559,
+    popularity = 1.2512,
     acting = {
       "1895",
     },
@@ -60337,7 +60528,7 @@ return {
   ID_27752 = {
     name = "Bruce Spence",
     gender = 2,
-    popularity = 1.262,
+    popularity = 1.997,
     acting = {
       "1895",
     },
@@ -60347,7 +60538,7 @@ return {
   ID_82434 = {
     name = "Wayne Pygram",
     gender = 2,
-    popularity = 0.6143,
+    popularity = 0.8001,
     acting = {
       "1895",
     },
@@ -60357,7 +60548,7 @@ return {
   ID_33184 = {
     name = "Rohan Nichol",
     gender = 2,
-    popularity = 0.5505,
+    popularity = 0.7055,
     acting = {
       "1895",
     },
@@ -60367,7 +60558,7 @@ return {
   ID_85351 = {
     name = "Graeme Blundell",
     gender = 2,
-    popularity = 0.6704,
+    popularity = 0.7621,
     acting = {
       "1895",
     },
@@ -60377,7 +60568,7 @@ return {
   ID_117451 = {
     name = "Trisha Noble",
     gender = 1,
-    popularity = 0.5925,
+    popularity = 0.5608,
     acting = {
       "1895",
     },
@@ -60387,7 +60578,7 @@ return {
   ID_79966 = {
     name = "Claudia Karvan",
     gender = 1,
-    popularity = 1.2498,
+    popularity = 1.373,
     acting = {
       "1895",
     },
@@ -60397,7 +60588,7 @@ return {
   ID_139654 = {
     name = "Genevieve O'Reilly",
     gender = 1,
-    popularity = 2.2196,
+    popularity = 2.5132,
     acting = {
       "1895",
       "330459",
@@ -60408,7 +60599,7 @@ return {
   ID_1322179 = {
     name = "Warren Owens",
     gender = 0,
-    popularity = 0.2761,
+    popularity = 0.3133,
     acting = {
       "1895",
     },
@@ -60418,7 +60609,7 @@ return {
   ID_15342 = {
     name = "Kee Chan",
     gender = 2,
-    popularity = 0.5789,
+    popularity = 0.656,
     acting = {
       "1895",
     },
@@ -60428,7 +60619,7 @@ return {
   ID_75175 = {
     name = "Christopher Kirby",
     gender = 2,
-    popularity = 1.3391,
+    popularity = 1.3348,
     acting = {
       "1895",
     },
@@ -60438,7 +60629,7 @@ return {
   ID_1231126 = {
     name = "Kristy Wright",
     gender = 1,
-    popularity = 0.4526,
+    popularity = 0.3021,
     acting = {
       "1895",
     },
@@ -60448,7 +60639,7 @@ return {
   ID_7024 = {
     name = "Nick Gillard",
     gender = 2,
-    popularity = 0.9365,
+    popularity = 1.0599,
     acting = {
       "1895",
     },
@@ -60458,7 +60649,7 @@ return {
   ID_11354 = {
     name = "Ben Cooke",
     gender = 2,
-    popularity = 1.022,
+    popularity = 1.3043,
     acting = {
       "1895",
     },
@@ -60468,7 +60659,7 @@ return {
   ID_1235786 = {
     name = "David Acord",
     gender = 2,
-    popularity = 1.0491,
+    popularity = 1.502,
     acting = {
       "1895",
       "12180",
@@ -60480,7 +60671,7 @@ return {
   ID_2629675 = {
     name = "Robert M. Bouffard",
     gender = 2,
-    popularity = 0.3279,
+    popularity = 0.5523,
     acting = {
       "1895",
     },
@@ -60490,7 +60681,7 @@ return {
   ID_6690 = {
     name = "Jill Brooks",
     gender = 1,
-    popularity = 0.5774,
+    popularity = 1.2167,
     acting = {
       "1895",
     },
@@ -60500,7 +60691,17 @@ return {
   ID_1445426 = {
     name = "Rob Coleman",
     gender = 2,
-    popularity = 0.6582,
+    popularity = 0.9723,
+    acting = {
+      "1895",
+    },
+    directing = {
+    },
+  },
+  ID_15357 = {
+    name = "Nina Fallon",
+    gender = 0,
+    popularity = 0.3227,
     acting = {
       "1895",
     },
@@ -60510,7 +60711,7 @@ return {
   ID_1237080 = {
     name = "Tim Gibbons",
     gender = 0,
-    popularity = 0.2559,
+    popularity = 0.3404,
     acting = {
       "1895",
     },
@@ -60520,7 +60721,7 @@ return {
   ID_1339450 = {
     name = "Roger Guyett",
     gender = 2,
-    popularity = 0.5695,
+    popularity = 0.7654,
     acting = {
       "1895",
     },
@@ -60530,7 +60731,7 @@ return {
   ID_1267045 = {
     name = "Philip Harvey",
     gender = 2,
-    popularity = 1.1649,
+    popularity = 1.3106,
     acting = {
       "1895",
       "348350",
@@ -60542,7 +60743,7 @@ return {
   ID_61784 = {
     name = "Goran D. Kleut",
     gender = 2,
-    popularity = 0.8568,
+    popularity = 1.2358,
     acting = {
       "1895",
     },
@@ -60552,7 +60753,7 @@ return {
   ID_1401796 = {
     name = "John Knoll",
     gender = 2,
-    popularity = 0.9698,
+    popularity = 1.22,
     acting = {
       "1895",
     },
@@ -60562,7 +60763,7 @@ return {
   ID_1948311 = {
     name = "Janet Lewin",
     gender = 0,
-    popularity = 0.7843,
+    popularity = 1.0735,
     acting = {
       "1895",
     },
@@ -60572,7 +60773,7 @@ return {
   ID_39126 = {
     name = "Bai Ling",
     gender = 1,
-    popularity = 1.8483,
+    popularity = 2.3899,
     acting = {
       "1895",
     },
@@ -60582,7 +60783,17 @@ return {
   ID_970529 = {
     name = "Denise Ream",
     gender = 1,
-    popularity = 1.0103,
+    popularity = 1.0842,
+    acting = {
+      "1895",
+    },
+    directing = {
+    },
+  },
+  ID_1830756 = {
+    name = "Lisa Shaunessy",
+    gender = 1,
+    popularity = 0.3419,
     acting = {
       "1895",
     },
@@ -60592,7 +60803,7 @@ return {
   ID_1184928 = {
     name = "Christian Simpson",
     gender = 2,
-    popularity = 0.5834,
+    popularity = 0.5621,
     acting = {
       "1895",
       "330459",
@@ -60603,7 +60814,7 @@ return {
   ID_147967 = {
     name = "Paul Spence",
     gender = 2,
-    popularity = 0.5194,
+    popularity = 0.5875,
     acting = {
       "1895",
     },
@@ -60613,7 +60824,7 @@ return {
   ID_83283 = {
     name = "Masa Yamaguchi",
     gender = 2,
-    popularity = 0.478,
+    popularity = 0.6095,
     acting = {
       "1895",
     },
@@ -60623,7 +60834,7 @@ return {
   ID_1663195 = {
     name = "Kelly Marie Tran",
     gender = 1,
-    popularity = 1.6375,
+    popularity = 1.506,
     acting = {
       "181808",
       "181812",
@@ -60634,7 +60845,7 @@ return {
   ID_990064 = {
     name = "Amanda Lawrence",
     gender = 1,
-    popularity = 0.9798,
+    popularity = 1.306,
     acting = {
       "181808",
       "181812",
@@ -60645,7 +60856,7 @@ return {
   ID_1214513 = {
     name = "Jimmy Vee",
     gender = 2,
-    popularity = 0.8723,
+    popularity = 1.074,
     acting = {
       "181808",
       "330459",
@@ -60656,7 +60867,7 @@ return {
   ID_1329041 = {
     name = "Brian Herring",
     gender = 2,
-    popularity = 0.6321,
+    popularity = 0.8894,
     acting = {
       "181808",
       "181812",
@@ -60668,7 +60879,7 @@ return {
   ID_1234529 = {
     name = "Dave Chapman",
     gender = 2,
-    popularity = 0.8745,
+    popularity = 0.8866,
     acting = {
       "181808",
       "181812",
@@ -60680,7 +60891,7 @@ return {
   ID_98464 = {
     name = "Adrian Edmondson",
     gender = 2,
-    popularity = 1.5705,
+    popularity = 2.0461,
     acting = {
       "181808",
     },
@@ -60690,7 +60901,7 @@ return {
   ID_185460 = {
     name = "Mark Lewis Jones",
     gender = 2,
-    popularity = 1.4791,
+    popularity = 1.4781,
     acting = {
       "181808",
     },
@@ -60700,7 +60911,7 @@ return {
   ID_1345419 = {
     name = "Hermione Corfield",
     gender = 1,
-    popularity = 1.7664,
+    popularity = 2.0551,
     acting = {
       "181808",
     },
@@ -60710,7 +60921,7 @@ return {
   ID_48312 = {
     name = "Noah Segan",
     gender = 2,
-    popularity = 0.9801,
+    popularity = 1.3296,
     acting = {
       "181808",
     },
@@ -60720,7 +60931,7 @@ return {
   ID_1512798 = {
     name = "Jamie Christopher",
     gender = 2,
-    popularity = 0.4876,
+    popularity = 0.4287,
     acting = {
       "181808",
     },
@@ -60730,7 +60941,7 @@ return {
   ID_100085 = {
     name = "Paul Kasey",
     gender = 2,
-    popularity = 0.7226,
+    popularity = 1.0294,
     acting = {
       "181808",
       "181812",
@@ -60742,7 +60953,7 @@ return {
   ID_1368012 = {
     name = "Michaela Coel",
     gender = 1,
-    popularity = 0.9214,
+    popularity = 1.1346,
     acting = {
       "181808",
     },
@@ -60752,7 +60963,7 @@ return {
   ID_97417 = {
     name = "Jonathan Harden",
     gender = 2,
-    popularity = 0.754,
+    popularity = 0.9454,
     acting = {
       "181808",
     },
@@ -60762,7 +60973,7 @@ return {
   ID_1727816 = {
     name = "Danny Euston",
     gender = 2,
-    popularity = 0.8128,
+    popularity = 1.6065,
     acting = {
       "181808",
     },
@@ -60772,7 +60983,7 @@ return {
   ID_62968 = {
     name = "Priyanga Burford",
     gender = 1,
-    popularity = 0.8971,
+    popularity = 1.0146,
     acting = {
       "181808",
     },
@@ -60782,7 +60993,7 @@ return {
   ID_81267 = {
     name = "Navin Chowdhry",
     gender = 2,
-    popularity = 0.7753,
+    popularity = 1.1225,
     acting = {
       "181808",
     },
@@ -60792,7 +61003,7 @@ return {
   ID_240629 = {
     name = "Andrew Jack",
     gender = 2,
-    popularity = 0.9448,
+    popularity = 1.2211,
     acting = {
       "181808",
       "348350",
@@ -60803,7 +61014,7 @@ return {
   ID_1371518 = {
     name = "Crystal Clarke",
     gender = 1,
-    popularity = 1.7317,
+    popularity = 1.8045,
     acting = {
       "181808",
     },
@@ -60813,7 +61024,7 @@ return {
   ID_1662112 = {
     name = "Aki Omoshaybi",
     gender = 2,
-    popularity = 0.5074,
+    popularity = 0.5693,
     acting = {
       "181808",
     },
@@ -60823,7 +61034,7 @@ return {
   ID_9192 = {
     name = "Togo Igawa",
     gender = 2,
-    popularity = 0.9364,
+    popularity = 1.2505,
     acting = {
       "181808",
     },
@@ -60833,7 +61044,7 @@ return {
   ID_1206337 = {
     name = "Hugh Skinner",
     gender = 2,
-    popularity = 1.3247,
+    popularity = 1.4109,
     acting = {
       "181808",
     },
@@ -60843,7 +61054,7 @@ return {
   ID_1543407 = {
     name = "Tim Steed",
     gender = 2,
-    popularity = 0.604,
+    popularity = 0.8815,
     acting = {
       "181808",
     },
@@ -60853,7 +61064,7 @@ return {
   ID_1231158 = {
     name = "Simon Lowe",
     gender = 2,
-    popularity = 0.6106,
+    popularity = 0.7711,
     acting = {
       "181808",
     },
@@ -60863,7 +61074,7 @@ return {
   ID_126458 = {
     name = "Joe Van Moyland",
     gender = 2,
-    popularity = 0.5135,
+    popularity = 0.7416,
     acting = {
       "181808",
     },
@@ -60873,7 +61084,7 @@ return {
   ID_57574 = {
     name = "Shauna Macdonald",
     gender = 1,
-    popularity = 1.4864,
+    popularity = 1.2015,
     acting = {
       "181808",
     },
@@ -60883,7 +61094,7 @@ return {
   ID_107378 = {
     name = "Darren Morfitt",
     gender = 2,
-    popularity = 0.6434,
+    popularity = 0.9458,
     acting = {
       "181808",
     },
@@ -60893,7 +61104,7 @@ return {
   ID_110872 = {
     name = "Gerard Monaco",
     gender = 2,
-    popularity = 0.7237,
+    popularity = 0.7667,
     acting = {
       "181808",
     },
@@ -60903,7 +61114,7 @@ return {
   ID_71083 = {
     name = "Kate Dickie",
     gender = 1,
-    popularity = 2.3808,
+    popularity = 2.5446,
     acting = {
       "181808",
     },
@@ -60913,7 +61124,7 @@ return {
   ID_82854 = {
     name = "Patrick O'Kane",
     gender = 2,
-    popularity = 1.0064,
+    popularity = 1.2569,
     acting = {
       "181808",
     },
@@ -60923,7 +61134,7 @@ return {
   ID_1333452 = {
     name = "Orion Lee",
     gender = 2,
-    popularity = 1.1326,
+    popularity = 1.4829,
     acting = {
       "181808",
     },
@@ -60933,7 +61144,7 @@ return {
   ID_1108725 = {
     name = "Amira Ghazalla",
     gender = 1,
-    popularity = 0.5058,
+    popularity = 0.6791,
     acting = {
       "181808",
     },
@@ -60943,7 +61154,7 @@ return {
   ID_1812314 = {
     name = "Akshay Kumar",
     gender = 2,
-    popularity = 0.6921,
+    popularity = 0.827,
     acting = {
       "181808",
     },
@@ -60953,7 +61164,7 @@ return {
   ID_56098 = {
     name = "Michael Jibson",
     gender = 2,
-    popularity = 1.0168,
+    popularity = 1.4015,
     acting = {
       "181808",
     },
@@ -60963,7 +61174,7 @@ return {
   ID_1052603 = {
     name = "Luke Neal",
     gender = 2,
-    popularity = 0.6083,
+    popularity = 0.8063,
     acting = {
       "181808",
     },
@@ -60973,7 +61184,7 @@ return {
   ID_22810 = {
     name = "Andy Nyman",
     gender = 2,
-    popularity = 1.2543,
+    popularity = 1.4495,
     acting = {
       "181808",
     },
@@ -60983,7 +61194,7 @@ return {
   ID_2659293 = {
     name = "Temirlan Blaev",
     gender = 2,
-    popularity = 0.3083,
+    popularity = 0.4812,
     acting = {
       "181808",
     },
@@ -60993,7 +61204,7 @@ return {
   ID_2659294 = {
     name = "Josiah Oniha",
     gender = 0,
-    popularity = 0.3839,
+    popularity = 0.4248,
     acting = {
       "181808",
     },
@@ -61003,7 +61214,7 @@ return {
   ID_2659295 = {
     name = "Sara Heller",
     gender = 0,
-    popularity = 0.3336,
+    popularity = 0.5325,
     acting = {
       "181808",
     },
@@ -61013,7 +61224,7 @@ return {
   ID_115854 = {
     name = "Matthew Sharp",
     gender = 2,
-    popularity = 0.4811,
+    popularity = 0.579,
     acting = {
       "181808",
     },
@@ -61023,7 +61234,7 @@ return {
   ID_53688 = {
     name = "Lily Cole",
     gender = 1,
-    popularity = 1.4274,
+    popularity = 1.8525,
     acting = {
       "181808",
     },
@@ -61033,7 +61244,7 @@ return {
   ID_129894 = {
     name = "Gareth Edwards",
     gender = 2,
-    popularity = 1.5819,
+    popularity = 1.5627,
     acting = {
       "181808",
       "330459",
@@ -61045,7 +61256,7 @@ return {
   ID_1409655 = {
     name = "Jack Greenlees",
     gender = 0,
-    popularity = 0.6843,
+    popularity = 0.7957,
     acting = {
       "181808",
     },
@@ -61055,7 +61266,7 @@ return {
   ID_2093764 = {
     name = "Kevin Layne",
     gender = 2,
-    popularity = 0.8773,
+    popularity = 1.1311,
     acting = {
       "181808",
     },
@@ -61065,7 +61276,7 @@ return {
   ID_1389537 = {
     name = "Ben Morris",
     gender = 2,
-    popularity = 0.4998,
+    popularity = 0.4793,
     acting = {
       "181808",
     },
@@ -61075,7 +61286,7 @@ return {
   ID_1164263 = {
     name = "Gary Barlow",
     gender = 2,
-    popularity = 0.9408,
+    popularity = 1.1485,
     acting = {
       "181808",
     },
@@ -61085,7 +61296,7 @@ return {
   ID_1951917 = {
     name = "Griffin Hamill",
     gender = 0,
-    popularity = 0.2568,
+    popularity = 0.4037,
     acting = {
       "181808",
     },
@@ -61095,7 +61306,7 @@ return {
   ID_1951920 = {
     name = "Nathan Hamill",
     gender = 0,
-    popularity = 0.3555,
+    popularity = 0.3826,
     acting = {
       "181808",
     },
@@ -61105,7 +61316,7 @@ return {
   ID_1951921 = {
     name = "Chelsea Hamill",
     gender = 0,
-    popularity = 0.3756,
+    popularity = 0.5638,
     acting = {
       "181808",
     },
@@ -61115,7 +61326,7 @@ return {
   ID_1645047 = {
     name = "Liang Yang",
     gender = 2,
-    popularity = 1.4424,
+    popularity = 1.8397,
     acting = {
       "181808",
     },
@@ -61125,7 +61336,7 @@ return {
   ID_2561607 = {
     name = "David M. Santana",
     gender = 2,
-    popularity = 0.5268,
+    popularity = 0.6179,
     acting = {
       "181808",
       "330459",
@@ -61136,7 +61347,7 @@ return {
   ID_931769 = {
     name = "Andrew Abbott",
     gender = 0,
-    popularity = 0.5324,
+    popularity = 0.7822,
     acting = {
       "181808",
     },
@@ -61146,7 +61357,7 @@ return {
   ID_1842691 = {
     name = "Chris Adams",
     gender = 0,
-    popularity = 1.5166,
+    popularity = 1.3472,
     acting = {
       "181808",
     },
@@ -61156,7 +61367,7 @@ return {
   ID_2651749 = {
     name = "Samantha Alleyne",
     gender = 1,
-    popularity = 0.423,
+    popularity = 0.8424,
     acting = {
       "181808",
       "348350",
@@ -61168,7 +61379,7 @@ return {
   ID_2100852 = {
     name = "Martin Bratanov",
     gender = 2,
-    popularity = 0.4824,
+    popularity = 0.792,
     acting = {
       "181808",
     },
@@ -61178,7 +61389,7 @@ return {
   ID_2493371 = {
     name = "Glen Carroll",
     gender = 0,
-    popularity = 0.477,
+    popularity = 0.646,
     acting = {
       "181808",
     },
@@ -61188,7 +61399,7 @@ return {
   ID_1278483 = {
     name = "Cavin Cornwall",
     gender = 2,
-    popularity = 0.5158,
+    popularity = 0.6557,
     acting = {
       "181808",
     },
@@ -61198,7 +61409,7 @@ return {
   ID_2151837 = {
     name = "James Cox",
     gender = 2,
-    popularity = 1.0142,
+    popularity = 1.2727,
     acting = {
       "181808",
     },
@@ -61208,7 +61419,7 @@ return {
   ID_555133 = {
     name = "Steve Doyle",
     gender = 2,
-    popularity = 0.3078,
+    popularity = 0.4312,
     acting = {
       "181808",
     },
@@ -61218,7 +61429,7 @@ return {
   ID_1502469 = {
     name = "Josh Dyer",
     gender = 2,
-    popularity = 0.528,
+    popularity = 0.5552,
     acting = {
       "181808",
     },
@@ -61228,7 +61439,7 @@ return {
   ID_2077974 = {
     name = "Karl Farrer",
     gender = 2,
-    popularity = 0.5673,
+    popularity = 0.7662,
     acting = {
       "181808",
     },
@@ -61238,7 +61449,7 @@ return {
   ID_1727792 = {
     name = "James Filanowski",
     gender = 0,
-    popularity = 0.4852,
+    popularity = 0.8733,
     acting = {
       "181808",
       "348350",
@@ -61249,7 +61460,7 @@ return {
   ID_2228384 = {
     name = "David R. Grant",
     gender = 2,
-    popularity = 0.7551,
+    popularity = 0.9584,
     acting = {
       "181808",
     },
@@ -61259,7 +61470,7 @@ return {
   ID_2153594 = {
     name = "Ómar Guðjónsson",
     gender = 0,
-    popularity = 0.3269,
+    popularity = 0.33,
     acting = {
       "181808",
     },
@@ -61269,7 +61480,7 @@ return {
   ID_1502475 = {
     name = "Craig Izzard",
     gender = 0,
-    popularity = 0.4401,
+    popularity = 0.6247,
     acting = {
       "181808",
     },
@@ -61279,7 +61490,7 @@ return {
   ID_1360236 = {
     name = "Christopher Jaciow",
     gender = 0,
-    popularity = 0.2674,
+    popularity = 0.3712,
     acting = {
       "181808",
     },
@@ -61289,7 +61500,7 @@ return {
   ID_2651789 = {
     name = "Tobias James-Samuels",
     gender = 2,
-    popularity = 0.463,
+    popularity = 0.7397,
     acting = {
       "181808",
       "348350",
@@ -61300,7 +61511,7 @@ return {
   ID_2083403 = {
     name = "Dan Lam",
     gender = 0,
-    popularity = 0.3425,
+    popularity = 0.4307,
     acting = {
       "181808",
     },
@@ -61310,7 +61521,7 @@ return {
   ID_2237053 = {
     name = "Antonio Lujak",
     gender = 2,
-    popularity = 0.4623,
+    popularity = 0.4604,
     acting = {
       "181808",
     },
@@ -61320,7 +61531,7 @@ return {
   ID_1914642 = {
     name = "Josh Methven",
     gender = 0,
-    popularity = 0.6837,
+    popularity = 1.0646,
     acting = {
       "181808",
     },
@@ -61330,7 +61541,7 @@ return {
   ID_1450907 = {
     name = "Sandeep Mohan",
     gender = 2,
-    popularity = 0.3274,
+    popularity = 0.5276,
     acting = {
       "181808",
       "330459",
@@ -61341,7 +61552,7 @@ return {
   ID_1797828 = {
     name = "Ross Moneypenny",
     gender = 0,
-    popularity = 0.3782,
+    popularity = 0.5792,
     acting = {
       "181808",
     },
@@ -61351,7 +61562,7 @@ return {
   ID_2143672 = {
     name = "Florian Robin",
     gender = 0,
-    popularity = 0.9086,
+    popularity = 1.4704,
     acting = {
       "181808",
     },
@@ -61361,7 +61572,7 @@ return {
   ID_2651815 = {
     name = "Stephanie Silva",
     gender = 1,
-    popularity = 0.4816,
+    popularity = 0.6726,
     acting = {
       "181808",
       "348350",
@@ -61372,7 +61583,7 @@ return {
   ID_1278125 = {
     name = "Leo Thompson",
     gender = 2,
-    popularity = 0.3374,
+    popularity = 0.5542,
     acting = {
       "181808",
     },
@@ -61382,7 +61593,7 @@ return {
   ID_1233266 = {
     name = "Andy Wareham",
     gender = 2,
-    popularity = 0.9695,
+    popularity = 1.0444,
     acting = {
       "181808",
     },
@@ -61392,7 +61603,7 @@ return {
   ID_1766731 = {
     name = "William Willoughby",
     gender = 2,
-    popularity = 0.6342,
+    popularity = 1.2071,
     acting = {
       "181808",
     },
@@ -61402,7 +61613,7 @@ return {
   ID_2225092 = {
     name = "Oscar Wright",
     gender = 2,
-    popularity = 0.8232,
+    popularity = 1.242,
     acting = {
       "181808",
     },
@@ -61412,7 +61623,7 @@ return {
   ID_2244192 = {
     name = "Karanja Yorke",
     gender = 0,
-    popularity = 0.597,
+    popularity = 0.8047,
     acting = {
       "181808",
     },
@@ -61422,7 +61633,7 @@ return {
   ID_3011993 = {
     name = "Sarah-Jane De Crespigny",
     gender = 1,
-    popularity = 0.6233,
+    popularity = 0.81,
     acting = {
       "181808",
       "348350",
@@ -61433,7 +61644,7 @@ return {
   ID_67367 = {
     name = "Rian Johnson",
     gender = 2,
-    popularity = 1.9793,
+    popularity = 2.3936,
     acting = {
       "330459",
     },
@@ -61444,7 +61655,7 @@ return {
   ID_1537686 = {
     name = "Naomi Ackie",
     gender = 1,
-    popularity = 2.1494,
+    popularity = 2.8963,
     acting = {
       "181812",
     },
@@ -61454,7 +61665,7 @@ return {
   ID_41292 = {
     name = "Keri Russell",
     gender = 1,
-    popularity = 2.5975,
+    popularity = 2.523,
     acting = {
       "181812",
     },
@@ -61464,7 +61675,7 @@ return {
   ID_2487586 = {
     name = "Hassan Taj",
     gender = 2,
-    popularity = 0.2584,
+    popularity = 0.4142,
     acting = {
       "181812",
     },
@@ -61474,7 +61685,7 @@ return {
   ID_2487587 = {
     name = "Lee Towersey",
     gender = 0,
-    popularity = 0.319,
+    popularity = 0.2771,
     acting = {
       "181812",
     },
@@ -61484,7 +61695,7 @@ return {
   ID_2487704 = {
     name = "Richard Guiver",
     gender = 0,
-    popularity = 0.2559,
+    popularity = 0.3181,
     acting = {
       "181812",
     },
@@ -61494,7 +61705,17 @@ return {
   ID_1504918 = {
     name = "Lynn Robertson Bruce",
     gender = 1,
-    popularity = 0.411,
+    popularity = 0.5953,
+    acting = {
+      "181812",
+    },
+    directing = {
+    },
+  },
+  ID_2487705 = {
+    name = "Claire Roi Harvey",
+    gender = 0,
+    popularity = 0.3133,
     acting = {
       "181812",
     },
@@ -61504,7 +61725,17 @@ return {
   ID_1244466 = {
     name = "Richard Coombs",
     gender = 2,
-    popularity = 0.4541,
+    popularity = 0.4908,
+    acting = {
+      "181812",
+    },
+    directing = {
+    },
+  },
+  ID_2487707 = {
+    name = "Matt Denton",
+    gender = 0,
+    popularity = 0.2542,
     acting = {
       "181812",
     },
@@ -61514,7 +61745,7 @@ return {
   ID_1233264 = {
     name = "Nick Kellington",
     gender = 2,
-    popularity = 1.0801,
+    popularity = 1.2661,
     acting = {
       "181812",
       "330459",
@@ -61525,7 +61756,7 @@ return {
   ID_1399747 = {
     name = "Mandeep Dhillon",
     gender = 1,
-    popularity = 1.6307,
+    popularity = 1.8339,
     acting = {
       "181812",
     },
@@ -61535,7 +61766,7 @@ return {
   ID_2487714 = {
     name = "Alison Rose",
     gender = 1,
-    popularity = 0.557,
+    popularity = 0.6068,
     acting = {
       "181812",
     },
@@ -61545,7 +61776,7 @@ return {
   ID_31427 = {
     name = "Tanya Moodie",
     gender = 1,
-    popularity = 0.9137,
+    popularity = 0.9823,
     acting = {
       "181812",
     },
@@ -61555,7 +61786,7 @@ return {
   ID_151779 = {
     name = "Simon Paisley Day",
     gender = 2,
-    popularity = 0.8567,
+    popularity = 0.7234,
     acting = {
       "181812",
     },
@@ -61565,7 +61796,7 @@ return {
   ID_1219440 = {
     name = "Geff Francis",
     gender = 2,
-    popularity = 0.634,
+    popularity = 0.8926,
     acting = {
       "181812",
     },
@@ -61575,7 +61806,7 @@ return {
   ID_239877 = {
     name = "Amanda Hale",
     gender = 1,
-    popularity = 0.8728,
+    popularity = 1.1133,
     acting = {
       "181812",
     },
@@ -61585,7 +61816,7 @@ return {
   ID_1739403 = {
     name = "Amir El-Masry",
     gender = 2,
-    popularity = 0.9215,
+    popularity = 0.7925,
     acting = {
       "181812",
     },
@@ -61595,7 +61826,7 @@ return {
   ID_1260677 = {
     name = "Aidan Cook",
     gender = 2,
-    popularity = 1.1422,
+    popularity = 1.5282,
     acting = {
       "181812",
       "330459",
@@ -61606,7 +61837,7 @@ return {
   ID_1426752 = {
     name = "Martin Wilde",
     gender = 0,
-    popularity = 0.3041,
+    popularity = 0.3914,
     acting = {
       "181812",
     },
@@ -61616,7 +61847,7 @@ return {
   ID_2487721 = {
     name = "Anton Simpson-Tidy",
     gender = 2,
-    popularity = 0.5225,
+    popularity = 0.8485,
     acting = {
       "181812",
     },
@@ -61626,7 +61857,7 @@ return {
   ID_1876564 = {
     name = "Lukaz Leong",
     gender = 2,
-    popularity = 0.7874,
+    popularity = 1.0004,
     acting = {
       "181812",
     },
@@ -61636,7 +61867,7 @@ return {
   ID_1826756 = {
     name = "Tom Rodgers",
     gender = 2,
-    popularity = 1.0607,
+    popularity = 1.3054,
     acting = {
       "181812",
     },
@@ -61646,7 +61877,7 @@ return {
   ID_1394374 = {
     name = "Joe Kennard",
     gender = 2,
-    popularity = 0.7378,
+    popularity = 1.2504,
     acting = {
       "181812",
     },
@@ -61656,7 +61887,7 @@ return {
   ID_1360107 = {
     name = "Ashley Beck",
     gender = 2,
-    popularity = 0.509,
+    popularity = 0.6412,
     acting = {
       "181812",
     },
@@ -61666,7 +61897,7 @@ return {
   ID_2001428 = {
     name = "Bryony Miller",
     gender = 1,
-    popularity = 0.5746,
+    popularity = 0.704,
     acting = {
       "181812",
     },
@@ -61676,7 +61907,7 @@ return {
   ID_97433 = {
     name = "Cyril Nri",
     gender = 2,
-    popularity = 0.795,
+    popularity = 0.9351,
     acting = {
       "181812",
     },
@@ -61686,7 +61917,7 @@ return {
   ID_1237363 = {
     name = "Angela Christian",
     gender = 1,
-    popularity = 0.4081,
+    popularity = 0.6889,
     acting = {
       "181812",
     },
@@ -61696,7 +61927,7 @@ return {
   ID_946350 = {
     name = "Nasser Memarzia",
     gender = 2,
-    popularity = 0.8831,
+    popularity = 1.2499,
     acting = {
       "181812",
     },
@@ -61706,7 +61937,7 @@ return {
   ID_14432 = {
     name = "Patrick Kennedy",
     gender = 2,
-    popularity = 1.0745,
+    popularity = 1.4018,
     acting = {
       "181812",
     },
@@ -61716,7 +61947,7 @@ return {
   ID_204802 = {
     name = "Aaron Neil",
     gender = 2,
-    popularity = 0.6645,
+    popularity = 0.9669,
     acting = {
       "181812",
     },
@@ -61726,7 +61957,17 @@ return {
   ID_1865734 = {
     name = "Joe Hewetson",
     gender = 0,
-    popularity = 0.3865,
+    popularity = 0.3895,
+    acting = {
+      "181812",
+    },
+    directing = {
+    },
+  },
+  ID_1657311 = {
+    name = "Raghad Chaar",
+    gender = 1,
+    popularity = 0.3537,
     acting = {
       "181812",
     },
@@ -61736,7 +61977,7 @@ return {
   ID_1503072 = {
     name = "Mimî M. Khayisa",
     gender = 1,
-    popularity = 0.6856,
+    popularity = 0.8904,
     acting = {
       "181812",
     },
@@ -61746,7 +61987,7 @@ return {
   ID_1526034 = {
     name = "Tom Wilton",
     gender = 0,
-    popularity = 0.2506,
+    popularity = 0.5839,
     acting = {
       "181812",
     },
@@ -61756,7 +61997,7 @@ return {
   ID_131680 = {
     name = "Chris Terrio",
     gender = 2,
-    popularity = 0.8303,
+    popularity = 0.8002,
     acting = {
       "181812",
     },
@@ -61766,7 +62007,7 @@ return {
   ID_43554 = {
     name = "Josef Altin",
     gender = 2,
-    popularity = 0.9917,
+    popularity = 1.2505,
     acting = {
       "181812",
     },
@@ -61776,7 +62017,7 @@ return {
   ID_21679 = {
     name = "Vinette Robinson",
     gender = 1,
-    popularity = 1.1546,
+    popularity = 1.393,
     acting = {
       "181812",
     },
@@ -61786,7 +62027,7 @@ return {
   ID_17161 = {
     name = "Ann Firbank",
     gender = 1,
-    popularity = 0.8367,
+    popularity = 1.0537,
     acting = {
       "181812",
     },
@@ -61796,7 +62037,7 @@ return {
   ID_15094 = {
     name = "Diana Kent",
     gender = 1,
-    popularity = 1.1345,
+    popularity = 1.3844,
     acting = {
       "181812",
     },
@@ -61806,7 +62047,7 @@ return {
   ID_2487729 = {
     name = "Harrison Davis",
     gender = 2,
-    popularity = 0.254,
+    popularity = 0.3326,
     acting = {
       "181812",
     },
@@ -61816,7 +62057,7 @@ return {
   ID_2487730 = {
     name = "Elliot Hawkes",
     gender = 2,
-    popularity = 1.1077,
+    popularity = 1.371,
     acting = {
       "181812",
     },
@@ -61826,7 +62067,7 @@ return {
   ID_1709053 = {
     name = "Philicia Saunders",
     gender = 1,
-    popularity = 0.6879,
+    popularity = 0.7503,
     acting = {
       "181812",
     },
@@ -61836,7 +62077,7 @@ return {
   ID_491 = {
     name = "John Williams",
     gender = 2,
-    popularity = 5.5565,
+    popularity = 4.9726,
     acting = {
       "181812",
     },
@@ -61846,7 +62087,7 @@ return {
   ID_957038 = {
     name = "Nigel Godrich",
     gender = 2,
-    popularity = 0.3105,
+    popularity = 0.5008,
     acting = {
       "181812",
     },
@@ -61856,7 +62097,7 @@ return {
   ID_100195 = {
     name = "Dhani Harrison",
     gender = 2,
-    popularity = 0.5503,
+    popularity = 0.8564,
     acting = {
       "181812",
     },
@@ -61866,7 +62107,7 @@ return {
   ID_1485406 = {
     name = "J.D. Dillard",
     gender = 2,
-    popularity = 0.8222,
+    popularity = 1.1046,
     acting = {
       "181812",
     },
@@ -61876,7 +62117,7 @@ return {
   ID_1730560 = {
     name = "Dave Hearn",
     gender = 2,
-    popularity = 0.2557,
+    popularity = 0.3633,
     acting = {
       "181812",
     },
@@ -61886,7 +62127,7 @@ return {
   ID_1903700 = {
     name = "Rochenda Sandall",
     gender = 1,
-    popularity = 0.6894,
+    popularity = 0.8342,
     acting = {
       "181812",
     },
@@ -61896,7 +62137,7 @@ return {
   ID_1944459 = {
     name = "Jacob Fortune-Lloyd",
     gender = 2,
-    popularity = 1.1098,
+    popularity = 1.3355,
     acting = {
       "181812",
     },
@@ -61906,7 +62147,7 @@ return {
   ID_2260392 = {
     name = "Andreea Diac",
     gender = 1,
-    popularity = 0.4619,
+    popularity = 0.5687,
     acting = {
       "181812",
     },
@@ -61916,7 +62157,7 @@ return {
   ID_2487731 = {
     name = "Liam Cook",
     gender = 0,
-    popularity = 0.301,
+    popularity = 0.639,
     acting = {
       "181812",
     },
@@ -61926,7 +62167,7 @@ return {
   ID_74285 = {
     name = "Carolyn Hennesy",
     gender = 1,
-    popularity = 2.8887,
+    popularity = 3.3883,
     acting = {
       "181812",
     },
@@ -61936,7 +62177,7 @@ return {
   ID_2487732 = {
     name = "Josefine Irrera Jackson",
     gender = 1,
-    popularity = 0.255,
+    popularity = 0.4399,
     acting = {
       "181812",
     },
@@ -61946,7 +62187,7 @@ return {
   ID_1388593 = {
     name = "Jodie Comer",
     gender = 1,
-    popularity = 4.8535,
+    popularity = 5.0831,
     acting = {
       "181812",
     },
@@ -61956,7 +62197,7 @@ return {
   ID_1371049 = {
     name = "Billy Howle",
     gender = 2,
-    popularity = 1.5687,
+    popularity = 1.8571,
     acting = {
       "181812",
     },
@@ -61966,7 +62207,7 @@ return {
   ID_46423 = {
     name = "Olivia d'Abo",
     gender = 1,
-    popularity = 2.5432,
+    popularity = 2.5411,
     acting = {
       "181812",
     },
@@ -61976,7 +62217,7 @@ return {
   ID_41345 = {
     name = "Ashley Eckstein",
     gender = 1,
-    popularity = 1.206,
+    popularity = 1.4603,
     acting = {
       "181812",
       "12180",
@@ -61987,7 +62228,7 @@ return {
   ID_81667 = {
     name = "Jennifer Hale",
     gender = 1,
-    popularity = 2.0832,
+    popularity = 2.1506,
     acting = {
       "181812",
     },
@@ -61997,7 +62238,7 @@ return {
   ID_1213639 = {
     name = "Angelique Perrin",
     gender = 0,
-    popularity = 0.5199,
+    popularity = 0.7927,
     acting = {
       "181812",
     },
@@ -62007,7 +62248,7 @@ return {
   ID_33260 = {
     name = "Freddie Prinze Jr.",
     gender = 2,
-    popularity = 2.3918,
+    popularity = 2.8709,
     acting = {
       "181812",
     },
@@ -62017,7 +62258,7 @@ return {
   ID_1179651 = {
     name = "Lin-Manuel Miranda",
     gender = 2,
-    popularity = 2.743,
+    popularity = 2.764,
     acting = {
       "181812",
     },
@@ -62027,7 +62268,7 @@ return {
   ID_998387 = {
     name = "Ed Sheeran",
     gender = 2,
-    popularity = 4.7616,
+    popularity = 6.3533,
     acting = {
       "181812",
     },
@@ -62037,7 +62278,7 @@ return {
   ID_181879 = {
     name = "Gerald W. Abrams",
     gender = 0,
-    popularity = 0.5953,
+    popularity = 0.9026,
     acting = {
       "181812",
     },
@@ -62047,7 +62288,7 @@ return {
   ID_1372 = {
     name = "Karl Urban",
     gender = 2,
-    popularity = 4.2903,
+    popularity = 4.5513,
     acting = {
       "181812",
     },
@@ -62057,7 +62298,7 @@ return {
   ID_4566546 = {
     name = "Nikki Bond",
     gender = 0,
-    popularity = 0.449,
+    popularity = 0.5587,
     acting = {
       "181812",
     },
@@ -62067,7 +62308,7 @@ return {
   ID_79473 = {
     name = "Bea Arthur",
     gender = 1,
-    popularity = 1.5938,
+    popularity = 1.8144,
     acting = {
       "74849",
     },
@@ -62077,7 +62318,7 @@ return {
   ID_40176 = {
     name = "Art Carney",
     gender = 2,
-    popularity = 1.4734,
+    popularity = 1.4418,
     acting = {
       "74849",
     },
@@ -62087,7 +62328,7 @@ return {
   ID_1445 = {
     name = "Paul Kantner",
     gender = 2,
-    popularity = 0.4171,
+    popularity = 0.4725,
     acting = {
       "74849",
     },
@@ -62097,7 +62338,7 @@ return {
   ID_20158 = {
     name = "Diahann Carroll",
     gender = 1,
-    popularity = 1.4402,
+    popularity = 1.9535,
     acting = {
       "74849",
     },
@@ -62107,7 +62348,7 @@ return {
   ID_1433 = {
     name = "Marty Balin",
     gender = 0,
-    popularity = 0.5811,
+    popularity = 0.8767,
     acting = {
       "74849",
     },
@@ -62117,7 +62358,7 @@ return {
   ID_13640 = {
     name = "Harvey Korman",
     gender = 2,
-    popularity = 1.1324,
+    popularity = 1.2934,
     acting = {
       "74849",
     },
@@ -62127,7 +62368,7 @@ return {
   ID_16000 = {
     name = "Mickey Morton",
     gender = 1,
-    popularity = 0.2959,
+    popularity = 0.6275,
     acting = {
       "74849",
     },
@@ -62137,7 +62378,7 @@ return {
   ID_186151 = {
     name = "Paul Gale",
     gender = 0,
-    popularity = 0.3053,
+    popularity = 0.3465,
     acting = {
       "74849",
     },
@@ -62147,7 +62388,7 @@ return {
   ID_2436195 = {
     name = "Patty Maloney",
     gender = 1,
-    popularity = 0.5514,
+    popularity = 0.7378,
     acting = {
       "74849",
     },
@@ -62157,7 +62398,7 @@ return {
   ID_79477 = {
     name = "Jack Rader",
     gender = 2,
-    popularity = 1.0117,
+    popularity = 1.1914,
     acting = {
       "74849",
     },
@@ -62167,7 +62408,7 @@ return {
   ID_1544704 = {
     name = "Michael Potter",
     gender = 2,
-    popularity = 0.3375,
+    popularity = 0.4623,
     acting = {
       "74849",
     },
@@ -62177,7 +62418,7 @@ return {
   ID_79482 = {
     name = "Claude Woolman",
     gender = 2,
-    popularity = 0.4402,
+    popularity = 0.4771,
     acting = {
       "74849",
     },
@@ -62187,7 +62428,7 @@ return {
   ID_1472601 = {
     name = "Lev Mailer",
     gender = 2,
-    popularity = 0.3628,
+    popularity = 0.3772,
     acting = {
       "74849",
     },
@@ -62197,7 +62438,7 @@ return {
   ID_87461 = {
     name = "Don Francks",
     gender = 2,
-    popularity = 0.8883,
+    popularity = 0.7803,
     acting = {
       "74849",
     },
@@ -62207,7 +62448,7 @@ return {
   ID_1473184 = {
     name = "Mary Ann Hay",
     gender = 1,
-    popularity = 0.5111,
+    popularity = 0.6019,
     acting = {
       "74849",
     },
@@ -62217,7 +62458,7 @@ return {
   ID_49949 = {
     name = "Steve Binder",
     gender = 2,
-    popularity = 0.7177,
+    popularity = 1.0449,
     acting = {
     },
     directing = {
@@ -62227,7 +62468,7 @@ return {
   ID_34202 = {
     name = "Matt Lanter",
     gender = 2,
-    popularity = 2.0597,
+    popularity = 2.2924,
     acting = {
       "12180",
     },
@@ -62237,7 +62478,7 @@ return {
   ID_52698 = {
     name = "Nika Futterman",
     gender = 1,
-    popularity = 2.2195,
+    popularity = 2.2125,
     acting = {
       "12180",
     },
@@ -62247,7 +62488,7 @@ return {
   ID_71538 = {
     name = "Dave Filoni",
     gender = 2,
-    popularity = 1.6368,
+    popularity = 1.5936,
     acting = {
       "330459",
     },
@@ -62258,7 +62499,7 @@ return {
   ID_57755 = {
     name = "Woody Harrelson",
     gender = 2,
-    popularity = 5.4951,
+    popularity = 5.7596,
     acting = {
       "348350",
     },
@@ -62268,7 +62509,7 @@ return {
   ID_1223786 = {
     name = "Emilia Clarke",
     gender = 1,
-    popularity = 8.9575,
+    popularity = 9.099,
     acting = {
       "348350",
     },
@@ -62278,7 +62519,7 @@ return {
   ID_9030 = {
     name = "Thandiwe Newton",
     gender = 1,
-    popularity = 4.6977,
+    popularity = 4.8686,
     acting = {
       "348350",
     },
@@ -62288,7 +62529,7 @@ return {
   ID_1672504 = {
     name = "Erin Kellyman",
     gender = 1,
-    popularity = 1.1073,
+    popularity = 1.4837,
     acting = {
       "348350",
     },
@@ -62298,7 +62539,7 @@ return {
   ID_1570235 = {
     name = "Ian Kenny",
     gender = 2,
-    popularity = 0.4879,
+    popularity = 0.7952,
     acting = {
       "348350",
     },
@@ -62308,7 +62549,7 @@ return {
   ID_205406 = {
     name = "John Tui",
     gender = 2,
-    popularity = 1.0785,
+    popularity = 1.1429,
     acting = {
       "348350",
     },
@@ -62318,7 +62559,7 @@ return {
   ID_1320746 = {
     name = "Anna Francolini",
     gender = 1,
-    popularity = 0.5016,
+    popularity = 0.7428,
     acting = {
       "348350",
     },
@@ -62328,7 +62569,7 @@ return {
   ID_1215739 = {
     name = "Andrew Woodall",
     gender = 2,
-    popularity = 0.7739,
+    popularity = 0.9073,
     acting = {
       "348350",
     },
@@ -62338,7 +62579,7 @@ return {
   ID_1437591 = {
     name = "Shaquille Ali-Yebuah",
     gender = 2,
-    popularity = 0.588,
+    popularity = 0.7092,
     acting = {
       "348350",
     },
@@ -62348,7 +62589,7 @@ return {
   ID_2054069 = {
     name = "Eben Figueiredo",
     gender = 2,
-    popularity = 0.4379,
+    popularity = 0.6559,
     acting = {
       "348350",
     },
@@ -62358,7 +62599,7 @@ return {
   ID_1624770 = {
     name = "Aaron Heffernan",
     gender = 2,
-    popularity = 0.7731,
+    popularity = 0.9709,
     acting = {
       "348350",
     },
@@ -62368,7 +62609,7 @@ return {
   ID_228285 = {
     name = "Hal Fowler",
     gender = 2,
-    popularity = 0.7638,
+    popularity = 1.104,
     acting = {
       "348350",
     },
@@ -62378,7 +62619,17 @@ return {
   ID_2054070 = {
     name = "Damian Farrell",
     gender = 2,
-    popularity = 0.3717,
+    popularity = 0.4411,
+    acting = {
+      "348350",
+    },
+    directing = {
+    },
+  },
+  ID_2054072 = {
+    name = "Charlotte Louise",
+    gender = 1,
+    popularity = 0.3867,
     acting = {
       "348350",
     },
@@ -62388,7 +62639,7 @@ return {
   ID_2054073 = {
     name = "Dee Tails",
     gender = 2,
-    popularity = 0.2873,
+    popularity = 0.3421,
     acting = {
       "348350",
       "330459",
@@ -62396,10 +62647,30 @@ return {
     directing = {
     },
   },
+  ID_2054074 = {
+    name = "Attila Vajda",
+    gender = 2,
+    popularity = 0.284,
+    acting = {
+      "348350",
+    },
+    directing = {
+    },
+  },
+  ID_1695183 = {
+    name = "Fraser Kelly",
+    gender = 2,
+    popularity = 0.2988,
+    acting = {
+      "348350",
+    },
+    directing = {
+    },
+  },
   ID_1881105 = {
     name = "Lily Newmark",
     gender = 1,
-    popularity = 0.7635,
+    popularity = 0.8983,
     acting = {
       "348350",
     },
@@ -62409,7 +62680,7 @@ return {
   ID_1807122 = {
     name = "Alice Hewkin",
     gender = 1,
-    popularity = 0.6147,
+    popularity = 0.7192,
     acting = {
       "348350",
     },
@@ -62419,7 +62690,7 @@ return {
   ID_1753172 = {
     name = "Samantha Colley",
     gender = 1,
-    popularity = 0.458,
+    popularity = 0.4463,
     acting = {
       "348350",
     },
@@ -62429,7 +62700,7 @@ return {
   ID_75264 = {
     name = "Robert Morgan",
     gender = 2,
-    popularity = 2.5568,
+    popularity = 2.5762,
     acting = {
       "348350",
     },
@@ -62439,7 +62710,7 @@ return {
   ID_206393 = {
     name = "Miles Richardson",
     gender = 2,
-    popularity = 0.7242,
+    popularity = 0.8956,
     acting = {
       "348350",
     },
@@ -62449,7 +62720,7 @@ return {
   ID_1890513 = {
     name = "Sammy Hayman",
     gender = 2,
-    popularity = 1.2155,
+    popularity = 1.2768,
     acting = {
       "348350",
     },
@@ -62459,7 +62730,7 @@ return {
   ID_2054075 = {
     name = "Rona Morison",
     gender = 1,
-    popularity = 0.7211,
+    popularity = 1.0538,
     acting = {
       "348350",
     },
@@ -62469,7 +62740,7 @@ return {
   ID_2054076 = {
     name = "Dempsey Bovell",
     gender = 2,
-    popularity = 0.6994,
+    popularity = 0.733,
     acting = {
       "348350",
     },
@@ -62479,7 +62750,7 @@ return {
   ID_2054077 = {
     name = "Joseph Charles",
     gender = 2,
-    popularity = 0.4322,
+    popularity = 0.5345,
     acting = {
       "348350",
     },
@@ -62489,7 +62760,7 @@ return {
   ID_2054078 = {
     name = "Katy Kartwheel",
     gender = 1,
-    popularity = 0.2739,
+    popularity = 0.2841,
     acting = {
       "348350",
     },
@@ -62499,7 +62770,7 @@ return {
   ID_2054079 = {
     name = "Harley Durst",
     gender = 0,
-    popularity = 0.7695,
+    popularity = 0.8605,
     acting = {
       "348350",
     },
@@ -62509,7 +62780,7 @@ return {
   ID_1724987 = {
     name = "Toby Hefferman",
     gender = 0,
-    popularity = 0.6136,
+    popularity = 0.4962,
     acting = {
       "348350",
       "330459",
@@ -62520,7 +62791,7 @@ return {
   ID_30368 = {
     name = "Jonathan Kasdan",
     gender = 2,
-    popularity = 1.0713,
+    popularity = 1.4625,
     acting = {
       "348350",
     },
@@ -62530,7 +62801,7 @@ return {
   ID_1222025 = {
     name = "Richard Dixon",
     gender = 2,
-    popularity = 0.8087,
+    popularity = 1.1583,
     acting = {
       "348350",
     },
@@ -62540,7 +62811,7 @@ return {
   ID_1777483 = {
     name = "Deepak Anand",
     gender = 2,
-    popularity = 0.6158,
+    popularity = 0.7948,
     acting = {
       "348350",
     },
@@ -62550,7 +62821,7 @@ return {
   ID_2239023 = {
     name = "Juan Alonso",
     gender = 0,
-    popularity = 0.8206,
+    popularity = 0.994,
     acting = {
       "348350",
     },
@@ -62560,7 +62831,7 @@ return {
   ID_1728956 = {
     name = "Derek Arnold",
     gender = 0,
-    popularity = 0.3117,
+    popularity = 0.403,
     acting = {
       "348350",
       "330459",
@@ -62571,7 +62842,7 @@ return {
   ID_1236817 = {
     name = "Belinda Chapple",
     gender = 0,
-    popularity = 0.2949,
+    popularity = 0.3226,
     acting = {
       "348350",
     },
@@ -62581,7 +62852,7 @@ return {
   ID_2355266 = {
     name = "Kristianne-Kaith Domingo",
     gender = 0,
-    popularity = 0.3796,
+    popularity = 0.5526,
     acting = {
       "348350",
     },
@@ -62591,7 +62862,7 @@ return {
   ID_1108808 = {
     name = "John Duggan",
     gender = 0,
-    popularity = 0.3143,
+    popularity = 0.2776,
     acting = {
       "348350",
     },
@@ -62601,7 +62872,38 @@ return {
   ID_2571305 = {
     name = "Jordan Dumaurier",
     gender = 0,
-    popularity = 0.631,
+    popularity = 0.7475,
+    acting = {
+      "348350",
+    },
+    directing = {
+    },
+  },
+  ID_2660073 = {
+    name = "Marc Esse",
+    gender = 0,
+    popularity = 0.3279,
+    acting = {
+      "348350",
+      "330459",
+    },
+    directing = {
+    },
+  },
+  ID_1942998 = {
+    name = "Kristine Fernandez",
+    gender = 0,
+    popularity = 0.2617,
+    acting = {
+      "348350",
+    },
+    directing = {
+    },
+  },
+  ID_1413512 = {
+    name = "David Guerrero",
+    gender = 0,
+    popularity = 0.3948,
     acting = {
       "348350",
     },
@@ -62611,7 +62913,17 @@ return {
   ID_1965837 = {
     name = "Juke Hardy",
     gender = 0,
-    popularity = 0.5105,
+    popularity = 0.3675,
+    acting = {
+      "348350",
+    },
+    directing = {
+    },
+  },
+  ID_1988047 = {
+    name = "Sarah Sayuri Hare",
+    gender = 0,
+    popularity = 0.4286,
     acting = {
       "348350",
     },
@@ -62621,7 +62933,17 @@ return {
   ID_1977051 = {
     name = "Ian Harrod",
     gender = 0,
-    popularity = 0.456,
+    popularity = 0.4153,
+    acting = {
+      "348350",
+    },
+    directing = {
+    },
+  },
+  ID_1935731 = {
+    name = "Marina Hayter",
+    gender = 1,
+    popularity = 0.2719,
     acting = {
       "348350",
     },
@@ -62631,7 +62953,7 @@ return {
   ID_2253054 = {
     name = "Robert Hladik",
     gender = 2,
-    popularity = 0.6924,
+    popularity = 0.9747,
     acting = {
       "348350",
     },
@@ -62641,7 +62963,7 @@ return {
   ID_1284323 = {
     name = "Kevin Hudson",
     gender = 2,
-    popularity = 0.4911,
+    popularity = 0.7289,
     acting = {
       "348350",
     },
@@ -62651,7 +62973,7 @@ return {
   ID_2417290 = {
     name = "Ty Hurley",
     gender = 2,
-    popularity = 1.0704,
+    popularity = 1.2656,
     acting = {
       "348350",
     },
@@ -62661,7 +62983,17 @@ return {
   ID_1812530 = {
     name = "Jackson Kai",
     gender = 0,
-    popularity = 0.3994,
+    popularity = 0.4022,
+    acting = {
+      "348350",
+    },
+    directing = {
+    },
+  },
+  ID_1489735 = {
+    name = "John Kamau",
+    gender = 0,
+    popularity = 0.4433,
     acting = {
       "348350",
     },
@@ -62671,7 +63003,7 @@ return {
   ID_2430186 = {
     name = "Tyrone Kearns",
     gender = 0,
-    popularity = 0.6833,
+    popularity = 1.2656,
     acting = {
       "348350",
     },
@@ -62681,7 +63013,7 @@ return {
   ID_1654736 = {
     name = "Kamil Lemieszewski",
     gender = 2,
-    popularity = 0.7277,
+    popularity = 1.0133,
     acting = {
       "348350",
       "330459",
@@ -62692,7 +63024,7 @@ return {
   ID_1322312 = {
     name = "Jorge Leon",
     gender = 2,
-    popularity = 0.6373,
+    popularity = 0.7923,
     acting = {
       "348350",
       "330459",
@@ -62703,7 +63035,7 @@ return {
   ID_2298730 = {
     name = "Chelsea Mather",
     gender = 1,
-    popularity = 0.9271,
+    popularity = 1.1808,
     acting = {
       "348350",
     },
@@ -62713,7 +63045,7 @@ return {
   ID_2506333 = {
     name = "Obie Matthew",
     gender = 2,
-    popularity = 0.8851,
+    popularity = 1.0035,
     acting = {
       "348350",
       "330459",
@@ -62724,7 +63056,7 @@ return {
   ID_1820152 = {
     name = "Kenny-Lee Mbanefo",
     gender = 2,
-    popularity = 0.4651,
+    popularity = 0.5929,
     acting = {
       "348350",
     },
@@ -62734,7 +63066,7 @@ return {
   ID_69476 = {
     name = "Ashley McGuire",
     gender = 1,
-    popularity = 0.6862,
+    popularity = 0.7749,
     acting = {
       "348350",
     },
@@ -62744,7 +63076,17 @@ return {
   ID_2246292 = {
     name = "Jacqueline Ramnarine",
     gender = 0,
-    popularity = 0.3969,
+    popularity = 0.4488,
+    acting = {
+      "348350",
+    },
+    directing = {
+    },
+  },
+  ID_2332468 = {
+    name = "Christina Richards",
+    gender = 1,
+    popularity = 0.2715,
     acting = {
       "348350",
     },
@@ -62754,7 +63096,7 @@ return {
   ID_2251710 = {
     name = "Belal Sabir",
     gender = 0,
-    popularity = 0.263,
+    popularity = 0.3345,
     acting = {
       "348350",
     },
@@ -62764,7 +63106,7 @@ return {
   ID_1971913 = {
     name = "Sarah-Stephanie",
     gender = 1,
-    popularity = 0.4539,
+    popularity = 0.3659,
     acting = {
       "348350",
     },
@@ -62774,7 +63116,37 @@ return {
   ID_1615064 = {
     name = "Atul Sharma",
     gender = 2,
-    popularity = 0.5533,
+    popularity = 0.8182,
+    acting = {
+      "348350",
+    },
+    directing = {
+    },
+  },
+  ID_1753086 = {
+    name = "Neil Alexander Smith",
+    gender = 2,
+    popularity = 0.2885,
+    acting = {
+      "348350",
+    },
+    directing = {
+    },
+  },
+  ID_2651817 = {
+    name = "Karol Steele",
+    gender = 0,
+    popularity = 0.3703,
+    acting = {
+      "348350",
+    },
+    directing = {
+    },
+  },
+  ID_1744117 = {
+    name = "A.k. Steppa",
+    gender = 2,
+    popularity = 0.4068,
     acting = {
       "348350",
     },
@@ -62784,7 +63156,7 @@ return {
   ID_1824299 = {
     name = "Fran Targ",
     gender = 2,
-    popularity = 0.3313,
+    popularity = 0.4098,
     acting = {
       "348350",
     },
@@ -62794,7 +63166,7 @@ return {
   ID_1189724 = {
     name = "Klemens Niklaus Trenkle",
     gender = 2,
-    popularity = 0.4165,
+    popularity = 0.4752,
     acting = {
       "348350",
     },
@@ -62804,7 +63176,7 @@ return {
   ID_1739873 = {
     name = "Jo Wheatley",
     gender = 1,
-    popularity = 0.3087,
+    popularity = 0.4838,
     acting = {
       "348350",
     },
@@ -62814,7 +63186,7 @@ return {
   ID_1756412 = {
     name = "Ray Whelan",
     gender = 2,
-    popularity = 0.4018,
+    popularity = 0.4529,
     acting = {
       "348350",
     },
@@ -62824,7 +63196,17 @@ return {
   ID_2113544 = {
     name = "Angela Yeoh",
     gender = 1,
-    popularity = 0.6886,
+    popularity = 0.7316,
+    acting = {
+      "348350",
+    },
+    directing = {
+    },
+  },
+  ID_1524875 = {
+    name = "Mark Ryder",
+    gender = 0,
+    popularity = 0.3026,
     acting = {
       "348350",
     },
@@ -62834,7 +63216,7 @@ return {
   ID_164807 = {
     name = "Paul Davis",
     gender = 2,
-    popularity = 0.4376,
+    popularity = 0.5975,
     acting = {
       "348350",
     },
@@ -62844,7 +63226,7 @@ return {
   ID_1744116 = {
     name = "Richard Stanley",
     gender = 2,
-    popularity = 0.3318,
+    popularity = 0.3234,
     acting = {
       "348350",
     },
@@ -62854,7 +63236,7 @@ return {
   ID_5203374 = {
     name = "Avinashi Sharma",
     gender = 2,
-    popularity = 0.5411,
+    popularity = 0.621,
     acting = {
       "348350",
     },
@@ -62864,7 +63246,7 @@ return {
   ID_72855 = {
     name = "Felicity Jones",
     gender = 1,
-    popularity = 21.3098,
+    popularity = 17.4374,
     acting = {
       "330459",
     },
@@ -62874,7 +63256,7 @@ return {
   ID_8688 = {
     name = "Diego Luna",
     gender = 2,
-    popularity = 6.2561,
+    popularity = 6.0237,
     acting = {
       "330459",
     },
@@ -62884,7 +63266,7 @@ return {
   ID_1341 = {
     name = "Donnie Yen",
     gender = 2,
-    popularity = 7.5019,
+    popularity = 7.1664,
     acting = {
       "330459",
     },
@@ -62894,7 +63276,7 @@ return {
   ID_77301 = {
     name = "Jiang Wen",
     gender = 2,
-    popularity = 1.2921,
+    popularity = 1.5158,
     acting = {
       "330459",
     },
@@ -62904,7 +63286,7 @@ return {
   ID_56100 = {
     name = "Alistair Petrie",
     gender = 2,
-    popularity = 1.3548,
+    popularity = 1.8955,
     acting = {
       "330459",
     },
@@ -62914,7 +63296,7 @@ return {
   ID_27632 = {
     name = "Ben Daniels",
     gender = 2,
-    popularity = 1.5798,
+    popularity = 1.6336,
     acting = {
       "330459",
     },
@@ -62924,7 +63306,7 @@ return {
   ID_1213640 = {
     name = "Stephen Stanton",
     gender = 2,
-    popularity = 1.0743,
+    popularity = 1.2031,
     acting = {
       "330459",
     },
@@ -62934,7 +63316,7 @@ return {
   ID_43138 = {
     name = "Ian McElhinney",
     gender = 2,
-    popularity = 1.1917,
+    popularity = 1.707,
     acting = {
       "330459",
     },
@@ -62944,7 +63326,7 @@ return {
   ID_57012 = {
     name = "Fares Fares",
     gender = 2,
-    popularity = 1.5189,
+    popularity = 1.6604,
     acting = {
       "330459",
     },
@@ -62954,7 +63336,7 @@ return {
   ID_195666 = {
     name = "Sharon Duncan-Brewster",
     gender = 1,
-    popularity = 1.1102,
+    popularity = 1.4059,
     acting = {
       "330459",
     },
@@ -62964,7 +63346,7 @@ return {
   ID_1728954 = {
     name = "Daniel Naprous",
     gender = 2,
-    popularity = 0.6244,
+    popularity = 0.9063,
     acting = {
       "330459",
     },
@@ -62974,7 +63356,7 @@ return {
   ID_1583054 = {
     name = "Ingvild Deila",
     gender = 1,
-    popularity = 0.494,
+    popularity = 0.4789,
     acting = {
       "330459",
     },
@@ -62984,7 +63366,7 @@ return {
   ID_583815 = {
     name = "Valene Kane",
     gender = 1,
-    popularity = 0.9071,
+    popularity = 1.2283,
     acting = {
       "330459",
     },
@@ -62994,7 +63376,17 @@ return {
   ID_1725276 = {
     name = "Beau Gadsdon",
     gender = 1,
-    popularity = 0.5302,
+    popularity = 0.6396,
+    acting = {
+      "330459",
+    },
+    directing = {
+    },
+  },
+  ID_1725277 = {
+    name = "Dolly Gadsdon",
+    gender = 1,
+    popularity = 0.2668,
     acting = {
       "330459",
     },
@@ -63004,7 +63396,7 @@ return {
   ID_1264237 = {
     name = "Duncan Pow",
     gender = 2,
-    popularity = 0.617,
+    popularity = 0.6993,
     acting = {
       "330459",
     },
@@ -63014,7 +63406,7 @@ return {
   ID_1371050 = {
     name = "Jordan Stephens",
     gender = 2,
-    popularity = 0.6756,
+    popularity = 0.9327,
     acting = {
       "330459",
     },
@@ -63024,7 +63416,7 @@ return {
   ID_41044 = {
     name = "Babou Ceesay",
     gender = 2,
-    popularity = 0.7297,
+    popularity = 1.145,
     acting = {
       "330459",
     },
@@ -63034,7 +63426,7 @@ return {
   ID_1670 = {
     name = "Daniel Mays",
     gender = 2,
-    popularity = 1.7472,
+    popularity = 1.8765,
     acting = {
       "330459",
     },
@@ -63044,7 +63436,7 @@ return {
   ID_1231968 = {
     name = "Andy de la Tour",
     gender = 2,
-    popularity = 0.7855,
+    popularity = 0.8893,
     acting = {
       "330459",
     },
@@ -63054,7 +63446,7 @@ return {
   ID_1229255 = {
     name = "Tony Pitts",
     gender = 2,
-    popularity = 0.8779,
+    popularity = 1.168,
     acting = {
       "330459",
     },
@@ -63064,7 +63456,7 @@ return {
   ID_1402913 = {
     name = "Martin Gordon",
     gender = 2,
-    popularity = 0.6244,
+    popularity = 0.7027,
     acting = {
       "330459",
     },
@@ -63074,7 +63466,7 @@ return {
   ID_29412 = {
     name = "Eric MacLennan",
     gender = 2,
-    popularity = 0.3807,
+    popularity = 0.4474,
     acting = {
       "330459",
     },
@@ -63084,7 +63476,7 @@ return {
   ID_1015831 = {
     name = "Robin Pearce",
     gender = 0,
-    popularity = 0.4881,
+    popularity = 0.4966,
     acting = {
       "330459",
     },
@@ -63094,7 +63486,7 @@ return {
   ID_39661 = {
     name = "Francis Magee",
     gender = 2,
-    popularity = 1.7021,
+    popularity = 2.2027,
     acting = {
       "330459",
     },
@@ -63104,7 +63496,7 @@ return {
   ID_550550 = {
     name = "Tim Beckmann",
     gender = 2,
-    popularity = 0.865,
+    popularity = 0.8719,
     acting = {
       "330459",
     },
@@ -63114,7 +63506,7 @@ return {
   ID_11855 = {
     name = "Geraldine James",
     gender = 1,
-    popularity = 1.7525,
+    popularity = 2.6034,
     acting = {
       "330459",
     },
@@ -63124,7 +63516,7 @@ return {
   ID_47401 = {
     name = "Drewe Henley",
     gender = 2,
-    popularity = 0.4918,
+    popularity = 0.9332,
     acting = {
       "330459",
     },
@@ -63134,7 +63526,7 @@ return {
   ID_58475 = {
     name = "Angus MacInnes",
     gender = 2,
-    popularity = 0.6089,
+    popularity = 0.8194,
     acting = {
       "330459",
     },
@@ -63144,7 +63536,7 @@ return {
   ID_193020 = {
     name = "Richard Glover",
     gender = 2,
-    popularity = 0.6047,
+    popularity = 0.6416,
     acting = {
       "330459",
     },
@@ -63154,7 +63546,7 @@ return {
   ID_1097456 = {
     name = "Richard Cunningham",
     gender = 2,
-    popularity = 0.5606,
+    popularity = 0.7911,
     acting = {
       "330459",
     },
@@ -63164,7 +63556,7 @@ return {
   ID_209370 = {
     name = "Jack Roth",
     gender = 2,
-    popularity = 1.2604,
+    popularity = 1.4469,
     acting = {
       "330459",
     },
@@ -63174,7 +63566,7 @@ return {
   ID_1449370 = {
     name = "Michael Gould",
     gender = 2,
-    popularity = 0.3935,
+    popularity = 0.5918,
     acting = {
       "330459",
     },
@@ -63184,7 +63576,7 @@ return {
   ID_1299719 = {
     name = "Rufus Wright",
     gender = 2,
-    popularity = 0.7369,
+    popularity = 0.8649,
     acting = {
       "330459",
     },
@@ -63194,7 +63586,7 @@ return {
   ID_6969 = {
     name = "Geoff Bell",
     gender = 2,
-    popularity = 1.9927,
+    popularity = 2.396,
     acting = {
       "330459",
     },
@@ -63204,7 +63596,7 @@ return {
   ID_1774532 = {
     name = "James Harkness",
     gender = 2,
-    popularity = 0.5979,
+    popularity = 0.7091,
     acting = {
       "330459",
     },
@@ -63214,7 +63606,7 @@ return {
   ID_78047 = {
     name = "Matt Rippy",
     gender = 2,
-    popularity = 0.6679,
+    popularity = 0.6773,
     acting = {
       "330459",
     },
@@ -63224,7 +63616,7 @@ return {
   ID_175154 = {
     name = "Michael Nardone",
     gender = 2,
-    popularity = 0.7025,
+    popularity = 0.9172,
     acting = {
       "330459",
     },
@@ -63234,7 +63626,7 @@ return {
   ID_1097178 = {
     name = "Christopher Patrick Nolan",
     gender = 2,
-    popularity = 0.3291,
+    popularity = 0.2788,
     acting = {
       "330459",
     },
@@ -63244,7 +63636,7 @@ return {
   ID_1278499 = {
     name = "Keith Dunphy",
     gender = 2,
-    popularity = 0.4254,
+    popularity = 0.6175,
     acting = {
       "330459",
     },
@@ -63254,7 +63646,7 @@ return {
   ID_1230438 = {
     name = "Richard Franklin",
     gender = 2,
-    popularity = 0.3704,
+    popularity = 0.6335,
     acting = {
       "330459",
     },
@@ -63264,7 +63656,7 @@ return {
   ID_1681421 = {
     name = "Weston Gavin",
     gender = 2,
-    popularity = 0.3586,
+    popularity = 0.4408,
     acting = {
       "330459",
     },
@@ -63274,7 +63666,7 @@ return {
   ID_23607 = {
     name = "Nick Hobbs",
     gender = 2,
-    popularity = 0.656,
+    popularity = 1.0195,
     acting = {
       "330459",
     },
@@ -63284,7 +63676,7 @@ return {
   ID_1216947 = {
     name = "David Ankrum",
     gender = 2,
-    popularity = 0.5005,
+    popularity = 0.6517,
     acting = {
       "330459",
     },
@@ -63294,7 +63686,7 @@ return {
   ID_87176 = {
     name = "David Boat",
     gender = 2,
-    popularity = 0.7471,
+    popularity = 0.9585,
     acting = {
       "330459",
     },
@@ -63304,7 +63696,7 @@ return {
   ID_342 = {
     name = "Eugene Byrd",
     gender = 2,
-    popularity = 1.7707,
+    popularity = 2.0564,
     acting = {
       "330459",
     },
@@ -63314,7 +63706,7 @@ return {
   ID_2487734 = {
     name = "David W. Collins",
     gender = 2,
-    popularity = 0.326,
+    popularity = 0.3284,
     acting = {
       "330459",
     },
@@ -63324,7 +63716,7 @@ return {
   ID_1228940 = {
     name = "Jonathan Dixon",
     gender = 2,
-    popularity = 0.3868,
+    popularity = 0.4609,
     acting = {
       "330459",
     },
@@ -63334,7 +63726,7 @@ return {
   ID_186605 = {
     name = "Terri Douglas",
     gender = 1,
-    popularity = 1.3132,
+    popularity = 1.7576,
     acting = {
       "330459",
     },
@@ -63344,7 +63736,7 @@ return {
   ID_130081 = {
     name = "Robin Atkin Downes",
     gender = 2,
-    popularity = 1.6514,
+    popularity = 2.1367,
     acting = {
       "330459",
     },
@@ -63354,7 +63746,7 @@ return {
   ID_67810 = {
     name = "John Gilroy",
     gender = 2,
-    popularity = 0.5541,
+    popularity = 0.5593,
     acting = {
       "330459",
     },
@@ -63364,7 +63756,7 @@ return {
   ID_19242 = {
     name = "Tony Gilroy",
     gender = 2,
-    popularity = 1.885,
+    popularity = 2.2063,
     acting = {
       "330459",
     },
@@ -63374,7 +63766,7 @@ return {
   ID_1408400 = {
     name = "Tom Harrison-Read",
     gender = 0,
-    popularity = 0.4546,
+    popularity = 0.4484,
     acting = {
       "330459",
     },
@@ -63384,7 +63776,7 @@ return {
   ID_1408401 = {
     name = "Kevin Hickman",
     gender = 0,
-    popularity = 0.7344,
+    popularity = 0.8337,
     acting = {
       "330459",
     },
@@ -63394,7 +63786,7 @@ return {
   ID_1451088 = {
     name = "Karen Huie",
     gender = 1,
-    popularity = 0.6931,
+    popularity = 0.8017,
     acting = {
       "330459",
     },
@@ -63404,7 +63796,7 @@ return {
   ID_571309 = {
     name = "Lex Lang",
     gender = 2,
-    popularity = 0.8994,
+    popularity = 1.2209,
     acting = {
       "330459",
     },
@@ -63414,7 +63806,7 @@ return {
   ID_52938 = {
     name = "Vanessa Lengies",
     gender = 1,
-    popularity = 1.3921,
+    popularity = 1.6937,
     acting = {
       "330459",
     },
@@ -63424,7 +63816,7 @@ return {
   ID_127387 = {
     name = "Yuri Lowenthal",
     gender = 2,
-    popularity = 1.6095,
+    popularity = 1.7575,
     acting = {
       "330459",
     },
@@ -63434,7 +63826,7 @@ return {
   ID_81663 = {
     name = "Vanessa Marshall",
     gender = 1,
-    popularity = 1.5038,
+    popularity = 1.4659,
     acting = {
       "330459",
     },
@@ -63444,7 +63836,7 @@ return {
   ID_1728968 = {
     name = "Flora Miller",
     gender = 1,
-    popularity = 0.4838,
+    popularity = 0.5636,
     acting = {
       "330459",
     },
@@ -63454,7 +63846,7 @@ return {
   ID_1400906 = {
     name = "Chris Scarabosio",
     gender = 2,
-    popularity = 0.9694,
+    popularity = 1.2737,
     acting = {
       "330459",
     },
@@ -63464,7 +63856,7 @@ return {
   ID_1231950 = {
     name = "Katie Sheridan",
     gender = 1,
-    popularity = 0.5965,
+    popularity = 0.5864,
     acting = {
       "330459",
     },
@@ -63474,7 +63866,7 @@ return {
   ID_95639 = {
     name = "Julian Stone",
     gender = 2,
-    popularity = 0.7017,
+    popularity = 1.1137,
     acting = {
       "330459",
     },
@@ -63484,7 +63876,7 @@ return {
   ID_1713833 = {
     name = "John Swartz",
     gender = 2,
-    popularity = 0.3376,
+    popularity = 0.4111,
     acting = {
       "330459",
     },
@@ -63494,7 +63886,7 @@ return {
   ID_60047 = {
     name = "Ram Bergman",
     gender = 2,
-    popularity = 0.6296,
+    popularity = 0.8389,
     acting = {
       "330459",
     },
@@ -63504,7 +63896,7 @@ return {
   ID_63362 = {
     name = "Ned Dennehy",
     gender = 2,
-    popularity = 1.1955,
+    popularity = 1.3905,
     acting = {
       "330459",
     },
@@ -63514,7 +63906,7 @@ return {
   ID_1713832 = {
     name = "Emeson Nwolie",
     gender = 2,
-    popularity = 0.6622,
+    popularity = 0.5276,
     acting = {
       "330459",
     },
@@ -63524,7 +63916,7 @@ return {
   ID_937222 = {
     name = "Russell Balogh",
     gender = 2,
-    popularity = 0.3324,
+    popularity = 0.2685,
     acting = {
       "330459",
     },
@@ -63534,7 +63926,7 @@ return {
   ID_1713819 = {
     name = "Steen Young",
     gender = 2,
-    popularity = 0.9222,
+    popularity = 1.003,
     acting = {
       "330459",
     },
@@ -63544,7 +63936,17 @@ return {
   ID_1555943 = {
     name = "Attila G. Kerekes",
     gender = 2,
-    popularity = 0.3791,
+    popularity = 0.3907,
+    acting = {
+      "330459",
+    },
+    directing = {
+    },
+  },
+  ID_1514130 = {
+    name = "Mac Pietowski",
+    gender = 0,
+    popularity = 0.2978,
     acting = {
       "330459",
     },
@@ -63554,7 +63956,7 @@ return {
   ID_1225944 = {
     name = "Benjamín Benítez",
     gender = 2,
-    popularity = 0.5533,
+    popularity = 0.8264,
     acting = {
       "330459",
     },
@@ -63564,7 +63966,7 @@ return {
   ID_1394514 = {
     name = "Arthur L. Bernstein",
     gender = 2,
-    popularity = 0.3199,
+    popularity = 0.3121,
     acting = {
       "330459",
     },
@@ -63574,7 +63976,7 @@ return {
   ID_2500622 = {
     name = "Zarene Dallas",
     gender = 1,
-    popularity = 0.9341,
+    popularity = 1.2655,
     acting = {
       "330459",
     },
@@ -63584,7 +63986,7 @@ return {
   ID_1719754 = {
     name = "Dave Prince",
     gender = 2,
-    popularity = 0.2688,
+    popularity = 0.3177,
     acting = {
       "330459",
     },
@@ -63594,7 +63996,17 @@ return {
   ID_1764886 = {
     name = "Jake Francis",
     gender = 0,
-    popularity = 0.3373,
+    popularity = 0.4037,
+    acting = {
+      "330459",
+    },
+    directing = {
+    },
+  },
+  ID_1713831 = {
+    name = "Sam Hanover",
+    gender = 2,
+    popularity = 0.2725,
     acting = {
       "330459",
     },
@@ -63604,7 +64016,7 @@ return {
   ID_1735653 = {
     name = "Dolly Jagdeo",
     gender = 1,
-    popularity = 0.422,
+    popularity = 0.6586,
     acting = {
       "330459",
     },
@@ -63614,7 +64026,17 @@ return {
   ID_2660261 = {
     name = "Tyrone Love",
     gender = 0,
-    popularity = 0.2508,
+    popularity = 0.2712,
+    acting = {
+      "330459",
+    },
+    directing = {
+    },
+  },
+  ID_2152103 = {
+    name = "Axel Nu",
+    gender = 2,
+    popularity = 0.3426,
     acting = {
       "330459",
     },
@@ -63624,7 +64046,7 @@ return {
   ID_1786735 = {
     name = "Jem Kai Olsen",
     gender = 0,
-    popularity = 0.2736,
+    popularity = 0.5271,
     acting = {
       "330459",
     },
@@ -63634,7 +64056,7 @@ return {
   ID_2441220 = {
     name = "Louis Samms",
     gender = 0,
-    popularity = 0.3407,
+    popularity = 0.4634,
     acting = {
       "330459",
     },
@@ -63644,7 +64066,7 @@ return {
   ID_2211110 = {
     name = "Tim Stafford",
     gender = 2,
-    popularity = 0.2812,
+    popularity = 0.355,
     acting = {
       "330459",
     },
@@ -63654,7 +64076,7 @@ return {
   ID_40739 = {
     name = "Matthew Stirling",
     gender = 0,
-    popularity = 0.699,
+    popularity = 0.9108,
     acting = {
       "330459",
     },
@@ -63664,7 +64086,7 @@ return {
   ID_1941275 = {
     name = "Albert Tang",
     gender = 2,
-    popularity = 0.266,
+    popularity = 0.3484,
     acting = {
       "330459",
     },
@@ -63674,7 +64096,7 @@ return {
   ID_1753418 = {
     name = "Tony Toste",
     gender = 2,
-    popularity = 0.2649,
+    popularity = 0.4508,
     acting = {
       "330459",
     },
@@ -63684,7 +64106,37 @@ return {
   ID_1394693 = {
     name = "Pablo Verdejo",
     gender = 2,
-    popularity = 0.9253,
+    popularity = 1.0343,
+    acting = {
+      "330459",
+    },
+    directing = {
+    },
+  },
+  ID_2545371 = {
+    name = "Jay Waddell",
+    gender = 2,
+    popularity = 0.2724,
+    acting = {
+      "330459",
+    },
+    directing = {
+    },
+  },
+  ID_1640994 = {
+    name = "Boriana Williams",
+    gender = 1,
+    popularity = 0.3394,
+    acting = {
+      "330459",
+    },
+    directing = {
+    },
+  },
+  ID_1771668 = {
+    name = "Hiu Woong-Sin",
+    gender = 2,
+    popularity = 0.2753,
     acting = {
       "330459",
     },
@@ -63694,7 +64146,17 @@ return {
   ID_1836217 = {
     name = "Sam Wilkinson",
     gender = 0,
-    popularity = 0.2829,
+    popularity = 0.4557,
+    acting = {
+      "330459",
+    },
+    directing = {
+    },
+  },
+  ID_2153724 = {
+    name = "Hugh O'Brien",
+    gender = 2,
+    popularity = 0.336,
     acting = {
       "330459",
     },
@@ -63704,7 +64166,7 @@ return {
   ID_568657 = {
     name = "Sofia Boutella",
     gender = 1,
-    popularity = 3.741,
+    popularity = 4.5987,
     acting = {
       "848326",
       "934632",
@@ -63715,7 +64177,7 @@ return {
   ID_91520 = {
     name = "Michiel Huisman",
     gender = 2,
-    popularity = 2.4,
+    popularity = 2.4373,
     acting = {
       "848326",
       "934632",
@@ -63726,7 +64188,7 @@ return {
   ID_1047649 = {
     name = "Ed Skrein",
     gender = 2,
-    popularity = 3.3176,
+    popularity = 3.769,
     acting = {
       "848326",
       "934632",
@@ -63737,7 +64199,7 @@ return {
   ID_21688 = {
     name = "Bae Doona",
     gender = 1,
-    popularity = 3.3774,
+    popularity = 3.6664,
     acting = {
       "848326",
       "934632",
@@ -63748,7 +64210,7 @@ return {
   ID_1564557 = {
     name = "Staz Nair",
     gender = 2,
-    popularity = 0.8335,
+    popularity = 1.2117,
     acting = {
       "848326",
       "934632",
@@ -63759,7 +64221,7 @@ return {
   ID_56365 = {
     name = "Charlie Hunnam",
     gender = 2,
-    popularity = 7.7099,
+    popularity = 8.0741,
     acting = {
       "848326",
     },
@@ -63769,7 +64231,7 @@ return {
   ID_1313559 = {
     name = "Ray Fisher",
     gender = 2,
-    popularity = 1.2203,
+    popularity = 1.6142,
     acting = {
       "848326",
       "934632",
@@ -63780,7 +64242,7 @@ return {
   ID_217055 = {
     name = "Cleopatra Coleman",
     gender = 1,
-    popularity = 1.514,
+    popularity = 2.005,
     acting = {
       "848326",
       "934632",
@@ -63791,7 +64253,7 @@ return {
   ID_3343053 = {
     name = "Elise Duffy",
     gender = 1,
-    popularity = 0.4678,
+    popularity = 0.6754,
     acting = {
       "848326",
       "934632",
@@ -63802,7 +64264,7 @@ return {
   ID_1278528 = {
     name = "Fra Fee",
     gender = 2,
-    popularity = 0.7481,
+    popularity = 0.9952,
     acting = {
       "848326",
       "934632",
@@ -63813,7 +64275,7 @@ return {
   ID_3419773 = {
     name = "Charlotte Maggi",
     gender = 1,
-    popularity = 0.4454,
+    popularity = 0.4194,
     acting = {
       "848326",
       "934632",
@@ -63824,7 +64286,7 @@ return {
   ID_2388828 = {
     name = "Sky Yang",
     gender = 2,
-    popularity = 0.5018,
+    popularity = 0.5606,
     acting = {
       "848326",
       "934632",
@@ -63835,7 +64297,7 @@ return {
   ID_1403559 = {
     name = "Stuart Martin",
     gender = 2,
-    popularity = 1.0605,
+    popularity = 1.2095,
     acting = {
       "848326",
       "934632",
@@ -63846,7 +64308,7 @@ return {
   ID_55584 = {
     name = "Ingvar E. Sigurðsson",
     gender = 2,
-    popularity = 2.1695,
+    popularity = 2.7211,
     acting = {
       "848326",
       "934632",
@@ -63857,7 +64319,7 @@ return {
   ID_220496 = {
     name = "Alfonso Herrera",
     gender = 2,
-    popularity = 0.7163,
+    popularity = 0.806,
     acting = {
       "848326",
       "934632",
@@ -63868,7 +64330,7 @@ return {
   ID_1495589 = {
     name = "Rhian Rees",
     gender = 1,
-    popularity = 0.6778,
+    popularity = 0.8163,
     acting = {
       "848326",
       "934632",
@@ -63879,7 +64341,7 @@ return {
   ID_3048964 = {
     name = "Stella Grace Fitzgerald",
     gender = 1,
-    popularity = 0.3101,
+    popularity = 0.3153,
     acting = {
       "848326",
       "934632",
@@ -63890,7 +64352,7 @@ return {
   ID_2766254 = {
     name = "Dustin Ceithamer",
     gender = 2,
-    popularity = 0.594,
+    popularity = 0.5437,
     acting = {
       "848326",
       "934632",
@@ -63901,7 +64363,7 @@ return {
   ID_1469407 = {
     name = "Greg Kriek",
     gender = 2,
-    popularity = 0.808,
+    popularity = 0.9396,
     acting = {
       "848326",
     },
@@ -63911,7 +64373,7 @@ return {
   ID_1029029 = {
     name = "Brandon Auret",
     gender = 2,
-    popularity = 0.9643,
+    popularity = 1.1881,
     acting = {
       "848326",
     },
@@ -63921,7 +64383,7 @@ return {
   ID_11675 = {
     name = "Ray Porter",
     gender = 2,
-    popularity = 0.6996,
+    popularity = 0.9008,
     acting = {
       "848326",
     },
@@ -63931,7 +64393,7 @@ return {
   ID_34842 = {
     name = "Tony Amendola",
     gender = 2,
-    popularity = 1.2796,
+    popularity = 1.7337,
     acting = {
       "848326",
     },
@@ -63941,7 +64403,7 @@ return {
   ID_1824046 = {
     name = "Josefine Lindegaard",
     gender = 1,
-    popularity = 0.7385,
+    popularity = 0.9331,
     acting = {
       "848326",
       "934632",
@@ -63952,7 +64414,7 @@ return {
   ID_1743025 = {
     name = "Colby Lemmo",
     gender = 1,
-    popularity = 0.4722,
+    popularity = 0.6585,
     acting = {
       "848326",
     },
@@ -63962,7 +64424,7 @@ return {
   ID_2245272 = {
     name = "Sisse Marie",
     gender = 1,
-    popularity = 0.6106,
+    popularity = 0.4982,
     acting = {
       "848326",
       "934632",
@@ -63973,7 +64435,7 @@ return {
   ID_2429276 = {
     name = "Thomas Ohrstrom",
     gender = 2,
-    popularity = 0.3446,
+    popularity = 0.3993,
     acting = {
       "848326",
       "934632",
@@ -63984,7 +64446,7 @@ return {
   ID_3721582 = {
     name = "Savanna Gann",
     gender = 1,
-    popularity = 0.3938,
+    popularity = 0.3202,
     acting = {
       "848326",
       "934632",
@@ -63995,7 +64457,7 @@ return {
   ID_96753 = {
     name = "Danielle Burgio",
     gender = 1,
-    popularity = 0.9547,
+    popularity = 1.3685,
     acting = {
       "848326",
       "934632",
@@ -64006,7 +64468,7 @@ return {
   ID_2209431 = {
     name = "Patrick Luwis",
     gender = 2,
-    popularity = 0.5089,
+    popularity = 0.3738,
     acting = {
       "848326",
       "934632",
@@ -64018,7 +64480,18 @@ return {
   ID_240971 = {
     name = "Christine Kellogg-Darrin",
     gender = 0,
-    popularity = 0.3508,
+    popularity = 0.4949,
+    acting = {
+      "848326",
+      "934632",
+    },
+    directing = {
+    },
+  },
+  ID_3078001 = {
+    name = "Skylar Okerstrom-Lang",
+    gender = 2,
+    popularity = 0.4357,
     acting = {
       "848326",
       "934632",
@@ -64029,7 +64502,7 @@ return {
   ID_2191508 = {
     name = "Caden Dragomer",
     gender = 2,
-    popularity = 0.3781,
+    popularity = 0.4163,
     acting = {
       "848326",
       "934632",
@@ -64040,7 +64513,7 @@ return {
   ID_2451805 = {
     name = "Kayden Alexander Koshelev",
     gender = 2,
-    popularity = 0.4611,
+    popularity = 0.6453,
     acting = {
       "848326",
       "934632",
@@ -64051,7 +64524,7 @@ return {
   ID_1728254 = {
     name = "Kingston Foster",
     gender = 1,
-    popularity = 0.6833,
+    popularity = 0.9727,
     acting = {
       "848326",
       "934632",
@@ -64062,7 +64535,7 @@ return {
   ID_568390 = {
     name = "Robbie Jarvis",
     gender = 2,
-    popularity = 0.3224,
+    popularity = 0.6531,
     acting = {
       "848326",
       "934632",
@@ -64073,7 +64546,7 @@ return {
   ID_159720 = {
     name = "Matt Nolan",
     gender = 2,
-    popularity = 0.9358,
+    popularity = 1.0712,
     acting = {
       "848326",
       "934632",
@@ -64084,7 +64557,7 @@ return {
   ID_1631114 = {
     name = "Adam J. Smith",
     gender = 2,
-    popularity = 0.3169,
+    popularity = 0.4694,
     acting = {
       "848326",
       "934632",
@@ -64095,7 +64568,7 @@ return {
   ID_1416394 = {
     name = "Michael James Bell",
     gender = 2,
-    popularity = 0.4125,
+    popularity = 0.536,
     acting = {
       "848326",
       "934632",
@@ -64106,7 +64579,7 @@ return {
   ID_1358061 = {
     name = "Christopher Matthew Cook",
     gender = 2,
-    popularity = 0.7187,
+    popularity = 0.9572,
     acting = {
       "848326",
     },
@@ -64116,7 +64589,7 @@ return {
   ID_1194112 = {
     name = "Ben Geurens",
     gender = 2,
-    popularity = 0.449,
+    popularity = 0.782,
     acting = {
       "848326",
     },
@@ -64126,7 +64599,7 @@ return {
   ID_2062731 = {
     name = "Raphael Corkhill",
     gender = 2,
-    popularity = 0.3659,
+    popularity = 0.3717,
     acting = {
       "848326",
     },
@@ -64136,7 +64609,7 @@ return {
   ID_1384020 = {
     name = "Kendall Wells",
     gender = 2,
-    popularity = 0.4293,
+    popularity = 0.4251,
     acting = {
       "848326",
     },
@@ -64146,7 +64619,7 @@ return {
   ID_1937778 = {
     name = "James William O'Halloran",
     gender = 2,
-    popularity = 0.4414,
+    popularity = 0.5063,
     acting = {
       "848326",
     },
@@ -64156,7 +64629,7 @@ return {
   ID_1188778 = {
     name = "Mingus Johnston",
     gender = 2,
-    popularity = 0.4489,
+    popularity = 0.6184,
     acting = {
       "848326",
     },
@@ -64166,7 +64639,7 @@ return {
   ID_1448882 = {
     name = "Giovanni Lopes",
     gender = 2,
-    popularity = 0.3319,
+    popularity = 0.415,
     acting = {
       "848326",
     },
@@ -64176,7 +64649,7 @@ return {
   ID_58517 = {
     name = "Bonnie Morgan",
     gender = 1,
-    popularity = 1.0138,
+    popularity = 1.3698,
     acting = {
       "848326",
     },
@@ -64186,7 +64659,7 @@ return {
   ID_2075069 = {
     name = "Rory Gibson",
     gender = 2,
-    popularity = 1.4817,
+    popularity = 1.4408,
     acting = {
       "848326",
     },
@@ -64196,7 +64669,7 @@ return {
   ID_1038621 = {
     name = "Napoleon Ryan",
     gender = 2,
-    popularity = 0.5678,
+    popularity = 0.5684,
     acting = {
       "848326",
     },
@@ -64206,7 +64679,17 @@ return {
   ID_1853442 = {
     name = "Cody Banta",
     gender = 0,
-    popularity = 1.0122,
+    popularity = 1.2385,
+    acting = {
+      "848326",
+    },
+    directing = {
+    },
+  },
+  ID_2476696 = {
+    name = "Francisco Grey",
+    gender = 2,
+    popularity = 0.2859,
     acting = {
       "848326",
     },
@@ -64216,7 +64699,7 @@ return {
   ID_60062 = {
     name = "Scott Subiono",
     gender = 2,
-    popularity = 0.5144,
+    popularity = 0.7898,
     acting = {
       "848326",
     },
@@ -64226,7 +64709,7 @@ return {
   ID_2747860 = {
     name = "Gary Nohealii",
     gender = 2,
-    popularity = 0.4557,
+    popularity = 0.5132,
     acting = {
       "848326",
     },
@@ -64236,7 +64719,7 @@ return {
   ID_2021029 = {
     name = "Isabella Brenza",
     gender = 1,
-    popularity = 0.2548,
+    popularity = 0.3351,
     acting = {
       "848326",
     },
@@ -64246,7 +64729,7 @@ return {
   ID_3698000 = {
     name = "Jordan Coleman",
     gender = 1,
-    popularity = 0.4292,
+    popularity = 0.8171,
     acting = {
       "848326",
     },
@@ -64256,7 +64739,7 @@ return {
   ID_1052211 = {
     name = "Mark Steger",
     gender = 2,
-    popularity = 0.7849,
+    popularity = 0.9584,
     acting = {
       "848326",
     },
@@ -64266,7 +64749,7 @@ return {
   ID_1603313 = {
     name = "Francis Ngannou",
     gender = 2,
-    popularity = 0.8198,
+    popularity = 0.7171,
     acting = {
       "848326",
     },
@@ -64276,17 +64759,7 @@ return {
   ID_1531921 = {
     name = "Alexander Ward",
     gender = 2,
-    popularity = 0.9437,
-    acting = {
-      "848326",
-    },
-    directing = {
-    },
-  },
-  ID_1764516 = {
-    name = "John Orr",
-    gender = 2,
-    popularity = 0.2742,
+    popularity = 0.8463,
     acting = {
       "848326",
     },
@@ -64296,7 +64769,7 @@ return {
   ID_2978029 = {
     name = "Daisy Davis",
     gender = 1,
-    popularity = 0.311,
+    popularity = 0.3253,
     acting = {
       "848326",
       "934632",
@@ -64307,7 +64780,7 @@ return {
   ID_150195 = {
     name = "Simon Potter",
     gender = 2,
-    popularity = 0.2907,
+    popularity = 0.4912,
     acting = {
       "848326",
     },
@@ -64317,7 +64790,7 @@ return {
   ID_1576548 = {
     name = "Sam Stinson",
     gender = 2,
-    popularity = 0.6503,
+    popularity = 0.8863,
     acting = {
       "848326",
       "934632",
@@ -64325,10 +64798,20 @@ return {
     directing = {
     },
   },
+  ID_3018269 = {
+    name = "Bries Vannon",
+    gender = 2,
+    popularity = 0.3052,
+    acting = {
+      "848326",
+    },
+    directing = {
+    },
+  },
   ID_15217 = {
     name = "Zack Snyder",
     gender = 2,
-    popularity = 2.7036,
+    popularity = 3.2584,
     acting = {
     },
     directing = {
@@ -64339,7 +64822,27 @@ return {
   ID_1590291 = {
     name = "Thor Knai",
     gender = 2,
-    popularity = 0.4407,
+    popularity = 0.4275,
+    acting = {
+      "934632",
+    },
+    directing = {
+    },
+  },
+  ID_2519259 = {
+    name = "Ben Turner Dixon",
+    gender = 2,
+    popularity = 0.3345,
+    acting = {
+      "934632",
+    },
+    directing = {
+    },
+  },
+  ID_1872110 = {
+    name = "Mike Kopera",
+    gender = 2,
+    popularity = 0.2622,
     acting = {
       "934632",
     },
@@ -64349,7 +64852,7 @@ return {
   ID_2697136 = {
     name = "Kevin Stidham",
     gender = 0,
-    popularity = 0.366,
+    popularity = 0.39,
     acting = {
       "934632",
     },
@@ -64359,7 +64862,7 @@ return {
   ID_75566 = {
     name = "Max Deacon",
     gender = 2,
-    popularity = 0.505,
+    popularity = 0.6198,
     acting = {
       "934632",
     },
@@ -64369,17 +64872,7 @@ return {
   ID_3394224 = {
     name = "Eric Barron",
     gender = 2,
-    popularity = 0.251,
-    acting = {
-      "934632",
-    },
-    directing = {
-    },
-  },
-  ID_1466899 = {
-    name = "Hamish Sturgeon",
-    gender = 2,
-    popularity = 0.2815,
+    popularity = 0.3253,
     acting = {
       "934632",
     },
@@ -64389,7 +64882,7 @@ return {
   ID_1560011 = {
     name = "Charlie Clapham",
     gender = 2,
-    popularity = 0.6003,
+    popularity = 0.6461,
     acting = {
       "934632",
     },
@@ -64399,7 +64892,7 @@ return {
   ID_1334132 = {
     name = "Darren Jacobs",
     gender = 2,
-    popularity = 0.302,
+    popularity = 0.3533,
     acting = {
       "934632",
     },
@@ -64409,7 +64902,7 @@ return {
   ID_169596 = {
     name = "Gildart Jackson",
     gender = 2,
-    popularity = 0.6843,
+    popularity = 0.8963,
     acting = {
       "934632",
     },
@@ -64419,7 +64912,7 @@ return {
   ID_2001957 = {
     name = "Soma Mitra",
     gender = 1,
-    popularity = 0.256,
+    popularity = 0.461,
     acting = {
       "934632",
     },
@@ -64429,11 +64922,81 @@ return {
   ID_2104243 = {
     name = "Shay Hatten",
     gender = 2,
-    popularity = 1.1928,
+    popularity = 1.3854,
     acting = {
       "934632",
     },
     directing = {
+    },
+  },
+  ID_23721 = {
+    name = "Dieter Laser",
+    gender = 2,
+    popularity = 1.3824,
+    acting = {
+      "37169",
+    },
+    directing = {
+    },
+  },
+  ID_121574 = {
+    name = "Ashley C. Williams",
+    gender = 1,
+    popularity = 0.4507,
+    acting = {
+      "37169",
+    },
+    directing = {
+    },
+  },
+  ID_121575 = {
+    name = "Ashlynn Yennie",
+    gender = 1,
+    popularity = 1.8674,
+    acting = {
+      "37169",
+    },
+    directing = {
+    },
+  },
+  ID_121576 = {
+    name = "Akihiro Kitamura",
+    gender = 2,
+    popularity = 0.4678,
+    acting = {
+      "37169",
+    },
+    directing = {
+    },
+  },
+  ID_121577 = {
+    name = "Andreas Leupold",
+    gender = 2,
+    popularity = 0.2608,
+    acting = {
+      "37169",
+    },
+    directing = {
+    },
+  },
+  ID_121578 = {
+    name = "Peter Blankenstein",
+    gender = 2,
+    popularity = 0.4031,
+    acting = {
+      "37169",
+    },
+    directing = {
+    },
+  },
+  ID_118639 = {
+    name = "Tom Six",
+    gender = 2,
+    popularity = 0.9052,
+    acting = {
+    },
+    directing = {
+      "37169",
     },
   },
   ID_1420175 = {

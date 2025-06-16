@@ -2412,6 +2412,41 @@ return {
                     "{C:inactive}(Currently: {C:attention}#2#{C:inactive} Stacks)"
                 }
             },
+            -- Crossmod: CRYPTID
+            j_kino_human_centipede = {
+                name = "The Human Centipede (First Sequence)",
+                text = {
+                    "Each scoring card gives {X:dark_edition,C:white}^#1#{} Mult",
+                    "increased by {{X:dark_edition,C:white}#2#{} Mult for each",
+                    "scoring card to the left of it",
+                    "if played hand",
+                    "contains a {C:attention}Straight{}",
+                }
+            },
+            j_kino_shrek_1  = {
+                name = "Shrek",
+                text = {
+                    "Every {C:attention}3rd time{} you",
+                    "trigger {C:mult}+mult{} or {X:mult,C:white}xMult{}",
+                    "turn it into {X:mult,C:white}xMult{} or {X:dark_edition,C:white}^Mult{}"
+                }
+            },
+            j_kino_beemovie = {
+                name = "Bee Movie",
+                text = {
+                    "Create #1# negative {C:attention}Honeycombs{}",
+                    "when you {C:attention}Select a Blind"
+                }
+            },
+            j_kino_beemovie_honeygrate = {
+                name = "Honeycomb",
+                text = {
+                    "{X:dark_edition,C:white}^#1#{}",
+                    "increased by {X:dark_edition,C:white}^#2#{} per",
+                    "{C:attention}Honeycomb{} you got rid off this game",
+                    "{C:inactive}(Currently: #3# Honeycombs removed)"
+                }
+            },
             -- Legendaries
             j_kino_2001_odyssey = {
                 name = "2001: A Space Odyssey",

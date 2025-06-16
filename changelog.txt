@@ -1,3 +1,15 @@
+V 0.9.4a:
+New Content (Cryptid crossmod exclusive):
+- Shrek (Exotic joker)
+- The Bee Movie (Exotic Joker)
+- The Human Centipede (Epic Joker)
+
+New Content (Malverk exclusive):
+- Updated the texture pack to include new texture reworks (currently for a total of 69 retextured jokers)
+
+Fixes:
+- Properly set up the order for the jokers added in the previous release
+
 V 0.9.4:
 New Jokers:
 - Ratatouille (Legendary)

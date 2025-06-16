@@ -41,10 +41,56 @@ function Card.calculate_joker(self,context)
         end
 
         if ret.chips then ret.chips = ret.chips * multiplier end
-        return ret
-    else 
-        return ret
     end
+
+    if Cryptid then
+        if next(find_joker('j_kino_shrek_1')) then
+            if not ret then return ret end
+            local _shrek = find_joker('j_kino_shrek_1')
+            if not _shrek[1] then 
+                return ret
+            else
+                _shrek = _shrek[1]
+            end
+
+            if ret.mult or ret.mult_mod or ret.x_mult or ret.Xmult_mod then
+                _shrek.ability.extra.triggers_non = _shrek.ability.extra.triggers_non + 1
+            end
+            
+            if _shrek.ability.extra.triggers_non >= _shrek.ability.extra.threshold_non then
+                _shrek.ability.extra.triggers_non = 0
+                print("changed")
+                print(_shrek.ability.extra.triggers_non)
+                -- Set checks
+                local _multchanged = false
+                local _xmultchanged = false
+                -- Message overrides
+                if ret.Xmult_mod then 
+                    ret.x_mult = ret.Xmult_mod
+                    ret.message = nil 
+                end
+                if ret.mult_mod then 
+                    ret.mult = ret.mult_mod
+                    ret.message = nil
+                end
+
+                -- Upgrade
+                if ret.mult then
+                    print("found_mult") 
+                    ret.x_mult = ret.mult
+                    _multchanged = true
+                    ret.mult = nil
+                end
+                if ret.x_mult and not _multchanged then
+                    print("found_xmult")
+                    ret.e_mult = ret.x_mult
+                    ret.x_mult = nil
+                    _xmultchanged = true
+                end
+            end
+        end
+    end
+    return ret
 end
 
 function Kino.setpowerchange(card, source, powerchange)

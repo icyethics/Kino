@@ -98,6 +98,8 @@ joker_list = {
 "sorcerers_apprentice",
 "spartacus",
 "star_wars_i",
+'star_wars_v',
+'star_wars_ix',
 "steel",
 "stripes",
 "sugarland_express",
@@ -152,6 +154,7 @@ joker_list = {
 "fargo",
 "fast_and_furious_5",
 "fish_called_wanda",
+'frankenstein',
 "freaky_friday_3",
 "guardians_of_the_galaxy_2", 
 "ghost_rider_1",
@@ -207,6 +210,8 @@ joker_list = {
 "sound_of_music",
 "stand_by_me",
 "stargate",
+'star_wars_ii',
+'star_wars_vi',
 "star_wars_vii",
 "starman",
 "stranger_than_fiction",
@@ -260,17 +265,23 @@ joker_list = {
 "paul",
 "point_break",
 "poltergeist",
+'ponyo',
 "popeye",
 "princess_bride",
 "shawshank_redemption",
 "shopaholic",
 "source_code",
+'star_wars_iii',
 "star_wars_iv",
+'star_wars_viii',
 "terminator_2",
 "they_live",
 "12_monkeys",
 "wall_e",
 "war_of_the_worlds",
+
+-- CRYPTID CROSSMOD: EPIC
+'human_centipede',
 
 ------ Legendary
 
@@ -303,15 +314,30 @@ joker_list = {
 -- "zodiac",
 -- "young_frankenstein",
 -- "arrival",
-'star_wars_ii',
-'star_wars_iii',
-'star_wars_v',
-'star_wars_vi',
-'star_wars_viii',
-'star_wars_ix',
-'ponyo',
-'frankenstein'
 
+
+
+
+
+
+
+
+
+'shrek_1',
+'beemovie',
+'beemovie_honeygrate'
+
+}
+
+cryptid_content = {
+    jokers = {
+        'human_centipede'
+    },
+    enhancements = {"action",},
+    confections = {},
+    planets = {},
+    tarots = {"soldier"},
+    vouchers = {},
 }
 
 action_objects = {
