@@ -32,7 +32,7 @@ kino_genres = {
 }
 
 for _, _key in ipairs(Kino.jokers) do
-    if SMODS.Centers[_key].k_genre then
+    if SMODS.Centers[_key] and SMODS.Centers[_key].k_genre then
         SMODS.Centers[_key].pools = {}
         for __, _genre in ipairs(SMODS.Centers[_key].k_genre) do
             SMODS.Centers[_key].pools[_genre] = true
