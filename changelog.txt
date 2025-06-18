@@ -1,3 +1,15 @@
+V 0.9.4c:
+Bug fixes:
+- Fixed talisman issue for goodfellas
+- Removed leftover print statements
+- Various mods: Thor no longer causes a stack overflow
+- Various mods: Predator no longer causes a stack overflow
+- Various mods: Longlegs no longer crashes the game
+- Cryptid: Monster Energy no longer crashes the game
+
+Content changes:
+- Cryptid: Monster Energy now visually marks the joker that will retrigger when used
+- Added 7 new retextures to the Malverk texture pack
 V 0.9.4b:
 hotfix: no longer crashes on start-up
 

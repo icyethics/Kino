@@ -253,6 +253,12 @@ SMODS.Consumable {
                 
         end
 
+        if (card.area == G.consumeables or
+        card.area == Kino.snackbag) and
+        G.jokers and G.jokers.cards and #G.jokers.cards < 1 then
+            return false
+        end
+
         return true
 	end,
     keep_on_use = function(self, card)
@@ -264,6 +270,10 @@ SMODS.Consumable {
             play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
             card.active = true
 
+            -- select card
+            local _joker = pseudorandom_element(G.jokers.cards, pseudoseed('monster_energy'))
+            _joker.marked_by_monster = true
+
             local eval = function(card) return card.active end
             juice_card_until(card, eval, true, 0.05)
         end
@@ -271,21 +281,22 @@ SMODS.Consumable {
     calculate = function(self, card, context)
 
         if context.before and card.active then
-            card.ability.extra.target = pseudorandom_element(G.jokers.cards, pseudoseed('monster_energy'))
+            -- card.ability.extra.target = pseudorandom_element(G.jokers.cards, pseudoseed('monster_energy'))
+            
         end
 
-        if card.active and card.ability.extra.target 
+        if card.active
         and context.retrigger_joker_check and 
         not context.retrigger_joker and context.other_card ~= self then
 
-			local _target = card.ability.extra.target
             local _total_retriggers = card.ability.extra.retriggers + G.GAME.confections_powerboost
             if card.ability.kino_chocolate then
                 _total_retriggers = _total_retriggers + card.ability.choco_bonus
             end
 
-            if context.other_card == _target then
+            if context.other_card.marked_by_monster then
                 card.ability.extra.has_retriggered = true
+                context.other_card.marked_by_monster = nil
                 return {
 					message = localize("k_again_ex"),
 					repetitions = math.min(25, _total_retriggers),

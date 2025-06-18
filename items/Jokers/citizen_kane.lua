@@ -111,7 +111,7 @@ SMODS.Joker {
         end
 
         -- Checking confection use Conditions
-        if (G.GAME.dollars) >= to_big(50) then
+        if to_big(G.GAME.dollars) >= to_big(50) then
             _quest_status[5] = true
         end
 

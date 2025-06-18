@@ -36,7 +36,6 @@ SMODS.Enhancement {
                     }
                 end
             else 
-                print("test")
                 return {
                     x_chips = card.ability.x_chips_return
                 }

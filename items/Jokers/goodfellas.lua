@@ -73,7 +73,7 @@ SMODS.Joker {
         end
 
         if context.after then
-            if G.GAME.dollars <= 0 and not next(find_joker("j_credit_card")) then
+            if G.GAME.dollars <= to_big(0) and not next(find_joker("j_credit_card")) then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         play_sound('tarot1')

@@ -59,8 +59,7 @@ function Card.calculate_joker(self,context)
             
             if _shrek.ability.extra.triggers_non >= _shrek.ability.extra.threshold_non then
                 _shrek.ability.extra.triggers_non = 0
-                print("changed")
-                print(_shrek.ability.extra.triggers_non)
+
                 -- Set checks
                 local _multchanged = false
                 local _xmultchanged = false
@@ -76,13 +75,11 @@ function Card.calculate_joker(self,context)
 
                 -- Upgrade
                 if ret.mult then
-                    print("found_mult") 
                     ret.x_mult = ret.mult
                     _multchanged = true
                     ret.mult = nil
                 end
                 if ret.x_mult and not _multchanged then
-                    print("found_xmult")
                     ret.e_mult = ret.x_mult
                     ret.x_mult = nil
                     _xmultchanged = true

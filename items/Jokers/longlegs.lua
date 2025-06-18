@@ -40,14 +40,20 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- 3x. When you destroy or play the hidden card, debuff and set score to 0.
         if not card.ability.extra.hidden_card and not context.blueprint then
-            card.ability.extra.hidden_card = pseudorandom_element(G.deck.cards)
+            -- card.ability.extra.hidden_card = pseudorandom_element(G.deck.cards)
+            local _pcard = pseudorandom_element(G.playing_cards)
+            print(_pcard.base.suit)
+            print(_pcard.base.value)
+            card.ability.extra.hidden_card = true
+            _pcard.marked_by_longlegs = true
         end
+        
 
         if context.hand_drawn then
             local eval = function(card)
                 local result = false
                 for _, _card in ipairs(G.hand.cards) do
-                    if card.ability.extra.hidden_card == _card then
+                    if _card.marked_by_longlegs then
                         result = true
                     end
                 end
@@ -55,11 +61,11 @@ SMODS.Joker {
             juice_card_until(card, eval, true)
         end
 
-        if context.joker_main and not card.ability.extra.hidden_card == nil then
+        if context.joker_main then
             -- Check if the card is the hidden card.
             local _turned_on = true
             for i = 1, #context.scoring_hand do
-                if context.scoring_hand[i] == card.ability.extra.hidden_card then
+                if context.scoring_hand[i].marked_by_longlegs then
                     card_eval_status_text(card, 'extra', nil, nil, nil,
                     { message = localize('k_longlegs_ex'), colour = G.C.RED })
                     card_eval_status_text(context.scoring_hand[i], 'extra', nil, nil, nil,
@@ -87,10 +93,21 @@ SMODS.Joker {
             end
         end
 
-        if context.destroy_card == card.ability.extra.hidden_card then
-            card_eval_status_text(card, 'extra', nil, nil, nil,
-            { message = localize('k_longlegs_ex'), colour = G.C.RED })
-            SMODS.debuff_card(card, true, "longlegs")
+        if context.remove_playing_cards then
+            for _, _pcard in ipairs(context.removed) do
+                if _pcard.marked_by_longlegs then
+                    card_eval_status_text(card, 'extra', nil, nil, nil,
+                    { message = localize('k_longlegs_ex'), colour = G.C.RED })
+                    SMODS.debuff_card(card, true, "longlegs")
+                end
+            end
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        for _, _pcard in ipairs(G.playing_cards) do
+            if _pcard.marked_by_longlegs then
+                _pcard.marked_by_longlegs = nil
+            end
         end
     end
 }

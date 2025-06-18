@@ -928,6 +928,30 @@ SMODS.DrawStep {
     conditions = {vortex = false, facing = 'front'}
 }
 
+local kino_monster_sprite
+SMODS.DrawStep {
+    key = "kino_monster_energy_indicator",
+    order = 50,
+    func = function(card, layer)
+        if card.marked_by_monster then
+                local _xOffset = 0
+                local _yOffset = 1.75
+                local scale_mod = 0.07 + 0.02*math.sin(1.8*G.TIMERS.REAL) + 0.00*math.sin((G.TIMERS.REAL - math.floor(G.TIMERS.REAL))*math.pi*14)*(1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL)))^3
+                local rotate_mod = 0.05*math.sin(1.219*G.TIMERS.REAL) + 0.00*math.sin((G.TIMERS.REAL)*math.pi*5)*(1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL)))^2
+
+                kino_monster_sprite = kino_monster_sprite or Sprite(0, -10, card.T.w, card.T.h, G.ASSET_ATLAS["kino_ui"], {x = 3, y = 1})
+                kino_monster_sprite.role.draw_major = card
+                kino_monster_sprite:draw_shader('dissolve',0, nil, nil, card.children.center,scale_mod, rotate_mod, _xOffset, 0.1 + 0.03*math.sin(1.8*G.TIMERS.REAL) + _yOffset,nil, 0.6)
+                kino_monster_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, scale_mod, rotate_mod, _xOffset, _yOffset)
+        end
+
+        -- if card and card.children.back_uibox then
+        --     card.children.back_uibox.states.visible = false
+        -- end
+    end,
+    conditions = {vortex = false, facing = 'front'}
+}
+
 -- local textbox = nil
 -- SMODS.DrawStep {
 --     key = "kino_powerchange_indicator",

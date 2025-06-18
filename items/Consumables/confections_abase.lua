@@ -1060,7 +1060,6 @@ SMODS.Consumable {
     end,
     calculate = function(self, card, context)
         if Kino.snackbag then
-            print(#Kino.snackbag.cards)
             if #Kino.snackbag.cards <= 0 then
                 card:start_dissolve()
                 Kino.snackbag.states.visible = false

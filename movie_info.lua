@@ -29,7 +29,6 @@ for j, var in pairs(movies) do
     local id = string.sub(j, 4)
     for i, v in ipairs(Kino.jokers) do
       if SMODS.Centers[v] then
-        print(v)
         if SMODS.Centers[v].kino_joker and tostring(SMODS.Centers[v].kino_joker.id) == id then
             SMODS.Centers[v].kino_joker.budget = var.budget
             SMODS.Centers[v].kino_joker.box_office = var.box_office
