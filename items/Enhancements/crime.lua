@@ -7,7 +7,6 @@ SMODS.Enhancement {
         a_chips = 5
     },
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = {set = 'Other', key = "gloss_steal", vars = {Kino.crime_chips, tostring(G.GAME.money_stolen)}}
         return {
             vars = {
                 card.ability.steal_val,

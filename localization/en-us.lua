@@ -288,7 +288,8 @@ return {
                     "When you {C:green}Reroll{} there",
                     "is a {C:green}#1# in #2#{} chance",
                     "to {C:attention}Destroy all other jokers.{}",
-                    "This chance increases by {C:green}#3#{} each {C:green}Reroll"
+                    "This chance increases by {C:green}#3#{} each {C:green}Reroll",
+                    "{C:red} Self-Destructs when chance reaches 100"
                 }
             },
             j_kino_blank_check = {
@@ -530,7 +531,7 @@ return {
                 name = "The Dark Knight",
                 text = {
                     "When you select a blind",
-                    "destroy all {C:attention}Jokers{}",
+                    "destroy all {C:attention}non-Batman Jokers{}",
                     "{X:mult,C:white}X#2#{} Mult per ",
                     "Joker destroyed",
                     "{C:inactive}(Currently: {X:mult,C:white}X#1#{C:inactive} Mult)"
@@ -1425,9 +1426,9 @@ return {
                 text = {
                     "When you play a hand,", 
                     "{C:attention}Debuff{} every {C:attention}Enhanced Card",
-                    "in your hand and gain {X:mult,C:white}X#2#{} Mult",
-                    "the end of round.",
-                    "{C:inactive}(Currently: {X:mult,C:white}#1#{C:inactive} Mult)"
+                    "in your hand and gain {X:mult,C:white}x#2#{} Mult",
+                    "until the end of round.",
+                    "{C:inactive}(Currently: {X:mult,C:white}x#1#{C:inactive} Mult)"
                 }
             },
             j_kino_mr_and_mrs_smith = {
@@ -1980,7 +1981,7 @@ return {
                     "When a playing card is destroyed",
                     "{C:attention}Upgrade{} each card with",
                     "the same rank in your deck with",
-                    "{C:attention}#1#x{} times its upgrades"
+                    "{C:attention}#1#x{} times its upgrades",
                 }
             },
             j_kino_star_wars_iii = {
@@ -2041,7 +2042,8 @@ return {
                 text = {
                     "Gain {C:attention}+#1#{} Handsize",
                     "for each {C:planet}Planet{} used",
-                    "since last round"
+                    "since last round",
+                    "{C:inactive}(Currently: +#2# Handsize)"
                 }
             },
             j_kino_stargate = {
@@ -4362,6 +4364,7 @@ return {
             k_blind_smith = "No, Jimbo. Your men are already dead",
             k_kino_blind_immortan_1 = "I am your redeemer",
             k_kino_blind_thanos = "Perfectly Balanced",
+            k_kino_joker_batman = "Oh no! It's Bats!",
 
             -- Legendary Joker Quests
             -- -- 2001: A Space Odyssey

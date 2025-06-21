@@ -181,7 +181,7 @@ SMODS.Consumable {
     atlas = "kino_tarot",
     config = {
         mod_conv = 'm_kino_action', 
-        max_highlighted = 2,
+        max_highlighted = 3,
     },
     get_weight_mod = function()
         if G.GAME.kino_genre_weight["Crime"] and G.GAME.kino_genre_weight["Crime"] > 0 then

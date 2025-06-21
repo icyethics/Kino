@@ -1,37 +1,37 @@
-Alien 3
-Aliens
+/Alien 3 
+/Aliens
 The BFG
 Charlie & The Chocolate Factory
-A Clockwork Orange
+/A Clockwork Orange
 Con Air
-E.T The Extra-Terrestrial
+/E.T The Extra-Terrestrial
 Guardians of the Galaxy Vol. 1
-Ghostbusters
+/Ghostbusters
 I, Robot,
 La La Land,
-Nope
-Ring
+/Nope
+/Ring
 Shazam
-Smurfs
+/Smurfs
 The Sorcerer's Apprentice
-Spartacus
+/Spartacus
 Star Wars Episode I: The Phantom Menace
-Thor
-Up
+/Thor
+/Up
 50 First Dates
-Anora
-Bloodshot
-Close Encounters of the Third Kind
-Contagion
-Creature from the Black Lagoon
+/Anora
+/Bloodshot
+/Close Encounters of the Third Kind
+/Contagion
+/Creature from the Black Lagoon
 Die Hard
-My dinner with Andre
+/My dinner with Andre
 Doctor Who: The Movie
 Dungeons & Dragons
-Edward Scissorhands
+/Edward Scissorhands
 Freaky Friday
 Guardians of the Galaxy Vol. 2
-Goodfellas
+/Goodfellas
 Her
 Hot Fuzz
 Independence Day
@@ -43,47 +43,46 @@ A Minecraft Movie
 Moneyball
 Ocean's 11
 The Prestige
-Robocop
-Saus
+/Robocop
 Sausage Party
-Scarface
+/Scarface
 Signs
 Smile
 Stargate
 Star Wars Episode VII: The Force Awakens
 Starman
-The Terminator
-The Thing
+/The Terminator
+/The Thing
 Teenage Mutant Ninja Turtles
 Treasure Planet
 True Lies
-Turner & Hooch
+/Turner & Hooch
 Wall Street
-Zardoz
-Angel Heart
-Asteroid City
-Blair Witch Project
+/Zardoz
+/Angel Heart
+/Asteroid City
+/Blair Witch Project
 Blank Check
-The Founder
+/The Founder
 Guardians of the Galaxy Vol. 3
-Hustle
-Interstellar
+/Hustle
+/Interstellar
 The Iron Giant
-Jurassic Park
+/Jurassic Park
 Lucky Number Slevin
 Memento
-Ocean's 11 (2001)
+/Ocean's 11 (2001)
 Pain & Gain
-24 Hour Party People
+/24 Hour Party People
 Paul
 Popeye
 The Shawshank Redemption
-Confessions of a Shopaholic
+/Confessions of a Shopaholic
 Source Code
 Star Wars
-Terminator 2: Judgement Day
-They Live
+/Terminator 2: Judgement Day
+/They Live
 Twelve Monkeys
-2001: A Space Odyssey
-Raiders of the Lost Ark
-Barbie
+/2001: A Space Odyssey
+/Raiders of the Lost Ark
+/Barbie

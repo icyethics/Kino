@@ -3,7 +3,7 @@ SMODS.Enhancement {
     atlas = "kino_enhancements",
     pos = { x = 2, y = 0},
     config = {
-        x_chips_return = 1.5,
+        x_chips_return = 2,
         chance = 4
 
     },
@@ -49,7 +49,7 @@ SMODS.Enhancement {
     atlas = "kino_enhancements",
     pos = { x = 2, y = 1},
     config = {
-        chips = -50
+        chips = -25
 
     },
     replace_base_card = true,

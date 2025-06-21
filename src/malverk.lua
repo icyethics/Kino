@@ -85,9 +85,12 @@ AltTexture{
     path = '004_kino_jokerresprite.png',
     original_sheet = true,
     keys = {
+        'j_kino_ghoulies',
+        'j_kino_longlegs',
         'j_kino_alien_1',
         'j_kino_oceans_11',
         'j_kino_anora',
+        'j_kino_twilight_1',
         'j_kino_baby_geniuses'
     },
 }
@@ -98,10 +101,17 @@ AltTexture{
     path = '005_kino_jokerresprite.png',
     original_sheet = true,
     keys = {
+        'j_kino_ringu',
         'j_kino_thor_1',
+        'j_kino_blair_witch',
+        'j_kino_goodfellas',
         'j_kino_6_underground',
+        'j_kino_clown',
+        'j_kino_cronos',
+        'j_kino_voyage_dans_le_lune',
         'j_kino_founder',
-        'j_kino_west_side_story_1'
+        'j_kino_west_side_story_1',
+        'j_kino_evil_dead_1'
     },
 }
 
@@ -130,7 +140,9 @@ AltTexture{
     original_sheet = true,
     keys = {
         'j_kino_hard_eight',
+        'j_kino_contagion',
         'j_kino_baby_driver',
+        'j_kino_frighteners',
         'j_kino_men_in_black_1',
         'j_kino_as_above_so_below'
     },

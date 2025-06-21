@@ -568,6 +568,34 @@ SMODS.Blind{
     },
     set_blind = function(self)
         G.GAME.current_round.boss_blind_joker_counter = 0
+        
+        local _has_batman = false
+        local _batman_joker = nil
+
+        for _, _joker in ipairs(G.jokers.cards) do
+            if _joker.config.center.j_is_batman then
+                _has_batman = true
+                _batman_joker = _joker
+            end
+        end
+
+        if _has_batman then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            G.GAME.blind:disable()
+                            play_sound('timpani')
+                            delay(0.4)
+                            return true
+                        end
+                    }))
+                    SMODS.calculate_effect({ message = localize('k_kino_joker_batman') }, _batman_joker)
+                    return true
+                end
+            }))
+            return nil, true -- This is for Joker retrigger purposes
+        end
     end,
     loc_vars = function(self)
 

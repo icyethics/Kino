@@ -309,6 +309,13 @@ SMODS.Consumable {
             end
         end
 
+        if G.jokers and G.jokers.cards and G.jokers.cards[1] then
+            if not G.jokers.cards[1].ability.eternal then
+                return true
+            end
+            return false
+        end
+
         if #_eligible_targets > 0 then return true end
 		return false
 	end,
@@ -318,7 +325,7 @@ SMODS.Consumable {
         }
     },
     get_weight_mod = function()
-        return 0.3
+        return 0.2
     end,
     loc_vars = function(self, info_queue, card)
         return {
@@ -339,7 +346,8 @@ SMODS.Consumable {
         end
 
         -- destroy random joker
-        local _target = pseudorandom_element(G.jokers.cards, pseudoseed("kino_death_star"))
+        -- local _target = pseudorandom_element(G.jokers.cards, pseudoseed("kino_death_star"))
+        local _target = G.jokers.cards[1]
         _target:start_dissolve()
 
         for k, v in ipairs(G.handlist) do

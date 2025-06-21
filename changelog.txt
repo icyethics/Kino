@@ -1,3 +1,26 @@
+V 0.9.4d:
+Bug Fixes:
+- Star Wars Episode II no longer crashes the game
+- Batman & Robin now works correctly
+
+Localization fixes:
+- Crime cards: Incorrect steal glossary item removed
+- Fixed localization error for Morbius
+- Dark Knight now specifies batman-joker immunity
+- Fixed Star Wars Episode IX incorrectly showing the hand size gain
+- Blair Witch now properly indicates its self-destruct condition
+
+Balance Changes:
+- Ex Machina: Gains x0.1 > Gains x0.25
+- Horror card: Gives x1.5 chips while in hand > Gives x2 chips while in hand
+- Monster card: -50 chips when scored > -25 chips when scored
+- Death Star: Destroy random joker > Destroy leftmost joker
+- Soldier Tarot: Up to 2 cards > Up to 3 cards
+
+Content Updates:
+- Added more textures to the texture pack
+- Added Joker boss blind interaction with Batman jokers
+
 V 0.9.4c:
 Bug fixes:
 - Fixed talisman issue for goodfellas
@@ -10,6 +33,7 @@ Bug fixes:
 Content changes:
 - Cryptid: Monster Energy now visually marks the joker that will retrigger when used
 - Added 7 new retextures to the Malverk texture pack
+
 V 0.9.4b:
 hotfix: no longer crashes on start-up
 

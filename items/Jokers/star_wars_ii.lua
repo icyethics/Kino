@@ -56,8 +56,8 @@ SMODS.Joker {
                 for _, _pcard in ipairs(G.playing_cards) do
                     if context.removed[1]:get_id() == _pcard:get_id() then
                         for _key, _upgrade in pairs(upgrades) do
-                            context.other_card.ability[_key] = context.other_card.ability[_key] or 0
-                            context.other_card.ability[_key] = context.other_card.ability[_key] + (_upgrade * card.ability.extra.factor)
+                            _pcard.ability[_key] = _pcard.ability[_key] or 0
+                            _pcard.ability[_key] = _pcard.ability[_key] + (_upgrade * card.ability.extra.factor)
                         end
                     end
                 end
