@@ -1,3 +1,7 @@
+V 0.9.4e:
+Bug fix:
+- Balatro Multiplayer: No longer makes the game crash on start-up
+
 V 0.9.4d:
 Bug Fixes:
 - Star Wars Episode II no longer crashes the game
