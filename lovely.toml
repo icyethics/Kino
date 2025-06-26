@@ -62,6 +62,7 @@ payload = '''
 if not next(find_joker("j_kino_hellboy_1")) then
     local has_demonic_card = false
     local _sacrifices_this_hand = 0
+    local _arrayofsacrifices = {}
 
     for i = 1, #scoring_hand do
         if SMODS.has_enhancement(scoring_hand[i], 'm_kino_demonic') and not scoring_hand[i].debuff then
@@ -75,11 +76,17 @@ if not next(find_joker("j_kino_hellboy_1")) then
 
             else
                 cards_destroyed[#cards_destroyed + 1] = scoring_hand[i]
+                _arrayofsacrifices[#_arrayofsacrifices + 1] = scoring_hand[i]
+                scoring_hand[i].kino_tobesacrificed = true
                 G.GAME.current_round.sacrifices_made = G.GAME.current_round.sacrifices_made + 1
                 scoring_hand[i].destroyed = true
                 _sacrifices_this_hand = _sacrifices_this_hand + 1
             end
         end
+    end
+
+    if _sacrifices_this_hand > 0 then
+        SMODS.calculate_context({kino_sacrifices = true, kino_sacrifice_num = _sacrifices_this_hand, kino_sacrificed_cards = _arrayofsacrifices})
     end
 
     -- Challenge additional implementations
@@ -190,6 +197,7 @@ position = 'after'
 match_indent = true
 payload = '''
 if amt > 1 then
+    print("testing-lovely")
 	G.GAME.current_round.beaten_run_high = G.GAME.current_round.beaten_run_high + 1
 end
 '''

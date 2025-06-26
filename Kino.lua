@@ -322,6 +322,11 @@ Game.init_game_object = function(self)
                 x = 1,
                 y = 5
             }),
+        active_sprite = Sprite(0,0, self.CARD_W, self.CARD_W, 
+            G.ASSET_ATLAS["kino_ui_large"], {
+                x=0, 
+                y=0
+            }),
     }
 
     self.shared_segdisp = {
@@ -549,6 +554,13 @@ if load_error then
 end
 
 local helper, load_error = SMODS.load_file("src/create_card.lua")
+if load_error then
+    sendDebugMessage ("The error is: "..load_error)
+    else
+    helper()
+end
+
+local helper, load_error = SMODS.load_file("src/start_run.lua")
 if load_error then
     sendDebugMessage ("The error is: "..load_error)
     else

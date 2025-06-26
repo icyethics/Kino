@@ -42,7 +42,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.destroy_card  and context.cardarea == G.hand then
             if context.destroy_card:get_id() == 8 then
-                if pseudorandom("hardeight") < (G.GAME.probabilities.normal * card.ability.extra.cur_chance) * card.ability.extra.chance then
+                if pseudorandom("hardeight") < (G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance then
                     return {remove = true}
                 end
             end

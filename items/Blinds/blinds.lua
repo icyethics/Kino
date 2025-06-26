@@ -1491,8 +1491,6 @@ SMODS.Blind{
             if _joker.ability.output_powerchange and _joker.ability.output_powerchange.kinoblind_palpatine then
                 _startingvalue = _joker.ability.output_powerchange.kinoblind_palpatine
             end
-            print("testing")
-            print(_startingvalue - self.debuff.palp_damage)
             Kino.setpowerchange(_joker, "kinoblind_palpatine", _startingvalue - self.debuff.palp_damage)
         end
     end,

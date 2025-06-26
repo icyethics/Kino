@@ -62,7 +62,7 @@ SMODS.Joker {
             end
 
             if _triggers > 0 then
-                local _mult = _triggers * context.other_card:get_id() * card.ability.extra.factor
+                local _mult = context.other_card.base.nominal * card.ability.extra.factor
                 return {
                     mult = _mult
                 }

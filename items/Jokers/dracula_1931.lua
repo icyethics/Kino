@@ -74,7 +74,7 @@ SMODS.Joker {
             end
 
             local enhanced_bonus = #enhanced * card.ability.extra.aa_xmult
-            local unenhanced_bonus = #enhanced * card.ability.extra.a_xmult
+            local unenhanced_bonus = #unenhanced * card.ability.extra.a_xmult
             card.ability.extra.stacked_x_mult = card.ability.extra.stacked_x_mult + enhanced_bonus + unenhanced_bonus
 
             return {

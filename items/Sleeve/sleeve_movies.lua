@@ -53,27 +53,38 @@ if CardSleeves then
             if context.end_of_round 
             and not context.individual and not context.repetition and not context.blueprint then
                 local _percentage = 0
-    
+                local _kino_jokercount = 0
+
                 for _, _joker in ipairs(G.jokers.cards) do
                     
                     if _joker.config.center.kino_joker then
+                        _kino_jokercount = _kino_jokercount + 1
                         local _movie_info = _joker.config.center.kino_joker 
-                        _percentage = _percentage + (_movie_info.box_office / _movie_info.budget)
+
+                        local budget = _movie_info.budget
+                        local boxoffice = _movie_info.box_office
+
+                        if budget == 0 then budget = 1 end
+                        if boxoffice == 0 then boxoffice = 1.1 end
+
+                        _percentage = _percentage + (boxoffice / budget)
                         if _percentage > 10 then
                             _percentage = 10
                         end
-    
+
                         SMODS.calculate_effect({
-                            message = "$" .. (_percentage * 100),
+                            message = "%" .. (_percentage * 100),
                             colour = G.C.MONEY
                         },
                         _joker)
                     end
                 end
-    
-                local reward = 10 * _percentage
-    
-                ease_dollars(reward - 10)
+
+                if _kino_jokercount > 0 then
+                    local reward = 10 * _percentage
+
+                    ease_dollars(reward - 10)
+                end
             end
         end
     }

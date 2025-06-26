@@ -30,7 +30,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -105,7 +105,7 @@ SMODS.Consumable {
     can_use = function(self, card)
         -- Checks if it can be activated
 
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -179,7 +179,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -267,7 +267,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -350,7 +350,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -450,7 +450,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -539,7 +539,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -631,7 +631,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -707,7 +707,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -782,7 +782,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -878,7 +878,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -979,7 +979,7 @@ SMODS.Consumable {
 
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -1059,10 +1059,12 @@ SMODS.Consumable {
         end
     end,
     calculate = function(self, card, context)
-        if Kino.snackbag then
-            if #Kino.snackbag.cards <= 0 then
+        if (context.joker_type_destroyed or context.selling_card) and Kino.snackbag then
+            if context.card.area == Kino.snackbag then
+                if #Kino.snackbag.cards <= 1 then
                 card:start_dissolve()
                 Kino.snackbag.states.visible = false
+                end
             end
         end
     end

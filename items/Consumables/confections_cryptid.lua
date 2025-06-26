@@ -37,7 +37,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -142,7 +142,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -238,7 +238,7 @@ SMODS.Consumable {
     active = false,
     can_use = function(self, card)
         -- Checks if it can be activated
-        if card.active == true or card.area.config.type == 'shop' then
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
 		    return false
         end
 
@@ -288,6 +288,7 @@ SMODS.Consumable {
         if card.active
         and context.retrigger_joker_check and 
         not context.retrigger_joker and context.other_card ~= self then
+            print("test")
 
             local _total_retriggers = card.ability.extra.retriggers + G.GAME.confections_powerboost
             if card.ability.kino_chocolate then

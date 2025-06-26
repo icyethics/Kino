@@ -952,6 +952,21 @@ SMODS.DrawStep {
     conditions = {vortex = false, facing = 'front'}
 }
 
+SMODS.DrawStep {
+    key = "kino_active_indicator",
+    order = 50,
+    func = function(card, layer)
+        if (card.ability.is_active or card.is_active) and
+        G.jokers and G.jokers.cards and G.jokers.cards[1] == card then
+                
+
+                local kino_active_sprite = G.shared_enhancement_sprites.active_sprite
+                kino_active_sprite.role.draw_major = card
+                kino_active_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center)
+        end
+    end,
+    conditions = {vortex = false, facing = 'front'}
+}
 -- local textbox = nil
 -- SMODS.DrawStep {
 --     key = "kino_powerchange_indicator",

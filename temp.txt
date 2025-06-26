@@ -86,3 +86,87 @@ Twelve Monkeys
 /2001: A Space Odyssey
 /Raiders of the Lost Ark
 /Barbie
+----------------
+Charge/Stack mechanic rework
+- Clockwork Orange
+- Pitch Black
+
+Abduction textbox rework:
+- Nope
+- Moonfall
+- Stargate
+
+Active joker rework:
+- Sugarland Express
+- Turner & Hooch
+- Asteroid City
+- Ponyo
+
+Multitextbox:
+- Kraven
+- Sound of Music
+- Stranger than Fiction.
+- Wall Street
+
+Joker rework list:
+10 Things I hate about you
+30 Days of Night
+children of the corn
+ex machina
+Killer Klowns from Outer Space
+evil dead
+
+Abyss
+Always
+Apollo 13
+
+
+the exorcist
+guardians 1
+the martian
+Piranha 2
+Snowpiercer (sell value based)
+Twilight
+Anora
+Coco
+The Dark Crystal
+Gone Girl
+Her
+Jaws
+Nightmare on Elm Street
+Only Lovers Left Alive
+Terror Train
+True Lies
+Hustle
+
+Great Muppet Caper
+The Princess Bride
+Source Code
+Star Wars
+Wall-E
+War of the Worlds
+-- 
+Balance Change
+Alien 3
+Gremlins
+
+
+-- TESTING
+Turner & Hooch
+
+
+
+
+
+----- SMODS Feature transplants
+Upgrade Hand stats
+Can be discarded as a card quality
+Discard given card
+Pull functionality
+Forced Card Creation queue
+Per Card Rarity
+Power Modulating (perhaps only once the indicator system works?)
+
+Check if already added:
+> Money value changed context
+

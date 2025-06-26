@@ -24,14 +24,15 @@ SMODS.Enhancement {
             }
         }
     end,
-    upgrade = function(self, card)
-        card.ability.times_upgraded = card.ability.times_upgraded + 1
+    upgrade = function(self, card, num)
+        local _upgradenum = num or 1
+        card.ability.times_upgraded = card.ability.times_upgraded + _upgradenum
 
         if card.ability.times_upgraded_ui < 99 then
         G.E_MANAGER:add_event(Event({
             trigger = 'immediate',
             func = (function() 
-                card.ability.times_upgraded_ui = math.min(card.ability.times_upgraded_ui + 1, 99)
+                card.ability.times_upgraded_ui = math.min(card.ability.times_upgraded_ui + _upgradenum, 99)
 
                 return true end)
         }))
@@ -50,15 +51,17 @@ SMODS.Enhancement {
         end
                 
                 
-        G.GAME.current_round.sci_fi_upgrades = G.GAME.current_round.sci_fi_upgrades + 1
-        G.GAME.current_round.sci_fi_upgrades_last_round = G.GAME.current_round.sci_fi_upgrades_last_round + 1
+        G.GAME.current_round.sci_fi_upgrades = G.GAME.current_round.sci_fi_upgrades + _upgradenum
+        G.GAME.current_round.sci_fi_upgrades_last_round = G.GAME.current_round.sci_fi_upgrades_last_round + _upgradenum
         SMODS.calculate_context({upgrading_sci_fi_card = true})
     end,
     calculate = function(self, card, context, effect)
         if (context.main_scoring and context.cardarea == G.play and not context.repetition) or context.sci_fi_upgrade then
+
             if (context.sci_fi_upgrade_target ~= nil and context.sci_fi_upgrade_target ~= card) then
                 return 
             end 
+
             
             local times_to_upgrade = 1
             local wall_e = false
@@ -74,6 +77,11 @@ SMODS.Enhancement {
                 _joker.ability.extra.kino_sci_fi_upgrade_inc then
                     times_to_upgrade = times_to_upgrade + _joker.ability.extra.kino_sci_fi_upgrade_inc
                 end
+            end
+
+            -- grab additional upgrades given in context
+            if context.kino_sci_fi_upgrade_count then
+                times_to_upgrade = times_to_upgrade + context.kino_sci_fi_upgrade_count
             end
 
             for i = 1, times_to_upgrade do 

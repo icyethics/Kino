@@ -3,11 +3,11 @@ SMODS.Joker {
     order = 125,
     generate_ui = Kino.generate_info_ui,
     config = {
-        is_active = true,
         extra = {
             is_active = true,
             stacked_x_mult = 1,
-            a_xmult = 0.25,
+            a_xmult = 0.2,
+            string = "Feeding"
         }
     },
     rarity = 2,
@@ -17,7 +17,6 @@ SMODS.Joker {
     blueprint_compat = true,
     perishable_compat = true,
     is_vampire = true,
-    is_active = true,
     kino_joker = {
         id = 4513,
         budget = 0,
@@ -32,11 +31,6 @@ SMODS.Joker {
         cast = {},
     },
     pools, k_genre = {"Horror"},
-    -- set_ability = function(self, card, initial, delay_sprites)
-    --     if card.ability.is_active then print("1") end
-    --     if card.is_active then print("2") end
-    --     card.is_active = true
-    -- end,
 
     loc_vars = function(self, info_queue, card)
         return {
@@ -44,15 +38,15 @@ SMODS.Joker {
                 card.ability.extra.is_active,
                 card.ability.extra.stacked_x_mult,
                 card.ability.extra.a_xmult,
+                card.ability.extra.string
             }
         }
     end,
     calculate = function(self, card, context)
-        -- While Active, does vampire effect but does not give score
-        -- While inactive, gives score. If used in inactive mode, loses ability to gain active score
-
-        if context.before and card.ability.extra.is_active == true and 
-        G.jokers.cards[1] == card and not context.blueprint then
+        -- For the rest of the ante, drain enhancements from cards. After that, gives x0.1 per card drained.
+        if card.ability.extra.is_active and context.cardarea == G.jokers and
+        context.before and not context.blueprint then
+            -- Add mult and drain
             local enhanced = {}
             for k, v in ipairs(context.scoring_hand) do
                 if v.config.center ~= G.P_CENTERS.c_base and not v.debuff and not v.vampired then
@@ -73,19 +67,23 @@ SMODS.Joker {
                 card.ability.extra.stacked_x_mult = card.ability.extra.stacked_x_mult + card.ability.extra.a_xmult * #enhanced
                 return {
                     extra = { focus = card,
-                    message = localize({type='variable', key='a_xmult', vars = {card.ability.extra.a_xmult * #enhanced}}),
+                    message = localize({type='variable', key='a_xmult', vars = {card.ability.extra.mult}}),
                     colour = G.C.MULT,
                     card = card
                     }
                 }
             end
+
         end
 
-        if context.joker_main and 
-        (G.jokers.cards[1] ~= card or card.ability.extra.is_active == false) then
+        -- Swap once relevant
+        if context.end_of_round and G.GAME.blind.boss then
             card.ability.extra.is_active = false
-            card.ability.is_active = false
+            card.ability.extra.string = "Fed"
+        end
 
+        -- once the ante is over, do this.
+        if context.joker_main and not card.ability.extra.is_active then
             return {
                 card = card,
                 x_mult = card.ability.extra.stacked_x_mult

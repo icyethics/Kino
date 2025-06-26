@@ -51,6 +51,7 @@ SMODS.Joker {
     end,
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = SMODS.Spells["spell_kino_EyeOfAgamoto"]
         return {
             vars = {
                 card.ability.extra.stacks,

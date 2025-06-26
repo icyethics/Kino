@@ -133,6 +133,11 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
         if _cardobject.no_pool_flag and G.GAME.pool_flags[_cardobject.no_pool_flag] then add = nil end
         if _cardobject.yes_pool_flag and not G.GAME.pool_flags[_cardobject.yes_pool_flag] then add = nil end
 
+        -- Checking Kino joker settings
+        if _cardobject.set == 'Joker' and not _cardobject.kino_joker and 
+        ((kino_config and kino_config.movie_jokers_only) or
+        G.GAME.modifiers.movie_jokers_only) then add = nil end
+
         -- set weight and add to pool if not banned
         if add and not G.GAME.banned_keys[_cardobject.key] then
 
@@ -247,7 +252,7 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
         end
     end
 
-    if not forced_key then
+    if not forced_key and G.jokers and G.jokers.cards then
         local _rarity = (legendary and 4) or
             (type(_rarity) == "number" and ((_rarity > 0.95 and 3) or (_rarity > 0.7 and 2) or 1)) or _rarity
         _rarity = ({ Common = 1, Uncommon = 2, Rare = 3, Legendary = 4 })[_rarity] or _rarity

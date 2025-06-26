@@ -7,7 +7,7 @@ SMODS.Joker {
             is_turner = true,
             evidence_non = 0,
             a_evidence = 1,
-            a_mult = 1,
+            a_mult = 3,
             stacked_mult = 0
         }
     },
@@ -49,11 +49,25 @@ SMODS.Joker {
         -- Turner: Turner, gather evidence_non. 1 evidence_non for each card played.
         -- Hooch: Each card gives mult equal to evidence_non.
 
-        if context.individual and context.cardarea == G.play then
+        -- if context.individual and context.cardarea == G.play then
+        --     -- Turner
+        --     if G.jokers.cards[1] ~= card and not context.blueprint then
+        --         card.ability.extra.evidence_non = card.ability.extra.evidence_non + card.ability.extra.a_evidence
+        --     end
+        -- end
+
+        if context.joker_main and context.scoring_hand and G.jokers.cards[1] ~= card then
             -- Turner
-            if G.jokers.cards[1] ~= card and not context.blueprint then
-                card.ability.extra.evidence_non = card.ability.extra.evidence_non + card.ability.extra.a_evidence
+            local _count = 0
+            local _suits = SMODS.Suits
+            for _suitname, _suitdata in pairs(_suits) do
+                for _, _pcard in ipairs(context.scoring_hand) do
+                    if _pcard:is_suit(_suitname) then
+                        _count = _count + 1
+                    end
+                end
             end
+            card.ability.extra.evidence_non = card.ability.extra.evidence_non + _count
         end
 
         if context.joker_main and G.jokers.cards[1] == card then

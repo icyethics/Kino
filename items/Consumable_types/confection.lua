@@ -59,6 +59,8 @@ Kino.powerboost_confection = function(card, forced)
 
         for _key, _value in pairs(card.ability.extra) do
             if type(_value) == "number" and _key ~= 'times_used' then
+                print(_key)
+                print(card.ability.extra[_key])
                 card.ability.extra[_key] = card.ability.extra[_key] * 2
             end
         end

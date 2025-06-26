@@ -1,3 +1,53 @@
+V 0.9.4f:
+Bug Fixes:
+- Dracula (1931): Dracula now properly gains xmult when triggered for unenhanced cards
+- Fixed the movie jokers only config option not working when the rarity system was enabled
+- Gentlemen Prefer Blondes; Titanic; Dickie Roberts, Child Star; The Breakfast Club: No longer give negative mult when below the threshold
+- Deckard Shaw now properly displays its effect
+- Balatro Multiplayer: Fixed crash on exiting run through the pause menu
+- Fixed a bug with Hard Eight's chances
+- Fixed some crashes that could happen when using confections with other mods enabled
+- Fixed Snackbag crashes under specific sell circumstances
+- Card Sleeve: Producer sleeve now functions identically to the deck
+- BFG now properly works when playing with Talisman, but not with Cryptid
+
+Balance Changes:
+- Gentlemen Prefer Blondes; Titanic; Dickie Roberts, Child Star; The Breakfast Club: Instead of always measuring from 13, it instead measures from the starting suit count of your deck
+- Baby Driver: No longer gives double mult if card matches on both sides
+- Ghost Rider: Gain x0.25 > Gain x0.5
+
+Localization Changes:
+- 9
+- 12 Monkeys
+- Alien
+- Aliens
+- Always
+- Apollo 13
+- Batman & Robin
+- Batman Begins
+- Big Daddy
+- Big Short
+- Big Trouble in Little China
+- Black Swan
+- Blair Witch Project
+- Back to the Future
+- Cast Away
+- Chef
+- Children of the Corn
+- Clockwork Orange
+
+Content Changes:
+- Turner & Hooch: Effect Reworked
+- 10 Things I Hate About You: New Effects
+- 30 Days of Night: New Effect
+- Children of the Corn: New Effect
+- Ex Machina: New Effect
+- Evil Dead: New Effect
+- Death Star: Now destroys a random joker except your leftmost one
+
+Content Additions:
+- MALVERK textures now at 110
+
 V 0.9.4e:
 Bug fix:
 - Balatro Multiplayer: No longer makes the game crash on start-up

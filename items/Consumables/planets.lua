@@ -304,16 +304,9 @@ SMODS.Consumable {
         local _eligible_targets = {}
 
         for _, _joker in ipairs(G.jokers.cards) do
-            if not _joker.ability.eternal then
+            if _ > 1 and not _joker.ability.eternal then
                 _eligible_targets[#_eligible_targets + 1] = _joker
             end
-        end
-
-        if G.jokers and G.jokers.cards and G.jokers.cards[1] then
-            if not G.jokers.cards[1].ability.eternal then
-                return true
-            end
-            return false
         end
 
         if #_eligible_targets > 0 then return true end
@@ -340,14 +333,14 @@ SMODS.Consumable {
         local _eligible_targets = {}
 
         for _, _joker in ipairs(G.jokers.cards) do
-            if _joker:can_calculate() then
+            if _ > 1 and _joker:can_calculate() then
                 _eligible_targets[#_eligible_targets + 1] = _joker
             end
         end
 
         -- destroy random joker
-        -- local _target = pseudorandom_element(G.jokers.cards, pseudoseed("kino_death_star"))
-        local _target = G.jokers.cards[1]
+        local _target = pseudorandom_element(_eligible_targets, pseudoseed("kino_death_star"))
+        -- local _target = G.jokers.cards[1]
         _target:start_dissolve()
 
         for k, v in ipairs(G.handlist) do

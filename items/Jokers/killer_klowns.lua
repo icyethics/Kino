@@ -38,7 +38,8 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.ending_shop then
             local destructable_jokers = {}
-            local _rarity = 0
+            local _planets_created = 0
+            local _sellvalue = 0
             for i = 1, #G.jokers.cards do
                 if G.jokers.cards[i] ~= card and not G.jokers.cards[i].ability.eternal and not G.jokers.cards[i].getting_sliced then destructable_jokers[#destructable_jokers+1] = G.jokers.cards[i] end
             end
@@ -47,18 +48,21 @@ SMODS.Joker {
                 joker_to_destroy.getting_sliced = true
 
                 -- Grab rarity and convert it to a num
-                _rarity = joker_to_destroy.config.center.rarity
+                -- _rarity = joker_to_destroy.config.center.rarity
 
-                if _rarity == 'Common' then
-                    _rarity = 1
-                elseif _rarity == 'Uncommon' then
-                    _rarity = 2
-                elseif _rarity == 'Rare' then
-                    _rarity = 3
-                elseif _rarity == 'Legendary' then
-                    _rarity = 4
-                end
+                -- if _rarity == 'Common' then
+                --     _rarity = 1
+                -- elseif _rarity == 'Uncommon' then
+                --     _rarity = 2
+                -- elseif _rarity == 'Rare' then
+                --     _rarity = 3
+                -- elseif _rarity == 'Legendary' then
+                --     _rarity = 4
+                -- end
                 -- found rarity
+                _sellvalue = joker_to_destroy.cost
+                _planets_created = math.max(_sellvalue % 5, 1)
+                
                 
                 G.E_MANAGER:add_event(Event({func = function()
                     (context.blueprint_card or card):juice_up(0.8, 0.8)
@@ -69,7 +73,7 @@ SMODS.Joker {
                 card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_klowns'), colour = G.C.MULT})
             end
-            for i = 1, _rarity do
+            for i = 1, _planets_created do
                 G.E_MANAGER:add_event(Event({
                     func = function() 
                         local _card = create_card("Planet",G.consumeables, nil, nil, nil, nil, nil, "klowns")

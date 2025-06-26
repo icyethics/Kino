@@ -4,7 +4,10 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            chips = 80
+            stacked_chips = 0,
+            a_chips = 5,
+            will_trigger = false,
+
         }
     },
     rarity = 1,
@@ -39,28 +42,24 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.joker_main then
-
-            local _validtargets = {}
-
-            for _, _pcard in ipairs(G.hand.cards) do
-                if _pcard:is_face() then
-                    _validtargets[#_validtargets + 1] = _pcard
+            card.ability.extra.will_trigger = true
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i]:is_face() then
+                    card.ability.extra.will_trigger = false
                 end
             end
-
-            if #_validtargets > 0 then
-                local _target = pseudorandom_element(_validtargets, pseudoseed("kino_childofcorn"))
-                _target.marked_by_children_of_the_corn = true
-                return {
-                    chips = card.ability.extra.chips
-                }
-            end
+            
+            return {
+                chips = card.ability.extra.stacked_chips
+            }
         end
 
-        if context.destroy_card and context.destroy_card.marked_by_children_of_the_corn then
-            return {
-                remove = true
-            } 
+        if context.destroy_card and card.ability.extra.will_trigger and context.cardarea == G.hand then
+
+            if context.destroy_card:is_face() then
+                card.ability.extra.stacked_chips = card.ability.extra.stacked_chips + card.ability.extra.a_chips
+                return {remove = true}
+            end
         end
     end
 }

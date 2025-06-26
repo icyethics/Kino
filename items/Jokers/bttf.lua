@@ -33,12 +33,32 @@ SMODS.Joker {
     pools, k_genre = {"Sci-fi"},
 
     loc_vars = function(self, info_queue, card)
+        local _card1 = "???"
+        local _card2 = "???"
+        local _card3 = "???"
+
+        if card.area == G.jokers then
+            if G.deck and G.deck.cards[#G.deck.cards] then
+                local _cardname = G.deck.cards[#G.deck.cards].config.card_key
+                _card1 = G.P_CARDS[_cardname].name
+            end
+            if G.deck and G.deck.cards[#G.deck.cards - 1] then
+                local _cardname = G.deck.cards[#G.deck.cards - 1].config.card_key
+                _card2 = G.P_CARDS[_cardname].name
+            end
+
+            if G.deck and G.deck.cards[#G.deck.cards - 2] then
+                local _cardname = G.deck.cards[#G.deck.cards - 2].config.card_key
+                _card3 = G.P_CARDS[_cardname].name
+            end
+        end
+        
+
         return {
             vars = {
-                card.ability.extra.card_1,
-                card.ability.extra.card_2,
-                card.ability.extra.card_3,
-                card.ability.extra.amount
+                _card1,
+                _card2,
+                _card3
             }
         }
     end,

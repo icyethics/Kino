@@ -40,11 +40,12 @@ SMODS.Joker {
             end
         end
 
-        return suit_count >= 14 and true or false
+        return suit_count >= G.GAME.suit_startingcounts["Diamonds"] + 1 and true or false
     end,
 
     loc_vars = function(self, info_queue, card)
 
+        local _starting_suits = G.GAME.suit_startingcounts and G.GAME.suit_startingcounts["Diamonds"] or 13
         local suit_count = 0 
         if G.playing_cards then
             for k, v in pairs(G.playing_cards) do
@@ -55,10 +56,9 @@ SMODS.Joker {
         end
         return {
             vars = {
-                13,
-                card.ability.extra.mult,
+                _starting_suits,
                 card.ability.extra.a_mult,
-                (13 - suit_count) * card.ability.extra.a_mult,
+                math.max((suit_count - _starting_suits) * card.ability.extra.a_mult, 0)
             }
         }
     end,
@@ -70,7 +70,7 @@ SMODS.Joker {
                     suit_count = suit_count + 1
                 end
             end
-            card.ability.extra.mult = suit_count - 13
+            card.ability.extra.mult = math.max((suit_count - G.GAME.suit_startingcounts["Diamonds"]) * card.ability.extra.a_mult, 0)
             
             if context.other_card:is_suit("Diamonds") then
                 return {

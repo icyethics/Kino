@@ -4,7 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            value_non = 10,
+            value_non = 5,
             value = 1
         }
     },
@@ -30,11 +30,20 @@ SMODS.Joker {
     pools, k_genre = {"Sports"},
 
     loc_vars = function(self, info_queue, card)
+        local _reps = 0
+        local _curmoney = G.GAME.dollars + (G.GAME.dollar_buffer or 0)
+        local _curstep = card.ability.extra.value_non
+        while to_big(_curmoney) > to_big(_curstep) do
+            _curmoney = _curmoney - _curstep
+            _reps = _reps + 1
+            _curstep = _curstep + (card.ability.extra.value_non / card.ability.extra.value)
+            
+        end
         return {
             vars = {
                 card.ability.extra.value_non,
-                card.ability.extra.value,
-                math.floor((G.GAME.dollars + (G.GAME.dollar_buffer or 0)) / (card.ability.extra.value_non / card.ability.extra.value))
+                card.ability.extra.value_non / card.ability.extra.value,
+                _reps
             }
         }
     end,
@@ -43,8 +52,17 @@ SMODS.Joker {
         if context.cardarea == G.play and context.repetition 
         and (context.other_card == context.scoring_hand[1]) and not context.repetition_only
         then
-            local _reps = math.floor((G.GAME.dollars + (G.GAME.dollar_buffer or 0)) / (card.ability.extra.value_non / card.ability.extra.value))
-
+            -- local _reps = math.floor((G.GAME.dollars + (G.GAME.dollar_buffer or 0)) / (card.ability.extra.value_non / card.ability.extra.value))
+            local _reps = 0
+            local _curmoney = G.GAME.dollars + (G.GAME.dollar_buffer or 0)
+            local _curstep = card.ability.extra.value_non
+            while to_big(_curmoney) > to_big(_curstep) do
+                _curmoney = _curmoney - _curstep
+                _reps = _reps + 1
+                _curstep = _curstep + (card.ability.extra.value_non / card.ability.extra.value)
+                
+            end
+    
             return {
                 message = localize("k_hustle"),
                 repetitions = to_number(_reps),

@@ -4,10 +4,12 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-
+            charges_non = 0,
+            mult = 8,
+            chips = 20,
         }
     },
-    rarity = 2,
+    rarity = 1,
     atlas = "kino_atlas_4",
     pos = { x = 3, y = 4},
     cost = 5,
@@ -32,32 +34,41 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-
+                card.ability.extra.mult,
+                card.ability.extra.chips,
+                card.ability.extra.charges_non
             }
         }
     end,
     calculate = function(self, card, context)
-        -- If you play a hand containing only one romance card
-        -- turn a random unenhanced scoring card into a romance card
+        -- Gains a stack whenever a hand scores without a romance card
+        -- Romance cards consume stacks to give +chips and +mult
 
         if context.joker_main then
-            local _count = 0
-            local _non_romance_cards = {}
-            for i = 1, #context.scoring_hand do
-                if SMODS.has_enhancement(context.scoring_hand[i], 'm_kino_romance') then
-                    _count = _count + 1
-                else
-                    _non_romance_cards[#_non_romance_cards] = context.scoring_hand[i]
+            -- check for romance cards
+            local _hasrom = false
+
+            for _, _pcard in ipairs(context.scoring_hand) do
+                if SMODS.has_enhancement(_pcard, "m_kino_romance") then
+                    _hasrom = true
+                    break
                 end
             end
 
-            if _count == 1 then
-                local _card = pseudorandom_element(_non_romance_cards)
-                _card:set_ability(G.P_CENTERS.m_kino_romance, nil, true)
+            -- if not Romance card
+            if _hasrom == false then
+                card.ability.extra.charges_non = card.ability.extra.charges_non + 1
+            end
 
-            card_eval_status_text(_card, 'extra', nil, nil, nil,
-            { message = localize('k_10_things_ex'), colour = G.C.MULT })
+            if _hasrom == true then
+                local _charges = card.ability.extra.charges_non
+                card.ability.extra.charges_non = 0
+                return {
+                    chips = card.ability.extra.chips * _charges,
+                    mult = card.ability.extra.mult * _charges
+                }
             end
         end
+
     end
 }
