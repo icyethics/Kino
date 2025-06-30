@@ -7,6 +7,9 @@
 -- Varied Codex (each entry can be rank or suit)
 -- Supervaried Codex (each entry can be rank, suit or complex)
 
+-- NEW:
+-- Only two types of codex: Rank and Suit. Never complex
+
 ---check if the given sequence of cards matches the codex
 ---@param card Card
 ---@param codex table

@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 30,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_batman = true,
         extra = {
             mult = 1,
             total_non = 0
@@ -27,10 +28,16 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    j_is_batman = true,
-    pools, k_genre = {"Superhero", "Action"},
+    pools = {["kino_batman"] = true}, 
+    k_genre = {"Superhero", "Action"},
 
     loc_vars = function(self, info_queue, card)
+
+        card.ability.extra.total_non = (G.jokers.config.card_limit - #G.jokers.cards) * card.ability.extra.mult
+        for i = 1, #G.jokers.cards do
+            if kino_quality_check(G.jokers.cards[i], "is_batman") then card.ability.extra.total_non = card.ability.extra.total_non + (1 * card.ability.extra.mult) end
+        end
+
         return {
             vars = {
                 card.ability.extra.mult,
@@ -40,14 +47,14 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- When you play a pair, upgrade both cards with +3 mult for each empty joker slot or batman joker you have
-        if G.STAGE == G.STAGES.RUN then
+        if context.individual and context.cardarea == G.play then
+            
             card.ability.extra.total_non = (G.jokers.config.card_limit - #G.jokers.cards) * card.ability.extra.mult
             for i = 1, #G.jokers.cards do
-                if G.jokers.cards[i].config.center.j_is_batman then card.ability.extra.total_non = card.ability.extra.total_non + (1 * card.ability.extra.mult) end
+                if kino_quality_check(G.jokers.cards[i], "is_batman") then card.ability.extra.total_non = card.ability.extra.total_non + (1 * card.ability.extra.mult) end
             end
-        end
-        
-        if context.individual and context.cardarea == G.play then
+
+
             if context.scoring_name == "Pair" then
                 context.other_card.ability.perma_mult = context.other_card.ability.perma_mult or 0
                 context.other_card.ability.perma_mult = context.other_card.ability.perma_mult + card.ability.extra.total_non

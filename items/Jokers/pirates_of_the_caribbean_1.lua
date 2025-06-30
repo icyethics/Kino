@@ -4,11 +4,10 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            cost_non = 10,
-            cost_mod = 1
+            cost_mod = 2
         }
     },
-    rarity = 2,
+    rarity = 1,
     atlas = "kino_atlas_7",
     pos = { x = 1, y = 5},
     cost = 6,
@@ -32,7 +31,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-
+                card.ability.extra.cost_mod
             }
         }
     end,
@@ -40,32 +39,23 @@ SMODS.Joker {
         -- When you destroy a card, lose $10 and create a copy with a random enhancement instead
 
         if context.remove_playing_cards then
-            for i = 1, #context.removed do
-
-                -- check for money
-
-                -- create card
-                G.E_MANAGER:add_event(Event({
-					trigger = "after",
-					delay = 0.4,
-					func = function()
-						card:juice_up(0.3, 0.4)
-						G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-						local _c = copy_card(context.destroy_card, nil, nil, G.playing_card)
-                        local new_enhancement = SMODS.poll_enhancement({guaranteed = true, key = 'drwho'})
-                        _c:set_ability(G.P_CENTERS[new_enhancement])
-						_c:start_materialize()
-						_c:add_to_deck()
-
-						G.deck.config.card_limit = G.deck.config.card_limit + 1
-						table.insert(G.playing_cards, _c)
-						G.hand:emplace(_c)
-						playing_card_joker_effects({ _c })
-						return true
-					end,
-				}))
-
-                return true
+            for i = 1, #context.removed do 
+                for _index, _joker in ipairs(G.jokers.cards) do
+                    if _joker == card then
+                        if G.jokers.cards[_index - 1] and G.jokers.cards[_index - 1].set_cost then
+                            G.jokers.cards[_index - 1].ability.extra_value = G.jokers.cards[_index - 1].ability.extra_value + card.ability.extra.cost_mod
+                            G.jokers.cards[_index - 1]:set_cost()
+                        end
+                        if G.jokers.cards[_index + 1] and G.jokers.cards[_index + 1].set_cost then
+                            G.jokers.cards[_index + 1].ability.extra_value = G.jokers.cards[_index + 1].ability.extra_value + card.ability.extra.cost_mod
+                            G.jokers.cards[_index + 1]:set_cost()
+                        end
+                    end
+                end
+                SMODS.calculate_effect({
+                        message = localize("k_kino_pirates_1"),
+                        colour = G.C.MONEY
+                    }, card)
             end
         end
     end

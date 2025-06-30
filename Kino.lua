@@ -267,6 +267,7 @@ Game.init_game_object = function(self)
     ret.current_round.cards_abducted = 0
     ret.money_stolen = 0
     ret.cards_destroyed = 0
+    ret.jumpscare_triggers = 0
 
     ret.current_round.actors_check = 3
     ret.current_round.actors_table_offset = 0
@@ -504,6 +505,13 @@ if load_error then
     helper()
 end
 
+local helper, load_error = SMODS.load_file("src/boss_blinds.lua")
+if load_error then
+    sendDebugMessage ("The error is: "..load_error)
+    else
+    helper()
+end
+
 local helper, load_error = SMODS.load_file("src/abduction.lua")
 if load_error then
     sendDebugMessage ("The error is: "..load_error)
@@ -590,6 +598,16 @@ end
 
 kino_genre_init()
 
+SMODS.ObjectType {
+    key = "kino_batman",
+    default = "j_kino_batman_1989",
+    rarities = {
+        { key = "Common" },
+        { key = "Uncommon" },
+        { key = "Rare" },
+    }
+}
+-- Generate Pools
 
 --
 -- SMODS.Keybind{

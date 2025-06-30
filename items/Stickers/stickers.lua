@@ -41,6 +41,22 @@ SMODS.Sticker{
     atlas = 'kino_stickers'
 }
 
+SMODS.Sticker{
+    key = "robin",
+    apply = function(self, card, val)
+        card.ability.is_batman = true
+        card.ability.is_robin = true
+        card.ability[self.key] = val
+    end,
+    badge_colour = HEX('ffd081'),
+    no_collection = true,
+
+    order = 7,
+
+    pos = { x = 3, y = 2},
+    atlas = 'kino_stickers'
+}
+
 if Cryptid then
 SMODS.Sticker{
     key = 'award_cryptid',

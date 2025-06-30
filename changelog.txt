@@ -1,3 +1,62 @@
+V 0.9.?
+
+New Content:
+Jokers:
+- Pirates of the Caribbean
+- Pirates of the Caribbean 2
+- Pirates of the Caribbean 3
+- Batman (1966)
+- Batman Returns
+
+- Batman Forever
+- The Dark Knight Rises
+- Paul Blart Mall Cop
+- Treasure Island
+- When Harry Met Sally
+
+- House of Gucci
+- Lord of the Rings: The Fellowship of the Ring
+- School of Rock
+- Gulliver's Travels
+- The Warriors
+
+- Annihilation
+- Glass
+- Waterworld
+- The Pirates! Band of Misfits
+- Captain Blood
+
+- Muppet Treasure Island
+- Trading Places
+- Mafia Mamma
+- Mortal Kombat
+- Batman: Mask of the Phantasm
+
+- The Batman (2022),
+- Batman V Superman: Dawn of Justice
+- Shin Kamen Rider
+
+Tarots:
+- Detective
+- Superhero
+
+Spectrals:
+- Fright
+
+Enhancements:
+- Mystery Cards
+- Superhero Cards
+
+Seals:
+- Thriller Seal
+
+Bug Fixes:
+- Cryptid Crossmod: Monster energy's don't retrigger every joker selected by monster energy
+- Cryptid Crossmod: Selling Monster Energy no longer lets the marker linger
+
+Balance Changes:
+- Jaws: +30 Chips > +50 Chips
+
 V 0.9.4f:
 Bug Fixes:
 - Dracula (1931): Dracula now properly gains xmult when triggered for unenhanced cards

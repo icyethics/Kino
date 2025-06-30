@@ -151,8 +151,7 @@ Alien 3
 Gremlins
 
 
--- TESTING
-Turner & Hooch
+
 
 
 
@@ -170,3 +169,6 @@ Power Modulating (perhaps only once the indicator system works?)
 Check if already added:
 > Money value changed context
 
+
+-- Feature redesign:
+Jump-Scare. 1 in X chance to give x3 and be destroyed while held in hand

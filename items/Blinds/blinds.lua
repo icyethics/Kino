@@ -573,7 +573,7 @@ SMODS.Blind{
         local _batman_joker = nil
 
         for _, _joker in ipairs(G.jokers.cards) do
-            if _joker.config.center.j_is_batman then
+            if kino_quality_check(_joker, "is_batman") then
                 _has_batman = true
                 _batman_joker = _joker
             end

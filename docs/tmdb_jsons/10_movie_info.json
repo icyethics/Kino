@@ -32,7 +32,7 @@
         "original_language": "en",
         "original_title": "The Empire Strikes Back",
         "overview": "The epic saga continues as Luke Skywalker, in hopes of defeating the evil Galactic Empire, learns the ways of the Jedi from aging master Yoda. But Darth Vader is more determined than ever to capture Luke. Meanwhile, rebel leader Princess Leia, cocky Han Solo, Chewbacca, and droids C-3PO and R2-D2 are thrown into various stages of capture, betrayal and despair.",
-        "popularity": 10.9306,
+        "popularity": 8.9898,
         "poster_path": "/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg",
         "production_companies": [
             {
@@ -62,8 +62,8 @@
         "tagline": "The Star Wars saga continues.",
         "title": "The Empire Strikes Back",
         "video": false,
-        "vote_average": 8.395,
-        "vote_count": 17456
+        "vote_average": 8.396,
+        "vote_count": 17488
     },
     "Return of the Jedi2": {
         "adult": false,
@@ -98,7 +98,7 @@
         "original_language": "en",
         "original_title": "Return of the Jedi",
         "overview": "Luke Skywalker leads a mission to rescue his friend Han Solo from the clutches of Jabba the Hutt, while the Emperor seeks to destroy the Rebellion once and for all with a second dreaded Death Star.",
-        "popularity": 9.4892,
+        "popularity": 9.5693,
         "poster_path": "/jQYlydvHm3kUix1f8prMucrplhm.jpg",
         "production_companies": [
             {
@@ -128,8 +128,8 @@
         "tagline": "Return to a galaxy far far away.",
         "title": "Return of the Jedi",
         "video": false,
-        "vote_average": 7.903,
-        "vote_count": 16114
+        "vote_average": 7.904,
+        "vote_count": 16142
     },
     "Star Wars: Episode II - Attack of the Clones3": {
         "adult": false,
@@ -164,7 +164,7 @@
         "original_language": "en",
         "original_title": "Star Wars: Episode II - Attack of the Clones",
         "overview": "Following an assassination attempt on Senator Padm\u00e9 Amidala, Jedi Knights Anakin Skywalker and Obi-Wan Kenobi investigate a mysterious plot that could change the galaxy forever.",
-        "popularity": 7.9497,
+        "popularity": 7.5593,
         "poster_path": "/oZNPzxqM2s5DyVWab09NTQScDQt.jpg",
         "production_companies": [
             {
@@ -194,8 +194,8 @@
         "tagline": "A Jedi shall not know anger. Nor hatred. Nor love.",
         "title": "Star Wars: Episode II - Attack of the Clones",
         "video": false,
-        "vote_average": 6.579,
-        "vote_count": 13613
+        "vote_average": 6.58,
+        "vote_count": 13638
     },
     "Star Wars: Episode III - Revenge of the Sith4": {
         "adult": false,
@@ -230,7 +230,7 @@
         "original_language": "en",
         "original_title": "Star Wars: Episode III - Revenge of the Sith",
         "overview": "The evil Darth Sidious enacts his final plan for unlimited power \u2013 and the heroic Jedi Anakin Skywalker must choose a side.",
-        "popularity": 10.4662,
+        "popularity": 9.9382,
         "poster_path": "/xfSAoBEm9MNBjmlNcDYLvLSMlnq.jpg",
         "production_companies": [
             {
@@ -260,8 +260,8 @@
         "tagline": "Every story has a hero. Every hero has a destiny. Every saga has an end.",
         "title": "Star Wars: Episode III - Revenge of the Sith",
         "video": false,
-        "vote_average": 7.446,
-        "vote_count": 14159
+        "vote_average": 7.4,
+        "vote_count": 14183
     },
     "Star Wars: The Last Jedi5": {
         "adult": false,
@@ -296,7 +296,7 @@
         "original_language": "en",
         "original_title": "Star Wars: The Last Jedi",
         "overview": "Rey develops her newly discovered abilities with the guidance of Luke Skywalker, who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares to do battle with the First Order.",
-        "popularity": 48.0462,
+        "popularity": 10.4308,
         "poster_path": "/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
         "production_companies": [
             {
@@ -326,8 +326,8 @@
         "tagline": "Let the Past Die",
         "title": "Star Wars: The Last Jedi",
         "video": false,
-        "vote_average": 6.776,
-        "vote_count": 15643
+        "vote_average": 6.775,
+        "vote_count": 15666
     },
     "Star Wars: The Rise of Skywalker6": {
         "adult": false,
@@ -362,7 +362,7 @@
         "original_language": "en",
         "original_title": "Star Wars: The Rise of Skywalker",
         "overview": "The surviving Resistance faces the First Order once again as the journey of Rey, Finn and Poe Dameron continues. With the power and knowledge of generations behind them, the final battle begins.",
-        "popularity": 28.6366,
+        "popularity": 12.091,
         "poster_path": "/db32LaOibwEliAmSL2jjDF6oDdj.jpg",
         "production_companies": [
             {
@@ -398,8 +398,8 @@
         "tagline": "Every generation has a legend",
         "title": "Star Wars: The Rise of Skywalker",
         "video": false,
-        "vote_average": 6.3,
-        "vote_count": 10219
+        "vote_average": 6.293,
+        "vote_count": 10239
     },
     "The Star Wars Holiday Special7": {
         "adult": false,
@@ -437,7 +437,7 @@
         "original_language": "en",
         "original_title": "The Star Wars Holiday Special",
         "overview": "Luke Skywalker and Han Solo battle evil Imperial forces to help Chewbacca reach his imperiled family on the Wookiee planet - in time for Life Day, their most important day of the year!",
-        "popularity": 2.2202,
+        "popularity": 2.2074,
         "poster_path": "/lGJDx7RCgyMMa3owtp150umMnnJ.jpg",
         "production_companies": [
             {
@@ -492,7 +492,7 @@
         "title": "The Star Wars Holiday Special",
         "video": false,
         "vote_average": 3.4,
-        "vote_count": 477
+        "vote_count": 482
     },
     "Star Wars: The Clone Wars8": {
         "adult": false,
@@ -526,7 +526,7 @@
         "original_language": "en",
         "original_title": "Star Wars: The Clone Wars",
         "overview": "As the Clone Wars sweep through the galaxy, the heroic Jedi Knights struggle to maintain order and restore peace. More and more systems are falling prey to the forces of the dark side as the Galactic Republic slips further and further under the sway of the Separatists and their never-ending droid army. Anakin Skywalker and his Padawan learner Ahsoka Tano find themselves on a mission with far-reaching consequences, one that brings them face-to-face with crime lord Jabba the Hutt. But Count Dooku and his sinister agents, including the nefarious Asajj Ventress, will stop at nothing to ensure that Anakin and Ahsoka fail at their quest. Meanwhile, on the front lines of the Clone Wars, Obi-Wan Kenobi and Master Yoda lead the massive clone army in a valiant effort to resist the forces of the dark side...",
-        "popularity": 3.7197,
+        "popularity": 3.7707,
         "poster_path": "/iJQfixW818LUdSXlCDL3JZm0S0g.jpg",
         "production_companies": [
             {
@@ -568,8 +568,8 @@
         "tagline": "",
         "title": "Star Wars: The Clone Wars",
         "video": false,
-        "vote_average": 6.144,
-        "vote_count": 2078
+        "vote_average": 6.1,
+        "vote_count": 2083
     },
     "Solo: A Star Wars Story9": {
         "adult": false,
@@ -599,7 +599,7 @@
         "original_language": "en",
         "original_title": "Solo: A Star Wars Story",
         "overview": "Through a series of daring escapades deep within a dark and dangerous criminal underworld, Han Solo meets his mighty future copilot Chewbacca and encounters the notorious gambler Lando Calrissian.",
-        "popularity": 30.9974,
+        "popularity": 8.9543,
         "poster_path": "/4oD6VEccFkorEBTEDXtpLAaz0Rl.jpg",
         "production_companies": [
             {
@@ -629,8 +629,8 @@
         "tagline": "",
         "title": "Solo: A Star Wars Story",
         "video": false,
-        "vote_average": 6.559,
-        "vote_count": 8800
+        "vote_average": 6.561,
+        "vote_count": 8824
     },
     "Rogue One: A Star Wars Story10": {
         "adult": false,
@@ -660,7 +660,7 @@
         "original_language": "en",
         "original_title": "Rogue One: A Star Wars Story",
         "overview": "A rogue band of resistance fighters unite for a mission to steal the Death Star plans and bring a new hope to the galaxy.",
-        "popularity": 14.4894,
+        "popularity": 9.9498,
         "poster_path": "/i0yw1mFbB7sNGHCs7EXZPzFkdA1.jpg",
         "production_companies": [
             {
@@ -690,8 +690,8 @@
         "tagline": "A rebellion built on hope.",
         "title": "Rogue One: A Star Wars Story",
         "video": false,
-        "vote_average": 7.499,
-        "vote_count": 15672
+        "vote_average": 7.501,
+        "vote_count": 15706
     },
     "Rebel Moon - Part One: A Child of Fire11": {
         "adult": false,
@@ -726,7 +726,7 @@
         "original_language": "en",
         "original_title": "Rebel Moon - Part One: A Child of Fire",
         "overview": "When the ruthless forces of the Motherworld threaten a quiet farming village on a distant moon, a mysterious outsider becomes its best hope for survival.",
-        "popularity": 6.8391,
+        "popularity": 7.9314,
         "poster_path": "/ui4DrH1cKk2vkHshcUcGt2lKxCm.jpg",
         "production_companies": [
             {
@@ -762,8 +762,8 @@
         "tagline": "There are no heroes. Only rebels.",
         "title": "Rebel Moon - Part One: A Child of Fire",
         "video": false,
-        "vote_average": 6.249,
-        "vote_count": 2316
+        "vote_average": 6.25,
+        "vote_count": 2322
     },
     "Rebel Moon - Part Two: The Scargiver12": {
         "adult": false,
@@ -798,7 +798,7 @@
         "original_language": "en",
         "original_title": "Rebel Moon - Part Two: The Scargiver",
         "overview": "The rebels gear up for battle against the ruthless forces of the Motherworld as unbreakable bonds are forged, heroes emerge \u2014 and legends are made.",
-        "popularity": 5.9043,
+        "popularity": 6.7929,
         "poster_path": "/95gnJZIk2rEkMO0Ch46x5CVjnms.jpg",
         "production_companies": [
             {
@@ -834,8 +834,8 @@
         "tagline": "Protect each other and show them no mercy!",
         "title": "Rebel Moon - Part Two: The Scargiver",
         "video": false,
-        "vote_average": 6.093,
-        "vote_count": 1299
+        "vote_average": 6.096,
+        "vote_count": 1305
     },
     "The Human Centipede (First Sequence)13": {
         "adult": false,
@@ -862,7 +862,7 @@
         "original_language": "lt",
         "original_title": "The Human Centipede (First Sequence)",
         "overview": "During a stopover in Germany in the middle of a carefree road trip through Europe, two American girls find themselves alone at night when their car breaks down in the woods. Searching for help at a nearby villa, they are wooed into the clutches of a deranged retired surgeon, who has a very disturbed vision.",
-        "popularity": 5.1743,
+        "popularity": 6.0744,
         "poster_path": "/gMtjxIkEi0hnTV5lPHbgeZ4ZpUZ.jpg",
         "production_companies": [
             {
@@ -902,7 +902,1847 @@
         "tagline": "Their flesh is his fantasy",
         "title": "The Human Centipede (First Sequence)",
         "video": false,
-        "vote_average": 5.2,
-        "vote_count": 2235
+        "vote_average": 5.212,
+        "vote_count": 2241
+    },
+    "Paul Blart: Mall Cop14": {
+        "adult": false,
+        "backdrop_path": "/eo1yKDfZioYBlAzw8XwHQhZF34J.jpg",
+        "belongs_to_collection": {
+            "id": 328372,
+            "name": "Mall Cop Collection",
+            "poster_path": "/1JfnJvS5e1gGcUUZoQkIqVCBS4.jpg",
+            "backdrop_path": "/29gIFb0wzsl2ArW9HZ2S2ERdDp4.jpg"
+        },
+        "budget": 26000000,
+        "genres": [
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 12,
+                "name": "Adventure"
+            },
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 10751,
+                "name": "Family"
+            }
+        ],
+        "homepage": "http://paulblartmallcop.com/",
+        "id": 14560,
+        "imdb_id": "tt1114740",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Paul Blart: Mall Cop",
+        "overview": "Mild-mannered Paul Blart has always had huge dreams of becoming a State Trooper. Until then, he patrols the local mall as a security guard. With his closely cropped moustache, personal transporter and gung-ho attitude, only Blart seems to take his job seriously. All that changes when a team of thugs raids the mall and takes hostages. Untrained, unarmed and a super-size target, Blart has to become a real cop to save the day.",
+        "popularity": 2.9402,
+        "poster_path": "/A4zZv0Q1VKURFZFEl2vwjaE2q0g.jpg",
+        "production_companies": [
+            {
+                "id": 46222,
+                "logo_path": null,
+                "name": "Hey Eddie",
+                "origin_country": "US"
+            },
+            {
+                "id": 5,
+                "logo_path": "/71BqEFAF4V3qjjMPCpLuyJFB9A.png",
+                "name": "Columbia Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 7295,
+                "logo_path": "/5MYE96QiE5a5oFhXxFb4y8ILSpw.png",
+                "name": "Relativity Media",
+                "origin_country": "US"
+            },
+            {
+                "id": 34,
+                "logo_path": "/mtp1fvZbe4H991Ka1HOORl572VH.png",
+                "name": "Sony Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 878,
+                "logo_path": "/e2AZdsQdkhN0qJhoN4TMYiVPLyb.png",
+                "name": "Happy Madison Productions",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2009-01-15",
+        "revenue": 183293131,
+        "runtime": 91,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Safety Never Takes A Holiday.",
+        "title": "Paul Blart: Mall Cop",
+        "video": false,
+        "vote_average": 5.424,
+        "vote_count": 2572
+    },
+    "Batman15": {
+        "adult": false,
+        "backdrop_path": "/nOWOU0bdX76iF9XA1YPlInLbI4Y.jpg",
+        "belongs_to_collection": null,
+        "budget": 1377800,
+        "genres": [
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 80,
+                "name": "Crime"
+            }
+        ],
+        "homepage": "",
+        "id": 2661,
+        "imdb_id": "tt0060153",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Batman",
+        "overview": "The Dynamic Duo faces four super-villains who plan to hold the world for ransom with the help of a secret invention that instantly dehydrates people.",
+        "popularity": 3.9033,
+        "poster_path": "/zzoPxWHnPa0eyfkMLgwbNvdEcVF.jpg",
+        "production_companies": [
+            {
+                "id": 1188,
+                "logo_path": null,
+                "name": "William Dozier Productions",
+                "origin_country": ""
+            },
+            {
+                "id": 25,
+                "logo_path": "/qZCc1lty5FzX30aOCVRBLzaVmcp.png",
+                "name": "20th Century Fox",
+                "origin_country": "US"
+            },
+            {
+                "id": 1189,
+                "logo_path": null,
+                "name": "Greenlawn Productions",
+                "origin_country": ""
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1966-07-30",
+        "revenue": 3900000,
+        "runtime": 105,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "He's Here Big As Life In A Real Bat-Epic",
+        "title": "Batman",
+        "video": false,
+        "vote_average": 6.413,
+        "vote_count": 985
+    },
+    "Batman Returns16": {
+        "adult": false,
+        "backdrop_path": "/3WP0RObZ2t7ShHfqQpKPljF9B22.jpg",
+        "belongs_to_collection": {
+            "id": 120794,
+            "name": "Batman Collection",
+            "poster_path": "/31SwN5tZuJNsWTLx6DNNyQSAXdx.jpg",
+            "backdrop_path": "/4UHZWw5lV3ZoadTjXuVOakdH32L.jpg"
+        },
+        "budget": 80000000,
+        "genres": [
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 14,
+                "name": "Fantasy"
+            }
+        ],
+        "homepage": "",
+        "id": 364,
+        "imdb_id": "tt0103776",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Batman Returns",
+        "overview": "Batman must face The Penguin, a sewer-dwelling gangleader intent on being accepted into Gotham society.  Meanwhile, another Gotham resident finds herself transformed into Catwoman and is out for revenge...",
+        "popularity": 7.4208,
+        "poster_path": "/jKBjeXM7iBBV9UkUcOXx3m7FSHY.jpg",
+        "production_companies": [
+            {
+                "id": 174,
+                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 67889,
+                "logo_path": null,
+                "name": "Polygram Pictures",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1992-06-19",
+        "revenue": 280000000,
+        "runtime": 126,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "",
+        "title": "Batman Returns",
+        "video": false,
+        "vote_average": 6.937,
+        "vote_count": 6710
+    },
+    "Batman Forever17": {
+        "adult": false,
+        "backdrop_path": "/snlu32RmjldF9b068UURJg8sQtn.jpg",
+        "belongs_to_collection": {
+            "id": 120794,
+            "name": "Batman Collection",
+            "poster_path": "/31SwN5tZuJNsWTLx6DNNyQSAXdx.jpg",
+            "backdrop_path": "/4UHZWw5lV3ZoadTjXuVOakdH32L.jpg"
+        },
+        "budget": 100000000,
+        "genres": [
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 80,
+                "name": "Crime"
+            },
+            {
+                "id": 14,
+                "name": "Fantasy"
+            }
+        ],
+        "homepage": "",
+        "id": 414,
+        "imdb_id": "tt0112462",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Batman Forever",
+        "overview": "In the looming shadows of Gotham City, two villainous souls devise twin schemes of revenge against the city's dark guardian. Two-Face, disfigured by chance and fueled by vengeance, is obsessed with destroying Batman, while the Riddler, a disillusioned genius, pursues the destruction of billionaire Bruce Wayne. Together they've hatched a plot to absorb and control the minds of all of Gotham City's residents, and only Batman and his new partner, Robin, can stop them! But the Dark Knight is hindered by a mystery from his own childhood. He must hope that a new found love can help him overcome the incident that made him what he is. In the end, he must decide: will he be Batman\u2014forever?",
+        "popularity": 6.0421,
+        "poster_path": "/l0wdmQl9TDhMgz1f822yjXHdtlf.jpg",
+        "production_companies": [
+            {
+                "id": 174,
+                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 8601,
+                "logo_path": "/kqubCH3sfBAk4znUj7hjqv8ffgi.png",
+                "name": "Tim Burton Productions",
+                "origin_country": "US"
+            },
+            {
+                "id": 67889,
+                "logo_path": null,
+                "name": "Polygram Pictures",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1995-06-16",
+        "revenue": 336529144,
+        "runtime": 121,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Courage now, truth always, Batman forever!",
+        "title": "Batman Forever",
+        "video": false,
+        "vote_average": 5.439,
+        "vote_count": 5305
+    },
+    "The Dark Knight Rises18": {
+        "adult": false,
+        "backdrop_path": "/y2DB71C4nyIdMrANijz8mzvQtk6.jpg",
+        "belongs_to_collection": {
+            "id": 263,
+            "name": "The Dark Knight Collection",
+            "poster_path": "/ogyw5LTmL53dVxsppcy8Dlm30Fu.jpg",
+            "backdrop_path": "/xyhrCEdB4XRkelfVsqXeUZ6rLHi.jpg"
+        },
+        "budget": 250000000,
+        "genres": [
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 80,
+                "name": "Crime"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "homepage": "http://www.thedarkknightrises.com/",
+        "id": 49026,
+        "imdb_id": "tt1345836",
+        "origin_country": [
+            "GB",
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "The Dark Knight Rises",
+        "overview": "Following the death of District Attorney Harvey Dent, Batman assumes responsibility for Dent's crimes to protect the late attorney's reputation and is subsequently hunted by the Gotham City Police Department. Eight years later, Batman encounters the mysterious Selina Kyle and the villainous Bane, a new terrorist leader who overwhelms Gotham's finest. The Dark Knight resurfaces to protect a city that has branded him an enemy.",
+        "popularity": 14.9949,
+        "poster_path": "/hr0L2aueqlP2BYUblTTjmtn0hw4.jpg",
+        "production_companies": [
+            {
+                "id": 9996,
+                "logo_path": "/3tvBqYsBhxWeHlu62SIJ1el93O7.png",
+                "name": "Syncopy",
+                "origin_country": "GB"
+            },
+            {
+                "id": 923,
+                "logo_path": "/5UQsZrfbfG2dYJbx8DxfoTr2Bvu.png",
+                "name": "Legendary Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 9993,
+                "logo_path": "/2Tc1P3Ac8M479naPp1kYT3izLS5.png",
+                "name": "DC Entertainment",
+                "origin_country": "US"
+            },
+            {
+                "id": 174,
+                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            },
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2012-07-17",
+        "revenue": 1081041287,
+        "runtime": 165,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "The legend ends.",
+        "title": "The Dark Knight Rises",
+        "video": false,
+        "vote_average": 7.785,
+        "vote_count": 23304
+    },
+    "Batman v Superman: Dawn of Justice19": {
+        "adult": false,
+        "backdrop_path": "/5fX1oSGuYdKgwWmUTAN5MNSQGzr.jpg",
+        "belongs_to_collection": {
+            "id": 209131,
+            "name": "Man of Steel Collection",
+            "poster_path": "/rNnIW6xSPeTiIUtsfEhFeIRiJVv.jpg",
+            "backdrop_path": "/rPaqhsSMCky0UXVW4qmNOJq5Orp.jpg"
+        },
+        "budget": 250000000,
+        "genres": [
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 12,
+                "name": "Adventure"
+            },
+            {
+                "id": 14,
+                "name": "Fantasy"
+            }
+        ],
+        "homepage": "https://www.warnerbros.com/movies/batman-v-superman-dawn-justice",
+        "id": 209112,
+        "imdb_id": "tt2975590",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Batman v Superman: Dawn of Justice",
+        "overview": "Fearing the actions of a god-like Super Hero left unchecked, Gotham City\u2019s own formidable, forceful vigilante takes on Metropolis\u2019s most revered, modern-day savior, while the world wrestles with what sort of hero it really needs. And with Batman and Superman at war with one another, a new threat quickly arises, putting mankind in greater danger than it\u2019s ever known before.",
+        "popularity": 16.9323,
+        "poster_path": "/5UsK3grJvtQrtzEgqNlDljJW96w.jpg",
+        "production_companies": [
+            {
+                "id": 174,
+                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 41624,
+                "logo_path": "/wzKxIeQKlMP0y5CaAw25MD6EQmf.png",
+                "name": "RatPac Entertainment",
+                "origin_country": "US"
+            },
+            {
+                "id": 507,
+                "logo_path": "/aRmHe6GWxYMRCQljF75rn2B9Gv8.png",
+                "name": "Atlas Entertainment",
+                "origin_country": "US"
+            },
+            {
+                "id": 9993,
+                "logo_path": "/2Tc1P3Ac8M479naPp1kYT3izLS5.png",
+                "name": "DC Entertainment",
+                "origin_country": "US"
+            },
+            {
+                "id": 9995,
+                "logo_path": "/mAIGhOYhN4N2N0F7p4dbKhgXf3l.png",
+                "name": "Cruel & Unusual Films",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2016-03-23",
+        "revenue": 874362803,
+        "runtime": 152,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "A hero will fall.",
+        "title": "Batman v Superman: Dawn of Justice",
+        "video": false,
+        "vote_average": 5.982,
+        "vote_count": 18330
+    },
+    "The Batman20": {
+        "adult": false,
+        "backdrop_path": "/b0PlSFdDwbyK0cf5RxwDpaOJQvQ.jpg",
+        "belongs_to_collection": {
+            "id": 948485,
+            "name": "The Batman Collection",
+            "poster_path": "/jauF9NsYc97khPSENLLHGXT09bg.jpg",
+            "backdrop_path": "/6IX81STHKPsSFVCN57sJ3ljwXI5.jpg"
+        },
+        "budget": 185000000,
+        "genres": [
+            {
+                "id": 80,
+                "name": "Crime"
+            },
+            {
+                "id": 9648,
+                "name": "Mystery"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "homepage": "https://www.thebatman.com",
+        "id": 414906,
+        "imdb_id": "tt1877830",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "The Batman",
+        "overview": "In his second year of fighting crime, Batman uncovers corruption in Gotham City that connects to his own family while facing a serial killer known as the Riddler.",
+        "popularity": 18.5414,
+        "poster_path": "/74xTEgt7R36Fpooo50r9T25onhq.jpg",
+        "production_companies": [
+            {
+                "id": 101405,
+                "logo_path": "/iusVPF9AJD1DiHEWbZEXgn1hpOf.png",
+                "name": "6th & Idaho Motion Picture Company",
+                "origin_country": "US"
+            },
+            {
+                "id": 119245,
+                "logo_path": "/6F45uVsKpNYANcWvplyhgIFezFU.png",
+                "name": "Dylan Clark Productions",
+                "origin_country": "US"
+            },
+            {
+                "id": 128064,
+                "logo_path": "/13F3Jf7EFAcREU0xzZqJnVnyGXu.png",
+                "name": "DC Films",
+                "origin_country": "US"
+            },
+            {
+                "id": 174,
+                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2022-03-01",
+        "revenue": 772319315,
+        "runtime": 177,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Unmask the truth.",
+        "title": "The Batman",
+        "video": false,
+        "vote_average": 7.657,
+        "vote_count": 10987
+    },
+    "Batman: Mask of the Phantasm21": {
+        "adult": false,
+        "backdrop_path": "/2q5DeKboc4F2qVlJkoEZHNrSgRp.jpg",
+        "belongs_to_collection": {
+            "id": 421904,
+            "name": "Batman (DC Universe Animated) Collection",
+            "poster_path": "/4fDffWkGuIt62GQVAUTUgRoZxT2.jpg",
+            "backdrop_path": "/l0udVVfpZ1LzeH5IxC3U2UI5EiI.jpg"
+        },
+        "budget": 6000000,
+        "genres": [
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 16,
+                "name": "Animation"
+            },
+            {
+                "id": 80,
+                "name": "Crime"
+            },
+            {
+                "id": 9648,
+                "name": "Mystery"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "homepage": "",
+        "id": 14919,
+        "imdb_id": "tt0106364",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Batman: Mask of the Phantasm",
+        "overview": "Andrea Beaumont leaves her father to return to Gotham, rekindling an old romance with Bruce Wayne. At the same time, a mysterious figure begins to hunt down Gotham's criminals, wrongly implicating Batman in the murders. Now on the run from the law, Batman must find and stop the culprit, while also navigating his relationship with Andrea.",
+        "popularity": 3.3836,
+        "poster_path": "/hT4ehUteagUrhUOHAtmYiY7mp5l.jpg",
+        "production_companies": [
+            {
+                "id": 3592,
+                "logo_path": "/7rsVrGzIj5bJ3xbAgGnNObxGpFt.png",
+                "name": "Warner Bros. Family Entertainment",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1993-12-25",
+        "revenue": 5617391,
+        "runtime": 76,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "The Dark Knight fights to save Gotham city from its deadliest enemy.",
+        "title": "Batman: Mask of the Phantasm",
+        "video": false,
+        "vote_average": 7.495,
+        "vote_count": 1154
+    },
+    "Batman: The Killing Joke22": {
+        "adult": false,
+        "backdrop_path": "/2jApwp78umL4dK9uSBJAngNDiG9.jpg",
+        "belongs_to_collection": null,
+        "budget": 3500000,
+        "genres": [
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 16,
+                "name": "Animation"
+            },
+            {
+                "id": 80,
+                "name": "Crime"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "homepage": "https://www.warnerbros.com/batman-killing-joke",
+        "id": 382322,
+        "imdb_id": "tt4853102",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Batman: The Killing Joke",
+        "overview": "As Batman hunts for the escaped Joker, the Clown Prince of Crime attacks the Gordon family to prove a diabolical point mirroring his own fall into madness.",
+        "popularity": 2.4045,
+        "poster_path": "/lrQ3LeNIN0nmviZ692seNBUl1Pq.jpg",
+        "production_companies": [
+            {
+                "id": 2785,
+                "logo_path": "/l5zW8jjmQOCx2dFmvnmbYmqoBmL.png",
+                "name": "Warner Bros. Animation",
+                "origin_country": "US"
+            },
+            {
+                "id": 9993,
+                "logo_path": "/2Tc1P3Ac8M479naPp1kYT3izLS5.png",
+                "name": "DC Entertainment",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2016-07-24",
+        "revenue": 3775000,
+        "runtime": 77,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "The madness begins.",
+        "title": "Batman: The Killing Joke",
+        "video": false,
+        "vote_average": 6.604,
+        "vote_count": 1860
+    },
+    "Muppet Treasure Island23": {
+        "adult": false,
+        "backdrop_path": "/wKhfS3TQ8rq82nHHEdACGRiQS4r.jpg",
+        "belongs_to_collection": null,
+        "budget": 31000000,
+        "genres": [
+            {
+                "id": 10751,
+                "name": "Family"
+            },
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 12,
+                "name": "Adventure"
+            },
+            {
+                "id": 10402,
+                "name": "Music"
+            }
+        ],
+        "homepage": "",
+        "id": 10874,
+        "imdb_id": "tt0117110",
+        "origin_country": [
+            "GB",
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Muppet Treasure Island",
+        "overview": "After telling the story of Flint's last journey to young Jim Hawkins, Billy Bones has a heart attack and dies just as Jim and his friends are attacked by pirates. The gang escapes into the town where they hire out a boat and crew to find the hidden treasure, which was revealed by Bones before he died. On their voyage across the seas, they soon find out that not everyone on board can be trusted.",
+        "popularity": 1.8494,
+        "poster_path": "/8UL6EcZGO1ssD60azzOtUPjnOZI.jpg",
+        "production_companies": [
+            {
+                "id": 2,
+                "logo_path": "/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
+                "name": "Walt Disney Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 2504,
+                "logo_path": "/uuelgMOL4HJAJQcbJRiE4zlYbcU.png",
+                "name": "Jim Henson Productions",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            },
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1996-02-16",
+        "revenue": 34300000,
+        "runtime": 99,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Set sail for Muppet mayhem!",
+        "title": "Muppet Treasure Island",
+        "video": false,
+        "vote_average": 6.667,
+        "vote_count": 418
+    },
+    "Pirates of the Caribbean: Dead Man's Chest24": {
+        "adult": false,
+        "backdrop_path": "/vr6n6ZFUZvedvIlhfYcbCWcaKyW.jpg",
+        "belongs_to_collection": {
+            "id": 295,
+            "name": "Pirates of the Caribbean Collection",
+            "poster_path": "/4KUJ38SsViJTsUmTRvXxerBNwAv.jpg",
+            "backdrop_path": "/wxgD3fB5lQ2sGJLog0rvXW049Pf.jpg"
+        },
+        "budget": 200000000,
+        "genres": [
+            {
+                "id": 12,
+                "name": "Adventure"
+            },
+            {
+                "id": 14,
+                "name": "Fantasy"
+            },
+            {
+                "id": 28,
+                "name": "Action"
+            }
+        ],
+        "homepage": "https://movies.disney.com/pirates-of-the-caribbean-dead-mans-chest",
+        "id": 58,
+        "imdb_id": "tt0383574",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Pirates of the Caribbean: Dead Man's Chest",
+        "overview": "Captain Jack Sparrow races to recover the heart of Davy Jones to avoid enslaving his soul to Jones' service, as other friends and foes seek the heart for their own agenda as well.",
+        "popularity": 17.7351,
+        "poster_path": "/lAhcKRt0ggTFkeFL95jrGQYaRXs.jpg",
+        "production_companies": [
+            {
+                "id": 2,
+                "logo_path": "/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
+                "name": "Walt Disney Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 130,
+                "logo_path": "/c9dVHPOL3cqCr2593Ahk0nEKTEM.png",
+                "name": "Jerry Bruckheimer Films",
+                "origin_country": "US"
+            },
+            {
+                "id": 19936,
+                "logo_path": null,
+                "name": "Second Mate Productions",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2006-07-06",
+        "revenue": 1066179747,
+        "runtime": 151,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "Turkish",
+                "iso_639_1": "tr",
+                "name": "T\u00fcrk\u00e7e"
+            },
+            {
+                "english_name": "Greek",
+                "iso_639_1": "el",
+                "name": "\u03b5\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac"
+            },
+            {
+                "english_name": "Mandarin",
+                "iso_639_1": "zh",
+                "name": "\u666e\u901a\u8bdd"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Captain Jack is back!",
+        "title": "Pirates of the Caribbean: Dead Man's Chest",
+        "video": false,
+        "vote_average": 7.367,
+        "vote_count": 16404
+    },
+    "Pirates of the Caribbean: At World's End25": {
+        "adult": false,
+        "backdrop_path": "/1jHxkVXMI5s3vRiyiZooUy1shB5.jpg",
+        "belongs_to_collection": {
+            "id": 295,
+            "name": "Pirates of the Caribbean Collection",
+            "poster_path": "/4KUJ38SsViJTsUmTRvXxerBNwAv.jpg",
+            "backdrop_path": "/wxgD3fB5lQ2sGJLog0rvXW049Pf.jpg"
+        },
+        "budget": 300000000,
+        "genres": [
+            {
+                "id": 12,
+                "name": "Adventure"
+            },
+            {
+                "id": 14,
+                "name": "Fantasy"
+            },
+            {
+                "id": 28,
+                "name": "Action"
+            }
+        ],
+        "homepage": "https://movies.disney.com/pirates-of-the-caribbean-at-worlds-end",
+        "id": 285,
+        "imdb_id": "tt0449088",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Pirates of the Caribbean: At World's End",
+        "overview": "Will Turner and Elizabeth Swann join forces with the revived Captain Barbossa to free Jack Sparrow from Davy Jones' locker. The group must navigate dangerous waters, confront many foes and, ultimately, choose sides in a battle wherein piracy itself hangs in the balance.",
+        "popularity": 15.7824,
+        "poster_path": "/jGWpG4YhpQwVmjyHEGkxEkeRf0S.jpg",
+        "production_companies": [
+            {
+                "id": 130,
+                "logo_path": "/c9dVHPOL3cqCr2593Ahk0nEKTEM.png",
+                "name": "Jerry Bruckheimer Films",
+                "origin_country": "US"
+            },
+            {
+                "id": 19936,
+                "logo_path": null,
+                "name": "Second Mate Productions",
+                "origin_country": "US"
+            },
+            {
+                "id": 2,
+                "logo_path": "/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
+                "name": "Walt Disney Pictures",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2007-05-19",
+        "revenue": 961691209,
+        "runtime": 169,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "At the end of the world, the adventure begins.",
+        "title": "Pirates of the Caribbean: At World's End",
+        "video": false,
+        "vote_average": 7.26,
+        "vote_count": 14752
+    },
+    "Treasure Island26": {
+        "adult": false,
+        "backdrop_path": "/uiLhtMHXek72SEfbztG05pTNcc0.jpg",
+        "belongs_to_collection": {
+            "id": 938550,
+            "name": "Treasure Island (Disney) Collection",
+            "poster_path": "/gEWRuC7Tf6bWPpFMFvyUo4O0BPa.jpg",
+            "backdrop_path": "/lLiwahq3QMuiHb2sPUDIislxYsL.jpg"
+        },
+        "budget": 0,
+        "genres": [
+            {
+                "id": 12,
+                "name": "Adventure"
+            },
+            {
+                "id": 10751,
+                "name": "Family"
+            }
+        ],
+        "homepage": "https://movies.disney.com/treasure-island",
+        "id": 6646,
+        "imdb_id": "tt0043067",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Treasure Island",
+        "overview": "Enchanted by the idea of locating treasure buried by Captain Flint, Squire Trelawney, Dr. Livesey and Jim Hawkins charter a sailing voyage to a Caribbean island. Unfortunately, a large number of Flint's old pirate crew are aboard the ship, including Long John Silver.",
+        "popularity": 1.7705,
+        "poster_path": "/zPzBsQZ2EhSmO9FLvQQtWVkJqRu.jpg",
+        "production_companies": [
+            {
+                "id": 3166,
+                "logo_path": "/vyyv4Gy9nPqAZKElPm2izLlEaVS.png",
+                "name": "Walt Disney Productions",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1950-07-19",
+        "revenue": 4419657,
+        "runtime": 96,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "Italian",
+                "iso_639_1": "it",
+                "name": "Italiano"
+            }
+        ],
+        "status": "Released",
+        "tagline": "PIRATE'S PLUNDER a young cabin boy, a roguish buccaneer... match wits in a swashbuckling adventure!",
+        "title": "Treasure Island",
+        "video": false,
+        "vote_average": 6.6,
+        "vote_count": 214
+    },
+    "Waterworld27": {
+        "adult": false,
+        "backdrop_path": "/yaIu82UiD9QZEkKCGrAd8VAmc0V.jpg",
+        "belongs_to_collection": null,
+        "budget": 175000000,
+        "genres": [
+            {
+                "id": 12,
+                "name": "Adventure"
+            },
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 878,
+                "name": "Science Fiction"
+            }
+        ],
+        "homepage": "",
+        "id": 9804,
+        "imdb_id": "tt0114898",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Waterworld",
+        "overview": "In a futuristic world where the polar ice caps have melted and made Earth a liquid planet, a beautiful barmaid rescues a mutant seafarer from a floating island prison. They escape, along with her young charge, Enola, and sail off aboard his ship. But the trio soon becomes the target of a menacing pirate who covets the map to 'Dryland'\u2014which is tattooed on Enola's back.",
+        "popularity": 6.2293,
+        "poster_path": "/pBjf3xzi6kClzWXiKMclMUX7dOP.jpg",
+        "production_companies": [
+            {
+                "id": 1073,
+                "logo_path": null,
+                "name": "Gordon Company",
+                "origin_country": "US"
+            },
+            {
+                "id": 1302,
+                "logo_path": "/zC3b70ixHh89qJIikLQPEvLqbPM.png",
+                "name": "Davis Entertainment",
+                "origin_country": "US"
+            },
+            {
+                "id": 33,
+                "logo_path": "/3wwjVpkZtnog6lSKzWDjvw2Yi00.png",
+                "name": "Universal Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 6092,
+                "logo_path": null,
+                "name": "Licht/Mueller Film Corporation",
+                "origin_country": ""
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1995-07-28",
+        "revenue": 264218220,
+        "runtime": 135,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Beyond the horizon lies the secret to a new beginning.",
+        "title": "Waterworld",
+        "video": false,
+        "vote_average": 6.221,
+        "vote_count": 3808
+    },
+    "The Pirates! In an Adventure with Scientists!28": {
+        "adult": false,
+        "backdrop_path": "/9x82vpYkZBY0ljJj14ImQuCI57u.jpg",
+        "belongs_to_collection": null,
+        "budget": 60000000,
+        "genres": [
+            {
+                "id": 16,
+                "name": "Animation"
+            },
+            {
+                "id": 12,
+                "name": "Adventure"
+            },
+            {
+                "id": 10751,
+                "name": "Family"
+            },
+            {
+                "id": 35,
+                "name": "Comedy"
+            }
+        ],
+        "homepage": "https://www.sonypictures.com/movies/thepiratesbandofmisfits",
+        "id": 72197,
+        "imdb_id": "tt1430626",
+        "origin_country": [
+            "GB"
+        ],
+        "original_language": "en",
+        "original_title": "The Pirates! In an Adventure with Scientists!",
+        "overview": "The enthusiastic Pirate Captain, along with his rag-tag crew, sets out to beat his bitter rivals. The chaotic adventure takes them from exotic shores to Victorian London, and from a haplessly smitten scientist to a diabolical queen.",
+        "popularity": 2.4034,
+        "poster_path": "/bkLeXPDP6sramrTiF5W7TzUl4t0.jpg",
+        "production_companies": [
+            {
+                "id": 297,
+                "logo_path": "/58TnhYZqbMYgkHM6lg7dJoYJ4RH.png",
+                "name": "Aardman",
+                "origin_country": "GB"
+            },
+            {
+                "id": 5,
+                "logo_path": "/71BqEFAF4V3qjjMPCpLuyJFB9A.png",
+                "name": "Columbia Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 2251,
+                "logo_path": "/5ilV5mH3gxTEU7p5wjxptHvXkyr.png",
+                "name": "Sony Pictures Animation",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            }
+        ],
+        "release_date": "2012-03-12",
+        "revenue": 123054041,
+        "runtime": 88,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "It's a plunderful life",
+        "title": "The Pirates! In an Adventure with Scientists!",
+        "video": false,
+        "vote_average": 6.507,
+        "vote_count": 1130
+    },
+    "Captain Blood29": {
+        "adult": false,
+        "backdrop_path": "/liv4C6089TmYVJUZ9ntXKugQMkd.jpg",
+        "belongs_to_collection": null,
+        "budget": 1200000,
+        "genres": [
+            {
+                "id": 12,
+                "name": "Adventure"
+            },
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 36,
+                "name": "History"
+            },
+            {
+                "id": 10749,
+                "name": "Romance"
+            }
+        ],
+        "homepage": "",
+        "id": 16905,
+        "imdb_id": "tt0026174",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Captain Blood",
+        "overview": "Dr. Peter Blood, unjustly convicted of treason and exiled from England, becomes a notorious pirate.",
+        "popularity": 1.6996,
+        "poster_path": "/Ae0ltppMl66pAH1odgDU1C4H1iq.jpg",
+        "production_companies": [
+            {
+                "id": 3245,
+                "logo_path": "/9dBTQp9XitrHkx20i1r9HhZ3Q6B.png",
+                "name": "First National Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 1442,
+                "logo_path": null,
+                "name": "Cosmopolitan Productions",
+                "origin_country": "US"
+            },
+            {
+                "id": 174,
+                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1935-12-26",
+        "revenue": 0,
+        "runtime": 119,
+        "spoken_languages": [
+            {
+                "english_name": "Spanish",
+                "iso_639_1": "es",
+                "name": "Espa\u00f1ol"
+            },
+            {
+                "english_name": "French",
+                "iso_639_1": "fr",
+                "name": "Fran\u00e7ais"
+            },
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "A million dollars worth of adventure!",
+        "title": "Captain Blood",
+        "video": false,
+        "vote_average": 7.226,
+        "vote_count": 239
+    },
+    "Trading Places30": {
+        "adult": false,
+        "backdrop_path": "/2pViauhiZLhAUb1lsY6wRir69SF.jpg",
+        "belongs_to_collection": null,
+        "budget": 15000000,
+        "genres": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            }
+        ],
+        "homepage": "http://www.paramount.com/movies/trading-places",
+        "id": 1621,
+        "imdb_id": "tt0086465",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Trading Places",
+        "overview": "A snobbish investor and a wily street con-artist find their positions reversed as part of a bet by two callous millionaires.",
+        "popularity": 6.6859,
+        "poster_path": "/8mBuLCOcpWnmYtZc4aqtvDXslv6.jpg",
+        "production_companies": [
+            {
+                "id": 11142,
+                "logo_path": null,
+                "name": "Cinema Group Ventures",
+                "origin_country": "US"
+            },
+            {
+                "id": 4,
+                "logo_path": "/gz66EfNoYPqHTYI4q9UEN4CbHRc.png",
+                "name": "Paramount Pictures",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1983-06-07",
+        "revenue": 90404800,
+        "runtime": 116,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "They're not just getting rich... They're getting even.",
+        "title": "Trading Places",
+        "video": false,
+        "vote_average": 7.222,
+        "vote_count": 3407
+    },
+    "Mafia Mamma31": {
+        "adult": false,
+        "backdrop_path": "/gGZxCy9keK0D6TxbmS8GJj85Ut4.jpg",
+        "belongs_to_collection": null,
+        "budget": 41000000,
+        "genres": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 80,
+                "name": "Crime"
+            },
+            {
+                "id": 28,
+                "name": "Action"
+            }
+        ],
+        "homepage": "https://www.mafiamammamovie.com",
+        "id": 809787,
+        "imdb_id": "tt13923456",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "Mafia Mamma",
+        "overview": "A suburban American woman inherits her grandfather\u2019s Mafia empire and, guided by the Firm\u2019s trusted consigliere, defies everyone\u2019s expectations, including her own, as the new head of the family business.",
+        "popularity": 4.8521,
+        "poster_path": "/x83FFyGGux31l7OiF9NZHeq6ZWv.jpg",
+        "production_companies": [
+            {
+                "id": 151425,
+                "logo_path": null,
+                "name": "Idea(L)",
+                "origin_country": ""
+            },
+            {
+                "id": 150656,
+                "logo_path": null,
+                "name": "Vocab Films",
+                "origin_country": "US"
+            },
+            {
+                "id": 67285,
+                "logo_path": null,
+                "name": "New Sparta Films",
+                "origin_country": "GB"
+            },
+            {
+                "id": 290,
+                "logo_path": "/jrgCuaQsY9ouP5ILZf4Dq4ZOkIX.png",
+                "name": "Ingenious Media",
+                "origin_country": "GB"
+            },
+            {
+                "id": 9987,
+                "logo_path": "/o5OTKAw7Acl5fTZYPyl8M8D9570.png",
+                "name": "Lipsync Productions",
+                "origin_country": "GB"
+            },
+            {
+                "id": 118715,
+                "logo_path": "/mRCdjLcjvRvCqIMovDzOcqmRFfv.png",
+                "name": "Cornerstone Films",
+                "origin_country": "GB"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            },
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            },
+            {
+                "iso_3166_1": "IT",
+                "name": "Italy"
+            }
+        ],
+        "release_date": "2023-04-13",
+        "revenue": 3900000,
+        "runtime": 101,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "Italian",
+                "iso_639_1": "it",
+                "name": "Italiano"
+            }
+        ],
+        "status": "Released",
+        "tagline": "From suburban Mom to mafia Don.",
+        "title": "Mafia Mamma",
+        "video": false,
+        "vote_average": 6.082,
+        "vote_count": 274
+    },
+    "Robot Dreams32": {
+        "adult": false,
+        "backdrop_path": "/hIeEpk2w1dnC9ly9ZJwwbunH2Cx.jpg",
+        "belongs_to_collection": null,
+        "budget": 5300000,
+        "genres": [
+            {
+                "id": 16,
+                "name": "Animation"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 878,
+                "name": "Science Fiction"
+            }
+        ],
+        "homepage": "https://neonrated.com/films/robot-dreams",
+        "id": 838240,
+        "imdb_id": "tt13429870",
+        "origin_country": [
+            "ES"
+        ],
+        "original_language": "es",
+        "original_title": "Robot Dreams",
+        "overview": "A lonely dog's friendship with his robot companion takes a sad turn when an unexpected malfunction forces him to abandon Robot at the beach. Will Dog ever meet Robot again?",
+        "popularity": 6.3307,
+        "poster_path": "/vSzOobYVu16MogSALNg1bjTaGc.jpg",
+        "production_companies": [
+            {
+                "id": 7543,
+                "logo_path": "/sPBVpVQf44rVP65TVTFgsn9ZVwE.png",
+                "name": "Arcadia Motion Pictures",
+                "origin_country": "ES"
+            },
+            {
+                "id": 219048,
+                "logo_path": "/wFMVuHeLhu6ERbz7hkkPXJ5IVRX.png",
+                "name": "LokizFilms",
+                "origin_country": "ES"
+            },
+            {
+                "id": 7792,
+                "logo_path": "/ik1JWvnBmVY6Rrw8iQWB2cPuuf.png",
+                "name": "Noodles Production",
+                "origin_country": "FR"
+            },
+            {
+                "id": 7395,
+                "logo_path": "/cGOGYYfbJZ1uJHynRIf8yj4phRn.png",
+                "name": "Les films du Worso",
+                "origin_country": "FR"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "FR",
+                "name": "France"
+            },
+            {
+                "iso_3166_1": "ES",
+                "name": "Spain"
+            }
+        ],
+        "release_date": "2023-12-06",
+        "revenue": 4656348,
+        "runtime": 102,
+        "spoken_languages": [
+            {
+                "english_name": "No Language",
+                "iso_639_1": "xx",
+                "name": "No Language"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Experience a once-in-a-lifetime friendship beyond your wildest dreams",
+        "title": "Robot Dreams",
+        "video": false,
+        "vote_average": 8.024,
+        "vote_count": 676
+    },
+    "Rocketman33": {
+        "adult": false,
+        "backdrop_path": "/isnJGDrfR9dIrHMsPTvHtJaGEpc.jpg",
+        "belongs_to_collection": null,
+        "budget": 40000000,
+        "genres": [
+            {
+                "id": 10402,
+                "name": "Music"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "homepage": "https://www.paramount.com/movies/Rocketman/",
+        "id": 504608,
+        "imdb_id": "tt2066051",
+        "origin_country": [
+            "US",
+            "GB"
+        ],
+        "original_language": "en",
+        "original_title": "Rocketman",
+        "overview": "The story of Elton John's life, from his years as a prodigy at the Royal Academy of Music through his influential and enduring musical partnership with Bernie Taupin.",
+        "popularity": 4.2044,
+        "poster_path": "/f4FF18ia7yTvHf2izNrHqBmgH8U.jpg",
+        "production_companies": [
+            {
+                "id": 4,
+                "logo_path": "/gz66EfNoYPqHTYI4q9UEN4CbHRc.png",
+                "name": "Paramount Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 114732,
+                "logo_path": "/tNCbisMxO5mX2X2bOQxHHQZVYnT.png",
+                "name": "New Republic Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 5374,
+                "logo_path": "/pMUiImmYANjZUlZFiZMWziQDSs6.png",
+                "name": "Marv",
+                "origin_country": "GB"
+            },
+            {
+                "id": 28320,
+                "logo_path": "/5UPGj1MwzrtxclRGTfeiQ1J0zVk.png",
+                "name": "Rocket Pictures",
+                "origin_country": "GB"
+            },
+            {
+                "id": 2253,
+                "logo_path": null,
+                "name": "Lawrence Bender Productions",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+            },
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "2019-05-17",
+        "revenue": 167300000,
+        "runtime": 121,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Based on a true fantasy",
+        "title": "Rocketman",
+        "video": false,
+        "vote_average": 7.318,
+        "vote_count": 4767
+    },
+    "Shin Kamen Rider34": {
+        "adult": false,
+        "backdrop_path": "/ccFavvHGfhA5yI32K0bzDjlyKSN.jpg",
+        "belongs_to_collection": null,
+        "budget": 0,
+        "genres": [
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 878,
+                "name": "Science Fiction"
+            }
+        ],
+        "homepage": "",
+        "id": 813477,
+        "imdb_id": "tt14379088",
+        "origin_country": [
+            "JP"
+        ],
+        "original_language": "ja",
+        "original_title": "\u30b7\u30f3\u30fb\u4eee\u9762\u30e9\u30a4\u30c0\u30fc",
+        "overview": "A man forced to bear power and stripped of humanity. A woman skeptical of happiness. Takeshi Hongo, an Augmentation made by SHOCKER, and Ruriko Midorikawa, a rebel of the organization, escape while fighting off assassins. What\u2019s justice? What\u2019s evil? Will this violence end? Despite his power, Hongo tries to remain human. Along with freedom, Ruriko has regained a heart. What paths will they choose?",
+        "popularity": 3.3679,
+        "poster_path": "/9dTO2RygcDT0cQkawABw4QkDegN.jpg",
+        "production_companies": [
+            {
+                "id": 4145,
+                "logo_path": "/aEiJyMKr2CxrAJiIdtN70wXqn.png",
+                "name": "khara",
+                "origin_country": "JP"
+            },
+            {
+                "id": 5896,
+                "logo_path": null,
+                "name": "Cine Bazar",
+                "origin_country": "JP"
+            },
+            {
+                "id": 5822,
+                "logo_path": "/qyTbRgCyU9NLKvKaiQVbadtr7RY.png",
+                "name": "Toei Company",
+                "origin_country": "JP"
+            },
+            {
+                "id": 5671,
+                "logo_path": "/e2wUkVLLcru3UKXzLtPtfjIIvQp.png",
+                "name": "Ishimori Productions",
+                "origin_country": "JP"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "JP",
+                "name": "Japan"
+            }
+        ],
+        "release_date": "2023-03-17",
+        "revenue": 15787771,
+        "runtime": 121,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
+                "english_name": "Japanese",
+                "iso_639_1": "ja",
+                "name": "\u65e5\u672c\u8a9e"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Things that change. Things that don't.  ...and things that I wouldn't want to change.",
+        "title": "Shin Kamen Rider",
+        "video": false,
+        "vote_average": 6.9,
+        "vote_count": 287
+    },
+    "Godzilla35": {
+        "adult": false,
+        "backdrop_path": "/9kskVRVgXkiCWrWXEelMeadrf53.jpg",
+        "belongs_to_collection": {
+            "id": 374509,
+            "name": "Godzilla (Showa) Collection",
+            "poster_path": "/scvwS6k8gIW8w24UcmePQqVL10l.jpg",
+            "backdrop_path": "/a20d9jnAidiWXoN4EjYdbW54OZ3.jpg"
+        },
+        "budget": 900000,
+        "genres": [
+            {
+                "id": 53,
+                "name": "Thriller"
+            },
+            {
+                "id": 27,
+                "name": "Horror"
+            },
+            {
+                "id": 878,
+                "name": "Science Fiction"
+            }
+        ],
+        "homepage": "https://godzilla.com/",
+        "id": 1678,
+        "imdb_id": "tt0047034",
+        "origin_country": [
+            "JP"
+        ],
+        "original_language": "ja",
+        "original_title": "\u30b4\u30b8\u30e9",
+        "overview": "Japan is thrown into a panic after several ships are sunk near Odo Island. An expedition to the island led by Dr. Kyohei Yamane soon discover something far more devastating than imagined in the form of a 50 meter tall monster whom the natives call Gojira. Now the monster begins a rampage that threatens to destroy not only Japan, but the rest of the world as well.",
+        "popularity": 5.1949,
+        "poster_path": "/365zBxfAgBG8iO2miGfVtltUXwt.jpg",
+        "production_companies": [
+            {
+                "id": 882,
+                "logo_path": "/fRSWWjquvzcHjACbtF53utZFIll.png",
+                "name": "TOHO",
+                "origin_country": "JP"
+            },
+            {
+                "id": 244155,
+                "logo_path": null,
+                "name": "Toho Laboratory",
+                "origin_country": "JP"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "JP",
+                "name": "Japan"
+            }
+        ],
+        "release_date": "1954-11-03",
+        "revenue": 2250000,
+        "runtime": 96,
+        "spoken_languages": [
+            {
+                "english_name": "Japanese",
+                "iso_639_1": "ja",
+                "name": "\u65e5\u672c\u8a9e"
+            }
+        ],
+        "status": "Released",
+        "tagline": "Godzilla, a weapon of science, a great battle of wonder and terror!",
+        "title": "Godzilla",
+        "video": false,
+        "vote_average": 7.64,
+        "vote_count": 1025
+    },
+    "King Kong36": {
+        "adult": false,
+        "backdrop_path": "/lYfHa1AtkUMtplrKx7SRLHpwonW.jpg",
+        "belongs_to_collection": {
+            "id": 135495,
+            "name": "King Kong (1933) Collection",
+            "poster_path": "/sU6ixEBRpWfCTIEbrQJxD59VgqQ.jpg",
+            "backdrop_path": "/hcAcwtLzqJIFS6xFQzb6noBh6Rq.jpg"
+        },
+        "budget": 672000,
+        "genres": [
+            {
+                "id": 12,
+                "name": "Adventure"
+            },
+            {
+                "id": 14,
+                "name": "Fantasy"
+            },
+            {
+                "id": 27,
+                "name": "Horror"
+            }
+        ],
+        "homepage": "",
+        "id": 244,
+        "imdb_id": "tt0024216",
+        "origin_country": [
+            "US"
+        ],
+        "original_language": "en",
+        "original_title": "King Kong",
+        "overview": "Adventurous filmmaker Carl Denham sets out to produce a motion picture unlike anything the world has seen before. Alongside his leading lady Ann Darrow and his first mate Jack Driscoll, they arrive on an island and discover a legendary creature said to be neither beast nor man. Denham captures the monster to be displayed on Broadway as King Kong, the eighth wonder of the world.",
+        "popularity": 3.871,
+        "poster_path": "/lHlnxKL5GbgRibyRFI7n1Ey850i.jpg",
+        "production_companies": [
+            {
+                "id": 6,
+                "logo_path": "/n53F7K9scQWFXYbrCablqLKqJdp.png",
+                "name": "RKO Radio Pictures",
+                "origin_country": "US"
+            }
+        ],
+        "production_countries": [
+            {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+            }
+        ],
+        "release_date": "1933-03-15",
+        "revenue": 10001781,
+        "runtime": 104,
+        "spoken_languages": [
+            {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            }
+        ],
+        "status": "Released",
+        "tagline": "A Monster of Creation's Dawn Breaks Loose in Our World Today!",
+        "title": "King Kong",
+        "video": false,
+        "vote_average": 7.6,
+        "vote_count": 1528
     }
 }

@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 104,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_batman = true,
         extra = {
             stacked_x_mult = 1,
             a_xmult = 0.25
@@ -14,7 +15,6 @@ SMODS.Joker {
     cost = 4,
     blueprint_compat = true,
     perishable_compat = true,
-    j_is_batman = true,
     kino_joker = {
         id = 155,
         budget = 0,
@@ -28,7 +28,8 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Superhero", "Action"},
+    pools = {["kino_batman"] = true}, 
+    k_genre = {"Superhero", "Action"},
 
     loc_vars = function(self, info_queue, card)
         return {
@@ -46,7 +47,7 @@ SMODS.Joker {
         if context.setting_blind and not card.getting_sliced and not context.blueprint then
             local _jokers_destroyed = 0
             for i = 1, #G.jokers.cards do
-                if not G.jokers.cards[i].config.center.j_is_batman and G.jokers.cards[i]:can_calculate() then
+                if not kino_quality_check(G.jokers.cards[i], "is_batman") and G.jokers.cards[i]:can_calculate() then
                     _jokers_destroyed = _jokers_destroyed + 1
                     G.jokers.cards[i].getting_sliced = true
                     G.E_MANAGER:add_event(Event({func = function()

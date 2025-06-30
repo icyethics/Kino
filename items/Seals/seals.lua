@@ -122,25 +122,56 @@ SMODS.Seal{
     end,
 }
 
--- SMODS.Seal{
---     key = "thriller",
---     atlas = "kino_enhancements",
---     pos = {x = 4, y = 4},
---     badge_colour = HEX('3d4e6a'),
---     sound = { sound = 'generic1', per = 1.2, vol = 0.4 },
---     config = {
---         chance = 3
---     },
---     loc_vars = function(self, info_queue, card)
---         return {
---             vars = {
---                 G.GAME.probabilities.normal,
---                 card.ability.seal.chance
---             }
---         }
---     end,
+SMODS.Seal{
+    key = "thriller",
+    atlas = "kino_enhancements",
+    pos = {x = 4, y = 4},
+    badge_colour = HEX('3d4e6a'),
+    sound = { sound = 'generic1', per = 1.2, vol = 0.4 },
+    config = {
+        chance = 3
+    },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = {set = 'Other', key = "gloss_jump_scare", vars = {tostring(Kino.jump_scare_mult)}}
+        return {
+            vars = {
+                G.GAME.probabilities.normal,
+                card.ability.seal.chance
+            }
+        }
+    end,
 
---     calculate = function(self, card, context)
---         -- if context.
---     end,
--- }
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand then
+            if pseudorandom("kino_thrillerseal") < G.GAME.probabilities.normal / card.ability.seal.chance then
+                card.marked_by_jumpscare = true
+                SMODS.calculate_context({kino_jumpscare_trigger = true, kino_jumpscare_target = card})
+                G.GAME.jumpscare_triggers = G.GAME.jumpscare_triggers + 1
+                return {
+                    x_mult = Kino.jump_scare_mult,
+                    message = localize('k_jump_scare'),
+                    colour = HEX("372a2d")
+                }
+            end
+        end
+
+        if context.destroying_card and card.marked_by_jumpscare then
+            if context.destroying_card == card then
+                return true
+            end
+        end
+    end,
+}
+
+SMODS.Seal{
+    key = "comedy",
+    atlas = "kino_enhancements",
+    pos = {x = 5, y = 4},
+    badge_colour = HEX('56d5b4'),
+    sound = { sound = 'generic1', per = 1.2, vol = 0.4 },
+
+    calculate = function(self, card, context)
+        -- When held in hand, Upgrade a random card in hand with +1 chips
+        -- Whenever a joker triggers
+    end,
+}

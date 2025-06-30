@@ -106,25 +106,25 @@ if kino_config.romance_enhancement then
     }
 end
 
--- SMODS.Consumable {
---     key = "detective",
---     set = "Tarot",
---     order = 5,
---     pos = {x = 4, y = 0},
---     atlas = "kino_tarot",
---     config = {
---         mod_conv = 'm_kino_mystery', 
---         max_highlighted = 2,
---     },
---     loc_vars = function(self, info_queue, card)
---         info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_mystery
---         return {
---             vars = {
---                 self.config.max_highlighted
---             }
---         }
---     end
--- }
+SMODS.Consumable {
+    key = "detective",
+    set = "Tarot",
+    order = 5,
+    pos = {x = 4, y = 0},
+    atlas = "kino_tarot",
+    config = {
+        mod_conv = 'm_kino_mystery', 
+        max_highlighted = 2,
+    },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_mystery
+        return {
+            vars = {
+                self.config.max_highlighted
+            }
+        }
+    end
+}
 
 if kino_config.spellcasting then
     SMODS.Consumable {
@@ -197,6 +197,32 @@ SMODS.Consumable {
         }
     end
 }
+
+SMODS.Consumable {
+    key = "superhero",
+    set = "Tarot",
+    order = 9,
+    pos = {x = 2, y = 1},
+    atlas = "kino_tarot",
+    config = {
+        mod_conv = 'm_kino_superhero', 
+        max_highlighted = 1,
+    },
+    get_weight_mod = function()
+        if G.GAME.kino_genre_weight["Superhero"] and G.GAME.kino_genre_weight["Superhero"] > 0 then
+            return 2
+        end
+    end,
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_superhero
+        return {
+            vars = {
+                self.config.max_highlighted
+            }
+        }
+    end
+}
+
 
 
 -- Select a random joker and give money equal to its ROI

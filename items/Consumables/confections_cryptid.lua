@@ -272,7 +272,7 @@ SMODS.Consumable {
 
             -- select card
             local _joker = pseudorandom_element(G.jokers.cards, pseudoseed('monster_energy'))
-            _joker.marked_by_monster = true
+            _joker.marked_by_monster = card.ID
 
             local eval = function(card) return card.active end
             juice_card_until(card, eval, true, 0.05)
@@ -285,6 +285,14 @@ SMODS.Consumable {
             
         end
 
+        if card.active and context.retrigger_joker_check then
+            print("test retrigger_joker_check")
+        end
+
+        if card.active and context.retrigger_joker then
+            print("test retrigger_joker")
+        end
+
         if card.active
         and context.retrigger_joker_check and 
         not context.retrigger_joker and context.other_card ~= self then
@@ -295,7 +303,7 @@ SMODS.Consumable {
                 _total_retriggers = _total_retriggers + card.ability.choco_bonus
             end
 
-            if context.other_card.marked_by_monster then
+            if context.other_card.marked_by_monster == card.ID then
                 card.ability.extra.has_retriggered = true
                 context.other_card.marked_by_monster = nil
                 return {
@@ -315,6 +323,13 @@ SMODS.Consumable {
 
         if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
             Kino.powerboost_confection(card)
+        end
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        for _index, _joker in ipairs(G.jokers.cards) do
+            if _joker.marked_by_monster == card.ID then
+                _joker.marked_by_monster = nil
+            end
         end
     end
 }

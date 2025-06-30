@@ -1,211 +1,111 @@
--- SMODS.Enhancement {
---     key = "mystery",
---     atlas = "kino_enhancements",
---     pos = { x = 5, y = 0},
---     back_pos = {x = 5, y = 1},
---     config = {
---         base_xmult = 2.5,
---         x_mult = 2.5,
---         a_xmult = 0.5,
---         total_clues = 0,
---         edition = false,
---         suit = false,
---         rank = false,
---         options = {"edition", "suit", "rank"}
---     },
---     loc_vars = function(self, info_queue, card)
---         return {
---             vars = {
---                 card.ability.x_mult,
---                 card.ability.a_xmult,
---                 card.ability.edition and "has edition" or "???",
---                 card.ability.suit and localize(card.base.suit, 'suits_plural') or "???",
---                 card.ability.rank and localize(card.base.value, 'ranks') or "???"
---             }
---         }
---     end,
---     calculate = function(self, card, context, effect)
---         -- reset when drawn
---         if context.hand_drawn then
---             for i = 1, #context.hand_drawn do
---                 if context.hand_drawn[i] == card then
---                     -- reset if this card was drawn
---                     card.ability.x_mult = card.ability.base_xmult
---                     card.ability.options = {"edition", "suit", "rank"}
-                    
---                     -- set the variables
---                     card.ability.edition = false
---                     card.ability.suit = false
---                     card.ability.rank = false
---                 end
---             end
---         end
+SMODS.Enhancement {
+    key = "mystery",
+    atlas = "kino_enhancements",
+    pos = { x = 5, y = 5},
+    config = {
+        suspect_rank = nil,
+        suspect_suit = nil,
+        suspect_rank_revealed = false,
+        suspect_suit_revealed = false,
+        x_mult = 1,
+        a_xmult = 1
+    },
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.x_mult,
+                card.ability.a_xmult,
+                (card.ability.suspect_suit and card.ability.suspect_suit_revealed) and card.ability.suspect_suit or "???",
+                (card.ability.suspect_rank and card.ability.suspect_rank_revealed) and localize(card.ability.suspect_rank, "suits_singular") or "???",
+                colours = {
+                    (card.ability.suspect_suit and card.ability.suspect_suit_revealed) and G.C.SUITS[card.ability.suspect_suit] or G.C.FILTER
+                }
+            }
+        }
+    end,
+    calculate = function(self, card, context, effect)
+        -- Gain 0.75 mult if you find your suspect
+        if context.main_scoring and context.cardarea == G.play then
+            -- Pre-check
+            if card.ability.suspect_rank == nil then
+                local _table = Kino.mystery_card_select(card)
+                card.ability.suspect_rank = _table.rank
+                card.ability.suspect_suit = _table.suit
+            end
 
---         -- decrease and reveal
---         if (context.individual and context.cardarea == G.hand and not context.repetition and not context.blueprint) then
---             if card.ability.x_mult > 1 then
---                 local _choice = pseudorandom("mystery_card_kino", 1, #card.ability.options)
---                 -- local _choice = pseudorandom_element(card.ability.options, pseudoseed("mystery_card_kino"))
---                 card.ability.options[_choice] = true
---                 table.remove(card.ability.options, _choice)
+            -- Find me
+            local _mypos = nil
 
---                 card.ability.x_mult = card.ability.x_mult - card.ability.a_xmult
---             end
---         end
---     end,
---     add_to_deck = function(self, card, from_debuff)
--- 		card:flip()
--- 	end,
---     update = function(self, card, dt)
---         if card.area ~= G.play and card.sprite_facing == 'front' then
---             card:flip()
---         end
---     end
--- }
+            for _index, _pcard in ipairs(context.scoring_hand) do
+                if _pcard == card then
+                    _mypos = _index
+                end
+            end
 
--- local _bsf = Blind.stay_flipped
--- function Blind:stay_flipped(area, card, from_area)
---     if area == G.hand then
---         if card and card.center and SMODS.has_enhancement(card, 'm_kino_mystery') then
---             return true
---         end
---     end
+            if context.scoring_hand[_mypos + 1] then
+                local _suspect = context.scoring_hand[_mypos + 1]
+                local _suitmatch = false
+                local _rankmatch = false
 
---     return _bsf(self, area, card, from_area)
--- end
+                if _suspect:is_suit(card.ability.suspect_suit) then
+                    _suitmatch = true
+                    card.ability.suspect_suit_revealed = true
+                    card:juice_up()
+                end
 
--- local MysterySprite
--- SMODS.DrawStep {
---     key = "kino_enhancement_backs_step",
---     order = 50,
---     func = function(card, layer)
---         if card and SMODS.has_enhancement(card, 'm_kino_mystery') then
---             MysterySprite = MysterySprite or Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["kino_enhancements"], {x = 5, y = 1})
---             MysterySprite.role.draw_major = card
---             MysterySprite:draw_shader('dissolve', nil, nil, nil, card.children.center)
---             if not card.children.back_uibox then
---                 card.children.back_uibox = Kino.mystery_UI_box(card)
---             end
---             card.children.back_uibox:draw()
---         else
---             if card.children.back_uibox then
---                 card.children.back_uibox.states.visible = false
---             end
---         end
---     end,
---     conditions = {vortex = false, facing = 'back'}
--- }
+                if _suspect:get_id() == card.ability.suspect_rank then
+                    _rankmatch = true
+                    card.ability.suspect_rank_revealed = true
+                    card:juice_up()
+                end
 
--- SMODS.DrawStep {
---     key = "kino_enhancement_backs_step_cleaner",
---     order = 50,
---     func = function(card, layer)
---         if card and card.children.back_uibox then
---             card.children.back_uibox.states.visible = false
---         end
---     end,
---     conditions = {vortex = false, facing = 'front'}
--- }
+                if _suitmatch and _rankmatch then
+                    card.ability.x_mult = card.ability.x_mult + card.ability.a_xmult
 
--- function Kino.mystery_UI_box(card)
---     -- set the ui item
---     -- set the strings
---     local scale = 0.6
---     local _editionString = card.ability.edition and ((card.edition and card.edition.key) and localize{type = 'name', key = card.edition.key, set = "Edition"} or "No Edition") or "ERROR"
---     local _suitString = card.ability.suit and card.base.suit or "ERROR"
---     local _rankString = card.ability.rank and card:get_id() or "ERROR"
---     local _xOffset = -6
---     local _yOffset = 0.25
+                    -- reset card
+                    card.ability.suspect_suit_revealed = false
+                    card.ability.suspect_rank_revealed = false
+                    local _table = Kino.mystery_card_select(card)
+                    card.ability.suspect_rank = _table.rank
+                    card.ability.suspect_suit = _table.suit
+                end
+            end
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        -- Pick target card
+        local _table = Kino.mystery_card_select(card)
+        card.ability.suspect_rank = _table.rank
+        card.ability.suspect_suit = _table.suit
+    end
+}
 
---     local _editionUI = 
---     {
---         n = G.UIT.R,
---         config = {offset = {x=_xOffset,y=_yOffset * 1}, align = 'cl'},
---         nodes = {
---             {n = G.UIT.T,
---             config = {
---                 align = 'cl',
---                 text = _editionString,
---                 colour = G.C.MULT, 
---                 scale = 0.32 * (scale) * G.LANG.font.DESCSCALE, 
---             } }
---         }
---     }  
+Kino.mystery_card_select = function(card)
 
---     local _suitUI = {
---         n = G.UIT.R,
---         config = {offset = {x=_xOffset,y=_yOffset * 2}, align = 'cl'},
---         nodes = {
---             {n = G.UIT.T,
---             config = {
---                 align = 'cl',
---                 text = _suitString,
---                 colour = G.C.MULT, 
---                 scale = 0.32 * (scale) * G.LANG.font.DESCSCALE, 
---             } }
---         }
---     }  
+    local _pickedcard = card
+    while _pickedcard == card do
+        _pickedcard = pseudorandom_element(G.playing_cards, pseudoseed("kino_mysterygen"))
+    end
 
---     local _rankUI = {
---         n = G.UIT.R,
---         config = {offset = {x=_xOffset,y=_yOffset * 3}, align = 'cl'},
---         nodes = {
---             {n = G.UIT.T,
---             config = {
---                 align = 'cl',
---                 text = _rankString,
---                 colour = G.C.MULT, 
---                 scale = 0.32 * (scale) * G.LANG.font.DESCSCALE, 
---             } }
---         }
---     }  
+    local _suit = _pickedcard.base.suit
+    local _rank = _pickedcard:get_id()
 
---     -- card.T.x, card.T.y, card.T.w, card.T.h
---     local _returnUI = UIBox { 
---         definition = {
---             n = G.UIT.ROOT,
---             config = {
---                 minh = card.T.h,
---                 maxh = card.T.h,
---                 minw = card.T.w,
---                 maxw = card.T.w,
---                 r = 0.001,
---                 padding = 0,
---                 align = 'cm',
---                 colour = G.C.CLEAR,
---                 shadow = false,
---                 ref_table = card
---             },
---             nodes = {
---                 {
---                     n = G.UIT.C,
---                     config = {
---                         minh = card.T.h,
---                         maxh = card.T.h,
---                         minw = card.T.w,
---                         maxw = card.T.w,
---                         align = 'cm',
---                         colour = G.C.CLEAR,
---                         hover = true
---                     },
---                     nodes = {
---                         _editionUI,
---                         _suitUI,
---                         _rankUI
---                     }
---                 }
---             }
---         },
---         config = {
---             align = "tri",
---             bond = 'Strong',
---             parent = card,
---         },
---         states = {
---             collide = {can = false},
---             drag = { can = true }
---         }
---     }
+    return {
+        suit = _suit,
+        rank = _rank
+    }
+end
 
---     return _returnUI
--- end
+local MysterySprite
+SMODS.DrawStep {
+    key = "kino_enhancement_mystery_step",
+    order = 50,
+    func = function(card, layer)
+        if card and SMODS.has_enhancement(card, 'm_kino_mystery') then
+            MysterySprite = MysterySprite or Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["kino_enhancements"], {x = 5, y = 1})
+            MysterySprite.role.draw_major = card
+            MysterySprite:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, nil, 1)
+        end
+    end,
+    conditions = {vortex = false, facing = 'front'}
+}

@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 102,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_batman = true,
         extra = {
             money = 2,
             total_non = 0
@@ -27,10 +28,16 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    j_is_batman = true,
-    pools, k_genre = {"Superhero"},
+    pools = {["kino_batman"] = true}, 
+    k_genre = {"Superhero"},
 
     loc_vars = function(self, info_queue, card)
+
+        card.ability.extra.total_non = (G.jokers.config.card_limit - #G.jokers.cards) * card.ability.extra.money
+        for i = 1, #G.jokers.cards do
+            if kino_quality_check(G.jokers.cards[i], "is_batman") then card.ability.extra.total_non = card.ability.extra.total_non + 1 * card.ability.extra.money end
+        end
+
         return {
             vars = {
                 card.ability.extra.money,
@@ -39,15 +46,14 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        -- At the end of the round, gain $1 for each open joker slot (Batman jokers are excluded)
-        if G.STAGE == G.STAGES.RUN then
-            card.ability.extra.total_non = (G.jokers.config.card_limit - #G.jokers.cards) * card.ability.extra.money
-            for i = 1, #G.jokers.cards do
-                if G.jokers.cards[i].config.center.j_is_batman then card.ability.extra.total_non = card.ability.extra.total_non + 1 * card.ability.extra.money end
-            end
-        end
+
     end,
     calc_dollar_bonus = function(self, card)
+
+        card.ability.extra.total_non = (G.jokers.config.card_limit - #G.jokers.cards) * card.ability.extra.money
+        for i = 1, #G.jokers.cards do
+            if kino_quality_check(G.jokers.cards[i], "is_batman") then card.ability.extra.total_non = card.ability.extra.total_non + 1 * card.ability.extra.money end
+        end
 
         return card.ability.extra.total_non
     end

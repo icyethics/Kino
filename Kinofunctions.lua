@@ -135,6 +135,14 @@ function display_egg_message()
     end
 end
 
+function kino_quality_check(card, quality)
+
+    if card and card.ability and card.ability[quality] and card.ability[quality] ~= false then
+        return true
+    end
+    return false
+end
+
 -- Get Random hand type (Based on the neutronstarrandomhand function from Cryptid. (Planets.lua - line 830 - 853))
 function get_random_hand()
     local rand_hand
@@ -412,7 +420,6 @@ function check_genre_synergy()
     end
 
     G.jokers.config.synergyslots = (#five_of_genres * Kino.genre_synergy_slots)
-
     G.jokers.config.card_limit = G.jokers.config.card_limit + G.jokers.config.synergyslots
 end
 
@@ -711,6 +718,18 @@ function Kino.synergycheck()
     -- end
     check_genre_synergy()
     check_actor_synergy()
+end
+
+function Kino.can_multiply(target)
+    if target.config.center.kino_joker then
+        return true
+    end
+
+    if Cryptid then
+        return true
+    end
+
+    return false
 end
 ------------------------------
 

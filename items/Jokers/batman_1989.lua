@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 53,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_batman = true,
         extra = {
             a_mult = 1,
             total_non = 0,
@@ -28,11 +29,18 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Superhero", "Action"},
-    j_is_batman = true,
+    pools = {["kino_batman"] = true}, 
+    k_genre = {"Superhero", "Action"},
 
     loc_vars = function(self, info_queue, card)
         
+        card.ability.extra.total_non = (G.jokers.config.card_limit - #G.jokers.cards) * card.ability.extra.a_mult
+        for i = 1, #G.jokers.cards do
+            if kino_quality_check(G.jokers.cards[i], "is_batman") then 
+                card.ability.extra.total_non = card.ability.extra.total_non + (1 * card.ability.extra.a_mult)
+            end
+        end
+
         return {
             vars = {
                 card.ability.extra.a_mult,
@@ -43,14 +51,13 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- At the end of the round, gain +3 for each open joker slot.\
-        if G.STAGE == G.STAGES.RUN then
+        if context.end_of_round and context.cardarea == G.jokers and not context.blueprint then
             card.ability.extra.total_non = (G.jokers.config.card_limit - #G.jokers.cards) * card.ability.extra.a_mult
             for i = 1, #G.jokers.cards do
-                if G.jokers.cards[i].config.center.j_is_batman then card.ability.extra.total_non = card.ability.extra.total_non + (1 * card.ability.extra.a_mult) end
+                if kino_quality_check(G.jokers.cards[i], "is_batman") then 
+                    card.ability.extra.total_non = card.ability.extra.total_non + (1 * card.ability.extra.a_mult)
+                end
             end
-        end
-
-        if context.end_of_round and context.cardarea == G.jokers and not context.blueprint then
 
             card.ability.extra.stacked_mult = card.ability.extra.stacked_mult + card.ability.extra.total_non
         end
