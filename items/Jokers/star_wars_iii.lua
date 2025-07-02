@@ -72,11 +72,12 @@ SMODS.Joker {
                         }))
                     end
                 end
-            end
 
-            if context.individual and context.cardarea == G.play then
-                context.other_card.ability.perma_x_mult = (context.other_card.ability.perma_x_mult or 1) +
-                    card.ability.extra.stacks
+                if card.ability.extra.stacks > 0 then
+                    for _index, _pcard in ipairs(context.scoring_hand) do
+                        _pcard.ability.perma_x_mult = (_pcard.ability.perma_x_mult or 1) + card.ability.extra.stacks
+                    end
+                end
             end
 
             if context.after then

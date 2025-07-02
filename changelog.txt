@@ -1,3 +1,11 @@
+V 0.9.4g:
+Bug Fixes:
+- Star Wars Episode III: Revenge of the Sith no longer upgrades on retriggers
+- Fixed a bug with Soul cards not spawning souls
+
+Dependency Changes:
+- Kino is now dependant on the latest SMODS release, to avoid specific unintended interactions
+
 V 0.9.4f:
 Bug Fixes:
 - Dracula (1931): Dracula now properly gains xmult when triggered for unenhanced cards
