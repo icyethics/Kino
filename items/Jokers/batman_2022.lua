@@ -31,10 +31,14 @@ SMODS.Joker {
     k_genre = {"Superhero", "Mystery", "Action"},
 
     loc_vars = function(self, info_queue, card)
-        local _count = G.jokers.config.card_limit - #G.jokers.cards
-        for _index, _joker in ipairs(G.jokers.cards) do
-            if kino_quality_check(_joker, "is_batman") then
-                _count = _count + 1
+
+        local _count = 0
+        if G.jokers then
+            _count = G.jokers.config.card_limit - #G.jokers.cards
+            for _index, _joker in ipairs(G.jokers.cards) do
+                if kino_quality_check(_joker, "is_batman") then
+                    _count = _count + 1
+                end
             end
         end
 

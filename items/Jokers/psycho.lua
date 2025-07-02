@@ -33,17 +33,18 @@ SMODS.Joker {
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_jump_scare", vars = {tostring(Kino.jump_scare_mult)}}
         return {
             vars = {
-                G.GAME.probabilities.normal * 1,
+                G.GAME.probabilities.normal,
                 card.ability.extra.chance,
                 Kino.jump_scare_mult
             }
         }
     end,
     calculate = function(self, card, context)
-        -- Queens jump scare 1/4
-        if context.individual and context.cardarea == G.play and context.other_card.base.id == 12 then
+        -- Face cards held in hand have a 1/3 chance to jumpscare
+        if context.individual and context.cardarea == G.hand and context.other_card:is_face() and not context.end_of_round then
             if pseudorandom('psycho') < (G.GAME.probabilities.normal) / card.ability.extra.chance then
-                card.ability.extra.destroy_cards[#card.ability.extra.destroy_cards + 1] = context.other_card
+                -- card.ability.extra.destroy_cards[#card.ability.extra.destroy_cards + 1] = context.other_card
+                context.other_card.jumpscared = true
                 return {
                     x_mult = Kino.jump_scare_mult, 
                     message = localize('k_jump_scare'),
@@ -53,12 +54,10 @@ SMODS.Joker {
             end
         end
 
-        if context.destroying_card and #card.ability.extra.destroy_cards > 0 and not context.blueprint then
-            for i, card in ipairs(card.ability.extra.destroy_cards) do
-                if context.destroying_card == card then
-                    return true
-                end
-            end
+        if context.destroy_card and context.destroy_card.jumpscared then
+            return {
+                remove = true
+            }
         end
     end
 }

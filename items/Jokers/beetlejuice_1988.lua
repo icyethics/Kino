@@ -4,10 +4,10 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            x_mult = 2
+            x_mult = 3
         }
     },
-    rarity = 3,
+    rarity = 2,
     atlas = "kino_atlas_2",
     pos = { x = 3, y = 2},
     cost = 4,

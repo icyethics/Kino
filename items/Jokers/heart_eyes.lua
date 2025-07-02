@@ -29,7 +29,6 @@ SMODS.Joker {
         cast = {},
     },
     pools, k_genre = {"Romance", "Horror"},
-    enhancement_gate = "m_kino_romance",
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_jump_scare", vars = {tostring(Kino.jump_scare_mult)}}
@@ -41,10 +40,10 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        -- Romance cards have a 1/3 chance to jump scare
-        if context.individual and context.cardarea == G.play and SMODS.has_enhancement(context.other_card, "m_kino_romance") then
+        -- Hearts held in hand have a 1/3 chance to Jump Scare
+        if context.individual and context.cardarea == G.hand and context.other_card:is_suit("Hearts") and not context.end_of_round then
             if pseudorandom('heart_eyes') < (G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance then
-                card.ability.extra.destroy_cards[#card.ability.extra.destroy_cards + 1] = context.other_card
+                context.other_card.jumpscared = true
                 return {
                     x_mult = Kino.jump_scare_mult, 
                     message = localize('k_jump_scare'),
@@ -54,12 +53,10 @@ SMODS.Joker {
             end
         end
 
-        if context.destroying_card and #card.ability.extra.destroy_cards > 0 and not context.blueprint then
-            for i, card in ipairs(card.ability.extra.destroy_cards) do
-                if context.destroying_card == card then
-                    return true
-                end
-            end
+        if context.destroy_card and context.destroy_card.jumpscared then
+            return {
+                remove = true
+            }
         end
     end
 }

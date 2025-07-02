@@ -36,12 +36,19 @@ Jokers:
 - Batman V Superman: Dawn of Justice
 - Shin Kamen Rider
 
+Joker Reworks:
+- The Abyss
+- Heart Eyes
+- Psycho
+- Terror Train
+
 Tarots:
 - Detective
 - Superhero
 
 Spectrals:
 - Fright
+- Whimsy
 
 Enhancements:
 - Mystery Cards
@@ -49,13 +56,17 @@ Enhancements:
 
 Seals:
 - Thriller Seal
+- Comedy Seal
 
 Bug Fixes:
 - Cryptid Crossmod: Monster energy's don't retrigger every joker selected by monster energy
 - Cryptid Crossmod: Selling Monster Energy no longer lets the marker linger
+- Citizen Kane is now a Legendary, as intended
 
 Balance Changes:
 - Jaws: +30 Chips > +50 Chips
+- Star Wars Episode III: The Revenge of the Sith > No longer upgrades cards on retriggers
+- Beetlejuice: Rare, x2 > Uncommon, x3
 
 V 0.9.4f:
 Bug Fixes:

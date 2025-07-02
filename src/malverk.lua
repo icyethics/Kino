@@ -67,6 +67,7 @@ AltTexture{
         -- Row 2
         'j_kino_get_out',
         'j_kino_nope',
+        'j_kino_shining',
         -- 2001 a space odyssey (will never got a texture)
         'j_kino_shining',
         'j_kino_clockwork_orange',
@@ -81,7 +82,10 @@ AltTexture{
         'j_kino_terminator_1',
         -- Row 5
         'j_kino_terminator_2',
+        'j_kino_true_lies',
         'j_kino_avatar',
+        'j_kino_princess_bride',
+        'j_kino_stand_by_me',
         -- Row 6
         'j_kino_ghostbusters_1',
         'j_kino_twins',
@@ -233,12 +237,43 @@ AltTexture{
 }
 
 AltTexture{
+    key = 'kino_atlas_9',
+    set = 'Joker',
+    path = '009_kino_jokerresprite.png',
+    original_sheet = true,
+    keys = {
+        -- Row 1
+        -- Row 2
+        'j_kino_sausuge_party',
+        'j_kino_star_wars_iv',
+        -- Row 3
+        'j_kino_dune_1984'
+        -- Row 4
+        -- Row 5
+        -- Row 6
+    },
+}
+
+AltTexture{
     key = 'kino_atlas_10',
     set = 'Joker',
     path = '010_kino_jokerresprite.png',
     original_sheet = true,
     keys = {
-        'j_kino_human_centipede'
+        -- Row 1
+        -- Row 2
+        -- Row 3
+        'j_kino_human_centipede',
+        'j_kino_paulblart_1',
+        'j_kino_batman_66',
+        -- Row 4
+        'j_kino_batman_2022',
+        'j_kino_batman_mask_of_the_phantasm',
+        'j_kino_muppets_treasure_island',
+        -- Row 5
+        'j_kino_treasure_island',
+        -- Row 6
+        'j_kino_shinkamenrider'
     },
 }
 

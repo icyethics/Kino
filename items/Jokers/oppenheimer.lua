@@ -34,16 +34,15 @@ SMODS.Joker {
     pools, k_genre = {"Biopic", "Drama", "Historical"},
 
     loc_vars = function(self, info_queue, card)
-        local _mainreturncodex = Kino.codex_ui(card.ability.extra.codex_solve)
-        card.ability.extra.codex_lastplayed = Kino.assess_played_hand(card, card.ability.extra.codex)
-        local _lastplayedhand = Kino.codex_ui(card.ability.extra.codex_lastplayed, true)
+        local _mainreturncodex = Kino.codex_ui("rank", card.ability.extra.codex_solve)
+        local _lastplayedhand = Kino.last_hand_played_codex("rank", card.ability.extra.codex_lastplayed, true)
         local _codexreturn = {
         {
                 n = G.UIT.C,
                 config = {
                     align = 'cm',
                     colour = G.C.CLEAR,
-                    padding = 0.1
+                    padding = 0.01
                 },
                 nodes = {
                     _mainreturncodex,
@@ -63,7 +62,7 @@ SMODS.Joker {
         if context.joker_main then
             local result = false
             if not context.blueprint and not context.repetition then
-                card.ability.extra.codex_solve, result = Kino.check_codex(card, card.ability.extra.codex, context.full_hand, card.ability.extra.codex_solve)
+                result, card.ability.extra.codex_solve, card.ability.extra.codex_lastplayed = Kino.compare_hand_to_codex(card, card.ability.extra.codex, context.full_hand, card.ability.extra.codex_solve, 'rank')
                 if result == true then
                     card.ability.extra.solved = true
                 end

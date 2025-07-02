@@ -4,7 +4,8 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            chance = 4,
+            cur_chance = 1,
+            chance = 5,
             destroy_cards = {}
         }
     },
@@ -35,14 +36,17 @@ SMODS.Joker {
         return {
             vars = {
                 G.GAME.probabilities.normal,
-                card.ability.extra.chance
+                card.ability.extra.chance,
+                card.ability.extra.cur_chance
             }
         }
     end,
     calculate = function(self, card, context)
-        -- Unscored cards have a 1/4 chance to jump scare
-        if context.individual and context.cardarea == "unscored" then
-            if pseudorandom("abyss") < G.GAME.probabilities.normal / card.ability.extra.chance then
+        -- Cards held in hand have a 0/4 chance to jumpscare, increased by 1 for each unscored card
+        if context.individual and context.cardarea == G.hand and not context.end_of_round then
+            local _unscoring_cards =  #context.full_hand - #context.scoring_hand
+
+            if pseudorandom("abyss") < (_unscoring_cards * G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance then
                 context.other_card.jumpscared = true
                 return {
                     x_mult = Kino.jump_scare_mult, 

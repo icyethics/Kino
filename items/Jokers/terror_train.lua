@@ -43,16 +43,20 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        --  Cards have a 1/10 chance to jump scare. 
-        -- Whenever you play a high card, increase it by 1. (Jump Scare == give X3, get destroyed after scoring.)
-        -- Card Destruction through jump scares needs to be INJECTED
-        if context.before and context.scoring_name == "High Card" then
-            card.ability.extra.total_chance = card.ability.extra.total_chance + card.ability.extra.a_chance
-        end
+        -- Cards that share a rank with scoring cards have a 1/3 chance to Jumpscare
 
-        if context.individual and context.cardarea == G.play then
-            if pseudorandom('terror_train') < (G.GAME.probabilities.normal * card.ability.extra.total_chance) / card.ability.extra.chance then
-                card.ability.extra.destroy_cards[#card.ability.extra.destroy_cards + 1] = context.other_card
+        if context.individual and context.cardarea == G.hand and not context.end_of_round then
+            local _rankmatch = false
+
+            for _index, _pcard in ipairs(context.scoring_hand) do
+                if _pcard:get_id() == context.other_card:get_id() then
+                    _rankmatch = true
+                end
+            end
+            
+            if _rankmatch and
+            pseudorandom('terror_train') < (G.GAME.probabilities.normal * card.ability.extra.total_chance) / card.ability.extra.chance then
+                context.other_card.jumpscared = true
                 return {
                     x_mult = Kino.jump_scare_mult, 
                     message = localize('k_jump_scare'),
@@ -62,12 +66,10 @@ SMODS.Joker {
             end
         end
 
-        if context.destroying_card and #card.ability.extra.destroy_cards > 0 and not context.blueprint then
-            for i, card in ipairs(card.ability.extra.destroy_cards) do
-                if context.destroying_card == card then
-                    return true
-                end
-            end
+        if context.destroy_card and context.destroy_card.jumpscared then
+            return {
+                remove = true
+            }
         end
     end
 }

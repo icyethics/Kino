@@ -9,7 +9,7 @@ SMODS.Joker {
             base_value = 0.01
         }
     },
-    rarity = 1,
+    rarity = 4,
     atlas = "kino_atlas_legendary",
     pos = { x = 2, y = 0},
     soul_pos = { x = 2, y = 1},

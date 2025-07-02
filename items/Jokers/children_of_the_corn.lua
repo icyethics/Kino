@@ -31,9 +31,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.stacked_chips,
-                card.ability.extra.a_chips,
-                card.ability.extra.will_trigger
+                card.ability.extra.chips
             }
         }
     end,

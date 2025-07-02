@@ -33,9 +33,13 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
 
-        card.ability.extra.total_non = (G.jokers.config.card_limit - #G.jokers.cards) * card.ability.extra.money
-        for i = 1, #G.jokers.cards do
-            if kino_quality_check(G.jokers.cards[i], "is_batman") then card.ability.extra.total_non = card.ability.extra.total_non + 1 * card.ability.extra.money end
+        if G.jokers then
+            card.ability.extra.total_non = (G.jokers.config.card_limit - #G.jokers.cards) * card.ability.extra.money
+            for i = 1, #G.jokers.cards do
+                if kino_quality_check(G.jokers.cards[i], "is_batman") then 
+                    card.ability.extra.total_non = card.ability.extra.total_non + 1 * card.ability.extra.money 
+                end
+            end
         end
 
         return {
