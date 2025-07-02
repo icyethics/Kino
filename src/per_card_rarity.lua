@@ -13,6 +13,9 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
     local _total_weight = 0
     local _available_rarities = {}
     local _raritycount = 0
+    if _legendary then 
+        _rarity = 4
+    end
     if _rarity then
         if _rarity == 0 then _rarity = 1 end
         _available_rarities[tostring(_rarity)] = {key = _rarity, weight = 1}
@@ -140,7 +143,7 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
 
         -- set weight and add to pool if not banned
         if add and not G.GAME.banned_keys[_cardobject.key] then
-
+            print(_cardobject.key)
             
             local weight = _cardobject.rarity and _available_rarities[_cardobject.rarity] and _available_rarities[_cardobject.rarity].weight or 1
             local passtrue = true
@@ -149,10 +152,15 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
                 weight = 0
             end
 
-            if _cardobject.legendary_conditions then
+            if _cardobject.legendary_conditions and not _legendary then
                 local _garb, rarity_test = _cardobject:legendary_conditions(self, _cardobject)
                 rarity_test = tostring(6 - rarity_test)
                 weight = _available_rarities[rarity_test] and _available_rarities[rarity_test].weight or 0
+            end
+
+            -- Force a legendary to spawn if the pool is legendary
+            if _cardobject.rarity == "4" and _legendary then
+                weight = 1
             end
 
             weight = Kino.modify_weight(_cardobject, weight)

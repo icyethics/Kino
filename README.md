@@ -1,4 +1,4 @@
-# Balatro Goes Kino V0.9.4f:
+# Balatro Goes Kino V0.9.4g:
 
 By Ice/IcyEthics
 
@@ -21,6 +21,7 @@ Balatro Goes Kino adds content that's exclusively available when playing with ce
 - **CardSleeves**: https://github.com/larswijn/CardSleeves
 - **Cryptid**: https://github.com/SpectralPack/Cryptid
 - **MoreFluff**: https://github.com/notmario/MoreFluff
+- **Malverk**: https://github.com/Eremel/Malverk
 
 ### FAQ:
 *I'm here to look at the code and see if I can learn from it for my own mod. What can I take?*
