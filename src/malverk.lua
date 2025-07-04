@@ -79,16 +79,25 @@ AltTexture{
         'j_kino_batman_1989',
         'j_kino_ed_wood',
         -- Row 4
+        'j_kino_mars_attacks',
+        'j_kino_sleepy_hollow',
+        'j_kino_charlie_and_the_chocolate_factory',
         'j_kino_terminator_1',
+        'j_kino_aliens',
+        'j_kino_abyss',
         -- Row 5
         'j_kino_terminator_2',
         'j_kino_true_lies',
         'j_kino_avatar',
         'j_kino_princess_bride',
         'j_kino_stand_by_me',
+        'j_kino_when_harry_met_sally',
         -- Row 6
+        -- 'j_kino_bucket_list',
         'j_kino_ghostbusters_1',
+        'j_kino_stripes',
         'j_kino_twins',
+        'j_kino_kindergarten_cop',
         'j_kino_junior'
     },
 }
@@ -101,21 +110,50 @@ AltTexture{
     keys = {
         -- Row 1
         'j_kino_alien_3',
+        'j_kino_se7en',
+        -- 'j_kino_game',
         'j_kino_panic_room',
+        -- 'j_kino_zodiac',
+        -- 'j_kino_benjamin_button'
+        
         -- Row 2
+        -- 'j_kino_social_network',
+        -- 'j_kino_point_break',
+        -- 'j_kino_iron_man',
+        -- 'j_kino_iron_giant',
+        -- 'j_kino_ex_machina',
 
         -- Row 3
+        -- 'j_kino_wall_e',
+        -- 'j_kino_m3gan',
+        -- 'j_kino_matrix_1',
         'j_kino_ai_artificial',
+        -- 'j_kino_duel',
+        -- 'j_kino_sugarland_express',
+
         -- Row 4
         'j_kino_close_encounters',
+        -- indiana jones
+        -- 'j_kino_always',
+        'j_kino_hook',
         'j_kino_jurassic_park_1',
         'j_kino_catch_me_if_you_can',
+
         -- Row 5
         'j_kino_bfg',
+        -- 'j_kino_ready_player_one',
+        -- 'j_kino_frankenstein',
+        -- 'j_kino_memento',
         'j_kino_insomnia',
         'j_kino_batman_begins',
+
         -- Row 6
+        -- 'j_kino_prestige',
+        'j_kino_dark_knight',
+        'j_kino_inception',
         'j_kino_interstellar',
+        -- 'j_kino_tenet',
+        -- 'j_kino_oppenheimer'
     },
 }
 
@@ -202,16 +240,31 @@ AltTexture{
     keys = {
         -- Row 1
         'j_kino_hard_eight',
+        -- 'j_kino_doctor_zhivago',
         'j_kino_contagion',
+        -- 'j_kino_house_of_gucci',
+        'j_kino_arrival',
+        -- 'j_kino_gravity'
+        
         -- Row 2
         -- Row 3
         -- Row 4
+
         -- Row 5
+        -- 'j_kino_demon_knight',
         'j_kino_baby_driver',
+        -- 'j_kino_peggy_sue_got_married',
+        -- 'j_kino_trial',
+        -- 'j_kino_tree_of_life',
         'j_kino_frighteners',
+
         -- Row 6
         'j_kino_men_in_black_1',
-        'j_kino_as_above'
+        'j_kino_pirates_of_the_caribbean_1',
+        -- 'j_kino_double_dragon',
+        -- 'j_kino_kung_fu_panda_1',
+        'j_kino_as_above',
+        -- 'j_kino_grown_ups'
     },
 }
 
@@ -266,6 +319,10 @@ AltTexture{
         'j_kino_human_centipede',
         'j_kino_paulblart_1',
         'j_kino_batman_66',
+        'j_kino_batman_returns',
+        'j_kino_batman_forever',
+        -- 'j_kino_dark_knight_rises',
+        
         -- Row 4
         'j_kino_batman_2022',
         'j_kino_batman_mask_of_the_phantasm',

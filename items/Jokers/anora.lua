@@ -37,6 +37,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
+        -- When you make a match, put an investment counter on every card held in hand
         if context.joker_main then
             local _romance_cards = 0
             for i = 1, #context.scoring_hand do

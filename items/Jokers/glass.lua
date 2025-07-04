@@ -32,9 +32,11 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         local _count = 0
-        for _index, _pcard in ipairs(G.playing_cards) do
-            if SMODS.has_enhancement(_pcard, "m_glass") then
-                _count = _count + 1
+        if G.playing_cards then
+            for _index, _pcard in ipairs(G.playing_cards) do
+                if SMODS.has_enhancement(_pcard, "m_glass") then
+                    _count = _count + 1
+                end
             end
         end
 

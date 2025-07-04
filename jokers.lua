@@ -1,4 +1,6 @@
 joker_list = {
+"handlerobject",
+
     ------ Common
 "9_movie",
 "ai_artificial",
@@ -254,7 +256,7 @@ joker_list = {
 ------ Rare
 "angel_hearts",
 "annihilation",
--- "arrival",
+"arrival",
 "asteroid_city",
 "batman_2022",
 "batman_66",

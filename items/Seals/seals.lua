@@ -171,9 +171,12 @@ SMODS.Seal{
     sound = { sound = 'generic1', per = 1.2, vol = 0.4 },
 
     calculate = function(self, card, context)
-        -- When held in hand, Upgrade a random card in hand with +1 chips
-        -- Whenever a joker triggers
-
-        -- Effect option two: Put a retrigger mark on a random joker when discarded
+        if context.discard and context.other_card == card and
+        context.full_hand and #context.full_hand > 0 then
+            if G.jokers and #G.jokers.cards > 0 then
+                local _target = pseudorandom_element(G.jokers.cards, pseudoseed("kino_comedyseal"))
+                Kino.change_counters(_target, "kino_retrigger", 1)
+            end
+        end
     end,
 }

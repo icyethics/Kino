@@ -343,7 +343,7 @@ return {
                     {"{C:money}$#1#{} for every {C:money}$#2#{}"},
                     {"{C:green}#7# in #3#{} chance to double your {C:money}money"},
                     {"{C:green}#5# in #4# chance to {C:attention}Bust{} instead",
-                    "Chance increases by {C:green}#6#{} at end of round)",
+                    "(Chance increases by {C:green}#6#{} at end of round)",
                     },
                 }
             },
@@ -3597,7 +3597,7 @@ return {
                     "Each card scored",
                     "has a {C:green}#1# in #2#{}",
                     "chance to either earn $5",
-                    "or lose $10"
+                    "or gain 3 {C:attention}Debt Counters{}"
                 }
             },
             bl_kino_pazuzu = {
@@ -3662,9 +3662,11 @@ return {
             bl_kino_hansgruber = {
                 name = "Hans Gruber",
                 text = {
-                    "Steals half your",
-                    "money after you",
-                    "play a hand"
+                    "Joker lose {C:money}$2{}",
+                    "Sell Value when triggered",
+                    "If their value is {C:money}$0",
+                    "or lower, put a Debuff Counter",
+                    "on it instead"
                 }
             },
             bl_kino_blofeld = {
@@ -3702,8 +3704,8 @@ return {
             bl_kino_mr_chow = {
                 name = "Mr. Chow",
                 text = {
-                    "Downgrade each {C:attention}Scored",
-                    "card with {C:money}-$1{}"
+                    "Each scoring card",
+                    "gains 2 {C:attention}Debt counters"
                 }
             },
             bl_kino_deckard_shaw = {
@@ -3740,7 +3742,10 @@ return {
             bl_kino_sallie_tomato = {
                 name = "Sallie Tomato",
                 text = {
-                    "Discarding costs -$#1#"
+                    "When you discard",
+                    "put #1# {C:attention}Debt Counter",
+                    "on #2# cards held",
+                    "in hand"
                 }
             },
             bl_kino_agent_smith = {
@@ -3765,6 +3770,14 @@ return {
                     "Every #1# seconds, increase the rank",
                     "of a random card in your hand",
                     "or destroy it if it's an Ace"
+                }
+            },
+            bl_kino_pgande = {
+                name = "PG&E",
+                text = {
+                    "Put a {C:green}Poison Counter",
+                    "on each card held in hand",
+                    "when a card is scored"
                 }
             },
             bl_kino_thanos = {
@@ -4003,6 +4016,25 @@ return {
                 }
             },
 
+            -- Counter Tooltips
+            kino_retrigger_counter = {
+                name = "Retrigger Counters",
+                text = {
+                    "Will Retrigger",
+                    "once for each",
+                    "counter consumed"
+                }
+            },
+            kino_stun_counter = {
+                name = "Stun Counters",
+                text = {
+                    "Card is debuffed",
+                    "while it has counters",
+                    "Remove 1 counter",
+                    "when playing a hand"
+                }
+            },
+
             kino_additional_genres = {
                 name = "Additional Genres",
                 text = {
@@ -4188,10 +4220,10 @@ return {
             kino_comedy_seal = {
                 name = "Comedy Seal",
                 text = {
-                    "While held in hand",
-                    "upgrade a random card",
-                    "with {C:chips}+#1#{} Chips",
-                    "whenever a Joker triggers"
+                    "Add a {C:attention}Retrigger Counter",
+                    "to a random joker",
+                    "when the only card",
+                    "that is discarded"
                 }
             },
             kino_cheese_seal = {

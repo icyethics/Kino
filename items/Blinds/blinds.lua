@@ -213,8 +213,7 @@ SMODS.Blind{
 --     end
 -- }
 
--- WORKS
---- each scoring card has a 1/10 chance to double your gold, or make you bust
+-- Each card has a 1/4 chance to give $5 or gain 3 debt counters
 SMODS.Blind{
     key = "gekko",
     dollars = 10,
@@ -224,13 +223,17 @@ SMODS.Blind{
     boss = {min = 1, max = 10},
     pos = { x = 0, y = 5},
     debuff = {
-        chance = 10
+        chance = 4,
+        money_gain = 4,
+        debt_counters = 3
     },
     loc_vars = function(self)
         return {
             vars = {
                 G.GAME.probabilities.normal,
-                10
+                4,
+                4,
+                3
             }
         }
     end,
@@ -238,7 +241,9 @@ SMODS.Blind{
         return {
             vars = {
                 G.GAME.probabilities.normal,
-                10
+                4,
+                4,
+                3
             }
         }
     end,
@@ -256,12 +261,13 @@ SMODS.Blind{
                         offset = {x = 0, y = -1},
                         silent = true
                     })
-                    ease_dollars(5)
+                    ease_dollars(self.debuff.money_gain)
                     play_sound('tarot2', 1, 0.4)
                     blind:wiggle()
                 return true end }))
 
             elseif pseudorandom("gekko_blind_bust") < (G.GAME.probabilities.normal / self.debuff.chance) then
+                local _target = context.other_card
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
                     attention_text({
                         text = localize('k_blind_gekko_2'),
@@ -272,7 +278,7 @@ SMODS.Blind{
                         offset = {x = 0, y = -1},
                         silent = true
                     })
-                    ease_dollars(-5)
+                    Kino.change_counters(_target, "kino_debt", 3)
                     play_sound('tarot2', 1, 0.4)
                     blind:wiggle()
                 return true end }))
@@ -651,7 +657,38 @@ SMODS.Blind{
     end
 }
 
--- WORKS
+-- WORKS (--rework)
+-- SMODS.Blind{
+--     key = "hansgruber",
+--     dollars = 5,
+--     mult = 2,
+--     boss_colour = HEX('4f4858'),
+--     atlas = 'kino_blinds', 
+--     boss = {min = 1, max = 10},
+--     pos = { x = 0, y = 13},
+--     debuff = {
+--         chips_debuff = 10,
+--         mult_debuff = 1,
+--     },
+--     loc_vars = function(self)
+
+--     end,
+--     collection_loc_vars = function(self)
+
+--     end,
+--     in_pool = function(self)
+--         if to_big(G.GAME.dollars) > to_big(25) then
+--             return true
+--         end
+--         return false
+--     end,
+--     press_play = function(self)
+--         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
+--             ease_dollars(-1 * round_number(G.GAME.dollars / 2, 0))
+--             return true end })) 
+--     end,
+-- }
+
 SMODS.Blind{
     key = "hansgruber",
     dollars = 5,
@@ -661,8 +698,7 @@ SMODS.Blind{
     boss = {min = 1, max = 10},
     pos = { x = 0, y = 13},
     debuff = {
-        chips_debuff = 10,
-        mult_debuff = 1,
+        value_lowering = 2
     },
     loc_vars = function(self)
 
@@ -671,15 +707,22 @@ SMODS.Blind{
 
     end,
     in_pool = function(self)
-        if to_big(G.GAME.dollars) > to_big(25) then
-            return true
-        end
-        return false
     end,
-    press_play = function(self)
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
-            ease_dollars(-1 * round_number(G.GAME.dollars / 2, 0))
-            return true end })) 
+    calculate = function(self, blind, context)
+        -- lower sell value by 2, add a debuff counter if value is 0 or lower
+        if context.post_trigger and
+        not context.other_context.destroying_card then
+            local _target = context.other_card
+            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.5, func = function()
+                if _target.sell_cost <= 0 then
+                    Kino.change_counters(_target, "kino_stun", 1)
+                else
+                    _target.ability.extra_value = _target.ability.extra_value - self.debuff.value_lowering
+                    _target:set_cost()
+                end
+            return true end }))
+            
+        end
     end,
 }
 
@@ -900,8 +943,7 @@ SMODS.Blind{
     boss = {min = 4, max = 10},
     pos = { x = 0, y = 18},
     debuff = {
-        chips_debuff = 10,
-        mult_debuff = 1,
+        debt_counters = 2
     },
     loc_vars = function(self)
 
@@ -913,8 +955,7 @@ SMODS.Blind{
     calculate = function(self, blind, context)
         if context.after and context.scoring_hand then
             for _, _pcard in ipairs(context.scoring_hand) do
-                _pcard.ability.perma_p_dollars = _pcard.ability.perma_p_dollars or 0
-                _pcard.ability.perma_p_dollars = _pcard.ability.perma_p_dollars - 1
+                Kino.change_counters(_pcard, "kino_debt", self.debuff.debt_counters)
             end
         end
     end
@@ -1128,7 +1169,7 @@ SMODS.Blind{
     end
 }
 
--- discarding costs $5
+-- When you discard, put a debt counter on a random card in hand 5 times
 SMODS.Blind{
     key = "sallie_tomato",
     dollars = 5,
@@ -1138,12 +1179,14 @@ SMODS.Blind{
     boss = {min = 2, max = 10},
     pos = { x = 0, y = 23},
     debuff = {
-        money_earned = 5
+        -- money_earned = 5
+        debt_earned = 1, 
+        targets = 5
     },
     loc_vars = function(self)
         return {
             vars = {
-                self.debuff.money_earned
+                self.debuff.debt_earned
             }
         }
     end,
@@ -1156,7 +1199,27 @@ SMODS.Blind{
     end,
     calculate = function(self, blind, context)
         if context.pre_discard then
-            ease_dollars(-1 * blind.debuff.money_earned)
+            -- ease_dollars(-1 * blind.debuff.money_earned)
+            local _valid_targets = {}
+
+            for _index, _pcard in ipairs(G.hand.cards) do
+                local _beingdiscarded = false
+                for _index2, _pcardcomp in ipairs(context.full_hand) do
+                    if _pcard == _pcardcomp then 
+                        _beingdiscarded = true
+                        break
+                    end
+                end
+
+                if _beingdiscarded == false then
+                    _valid_targets[#_valid_targets + 1] = _pcard
+                end
+            end
+
+            for i = 1, self.debuff.targets do
+                local _target = pseudorandom_element(_valid_targets, pseudoseed("kino_sally"))
+                Kino.change_counters(_target, "kino_debt", 1)
+            end
         end
     end
 }
@@ -1326,6 +1389,50 @@ SMODS.Blind{
             
 
             G.E_MANAGER:add_event(event)
+        end
+    end
+}
+
+SMODS.Blind{
+    key = "pgande",
+    dollars = 5,
+    mult = 2,
+    boss_colour = HEX('529cb7'),
+    atlas = 'kino_blinds', 
+    boss = {min = 1, max = 10},
+    pos = { x = 0, y = 32},
+    debuff = {
+
+    },
+    loc_vars = function(self)
+        return {
+            vars = {
+
+            }
+        }
+    end,
+    collection_loc_vars = function(self)
+        return {
+            vars = {
+
+            }
+        }
+    end,
+    disable = function(self)
+
+    end,
+    defeat = function(self)
+
+    end,
+    calculate = function(self, blind, context)
+        -- Whenever a card scores, put a poison counter on all cards held in hand
+        if context.individual and context.cardarea == G.play then
+            for _index, _pcard in ipairs(G.hand.cards) do
+                G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
+                    blind:wiggle()
+                    Kino.change_counters(_pcard, "kino_poison", 1)
+                return true end }))
+            end
         end
     end
 }

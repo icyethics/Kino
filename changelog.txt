@@ -1,4 +1,7 @@
-V 0.9.?
+V 0.10
+
+New Mechanic:
+Counters!
 
 New Content:
 Jokers:
@@ -35,12 +38,20 @@ Jokers:
 - The Batman (2022),
 - Batman V Superman: Dawn of Justice
 - Shin Kamen Rider
+- Oppenheimer
+- Arrival
 
 Joker Reworks:
 - The Abyss
 - Heart Eyes
 - Psycho
 - Terror Train
+
+Boss Blind Reworks:
+- Gordon Gekko
+- Hans Gruber
+- Mr. Chow
+- Sallie Tomato
 
 Tarots:
 - Detective

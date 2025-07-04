@@ -367,6 +367,7 @@ pattern = '''
 position = "after"
 payload = '''
 table.insert(t, Kino.snackbag)
+table.insert(t, G.kino_offscreen_area)
 '''
 match_indent = true
 times = 1
@@ -828,6 +829,28 @@ config = {align=
 match_indent = true
 
 
+# # Calculation, add post-trigger to individual cards for seals
+# [[patches]]
+# [patches.pattern]
+# target = "functions/common_events.lua"
+# pattern = '''
+# -- TARGET: evaluate your own general effects
+#     local post_trig = {}
+#     local areas = SMODS.get_card_areas('jokers')
+#     local area_set = {}
+#     for _,v in ipairs(areas) do area_set[v] = true end
+# '''
+# position = "at"
+# payload = '''
+# -- TARGET: evaluate your own general effects
+# local post_trig = {}
+# local area_set = {}
+# local areas = SMODS.get_card_areas('jokers')
+# for _,v in ipairs(areas) do area_set[v] = true end
+# local areas = SMODS.get_card_areas('playing_cards')
+# for _,v in ipairs(areas) do area_set[v] = true end
+# '''
+# match_indent = true
 
 
 

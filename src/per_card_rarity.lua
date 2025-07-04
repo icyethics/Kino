@@ -143,7 +143,6 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
 
         -- set weight and add to pool if not banned
         if add and not G.GAME.banned_keys[_cardobject.key] then
-            print(_cardobject.key)
             
             local weight = _cardobject.rarity and _available_rarities[_cardobject.rarity] and _available_rarities[_cardobject.rarity].weight or 1
             local passtrue = true

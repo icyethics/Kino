@@ -272,7 +272,7 @@ SMODS.Consumable {
         return true end }))
         
         G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function()
-            conv_card:set_seal("comedy", nil, true)
+            conv_card:set_seal("kino_comedy", nil, true)
             return true end }))
         
         delay(0.5)

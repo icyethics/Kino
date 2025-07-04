@@ -6,19 +6,11 @@ kino_config = SMODS.current_mod.config
 -- Kino = SMODS.current_mod
 Kino.jokers = {}
 
-Kino.optional_features = function()
-    return {
-        retrigger_joker = true,
-        cardareas = {unscored = true}
-    }
-end
+SMODS.current_mod.optional_features = {
+	retrigger_joker = true,
+	post_trigger = true,
+}
 
-optional_features = function()
-    return {
-        retrigger_joker = true,
-        cardareas = {unscored = true}
-    }
-end
 
 -- Read in all the sprites
 SMODS.Atlas {
@@ -195,6 +187,20 @@ SMODS.Atlas {
     path = 'kino_seg_display.png'
 }
 
+SMODS.Atlas {
+    key = "kino_counters_jokers",
+    px = 71,
+    py = 95,
+    path = 'kino_retrigger_info.png'
+}
+
+SMODS.Atlas {
+    key = "kino_counters_pcards",
+    px = 71,
+    py = 95,
+    path = 'kino_counters_pcards.png'
+}
+
 -- Crossmod Atlases
 SMODS.Atlas {
     key = "kino_cryptid_consumables",
@@ -245,6 +251,7 @@ local _list_of_files = {
     "src/boss_blinds.lua",
     "src/abduction.lua",
     "src/codex_rework.lua",
+    "src/counters.lua",
     "src/snack_bag.lua",
     "src/quest.lua",
     "src/malverk.lua",

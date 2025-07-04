@@ -1,6 +1,6 @@
 local _o_gsr = Game.start_run
 function Game:start_run(args)
-  local ret = _o_gsr(self, args)
+    local ret = _o_gsr(self, args)
   
     -- Setting up the base suit count for the deck
     self.GAME.suit_startingcounts = {}
@@ -17,7 +17,16 @@ function Game:start_run(args)
         self.GAME.suit_startingcounts[_suitname] = _count
     end
 
-  return ret
+    -- Invisible Joker Behaviour Handler
+    self.kino_offscreen_area = CardArea(
+        G.TILE_W - 600*G.CARD_W - 200.95, -100.1*G.jokers.T.h,
+        G.jokers.T.w, G.jokers.T.h,
+        { type = "joker", card_limit = 100000, highlighted_limit = 0 }
+    )
+
+    local _calcjoker = SMODS.add_card{key = "j_kino_handlerobject", area = self.kino_offscreen_area, skip_materialize = true, no_edition = true}
+
+    return ret
 end
 
 
@@ -118,6 +127,75 @@ Game.init_game_object = function(self)
                 })
         end
     end
+
+    --- Set up for the Counter System
+    -- Jokers
+    self.counter_numbers_jokers = {
+
+    }
+    for i = 1, 10 do
+        self.counter_numbers_jokers[i] = Sprite(0, 0, self.CARD_W, self.CARD_W,
+            G.ASSET_ATLAS["kino_counters_jokers"], {
+                x = i - 1,
+                y = 0
+            })
+    end
+
+    local _listofsprites = {
+        {name = "kino_retrigger", x = 0, y = 1},
+        {name = "kino_investment", x = 1, y = 1},
+        {name = "kino_power", x = 2, y = 1},
+        {name = "kino_heal", x = 3, y = 1},
+
+        {name = "kino_stun", x = 0, y = 2},
+        {name = "kino_debt", x = 1, y = 2},
+        {name = "kino_pinned", x = 2, y = 2},
+        {name = "kino_poison", x = 3, y = 2},
+    }
+
+    self.counter_sprites_jokers = {}
+    for _index, _info in ipairs(_listofsprites) do
+        self.counter_sprites_jokers[_info.name] = Sprite(0, 0, self.CARD_W, self.CARD_W,
+            G.ASSET_ATLAS["kino_counters_jokers"], {
+                x = _info.x,
+                y = _info.y
+            })
+    end
+
+    -- Playing Cards
+    self.counter_numbers_pcards = {
+
+    }
+    for i = 1, 10 do
+        self.counter_numbers_pcards[i] = Sprite(0, 0, self.CARD_W, self.CARD_W,
+            G.ASSET_ATLAS["kino_counters_pcards"], {
+                x = i - 1,
+                y = 0
+            })
+    end
+
+    local _listofsprites = {
+        {name = "kino_retrigger", x = 0, y = 1},
+        {name = "kino_investment", x = 1, y = 1},
+        {name = "kino_power", x = 2, y = 1},
+        {name = "kino_heal", x = 3, y = 1},
+
+        {name = "kino_stun", x = 0, y = 2},
+        {name = "kino_debt", x = 1, y = 2},
+        {name = "kino_pinned", x = 2, y = 2},
+        {name = "kino_poison", x = 3, y = 2},
+    }
+
+    self.counter_sprites_pcards = {}
+    for _index, _info in ipairs(_listofsprites) do
+        self.counter_sprites_pcards[_info.name] = Sprite(0, 0, self.CARD_W, self.CARD_W,
+            G.ASSET_ATLAS["kino_counters_pcards"], {
+                x = _info.x,
+                y = _info.y
+            })
+    end
+    
+    
 
     ret.kino_genre_weight = {}
     for _, _genre in ipairs(kino_genres) do
