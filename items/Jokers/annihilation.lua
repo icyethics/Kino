@@ -30,10 +30,12 @@ SMODS.Joker {
     pools, k_genre = {"Sci-fi", "Horror"},
 
     loc_vars = function(self, info_queue, card)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, card.ability.extra.chance_cur, card.ability.extra.chance, "kino_card_manipulation")
+          
         return {
             vars = {
-                (G.GAME.probabilities.normal * card.ability.extra.cur_chance),
-                card.ability.extra.chance
+                new_numerator,
+                new_denominator
             }
         }
     end,
@@ -49,19 +51,20 @@ SMODS.Joker {
                     local _changes = false
                     
                     -- rank check
-                    if pseudorandom("kino_annihilation") < ((G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance) then
+                    if SMODS.pseudorandom_probability(card, 'kino_annihilation', card.ability.extra.chance_cur, card.ability.extra.chance, "kino_card_manipulation") then
+  
                         SMODS.modify_rank(_pcard, nil, _basecard:get_id())
                         _changes = true
                     end
 
                     -- suit check
-                    if pseudorandom("kino_annihilation") < ((G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance) then
+                    if SMODS.pseudorandom_probability(card, 'kino_annihilation', card.ability.extra.chance_cur, card.ability.extra.chance, "kino_card_manipulation") then
                         SMODS.change_base(_pcard, _basecard.base.suit)
                         _changes = true
                     end
 
                     -- seal check
-                    if pseudorandom("kino_annihilation") < ((G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance) then
+                    if SMODS.pseudorandom_probability(card, 'kino_annihilation', card.ability.extra.chance_cur, card.ability.extra.chance, "kino_card_manipulation") then
                         local _seal = nil
                         if _basecard:get_seal() then seal = _basecard:get_seal() end
                         _pcard:set_seal(_seal)
@@ -69,13 +72,13 @@ SMODS.Joker {
                     end
 
                     -- enhancement check
-                    if pseudorandom("kino_annihilation") < ((G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance) then
+                    if SMODS.pseudorandom_probability(card, 'kino_annihilation', card.ability.extra.chance_cur, card.ability.extra.chance, "kino_card_manipulation") then
                         _pcard:set_ability(_basecard.config.center, nil, true)
                         _changes = true
                     end
 
                     -- enhancement check
-                    if pseudorandom("kino_annihilation") < ((G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance) then
+                    if SMODS.pseudorandom_probability(card, 'kino_annihilation', card.ability.extra.chance_cur, card.ability.extra.chance, "kino_card_manipulation") then
                         _pcard:set_edition(_basecard.edition or {}, nil, true)
                         _changes = true
                     end

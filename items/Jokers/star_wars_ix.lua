@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 329,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_starwars = true,
         extra = {
             factor = 1,
             stacks = 0
@@ -27,7 +28,8 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi", "Adventure"},
+    pools = {["kino_starwars"] = true}, 
+    k_genre = {"Sci-fi", "Adventure"},
 
     loc_vars = function(self, info_queue, card)
         return {

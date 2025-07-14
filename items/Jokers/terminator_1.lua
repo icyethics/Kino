@@ -27,7 +27,7 @@ SMODS.Joker {
         cast = {},
     },
     pools, k_genre = {"Sci-fi", "Action"},
-    enhancement_gate = "m_kino_sci-fi",
+    enhancement_gate = "m_kino_sci_fi",
 
     loc_vars = function(self, info_queue, card)
         return {
@@ -39,7 +39,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.remove_playing_cards then
             for i = 1, #context.removed do
-                if context.removed[i].config.center == G.P_CENTERS.m_kino_scifi then
+                if context.removed[i].config.center == G.P_CENTERS.m_kino_sci_fi then
                     SMODS.calculate_context({sci_fi_upgrade = true, sci_fi_upgrade_target = context.removed[i]})
 
                     G.playing_card = (G.playing_card and G.playing_card + 1) or 1

@@ -45,6 +45,12 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
         SMODS.Stickers['kino_bacon']:apply(_card, true)
     end
 
+    if G.GAME.modifiers.kino_batmandeck and _type == 'Joker' then
+        if pseudorandom("kino_batmandeck") < 4 then
+            SMODS.Stickers['kino_robin']:apply(_card, true)
+        end
+    end
+
     if G.GAME.modifiers and G.GAME.modifiers.genre_bonus then
         if _type == 'Joker' or genre_match(G.GAME.modifiers.genre_bonus, _type) then
             for _, _genre in ipairs(G.GAME.modifiers.genre_bonus) do

@@ -60,22 +60,65 @@ SMODS.Joker {
                         Kino.stun_effect(_joker)
                     return true end }))
                 end
+
+                -- Debt counters
+                if _joker.ability.kino_counter == "kino_debt" then
+                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
+                        Kino.debt_counter_effect(_joker)
+                    return true end }))
+                end
+
+                -- Finance counters
+                if _joker.ability.kino_counter == "kino_investment" then
+                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
+                        Kino.investment_counter_effect(_joker)
+                    return true end }))
+                end
+
+                -- Power counters
+                if _joker.ability.kino_counter == "kino_power" then
+                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
+                        Kino.power_counter_effect(_joker)
+                    return true end }))
+                end
+
+                -- Poison counter
+                if _joker.ability.kino_counter == "kino_poison" then
+                    return Kino.poison_effect(_joker)
+                end
             end
 
-            -- 
+            -- -- PLAYING CARD CHECKS
+            -- In Hand 
+            for _index, _pcard in ipairs(G.hand.cards) do
+                if _pcard.ability.kino_counter == "kino_stun" then
+                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
+                        Kino.stun_effect(_pcard)
+                    return true end }))
+                end
+            end
+
+            -- In Play
+            for _index, _pcard in ipairs(G.play.cards) do
+                if _pcard.ability.kino_counter == "kino_stun" then
+                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
+                        Kino.stun_effect(_pcard)
+                    return true end }))
+                end
+            end
         end
 
         -- Finance/Debt counters
         if context.individual and context.cardarea == G.play then
             if context.other_card and context.other_card.ability then
                 if context.other_card.ability.kino_counter == "kino_investment" then
-                    ease_dollars(context.other_card.ability.kino_numcounters)
-                    context.other_card.ability.kino_numcounters = context.other_card.ability.kino_numcounters - 1
+                    local _target = context.other_card
+                    Kino.investment_counter_effect (_target)
                 end
 
                 if context.other_card.ability.kino_counter == "kino_debt" then
-                    ease_dollars(-context.other_card.ability.kino_numcounters)
-                    context.other_card.ability.kino_numcounters = context.other_card.ability.kino_numcounters - 1
+                    local _target = context.other_card
+                    Kino.debt_counter_effect (_target)
                 end
 
                 -- Lower scored chips and mult by x%
@@ -85,22 +128,15 @@ SMODS.Joker {
             end
         end
 
-        if context.post_trigger and context.cardarea == G.jokers and
-        not context.other_context.destroying_card then
-            if context.other_card and context.other_card.ability then
-                if context.other_card.ability.kino_counter == "kino_investment" then
-                    ease_dollars(context.other_card.ability.kino_numcounters)
-                    context.other_card.ability.kino_numcounters = context.other_card.ability.kino_numcounters - 1
-                end
 
-                if context.other_card.ability.kino_counter == "kino_debt" then
-                    ease_dollars(-context.other_card.ability.kino_numcounters)
-                    context.other_card.ability.kino_numcounters = context.other_card.ability.kino_numcounters - 1
-                end
 
-                -- Lower scored chips and mult by x%
-                if context.other_card.ability.kino_counter == "kino_poison" then
-                    return Kino.poison_effect(context.other_card)
+                
+
+        -- Chain counters
+        if context.pre_discard and context.full_hand then
+            for _index, _pcard in ipairs(context.full_hand) do
+                if _pcard.ability.kino_counter == "kino_chained" then
+                    Kino.chain_effect(_pcard)
                 end
             end
         end

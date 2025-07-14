@@ -33,10 +33,14 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_jump_scare", vars = {tostring(Kino.jump_scare_mult)}}
+        
+        local _unscoring_cards = 0
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, (_unscoring_cards * card.ability.extra.cur_chance), card.ability.extra.chance, "kino_jumpscare") -- it is suggested to use an identifier so that effects that modify probabilities can target specific values
+                
         return {
             vars = {
-                G.GAME.probabilities.normal,
-                card.ability.extra.chance,
+                new_numerator,
+                new_denominator,
                 card.ability.extra.cur_chance
             }
         }
@@ -46,22 +50,15 @@ SMODS.Joker {
         if context.individual and context.cardarea == G.hand and not context.end_of_round then
             local _unscoring_cards =  #context.full_hand - #context.scoring_hand
 
-            if pseudorandom("abyss") < (_unscoring_cards * G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance then
-                context.other_card.jumpscared = true
+            if SMODS.pseudorandom_probability(card, 'kino_abyss', (_unscoring_cards * card.ability.extra.cur_chance), card.ability.extra.chance, "kino_jumpscare") then
+                local x_mult = Kino.jumpscare(context.other_card)
                 return {
-                    x_mult = Kino.jump_scare_mult, 
+                    x_mult = x_mult, 
                     message = localize('k_jump_scare'),
                     colour = HEX("372a2d"),
                     card = context.other_card
                 }
             end
         end
-
-        if context.destroy_card and context.destroy_card.jumpscared then
-            return {
-                remove = true
-            }
-        end
-
     end
 }

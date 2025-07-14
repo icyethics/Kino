@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 327,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_starwars = true,
         extra = {
             x_mult = 0.1,
             stacks = 0
@@ -27,7 +28,8 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi", "Adventure"},
+    pools = {["kino_starwars"] = true}, 
+    k_genre = {"Sci-fi", "Adventure"},
 
 
     loc_vars = function(self, info_queue, card)
@@ -56,7 +58,9 @@ SMODS.Joker {
                             break
                         end
                     end
-                    if my_pos and G.jokers.cards[my_pos + 1] and G.jokers.cards[my_pos + 1]:can_calculate() then
+                    if my_pos and G.jokers.cards[my_pos + 1] and 
+                    G.jokers.cards[my_pos + 1]:can_calculate() and 
+                    not SMODS.is_eternal(G.jokers.cards[my_pos + 1], {kino_star_wars_iii = true, joker = true}) then
                         local sliced_card = G.jokers.cards[my_pos + 1]
                         card.ability.extra.stacks = sliced_card.sell_cost * card.ability.extra.x_mult
                         sliced_card.getting_sliced = true -- Make sure to do this on destruction effects

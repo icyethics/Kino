@@ -40,7 +40,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.selling_card and context.card.ability.consumeable then
+        if context.selling_card then
             if to_big(context.card.sell_cost) > to_big(card.ability.extra.threshold) then
                 card.ability.extra.stacked_xmult = card.ability.extra.stacked_xmult + card.ability.extra.a_xmult
             end

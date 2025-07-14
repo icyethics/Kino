@@ -47,6 +47,7 @@ SMODS.Joker {
 
             for i = 1, #G.consumeables.cards do
                 if G.consumeables.cards[i].ability.set == "Planet" then
+                    G.consumeables.cards[i].getting_sliced = true
                     G.consumeables.cards[i]:start_dissolve({G.C.BLACK}, nil, 1.6)
                     _planets_destroyed = _planets_destroyed + 1
                     if i % 2 == 1 then

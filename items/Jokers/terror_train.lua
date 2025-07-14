@@ -4,8 +4,8 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            chance = 10,
-            total_chance = 1,
+            chance = 2,
+            cur_chance = 1,
             a_chance = 1,
             destroy_cards = {}
         }
@@ -33,11 +33,12 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_jump_scare", vars = {tostring(Kino.jump_scare_mult)}}
+    
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_levelup")
         return {
             vars = {
-                card.ability.extra.chance,
-                G.GAME.probabilities.normal * card.ability.extra.total_chance,
-                card.ability.extra.a_chance,
+                new_numerator,
+                new_denominator,
                 Kino.jump_scare_mult
             }
         }
@@ -55,21 +56,15 @@ SMODS.Joker {
             end
             
             if _rankmatch and
-            pseudorandom('terror_train') < (G.GAME.probabilities.normal * card.ability.extra.total_chance) / card.ability.extra.chance then
-                context.other_card.jumpscared = true
+            SMODS.pseudorandom_probability(card, 'kino_terror_train', (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_jumpscare") then
+                local x_mult = Kino.jumpscare(context.other_card)
                 return {
-                    x_mult = Kino.jump_scare_mult, 
+                    x_mult = x_mult, 
                     message = localize('k_jump_scare'),
                     colour = HEX("372a2d"),
                     card = context.other_card
                 }
             end
-        end
-
-        if context.destroy_card and context.destroy_card.jumpscared then
-            return {
-                remove = true
-            }
         end
     end
 }

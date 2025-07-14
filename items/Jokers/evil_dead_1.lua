@@ -30,41 +30,22 @@ SMODS.Joker {
     pools, k_genre = {"Horror"},
 
     loc_vars = function(self, info_queue, card)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, card.ability.extra.cur_chance, card.ability.extra.chance, "kino_card_generation")
         return {
             vars = {
-                G.GAME.probabilities.normal * card.ability.extra.cur_chance,
-                card.ability.extra.chance
+                new_numerator,
+                new_denominator
             }
         }
     end,
     calculate = function(self, card, context)
-
-
-        -- When you destroy a card, 1/5 chance to create a demon
-        -- if context.remove_playing_cards then
-        --     for i = 1, #context.removed do
-        --         if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-        --             if pseudorandom("evil_dead_1") < (G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance then
-        --                 G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-        --                 G.E_MANAGER:add_event(Event({
-        --                     func = function() 
-        --                         local card = create_card("Tarot",G.consumeables, nil, nil, nil, nil, "c_kino_demon", "insid")
-        --                         card:add_to_deck()
-        --                         G.consumeables:emplace(card) 
-        --                         return true
-        --                     end}))
-        --                 card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = localize('k_duplicated_ex')})
-        --             end
-        --         end
-        --     end
-        -- end
-
         -- New Effect: When you sacrifice a card, 1/3 chance to return it as a demon card to your hand
         if context.kino_sacrifices then
             local _returnedCards = {}
 
             for _, _card in ipairs(context.kino_sacrificed_cards) do
-                if pseudorandom("kino_evil_dead_1") < (G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance then
+                -- if pseudorandom("kino_evil_dead_1") < (card.ability.extra.cur_chance) / card.ability.extra.chance then
+                if SMODS.pseudorandom_probability(card, 'kino_evil_dead_1', card.ability.extra.cur_chance, card.ability.extra.chance, "kino_card_generation") then
                     _returnedCards[#_returnedCards + 1] = _card
                 end    
             end

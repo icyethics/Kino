@@ -35,30 +35,59 @@ Kino.change_counters = function(card, type, num)
         card.ability.kino_numcounters = card.ability.kino_numcounters + num
         card:juice_up()
 
-        print(card.ability.kino_counter)
-        print(card.ability.kino_numcounters)
         if type == "kino_stun" and card.ability.kino_numcounters >= 1 then
             card.kino_was_stunned_this_turn = true
             SMODS.debuff_card(card, true, "kino_stuncounter")
-            print("debuffed?")
+        end
+
+        if type == "kino_power" and card.ability.kino_numcounters >= 1 then
+            card.kino_was_powered_this_turn = true
+            card:set_multiplication_bonus(card, "kino_powercounter", 2)
+        end
+
+        if type == "kino_chained" and card.ability.kino_numcounters >= 1 then
+            card.kino_was_chained_this_turn = true
+            card.ability.cannot_be_discarded = true
         end
     end
 end
 
+
 -- Counter mechanics
 Kino.investment_counter_effect = function(card)
     ease_dollars(card.ability.kino_numcounters)
-    card.ability.kino_numcounters = card.ability.kino_numcounters - 1
+    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
+        card.ability.kino_numcounters = card.ability.kino_numcounters - 1
+    return true end }))
+    
+end
+
+Kino.power_counter_effect = function(card)
+    if card.kino_was_powered_this_turn then
+        card.kino_was_powered_this_turn = nil
+        return
+    end
+    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
+        card:juice_up()
+        card.ability.kino_numcounters = card.ability.kino_numcounters - 1
+        if card.ability.kino_numcounters == 0 then
+            card:set_multiplication_bonus(card, "kino_powercounter", 1, nil, 1 + 1)
+        end
+    return true end }))
 end
 
 Kino.debt_counter_effect = function(card)
     ease_dollars(-card.ability.kino_numcounters)
-    card.ability.kino_numcounters = card.ability.kino_numcounters - 1
+    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
+        card.ability.kino_numcounters = card.ability.kino_numcounters - 1
+    return true end }))
 end
 
 Kino.poison_effect = function(card)
     local _percentage = (card.ability.kino_numcounters * 5) / 100
-    card.ability.kino_numcounters = card.ability.kino_numcounters - 1
+    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
+        card.ability.kino_numcounters = card.ability.kino_numcounters - 1
+    return true end }))
     return {
         chips = -(hand_chips * _percentage),
         mult = -(mult * _percentage),
@@ -69,12 +98,31 @@ end
 
 Kino.stun_effect = function(card)
     if card.kino_was_stunned_this_turn then
-        card.kino_was_stunned_this_turn = false
+        card.kino_was_stunned_this_turn = nil
+        return
+    end
+    SMODS.calculate_context({kino_counter_effect = true, kino_counter_type = "kino_stun", kino_counter_down = true, other_card = card})
+    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
+        card:juice_up()
+        card.ability.kino_numcounters = card.ability.kino_numcounters - 1
+        
+        if card.ability.kino_numcounters <= 0 then
+            SMODS.debuff_card(card, false, "kino_stuncounter")
+        end
+    return true end }))
+end
+
+Kino.chain_effect = function(card)
+    if card.kino_was_chained_this_turn then
+        card.kino_was_chained_this_turn = nil
         return
     end
 
-    card.ability.kino_numcounters = card.ability.kino_numcounters - 1
-    if card.ability.kino_numcounters == 0 then
-        SMODS.debuff_card(card, false, "kino_stuncounter")
+    card:juice_up()
+
+    if card.ability.kino_numcounters <= 0 then
+        card.ability.cannot_be_discarded = false
     end
+    card.ability.kino_numcounters = card.ability.kino_numcounters - 1
+    
 end

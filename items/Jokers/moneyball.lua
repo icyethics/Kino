@@ -39,11 +39,11 @@ SMODS.Joker {
 
 
         if context.after and context.cardarea == G.jokers then
-            if G.GAME.current_round.hands_played == to_big(0) then
+            if to_big(G.GAME.current_round.hands_played) == to_big(0) then
                 G.GAME.dollar_buffer = (G.GAME.dollar_buffer or to_big(0)) + G.GAME.hands[context.scoring_name].level
                 G.E_MANAGER:add_event(Event({func = (function() G.GAME.dollar_buffer = 0; return true end)}))
                 return {
-                    dollars = G.GAME.hands[context.scoring_name].level
+                    dollars = to_number(G.GAME.hands[context.scoring_name].level)
                 }
             end
         end

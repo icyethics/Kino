@@ -32,31 +32,27 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_jump_scare", vars = {tostring(Kino.jump_scare_mult)}}
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_jumpscare")
         return {
             vars = {
-                card.ability.extra.cur_chance,
-                card.ability.extra.chance
+                new_numerator,
+                new_denominator
             }
         }
     end,
     calculate = function(self, card, context)
         -- Hearts held in hand have a 1/3 chance to Jump Scare
         if context.individual and context.cardarea == G.hand and context.other_card:is_suit("Hearts") and not context.end_of_round then
-            if pseudorandom('heart_eyes') < (G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance then
-                context.other_card.jumpscared = true
+            -- if pseudorandom('heart_eyes') < (card.ability.extra.cur_chance) / card.ability.extra.chance then
+            if SMODS.pseudorandom_probability(card, 'kino_heart_eyes', (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_jumpscare") then
+                local x_mult = Kino.jumpscare(context.other_card)
                 return {
-                    x_mult = Kino.jump_scare_mult, 
+                    x_mult = x_mult, 
                     message = localize('k_jump_scare'),
                     colour = HEX("372a2d"),
                     card = context.other_card
                 }
             end
-        end
-
-        if context.destroy_card and context.destroy_card.jumpscared then
-            return {
-                remove = true
-            }
         end
     end
 }

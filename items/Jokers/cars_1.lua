@@ -70,7 +70,8 @@ SMODS.Joker {
         -- card.children.timer_display_2 = Kino.create_timer_ui_2(card)
     end,
     update = function(self, card, dt)
-        if not G.SETTINGS.paused and G.GAME.blind and G.GAME.blind.in_blind then
+        if G.STATE ~= G.STATES.HAND_PLAYED and
+        not G.SETTINGS.paused and G.GAME.blind and G.GAME.blind.in_blind then
             card.ability.extra.time_spent = card.ability.extra.time_spent + dt
             card.ability.extra.cur_chips = math.max(card.ability.extra.start_chips - math.floor(card.ability.extra.start_chips * (card.ability.extra.time_spent / card.ability.extra.timing_quick_non)), 0)
             card.ability.extra.timer_num_non = card.ability.extra.cur_chips

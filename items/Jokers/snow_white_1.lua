@@ -5,7 +5,7 @@ SMODS.Joker {
     config = {
         extra = {
             stacked_count = 0,
-            x_mult = 3
+            mult = 3
         }
     },
     rarity = 2,
@@ -32,22 +32,28 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.x_mult,
+                card.ability.extra.mult,
                 card.ability.extra.stacked_count
             }
         }
     end,
     calculate = function(self, card, context)
-        -- the next queen you play gives X3 after you've scored 7 or more 2s
+        -- When you play a card lower than 5, gain a stack
+        -- When you play a Queen, consume each stack to gain +3 mult per stack
         if context.individual and context.cardarea == G.play then
-            if context.other_card:get_id() == 2 and not context.blueprint then
+            if context.other_card:get_id() <= 2 then
                 card.ability.extra.stacked_count = card.ability.extra.stacked_count + 1
+                return {
+                    message = localize('k_upgrade_ex'),
+                    card = card,
+                    colour = G.C.MULT
+                }
             end
 
-            if context.other_card:get_id() == 12 and card.ability.extra.stacked_count >= 7 then
-                card.ability.extra.stacked_count = 0
+            if context.other_card:get_id() == 12 then
+                local _mult = card.ability.extra.stacked_count * card.ability.extra.mult
                 return {
-                    x_mult = card.ability.extra.x_mult
+                    mult = _mult
                 }
             end
         end

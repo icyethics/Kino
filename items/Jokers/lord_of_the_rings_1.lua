@@ -42,9 +42,11 @@ SMODS.Joker {
         -- At the end of the round, it loses $2 sell value. If it's sell value reaches 0,
         -- destroy it
 
-        if context.post_trigger and context.cardarea == G.jokers and
+        if context.post_trigger and context.cardarea == G.jokers
+        and not context.other_context.post_trigger and
         not context.other_context.destroying_card and
         G.STATE == G.STATES.HAND_PLAYED then
+            print("lotr-test")
             -- Find me
             local _mypos = nil
             for i = 1, #G.jokers.cards do
@@ -74,6 +76,7 @@ SMODS.Joker {
                     _joker:set_cost()
 
                     if _joker.sell_cost <= 0 then
+                        _joker.getting_sliced = true
                         G.E_MANAGER:add_event(Event({func = function()
                             (context.blueprint_card or card):juice_up(0.8, 0.8)
                             _joker:start_dissolve({G.C.RED}, nil, 1.6)

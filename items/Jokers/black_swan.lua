@@ -31,10 +31,12 @@ SMODS.Joker {
     pools, k_genre = {"Drama", "Horror", "Thriller"},
 
     loc_vars = function(self, info_queue, card)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_jumpscare")
+         
         return {
             vars = {
-                G.GAME.probabilities.normal * card.ability.extra.cur_chance,
-                card.ability.extra.chance,
+                new_numerator,
+                new_denominator,
                 card.ability.extra.perma_mult
             }
         }
@@ -43,7 +45,9 @@ SMODS.Joker {
         -- When a Queen scores, 1/3 chance to destroy it and create a random new Queen upgraded with +5 mult
         if context.destroying_card then
             if context.destroying_card:get_id() == 12 then
-                if pseudorandom("kino_black_swan") < (G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance then
+                -- if pseudorandom("kino_black_swan") < (card.ability.extra.cur_chance) / card.ability.extra.chance then
+                if SMODS.pseudorandom_probability(card, 'kino_black_swan', (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_jumpscare") then
+                 
                     local _newcard = copy_card(context.destroying_card)
                     _newcard.ability.perma_mult = _newcard.ability.perma_mult or 0
                     _newcard.ability.perma_mult = _newcard.ability.perma_mult + card.ability.extra.perma_mult

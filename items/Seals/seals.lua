@@ -144,20 +144,13 @@ SMODS.Seal{
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.hand then
             if pseudorandom("kino_thrillerseal") < G.GAME.probabilities.normal / card.ability.seal.chance then
-                card.marked_by_jumpscare = true
-                SMODS.calculate_context({kino_jumpscare_trigger = true, kino_jumpscare_target = card})
-                G.GAME.jumpscare_triggers = G.GAME.jumpscare_triggers + 1
+                local x_mult = Kino.jumpscare(context.other_card)
                 return {
-                    x_mult = Kino.jump_scare_mult,
+                    x_mult = x_mult, 
                     message = localize('k_jump_scare'),
-                    colour = HEX("372a2d")
+                    colour = HEX("372a2d"),
+                    card = context.other_card
                 }
-            end
-        end
-
-        if context.destroying_card and card.marked_by_jumpscare then
-            if context.destroying_card == card then
-                return true
             end
         end
     end,

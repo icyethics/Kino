@@ -19,6 +19,7 @@ SMODS.Joker {
     cost = 9,
     blueprint_compat = true,
     perishable_compat = true,
+    eternal_compat = false,
     kino_joker = {
         id = 329865,
         budget = 0,
@@ -75,12 +76,12 @@ SMODS.Joker {
                 ease_ante(-card.ability.extra.decrease)
                 G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante or G.GAME.round_resets.ante
                 G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante - card.ability.extra.decrease
-                if card.ability.eternal then
-                    SMODS.debuff_card(card, true, "kino_arrival")
-                else
+
+                if not context.blueprint and not context.retrigger then
                     card.getting_sliced = true
                     G.E_MANAGER:add_event(Event({func = function()
                         card:juice_up(0.8, 0.8)
+                        card.getting_sliced = true
                         card:start_dissolve({G.C.RED}, nil, 1.6)
                     return true end }))
                 end

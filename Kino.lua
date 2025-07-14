@@ -174,6 +174,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = "kino_backs_genre",
+    px = 71,
+    py = 95,
+    path = 'kino_genre_backs.png'
+}
+
+SMODS.Atlas {
     key = "kino_sleeves",
     px = 73,
     py = 95,
@@ -261,7 +268,8 @@ local _list_of_files = {
     "src/start_run.lua",
     "src/cryptid.lua",
     "src/spritemanipulation.lua",
-    "src/consumable_functions.lua"
+    "src/consumable_functions.lua",
+    "src/jumpscare.lua"
 }
 
 for _index, _filename in ipairs(_list_of_files) do
@@ -403,6 +411,16 @@ kino_genre_init()
 SMODS.ObjectType {
     key = "kino_batman",
     default = "j_kino_batman_1989",
+    rarities = {
+        { key = "Common" },
+        { key = "Uncommon" },
+        { key = "Rare" },
+    }
+}
+
+SMODS.ObjectType {
+    key = "kino_starwars",
+    default = "j_kino_star_wars_i",
     rarities = {
         { key = "Common" },
         { key = "Uncommon" },

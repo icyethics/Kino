@@ -209,6 +209,7 @@ function reset_ancient_card()
     reset_raiders_card()
     reset_bonnieandclyde()
     Kino.reset_source_code()
+    Kino.reset_dead_zone()
 end
 
  -- Indiana Jones checks
@@ -260,6 +261,10 @@ function Kino.reset_source_code()
 
     G.GAME.current_round.kino_source_code = _suit.key
 
+end
+
+function Kino.reset_dead_zone()
+    G.GAME.current_round.kino_dead_zone_hand = get_random_hand()
 end
 
 -- For everything that needs to be done when the shop is closed.
@@ -1150,6 +1155,7 @@ end
 
 --- Global Variables ---
 Kino.jump_scare_mult = 3
+Kino.jumpscare_stunned_duration = 3
 Kino.goldleaf_chance = 3
 Kino.choco_chance = 2
 Kino.xl_chance = 1

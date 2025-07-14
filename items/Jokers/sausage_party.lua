@@ -30,17 +30,19 @@ SMODS.Joker {
     pools, k_genre = {"Comedy", "Animation"},
 
     loc_vars = function(self, info_queue, card)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_levelup")
         return {
             vars = {
-                G.GAME.probabilities.normal * card.ability.extra.cur_chance,
-                card.ability.extra.chance
+                new_numerator,
+                new_denominator
             }
         }
     end,
     calculate = function(self, card, context)
         -- whenever a confection triggers, 1/3 chance to upgrade a random hand
         if context.confection_used then
-            if pseudorandom("kino_sauspart") < (G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance then
+            -- if pseudorandom("kino_sauspart") < (card.ability.extra.cur_chance) / card.ability.extra.chance then
+            if SMODS.pseudorandom_probability(card, 'kino_sausauge_party', (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_levelup") then    
                 local handtype = get_random_hand()
                 level_up_hand(context.blueprint_card or card, handtype, nil, 1)
                 card:juice_up()

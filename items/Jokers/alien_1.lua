@@ -32,11 +32,13 @@ SMODS.Joker {
     pools, k_genre = {"Horror", "Sci-fi"},
 
     loc_vars = function(self, info_queue, card)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, card.ability.extra.chance_cur, card.ability.extra.chance, "kino_joker_destruction")
+          
         return {
             vars = {
-                card.ability.extra.chance_cur,
+                new_numerator,
                 card.ability.extra.a_chance,
-                card.ability.extra.chance,
+                new_denominator,
                 card.ability.extra.x_mult
             }
         }
@@ -54,9 +56,12 @@ SMODS.Joker {
         end
 
         if context.after then
-            if pseudorandom("alien") < ((G.GAME.probabilities.normal * card.ability.extra.chance_cur) / card.ability.extra.chance) then
+            if SMODS.pseudorandom_probability(card, 'kino_alien1', card.ability.extra.chance_cur, card.ability.extra.chance, "kino_joker_destruction") then
                 for i = 1, #G.jokers.cards do
-                    if G.jokers.cards[i] ~= card and not G.jokers.cards[i].ability.eternal and not G.jokers.cards[i].getting_sliced then 
+                    if G.jokers.cards[i] ~= card and
+                    -- not G.jokers.cards[i].ability.eternal and
+                    not SMODS.is_eternal(G.jokers.cards[i], {kino_alien_1 = true, joker = true}) and
+                    not G.jokers.cards[i].getting_sliced then 
                             G.jokers.cards[i].getting_sliced = true
                             G.E_MANAGER:add_event(Event({func = function()
                                 (context.blueprint_card or card):juice_up(0.8, 0.8)

@@ -55,7 +55,8 @@ SMODS.Joker {
 
             if _my_pos and G.jokers.cards[_my_pos + 1] and not 
             G.jokers.cards[_my_pos + 1].getting_sliced and not
-            G.jokers.cards[_my_pos + 1].ability.eternal then
+            -- G.jokers.cards[_my_pos + 1].ability.eternal then
+            SMODS.is_eternal(G.jokers.cards[_my_pos + 1], {kino_blade = true, joker = true}) then
                 if G.jokers.cards[_my_pos + 1].config.center.is_vampire or G.jokers.cards[_my_pos + 1].config.center.key == "j_vampire" then
                     if G.jokers.cards[_my_pos + 1].config.center.is_vampire or G.jokers.cards[_my_pos + 1].config.center.key == "j_vampire" then
 

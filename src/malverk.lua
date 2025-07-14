@@ -113,15 +113,15 @@ AltTexture{
         'j_kino_se7en',
         -- 'j_kino_game',
         'j_kino_panic_room',
-        -- 'j_kino_zodiac',
-        -- 'j_kino_benjamin_button'
+        'j_kino_zodiac',
+        'j_kino_benjamin_button',
         
         -- Row 2
-        -- 'j_kino_social_network',
-        -- 'j_kino_point_break',
+        'j_kino_social_network',
+        'j_kino_point_break',
         -- 'j_kino_iron_man',
         -- 'j_kino_iron_giant',
-        -- 'j_kino_ex_machina',
+        'j_kino_ex_machina',
 
         -- Row 3
         -- 'j_kino_wall_e',

@@ -44,7 +44,8 @@ SMODS.Joker {
             -- pick a target pool
             local _validtargets = {}
             for _index, _joker in ipairs(G.jokers.cards) do
-                if _joker:can_calculate() and _joker ~= card then
+                if _joker:can_calculate() and _joker ~= card and
+                not SMODS.is_eternal(_joker, {kino_mortal_kombat = true, joker = true}) then
                     _validtargets[#_validtargets + 1] = _joker
                 end
             end
@@ -72,8 +73,9 @@ SMODS.Joker {
             end
 
             -- boost it
-            local _target = pseudorandom_element(_validtargets, pseudoseed("kino_mortkom_boost"))
-            _target:set_multiplication_bonus(_target, "paul", 1)
+            local _newtarget = pseudorandom_element(_validtargets, pseudoseed("kino_mortkom_boost"))
+            _newtarget:juice_up()
+            Kino.change_counters(_newtarget, "kino_power", 3)
 
         end
     end

@@ -31,11 +31,12 @@ SMODS.Joker {
     pools, k_genre = {"Drama"},
 
     loc_vars = function(self, info_queue, card)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card,  G.GAME.probabilities.normal, card.ability.extra.chance, "kino_joker_valuemanipulation")
         return {
             vars = {
                 card.ability.extra.money,
-                G.GAME.probabilities.normal,
-                card.ability.extra.chance,
+                new_numerator,
+                new_denominator,
                 card.ability.extra.division_non
             }
         }
@@ -48,7 +49,8 @@ SMODS.Joker {
         end
 
         if context.joker_main and not context.blueprint then
-            if pseudorandom("wall_street") < G.GAME.probabilities.normal / card.ability.extra.chance then
+            -- if pseudorandom("wall_street") < G.GAME.probabilities.normal / card.ability.extra.chance then
+            if SMODS.pseudorandom_probability(card, 'kino_wall_street', G.GAME.probabilities.normal, card.ability.extra.chance, "kino_joker_valuemanipulation") then
                 card.ability.extra_value = (card.ability.extra_value or 0) / card.ability.extra.division_non
             end
         end

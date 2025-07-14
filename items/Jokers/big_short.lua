@@ -6,6 +6,7 @@ SMODS.Joker {
         extra = {
             earned = 1,
             earned_per_non = 5,
+            cur_chance = 1,
             double_chance_non = 20,
             destroy_chance_non = 10,
             destroy_floor_non = 1,
@@ -35,16 +36,19 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "bust_econ"}
+
+        local new_numerator_doubling, new_denominator_doubling = SMODS.get_probability_vars(card, (card.ability.extra.destroy_floor_non), card.ability.extra.destroy_chance_non, "kino_money_loss") 
+        local new_numerator_busting, new_denominator_busting = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.double_chance_non, "kino_money_generation")  
         return {
             
             vars = {
                 card.ability.extra.earned,
                 card.ability.extra.earned_per_non,
-                card.ability.extra.double_chance_non,
-                card.ability.extra.destroy_chance_non,
-                card.ability.extra.destroy_floor_non,
+                new_numerator_doubling,
+                new_denominator_doubling,
+                new_numerator_busting,
+                new_denominator_busting,
                 card.ability.extra.destroy_increment,
-                (G.GAME.probabilities.normal or 1)
             }
         }
     end,
@@ -52,7 +56,8 @@ SMODS.Joker {
         local money = 0
 
         -- Check for set money
-        if pseudorandom('big_short') < (G.GAME.probabilities.normal * card.ability.extra.destroy_floor_non) / card.ability.extra.destroy_chance_non then
+        -- if pseudorandom('big_short') < (card.ability.extra.destroy_floor_non) / card.ability.extra.destroy_chance_non then
+        if SMODS.pseudorandom_probability(card, 'kino_big_short', (card.ability.extra.destroy_floor_non), card.ability.extra.destroy_chance_non, "kino_money_loss") then
             G.GAME.dollars = 0
         end
 
@@ -61,7 +66,8 @@ SMODS.Joker {
         money = math.floor((G.GAME.dollars + (G.GAME.dollar_buffer or 0))/card.ability.extra.earned_per_non) * 1
 
         -- Check for the doubling bonus
-        if pseudorandom('big_short') < G.GAME.probabilities.normal / card.ability.extra.double_chance_non then
+        -- if pseudorandom('big_short') < G.GAME.probabilities.normal / card.ability.extra.double_chance_non then
+        if SMODS.pseudorandom_probability(card, 'kino_big_short', (card.ability.extra.cur_chance), card.ability.extra.double_chance_non, "kino_money_generation") then
             money = G.GAME.dollars
         end
         

@@ -214,6 +214,21 @@ Kino.modify_weight = function(card, starting_weight)
     
     -- Adjust for other features
     local weight_from_other_adjustments = 0
+
+    -- BATMAN adjustment
+    if G.GAME.modifiers.kino_batmandeck then
+        if kino_quality_check(card, "is_batman") then 
+            weight_from_other_adjustments = weight_from_other_adjustments +  G.GAME.modifiers.kino_batmandeck_rarity
+        end
+    end
+
+    -- Star Wars Deck adjustments
+    if G.GAME.modifiers.kino_starwarsdeck then
+        if kino_quality_check(card, "is_starwars") then 
+            weight_from_other_adjustments = weight_from_other_adjustments +  G.GAME.modifiers.kino_batmandeck_rarity
+        end
+    end
+
     -- Calc final weight
     final_weight = final_weight * (weight_mod_from_card + weight_mod_from_genre + weight_from_other_adjustments)
     return final_weight

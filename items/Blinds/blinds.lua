@@ -106,6 +106,7 @@ SMODS.Blind{
                     blind:wiggle()
                     card_eval_status_text(G.jokers.cards[1], 'extra', nil, nil, nil,
                     { message = localize('k_blind_vader_1'), colour = G.C.BLACK})
+                    G.jokers.cards[1].getting_sliced = true
                     G.jokers.cards[1]:start_dissolve({G.C.RED}, nil, 1.6)
                 return true end }))
             end
@@ -151,7 +152,7 @@ SMODS.Blind{
     modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
         local _consumeables_used = G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.all or 0
         -- return mult, chips, true
-        return (math.max(0, mult - (_consumeables_used * self.debuff.mult_debuff))), math.max(0, (hand_chips - (_consumeables_used * self.debuff.chips_debuff))), true
+        return (math.max(1, mult - (_consumeables_used * self.debuff.mult_debuff))), math.max(1, (hand_chips - (_consumeables_used * self.debuff.chips_debuff))), true
     end
 }
 
@@ -184,7 +185,7 @@ SMODS.Blind{
     end,
     modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
         -- return mult, chips, true
-        return (math.max(0, mult - ((G.GAME.cards_destroyed or 0) * self.debuff.mult_debuff))), hand_chips, true
+        return (math.max(1, mult - ((G.GAME.cards_destroyed or 0) * self.debuff.mult_debuff))), hand_chips, true
     end
 }
 
@@ -552,6 +553,7 @@ SMODS.Blind{
                 if not G.jokers.cards[3].getting_sliced then
                     G.E_MANAGER:add_event(Event({func = function()
                         G.jokers.cards[3]:juice_up(0.8, 0.8)
+                        G.jokers.cards[3].getting_sliced = true
                         G.jokers.cards[3]:start_dissolve({G.C.RED}, nil, 1.6)
                     return true end }))
                 end
@@ -1001,7 +1003,7 @@ SMODS.Blind{
                 delay = _timer,
                 timer = "UPTIME",
                 func = function()
-                    if self.debuff.active and #G.hand.cards > 0 then
+                    if self.debuff.active and G.hand and #G.hand.cards > 0 then
                         local _randomtarget = pseudorandom_element(G.hand.cards, pseudoseed("kino_deckshaw"))
                         Kino.discard_given_card({_randomtarget}, true)
                     end
@@ -1283,7 +1285,7 @@ SMODS.Blind{
 }
 
 
--- NO FUNCTIONALITY
+-- When you select a blind, each joker has a 1/2 chance to get debuff counters equal to your current hands
 SMODS.Blind{
     key = "anton_chigurh",
     dollars = 5,
@@ -1312,9 +1314,29 @@ SMODS.Blind{
         }
     end,
     calculate = function(self, blind, context)
-        if context.pre_discard then
-            if pseudorandom("anton_chigurh") < (G.GAME.probabilities.normal / blind.debuff.chance) then
-                ease_hands_played(-1)
+        -- OLD EFFECT
+        -- if context.pre_discard then
+        --     if pseudorandom("anton_chigurh") < (G.GAME.probabilities.normal / blind.debuff.chance) then
+        --         ease_hands_played(-1)
+        --     end
+        -- end
+
+        if context.before then
+            if pseudorandom("kino_chigurhblind") < G.GAME.probabilities.normal / self.debuff.chance then
+                if G.jokers then
+                    -- find the leftmost non-debuffed joker
+                    local _target = nil
+                    for _index, _joker in ipairs(G.jokers.cards) do
+                        if not _joker.debuff then
+                            _target = _joker
+                            break
+                        end
+                    end
+
+                    if _target then
+                        Kino.change_counters(_target, "kino_stun", 3)
+                    end
+                end
             end
         end
     end
@@ -1432,6 +1454,53 @@ SMODS.Blind{
                     blind:wiggle()
                     Kino.change_counters(_pcard, "kino_poison", 1)
                 return true end }))
+            end
+        end
+    end
+}
+
+SMODS.Blind{
+    key = "clubber",
+    dollars = 5,
+    mult = 2,
+    boss_colour = HEX('8cc8d5'),
+    atlas = 'kino_blinds', 
+    boss = {min = 1, max = 10},
+    pos = { x = 0, y = 4},
+    debuff = {
+
+    },
+    loc_vars = function(self)
+        return {
+            vars = {
+            }
+        }
+    end,
+    collection_loc_vars = function(self)
+        return {
+            vars = {
+            }
+        }
+    end,
+    disable = function(self)
+    end,
+    defeat = function(self)
+    end,
+    calculate = function(self, blind, context)
+        if context.pre_discard and context.full_hand then
+            for _index, _pcard in ipairs(G.hand.cards) do
+                -- check if it's not being discarded
+                local _match = false
+                for _index2, _pcard2 in ipairs(G.hand.highlighted) do
+                    if _pcard == _pcard2 then
+                        _match = true
+                        break
+                    end
+                end
+
+                if not _match then
+                    Kino.change_counters(_pcard, "kino_chained", 1)
+                end
             end
         end
     end
@@ -1630,6 +1699,7 @@ SMODS.Blind{
                         blind:wiggle()
                         card_eval_status_text(_joker, 'extra', nil, nil, nil,
                         { message = localize('k_blind_vader_1'), colour = G.C.BLACK})
+                        _joker.getting_sliced = true
                         _joker:start_dissolve({G.C.RED}, nil, 1.6)
                     return true end }))
                 end

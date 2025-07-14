@@ -42,6 +42,7 @@ SMODS.Joker {
         if context.setting_blind and not context.retrigger and not context.blueprint then
             for _, _con in ipairs(G.consumeables.cards) do
                 card.ability.extra.stacked_mult = card.ability.extra.stacked_mult + card.ability.extra.a_mult
+                _con.getting_sliced = true
                 G.E_MANAGER:add_event(Event({func = function()
                     (context.blueprint_card or card):juice_up(0.8, 0.8)
                     _con:start_dissolve({G.C.RED}, nil, 1.6)

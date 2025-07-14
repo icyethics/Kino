@@ -32,11 +32,13 @@ SMODS.Joker {
     k_genre = {"Superhero", "Animation", "Mystery"},
 
     loc_vars = function(self, info_queue, card)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, card.ability.extra.chance_cur, card.ability.extra.chance, "kino_joker_manipulation")
+          
         return {
             vars = {
-                G.GAME.probabilities.normal * card.ability.extra.cur_chance,
-                card.ability.extra.chance,
-                card.ability.extra.chance - (G.GAME.probabilities.normal * card.ability.extra.cur_chance)
+                new_numerator,
+                new_denominator,
+                math.max(new_denominator - new_numerator, 0)
             }
         }
     end,
@@ -52,7 +54,9 @@ SMODS.Joker {
             kino_quality_check(G.jokers.cards[_mypos + 1], "is_batman") and not
             G.jokers.cards[_mypos + 1].config.center == G.P_CENTERS.j_joker then
                 local _target = G.jokers.cards[_mypos + 1]
-                if pseudorandom("kino_batphant") < (G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance then
+
+                -- if pseudorandom("kino_batphant") < (card.ability.extra.cur_chance) / card.ability.extra.chance then
+                if SMODS.pseudorandom_probability(card, 'kino_batphant', card.ability.extra.chance_cur, card.ability.extra.chance, "kino_joker_manipulation") then
                     local _pooled_card = Kino.get_complex_card("kino_batman", nil, "kino_phantmask")
                     _target:set_ability(_pooled_card)
                 else

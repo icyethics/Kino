@@ -30,17 +30,19 @@ SMODS.Joker {
     pools, k_genre = {"Horror"},
 
     loc_vars = function(self, info_queue, card)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_tarot_creation")
         return {
             vars = {
-                G.GAME.probabilities.normal * card.ability.extra.cur_chance,
-                card.ability.extra.chance
+                new_numerator,
+                new_denominator
             }
         }
     end,
     calculate = function(self, card, context)
         -- When you open a booster pack, 1/4 chance to create a demon
         if context.open_booster  and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-            if pseudorandom("insid") < (G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance then
+            -- if pseudorandom("insid") < (card.ability.extra.cur_chance) / card.ability.extra.chance then
+            if SMODS.pseudorandom_probability(card, 'kino_insid', (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_tarot_creation") then
                 G.E_MANAGER:add_event(Event({
                     func = function() 
                         local card = create_card("Tarot",G.consumeables, nil, nil, nil, nil, "c_kino_demon", "insid")

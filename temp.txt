@@ -127,7 +127,6 @@ the martian
 Piranha 2
 Snowpiercer (sell value based)
 Twilight
-Anora
 Coco
 The Dark Crystal
 Gone Girl
@@ -150,6 +149,8 @@ Balance Change
 Alien 3
 Gremlins
 
+Design notes:
+Mortal Kombat > Puts 2 Power counters on target joker, instead of permanently boosting it
 
 
 
@@ -172,3 +173,31 @@ Check if already added:
 
 -- Feature redesign:
 Jump-Scare. 1 in X chance to give x3 and be destroyed while held in hand
+
+
+
+-- Chance rework
+12 Monkeys
+Abyss
+Alien
+Annihilation
+Batman Mask of the Phantasm
+Big Short
+Black Swan
+Blair Witch
+Duel
+Evil Dead 1
+Frighteners
+Hard Eight
+Heart Eyes
+Insidious
+Modern Times
+Psycho
+Pulp Fiction
+Sausage Party
+Terror Train
+
+Voyage Dans Le Lune
+Wall Street
+
+- Seals, Consumables and Enhancements

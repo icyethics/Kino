@@ -10,18 +10,7 @@ SMODS.Back {
     end
 }
 
-SMODS.Back {
-    name = "Egg Deck",
-    key = "northernlion",
-    atlas = "kino_backs",
-    pos = {x = 1, y = 1},
-    config = {
-        egg_genre = "Romance"
-    },
-    apply = function()
-        G.GAME.modifiers.egg_genre = "Romance"
-    end
-}
+
 
 -- Jokers that spawn in the shop always share actors with your current jokers, if possible
 SMODS.Back {
@@ -92,6 +81,127 @@ SMODS.Back {
         end
     end
 }
+
+SMODS.Back {
+    name = "Investment Deck",
+    key = "investment",
+    atlas = "kino_backs",
+    pos = {x = 2, y = 2},
+    config = {
+        dollars = 6,
+        extra_hand_bonus = 0,
+        extra_discard_bonus = 0,
+        no_interest = true
+    },
+    apply = function()
+        G.GAME.modifiers.no_blind_reward = G.GAME.modifiers.no_blind_reward or {}
+        G.GAME.modifiers.no_blind_reward.Small = true
+        G.GAME.modifiers.no_blind_reward.Big = true
+        G.GAME.modifiers.no_blind_reward.Boss = true
+    end,
+    calculate = function(self, card, context)
+        if context.end_of_round
+        and not context.individual and not context.repetition and not context.blueprint then
+            local _playbonus = 10
+
+            for i = 1, _playbonus do
+                local _target = pseudorandom_element(G.playing_cards, pseudoseed("kino_invdeck"))
+                Kino.change_counters(_target, "kino_investment", 1)
+            end
+        end
+    end
+}
+
+SMODS.Back {
+    name = "Spellslinger's Deck",
+    key = "spellslinger",
+    atlas = "kino_backs",
+    pos = {x = 3, y = 2},
+    config = {
+    },
+    apply = function()
+
+    end,
+    calculate = function(self, card, context)
+        if context.main_scoring and context.cardarea == G.play then
+            
+            if #G.hand.cards > 2 then
+                local _result = pick_spell(card, G.hand.cards)
+                card_eval_status_text(card, 'extra', nil, nil, nil,
+                { message = localize('k_spell_cast'), colour = G.C.PURPLE })
+                return _result
+            end
+        end
+    end
+}
+
+SMODS.Back {
+    name = "Dark Knight Deck",
+    key = "darkknight",
+    atlas = "kino_backs",
+    pos = {x = 4, y = 2},
+    config = {
+    },
+    apply = function()
+        G.GAME.modifiers.kino_batmandeck = true
+        G.GAME.modifiers.kino_batmandeck_rarity = 2
+    end
+}
+
+SMODS.Back {
+    name = "Alderaan Deck",
+    key = "alderaan",
+    atlas = "kino_backs",
+    pos = {x = 2, y = 0},
+    config = {
+    },
+    apply = function()
+        G.GAME.modifiers.kino_starwarsdeck = true
+    end,
+    calculate = function(self, card, context)
+        if context.end_of_round
+        and not context.individual and not context.repetition and not context.blueprint then
+            local _card = SMODS.create_card({
+                area = G.consumeables, 
+                key = "c_kino_death_star", 
+                edition = {negative = true}
+            })
+            G.consumeables:emplace(_card)
+        end
+    end
+}
+
+SMODS.Back {
+    name = "Cosmonaut's Deck",
+    key = "cosmonaut",
+    atlas = "kino_backs",
+    pos = {x = 1, y = 0},
+    config = {
+    },
+    apply = function()
+
+        for _key, _object in pairs(G.P_CENTERS) do
+            if _object.set == "Planet" and _object.config.hand_type then
+                -- 
+                G.GAME.banned_keys[_object.key] = true
+                print("banned object: " .. _object.key)
+            end
+        end
+    end
+}
+
+SMODS.Back {
+    name = "Empowered Deck",
+    key = "empowered",
+    atlas = "kino_backs",
+    pos = {x = 3, y = 0},
+    config = {
+    },
+    apply = function()
+        G.GAME.starting_params.kino_empowereddeck = true
+    end
+}
+
 
 -- SMODS.Back {
 --     name = "Blank Deck with Griffin & David",
@@ -189,3 +299,50 @@ SMODS.Back {
     end
 }
 end
+
+SMODS.Back {
+    name = "Deck That Makes You Old",
+    key = "deckthatmakesyouold",
+    atlas = "kino_backs",
+    pos = {x = 0, y = 0},
+    config = {
+    },
+    apply = function()
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            for _index, _pcard in ipairs(G.hand.cards) do
+                local _suits = SMODS.Suits
+                for _suitname, _suitdata in pairs(_suits) do
+                    if _pcard:is_suit(_suitname) and context.other_card:is_suit(_suitname) then
+                        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
+                            _pcard:juice_up(0.8, 0.5)
+                            SMODS.modify_rank(_pcard, 1)
+                        return true end }))
+                        break
+                    end
+                end
+            end
+        end
+    end
+}
+
+-- Alderaan Deck (Star Wars): Create a Death Star when you defeat a blind. Star Wars jokers are 2x as common
+
+-- Spacefarer's Deck: Handtype Planets no longer spawn in the shop or booster packs
+
+-- Empowered Deck: Each suit's face card start with the same random enhancement
+
+
+SMODS.Back {
+    name = "Egg Deck",
+    key = "northernlion",
+    atlas = "kino_backs",
+    pos = {x = 1, y = 1},
+    config = {
+        egg_genre = "Romance"
+    },
+    apply = function()
+        G.GAME.modifiers.egg_genre = "Romance"
+    end
+}

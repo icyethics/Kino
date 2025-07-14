@@ -17,6 +17,24 @@ function Game:start_run(args)
         self.GAME.suit_startingcounts[_suitname] = _count
     end
 
+    -- DECK behaviours
+    -- Empowered Deck
+    if G.GAME.starting_params.kino_empowereddeck then
+        local _suits = SMODS.Suits
+
+        for _suitname, _suitdata in pairs(_suits) do
+            local _enhancement = SMODS.poll_enhancement({guaranteed = true})
+
+            -- iterate through every card
+            for _, _pcard in ipairs(G.playing_cards) do
+                if _pcard:is_suit(_suitname) and not SMODS.has_any_suit(_pcard) and
+                _pcard:is_face() then
+                    _pcard:set_ability(_enhancement)
+                end
+            end
+        end
+    end
+
     -- Invisible Joker Behaviour Handler
     self.kino_offscreen_area = CardArea(
         G.TILE_W - 600*G.CARD_W - 200.95, -100.1*G.jokers.T.h,
@@ -149,7 +167,7 @@ Game.init_game_object = function(self)
 
         {name = "kino_stun", x = 0, y = 2},
         {name = "kino_debt", x = 1, y = 2},
-        {name = "kino_pinned", x = 2, y = 2},
+        {name = "kino_chained", x = 2, y = 2},
         {name = "kino_poison", x = 3, y = 2},
     }
 
@@ -182,7 +200,7 @@ Game.init_game_object = function(self)
 
         {name = "kino_stun", x = 0, y = 2},
         {name = "kino_debt", x = 1, y = 2},
-        {name = "kino_pinned", x = 2, y = 2},
+        {name = "kino_chained", x = 2, y = 2},
         {name = "kino_poison", x = 3, y = 2},
     }
 

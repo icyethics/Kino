@@ -6,11 +6,12 @@ SMODS.Joker {
         extra = {
             codex = {},
             codex_solve = Kino.dummy_codex,
+            codex_lastplayed = Kino.dummy_codex,
             codex_type = 'rank',
             codex_length = 5,
             solved = false,
-            stacks = 0,
-            lower_by = 10
+            lower_by = 10,
+            stacks = 0
         }
     },
     rarity = 2,
@@ -35,12 +36,28 @@ SMODS.Joker {
     pools, k_genre = {"Crime", "Mystery"},
 
     loc_vars = function(self, info_queue, card)
+        local _mainreturncodex = Kino.codex_ui("rank", card.ability.extra.codex_solve)
+        local _lastplayedhand = Kino.last_hand_played_codex("rank", card.ability.extra.codex_lastplayed, true)
+        local _codexreturn = {
+        {
+                n = G.UIT.C,
+                config = {
+                    align = 'cm',
+                    colour = G.C.CLEAR,
+                    padding = 0.01
+                },
+                nodes = {
+                    _mainreturncodex,
+                    _lastplayedhand
+                }
+            }
+        }
         return {
             vars = {
                 card.ability.extra.lower_by,
-                card.ability.extra.stacks
+                card.ability.extra.stacks,
             },
-            main_end = Kino.codex_ui(card.ability.extra.codex_solve)
+            main_end = _codexreturn
         }
     end,
     calculate = function(self, card, context)
@@ -52,7 +69,7 @@ SMODS.Joker {
         if context.joker_main then
             local result = false
             if not context.blueprint and not context.repetition then
-                card.ability.extra.codex_solve, result = Kino.check_codex(card, card.ability.extra.codex, context.full_hand, card.ability.extra.codex_solve)
+                result, card.ability.extra.codex_solve, card.ability.extra.codex_lastplayed = Kino.compare_hand_to_codex(card, card.ability.extra.codex, context.full_hand, card.ability.extra.codex_solve, 'rank')
                 if result == true then
                     card.ability.extra.solved = true
                 end
@@ -60,6 +77,7 @@ SMODS.Joker {
 
             if card.ability.extra.solved then
                 card.ability.extra.stacks = card.ability.extra.stacks + 1
+                card.ability.extra.solved = false
                 card.ability.extra.codex, card.ability.extra.codex_solve = Kino.create_codex(nil, card.ability.extra.codex_type, card.ability.extra.codex_length, 'zodiac')
             end
         end

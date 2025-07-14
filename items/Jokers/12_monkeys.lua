@@ -31,10 +31,11 @@ SMODS.Joker {
     pools, k_genre = {"Sci-fi", "Thriller"},
 
     loc_vars = function(self, info_queue, card)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, card.ability.extra.cur_chance, card.ability.extra.chance, "kino_card_creation") -- it is suggested to use an identifier so that effects that modify probabilities can target specific values
         return {
             vars = {
-                card.ability.extra.cur_chance,
-                card.ability.extra.chance,
+                new_numerator,
+                new_denominator,
                 card.ability.extra.current_target and card.ability.extra.current_target.set or "???",
             }
         }
@@ -51,7 +52,7 @@ SMODS.Joker {
 
         if context.setting_blind and
         card.ability.extra.current_target and
-        pseudorandom("monkeys") < (G.GAME.probabilities.normal * card.ability.extra.cur_chance ) / card.ability.extra.chance then
+        SMODS.pseudorandom_probability(card, 'kino_12monk', card.ability.extra.cur_chance, card.ability.extra.chance, "kino_card_creation") then
             local _inf = card.ability.extra.current_target
             local _buffer = nil
             

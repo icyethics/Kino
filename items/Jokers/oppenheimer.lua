@@ -89,6 +89,5 @@ SMODS.Joker {
     end,
     add_to_deck = function(self, card, from_debuff)
         card.ability.extra.codex, card.ability.extra.codex_solve = Kino.create_codex(nil, card.ability.extra.codex_type, card.ability.extra.codex_length, 'oppie')
-        print(card.ability.extra.codex)
     end,
 }

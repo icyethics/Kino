@@ -14,6 +14,7 @@ SMODS.Joker {
     cost = 4,
     blueprint_compat = true,
     perishable_compat = true,
+    eternal_compat = false,
     kino_joker = {
         id = 10201,
         budget = 0,
@@ -50,9 +51,7 @@ SMODS.Joker {
         end
 
         if context.discard and not context.repetition and not context.blueprint then
-            if card.ability.eternal then
-                SMODS.debuff_card(card, true, "yes_man")
-            else
+            if not context.blueprint and not context.retrigger then
                 card.getting_sliced = true
                 G.E_MANAGER:add_event(Event({func = function()
                     card:juice_up(0.8, 0.8)

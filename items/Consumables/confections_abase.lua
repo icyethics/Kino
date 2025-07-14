@@ -1067,6 +1067,12 @@ SMODS.Consumable {
                 end
             end
         end
+        if context.kino_enter_shop or context.joker_main then
+            if #Kino.snackbag.cards < 1 then
+                card:start_dissolve()
+                Kino.snackbag.states.visible = false
+            end
+        end
     end
 }
 

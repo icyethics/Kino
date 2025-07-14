@@ -42,6 +42,7 @@ Kino.confection_trigger = function(card)
         card.active = false
         G.E_MANAGER:add_event(Event({
             func = (function()
+                card.getting_sliced = true
                 card:start_dissolve()
                 return true
             end)

@@ -41,7 +41,12 @@ SMODS.Joker {
             local _planets_created = 0
             local _sellvalue = 0
             for i = 1, #G.jokers.cards do
-                if G.jokers.cards[i] ~= card and not G.jokers.cards[i].ability.eternal and not G.jokers.cards[i].getting_sliced then destructable_jokers[#destructable_jokers+1] = G.jokers.cards[i] end
+                if G.jokers.cards[i] ~= card and 
+                -- not G.jokers.cards[i].ability.eternal and 
+                not SMODS.is_eternal(G.jokers.cards[i], {kino_killer_klowns = true, joker = true}) and
+                not G.jokers.cards[i].getting_sliced then 
+                    destructable_jokers[#destructable_jokers+1] = G.jokers.cards[i] 
+                end
             end
             local joker_to_destroy = #destructable_jokers > 0 and pseudorandom_element(destructable_jokers, pseudoseed('klowns')) or nil
             if joker_to_destroy and not (context.blueprint_card or card).getting_sliced then 
@@ -60,7 +65,7 @@ SMODS.Joker {
                 --     _rarity = 4
                 -- end
                 -- found rarity
-                _sellvalue = joker_to_destroy.cost
+                _sellvalue = joker_to_destroy.sell_cost
                 _planets_created = math.max(_sellvalue % 5, 1)
                 
                 

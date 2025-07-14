@@ -32,12 +32,15 @@ SMODS.Joker {
     pools, k_genre = {"Comedy", "Silent"},
 
     loc_vars = function(self, info_queue, card)
+        local new_numerator_retrigger, new_denominator_retrigger = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_tarot_creation")
+        local new_numerator_destroy, new_denominator_destroy = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_tarot_creation")
         return {
             vars = {
                 card.ability.extra.repetition, 
-                card.ability.extra.cur_chance * G.GAME.probabilities.normal,
-                card.ability.extra.chance,
-                card.ability.extra.destroy_chance_non
+                new_numerator_retrigger,
+                new_denominator_retrigger,
+                new_numerator_destroy,
+                new_denominator_destroy
             }
         }
     end,
@@ -45,7 +48,8 @@ SMODS.Joker {
         -- played cards have a 1/2 chance to retrigger and a 1/5 chance to break
         
         if context.cardarea == G.play and context.repetition then
-            if pseudorandom("modern_times_retrigger") < (G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.chance then
+            if SMODS.pseudorandom_probability(card, 'kino_modern_times', (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_card_retrigger") then
+            -- if pseudorandom("modern_times_retrigger") < (card.ability.extra.cur_chance) / card.ability.extra.chance then
                 return {
                     repetitions = card.ability.extra.repetition,
                     message = localize('k_again_ex')
@@ -54,7 +58,8 @@ SMODS.Joker {
         end
 
         if context.destroying_card and not context.blueprint then
-            if pseudorandom("modern_times_destroy") < (G.GAME.probabilities.normal * card.ability.extra.cur_chance) / card.ability.extra.destroy_chance_non then
+            -- if pseudorandom("modern_times_destroy") < (card.ability.extra.cur_chance) / card.ability.extra.destroy_chance_non then
+            if SMODS.pseudorandom_probability(card, 'kino_modern_times', (card.ability.extra.cur_chance), card.ability.extra.destroy_chance_non, "kino_card_destruction") then
                 return {
                     remove = true
                 }

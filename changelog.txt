@@ -3,8 +3,10 @@ V 0.10
 New Mechanic:
 Counters!
 
-New Content:
+## New Content: ##
+
 Jokers:
+-- 0
 - Pirates of the Caribbean
 - Pirates of the Caribbean 2
 - Pirates of the Caribbean 3
@@ -17,6 +19,7 @@ Jokers:
 - Treasure Island
 - When Harry Met Sally
 
+-- 10
 - House of Gucci
 - Lord of the Rings: The Fellowship of the Ring
 - School of Rock
@@ -29,6 +32,7 @@ Jokers:
 - The Pirates! Band of Misfits
 - Captain Blood
 
+-- 20
 - Muppet Treasure Island
 - Trading Places
 - Mafia Mamma
@@ -41,17 +45,36 @@ Jokers:
 - Oppenheimer
 - Arrival
 
-Joker Reworks:
-- The Abyss
-- Heart Eyes
-- Psycho
-- Terror Train
+-- 30
+- Donnie Darko
+- Kiki's Delivery Service
+- Moulin Rouge
+- Spirited Away
+- Pulp Fiction
 
-Boss Blind Reworks:
-- Gordon Gekko
-- Hans Gruber
-- Mr. Chow
-- Sallie Tomato
+- Solo: A Star Wars Story
+- Lost in Translation
+- Kramer Vs. Kramer
+- Blade Runner
+- Demolition Man
+
+-- 40
+- Blue Velvet
+- Elephant Man
+- Resident Evil
+- Rogue One
+- Star Wars: The Clone Wars
+
+- Zodiac
+- To Kill a Mockingbird
+- Bones And All
+- Bucket List
+- The Star Wars Holiday Special
+
+-- 50
+- Hit Man
+- Rush Hour
+
 
 Tarots:
 - Detective
@@ -69,15 +92,66 @@ Seals:
 - Thriller Seal
 - Comedy Seal
 
+Decks:
+(genre decks):
+- Questionable Deck (Mystery)
+- Illicit Deck (Crime)
+- Heroic Deck (Superhero)
+- Atlethic Deck (Sports)
+- Childlike Deck (Family)
+- Adventurous Deck (Adventure)
+- High Pressure Deck (Thriller)
+- Funny Deck (Comedy)
+
+
+- Investment Deck
+- Dark Knight Deck
+- Spellslinger's Deck
+- Deck That Makes You Old
+- Alderaan Deck
+- Cosmonaut's Deck
+- Empowered Deck
+
+
+Boss Blinds:
+- PB & E
+
+
+## Reworked Content: ##
+
+Jokers:
+- Anora
+- Apollo 13
+- The Abyss
+- Heart Eyes
+- Psycho
+- Terror Train
+- Snow White
+
+Boss Blinds:
+- Gordon Gekko
+- Hans Gruber
+- Mr. Chow
+- Sallie Tomato
+- Anton Chigurh
+
+Decks:
+- All genre decks
+
+## Bug fixes & Balancing: ##
+
 Bug Fixes:
 - Cryptid Crossmod: Monster energy's don't retrigger every joker selected by monster energy
 - Cryptid Crossmod: Selling Monster Energy no longer lets the marker linger
 - Citizen Kane is now a Legendary, as intended
+- Kino blinds can no longer lower your mult to 0
+- Moneyball is Cryptid compatible
 
 Balance Changes:
 - Jaws: +30 Chips > +50 Chips
 - Star Wars Episode III: The Revenge of the Sith > No longer upgrades cards on retriggers
 - Beetlejuice: Rare, x2 > Uncommon, x3
+
 
 V 0.9.4g:
 Bug Fixes:
