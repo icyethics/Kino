@@ -392,6 +392,11 @@ for _, file in ipairs(files) do
     assert(SMODS.load_file("Items/Stickers/" .. file))()
 end
 
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Tags")
+for _, file in ipairs(files) do
+    assert(SMODS.load_file("Items/Tags/" .. file))()
+end
+
 if kino_config.spellcasting then
     local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Spells")
     for _, file in ipairs(files) do

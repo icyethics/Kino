@@ -82,7 +82,7 @@ joker_list = {
 "nosferatu_1",
 "panic_room",
 "paulblart_1",
--- "peggy_sue_got_married",
+"peggy_sue_got_married",
 "pink_panther_1",
 "pinocchio_2022",
 "piranha_2",

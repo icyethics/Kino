@@ -84,7 +84,7 @@ Kino.debt_counter_effect = function(card)
 end
 
 Kino.poison_effect = function(card)
-    local _percentage = (card.ability.kino_numcounters * 5) / 100
+    local _percentage = to_big((card.ability.kino_numcounters * 5) / 100)
     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
         card.ability.kino_numcounters = card.ability.kino_numcounters - 1
     return true end }))

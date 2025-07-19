@@ -967,6 +967,15 @@ function Kino.debugfunc(inc)
     print(G.GAME.last_played_hand[inc])
 end
 
+function Kino.debugfunc_ID_check()
+    for _index, _card in ipairs(G.hand.cards) do
+        print("Card #".. _index)
+        print(_card.ID)
+        print(_card.ability.unique_val)
+        print(_card.ability.unique_val__saved_ID)
+    end
+end
+
 function Kino.print_contexts(context)
     for _key, _value in pairs(context) do
         print(_key)

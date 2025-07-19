@@ -149,7 +149,7 @@ return {
                 name = "Anora",
                 text = {
                     "When you {C:attention}Make a Match{}",
-                    "add a {C:green}Investment Counter{}",
+                    "add an {C:green}Investment Counter{}",
                     "to each card in hand"
                 }
             },
@@ -3316,14 +3316,16 @@ return {
                     "{C:inactive}(Max of {C:money}$#1#{C:inactive})"
                 }
             },
-            c_kino_award2 = {
-                name = "Award-DEV VERSION",
+            
+            c_kino_investor = {
+                name = "Investor",
                 text = {
-                    "Give an award to a {C:attention}Movie Joker",
-                    "doubling it's stats",
-                    "{C:inactive}(Movie Jokers can only be awarded once)"
+                    "Add an {C:green}Investment Counter{}",
+                    "to random card", 
+                    "in your deck {C:attention}#1#{} times"
                 }
             },
+
             c_kino_chef = {
                 name = "Chef",
                 text = {
@@ -3549,6 +3551,58 @@ return {
                 text = {
                     "Gain {C:mult}+1{}",
                     "discard this round"
+                }
+            },
+            c_kino_chips = {
+                name = "Chips",
+                text = {
+                    "Upgrade every {C:attention}Sci-fi Card",
+                    "held in hand",
+                    "next hand"
+                }
+            },
+            c_kino_sourcandy = {
+                name = "Sour Candy",
+                text = {
+                    "{C:green}#1# in #2#{} Chance to destroy",
+                    "each scoring card next hand",
+                    "lower chances by 1 for each",
+                    "additional scoring card"
+                }
+            },
+            c_kino_candycorn = {
+                name = "Candy Corn",
+                text = {
+                    "Cards held in hand have",
+                    "a {C:green}#1# in #2#{} Chance to",
+                    "{C:attention}Jumpscare",
+                    "{C:inactive}(Does not get eaten if",
+                    "{C:inactive}no cards jumpscare)"
+                }
+            },
+            c_kino_dno_nugget = {
+                name = "D.N.O. Nugget",
+                text = {
+                    "Add {C:attention}#1#{} copy",
+                    "of the first scoring card",
+                    "to your hand"
+                }
+            },
+            c_kino_garlic_bread = {
+                name = "Garlic Bread",
+                text = {
+                    "Increase the sell value",
+                    "of every owned joker",
+                    "by {C:money}$#1#"
+                }
+            },
+            c_kino_magic_beans = {
+                name = "Magic Beans",
+                text = {
+                    "Cast a spell based",
+                    "on the first three cards",
+                    "held in hand",
+                    "hext hand"
                 }
             },
             c_kino_ratatouille = {
@@ -4220,81 +4274,34 @@ return {
             }
         },
         Tag = {
-            tag_kino_popcorn = {
-                name = "Popcorn Tag",
+            tag_kino_dinner = {
+                name = "Dinner Tag",
                 text = {
-                    "Upgrade the next",
-                    "hand you play with",
-                    "{C:mult}+#1#{} Mult"
+                    "Upgrades all future",
+                    "{C:mult}Confections{} with",
+                    "+1 values"
                 }
             },
-            tag_kino_icecream = {
-                name = "Ice Cream Tag",
+            tag_kino_snacktag = {
+                name = "Snack Tag",
                 text = {
-                    "Upgrade the next",
-                    "hand you play with",
-                    "{C:chips}+#1#{} Chips"
+                    "Gives a free",
+                    "{C:tarot}Mega Snack Pack",
                 }
             },
-            tag_kino_candy = {
-                name = "Candy Tag",
+            tag_kino_oscar = {
+                name = "Oscar Tag",
                 text = {
-                    "Gain {C:attention}+#1#{} hand size"
+                    "Upgrades one viable",
+                    "joker with an Award"
                 }
             },
-            tag_kino_peanut = {
-                name = "Peanut Tag",
+            tag_kino_counter = {
+                name = "Counter Tag",
                 text = {
-                    "Earn an extra",
-                    "{C:money}$#1#{} interest"
-                }
-            },
-            tag_kino_pizza = {
-                name = "Pizza Tag",
-                text = {
-                    "{C:inactive}Quatro Formaggi{}",
-                    "The first card of",
-                    "each suit retriggers",
-                    "next round"
-                }
-            },
-            tag_kino_soda = {
-                name = "Soda Tag",
-                text = {
-                    "Retrigger the first",
-                    "card scored"
-                }
-            },
-            tag_kino_chocolate = {
-                name = "Chocolate Tag",
-                text = {
-                    "Draw {C:attetnion}#1#{} cards"
-                }
-            },
-            tag_kino_fries = {
-                name = "Fries Tag",
-                text = {
-                    "Upgrade the next card",
-                    "scored with {C:chips}+#1#{} Chips"
-                }
-            },
-            tag_kino_hotdog = {
-                name = "Hotdog Tag",
-                text = {
-                    "Level up the next",
-                    "hand played"
-                }
-            },
-            tag_kino_cookie = {
-                name = "Cookie Tag",
-                text = {
-                    "Gain {C:chips}+1{}"
-                }
-            },
-            tag_kino_gum = {
-                name = "Gum Tag",
-                text = {
-                    "Gain {C:mult}+1{}"
+                    "Adds 3 {C:green}Investment Counters",
+                    "to 5 random cards",
+                    "in your deck"
                 }
             }
         },

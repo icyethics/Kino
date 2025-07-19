@@ -167,8 +167,10 @@ Forced Card Creation queue
 Per Card Rarity
 Power Modulating (perhaps only once the indicator system works?)
 
-Check if already added:
-> Money value changed context
+
+contexts:
+> Shuffle Deck context
+> Money value changed context (Check if already added:)
 
 
 -- Feature redesign:
@@ -201,3 +203,44 @@ Voyage Dans Le Lune
 Wall Street
 
 - Seals, Consumables and Enhancements
+
+
+-- Skip Tags
+Sugar Tag
+Snack Tag
+
+Award Tag
+Wall Street Tag > Put 3 investment counters on a random card in deck, 5 times
+
+
+Genre Tags 
+>> Can only spawn if you own movie jokers.
+>> Only your top three most owned genres can spawn
+
+-- Movies with their own upgrades should care about the number of jokers owned
+Action Tag: Permanently gain 1 bullet per Action joker owned
+Adventure Tag: Transform 3 random unen
+Crime: Lose $5 and create a random skip tag per crime joker
+Family tag: Upgrade each card in deck with +5 chips per family joker
+Fantasy Tag: -- 
+
+
+-- Genres without have more generic effects
+- Christmas Tag: says Ho-ho-ho when you click on it
+-
+
+
+-- Confection Notes
+> Magic Beans: Cast a spell
+> (micro) Chips: Upgrade every sci-fi card held in hand
+> Sour Candy: 6/5 chance to destroy each scoring card played next hand. Lower odds by 1 per scoring card
+> Candy Corn: Each card held in hand has a 1/4 chance to jumpscare. (Not eaten when no card jumpscares)
+> Edible Paper: Add $1 to every joker's sell value
+> DiNA Nugguts: Create a copy of the first scoring card and add it to your hand
+
+
+
+> Heart Candies: Upgrade every scoring heart with +2 mult next hand
+> Candy Ring: Put an Investment Counter on each scoring diamond next hand
+> Strela Candy: Upgrade every card in hand with +3 chips for each scroing spades
+> Flour: 

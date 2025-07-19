@@ -93,7 +93,7 @@ AltTexture{
         'j_kino_stand_by_me',
         'j_kino_when_harry_met_sally',
         -- Row 6
-        -- 'j_kino_bucket_list',
+        'j_kino_bucket_list',
         'j_kino_ghostbusters_1',
         'j_kino_stripes',
         'j_kino_twins',
@@ -111,7 +111,7 @@ AltTexture{
         -- Row 1
         'j_kino_alien_3',
         'j_kino_se7en',
-        -- 'j_kino_game',
+        'j_kino_game',
         'j_kino_panic_room',
         'j_kino_zodiac',
         'j_kino_benjamin_button',
@@ -120,7 +120,7 @@ AltTexture{
         'j_kino_social_network',
         'j_kino_point_break',
         -- 'j_kino_iron_man',
-        -- 'j_kino_iron_giant',
+        'j_kino_iron_giant',
         'j_kino_ex_machina',
 
         -- Row 3
@@ -315,6 +315,7 @@ AltTexture{
     keys = {
         -- Row 1
         -- Row 2
+        'j_kino_solo',
         -- Row 3
         'j_kino_human_centipede',
         'j_kino_paulblart_1',

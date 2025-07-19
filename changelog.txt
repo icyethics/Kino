@@ -74,7 +74,7 @@ Jokers:
 -- 50
 - Hit Man
 - Rush Hour
-
+- Peggy Sue Got Married
 
 Tarots:
 - Detective
@@ -115,6 +115,15 @@ Decks:
 
 Boss Blinds:
 - PB & E
+
+Skip Tags:
+- Dinner Tag
+- Snack Tag
+- Oscar Tag
+- Counter Tag
+
+-- Genre Tags 
+(Genre tags will only be able to spawn if you own a joker of that genre.)
 
 
 ## Reworked Content: ##
