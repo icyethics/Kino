@@ -30,7 +30,7 @@ SMODS.Joker {
     pools, k_genre = {"Sci-fi"},
 
     loc_vars = function(self, info_queue, card)
-        local new_numerator, new_denominator = SMODS.get_probability_vars(card, (card.ability.extra.total_chance), card.ability.extra.chance, "kino_planet_creation")
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_planet_creation")
         return {
             vars = {
                 new_numerator,
@@ -42,7 +42,7 @@ SMODS.Joker {
         -- 
         if context.open_booster and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
             -- if pseudorandom('voyage') < (card.ability.extra.cur_chance ) / card.ability.extra.chance then
-            if SMODS.pseudorandom_probability(card, 'kino_voyage_dans_le_lune', (card.ability.extra.total_chance), card.ability.extra.chance, "kino_planet_creation") then
+            if SMODS.pseudorandom_probability(card, 'kino_voyage_dans_le_lune', (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_planet_creation") then
                 G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                 G.E_MANAGER:add_event(Event({
                     trigger = 'before',

@@ -741,7 +741,8 @@ SMODS.Consumable {
 
         if context.before and card.active then
             local _level = (card.ability.kino_choco and (card.ability.extra.level + card.ability.choco_bonus) or card.ability.extra.level) + G.GAME.confections_powerboost
-            level_up_hand(card, context.scoring_name, nil, _level)
+            SMODS.smart_level_up_hand(card, context.scoring_name, nil, _level)
+            -- level_up_hand(card, context.scoring_name, nil, _level)
             Kino.confection_trigger(card)
         end
 
@@ -1468,6 +1469,7 @@ SMODS.Consumable {
             for _index, _joker in ipairs(G.jokers.cards) do
                 _joker.ability.extra_value = _joker.ability.extra_value + _return
                 _joker:juice_up()
+                _joker:set_cost()
             end
             Kino.confection_trigger(card)
         end
@@ -1496,6 +1498,10 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_spellcasting"}
+        if G.hand and G.hand.cards and #G.hand.cards >= 3 then
+            info_queue[#info_queue + 1] = SMODS.Spells[check_spell_key(G.hand.cards)]
+        end
+        
         local _return = card.ability.extra.spell_level_bonus + G.GAME.confections_powerboost
         if card.ability.kino_chocolate then
             _return = _return + self.config.choco_bonus
@@ -1542,7 +1548,7 @@ SMODS.Consumable {
         end
     end,
     calculate = function(self, card, context)
-        if context.main_scoring and context.cardarea == G.play
+        if context.joker_main
         and card.active and #G.hand.cards > 2 then
             
             local _result = pick_spell(card, G.hand.cards)

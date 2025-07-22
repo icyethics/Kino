@@ -1459,52 +1459,52 @@ SMODS.Blind{
     end
 }
 
-SMODS.Blind{
-    key = "clubber",
-    dollars = 5,
-    mult = 2,
-    boss_colour = HEX('8cc8d5'),
-    atlas = 'kino_blinds', 
-    boss = {min = 1, max = 10},
-    pos = { x = 0, y = 4},
-    debuff = {
+-- SMODS.Blind{
+--     key = "clubber",
+--     dollars = 5,
+--     mult = 2,
+--     boss_colour = HEX('8cc8d5'),
+--     atlas = 'kino_blinds', 
+--     boss = {min = 1, max = 10},
+--     pos = { x = 0, y = 4},
+--     debuff = {
 
-    },
-    loc_vars = function(self)
-        return {
-            vars = {
-            }
-        }
-    end,
-    collection_loc_vars = function(self)
-        return {
-            vars = {
-            }
-        }
-    end,
-    disable = function(self)
-    end,
-    defeat = function(self)
-    end,
-    calculate = function(self, blind, context)
-        if context.pre_discard and context.full_hand then
-            for _index, _pcard in ipairs(G.hand.cards) do
-                -- check if it's not being discarded
-                local _match = false
-                for _index2, _pcard2 in ipairs(G.hand.highlighted) do
-                    if _pcard == _pcard2 then
-                        _match = true
-                        break
-                    end
-                end
+--     },
+--     loc_vars = function(self)
+--         return {
+--             vars = {
+--             }
+--         }
+--     end,
+--     collection_loc_vars = function(self)
+--         return {
+--             vars = {
+--             }
+--         }
+--     end,
+--     disable = function(self)
+--     end,
+--     defeat = function(self)
+--     end,
+--     calculate = function(self, blind, context)
+--         if context.pre_discard and context.full_hand then
+--             for _index, _pcard in ipairs(G.hand.cards) do
+--                 -- check if it's not being discarded
+--                 local _match = false
+--                 for _index2, _pcard2 in ipairs(G.hand.highlighted) do
+--                     if _pcard == _pcard2 then
+--                         _match = true
+--                         break
+--                     end
+--                 end
 
-                if not _match then
-                    Kino.change_counters(_pcard, "kino_chained", 1)
-                end
-            end
-        end
-    end
-}
+--                 if not _match then
+--                     Kino.change_counters(_pcard, "kino_chained", 1)
+--                 end
+--             end
+--         end
+--     end
+-- }
 
 -- NO FUNCTIONALITY
 SMODS.Blind{

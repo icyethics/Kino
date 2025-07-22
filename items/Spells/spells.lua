@@ -569,7 +569,7 @@ function cast_random_base_spell(strength)
     return _return
 end
 
-function pick_spell(caster, cards_in_hand)
+function pick_spell(caster, cards_in_hand, instant)
 
     -- local _material_1 = cards_in_hand[1].base.suit
     -- local _material_2 = cards_in_hand[2].base.suit
@@ -580,9 +580,25 @@ function pick_spell(caster, cards_in_hand)
     local _spell_key = check_spell_key(cards_in_hand)
     local _return_table = cast_spell(_spell_key, _strength)
 
+    if not instant then
+        G.E_MANAGER:add_event(Event({trigger = 'immediate', func = function()
+            attention_text({
+                text = localize({type="name_text", set="Spell", key= _spell_key }),
+                scale = 1.3, 
+                hold = 1.4,
+                major = G.play,
+                align = 'tm',
+                offset = {x = 0, y = -1},
+                silent = true
+            })
+            caster:juice_up()
+        return true end })) 
+    end
+
     if type(_return_table) == 'table' then
         return _return_table
     end
+
     return true
 end
 
@@ -617,6 +633,42 @@ function check_spell_strength(_material_3)
     end
 
     return _strength
+end
+
+function pick_spell_reverse(caster, cards_in_hand_og, instant)
+
+    -- Reverses cards_in_hand
+    local cards_in_hand = {}
+    for i = 1, #cards_in_hand_og do
+        cards_in_hand[i] = cards_in_hand_og[1 + #cards_in_hand_og - i]
+    end
+
+    local _strength = check_spell_strength(cards_in_hand[3]:get_id())
+
+    -- local _spell_key = "spell_kino_" .. _material_1	.. "_" .. _material_2
+    local _spell_key = check_spell_key(cards_in_hand)
+    local _return_table = cast_spell(_spell_key, _strength)
+
+    if not instant then
+        G.E_MANAGER:add_event(Event({trigger = 'immediate', func = function()
+            attention_text({
+                text = localize({type="name_text", set="Spell", key= _spell_key }),
+                scale = 1.3, 
+                hold = 1.4,
+                major = G.play,
+                align = 'tm',
+                offset = {x = 0, y = -1},
+                silent = true
+            })
+            caster:juice_up()
+        return true end })) 
+    end
+
+    if type(_return_table) == 'table' then
+        return _return_table
+    end
+
+    return true
 end
 
 -- Spell Set up

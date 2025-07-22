@@ -119,23 +119,24 @@ AltTexture{
         -- Row 2
         'j_kino_social_network',
         'j_kino_point_break',
-        -- 'j_kino_iron_man',
+        'j_kino_iron_man',
+        'j_kino_i_robot',
         'j_kino_iron_giant',
         'j_kino_ex_machina',
 
         -- Row 3
-        -- 'j_kino_wall_e',
-        -- 'j_kino_m3gan',
-        -- 'j_kino_matrix_1',
+        'j_kino_wall_e',
+        'j_kino_m3gan',
+        'j_kino_matrix_1',
         'j_kino_ai_artificial',
-        -- 'j_kino_duel',
-        -- 'j_kino_sugarland_express',
+        'j_kino_duel',
+        'j_kino_sugarland_express',
 
         -- Row 4
         'j_kino_close_encounters',
         -- indiana jones
-        -- 'j_kino_always',
-        'j_kino_hook',
+        'j_kino_always',
+        -- 'j_kino_hook',
         'j_kino_jurassic_park_1',
         'j_kino_catch_me_if_you_can',
 
@@ -216,7 +217,7 @@ AltTexture{
     keys = {
         -- Row 1
         'j_kino_dinner_with_andre',
-        'j_kino_clerks',
+        'j_kino_clerks_1',
         -- Row 2
         'j_kino_children_of_the_corn',
         -- Row 3

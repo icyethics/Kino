@@ -43,6 +43,19 @@
 
 -- end
 
+Kino.abduction_id_num_list = {}
+Kino.register_abducter_entity = function(card)
+
+    if card.ability.kino_abductor_id then
+        Kino.abduction_id_num_list[card.ability.kino_abductor_id] = card
+    else
+        local _kino_abductor_id = #Kino.abduction_id_num_list + 1
+        card.ability.kino_abductor_id = _kino_abductor_id
+        Kino.abduction_id_num_list[card.ability.kino_abductor_id] = card
+    end
+    
+end
+
 -- Abduction functions
 Kino.abduct_card = function(card, abducted_card)
     if not card or not card.area then return end
@@ -98,25 +111,31 @@ Kino.unabduct_cards = function(card)
     if not card.ability.extra.cards_abducted or #card.ability.extra.cards_abducted == 0 then return end
 
     local _table = card.ability.extra.cards_abducted
+    local _cardtable = Kino.gather_abducted_cards_by_abductor(card)
 
 
     -- for i, abductee in ipairs(_table) do
     for i = #_table,1,-1 do
         local abductee = _table[i]
-        abductee.card.area:remove_card(abductee.card)
-        abductee.card.abducted = false
+        local _card = _cardtable[i]
+        _card.area:remove_card(_card)
+        _card.abducted = false
 
         local _cardarea = G.deck
-        if abductee.abducted_from ~= G.play and
-        abductee.abducted_from ~= G.hand then
-            _cardarea = abductee.abducted_from 
+        if _card.ability.set == 'Joker' then
+            _cardarea = G.jokers
         end
+        -- if abductee.abducted_from ~= G.play and
+        -- abductee.abducted_from ~= G.hand then
+        --     _cardarea = abductee.abducted_from 
+        -- end
 
-        _cardarea:emplace(abductee.card)
+        _cardarea:emplace(_card)
         table.remove(_table, i)
+        table.remove(_cardtable, i)
         if _cardarea ~= G.jokers and 
         _cardarea ~= G.consumeables then
-            table.insert(G.playing_cards, abductee.card)
+            table.insert(G.playing_cards, _card)
         end
     end
 
@@ -131,6 +150,23 @@ end
 Kino.abduction_end = function()
     SMODS.calculate_context({abduction_ending = true})
     
+end
+
+Kino.gather_abducted_cards_by_abductor = function(card)
+    local _id = card.ability.kino_abductor_id
+    if not _id then
+        print("Set up incorrectly, internal ID for this joker is missing")
+    end
+
+    local _list_of_cards = {}
+
+    for _index, _card in ipairs(Kino.abduction.cards) do
+        if _card.ability.kino_abductor_id == _id then
+            _list_of_cards[_card.ability.kino_abduction_id] = _card
+        end
+    end
+
+    return _list_of_cards
 end
 
 G.FUNCS.draw_from_area_to_abduction = function(e)
@@ -165,8 +201,9 @@ G.FUNCS.draw_from_area_to_abduction = function(e)
                     }
                 end
 
-                _abductor.ability.extra.cards_abducted[#_abductor.ability.extra.cards_abducted + 1] = {
-                    card = _abductee,
+                _abductee.ability.kino_abductor_id = _abductor.ability.kino_abductor_id
+                _abductee.ability.kino_abduction_id = #_abductor.ability.extra.cards_abducted + 1
+                _abductor.ability.extra.cards_abducted[_abductee.ability.kino_abduction_id] = {
                     abducted_from = _abducted_from
                 }
 

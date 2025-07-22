@@ -55,7 +55,7 @@ SMODS.Joker {
                 _returnbool = true
             end
 
-            if not context.other_card.edition then
+            if context.other_card.edition then
                 _return["x_mult"] = card.ability.extra.x_mult
                 _returnbool = true
             end

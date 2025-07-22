@@ -46,7 +46,7 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
     end
 
     if G.GAME.modifiers.kino_batmandeck and _type == 'Joker' then
-        if pseudorandom("kino_batmandeck") < 4 then
+        if pseudorandom("kino_batmandeck") < (1/4) then
             SMODS.Stickers['kino_robin']:apply(_card, true)
         end
     end

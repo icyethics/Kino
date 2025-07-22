@@ -188,6 +188,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = "kino_sleeves_genre",
+    px = 73,
+    py = 95,
+    path = 'kino_genre_sleeves.png'
+}
+
+SMODS.Atlas {
     key = "kino_seg_display",
     px = 71,
     py = 95,
@@ -253,8 +260,8 @@ local _list_of_files = {
     "Kinofunctions.lua",
     "jokers.lua",
     "Kinogenres.lua",
-    "movie_info.lua",
     "KinoUI.lua",
+    "movie_info.lua",
     "src/boss_blinds.lua",
     "src/abduction.lua",
     "src/codex_rework.lua",
@@ -412,6 +419,7 @@ if kino_config.spellcasting then
 end
 
 kino_genre_init()
+Kino.metadata()
 
 SMODS.ObjectType {
     key = "kino_batman",

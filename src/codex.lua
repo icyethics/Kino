@@ -38,17 +38,12 @@ function Kino.check_codex(card, codex, checking_cards, solved_codex)
         if _solved_codex[i].rank ~= nil then
             _rankmatch = true
         elseif codex[i].rank ~= nil and _solved_codex[i].rank == nil and _card and _card:get_id() == codex[i].rank then
-            print(codex[i].rank)
             _solved_codex[i].rank = codex[i].rank
             _rankmatch = true
-            print("rank == true")
-            print(_solved_codex[i].rank)
         elseif codex[i].rank == nil then
             _rankmatch = true
-            print("rank == true because no rank")
         else
             _solved_codex[i].rank = nil
-            print("rank didn't match")
         end
 
         if not _suitmatch or not _rankmatch then

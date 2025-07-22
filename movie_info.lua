@@ -1,4 +1,4 @@
-
+function Kino.metadata()
 -- Load files
 -- local movies, load_error = assert(SMODS.load_file("moviedata/movies.lua"))()
 -- if load_error then
@@ -47,3 +47,5 @@ end
 
 Kino.moviemetadata = movies
 Kino.peoplemetadata = actors
+
+end

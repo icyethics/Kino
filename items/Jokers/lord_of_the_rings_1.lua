@@ -46,7 +46,6 @@ SMODS.Joker {
         and not context.other_context.post_trigger and
         not context.other_context.destroying_card and
         G.STATE == G.STATES.HAND_PLAYED then
-            print("lotr-test")
             -- Find me
             local _mypos = nil
             for i = 1, #G.jokers.cards do

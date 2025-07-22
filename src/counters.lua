@@ -89,9 +89,9 @@ Kino.poison_effect = function(card)
         card.ability.kino_numcounters = card.ability.kino_numcounters - 1
     return true end }))
     return {
-        chips = -(hand_chips * _percentage),
-        mult = -(mult * _percentage),
-        message = "-" ..card.ability.kino_numcounters.."%",
+        chips = to_number(-(hand_chips * _percentage)),
+        mult = to_number(-(mult * _percentage)),
+        message = "-" ..to_number(card.ability.kino_numcounters).."%",
         colour = G.C.LEGENDARY
     }
 end

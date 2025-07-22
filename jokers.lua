@@ -108,6 +108,7 @@ joker_list = {
 "star_wars_i",
 'star_wars_v',
 'star_wars_ix',
+"star_wars_holiday",
 "steel",
 "stripes",
 "sugarland_express",

@@ -112,13 +112,11 @@ SMODS.Joker {
         if context.individual and context.cardarea == G.play then
             if context.other_card and context.other_card.ability then
                 if context.other_card.ability.kino_counter == "kino_investment" then
-                    local _target = context.other_card
-                    Kino.investment_counter_effect (_target)
+                    Kino.investment_counter_effect (context.other_card)
                 end
 
                 if context.other_card.ability.kino_counter == "kino_debt" then
-                    local _target = context.other_card
-                    Kino.debt_counter_effect (_target)
+                    Kino.debt_counter_effect(context.other_card)
                 end
 
                 -- Lower scored chips and mult by x%

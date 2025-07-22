@@ -123,11 +123,11 @@ SMODS.Back {
 
     end,
     calculate = function(self, card, context)
-        if context.main_scoring and context.cardarea == G.play then
-            
+        if context.individual and context.cardarea == G.play and
+        context.scoring_hand[1] == context.other_card then
             if #G.hand.cards > 2 then
-                local _result = pick_spell(card, G.hand.cards)
-                card_eval_status_text(card, 'extra', nil, nil, nil,
+                local _result = pick_spell(context.other_card, G.hand.cards)
+                card_eval_status_text(context.other_card, 'extra', nil, nil, nil,
                 { message = localize('k_spell_cast'), colour = G.C.PURPLE })
                 return _result
             end
@@ -157,38 +157,46 @@ SMODS.Back {
     },
     apply = function()
         G.GAME.modifiers.kino_starwarsdeck = true
+        G.GAME.modifiers.kino_starwardsdeck_rarity = 2
     end,
     calculate = function(self, card, context)
+        -- When a round ends, level up a random hand for each remaining discard
         if context.end_of_round
         and not context.individual and not context.repetition and not context.blueprint then
-            local _card = SMODS.create_card({
-                area = G.consumeables, 
-                key = "c_kino_death_star", 
-                edition = {negative = true}
-            })
-            G.consumeables:emplace(_card)
-        end
-    end
-}
-
-SMODS.Back {
-    name = "Cosmonaut's Deck",
-    key = "cosmonaut",
-    atlas = "kino_backs",
-    pos = {x = 1, y = 0},
-    config = {
-    },
-    apply = function()
-
-        for _key, _object in pairs(G.P_CENTERS) do
-            if _object.set == "Planet" and _object.config.hand_type then
-                -- 
-                G.GAME.banned_keys[_object.key] = true
-                print("banned object: " .. _object.key)
+            for i = 1, G.GAME.current_round.discards_left do
+                local _hand = get_random_hand()
+                SMODS.smart_level_up_hand(nil, _hand, nil, 1)
             end
+            -- local _card = SMODS.create_card({
+            --     area = G.consumeables, 
+            --     key = "c_kino_death_star", 
+            --     edition = {negative = true}
+            -- })
+            -- G.consumeables:emplace(_card)
+
+
         end
     end
 }
+
+-- SMODS.Back {
+--     name = "Cosmonaut's Deck",
+--     key = "cosmonaut",
+--     atlas = "kino_backs",
+--     pos = {x = 1, y = 0},
+--     config = {
+--     },
+--     apply = function()
+
+--         for _key, _object in pairs(G.P_CENTERS) do
+--             if _object.set == "Planet" and _object.config.hand_type then
+--                 -- 
+--                 G.GAME.banned_keys[_object.key] = true
+--                 print("banned object: " .. _object.key)
+--             end
+--         end
+--     end
+-- }
 
 SMODS.Back {
     name = "Empowered Deck",

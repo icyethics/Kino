@@ -285,18 +285,9 @@ SMODS.Consumable {
             
         end
 
-        if card.active and context.retrigger_joker_check then
-            print("test retrigger_joker_check")
-        end
-
-        if card.active and context.retrigger_joker then
-            print("test retrigger_joker")
-        end
-
         if card.active
         and context.retrigger_joker_check and 
         not context.retrigger_joker and context.other_card ~= self then
-            print("test")
 
             local _total_retriggers = card.ability.extra.retriggers + G.GAME.confections_powerboost
             if card.ability.kino_chocolate then

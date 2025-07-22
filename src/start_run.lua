@@ -29,8 +29,12 @@ function Game:start_run(args)
 
             -- iterate through every card
             for _, _pcard in ipairs(G.playing_cards) do
-                if _pcard:is_suit(_suitname) and not SMODS.has_any_suit(_pcard) and
+                if not G.GAME.starting_params.kino_empoweredsleeve and 
+                _pcard:is_suit(_suitname) and not SMODS.has_any_suit(_pcard) and
                 _pcard:is_face() then
+                    _pcard:set_ability(_enhancement)
+                elseif G.GAME.starting_params.kino_empoweredsleeve and 
+                _pcard:is_suit(_suitname) and not SMODS.has_any_suit(_pcard) then
                     _pcard:set_ability(_enhancement)
                 end
             end

@@ -34,12 +34,12 @@ SMODS.Joker {
             for k, v in pairs(G.playing_cards) do
                 if SMODS.has_enhancement(v, "m_kino_sci_fi") or
                 SMODS.has_enhancement(v, "m_kino_romance") then
+
                     enhancement_gate = true
                     break
                 end
             end
         end
-
         return enhancement_gate
     end,
 

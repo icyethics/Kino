@@ -15,10 +15,6 @@ SMODS.Enhancement {
         }
     end,
     calculate = function(self, card, context, effect)
-        if context.post_trigger then
-            print("testing-enhancement works")
-        end
-
         -- Gives X0.5 mult for each hand used
         if context.main_scoring and context.cardarea == G.play then
             return {

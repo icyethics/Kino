@@ -26,7 +26,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Fantasy", "Adventure"},
+    k_genre = {"Fantasy", "Adventure"},
 
     loc_vars = function(self, info_queue, card)
         return {
@@ -36,8 +36,9 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.other_joker then
+        if context.other_joker and context.other_joker.area == G.jokers then
             local _value = context.other_joker.sell_cost
+            context.other_joker:juice_up()
 
             return {
                 x_mult = 1 + (card.ability.extra.a_xmult * _value)

@@ -33,8 +33,10 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi"},
-
+    -- get_weight_mod = function()
+    --     return 1000
+    -- end,
+    k_genre = {"Sci-fi"},
     loc_vars = function(self, info_queue, card)
         
         local _mainreturncodex = Kino.codex_ui("rank", card.ability.extra.codex_solve)
@@ -64,6 +66,10 @@ SMODS.Joker {
         -- if the codex is solved, go back 2 antes and destroy this joker
 
         if context.joker_main then
+            if #card.ability.extra.codex <= 0 then
+                card.ability.extra.codex, card.ability.extra.codex_solve = Kino.create_codex(nil, 'arrival')
+            end
+
             local result = false
             if not context.blueprint and not context.repetition then
                 result, card.ability.extra.codex_solve, card.ability.extra.codex_lastplayed = Kino.compare_hand_to_codex(card, card.ability.extra.codex, context.full_hand, card.ability.extra.codex_solve, 'rank')
@@ -88,9 +94,5 @@ SMODS.Joker {
             end
         end
         
-    end,
-    add_to_deck = function(self, card, from_debuff)
-        card.ability.extra.codex, card.ability.extra.codex_solve = Kino.create_codex(nil, card.ability.extra.codex_type, card.ability.extra.codex_length, 'arrival')
-        print(card.ability.extra.codex)
     end,
 }

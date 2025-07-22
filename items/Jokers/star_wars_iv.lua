@@ -50,7 +50,8 @@ SMODS.Joker {
         if context.after then
             while card.ability.extra.stacks >= (card.ability.extra.threshold / card.ability.extra.factor) do
                 local handtype = get_random_hand()
-                level_up_hand(context.blueprint_card or card, handtype, nil, 1)
+                -- level_up_hand
+                SMODS.smart_level_up_hand(context.blueprint_card or card, handtype, nil, 1)
                 card.ability.extra.stacks = card.ability.extra.stacks - (card.ability.extra.threshold / card.ability.extra.factor)
                 card:juice_up()
             end

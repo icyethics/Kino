@@ -135,8 +135,11 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
         -- Checking flags
         if _cardobject.no_pool_flag and G.GAME.pool_flags[_cardobject.no_pool_flag] then add = nil end
         if _cardobject.yes_pool_flag and not G.GAME.pool_flags[_cardobject.yes_pool_flag] then add = nil end
-
-        -- Checking Kino joker settings
+        if _cardobject.in_pool and type(_cardobject.in_pool) == 'function' then
+            add = in_pool and (add or pool_opts.override_base_checks)
+        end
+        
+            -- Checking Kino joker settings
         if _cardobject.set == 'Joker' and not _cardobject.kino_joker and 
         ((kino_config and kino_config.movie_jokers_only) or
         G.GAME.modifiers.movie_jokers_only) then add = nil end
@@ -225,7 +228,7 @@ Kino.modify_weight = function(card, starting_weight)
     -- Star Wars Deck adjustments
     if G.GAME.modifiers.kino_starwarsdeck then
         if kino_quality_check(card, "is_starwars") then 
-            weight_from_other_adjustments = weight_from_other_adjustments +  G.GAME.modifiers.kino_batmandeck_rarity
+            weight_from_other_adjustments = weight_from_other_adjustments +  G.GAME.modifiers.kino_starwarsdeck_rarity
         end
     end
 

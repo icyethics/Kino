@@ -1088,6 +1088,13 @@ Kino.discard_given_card = function(list_of_cards, hook)
     end
 end
 
+local _o_cc = SMODS.calculate_context
+function SMODS.calculate_context(context, return_table)
+    if Kino.abduction and not Kino.abduction.cards then return {} end
+    if G.kino_offscreen_area and not G.kino_offscreen_area.cards then return {} end
+    return _o_cc(context, return_table)
+end
+
 ----------------------
 to_big = to_big or function(x, y)
     return x

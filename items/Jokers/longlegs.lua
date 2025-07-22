@@ -42,8 +42,6 @@ SMODS.Joker {
         if not card.ability.extra.hidden_card and not context.blueprint then
             -- card.ability.extra.hidden_card = pseudorandom_element(G.deck.cards)
             local _pcard = pseudorandom_element(G.playing_cards)
-            print(_pcard.base.suit)
-            print(_pcard.base.value)
             card.ability.extra.hidden_card = true
             _pcard.marked_by_longlegs = true
         end

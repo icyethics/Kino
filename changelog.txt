@@ -136,6 +136,8 @@ Jokers:
 - Psycho
 - Terror Train
 - Snow White
+- Batman & Robin
+- Wall E 
 
 Boss Blinds:
 - Gordon Gekko

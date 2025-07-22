@@ -57,7 +57,8 @@ SMODS.Joker {
                 end
             end
 
-            level_up_hand(card, _hand, nil, card.ability.extra.stacks, true)
+            -- level_up_hand
+            SMODS.smart_level_up_hand(card, _hand, nil, card.ability.extra.stacks, true)
         end
     end
 }

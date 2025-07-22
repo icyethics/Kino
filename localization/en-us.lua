@@ -246,7 +246,7 @@ return {
             j_kino_batman_and_robin = {
                 name = "Batman & Robin",
                 text = {
-                    "Upgrade scored cards with {C:mult}+#1#{} Mult",
+                    "Upgrade scoring cards with {C:mult}+#1#{} Mult",
                     "for every empty Joker slot",
                     "if your played hand is a {C:attention}Pair",
                     "(Batman jokers count as empty)",
@@ -423,7 +423,7 @@ return {
                         "{C:chips}+#4#{} Chips per Charge",
                         "and consume a charge",
                         "{C:inactive}(Currently: {C:chips}+#5#{} Chips &",
-                        "{C:inactive} +#4# Charges"
+                        "{C:inactive} +#1# Charges"
                     },
                     {
                         "Gain #2# Charge when you",
@@ -502,7 +502,7 @@ return {
                 text = {
                     "{C:chips}+#1#{} Chips if you're",
                     "{C:attention}Quick{}",
-                    
+                    " "
                 }
             },
             j_kino_casablanca = {
@@ -702,8 +702,9 @@ return {
                 name = "The Dark Knight Rises",
                 text = {
                     "When you {C:attention}Select a Blind",
-                    "Level Up a random hand for each",
-                    "empty joker slot",
+                    "for each empty joker slot",
+                    "upgrade a random hand",
+                    "with {C:mult}+#2#{} Mult",
                     "{C:inactive}(Currently: #1# Empty Slots)",
                     "{C:inactive}(Batman jokers count as empty slots)"
                 }
@@ -714,7 +715,8 @@ return {
                     "The first time each round",
                     "you play a {C:attention}#2#",
                     "put #1# {C:attention}Power Counters",
-                    "on another random Joker" 
+                    "on another random Joker",
+                    "{C:inactive}(Hand changes every round)"
                 }
             },
             j_kino_death_race = {
@@ -2005,7 +2007,7 @@ return {
             j_kino_pirates_of_the_caribbean_3 = {
                 name = "Pirates of the Caribbean: At World's End",
                 text = {
-                    "Cards give {C:chips}Chips{} equal to",
+                    "Jokers give {C:chips}Chips{} equal to",
                     "{C:attention}x3{} times their {C:money}Sell Value{}"
                 }
             },
@@ -2715,7 +2717,7 @@ return {
                 text = {
                     "Gains {X:mult,C:white}X#2#{} Mult when",
                     "you sell a card for {C:money}$#3#{} or more",
-                    "{C:inactive}(Currently: {X:mult,C:white}X#2#{C:inactive} Mult)"
+                    "{C:inactive}(Currently: {X:mult,C:white}X#1#{C:inactive} Mult)"
                 }
             },
             j_kino_treasure_island = {
@@ -2831,12 +2833,12 @@ return {
             j_kino_wall_e = {
                 name = "Wall-E",
                 text = {
-                    "When you discard a steel card,",
-                    "gain 1 scrap",
-                    "Whenever a Sci-Fi card upgrades,", 
-                    "use your scrap to",
-                    "upgrade it again",
-                    "{C:inactive}(Currently {C:attention}#1#{C:inactive} Scrap)"
+                    "Gain {C:mult}+#1#{} Mult",
+                    "when you discard",
+                    "an Enhanced card",
+                    "if it is metallic",
+                    "gain {C:mult}+#2#{} Mult instead",
+                    "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
                 }
             },
             j_kino_wall_street = {
@@ -3935,7 +3937,8 @@ return {
             b_kino_spellslinger = {
                 name = "Spellslinger's Deck",
                 text = {
-                    "Cast a spell based",
+                    "First scoring card",
+                    "casts a spell based",
                     "on the first three cards",
                     "in hand when a hand is played"
                 }
@@ -3955,7 +3958,8 @@ return {
                     "{C:attention}Star Wars Jokers{} are",
                     "2x as common",
                     "When you defeat a blind",
-                    "create a {C:dark_edition}Negative {C:attention,T:c_kino_death_star}Death Star"
+                    "level up a random hand",
+                    "for each unused {C:mult}Discard"
                 }
             },
             b_kino_cosmonaut = {
@@ -4873,75 +4877,148 @@ return {
             },
         },
         Sleeve = {
+            -- Genre Sleeves
             sleeve_kino_spooky = {
                 name = "Spooky Sleeve",
                 text = {
                     "{C:attention}Horror jokers{} are",
-                    "{C:attention}50%{} stronger and",
-                    "all {C:attention}Genre Packs{} are",
-                    "always {C:attention}Horror Packs{}",
-                    "and {C:attention}Twice as Frequent"
-                }
-            },
-            sleeve_kino_flirty = {
-                name = "Flirty Sleeve",
-                text = {
-                    "{C:attention}Romance jokers{} are",
-                    "{C:attention}50%{} stronger and",
-                    "all {C:attention}Genre Packs{} are",
-                    "always {C:attention}Romance Packs{}",
-                    "and {C:attention}Twice as Frequent"
-                }
-            },
-            sleeve_kino_dangerous = {
-                name = "Dangerous Sleeve",
-                text = {
-                    "{C:attention}Action jokers{} are",
-                    "{C:attention}50%{} stronger and",
-                    "all {C:attention}Genre Packs{} are",
-                    "always {C:attention}Action Packs{}",
-                    "and {C:attention}Twice as Frequent"
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
+                    "Start with a {C:attention}The Slasher{}",
+                    "and a {C:attention}The Demon"
                 }
             },
             sleeve_kino_tech = {
                 name = "Tech_Sl33ve",
                 text = {
                     "{C:attention}Sci-fi jokers{} are",
-                    "{C:attention}50%{} stronger and",
-                    "all {C:attention}Genre Packs{} are",
-                    "always {C:attention}Sci-fi Packs{}",
-                    "and {C:attention}Twice as Frequent"
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
+                    "Start with 2 copies of ",
+                    "{C:attention}The Droid{}"
+                }
+            },
+            sleeve_kino_flirty = {
+                name = "Flirty Sleeve",
+                text = {
+                    "{C:attention}Romance jokers{} are",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
+                    "Start with 2 copies of ",
+                    "{C:attention}The Meetcute{}"
+                }
+            },
+            sleeve_kino_questionable = {
+                name = "Questionable Sleeve",
+                text = {
+                    "{C:attention}Mystery jokers{} are",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
+                    "Start with 2 copies of ",
+                    "{C:attention}The Detective{}"
                 }
             },
             sleeve_kino_enchanted = {
                 name = "Enchanted Sleeve",
                 text = {
                     "{C:attention}Fantasy jokers{} are",
-                    "{C:attention}50%{} stronger and",
-                    "all {C:attention}Genre Packs{} are",
-                    "always {C:attention}Fantasy Packs{}",
-                    "and {C:attention}Twice as Frequent"
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
+                    "Start with 2 copies of ",
+                    "{C:attention}The Witch{}"
                 }
             },
+            sleeve_kino_illicit = {
+                name = "Illicit Sleeve",
+                text = {
+                    "{C:attention}Crime jokers{} are",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
+                    "Start with 2 copies of ",
+                    "{C:attention}The Gangster{}"
+                }
+            },
+            sleeve_kino_dangerous = {
+                name = "Dangerous Sleeve",
+                text = {
+                    "{C:attention}Action jokers{} are",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
+                    "Start with 2 copies of ",
+                    "{C:attention}The Soldier{}"
+                }
+            },
+            sleeve_kino_heroic = {
+                name = "Heroic Sleeve",
+                text = {
+                    "{C:attention}Superhero jokers{} are",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
+                    "Start with 2 copies of ",
+                    "{C:attention}The Superhero{}"
+                }
+            },
+
+            sleeve_kino_athletic = {
+                name = "Athletic Sleeve",
+                text = {
+                    "{C:attention}Sports jokers{} are",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
+                    "Start with 2 copies of ",
+                    "{C:attention}Homerun{}"
+                }
+            },
+            sleeve_kino_childlike = {
+                name = "Childlike Sleeve",
+                text = {
+                    "{C:attention}Family jokers{} are",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
+                    "Start with 2 copies of ",
+                    "{C:attention}Gathering{}"
+                }
+            },
+            sleeve_kino_adventurous = {
+                name = "Adventurous Sleeve",
+                text = {
+                    "{C:attention}Adventure jokers{} are",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
+                    "Start with 2 copies of ",
+                    "{C:attention}Artifact{}"
+                }
+            },
+            sleeve_kino_highpressure = {
+                name = "High Pressure Sleeve",
+                text = {
+                    "{C:attention}Thriller jokers{} are",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
+                    "Start with 2 copies of ",
+                    "{C:attention}Fright{}"
+                }
+            },
+            sleeve_kino_funny = {
+                name = "Funny Sleeve",
+                text = {
+                    "{C:attention}Comedy jokers{} are",
+                    "{C:attention}50%{} stronger and {C:attention}3{} times as common",
+                    "Start with 2 copies of ",
+                    "{C:attention}Whimsy{}"
+                }
+            },
+
+            -- Non-genre sleeves
             sleeve_kino_bacon = {
                 name = "Bacon Sleeve",
                 text = {
                     "{C:attention}Movie Jokers{} are",
-                    "{C:attention}50%{} stronger if",
+                    "{C:attention}#1#%{} stronger if",
                     "they share {C:attention}Cast or",
                     "{C:attention}Director{} with adjacent",
                     "Jokers"
                 }
             },
-            sleeve_kino_northernlion = {
-                name = "Egg Sleeve",
+            sleeve_kino_bacon_alt = {
+                name = "Bacon Sleeve",
                 text = {
-                    "{C:inactive,E:1}That's a {C:Romance,E:1}Romance!",
-                    "{C:inactive,E:1}they flirt in scene 19!",
-                    "{C:attention}Movie Jokers{} always count",
-                    "as {C:Romance}Romance Jokers{}"
+                    "{C:attention}Movie Jokers{} are",
+                    "{C:attention}#1#%{} stronger if",
+                    "they share {C:attention}Cast or",
+                    "{C:attention}Director{} with adjacent",
+                    "Jokers"
                 }
             },
+
             sleeve_kino_c2n = {
                 name = "Cine2Nerdle Sleeve",
                 text = {
@@ -4951,6 +5028,7 @@ return {
                     "current jokers"
                 }
             },
+
             sleeve_kino_producer = {
                 name = "Producer Sleeve",
                 text = {
@@ -4961,9 +5039,161 @@ return {
                     "based on it's {C:attention}Profit Margin"
                 }
             },
+            sleeve_kino_producer_alt = {
+                name = "Producer Sleeve",
+                text = {
+                    "Earn no money from",
+                    "blinds or interest",
+                    "After defeating a {C:attention}Blind",
+                    "each {C:attention}Movie Joker{} pays out",
+                    "based on it's {C:attention}Profit Margin"
+                }
+            },
+
+            sleeve_kino_investment = {
+                name = "Investment Sleeve",
+                text = {
+                    "Earn no money from",
+                    "blinds or interest",
+                    "When you defeat a Blind",
+                    "put an {C:green}Investment Counter",
+                    "on {C:attention}10{} random cards",
+                    "in your deck"
+                }
+            },
+            sleeve_kino_investment_alt = {
+                name = "Investment Sleeve",
+                text = {
+                    "Earn no money from",
+                    "blinds or interest",
+                    "When you defeat a Blind",
+                    "put an {C:green}Investment Counter",
+                    "on every card in your deck"
+                }
+            },
+
+            sleeve_kino_spellslinger = {
+                name = "Spellslinger's Sleeve",
+                text = {
+                    "First scoring card",
+                    "casts a spell based",
+                    "on the first three cards",
+                    "in hand when a hand is played"
+                }
+            },
+            sleeve_kino_spellslinger_alt = {
+                name = "Spellslinger's Sleeve",
+                text = {
+                    "Final scoring card",
+                    "casts a spell based",
+                    "on the last three cards",
+                    "in hand when a hand is played"
+                }
+            },
+
+            sleeve_kino_darkknight = {
+                name = "Dark Knight Sleeve",
+                text = {
+                    "{C:attention}Batman jokers{} are twice",
+                    "as common",
+                    "{C:attention}Jokers{} have a {green}1 in 4{}",
+                    "chance to spawn with a {C:attention}Robin sticker"
+                }
+            },
+            sleeve_kino_darkknight_alt = {
+                name = "Dark Knight Sleeve",
+                text = {
+                    "{C:attention}Batman jokers{} are",
+                    "four times as common",
+                    "{C:attention}Jokers{} have a {green}1 in 4{}",
+                    "chance to spawn with a {C:attention}Robin sticker"
+                }
+            },
+
+            sleeve_kino_alderaan = {
+                name = "Alderaan Sleeve",
+                text = {
+                    "{C:attention}Star Wars Jokers{} are",
+                    "twice as common",
+                    "When you defeat a blind",
+                    "level up a random hand",
+                    "for each unused {C:mult}Discard"
+                }
+            },
+            sleeve_kino_alderaan_alt = {
+                name = "Alderaan Sleeve",
+                text = {
+                    "{C:attention}Star Wars Jokers{} are",
+                    "four times as common",
+                    "When you defeat a blind",
+                    "level up a random hand",
+                    "for each unused {C:mult}Discard",
+                    "and {C:chips}Hand"
+                }
+            },
+
+            sleeve_kino_cosmonaut = {
+                name = "Cosmonaut's Sleeve",
+                text = {
+                    "{C:planet}Planets{} with an associated",
+                    "hand type won't spawn naturally"
+                }
+            },
+
+            sleeve_kino_empowered = {
+                name = "Empowered Sleeve",
+                text = {
+                    "{C:attention}Face Cards{} of each",
+                    "suit start with the same",
+                    "random {C:attention}Enhancement"
+                }
+            },
+            sleeve_kino_empowered_alt = {
+                name = "Empowered Sleeve",
+                text = {
+                    "All {C:attention}cards{} of each",
+                    "suit start with the same",
+                    "random {C:attention}Enhancement"
+                }
+            },
+            
+            sleeve_kino_deckthatmakesyouold = {
+                name = "Sleeve That Makes You Old",
+                text = {
+                    "When a card is scored",
+                    "increase the rank",
+                    "of every card held",
+                    "in hand that shares a Suit"
+                }
+            },
+            sleeve_kino_deckthatmakesyouold = {
+                name = "Sleeve That Makes You Old",
+                text = {
+                    "When a card is scored",
+                    "increase the rank",
+                    "of every card held",
+                    "in hand"
+                }
+            },
+            
+            
+            
+
+
+            sleeve_kino_northernlion = {
+                name = "Egg Sleeve",
+                text = {
+                    "{C:inactive,E:1}That's a {C:Romance,E:1}Romance!",
+                    "{C:inactive,E:1}they flirt in scene 19!",
+                    "{C:attention}Movie Jokers{} always count",
+                    "as {C:Romance}Romance Jokers{}"
+                }
+            },
+            
+            
 
             sleeve_kino_snackdeck = {
-                name = "Snack Deck",
+                name = "Snack Sleeve",
                 text = {
                     "Start your run with the",
                     "{C:attention}Special Treats{} and",
@@ -4971,7 +5201,7 @@ return {
                 }
             },
             sleeve_kino_trophydeck = {
-                name = "Trophy Deck",
+                name = "Winner's Sleeve",
                 text = {
                     "Start your run with the",
                     "{C:attention}Award's Bait{} and",
@@ -4982,7 +5212,7 @@ return {
 
             -- Cryptid Crossmod decks
             sleeve_kino_snackdeck_cryptid = {
-                name = "Snack Deck",
+                name = "Snack Sleeve",
                 text = {
                     "Start your run with the",
                     "{C:attention}Special Treats{}, {C:attention}Snack Bag{},",
@@ -4990,7 +5220,7 @@ return {
                 }
             },
             sleeve_kino_trophydeck_cryptid = {
-                name = "Trophy Deck",
+                name = "Winner's Sleeve",
                 text = {
                     "Start your run with the",
                     "{C:attention}Award's Bait{}, {C:attention}Award Show{},",

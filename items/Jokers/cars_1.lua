@@ -39,7 +39,7 @@ SMODS.Joker {
                 card.ability.extra.start_chips,
                 card.ability.extra.cur_chips,
                 card.ability.extra.time_spent
-            }
+            },
         }
     end,
     calculate = function(self, card, context)

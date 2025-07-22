@@ -80,13 +80,11 @@ SMODS.Joker {
             for _index, _joker in ipairs(G.jokers.cards) do
                 if _joker ~= card then
                     if _joker.ability.kino_popeyetarget == card.ID and _index ~= _mypos + 1 then
-                        print("in this")
                         card:set_multiplication_bonus(_joker, "popeye", 1, nil, 1 + card.ability.extra.powerboost)
                         _joker.ability.kino_popeyetarget = nil
                     end
 
                     if _index == _mypos + 1 and _joker.ability.kino_popeyetarget ~= card.ID then
-                        print("option 2")
                         card:set_multiplication_bonus(_joker, "popeye", 1 + card.ability.extra.powerboost)
                         _joker.ability.kino_popeyetarget = card.ID
                     end

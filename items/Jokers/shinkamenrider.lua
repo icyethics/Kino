@@ -41,6 +41,12 @@ SMODS.Joker {
         if context.end_of_round and context.cardarea == G.jokers and G.GAME.blind.boss then
             card.ability.extra.stacked_xmult = card.ability.extra.stacked_xmult + card.ability.extra.a_xmult
         end
+
+        if context.joker_main and card.ability.extra.stacked_xmult > 1 then
+            return {
+                x_mult = card.ability.extra.stacked_xmult
+            }    
+        end
     end,
     add_to_deck = function(self, card, from_debuff)
         G.GAME.kino_boss_mode = true

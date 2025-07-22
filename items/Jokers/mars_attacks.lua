@@ -55,8 +55,10 @@ SMODS.Joker {
                 card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_mars_attacks'), colour = G.C.CHIPS })
 
-                level_up_hand(card, "Four of a Kind", nil, card.ability.extra.additional_levels)
-                level_up_hand(card, "Full House", nil, -1)
+                -- level_up_hand
+                SMODS.smart_level_up_hand(card, "Four of a Kind", nil, card.ability.extra.additional_levels)
+                -- level_up_hand
+                SMODS.smart_level_up_hand(card, "Full House", nil, -1)
                 
                      
             end

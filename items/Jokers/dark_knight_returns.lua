@@ -5,7 +5,8 @@ SMODS.Joker {
     config = {
         is_batman = true,
         extra = {
-            a_levels = 1
+            a_levels = 1,
+            mult = 2
         }
     },
     rarity = 2,
@@ -45,7 +46,8 @@ SMODS.Joker {
         
         return {
             vars = {
-                _count
+                _count,
+                card.ability.extra.mult
             }
         }
     end,
@@ -60,7 +62,13 @@ SMODS.Joker {
 
             for i = 1, _count do
                 local _hand = get_random_hand()
-                level_up_hand(context.blueprint_card or card, _hand, nil, card.ability.extra.a_levels)
+                upgrade_hand(card, _hand, nil, card.ability.extra.mult)
+                update_hand_text(
+                    { sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
+                    { mult = 0, chips = 0, handname = "", level = "" }
+                )
+                -- level_up_hand
+                -- SMODS.smart_level_up_hand(context.blueprint_card or card, _hand, nil, card.ability.extra.a_levels)
             end
         end
     end

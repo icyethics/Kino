@@ -46,7 +46,6 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
 
         local _starting_suits = G.GAME.suit_startingcounts and G.GAME.suit_startingcounts["Clubs"] or 13
-        print(_starting_suits)
         local suit_count = 0 
         if G.playing_cards then
             for k, v in pairs(G.playing_cards) do

@@ -44,7 +44,8 @@ SMODS.Joker {
             -- if pseudorandom("kino_sauspart") < (card.ability.extra.cur_chance) / card.ability.extra.chance then
             if SMODS.pseudorandom_probability(card, 'kino_sausauge_party', (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_levelup") then    
                 local handtype = get_random_hand()
-                level_up_hand(context.blueprint_card or card, handtype, nil, 1)
+                -- level_up_hand
+                SMODS.smart_level_up_hand(context.blueprint_card or card, handtype, nil, 1)
                 card:juice_up()
             end
         end

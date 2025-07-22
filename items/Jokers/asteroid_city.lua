@@ -60,9 +60,13 @@ SMODS.Joker {
         end
 
         if context.abduction_ending and not context.blueprint and not context.retrigger then
-            for i, _object in ipairs(card.ability.extra.cards_abducted) do
-                _object.card:set_edition("e_negative", true, nil, true)
+            for _index, _card in ipairs(Kino.gather_abducted_cards_by_abductor(card)) do
+                _card:set_edition("e_negative", true, nil, true)
             end
+            -- for i, _object in ipairs(card.ability.extra.cards_abducted) do
+                
+            --     _object.card:set_edition("e_negative", true, nil, true)
+            -- end
             card.ability.extra.cards_abducted = Kino.unabduct_cards(card)
         end
     end,

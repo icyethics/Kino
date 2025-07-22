@@ -42,7 +42,8 @@ SMODS.Joker {
             for _, _consumable in ipairs(G.consumeables.cards) do
                 if _consumable.ability.set == "Planet" then
                     local _hand = get_random_hand()
-                    level_up_hand(card, _hand, nil, card.ability.extra.level_up)
+                    -- level_up_hand
+                    SMODS.smart_level_up_hand(card, _hand, nil, card.ability.extra.level_up)
                 end
             end
         end

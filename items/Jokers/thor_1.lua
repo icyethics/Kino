@@ -48,12 +48,6 @@ SMODS.Joker {
             _chosencard.marked_by_thor = true
         end
 
-        -- if context.joker_main then
-        --     print("pre-testing")
-        --     card.ability.extra.chosen_card = pseudorandom_element(context.scoring_hand, pseudoseed("thor"))
-        --     print("post-testing")
-        -- end
-
         if context.cardarea == G.play and context.repetition and not context.repetition_only and
         context.other_card and context.other_card.marked_by_thor == true and 
         context.scoring_hand and #context.scoring_hand >= 2 then

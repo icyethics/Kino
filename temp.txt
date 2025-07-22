@@ -230,17 +230,8 @@ Fantasy Tag: --
 -
 
 
--- Confection Notes
-> Magic Beans: Cast a spell
-> (micro) Chips: Upgrade every sci-fi card held in hand
-> Sour Candy: 6/5 chance to destroy each scoring card played next hand. Lower odds by 1 per scoring card
-> Candy Corn: Each card held in hand has a 1/4 chance to jumpscare. (Not eaten when no card jumpscares)
-> Edible Paper: Add $1 to every joker's sell value
-> DiNA Nugguts: Create a copy of the first scoring card and add it to your hand
 
-
-
-> Heart Candies: Upgrade every scoring heart with +2 mult next hand
-> Candy Ring: Put an Investment Counter on each scoring diamond next hand
-> Strela Candy: Upgrade every card in hand with +3 chips for each scroing spades
-> Flour: 
+To Do List:
+- Test Reworked Jokers
+- Test New Jokers
+- Fix Abduction jokers besides Moonfall & Asteroid City

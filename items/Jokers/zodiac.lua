@@ -67,6 +67,11 @@ SMODS.Joker {
 
 
         if context.joker_main then
+
+            if #card.ability.extra.codex <= 0 then
+                card.ability.extra.codex, card.ability.extra.codex_solve = Kino.create_codex(nil, 'arrival')
+            end
+
             local result = false
             if not context.blueprint and not context.repetition then
                 result, card.ability.extra.codex_solve, card.ability.extra.codex_lastplayed = Kino.compare_hand_to_codex(card, card.ability.extra.codex, context.full_hand, card.ability.extra.codex_solve, 'rank')
@@ -78,7 +83,7 @@ SMODS.Joker {
             if card.ability.extra.solved then
                 card.ability.extra.stacks = card.ability.extra.stacks + 1
                 card.ability.extra.solved = false
-                card.ability.extra.codex, card.ability.extra.codex_solve = Kino.create_codex(nil, card.ability.extra.codex_type, card.ability.extra.codex_length, 'zodiac')
+                card.ability.extra.codex, card.ability.extra.codex_solve = Kino.create_codex(nil,'zodiac')
             end
         end
 
@@ -89,9 +94,5 @@ SMODS.Joker {
             G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
         end
         
-    end,
-    add_to_deck = function(self, card, from_debuff)
-        card.ability.extra.codex, card.ability.extra.codex_solve = Kino.create_codex(nil, card.ability.extra.codex_type, card.ability.extra.codex_length, 'zodiac')
-   
-    end,
+    end
 }

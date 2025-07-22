@@ -5,7 +5,7 @@ SMODS.Joker {
     config = {
         extra = {
             stacks = 0,
-            a_stack_consumable = 1,
+            a_stacks_consumable = 1,
             a_stacks_destroy = 3,
             chips = 5
         }
@@ -45,7 +45,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- When
         if context.using_consumeable and not context.blueprint then
-            card.ability.extra.stacks = card.ability.extra.stacks + card.ability.extra.a_stack_consumable
+            card.ability.extra.stacks = card.ability.extra.stacks + card.ability.extra.a_stacks_consumable
             card_eval_status_text(card, 'extra', nil, nil, nil,
             { message = localize('k_upgrade_ex'), colour = G.C.Mult })
         end
@@ -58,7 +58,7 @@ SMODS.Joker {
             end
         end
 
-        if context.joker_main then
+        if context.joker_main and card.ability.extra.stacks > 0 then
             local _chips = card.ability.extra.stacks * card.ability.extra.chips
             if not context.blueprint then
                 card.ability.extra.stacks = card.ability.extra.stacks - 1

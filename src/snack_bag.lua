@@ -78,6 +78,22 @@ function Card:sell_card()
     o_sellcard(self)
 end
 
+local o_cfbs = G.FUNCS.check_for_buy_space
+function G.FUNCS.check_for_buy_space(card)
+    if card.ability.set == "confection" then
+        -- (card.ability.consumeable and #G.consumeables.cards < G.consumeables.config.card_limit + (card.edition and card.edition.card_limit or 0))
+        if G.GAME.used_vouchers.v_kino_snackbag and (not card.config.center.is_snackbag) and
+        #Kino.snackbag.cards >= Kino.snackbag.config.card_limit then
+            alert_no_space(card, card.ability.consumeable and G.consumeables or G.jokers)
+            return false
+        else
+            return true
+        end
+    end
+    return o_cfbs(card)
+  
+end
+
 function debugcardareaprint(area)
     if area == Kino.snackbag then print('snack') end
     if area == G.kino_snackbag then print('snackbag in G') end
