@@ -2282,8 +2282,8 @@ return {
                     {"Gains {X:mult,C:white}x#2#{} Mult",
                     "when a Boss Blind is defeated",
                     "{C:inactive}(Currently: {X:mult,C:white}x#1#{C:inactive} Mult)"},
-                    {"Blinds have a {C:green}1 in 2{} Chance",
-                    "to be a Boss Blind",}
+                    -- {"Blinds have a {C:green}1 in 2{} Chance",
+                    -- "to be a Boss Blind",}
                     
                 }
             },
@@ -4231,9 +4231,9 @@ return {
             bl_kino_pgande = {
                 name = "PG&E",
                 text = {
-                    "Put a {C:green}Poison Counter",
+                    "Put 2 {C:green}Poison Counters",
                     "on each card held in hand",
-                    "when a card is scored"
+                    "when a hand is played"
                 }
             },
             bl_kino_clubber =  {

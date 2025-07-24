@@ -262,7 +262,7 @@ local _list_of_files = {
     "Kinogenres.lua",
     "KinoUI.lua",
     "movie_info.lua",
-    "src/boss_blinds.lua",
+    -- "src/boss_blinds.lua",
     "src/abduction.lua",
     "src/codex_rework.lua",
     "src/counters.lua",

@@ -86,7 +86,7 @@ Kino.sleeve_list = {
 
 for _index, _info in ipairs(Kino.sleeve_list) do
 
-    SMODS.Back {
+    CardSleeves.Sleeve  {
     key = _info.key,
     atlas = "kino_sleeves_genre",
     pos = _info.coords,

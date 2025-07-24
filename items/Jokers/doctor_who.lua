@@ -49,8 +49,7 @@ SMODS.Joker {
         end
 
         if context.abduction_ending and not context.blueprint and not context.retrigger then
-            for i, _object in ipairs(card.ability.extra.cards_abducted) do
-                local _card = _object.card
+            for _index, _card in ipairs(Kino.gather_abducted_cards_by_abductor(card)) do
                 local edition = poll_edition('drwho', nil, true, true)
                 _card:set_edition(edition, true)
 
@@ -65,6 +64,7 @@ SMODS.Joker {
     add_to_deck = function(self, card, from_debuff)
         card.children.abduction_display = Kino.create_abduction_ui(card)
         card.children.abduction_display_2 = Kino.create_abduction_ui_2(card)
+        Kino.register_abducter_entity(card)
     end,
     update = function(self, card, dt)
         if card.area and card.area == G.jokers then

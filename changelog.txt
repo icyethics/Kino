@@ -1,4 +1,4 @@
-V 0.10
+V 0.10 Pre-release
 
 New Mechanic:
 Counters!

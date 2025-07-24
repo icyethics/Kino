@@ -52,6 +52,7 @@ SMODS.Enhancement {
         chips = -25
 
     },
+    hidden = true,
     replace_base_card = true,
     overrides_base_rank = true,
     no_suit = true,

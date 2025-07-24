@@ -104,6 +104,21 @@ SMODS.Consumable {
             }
         }
     end,
+    in_pool = function(self, args)
+        local _hands = {}
+        for k, v in ipairs(G.handlist) do
+            if G.GAME.hands[v].visible and G.GAME.hands[v].played ~= 0 then
+                _hands[#_hands + 1] = v
+
+            end
+        end
+
+        if #_hands > 3 then
+            return true
+        else
+            return false
+        end
+    end,
     get_weight_mod = function()
         return 0.5
     end,

@@ -197,7 +197,6 @@ position = 'after'
 match_indent = true
 payload = '''
 if amt > 1 then
-    print("testing-lovely")
 	G.GAME.current_round.beaten_run_high = G.GAME.current_round.beaten_run_high + 1
 end
 '''

@@ -497,8 +497,6 @@ SMODS.DrawStep {
                 local _currentrotation_target = (card.ability.angle / 360) * 2*math.pi
                 local _difference = _currentrotation_target - card.kino_time_card_rotation
                 card.kino_time_card_rotation = card.kino_time_card_rotation + (_difference * 0.02*math.sin(0.1*G.TIMERS.REAL)) 
-                
-                -- print(_currentrotation)
 
                 G.shared_enhancement_sprites.time_sprite.role.draw_major = card 
                 G.shared_enhancement_sprites.time_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, _currentrotation_target, nil, nil, nil, 0.6)

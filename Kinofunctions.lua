@@ -1024,7 +1024,6 @@ end
 
 -- Discard input card
 Kino.discard_given_card = function(list_of_cards, hook)
-    print("entered")
     stop_use()
 
     local highlighted_count = #list_of_cards

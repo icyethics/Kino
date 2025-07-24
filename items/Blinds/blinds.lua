@@ -1421,7 +1421,7 @@ SMODS.Blind{
     mult = 2,
     boss_colour = HEX('529cb7'),
     atlas = 'kino_blinds', 
-    boss = {min = 1, max = 10},
+    boss = {min = 2, max = 10},
     pos = { x = 0, y = 32},
     debuff = {
 
@@ -1448,11 +1448,12 @@ SMODS.Blind{
     end,
     calculate = function(self, blind, context)
         -- Whenever a card scores, put a poison counter on all cards held in hand
-        if context.individual and context.cardarea == G.play then
+        -- if context.after and context.cardarea == G.play then
+        if context.after then
             for _index, _pcard in ipairs(G.hand.cards) do
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
                     blind:wiggle()
-                    Kino.change_counters(_pcard, "kino_poison", 1)
+                    Kino.change_counters(_pcard, "kino_poison", 2)
                 return true end }))
             end
         end
