@@ -1169,7 +1169,7 @@ function loc_colour(_c, _default)
 end
 
 --- Global Variables ---
-Kino.jump_scare_mult = 3
+Kino.jump_scare_mult = 2
 Kino.jumpscare_stunned_duration = 3
 Kino.goldleaf_chance = 3
 Kino.choco_chance = 2

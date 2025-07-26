@@ -1188,7 +1188,8 @@ SMODS.Blind{
     loc_vars = function(self)
         return {
             vars = {
-                self.debuff.debt_earned
+                self.debuff.debt_earned,
+                self.debuff.targets
             }
         }
     end,

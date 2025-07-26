@@ -1,10 +1,12 @@
-Kino.dummy_codex = {
+Kino.get_dummy_codex = function()
+    return {
     {suit = nil, rank = nil},
     {suit = nil, rank = nil},
     {suit = nil, rank = nil},
     {suit = nil, rank = nil},
     {suit = nil, rank = nil}
 }
+end
 
 function Kino.create_codex(loc_limits, codexseed)
     if not G.playing_cards then return false end
@@ -108,7 +110,7 @@ function Kino.codex_ui(codex_type, codex_solve, reveal_all)
 
     if not codex_solve then
         print("no codex given")
-        codex_solve = Kino.dummy_codex
+        codex_solve = Kino.get_dummy_codex()
     end
 
     for _, _unit in ipairs(codex_solve) do
@@ -166,7 +168,7 @@ function Kino.last_hand_played_codex(codex_type, hand_played, reveal_all)
 
     if not hand_played then
         print("no codex given")
-        hand_played = Kino.dummy_codex
+        hand_played = Kino.get_dummy_codex()
     end
 
     for _, _unit in ipairs(hand_played) do

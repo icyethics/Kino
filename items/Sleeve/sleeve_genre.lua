@@ -1,4 +1,4 @@
--- if CardSleeves then
+if CardSleeves then
 --     CardSleeves.Sleeve {
 --         key = "spooky",
 --         atlas = "kino_sleeves",
@@ -99,4 +99,6 @@ for _index, _info in ipairs(Kino.sleeve_list) do
         G.GAME.kino_genre_weight[_info.genre] = (1 + G.GAME.kino_genre_weight[_info.genre]) * 3
     end,
 }
+end
+
 end

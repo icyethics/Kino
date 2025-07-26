@@ -5,8 +5,8 @@ SMODS.Joker {
     config = {
         extra = {
             codex = {},
-            codex_solve = Kino.dummy_codex,
-            codex_lastplayed = Kino.dummy_codex,
+            codex_solve = Kino.get_dummy_codex(),
+            codex_lastplayed = Kino.get_dummy_codex(),
             codex_type = 'rank',
             codex_length = 5,
             solved = false

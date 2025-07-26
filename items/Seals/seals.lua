@@ -133,18 +133,22 @@ SMODS.Seal{
     },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_jump_scare", vars = {tostring(Kino.jump_scare_mult)}}
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.seal.chance, "kino_jumpscare")
         return {
             vars = {
-                G.GAME.probabilities.normal,
-                card.ability.seal.chance
+                new_numerator,
+                new_denominator
             }
         }
     end,
 
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.hand then
-            if pseudorandom("kino_thrillerseal") < G.GAME.probabilities.normal / card.ability.seal.chance then
-                local x_mult = Kino.jumpscare(context.other_card)
+        -- if context.individual and context.other_card == card then
+        if context.main_scoring and context.cardarea == G.hand then
+            print("test")
+            -- if pseudorandom("kino_thrillerseal") < G.GAME.probabilities.normal / card.ability.seal.chance then
+            if SMODS.pseudorandom_probability(card, 'kino_thrillerseal', 1, card.ability.seal.chance, "kino_jumpscare") then
+                local x_mult = Kino.jumpscare(card)
                 return {
                     x_mult = x_mult, 
                     message = localize('k_jump_scare'),

@@ -188,23 +188,25 @@ SMODS.Consumable {
         }
     end,
     use = function(self, card, area, copier)
-        local conv_card = G.hand.highlighted[1]
-        G.E_MANAGER:add_event(Event({func = function()
-        play_sound('tarot1')
-        return true end }))
-        
-        G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function()
-            conv_card:set_seal("kino_thriller", nil, true)
+        for i = 1, #G.hand.highlighted do
+            local conv_card = G.hand.highlighted[i]
+            G.E_MANAGER:add_event(Event({func = function()
+            play_sound('tarot1')
             return true end }))
-        
-        delay(0.5)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.2,
-            func = function()
-                G.hand:unhighlight_all(); return true
-            end
-        }))
+            
+            G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function()
+                conv_card:set_seal("kino_thriller", nil, true)
+                return true end }))
+            
+            delay(0.5)
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.2,
+                func = function()
+                    G.hand:unhighlight_all(); return true
+                end
+            }))
+        end
     end
 }
 

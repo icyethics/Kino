@@ -142,14 +142,14 @@ AltTexture{
 
         -- Row 5
         'j_kino_bfg',
-        -- 'j_kino_ready_player_one',
+        'j_kino_ready_player_one',
         -- 'j_kino_frankenstein',
-        -- 'j_kino_memento',
+        'j_kino_memento',
         'j_kino_insomnia',
         'j_kino_batman_begins',
 
         -- Row 6
-        -- 'j_kino_prestige',
+        'j_kino_prestige',
         'j_kino_dark_knight',
         'j_kino_inception',
         'j_kino_interstellar',

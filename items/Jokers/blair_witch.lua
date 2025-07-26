@@ -32,7 +32,7 @@ SMODS.Joker {
     pools, k_genre = {"Horror"},
 
     loc_vars = function(self, info_queue, card)
-        local new_numerator, new_denominator = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_joker_destruction")
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, (card.ability.extra.chance_cur), card.ability.extra.chance, "kino_joker_destruction")
          
         return {
             vars = {
@@ -51,7 +51,7 @@ SMODS.Joker {
 		    calculate_reroll_cost(true)
 
             -- if pseudorandom("blair") < (card.ability.extra.chance_cur / card.ability.extra.chance) then
-            if SMODS.pseudorandom_probability(card, 'kino_blair', (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_joker_destruction") then
+            if SMODS.pseudorandom_probability(card, 'kino_blair', (card.ability.extra.chance_cur), card.ability.extra.chance, "kino_joker_destruction") then
                 for i = 1, #G.jokers.cards do
                     if G.jokers.cards[i] ~= card and 
                     -- not G.jokers.cards[i].ability.eternal and

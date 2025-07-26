@@ -43,11 +43,13 @@ SMODS.Joker {
                 end
             end
 
-            if G.jokers.cards[_mypos - 1] and is_genre(G.jokers.cards[_mypos - 1], "Sci-fi") then
-                _retriggers = _retriggers + 1
-            end
-            if G.jokers.cards[_mypos + 1] and is_genre(G.jokers.cards[_mypos + 1], "Sci-fi") then
-                _retriggers = _retriggers + 1
+            if _mypos then
+                if G.jokers.cards[_mypos - 1] and is_genre(G.jokers.cards[_mypos - 1], "Sci-fi") then
+                    _retriggers = _retriggers + 1
+                end
+                if G.jokers.cards[_mypos + 1] and is_genre(G.jokers.cards[_mypos + 1], "Sci-fi") then
+                    _retriggers = _retriggers + 1
+                end
             end
         end
 
