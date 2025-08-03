@@ -580,7 +580,7 @@ jumpscare_objects = {
 vampire_objects = {
     jokers = {
         "30_days_of_night",
-        "blade",
+        "blade_1",
         "cronos",
         "dracula_1931",
         "morbius",

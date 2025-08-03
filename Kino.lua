@@ -24,62 +24,62 @@ SMODS.Atlas {
     key = "kino_atlas_1",
     px = 71,
     py = 95,
-    path =  'kino_jokers_1.png'
+    path =  '001_kino_jokerresprite.png'
 }
 SMODS.Atlas {
     key = "kino_atlas_2",
     px = 71,
     py = 95,
-    path =  'kino_jokers_2.png'
+    path =  '002_kino_jokerresprite.png'
 }
 SMODS.Atlas {
     key = "kino_atlas_3",
     px = 71,
     py = 95,
-    path =  'kino_jokers_3.png'
+    path =  '003_kino_jokerresprite.png'
 }
 SMODS.Atlas {
     key = "kino_atlas_4",
     px = 71,
     py = 95,
-    path =  'kino_jokers_4.png'
+    path =  '004_kino_jokerresprite.png'
 }
 SMODS.Atlas {
     key = "kino_atlas_5",
     px = 71,
     py = 95,
-    path =  'kino_jokers_5.png'
+    path =  '005_kino_jokerresprite.png'
 }
 SMODS.Atlas {
     key = "kino_atlas_6",
     px = 71,
     py = 95,
-    path =  'kino_jokers_6.png'
+    path =  '006_kino_jokerresprite.png'
 }
 SMODS.Atlas {
     key = "kino_atlas_7",
     px = 71,
     py = 95,
-    path =  'kino_jokers_7.png'
+    path =  '007_kino_jokerresprite.png'
 }
 SMODS.Atlas {
     key = "kino_atlas_8",
     px = 71,
     py = 95,
-    path =  'kino_jokers_8.png'
+    path =  '008_kino_jokerresprite.png'
 }
 SMODS.Atlas {
     key = "kino_atlas_9",
     px = 71,
     py = 95,
-    path =  'kino_jokers_9.png'
+    path =  '009_kino_jokerresprite.png'
 }
 
 SMODS.Atlas {
     key = "kino_atlas_10",
     px = 71,
     py = 95,
-    path =  'kino_jokers_10.png'
+    path =  '010_kino_jokerresprite.png'
 }
 
 SMODS.Atlas {
@@ -276,7 +276,8 @@ local _list_of_files = {
     "src/cryptid.lua",
     "src/spritemanipulation.lua",
     "src/consumable_functions.lua",
-    "src/jumpscare.lua"
+    "src/jumpscare.lua",
+    -- "src/run_info.lua"
 }
 
 for _index, _filename in ipairs(_list_of_files) do

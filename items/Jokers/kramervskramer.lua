@@ -40,7 +40,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- Gain +5 mult when a Romance joker is sold
         if context.selling_card and not context.blueprint then
-            if context.card.ability.set == 'Joker' and is_genre(context.card, "Horror") then
+            if context.card.ability.set == 'Joker' and is_genre(context.card, "Romance") then
                 card.ability.extra.stacked_mult = card.ability.extra.stacked_mult + card.ability.extra.a_mult
                 card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_upgrade_ex'), colour = G.C.Mult })

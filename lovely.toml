@@ -861,6 +861,25 @@ end
 '''
 match_indent = true
 
+
+# Add Quest Log UI page
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''
+tab_definition_function = create_UIBox_current_hands,
+},
+'''
+position = "after"
+payload = '''
+{
+	label = localize('b_questlog'),
+	tab_definition_function = create_UIBox_quest_log
+},
+'''
+match_indent = true
+overwrite = false
+
 # for k, v in ipairs(G.playing_cards) do
 #         v.ability.forced_selection = nil
 # end

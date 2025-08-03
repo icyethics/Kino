@@ -422,7 +422,7 @@ return {
                     {
                         "{C:chips}+#4#{} Chips per Charge",
                         "and consume a charge",
-                        "{C:inactive}(Currently: {C:chips}+#5#{} Chips &",
+                        "{C:inactive}(Currently: {C:chips}+#5#{C:inactive} Chips &",
                         "{C:inactive} +#1# Charges"
                     },
                     {
@@ -3110,11 +3110,20 @@ return {
             m_kino_horror = {
                 name = "Horror Card",
                 text = {
-                    "{X:chips,C:white} X#1# {} Chips",
-                    "while this card",
-                    "stays in hand",
-                    "{C:green}#2# in #3#{} chance to",
-                    "wake up instead"
+                    "{C:chips}+#1#{} extra Chips",
+                    "",
+                    "While held in hand",
+                    "{C:green}#2# in #3#{} Chance to",
+                    "{C:attention}Awaken{} per turn held in hand"
+                }
+            },
+            m_kino_monster = {
+                name = "Monster Card",
+                text = {
+                    "{C:attention}Cannot be Discarded{}",
+                    "",
+                    "Returns to slumber",
+                    "after scoring"
                 }
             },
             m_kino_flying_monkey = {
@@ -3126,15 +3135,7 @@ return {
                     "Self-destruct after #3# hands"
                 }
             },
-            m_kino_monster = {
-                name = "Monster Card",
-                text = {
-                    "{C:chips}#1#{} Chips",
-                    "{C:attention}Cannot be Discarded{}",
-                    "Returns to slumber",
-                    "after scoring"
-                }
-            },
+            
             m_kino_mystery = {
                 name = "Mystery Card",
                 text = {
@@ -5234,6 +5235,7 @@ return {
             ---- UI elements ----
             b_confection_rate = "Confection Rate",
             b_kino_pull = "TAKE",
+            b_questlog = "Quests",
 
             -- Mod Config --
             kino_settings_header_enhancements = "Card Enhancements",
