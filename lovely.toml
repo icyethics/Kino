@@ -867,7 +867,7 @@ match_indent = true
 [patches.pattern]
 target = "functions/UI_definitions.lua"
 pattern = '''
-tab_definition_function = create_UIBox_current_hands,
+tab_definition_function = G.UIDEF.used_vouchers,
 },
 '''
 position = "after"

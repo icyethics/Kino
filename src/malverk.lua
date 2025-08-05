@@ -233,38 +233,38 @@ AltTexture{
         'j_kino_goodfellas',
         -- 'j_kino_guardians_of_the_galaxy_2',
         'j_kino_moneyball',
-        -- 'j_kino_rock',
-        -- 'j_kino_war_of_the_worlds',
+        'j_kino_rock',
+        'j_kino_war_of_the_worlds',
 
         -- Row 3
-        -- 'j_kino_incredible_hulk',
-        -- 'j_kino_nightmare_on_elm_street'
+        'j_kino_incredible_hulk',
+        'j_kino_nightmare_on_elm_street',
         'j_kino_halloween',
-        -- 'j_kino_friday_the_13th',
-        -- 'j_kino_12_monkeys',
+        'j_kino_friday_the_13th',
+        'j_kino_12_monkeys',
         'j_kino_6_underground',
         
         -- Row 4
         -- 'j_kino_seven_brides_for_seven_brothers'
-        -- 'j_kino_cars_1',
+        'j_kino_cars_1',
         'j_kino_clown',
         'j_kino_cronos',
         'j_kino_voyage_dans_le_lune',
-        -- 'j_kino_starman',
+        'j_kino_starman',
 
         -- Row 5
-        -- 'j_kino_guardians_of_the_galaxy_1',
-        -- 'j_kino_lady_and_the_tramp',
-        -- 'j_kino_childs_play',
+        'j_kino_guardians_of_the_galaxy_1',
+        'j_kino_lady_and_the_tramp',
+        'j_kino_childs_play',
         -- 'j_kino_snow_white_1',
         'j_kino_founder',
-        -- 'j_kino_treasure_planet',
+        'j_kino_treasure_planet',
 
         -- Row 6
         'j_kino_west_side_story_1',
         'j_kino_evil_dead_1',
         -- 'j_kino_wolf_man',
-        -- 'j_kino_apollo_13',
+        'j_kino_apollo_13',
         'j_kino_commando',
         -- 'j_kino_steel',
     },
@@ -277,20 +277,34 @@ AltTexture{
     original_sheet = true,
     keys = {
         -- Row 1
+        -- 'j_kino_dark_crystal',
+        'j_kino_fantasia',
         'j_kino_dinner_with_andre',
+        -- 'j_kino_oceans_11',
+        -- 'j_kino_harry_potter_1',
         'j_kino_clerks_1',
+
         -- Row 2
         'j_kino_children_of_the_corn',
+        
         -- Row 3
         'j_kino_exorcist_1',
+        
         -- Row 4
         'j_kino_asteroid_city',
         'j_kino_they_live',
+        
         -- Row 5
         'j_kino_zardoz',
         'j_kino_smurfs_1',
+        
         -- Row 6
-        'j_kino_hustle'
+        -- 'j_kino_doctor_strange_1',
+        -- 'j_kino_doctor_strange_2',
+        -- 'j_kino_big_trouble_little_china',
+        'j_kino_heart_eyes',
+        'j_kino_hustle',
+        -- 'j_kino_killer_klowns',
     },
 }
 

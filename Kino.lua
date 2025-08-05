@@ -277,7 +277,7 @@ local _list_of_files = {
     "src/spritemanipulation.lua",
     "src/consumable_functions.lua",
     "src/jumpscare.lua",
-    -- "src/run_info.lua"
+    "src/run_info.lua"
 }
 
 for _index, _filename in ipairs(_list_of_files) do
@@ -299,6 +299,7 @@ local _options = {
     {kino_config.horror_enhancement, horror_objects},
     {kino_config.romance_enhancement, romance_objects},
     {kino_config.jumpscare_mechanic, jumpscare_objects},
+    {kino_config.time_based_jokers, timer_objects},
 }
 
 for _i, joker in ipairs(joker_list) do

@@ -8,7 +8,8 @@ return {
     ["vampire_jokers"] = true,
     ["confection_mechanic"] = true,
     ["jumpscare_mechanic"] = true,
-    ["custom_rarity"] = false,
+    ["custom_rarity"] = true,
+    ["time_based_jokers"] = true,
 
     -- -- Enhancements
     ["action_enhancement"] = true,

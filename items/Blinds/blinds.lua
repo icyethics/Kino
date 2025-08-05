@@ -982,6 +982,11 @@ SMODS.Blind{
     collection_loc_vars = function(self)
 
     end,
+    in_pool = function(self)
+        if kino_config.time_based_jokers then
+            return true
+        end
+    end,
     disable = function(self)
 
     end,
@@ -1007,7 +1012,7 @@ SMODS.Blind{
                         local _randomtarget = pseudorandom_element(G.hand.cards, pseudoseed("kino_deckshaw"))
                         Kino.discard_given_card({_randomtarget}, true)
                     end
-                    if self.debuff.defeated == false and G.hand then
+                    if self.debuff.defeated == false and G.hand and G.GAME.blind.in_blind then
                         event.start_timer = false
                     else
                         return true
@@ -1363,6 +1368,11 @@ SMODS.Blind{
             }
         }
     end,
+    in_pool = function(self)
+        if kino_config.time_based_jokers then
+            return true
+        end
+    end,
     collection_loc_vars = function(self)
         return {
             vars = {
@@ -1371,10 +1381,10 @@ SMODS.Blind{
         }
     end,
     disable = function(self)
-
+        self.debuff.defeated = true
     end,
     defeat = function(self)
-        self.debuff.defeated = true
+        self.debuff.active = false
     end,
     calculate = function(self, blind, context)
         if context.first_hand_drawn then
@@ -1402,7 +1412,8 @@ SMODS.Blind{
                             _randomtarget:flip()
                         end
                     end
-                    if self.debuff.defeated == false and G.hand then
+                    if self.debuff.defeated == false and G.hand and G.GAME.blind.in_blind then
+                        print("ping")
                         event.start_timer = false
                     else
                         return true

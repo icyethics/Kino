@@ -1,5 +1,3 @@
-
-print("entry2")
 function create_UIBox_quest_log(simple)
 	
 	-- 4 or 5 Quest jokers per screen
@@ -20,19 +18,25 @@ function create_UIBox_quest_log(simple)
 			G.ROOM.T.h,
 			G.CARD_W, 
 			G.CARD_H,  
-			{card_limit = 1, type = 'quest_jokers', highlight_limit = 0}
+			{card_limit = 1, type = 'title', highlight_limit = 0, collection = true}
 		)
 
 		-- Gather card
 		local _center = G.P_CENTERS["j_kino_" .. Kino.legendaries[i]]
+		-- local _center = G.P_CENTERS.j_kino_barbie
 		local _card =  Card(
 			_questarea.T.x + _questarea.T.w/2, 
 			_questarea.T.y, 
 			G.CARD_W, 
 			G.CARD_H, 
 			nil, 
-			_center
+			_center,
+			{bypass_discovery_center=true,bypass_discovery_ui=true,bypass_lock=true}
 		)
+		-- 
+		_card.ambient_tilt = 0
+		_card.states.visible = true
+		_card:start_materialize(nil, true)
 		_questarea:emplace(_card)
 
 		local _questcompletion = 0
@@ -42,18 +46,39 @@ function create_UIBox_quest_log(simple)
 		end
 		
 		local _text = _questcompletion .. " / 6"
-		local _textcolour = G.C.BLACK
+		local _textcolour = G.C.WHITE
+
+		-- DEBUG COLOURS
+		local _colourdebug = G.C.CLEAR
+		local _aligndebug = "cm"
+
 
 		-- Create UI object
 		local _questjokerobject = {
 			n = G.UIT.C,
-			config = {align = "cm", colour = G.C.CLEAR },
+			config = {
+				align = "cm", 
+				padding = 0,
+				no_fill = true,
+				colour = G.C.CLEAR
+			},
 			nodes = {
 				-- Joker
 				{
-					n=G.UIT.O,
-					config = {
-						object = _questarea
+					n = G.UIT.R,
+					config = 
+						{ 
+							align = "cm", 
+							padding = 0.04, 
+							colour = G.C.CLEAR
+						},
+					nodes = {
+						{
+							n=G.UIT.O,
+							config = {
+								object = _questarea
+							}
+						}
 					}
 				},
 				-- Quest button 
@@ -61,22 +86,36 @@ function create_UIBox_quest_log(simple)
 					n = G.UIT.R,
 					config = 
 						{ 
-							align = "cm", 
-							padding = 0.04, 
-							colour = G.C.RED
+							minw = G.CARD_W,
+							align = _aligndebug, 
+							colour = G.C.CLEAR
 						},
 					nodes = {
 						{
-							n = G.UIT.T,
-							config = {
-								text = _text,
-								colour = _textcolour, 
-								scale = 0.2, 
-								shadow = false
+							n = G.UIT.C,
+							config = 
+								{ 
+									align = _aligndebug, 
+									padding = 0.1,
+									minw = 1.7,
+									minh = 0.4,
+									r = 0.1, 
+									colour = G.C.RED
+								},
+							nodes = {
+								-- Text object
+								{
+									n = G.UIT.T,
+									config = {
+										text = _text,
+										colour = _textcolour, 
+										scale = 0.5, 
+										shadow = false
+									}
+								}
 							}
 						}
 					}
-					-- Text object
 				}
 			}
 		}
@@ -84,45 +123,23 @@ function create_UIBox_quest_log(simple)
 		 table.insert(_questjokers_ui_elements, _questjokerobject)
 	end
 
-	
-
-	local object = {
-		n = G.UIT.ROOT,
-		config = { align = "cm", colour = G.C.CLEAR },
-		nodes = {
-			{
-				n = G.UIT.R,
-				config = 
-					{ 
-						align = "cm", 
-						padding = 0.04, 
-						colour = G.C.CLEAR
-					},
-				nodes = _questjokers_ui_elements
-			},
-			{
-				n = G.UIT.R,
-				config = 
-					{ 
-						align = "cm", 
-						padding = 0.04, 
-						colour = G.C.CLEAR
-					},
-				nodes = {
-
-				}
-			}
-		}
-	}
-
 	local t = {
 		n = G.UIT.ROOT,
-		config = { align = "cm", padding = 0.1, r = 0.1, colour = G.C.WHITE },
+		config = { 
+			align = "cm",
+			minw = 10.3,
+			minh = 8, 
+			padding = 0.1, 
+			r = 0.1, 
+			colour = G.C.WHITE 
+		},
 		nodes = {
 			{
-				n=G.UIT.R, 
+				n=G.UIT.C, 
 				config= {
 					align = "cm", 
+					minw = 10,
+					minh = 7.7, 
 					colour = G.C.BLACK, 
 					r = 1, 
 					padding = 0.15, 
@@ -237,11 +254,24 @@ function G.UIDEF.used_vouchers()
 
 		for kk, vv in ipairs(v) do 
 			local center = G.P_CENTERS[vv.key]
-			local card = Card(voucher_areas[#voucher_areas].T.x + voucher_areas[#voucher_areas].T.w/2, voucher_areas[#voucher_areas].T.y, G.CARD_W, G.CARD_H, nil, center, {bypass_discovery_center=true,bypass_discovery_ui=true,bypass_lock=true})
+			local card = Card(
+				voucher_areas[#voucher_areas].T.x + voucher_areas[#voucher_areas].T.w/2, 
+				voucher_areas[#voucher_areas].T.y, 
+				G.CARD_W, 
+				G.CARD_H, 
+				nil, 
+				center, 
+				{
+					bypass_discovery_center=true,
+					bypass_discovery_ui=true,
+					bypass_lock=true
+				}
+			)
 			card.ability.order = vv.order
 			card:start_materialize(nil, silent)
 			silent = true
 			voucher_areas[#voucher_areas]:emplace(card)
+
 		end
 		table.insert(voucher_tables, 
 		{n=G.UIT.C, config={align = "cm", padding = 0, no_fill = true}, nodes={

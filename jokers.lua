@@ -619,6 +619,21 @@ confection_object = {
     vouchers = {},
 }
 
+timer_objects = {
+    jokers = {
+        "cars_1",
+        "fast_and_furious_5",
+        "death_race"
+
+    },
+    enhancements = {},
+    confections = {},
+    planets = {},
+    tarots = {
+    },
+    vouchers = {},
+}
+
 Kino.legendaries = {
     "citizen_kane",
     "2001_odyssey",
