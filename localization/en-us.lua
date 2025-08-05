@@ -4534,7 +4534,8 @@ return {
                 name = "Jumpscare",
                 text = {
                     "Give {X:mult,C:white}X#1#{} and",
-                    "self-destruct"
+                    "puts 2 {C:red}Debuff Counters{}",
+                    "on the card"
                 }
             },
             gloss_spellcasting = {
