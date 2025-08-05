@@ -14,8 +14,8 @@ SMODS.DrawStep {
             local _counter = card.ability.kino_numcounters + 1
             if card.ability.kino_numcounters >= 10 then _counter = 10 end
 
-            G["counter_sprites_" .. _suffix][card.ability.kino_numcounters].role.draw_major = card
-            G["counter_sprites_" .. _suffix][card.ability.kino_numcounters]:draw_shader('dissolve', nil, nil, nil, card.children.center)
+            G["counter_sprites_" .. _suffix][card.ability.kino_counter].role.draw_major = card
+            G["counter_sprites_" .. _suffix][card.ability.kino_counter]:draw_shader('dissolve', nil, nil, nil, card.children.center)
             G["counter_numbers_" .. _suffix][_counter].role.draw_major = card
             G["counter_numbers_" .. _suffix][_counter]:draw_shader('dissolve', nil, nil, nil, card.children.center)
         end
