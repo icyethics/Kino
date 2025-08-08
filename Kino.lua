@@ -256,11 +256,12 @@ function Kino.load_file(file_address)
 end
 
 local _list_of_files = {
+    "src/KinoUI.lua",
     "card_ui.lua",
     "Kinofunctions.lua",
     "jokers.lua",
     "Kinogenres.lua",
-    "KinoUI.lua",
+
     "movie_info.lua",
     -- "src/boss_blinds.lua",
     "src/abduction.lua",

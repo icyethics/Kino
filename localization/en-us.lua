@@ -1211,7 +1211,7 @@ return {
                 }
             },   
             j_kino_harry_potter_1 = {
-                name = "Harry Potter and the Philosopher's Stone",
+                name = "Now You See Me",
                 text = {
                     "Gain a charge whenever ",
                     "a card is scored",
@@ -3072,11 +3072,9 @@ return {
             m_kino_crime = {
                 name = "Crime Card",
                 text = {
-                    "{C:attention}Steal{} {C:money}$#1#{}",
-                    "when this card scores",
-                    "{C:chips}+#2#{} Chips while held",
-                    "in hand for each dollar stolen",
-                    "{C:inactive}(Currently: {C:money}$#3#{C:inactive} Stolen)"
+                    "Lower sell value of",
+                    "a random Joker or Consumable",
+                    "by {C:money}$#1#{} to earn {C:money}$#2#"
                 }
             },
             m_kino_sci_fi = {
@@ -3092,10 +3090,10 @@ return {
             m_kino_demonic = {
                 name = "Demonic Card",
                 text = {
-                    "Sacrifices all scored",
-                    "{C:attention}non-Demon cards",
+                    "Sacrifices the lowest scoring",
+                    "{C:attention}non-Demon card",
                     "{X:mult,C:white}X#1#{} + {X:mult,C:white}X#3#{} for each",
-                    "sacrifice this hand"
+                    "non-Demonic scored card"
                 }
             },
             m_kino_romance = {
@@ -4545,7 +4543,9 @@ return {
                     "created by certain jokers",
                     "and the {C:attention}Fantasy enhancement{}",
                     "Spells can be cast at ",
-                    "4 levels of power"
+                    "4 levels of power",
+                    " ",
+                    "{C:inactive,s:0.7}Press 's' for Spell Details"
                 }
             },
             gloss_quick = {
@@ -4698,7 +4698,7 @@ return {
                 name = "Quests"
             },
             kino_legendary_unlock = {
-                name = "Unlock Conditions"
+                name = "Spawn Conditions"
             }
         },
         Voucher = {
@@ -5168,7 +5168,7 @@ return {
                     "in hand that shares a Suit"
                 }
             },
-            sleeve_kino_deckthatmakesyouold = {
+            sleeve_kino_deckthatmakesyouold_alt = {
                 name = "Sleeve That Makes You Old",
                 text = {
                     "When a card is scored",
@@ -5318,7 +5318,7 @@ return {
             k_goodfellas_leave = "Broke, ay?",
             k_et = "Go Home",
             k_ocean_11_2 = "Heisted",
-            k_harry_potter = "Expelliarmus",
+            k_harry_potter = "Abra Cadabra",
             k_cocktail = "Thanks for the tip!",
             k_exorcist_1 = "The Power of Christ compells you",
             k_menu = "Bon appetit",
@@ -5426,6 +5426,12 @@ return {
             k_kino_batman_forever = "I'm Batman",
             k_kino_saved = "Saved!",
 
+
+            k_kino_legendary_quest_tutorial = {
+                "Quest jokers will lower in rarity",
+                "for each quest condition you",
+                "are currently meeting"
+            },
             -- Legendary Joker Quests
             -- -- 2001: A Space Odyssey
             k_odyssey_quest_1 = {

@@ -1,7 +1,7 @@
 {
     "The Dark Crystal1": {
         "adult": false,
-        "backdrop_path": "/iXgxhI9k8MqbhM1OqrvV3wdTu7S.jpg",
+        "backdrop_path": "/9jxLUKbuDgYW8Ro94q50rLQQL0P.jpg",
         "belongs_to_collection": null,
         "budget": 15000000,
         "genres": [
@@ -22,13 +22,13 @@
         "id": 11639,
         "imdb_id": "tt0083791",
         "origin_country": [
-            "US",
-            "GB"
+            "GB",
+            "US"
         ],
         "original_language": "en",
         "original_title": "The Dark Crystal",
         "overview": "On another planet in the distant past, a Gelfling embarks on a quest to find the missing shard of a magical crystal and restore order to his world, before the grotesque race of Skeksis find and use the crystal for evil.",
-        "popularity": 3.5634,
+        "popularity": 2.0646,
         "poster_path": "/6g1Kh73qQRosyhRJpL3euQpMxOE.jpg",
         "production_companies": [
             {
@@ -45,7 +45,7 @@
             },
             {
                 "id": 2504,
-                "logo_path": "/uuelgMOL4HJAJQcbJRiE4zlYbcU.png",
+                "logo_path": "/yxP3Gnk7sm7rACmDj0InTjXZw8R.png",
                 "name": "Jim Henson Productions",
                 "origin_country": "US"
             }
@@ -74,8 +74,8 @@
         "tagline": "Another world, another time...in the age of wonder.",
         "title": "The Dark Crystal",
         "video": false,
-        "vote_average": 7.116,
-        "vote_count": 1162
+        "vote_average": 7.1,
+        "vote_count": 1182
     },
     "Fantasia2": {
         "adult": false,
@@ -84,7 +84,7 @@
             "id": 55427,
             "name": "Fantasia Collection",
             "poster_path": "/taog1stqDdUSxd9VVIC8iZktk33.jpg",
-            "backdrop_path": "/2d3nBlsj46UdWGf1Af20ZucUHTc.jpg"
+            "backdrop_path": "/p5EhtgmoodjHOfpvoy0HjSfmNXr.jpg"
         },
         "budget": 2280000,
         "genres": [
@@ -110,7 +110,7 @@
         "original_language": "en",
         "original_title": "Fantasia",
         "overview": "Walt Disney's timeless masterpiece is an extravaganza of sight and sound! See the music come to life, hear the pictures burst into song and experience the excitement that is Fantasia over and over again.",
-        "popularity": 5.7668,
+        "popularity": 4.3078,
         "poster_path": "/5m9njnidjR0syG2gpVPVgcEMB2X.jpg",
         "production_companies": [
             {
@@ -140,12 +140,12 @@
         "tagline": "The most sensational sound you'll ever see!",
         "title": "Fantasia",
         "video": false,
-        "vote_average": 7.36,
-        "vote_count": 3112
+        "vote_average": 7.358,
+        "vote_count": 3162
     },
     "My Dinner with Andre3": {
         "adult": false,
-        "backdrop_path": "/h1ngZT7mWm5Moy4krWEUnlj0Ef.jpg",
+        "backdrop_path": "/r3zwnGMmRb7LaDNQluHVXAkZNoY.jpg",
         "belongs_to_collection": null,
         "budget": 475000,
         "genres": [
@@ -163,7 +163,7 @@
         "original_language": "en",
         "original_title": "My Dinner with Andre",
         "overview": "Wally, a struggling playwright and actor, reluctantly agrees to catch up with his old friend Andre, a theater director who disappeared several years prior in order to travel the world. Meeting at a posh Manhattan restaurant, the two share life stories, anecdotes and philosophical musings over the course of an evening meal.",
-        "popularity": 3.7607,
+        "popularity": 1.4977,
         "poster_path": "/u2KB70Xlzwg920mYWlGb18YIatd.jpg",
         "production_companies": [
             {
@@ -199,8 +199,8 @@
         "tagline": "One meal, two men.",
         "title": "My Dinner with Andre",
         "video": false,
-        "vote_average": 7.494,
-        "vote_count": 407
+        "vote_average": 7.5,
+        "vote_count": 416
     },
     "Ocean's Eleven4": {
         "adult": false,
@@ -226,12 +226,12 @@
         "original_language": "en",
         "original_title": "Ocean's Eleven",
         "overview": "Danny Ocean and his gang attempt to rob the five biggest casinos in Las Vegas in one night.",
-        "popularity": 6.9709,
+        "popularity": 2.7694,
         "poster_path": "/A4R6u7SidBPVXMVzGSysCiRGTRz.jpg",
         "production_companies": [
             {
                 "id": 174,
-                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "logo_path": "/kgJaIcKZZK4lTazer55XrgWDEvp.png",
                 "name": "Warner Bros. Pictures",
                 "origin_country": "US"
             },
@@ -262,74 +262,85 @@
         "tagline": "Just Danny Ocean and his 11 pals.",
         "title": "Ocean's Eleven",
         "video": false,
-        "vote_average": 6.362,
-        "vote_count": 362
+        "vote_average": 6.4,
+        "vote_count": 371
     },
-    "Harry Potter and the Philosopher's Stone5": {
+    "Now You See Me5": {
         "adult": false,
-        "backdrop_path": "/bfh9Z3Ghz4FOJAfLOAhmc3ccnHU.jpg",
+        "backdrop_path": "/xEY0MV2jSQBz9iOJfCFvLTiPGMA.jpg",
         "belongs_to_collection": {
-            "id": 1241,
-            "name": "Harry Potter Collection",
-            "poster_path": "/s4hXqX1VyWMc2ctJRuNBDB7YNJ3.jpg",
-            "backdrop_path": "/kmEsQL2vOTA0jnM28fXS45Ky8kX.jpg"
+            "id": 382685,
+            "name": "Now You See Me Collection",
+            "poster_path": "/n2B51uCX5r960pFbEl9jMbTMuvq.jpg",
+            "backdrop_path": "/scBzORmLqP00h8hPKS19TLtyRQm.jpg"
         },
-        "budget": 125000000,
+        "budget": 75000000,
         "genres": [
             {
-                "id": 12,
-                "name": "Adventure"
+                "id": 53,
+                "name": "Thriller"
             },
             {
-                "id": 14,
-                "name": "Fantasy"
+                "id": 80,
+                "name": "Crime"
             }
         ],
-        "homepage": "https://www.warnerbros.com/movies/harry-potter-and-sorcerers-stone/",
-        "id": 671,
-        "imdb_id": "tt0241527",
+        "homepage": "",
+        "id": 75656,
+        "imdb_id": "tt1670345",
         "origin_country": [
-            "GB"
+            "US"
         ],
         "original_language": "en",
-        "original_title": "Harry Potter and the Philosopher's Stone",
-        "overview": "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard\u2014with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths\u2014and about the villain who's to blame.",
-        "popularity": 42.4658,
-        "poster_path": "/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg",
+        "original_title": "Now You See Me",
+        "overview": "An FBI agent and an Interpol detective track a team of illusionists who pull off bank heists during their performances and reward their audiences with the money.",
+        "popularity": 9.4716,
+        "poster_path": "/tWsNYbrqy1p1w6K9zRk0mSchztT.jpg",
         "production_companies": [
             {
-                "id": 174,
-                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
-                "name": "Warner Bros. Pictures",
+                "id": 491,
+                "logo_path": "/5LvDUt3KmvRnXQ4NrdWJYHeuA8J.png",
+                "name": "Summit Entertainment",
                 "origin_country": "US"
             },
             {
-                "id": 437,
-                "logo_path": "/nu20mtwbEIhUNnQ5NXVhHsNknZj.png",
-                "name": "Heyday Films",
-                "origin_country": "GB"
+                "id": 7296,
+                "logo_path": null,
+                "name": "K/O Paper Products",
+                "origin_country": "US"
             },
             {
-                "id": 436,
-                "logo_path": "/A7WCkG3F0NFvjGCwUnclpGdIu9E.png",
-                "name": "1492 Pictures",
+                "id": 23271,
+                "logo_path": null,
+                "name": "SOIXAN7E QUIN5E",
+                "origin_country": "FR"
+            },
+            {
+                "id": 23272,
+                "logo_path": null,
+                "name": "See Me Louisiana",
                 "origin_country": "US"
             }
         ],
         "production_countries": [
             {
-                "iso_3166_1": "GB",
-                "name": "United Kingdom"
-            },
-            {
                 "iso_3166_1": "US",
                 "name": "United States of America"
+            },
+            {
+                "iso_3166_1": "FR",
+                "name": "France"
             }
         ],
-        "release_date": "2001-11-16",
-        "revenue": 976475550,
-        "runtime": 152,
+        "release_date": "2013-05-29",
+        "revenue": 351723989,
+        "runtime": 116,
         "spoken_languages": [
+            {
+                "english_name": "French",
+                "iso_639_1": "fr",
+                "name": "Fran\u00e7ais"
+            },
             {
                 "english_name": "English",
                 "iso_639_1": "en",
@@ -337,20 +348,20 @@
             }
         ],
         "status": "Released",
-        "tagline": "Let the magic begin.",
-        "title": "Harry Potter and the Philosopher's Stone",
+        "tagline": "The closer you look, the less you\u2019ll see.",
+        "title": "Now You See Me",
         "video": false,
-        "vote_average": 7.902,
-        "vote_count": 28122
+        "vote_average": 7.333,
+        "vote_count": 15919
     },
     "Clerks6": {
         "adult": false,
-        "backdrop_path": "/mrfFIDJfmMu4HZsRjzKD1G8vwAy.jpg",
+        "backdrop_path": "/sjfbZVKRGh84lNxhqvuhdvovh18.jpg",
         "belongs_to_collection": {
             "id": 182813,
             "name": "Clerks Collection",
             "poster_path": "/8VDiXZWMFMq9Yt9nmHSrwfE3GIo.jpg",
-            "backdrop_path": "/6Fjkbh2DVAvVZa3c1HamblAN5Bg.jpg"
+            "backdrop_path": "/sjfbZVKRGh84lNxhqvuhdvovh18.jpg"
         },
         "budget": 27575,
         "genres": [
@@ -368,7 +379,7 @@
         "original_language": "en",
         "original_title": "Clerks",
         "overview": "Convenience and video store clerks Dante and Randal are sharp-witted, potty-mouthed and bored out of their minds. So in between needling customers, the counter jockeys play hockey on the roof, visit a funeral home and deal with their love lives.",
-        "popularity": 2.6347,
+        "popularity": 2.1722,
         "poster_path": "/9IiSgiq4h4siTIS9H3o4nZ3h5L9.jpg",
         "production_companies": [
             {
@@ -398,12 +409,12 @@
         "tagline": "Just because they serve you doesn't mean they like you.",
         "title": "Clerks",
         "video": false,
-        "vote_average": 7.391,
-        "vote_count": 2566
+        "vote_average": 7.4,
+        "vote_count": 2603
     },
     "Wonka7": {
         "adult": false,
-        "backdrop_path": "/yOm993lsJyPmBodlYjgpPwBjXP9.jpg",
+        "backdrop_path": "/oyK2a8tMn6cmzilaUmKWYqNXzay.jpg",
         "belongs_to_collection": {
             "id": 1393821,
             "name": "Wonka Collection",
@@ -434,12 +445,12 @@
         "original_language": "en",
         "original_title": "Wonka",
         "overview": "Willy Wonka \u2013 chock-full of ideas and determined to change the world one delectable bite at a time \u2013 is proof that the best things in life begin with a dream, and if you\u2019re lucky enough to meet Willy Wonka, anything is possible.",
-        "popularity": 23.7748,
+        "popularity": 10.9174,
         "poster_path": "/qhb1qOilapbapxWQn9jtRCMwXJF.jpg",
         "production_companies": [
             {
                 "id": 174,
-                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "logo_path": "/kgJaIcKZZK4lTazer55XrgWDEvp.png",
                 "name": "Warner Bros. Pictures",
                 "origin_country": "US"
             },
@@ -492,8 +503,8 @@
         "tagline": "Every good thing in this world started with a dream.",
         "title": "Wonka",
         "video": false,
-        "vote_average": 7.1,
-        "vote_count": 3838
+        "vote_average": 7.072,
+        "vote_count": 3975
     },
     "Children of the Corn8": {
         "adult": false,
@@ -524,7 +535,7 @@
         "original_language": "en",
         "original_title": "Children of the Corn",
         "overview": "A traveling couple end up in an abandoned Nebraska town inhabited by a cult of murderous children who worship a demon that lives in the local cornfields.",
-        "popularity": 2.9824,
+        "popularity": 1.8368,
         "poster_path": "/jJTrFHu3rjAgP1lryKGEsC9hqyM.jpg",
         "production_companies": [
             {
@@ -584,8 +595,8 @@
         "tagline": "In their world adults are not allowed... to live.",
         "title": "Children of the Corn",
         "video": false,
-        "vote_average": 5.732,
-        "vote_count": 1023
+        "vote_average": 5.722,
+        "vote_count": 1046
     },
     "Gremlins9": {
         "adult": false,
@@ -619,8 +630,8 @@
         ],
         "original_language": "en",
         "original_title": "Gremlins",
-        "overview": "When Billy Peltzer is given a strange but adorable pet named Gizmo for Christmas, he inadvertently breaks the three important rules of caring for a Mogwai, unleashing a horde of mischievous gremlins on a small town.",
-        "popularity": 10.0294,
+        "overview": "After receiving an exotic small animal as a Christmas gift, a young man inadvertently breaks three important rules concerning his new pet, which unleashes a horde of malevolently mischievous creatures on a small town.",
+        "popularity": 5.71,
         "poster_path": "/6m0F7fsXjQvUbCZrPWcJNrjvIui.jpg",
         "production_companies": [
             {
@@ -631,7 +642,7 @@
             },
             {
                 "id": 174,
-                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "logo_path": "/kgJaIcKZZK4lTazer55XrgWDEvp.png",
                 "name": "Warner Bros. Pictures",
                 "origin_country": "US"
             }
@@ -661,8 +672,8 @@
         "tagline": "Cute. Clever. Mischievous. Intelligent. Dangerous.",
         "title": "Gremlins",
         "video": false,
-        "vote_average": 7.134,
-        "vote_count": 6530
+        "vote_average": 7.1,
+        "vote_count": 6614
     },
     "The Sorcerer's Apprentice10": {
         "adult": false,
@@ -692,8 +703,8 @@
         "original_language": "en",
         "original_title": "The Sorcerer's Apprentice",
         "overview": "Balthazar Blake is a master sorcerer in modern-day Manhattan trying to defend the city from his arch-nemesis, Maxim Horvath. Balthazar can't do it alone, so he recruits Dave Stutler, a seemingly average guy who demonstrates hidden potential, as his reluctant prot\u00e9g\u00e9. The sorcerer gives his unwilling accomplice a crash course in the art and science of magic, and together, these unlikely partners work to stop the forces of darkness.",
-        "popularity": 10.5803,
-        "poster_path": "/kffWPQfYLkjsoYEBlFpzqVoTfCV.jpg",
+        "popularity": 4.7629,
+        "poster_path": "/b5pIUsGll0418NyfNA5eYCI9aoK.jpg",
         "production_companies": [
             {
                 "id": 2,
@@ -746,8 +757,8 @@
         "tagline": "It's the coolest job ever.",
         "title": "The Sorcerer's Apprentice",
         "video": false,
-        "vote_average": 6.122,
-        "vote_count": 5015
+        "vote_average": 6.129,
+        "vote_count": 5064
     },
     "Dungeons & Dragons11": {
         "adult": false,
@@ -782,12 +793,12 @@
         "original_language": "en",
         "original_title": "Dungeons & Dragons",
         "overview": "The Empire of Izmer is a divided land: elite magicians called \u201cmages\u201d rule while lowly commoners are powerless. When Empress Savina vows to bring equality and prosperity to her land, the evil mage Profion plots to depose her.",
-        "popularity": 2.2794,
-        "poster_path": "/jJCo92G0UMtO6qSjTxkKUiiyTgo.jpg",
+        "popularity": 2.3202,
+        "poster_path": "/drMvZpcqKn140LJQIQ8Ol5fOhC2.jpg",
         "production_companies": [
             {
                 "id": 12,
-                "logo_path": "/2ycs64eqV5rqKYHyQK0GVoKGvfX.png",
+                "logo_path": "/x33I3vv8nx1O7rECNN7X5MsAFoN.png",
                 "name": "New Line Cinema",
                 "origin_country": "US"
             },
@@ -846,8 +857,8 @@
         "tagline": "This is no game",
         "title": "Dungeons & Dragons",
         "video": false,
-        "vote_average": 4.4,
-        "vote_count": 636
+        "vote_average": 4.338,
+        "vote_count": 654
     },
     "Dungeons & Dragons: Honor Among Thieves12": {
         "adult": false,
@@ -877,7 +888,7 @@
         "original_language": "en",
         "original_title": "Dungeons & Dragons: Honor Among Thieves",
         "overview": "A charming thief and a band of unlikely adventurers undertake an epic heist to retrieve a lost relic, but things go dangerously awry when they run afoul of the wrong people.",
-        "popularity": 14.496,
+        "popularity": 8.6466,
         "poster_path": "/v7UF7ypAqjsFZFdjksjQ7IUpXdn.jpg",
         "production_companies": [
             {
@@ -918,7 +929,7 @@
         "title": "Dungeons & Dragons: Honor Among Thieves",
         "video": false,
         "vote_average": 7.336,
-        "vote_count": 3924
+        "vote_count": 4077
     },
     "Encanto13": {
         "adult": false,
@@ -926,10 +937,10 @@
         "belongs_to_collection": {
             "id": 1451277,
             "name": "Encanto Collection",
-            "poster_path": null,
-            "backdrop_path": null
+            "poster_path": "/w9SZ4xKboXI6j9gzEc4F4Vr0tkW.jpg",
+            "backdrop_path": "/dVgf1gWIbkxlowb1wXtfEbtbWk4.jpg"
         },
-        "budget": 135000000,
+        "budget": 150000000,
         "genres": [
             {
                 "id": 16,
@@ -957,7 +968,7 @@
         "original_language": "en",
         "original_title": "Encanto",
         "overview": "The tale of an extraordinary family, the Madrigals, who live hidden in the mountains of Colombia, in a magical house, in a vibrant town, in a wondrous, charmed place called an Encanto. The magic of the Encanto has blessed every child in the family\u2014every child except one, Mirabel. But when she discovers that the magic surrounding the Encanto is in danger, Mirabel decides that she, the only ordinary Madrigal, might just be her exceptional family's last hope.",
-        "popularity": 26.0476,
+        "popularity": 13.2302,
         "poster_path": "/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg",
         "production_companies": [
             {
@@ -980,7 +991,7 @@
             }
         ],
         "release_date": "2021-10-13",
-        "revenue": 261289554,
+        "revenue": 261292688,
         "runtime": 102,
         "spoken_languages": [
             {
@@ -998,8 +1009,8 @@
         "tagline": "There's a little magic in all of us...almost all of us.",
         "title": "Encanto",
         "video": false,
-        "vote_average": 7.595,
-        "vote_count": 9681
+        "vote_average": 7.587,
+        "vote_count": 9812
     },
     "Coco14": {
         "adult": false,
@@ -1038,8 +1049,8 @@
         "original_language": "en",
         "original_title": "Coco",
         "overview": "Despite his family\u2019s baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel's family history.",
-        "popularity": 27.9526,
-        "poster_path": "/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg",
+        "popularity": 16.1053,
+        "poster_path": "/6Ryitt95xrO8KXuqRGm1fUuNwqF.jpg",
         "production_companies": [
             {
                 "id": 3,
@@ -1079,8 +1090,8 @@
         "tagline": "The celebration of a lifetime.",
         "title": "Coco",
         "video": false,
-        "vote_average": 8.203,
-        "vote_count": 19906
+        "vote_average": 8.2,
+        "vote_count": 20114
     },
     "Cocktail15": {
         "adult": false,
@@ -1110,7 +1121,7 @@
         "original_language": "en",
         "original_title": "Cocktail",
         "overview": "After being discharged from the Army, Brian Flanagan moves back to Queens and takes a job in a bar run by Doug Coughlin, who teaches Brian the fine art of bar-tending. Brian quickly becomes a patron favorite with his flashy drink-mixing style, and Brian adopts his mentor's cynical philosophy on life and goes for the money.",
-        "popularity": 5.4337,
+        "popularity": 2.6398,
         "poster_path": "/jFRhEPhtsln9tDwzMdZN3OlhUob.jpg",
         "production_companies": [
             {
@@ -1143,11 +1154,6 @@
         "runtime": 104,
         "spoken_languages": [
             {
-                "english_name": "Portuguese",
-                "iso_639_1": "pt",
-                "name": "Portugu\u00eas"
-            },
-            {
                 "english_name": "Spanish",
                 "iso_639_1": "es",
                 "name": "Espa\u00f1ol"
@@ -1156,6 +1162,11 @@
                 "english_name": "English",
                 "iso_639_1": "en",
                 "name": "English"
+            },
+            {
+                "english_name": "Portuguese",
+                "iso_639_1": "pt",
+                "name": "Portugu\u00eas"
             }
         ],
         "status": "Released",
@@ -1163,17 +1174,12 @@
         "title": "Cocktail",
         "video": false,
         "vote_average": 6.1,
-        "vote_count": 1498
+        "vote_count": 1527
     },
     "Shang-Chi and the Legend of the Ten Rings16": {
         "adult": false,
-        "backdrop_path": "/zxWAv1A34kdYslBi4ekMDtgIGUt.jpg",
-        "belongs_to_collection": {
-            "id": 912503,
-            "name": "Shang-Chi Collection",
-            "poster_path": "/x9y9KmPa2RXavK39cwJx4w3AJ2y.jpg",
-            "backdrop_path": "/4PHnWsIk71qFCzFElLCbx706p1m.jpg"
-        },
+        "backdrop_path": "/rAksPS6LjBONzY84szQBz5gGej6.jpg",
+        "belongs_to_collection": null,
         "budget": 150000000,
         "genres": [
             {
@@ -1187,10 +1193,6 @@
             {
                 "id": 14,
                 "name": "Fantasy"
-            },
-            {
-                "id": 878,
-                "name": "Science Fiction"
             }
         ],
         "homepage": "https://www.marvel.com/movies/shang-chi-and-the-legend-of-the-ten-rings",
@@ -1202,7 +1204,7 @@
         "original_language": "en",
         "original_title": "Shang-Chi and the Legend of the Ten Rings",
         "overview": "Shang-Chi must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization.",
-        "popularity": 25.5802,
+        "popularity": 11.8129,
         "poster_path": "/d08HqqeBQSwN8i8MEvpsZ8Cb438.jpg",
         "production_companies": [
             {
@@ -1237,8 +1239,8 @@
         "tagline": "You can't outrun your destiny.",
         "title": "Shang-Chi and the Legend of the Ten Rings",
         "video": false,
-        "vote_average": 7.523,
-        "vote_count": 9670
+        "vote_average": 7.518,
+        "vote_count": 9861
     },
     "The Exorcist17": {
         "adult": false,
@@ -1265,7 +1267,7 @@
         "original_language": "en",
         "original_title": "The Exorcist",
         "overview": "When a charming 12-year-old girl takes on the characteristics and voices of others, doctors say there is nothing they can do. As people begin to die, the girl's mother realizes her daughter has been possessed by the Devil. Her daughter's only possible hope lies with two priests and the ancient rite of demonic exorcism.",
-        "popularity": 18.1433,
+        "popularity": 10.5743,
         "poster_path": "/5x0CeVHJI8tcDx8tUUwYHQSNILq.jpg",
         "production_companies": [
             {
@@ -1276,7 +1278,7 @@
             },
             {
                 "id": 174,
-                "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+                "logo_path": "/kgJaIcKZZK4lTazer55XrgWDEvp.png",
                 "name": "Warner Bros. Pictures",
                 "origin_country": "US"
             }
@@ -1326,8 +1328,8 @@
         "tagline": "Something almost beyond comprehension is happening to a girl on this street, in this house\u2026And a man has been sent for as a last resort. This man is The Exorcist.",
         "title": "The Exorcist",
         "video": false,
-        "vote_average": 7.7,
-        "vote_count": 8120
+        "vote_average": 7.732,
+        "vote_count": 8221
     },
     "The Menu18": {
         "adult": false,
@@ -1357,7 +1359,7 @@
         "original_language": "en",
         "original_title": "The Menu",
         "overview": "A young couple travels to a remote island to eat at an exclusive restaurant where the chef has prepared a lavish menu, with some shocking surprises.",
-        "popularity": 17.6152,
+        "popularity": 7.8665,
         "poster_path": "/fPtUgMcLIboqlTlPrq0bQpKK8eq.jpg",
         "production_companies": [
             {
@@ -1410,8 +1412,8 @@
         "tagline": "Painstakingly prepared. Brilliantly executed.",
         "title": "The Menu",
         "video": false,
-        "vote_average": 7.172,
-        "vote_count": 5277
+        "vote_average": 7.175,
+        "vote_count": 5463
     },
     "Guardians of the Galaxy Vol. 319": {
         "adult": false,
@@ -1450,7 +1452,7 @@
         "original_language": "en",
         "original_title": "Guardians of the Galaxy Vol. 3",
         "overview": "Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.",
-        "popularity": 22.2785,
+        "popularity": 14.4062,
         "poster_path": "/r2J02Z2OpNTctfOSN1Ydgii51I3.jpg",
         "production_companies": [
             {
@@ -1486,8 +1488,8 @@
         "tagline": "Once more with feeling.",
         "title": "Guardians of the Galaxy Vol. 3",
         "video": false,
-        "vote_average": 7.948,
-        "vote_count": 7276
+        "vote_average": 7.9,
+        "vote_count": 7527
     },
     "Asteroid City20": {
         "adult": false,
@@ -1513,8 +1515,8 @@
         "original_language": "en",
         "original_title": "Asteroid City",
         "overview": "In an American desert town circa 1955, the itinerary of a Junior Stargazer/Space Cadet convention is spectacularly disrupted by world-changing events.",
-        "popularity": 7.1651,
-        "poster_path": "/hfo7pvL9Fys7rocfL4VOzw9qDEQ.jpg",
+        "popularity": 4.2846,
+        "poster_path": "/rAkz95CREc3A1qTnwlSQ0jh8Zw8.jpg",
         "production_companies": [
             {
                 "id": 9350,
@@ -1556,11 +1558,11 @@
             }
         ],
         "status": "Released",
-        "tagline": "Keep telling the story.",
+        "tagline": "",
         "title": "Asteroid City",
         "video": false,
-        "vote_average": 6.463,
-        "vote_count": 2068
+        "vote_average": 6.454,
+        "vote_count": 2174
     },
     "Signs21": {
         "adult": false,
@@ -1594,8 +1596,8 @@
         "original_language": "en",
         "original_title": "Signs",
         "overview": "A family living on a farm finds mysterious crop circles in their fields which suggests something more frightening to come.",
-        "popularity": 5.7117,
-        "poster_path": "/sCFwJVsw7f3OlgttW6BMbLSYAt9.jpg",
+        "popularity": 4.5249,
+        "poster_path": "/hyZkNEbNgnciUVTyu4NZTjlCh4L.jpg",
         "production_companies": [
             {
                 "id": 9195,
@@ -1641,12 +1643,12 @@
         "tagline": "It's not like they didn't warn us.",
         "title": "Signs",
         "video": false,
-        "vote_average": 6.692,
-        "vote_count": 5769
+        "vote_average": 6.698,
+        "vote_count": 5862
     },
     "They Live22": {
         "adult": false,
-        "backdrop_path": "/sEeBP3ap9dvsKsHRcuSYQMXd0vi.jpg",
+        "backdrop_path": "/1lFVnKteGgFtACWavgiAapk6aeb.jpg",
         "belongs_to_collection": null,
         "budget": 4000000,
         "genres": [
@@ -1668,7 +1670,7 @@
         "original_language": "en",
         "original_title": "They Live",
         "overview": "A lone drifter stumbles upon a unique pair of sunglasses that reveal aliens are systematically gaining control of the Earth by masquerading as humans and lulling the public into submission.",
-        "popularity": 8.2588,
+        "popularity": 4.5007,
         "poster_path": "/ngnybFTuopfbfmmEeX9jjBQQmF6.jpg",
         "production_companies": [
             {
@@ -1681,6 +1683,18 @@
                 "id": 17824,
                 "logo_path": null,
                 "name": "Larry Franco Productions",
+                "origin_country": "US"
+            },
+            {
+                "id": 33,
+                "logo_path": "/6exxhPonOo0M995SAchY0ijpRao.png",
+                "name": "Universal Pictures",
+                "origin_country": "US"
+            },
+            {
+                "id": 275,
+                "logo_path": "/oLnOYtAjF0z9CrqJqWptFkhHOQG.png",
+                "name": "Carolco Pictures",
                 "origin_country": "US"
             }
         ],
@@ -1704,8 +1718,8 @@
         "tagline": "You see them on the street. You watch them on TV. You might even vote for one this fall. You think they're people just like you. You're wrong. Dead wrong.",
         "title": "They Live",
         "video": false,
-        "vote_average": 7.301,
-        "vote_count": 3137
+        "vote_average": 7.297,
+        "vote_count": 3205
     },
     "Doctor Who23": {
         "adult": false,
@@ -1736,7 +1750,7 @@
         "original_language": "en",
         "original_title": "Doctor Who",
         "overview": "The Seventh Doctor becomes the Eighth. And on the streets of San Francisco \u2013 alongside new ally Grace Holloway - he battles the Master.",
-        "popularity": 2.9905,
+        "popularity": 1.4426,
         "poster_path": "/cwae2p7JcRNtz1CvNCzpX5ad96V.jpg",
         "production_companies": [
             {
@@ -1776,8 +1790,8 @@
         "tagline": "He's Back... And It's About Time!",
         "title": "Doctor Who",
         "video": false,
-        "vote_average": 6.191,
-        "vote_count": 225
+        "vote_average": 6.2,
+        "vote_count": 230
     },
     "The Thing from Another World24": {
         "adult": false,
@@ -1807,7 +1821,7 @@
         "original_language": "en",
         "original_title": "The Thing from Another World",
         "overview": "Scientists and US Air Force officials fend off a blood-thirsty alien organism while investigating at a remote arctic outpost.",
-        "popularity": 1.1559,
+        "popularity": 1.6472,
         "poster_path": "/rm2w8dEhOGDuckB6i0Spz9lTzpR.jpg",
         "production_companies": [
             {
@@ -1840,15 +1854,15 @@
             }
         ],
         "status": "Released",
-        "tagline": "It Creeps... It Crawls... It Strikes Without Warning!",
+        "tagline": "Natural or Supernatural?",
         "title": "The Thing from Another World",
         "video": false,
-        "vote_average": 6.719,
-        "vote_count": 622
+        "vote_average": 6.7,
+        "vote_count": 638
     },
     "Stargate25": {
         "adult": false,
-        "backdrop_path": "/aRYfC9lg9bp9NeB3RxtNTDjjP2u.jpg",
+        "backdrop_path": "/s2bqHApZlliCuwgyHod0qucrYqZ.jpg",
         "belongs_to_collection": null,
         "budget": 55000000,
         "genres": [
@@ -1865,7 +1879,7 @@
                 "name": "Science Fiction"
             }
         ],
-        "homepage": "",
+        "homepage": "https://ww4.flixtor2-to.to/",
         "id": 2164,
         "imdb_id": "tt0111282",
         "origin_country": [
@@ -1874,9 +1888,15 @@
         "original_language": "en",
         "original_title": "Stargate",
         "overview": "An interstellar teleportation device, found in Egypt, leads to a planet with humans resembling ancient Egyptians who worship the god Ra.",
-        "popularity": 7.2894,
-        "poster_path": "/4T6Po0XnZlevmhfPh3ZfEs5butR.jpg",
+        "popularity": 7.3823,
+        "poster_path": "/63Ol9NX5E1OEsH7CHivNEvJMdky.jpg",
         "production_companies": [
+            {
+                "id": 183,
+                "logo_path": "/eadyph99FClrWlnE0jPniwOcvvw.png",
+                "name": "Le Studio Canal+",
+                "origin_country": "FR"
+            },
             {
                 "id": 347,
                 "logo_path": "/1wpVtAaWLqvFJVVbyzTAf7U4JPX.png",
@@ -1885,37 +1905,19 @@
             },
             {
                 "id": 275,
-                "logo_path": "/2MxNWlN5b3UXt1OfmznsWEQzFwq.png",
+                "logo_path": "/oLnOYtAjF0z9CrqJqWptFkhHOQG.png",
                 "name": "Carolco Pictures",
-                "origin_country": "US"
-            },
-            {
-                "id": 183,
-                "logo_path": "/eadyph99FClrWlnE0jPniwOcvvw.png",
-                "name": "Le Studio Canal+",
-                "origin_country": "FR"
-            },
-            {
-                "id": 21,
-                "logo_path": "/usUnaYV6hQnlVAXP6r4HwrlLFPG.png",
-                "name": "Metro-Goldwyn-Mayer",
-                "origin_country": "US"
-            },
-            {
-                "id": 285,
-                "logo_path": "/ebAB20KtEg4J0eFMFBGhFJsSoYc.png",
-                "name": "Live Entertainment",
                 "origin_country": "US"
             }
         ],
         "production_countries": [
             {
-                "iso_3166_1": "FR",
-                "name": "France"
-            },
-            {
                 "iso_3166_1": "US",
                 "name": "United States of America"
+            },
+            {
+                "iso_3166_1": "FR",
+                "name": "France"
             }
         ],
         "release_date": "1994-10-28",
@@ -1942,8 +1944,8 @@
         "tagline": "It will take you a million light years from home. But will it bring you back?",
         "title": "Stargate",
         "video": false,
-        "vote_average": 7.004,
-        "vote_count": 3508
+        "vote_average": 7.009,
+        "vote_count": 3560
     },
     "Moonfall26": {
         "adult": false,
@@ -1973,7 +1975,7 @@
         "original_language": "en",
         "original_title": "Moonfall",
         "overview": "A mysterious force knocks the moon from its orbit around Earth and sends it hurtling on a collision course with life as we know it.",
-        "popularity": 13.035,
+        "popularity": 5.4892,
         "poster_path": "/odVv1sqVs0KxBXiA8bhIBlPgalx.jpg",
         "production_companies": [
             {
@@ -2032,6 +2034,11 @@
         "runtime": 131,
         "spoken_languages": [
             {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+            },
+            {
                 "english_name": "Mandarin",
                 "iso_639_1": "zh",
                 "name": "\u666e\u901a\u8bdd"
@@ -2040,19 +2047,14 @@
                 "english_name": "French",
                 "iso_639_1": "fr",
                 "name": "Fran\u00e7ais"
-            },
-            {
-                "english_name": "English",
-                "iso_639_1": "en",
-                "name": "English"
             }
         ],
         "status": "Released",
         "tagline": "Humanity will face the dark side of the Moon.",
         "title": "Moonfall",
         "video": false,
-        "vote_average": 6.286,
-        "vote_count": 3246
+        "vote_average": 6.271,
+        "vote_count": 3314
     },
     "Independence Day27": {
         "adult": false,
@@ -2087,7 +2089,7 @@
         "original_language": "en",
         "original_title": "Independence Day",
         "overview": "Strange phenomena surface around the globe. The skies ignite. Terror races through the world's major cities. As these extraordinary events unfold, it becomes increasingly clear that a force of incredible magnitude has arrived. Its mission: total annihilation over the Fourth of July weekend. The last hope to stop the destruction is an unlikely group of people united by fate and unimaginable circumstances.",
-        "popularity": 13.6662,
+        "popularity": 8.0954,
         "poster_path": "/p0BPQGSPoSa8Ml0DAf2mB2kCU0R.jpg",
         "production_companies": [
             {
@@ -2123,8 +2125,8 @@
         "tagline": "The question of whether or not we are alone in the universe has been answered.",
         "title": "Independence Day",
         "video": false,
-        "vote_average": 6.891,
-        "vote_count": 9766
+        "vote_average": 6.894,
+        "vote_count": 9898
     },
     "Zardoz28": {
         "adult": false,
@@ -2158,7 +2160,7 @@
         "original_language": "en",
         "original_title": "Zardoz",
         "overview": "In the far future, a savage trained only to kill finds a way into the community of bored immortals that alone preserves humanity's achievements.",
-        "popularity": 2.5593,
+        "popularity": 1.4352,
         "poster_path": "/6qvQhJhvM7wWPB2LjVpivSNraIv.jpg",
         "production_companies": [
             {
@@ -2188,8 +2190,8 @@
         "tagline": "Beyond 1984, Beyond 2001, Beyond Love, Beyond Death.",
         "title": "Zardoz",
         "video": false,
-        "vote_average": 5.948,
-        "vote_count": 462
+        "vote_average": 5.93,
+        "vote_count": 472
     },
     "The Smurfs29": {
         "adult": false,
@@ -2232,7 +2234,7 @@
         "original_language": "en",
         "original_title": "The Smurfs",
         "overview": "When the evil wizard Gargamel chases the tiny blue Smurfs out of their village, they tumble from their magical world and into ours -- in fact, smack dab in the middle of Central Park. Just three apples high and stuck in the Big Apple, the Smurfs must find a way to get back to their village before Gargamel tracks them down.",
-        "popularity": 10.2304,
+        "popularity": 8.5753,
         "poster_path": "/vRhnslP2gW0QDym7BsMeSuioUfK.jpg",
         "production_companies": [
             {
@@ -2249,7 +2251,7 @@
             },
             {
                 "id": 7311,
-                "logo_path": "/8DWpM8VVlblzLas4JezvPk4L3YU.png",
+                "logo_path": "/j10FfP84cxcRBxVaobA4RZqGmWy.png",
                 "name": "Kerner Entertainment Company",
                 "origin_country": "US"
             }
@@ -2275,11 +2277,11 @@
             }
         ],
         "status": "Released",
-        "tagline": "Smurf Happens.",
+        "tagline": "Smurf happens.",
         "title": "The Smurfs",
         "video": false,
-        "vote_average": 5.8,
-        "vote_count": 3802
+        "vote_average": 5.76,
+        "vote_count": 3853
     },
     "Shazam!30": {
         "adult": false,
@@ -2314,18 +2316,18 @@
         "original_language": "en",
         "original_title": "Shazam!",
         "overview": "A boy is given the ability to become an adult superhero in times of need with a single magic word.",
-        "popularity": 8.3844,
+        "popularity": 6.3597,
         "poster_path": "/xnopI5Xtky18MPhK40cZAGAOVeV.jpg",
         "production_companies": [
             {
                 "id": 12,
-                "logo_path": "/2ycs64eqV5rqKYHyQK0GVoKGvfX.png",
+                "logo_path": "/x33I3vv8nx1O7rECNN7X5MsAFoN.png",
                 "name": "New Line Cinema",
                 "origin_country": "US"
             },
             {
                 "id": 11565,
-                "logo_path": "/S74cHHbIrdmb5M51Pft72Uo9Gz.png",
+                "logo_path": "/odU3l6csuBmXUrzFm6araUgEUHQ.png",
                 "name": "The Safran Company",
                 "origin_country": "US"
             },
@@ -2362,12 +2364,12 @@
         "tagline": "Just say the word.",
         "title": "Shazam!",
         "video": false,
-        "vote_average": 6.993,
-        "vote_count": 9683
+        "vote_average": 6.99,
+        "vote_count": 9791
     },
     "Doctor Strange31": {
         "adult": false,
-        "backdrop_path": "/3zvZ699gMW2RhWc0GisIukzq0Ls.jpg",
+        "backdrop_path": "/aL53oMdZKZRJRH8txH07DLuleF9.jpg",
         "belongs_to_collection": {
             "id": 618529,
             "name": "Doctor Strange Collection",
@@ -2398,7 +2400,7 @@
         "original_language": "en",
         "original_title": "Doctor Strange",
         "overview": "After his career is destroyed, a brilliant but arrogant surgeon gets a new lease on life when a sorcerer takes him under her wing and trains him to defend the world against evil.",
-        "popularity": 15.7482,
+        "popularity": 10.0505,
         "poster_path": "/uGBVj3bEbCoZbDjjl9wTxcygko1.jpg",
         "production_companies": [
             {
@@ -2428,8 +2430,8 @@
         "tagline": "The impossibilities are endless.",
         "title": "Doctor Strange",
         "video": false,
-        "vote_average": 7.417,
-        "vote_count": 22473
+        "vote_average": 7.419,
+        "vote_count": 22681
     },
     "Doctor Strange in the Multiverse of Madness32": {
         "adult": false,
@@ -2464,7 +2466,7 @@
         "original_language": "en",
         "original_title": "Doctor Strange in the Multiverse of Madness",
         "overview": "Doctor Strange, with the help of mystical allies both old and new, traverses the mind-bending and dangerous alternate realities of the Multiverse to confront a mysterious new adversary.",
-        "popularity": 18.5191,
+        "popularity": 14.2743,
         "poster_path": "/ddJcSKbcp4rKZTmuyWaMhuwcfMz.jpg",
         "production_companies": [
             {
@@ -2510,12 +2512,12 @@
         "tagline": "Enter a new dimension of Strange.",
         "title": "Doctor Strange in the Multiverse of Madness",
         "video": false,
-        "vote_average": 7.262,
-        "vote_count": 9474
+        "vote_average": 7.3,
+        "vote_count": 9668
     },
     "Big Trouble in Little China33": {
         "adult": false,
-        "backdrop_path": "/7LK2053iOtiat3MeWM3S4MZ2mXK.jpg",
+        "backdrop_path": "/mAxA5ltgqNXLXlm7PO5XrWSo9U1.jpg",
         "belongs_to_collection": null,
         "budget": 25000000,
         "genres": [
@@ -2545,7 +2547,7 @@
         "original_language": "en",
         "original_title": "Big Trouble in Little China",
         "overview": "Truck driver Jack Burton gets embroiled in a supernatural battle when his best friend Wang Chi's green-eyed fianc\u00e9e is kidnapped by henchmen of the sorcerer Lo Pan, who must marry a girl with green eyes in order to return to the human realm.",
-        "popularity": 7.1117,
+        "popularity": 3.524,
         "poster_path": "/aeGy6SZua7eFXEZP9zAvrLkkbI2.jpg",
         "production_companies": [
             {
@@ -2592,8 +2594,8 @@
         "tagline": "Jack Burton's in for some serious trouble and you're in for some serious fun.",
         "title": "Big Trouble in Little China",
         "video": false,
-        "vote_average": 7.21,
-        "vote_count": 3094
+        "vote_average": 7.213,
+        "vote_count": 3146
     },
     "Heart Eyes34": {
         "adult": false,
@@ -2623,7 +2625,7 @@
         "original_language": "en",
         "original_title": "Heart Eyes",
         "overview": "When the \"Heart Eyes Killer\" strikes Seattle, a pair of co-workers pulling overtime on Valentine's Day are mistaken for a couple by the elusive couple-hunting killer. Now, they must spend the most romantic night of the year running for their lives.",
-        "popularity": 79.6684,
+        "popularity": 10.8003,
         "poster_path": "/ebqttF1Vjgde6uSFBEw9mta7Hd3.jpg",
         "production_companies": [
             {
@@ -2637,12 +2639,6 @@
                 "logo_path": "/zQwTHJVIruUlGsa7zIdfXuSm9GG.png",
                 "name": "Divide / Conquer",
                 "origin_country": "US"
-            },
-            {
-                "id": 95434,
-                "logo_path": "/iKqEhbzYfb6YHwRlhqcvX1NIZbt.png",
-                "name": "Ground Control Entertainment",
-                "origin_country": "US"
             }
         ],
         "production_countries": [
@@ -2652,7 +2648,7 @@
             }
         ],
         "release_date": "2025-02-06",
-        "revenue": 31010725,
+        "revenue": 33129099,
         "runtime": 97,
         "spoken_languages": [
             {
@@ -2665,14 +2661,14 @@
         "tagline": "No couple is safe.",
         "title": "Heart Eyes",
         "video": false,
-        "vote_average": 6.313,
-        "vote_count": 171
+        "vote_average": 6.423,
+        "vote_count": 280
     },
     "Hustle35": {
         "adult": false,
         "backdrop_path": "/hGr0FrLI74vqpBWTBOPloDBwOAK.jpg",
         "belongs_to_collection": null,
-        "budget": 0,
+        "budget": 21000000,
         "genres": [
             {
                 "id": 18,
@@ -2692,7 +2688,7 @@
         "original_language": "en",
         "original_title": "Hustle",
         "overview": "After discovering a once-in-a-lifetime player with a rocky past abroad, a down on his luck basketball scout takes it upon himself to bring the phenom to the States without his team's approval. Against the odds, they have one final shot to prove they have what it takes to make it in the NBA.",
-        "popularity": 8.0126,
+        "popularity": 4.6356,
         "poster_path": "/xWic7kPq13oRxYjbGLApXCnc7pz.jpg",
         "production_companies": [
             {
@@ -2703,7 +2699,7 @@
             },
             {
                 "id": 878,
-                "logo_path": "/e2AZdsQdkhN0qJhoN4TMYiVPLyb.png",
+                "logo_path": "/s5j0xnTXvglZoz49CUaQclVv3s9.png",
                 "name": "Happy Madison Productions",
                 "origin_country": "US"
             },
@@ -2739,8 +2735,8 @@
         "tagline": "Are you obsessed with this game?",
         "title": "Hustle",
         "video": false,
-        "vote_average": 7.739,
-        "vote_count": 2608
+        "vote_average": 7.731,
+        "vote_count": 2663
     },
     "Killer Klowns from Outer Space36": {
         "adult": false,
@@ -2770,7 +2766,7 @@
         "original_language": "en",
         "original_title": "Killer Klowns from Outer Space",
         "overview": "Aliens disguised as clowns crash land on Earth in a rural town to capture unsuspecting victims in cotton candy cocoons for later consumption.",
-        "popularity": 3.071,
+        "popularity": 3.1199,
         "poster_path": "/nOC22f6kzrKPWXBoYr2XNWfMFEh.jpg",
         "production_companies": [
             {
@@ -2803,10 +2799,10 @@
             }
         ],
         "status": "Released",
-        "tagline": "It\u2019s Craazzy!",
+        "tagline": "It\u2019s craazzy!",
         "title": "Killer Klowns from Outer Space",
         "video": false,
-        "vote_average": 6.6,
-        "vote_count": 1050
+        "vote_average": 6.612,
+        "vote_count": 1077
     }
 }

@@ -51,57 +51,57 @@ match_indent = true
 overwrite = false
 
 
-# Demonic Card patches
-[[patches]]
-[patches.pattern]
-target = "functions/state_events.lua"
-pattern = "local cards_destroyed = {}"
-position = "after"
-payload = '''
+# # Demonic Card patches
+# [[patches]]
+# [patches.pattern]
+# target = "functions/state_events.lua"
+# pattern = "local cards_destroyed = {}"
+# position = "after"
+# payload = '''
 
-if not next(find_joker("j_kino_hellboy_1")) then
-    local has_demonic_card = false
-    local _sacrifices_this_hand = 0
-    local _arrayofsacrifices = {}
+# if not next(find_joker("j_kino_hellboy_1")) then
+#     local has_demonic_card = false
+#     local _sacrifices_this_hand = 0
+#     local _arrayofsacrifices = {}
 
-    for i = 1, #scoring_hand do
-        if SMODS.has_enhancement(scoring_hand[i], 'm_kino_demonic') and not scoring_hand[i].debuff then
-            has_demonic_card = true
-        end
-    end
+#     for i = 1, #scoring_hand do
+#         if SMODS.has_enhancement(scoring_hand[i], 'm_kino_demonic') and not scoring_hand[i].debuff then
+#             has_demonic_card = true
+#         end
+#     end
 
-    for i = 1, #scoring_hand do
-        if has_demonic_card and not SMODS.has_enhancement(scoring_hand[i], 'm_kino_demonic') then
-            if next(find_joker("j_kino_smile")) and scoring_hand[i]:is_face() then
+#     for i = 1, #scoring_hand do
+#         if has_demonic_card and not SMODS.has_enhancement(scoring_hand[i], 'm_kino_demonic') then
+#             if next(find_joker("j_kino_smile")) and scoring_hand[i]:is_face() then
 
-            else
-                cards_destroyed[#cards_destroyed + 1] = scoring_hand[i]
-                _arrayofsacrifices[#_arrayofsacrifices + 1] = scoring_hand[i]
-                scoring_hand[i].kino_tobesacrificed = true
-                G.GAME.current_round.sacrifices_made = G.GAME.current_round.sacrifices_made + 1
-                scoring_hand[i].destroyed = true
-                _sacrifices_this_hand = _sacrifices_this_hand + 1
-            end
-        end
-    end
+#             else
+#                 cards_destroyed[#cards_destroyed + 1] = scoring_hand[i]
+#                 _arrayofsacrifices[#_arrayofsacrifices + 1] = scoring_hand[i]
+#                 scoring_hand[i].kino_tobesacrificed = true
+#                 G.GAME.current_round.sacrifices_made = G.GAME.current_round.sacrifices_made + 1
+#                 scoring_hand[i].destroyed = true
+#                 _sacrifices_this_hand = _sacrifices_this_hand + 1
+#             end
+#         end
+#     end
 
-    if _sacrifices_this_hand > 0 then
-        SMODS.calculate_context({kino_sacrifices = true, kino_sacrifice_num = _sacrifices_this_hand, kino_sacrificed_cards = _arrayofsacrifices})
-    end
+#     if _sacrifices_this_hand > 0 then
+#         SMODS.calculate_context({kino_sacrifices = true, kino_sacrifice_num = _sacrifices_this_hand, kino_sacrificed_cards = _arrayofsacrifices})
+#     end
 
-    -- Challenge additional implementations
-    if has_demonic_card and G.GAME.modifiers.kino_bestsong then
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            func = (function()     
-                ease_discard(_sacrifices_this_hand)
-            return true end)
-        }))
-    end
-end
-'''
-match_indent = true
-overwrite = false
+#     -- Challenge additional implementations
+#     if has_demonic_card and G.GAME.modifiers.kino_bestsong then
+#         G.E_MANAGER:add_event(Event({
+#             trigger = 'after',
+#             func = (function()     
+#                 ease_discard(_sacrifices_this_hand)
+#             return true end)
+#         }))
+#     end
+# end
+# '''
+# match_indent = true
+# overwrite = false
 
 ## Consumable Type code (Taken from Bunco)
 [[patches]]

@@ -224,51 +224,64 @@ Kino.create_legend_ui = function(card, legend_entry, current_rarity)
 
 
     local _textstart = localize("k_legend_willnot")
-    local _rarity_node = nil
 
-    if current_rarity <= 3 then
-        _textstart = localize("k_legend_will")
-
-        local _rarity_names = {
-            localize("k_common"),
-            localize("k_uncommon"),
-            localize("k_rare"),
-            localize("k_legendary"),
-        }
-
-        
-        _rarity_node = {
-            n = G.UIT.T,
-            config = {
-                text = _rarity_names[current_rarity],
-                colour = G.C.RARITY[current_rarity], 
-                scale = 0.4, 
-                shadow = false
-            }   
-        }
+    if current_rarity > 3 then
+        current_rarity = 4
     end
 
-    local _final_node = {
+    local _rarity_names = {
+        localize("k_common"),
+        localize("k_uncommon"),
+        localize("k_rare"),
+        localize("k_legendary"),
+    }
+
+    local _rarity_node = {
         n = G.UIT.R,
         config = {
             align = 'cm',
-            colour = G.C.CLEAR,
+            minw = 2,
+            minh = 0.4,
+            r = 0.1,
+            padding = 0.03,
+            emboss = 0.05,
+            colour = G.C.RARITY[current_rarity],
         },
-        nodes = {
+        nodes = { 
             {
                 n = G.UIT.T,
                 config = {
-                    text = _textstart,
-                    colour = G.C.BLACK, 
-                    scale = 0.3, 
+                    text = _rarity_names[current_rarity],
+                    colour = G.C.WHITE, 
+                    scale = 0.4, 
                     shadow = false
-                }
-            },
-            _rarity_node
-        }  
+                }   
+            }
+        }
     }
 
-    _quest_nodes[#_quest_nodes + 1] = _final_node
+
+    -- local _final_node = {
+    --     n = G.UIT.R,
+    --     config = {
+    --         align = 'cm',
+    --         colour = G.C.CLEAR,
+    --     },
+    --     nodes = {
+    --         {
+    --             n = G.UIT.T,
+    --             config = {
+    --                 text = _textstart,
+    --                 colour = G.C.BLACK, 
+    --                 scale = 0.3, 
+    --                 shadow = false
+    --             }
+    --         },
+    --         _rarity_node
+    --     }  
+    -- }
+
+    _quest_nodes[#_quest_nodes + 1] = _rarity_node
 
     return {
         {
