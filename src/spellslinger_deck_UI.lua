@@ -3,9 +3,6 @@
 -- Update the textbox
 
 function Kino.generate_spellslingerdeck_UI(spell_key)
-    -- print("COME ON IN")
-    -- print(spell_key or "spell_kino_None_None")
-    -- print("spell_kino_None_None" or spell_key)
     local _text_title = localize{type = 'name_text', set = 'Spell', key = spell_key or "spell_kino_None_None"}
     local _text_description = localize{type = 'descriptions', set = 'Spell', key = spell_key or "spell_kino_None_None"}
 

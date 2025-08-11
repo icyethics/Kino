@@ -1,4 +1,4 @@
-if Cryptid then
+if Cryptid and Talisman then
 SMODS.Joker {
     key = "beemovie_honeygrate",
     order = 0,

@@ -1,6 +1,6 @@
 -- Containing functins and hooks that relate to Cryptid crossmod mechanics
 
-if Cryptid then
+if Cryptid and Talisman then
     
 local o_misprinterize = Cryptid.misprintize
 function Cryptid.misprintize(card, override, force_reset, stack)

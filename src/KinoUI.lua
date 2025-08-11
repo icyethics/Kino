@@ -20,7 +20,6 @@ if kino_config.spellcasting then
 	end
 
 	SMODS.current_mod.custom_collection_tabs = function()
-		print("custom spell page being called")
 		return {
 			UIBox_button({
 				button = 'your_collection_spells', 

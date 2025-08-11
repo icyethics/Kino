@@ -1,4 +1,5 @@
-if Cryptid then
+if Cryptid and Talisman then
+    
 SMODS.Joker {
     key = "shrek_1",
     order = 0,

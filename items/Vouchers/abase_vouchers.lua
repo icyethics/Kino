@@ -125,7 +125,7 @@ SMODS.Voucher {
                         _targets[#_targets + 1] = _joker
                     end
                 end
-                if Cryptid then
+                if Cryptid and Talisman then
                     if  G.GAME.used_vouchers.v_kino_egot then
                         _targets[#_targets + 1] = _joker
                     end

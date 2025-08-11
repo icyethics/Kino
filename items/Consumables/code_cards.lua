@@ -1,4 +1,4 @@
-if Cryptid then
+if Cryptid and Talisman then
     -- Add 3 genres you currently already have present to a selected joker
 -- SMODS.Consumable {
 --     key = "rename",

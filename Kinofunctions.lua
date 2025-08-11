@@ -737,7 +737,7 @@ function Kino.can_multiply(target)
         return true
     end
 
-    if Cryptid then
+    if Cryptid and Talisman then
         return true
     end
 
