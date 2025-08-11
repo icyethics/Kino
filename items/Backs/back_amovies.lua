@@ -120,7 +120,7 @@ SMODS.Back {
     config = {
     },
     apply = function()
-
+        G.GAME.starting_params.kino_spellcasting_deck = true
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and

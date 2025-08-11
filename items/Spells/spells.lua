@@ -26,6 +26,22 @@ SMODS.Spell = SMODS.Center:extend({
 })
 
 SMODS.Spell {
+    key = "None_None",
+    order = 0,
+    atlas = "kino_spells",
+    pos = {x = 0, y = 0},
+    config = {
+
+    },
+    loc_vars = function(self, info_queue, card)
+
+    end,
+    cast = function(self, strength)
+
+    end
+}
+
+SMODS.Spell {
     key = "Hearts_Hearts",
     order = 1,
     atlas = "kino_spells",
@@ -603,6 +619,10 @@ function pick_spell(caster, cards_in_hand, instant)
 end
 
 function check_spell_key(cards_in_hand)
+    if #cards_in_hand < 3 then
+        return "spell_kino_None_None"
+    end
+
     local _material_1 = cards_in_hand[1].base.suit
     local _material_2 = cards_in_hand[2].base.suit
 

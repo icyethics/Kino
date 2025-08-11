@@ -175,6 +175,12 @@ if CardSleeves then
             end
             return { key = key, vars = vars }
         end,
+        apply = function(self, sleeve)
+            G.GAME.starting_params.kino_spellcasting_deck = true
+            if self.get_current_deck_key() == "b_kino_spellslinger" then
+                G.GAME.starting_params.kino_spellcasting_sleeve = true
+            end
+        end,
         calculate = function(self, card, context)
             if context.individual and context.cardarea == G.play and
             context.scoring_hand[#context.scoring_hand] == context.other_card then

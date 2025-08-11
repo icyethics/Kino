@@ -39,7 +39,7 @@ SMODS.Joker {
         -- When you spend money, regain that money and lower the value of this joker
         -- Reset sell value to 1 if debuffed
 
-        if context.kino_ease_dollars and context.kino_ease_dollars < 0 and not context.blueprint and not context.repetition then
+        if context.kino_ease_dollars and context.kino_ease_dollars < to_big(0) and not context.blueprint and not context.repetition then
             if card.sell_cost > card.ability.extra.max_negative_value then
                 local _gains = -1 * context.kino_ease_dollars
 

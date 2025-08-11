@@ -231,7 +231,7 @@ AltTexture{
         -- Row 2
         'j_kino_50_first_dates',
         'j_kino_goodfellas',
-        -- 'j_kino_guardians_of_the_galaxy_2',
+        'j_kino_guardians_of_the_galaxy_2',
         'j_kino_moneyball',
         'j_kino_rock',
         'j_kino_war_of_the_worlds',
@@ -256,17 +256,17 @@ AltTexture{
         'j_kino_guardians_of_the_galaxy_1',
         'j_kino_lady_and_the_tramp',
         'j_kino_childs_play',
-        -- 'j_kino_snow_white_1',
+        'j_kino_snow_white_1',
         'j_kino_founder',
         'j_kino_treasure_planet',
 
         -- Row 6
         'j_kino_west_side_story_1',
         'j_kino_evil_dead_1',
-        -- 'j_kino_wolf_man',
+        'j_kino_wolf_man',
         'j_kino_apollo_13',
         'j_kino_commando',
-        -- 'j_kino_steel',
+        'j_kino_steel',
     },
 }
 
@@ -285,18 +285,36 @@ AltTexture{
         'j_kino_clerks_1',
 
         -- Row 2
+        -- 'j_kino_wonka',
         'j_kino_children_of_the_corn',
-        
+        -- 'j_kino_gremlins_1',
+        -- 'j_kino_sorcerers_apprentice',
+        -- 'j_kino_dungeons_and_dragons_1',
+        -- 'j_kino_dungeons_and_dragons_4',
+
         -- Row 3
+        -- 'j_kino_encanto',
+        -- 'j_kino_coco',
+        'j_kino_cocktail',
+        -- 'j_kino_shang_chi',
         'j_kino_exorcist_1',
+        -- 'j_kino_menu',
         
         -- Row 4
+        -- 'j_kino_guardians_of_the_galaxy_3',
         'j_kino_asteroid_city',
+        -- 'j_kino_signs',
         'j_kino_they_live',
+        -- 'j_kino_doctor_who',
+        -- 'j_kino_thing_1',
         
         -- Row 5
+        -- 'j_kino_stargate',
+        -- 'j_kino_moonfall',
+        -- 'j_kino_independence_day'
         'j_kino_zardoz',
         'j_kino_smurfs_1',
+        -- 'j_kino_shazam',
         
         -- Row 6
         -- 'j_kino_doctor_strange_1',
@@ -444,10 +462,14 @@ AltTexture{
         'j_kino_batman_killing_joke',
         'j_kino_muppets_treasure_island',
         -- 'j_kino_pirates_of_the_caribbean_2',
+
         -- Row 5
         -- 'j_kinopirates_of_the_caribbean_3',
         'j_kino_treasure_island',
         'j_kino_waterworld',
+        -- 'j_kino_pirates_movie',
+        'j_kino_captain_blood',
+        -- 'j_kino_trading_places',
 
         -- Row 6
         'j_kino_mafiamamma',

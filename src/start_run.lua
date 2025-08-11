@@ -50,6 +50,10 @@ function Game:start_run(args)
 
     local _calcjoker = SMODS.add_card{key = "j_kino_handlerobject", area = self.kino_offscreen_area, skip_materialize = true, no_edition = true}
 
+    if G.GAME.starting_params.kino_spellcasting_deck then
+        Kino.initialize_spellslingerdeck_UI()
+    end
+
     return ret
 end
 

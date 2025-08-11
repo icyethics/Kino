@@ -215,6 +215,13 @@ SMODS.Atlas {
     path = 'kino_counters_pcards.png'
 }
 
+SMODS.Atlas {
+    key = "kino_splash_screen",
+    px = 409,
+    py = 211,
+    path = 'kino_splash_sprite.png'
+}
+
 -- Crossmod Atlases
 SMODS.Atlas {
     key = "kino_cryptid_consumables",
@@ -278,7 +285,9 @@ local _list_of_files = {
     "src/spritemanipulation.lua",
     "src/consumable_functions.lua",
     "src/jumpscare.lua",
-    "src/run_info.lua"
+    "src/run_info.lua",
+    "src/spell_UI_popup.lua",
+    "src/spellslinger_deck_UI.lua"
 }
 
 for _index, _filename in ipairs(_list_of_files) do

@@ -47,8 +47,9 @@ function CardArea:emplace(card, location, stay_flipped)
 
     if self == G.consumeables and card.ability.set == "confection" and 
     G.GAME.used_vouchers.v_kino_snackbag and (not card.config.center.is_snackbag) then
-        if #Kino.snackbag.cards == 0 then
+        if #Kino.snackbag.cards == 0 and Kino.snackbag_exists == false then
             local _snackbag = SMODS.create_card({type = "confection", area = G.consumeables, key = "c_kino_snackbag", no_edition = true})
+            Kino.snackbag_exists = true
             G.consumeables:emplace(_snackbag)
         end
         Kino.snackbag:emplace(card, location, stay_flipped)

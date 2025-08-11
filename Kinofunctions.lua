@@ -427,6 +427,12 @@ function check_genre_synergy()
 
     G.jokers.config.synergyslots = (#five_of_genres * Kino.genre_synergy_slots)
     G.jokers.config.card_limit = G.jokers.config.card_limit + G.jokers.config.synergyslots
+    if G.jokers.config.synergyslots > 0 then
+        G.jokers.config.card_limit_UI_text = " (+" .. G.jokers.config.synergyslots .. " Genre Bonus)"
+    else
+        G.jokers.config.card_limit_UI_text = ""
+    end
+    -- G.jokers:draw()
 end
 
 function check_actor_synergy()
@@ -770,6 +776,8 @@ function CardArea:set_ranks()
     -- Do synergy checks
     base_set_rank(self)
 
+    -- print("set ranks")
+
     if self == G.jokers then
         -- if G.GAME.modifiers.kino_genre_variety then
         --     check_genre_match()            
@@ -790,7 +798,12 @@ function CardArea:align_cards()
         check_genre_synergy()
         check_actor_synergy()
     end
+
+    if self == G.deck and G.GAME.starting_params.kino_spellcasting_deck then
+        Kino.update_spellslingerdeck_UI()
+    end
 end
+
 
 function Card:get_release(card)
     if card.config.center.kino_joker then

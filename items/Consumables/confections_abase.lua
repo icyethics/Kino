@@ -1602,8 +1602,9 @@ SMODS.Consumable {
         if (context.joker_type_destroyed or context.selling_card) and Kino.snackbag then
             if context.card.area == Kino.snackbag then
                 if #Kino.snackbag.cards <= 1 then
-                card:start_dissolve()
-                Kino.snackbag.states.visible = false
+                    card:start_dissolve()
+                    Kino.snackbag.states.visible = false
+                    Kino.snackbag_exists = false
                 end
             end
         end
@@ -1611,6 +1612,7 @@ SMODS.Consumable {
             if #Kino.snackbag.cards < 1 then
                 card:start_dissolve()
                 Kino.snackbag.states.visible = false
+                Kino.snackbag_exists = false
             end
         end
     end

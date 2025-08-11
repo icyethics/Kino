@@ -883,3 +883,167 @@ overwrite = false
 # for k, v in ipairs(G.playing_cards) do
 #         v.ability.forced_selection = nil
 # end
+
+
+## Main Menu sprite Additions
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+# pattern = '''
+#     self.title_top = CardArea(
+#         0, 0,
+#         CAI.TITLE_TOP_W,CAI.TITLE_TOP_H,
+#         {card_limit = 1, type = 'title'})
+# '''
+pattern = '''
+local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.c_base)
+'''
+position = "after"
+payload = '''
+G.KINO_SPLASH_LOGO = Sprite(0, 0, 
+    13*SC_scale, 
+    13*SC_scale*(G.ASSET_ATLAS["kino_splash_screen"].py/G.ASSET_ATLAS["kino_splash_screen"].px),
+    G.ASSET_ATLAS["kino_splash_screen"], {x=0,y=0})
+
+G.KINO_SPLASH_LOGO:set_alignment({
+    major = G.title_top,
+    instance_type = "NODE",
+    type = 'cm',
+    bond = 'Strong',
+    offset = {x=2.25,y=0.33}
+})
+G.KINO_SPLASH_LOGO:define_draw_steps({{
+        shader = 'dissolve',
+    }})
+
+G.KINO_SPLASH_LOGO.dissolve_colours = {G.C.WHITE, G.C.WHITE}
+G.KINO_SPLASH_LOGO.dissolve = 1   
+'''
+match_indent = true
+overwrite = false
+
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+ease_value(G.SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)
+'''
+position = "before"
+payload = '''
+ease_value(G.KINO_SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)
+'''
+match_indent = true
+overwrite = false
+
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+if G.SPLASH_LOGO then
+    love.graphics.push()
+    G.SPLASH_LOGO:translate_container()
+    G.SPLASH_LOGO:draw()
+    love.graphics.pop()
+end
+'''
+position = "before"
+payload = '''
+if G.KINO_SPLASH_LOGO then
+    love.graphics.push()
+    G.KINO_SPLASH_LOGO:translate_container()
+    G.KINO_SPLASH_LOGO:draw()
+    love.graphics.pop()
+end
+'''
+match_indent = true
+overwrite = false
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''
+if G.SPLASH_LOGO then 
+    G.SPLASH_LOGO.states.visible = true
+    if G.title_top and G.title_top.cards[1] then G.title_top.cards[1].states.visible = true end
+end
+'''
+position = "before"
+payload = '''
+if G.KINO_SPLASH_LOGO then
+    print("test true") 
+    G.KINO_SPLASH_LOGO.states.visible = true
+end
+'''
+match_indent = true
+overwrite = false
+
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''
+if G.SPLASH_LOGO then 
+    G.SPLASH_LOGO.states.visible = false
+    if G.title_top and G.title_top.cards[1] then G.title_top.cards[1].states.visible = false end
+end
+'''
+position = "before"
+payload = '''
+if G.KINO_SPLASH_LOGO then
+    print("test false")
+    G.KINO_SPLASH_LOGO.states.visible = false
+end
+'''
+match_indent = true
+overwrite = false
+
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+if self.SPLASH_LOGO then self.SPLASH_LOGO:remove(); self.SPLASH_LOGO = nil end
+'''
+position = "before"
+payload = '''
+if self.KINO_SPLASH_LOGO then self.KINO_SPLASH_LOGO:remove(); self.KINO_SPLASH_LOGO = nil end
+'''
+match_indent = true
+overwrite = false
+
+
+## ----------- Card Area UI changes ----------
+[[patches]]
+[patches.pattern]
+target = "cardarea.lua"
+pattern = '''
+local card_count = self ~= G.shop_vouchers and {n=G.UIT.R, config={align = self == G.jokers and 'cl' or self == G.hand and 'cm' or 'cr', padding = 0.03, no_fill = true}, nodes={
+    {n=G.UIT.B, config={w = 0.1,h=0.1}},
+    {n=G.UIT.T, config={ref_table = self.config, ref_value = 'card_count', scale = 0.3, colour = G.C.WHITE}},
+    {n=G.UIT.T, config={text = '/', scale = 0.3, colour = G.C.WHITE}},
+    {n=G.UIT.T, config={ref_table = self.config, ref_value = 'card_limit', scale = 0.3, colour = G.C.WHITE}},
+    {n=G.UIT.B, config={w = 0.1,h=0.1}}
+}} or nil
+'''
+position = "after"
+payload = '''
+
+
+if self == G.jokers then
+    card_count = self ~= G.shop_vouchers and {n=G.UIT.R, config={align = self == G.jokers and 'cl' or self == G.hand and 'cm' or 'cr', padding = 0.03, no_fill = true}, nodes={
+        {n=G.UIT.B, config={w = 0.1,h=0.1}},
+        {n=G.UIT.T, config={ref_table = self.config, ref_value = 'card_count', scale = 0.3, colour = G.C.WHITE}},
+        {n=G.UIT.T, config={text = '/', scale = 0.3, colour = G.C.WHITE}},
+        {n=G.UIT.T, config={ref_table = self.config, ref_value = 'card_limit', scale = 0.3, colour = G.C.WHITE}},
+        {n=G.UIT.T, config={ref_table = self.config, ref_value = 'card_limit_UI_text', scale = 0.3, colour = G.C.BLUE}},
+        {n=G.UIT.B, config={w = 0.1,h=0.1}}
+    }} or nil
+end
+'''
+match_indent = true
+overwrite = false

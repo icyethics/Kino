@@ -192,8 +192,8 @@ return {
             j_kino_avatar = {
                 name = "Avatar",
                 text = {
-                    "Gains {C:chips}+1{} Chip for each level",
-                    "of your most played hand type",
+                    "Gains {C:chips}+1{} Chip for time your",
+                    "most played hand type has been played",
                     "when you use a {C:attention}Planet{}",
                     "{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)"
                 }
@@ -4414,11 +4414,20 @@ return {
             },
 
             -- Synergy System
-            synergy_mult = {
-                name = "Synergy Bonus",
+            kino_valuechange = {
+                name = "Power Boost",
                 text = {
                     "Increased Power",
                     "by {C:attention}X#1#"
+                }
+            },
+            kino_actor_synergy = {
+                name = "Actor Synergy",
+                text = {
+                    "Has a power boost for",
+                    "sharing {C:attention}#1# Actor(s)",
+                    "with at least 2", 
+                    "other Movie Jokers",
                 }
             },
 
@@ -4806,6 +4815,15 @@ return {
             }
         },
         Spell = {
+            spell_kino_None_None = {
+                name = "No Spell",
+                text = {
+                    "No spell will",
+                    "be cast based",
+                    "on these cards"
+                }
+            },
+
             spell_kino_Hearts_Hearts = {
                 name = "Double Hearts",
                 text = {
@@ -5425,6 +5443,20 @@ return {
             k_kino_joker_batman = "Oh no! It's Bats!",
             k_kino_batman_forever = "I'm Batman",
             k_kino_saved = "Saved!",
+
+            -- Spellcasting Text
+            k_kino_spellbook = "Spellbook",
+            k_kino_spelltext = {
+                "Spells are constructed of three ingredients: a primary suit, a secondary suit, and a power rank.",
+                "A spell is Cast when a spellcaster card or joker is triggered"
+            },
+            k_kino_spell_power = "Spell Power",
+            k_kino_power_level = "Power Level ",
+            k_kino_spell_power_text = {
+                "Spell Power is determined",
+                "based on the rank of the",
+                "third spell component",
+            },
 
 
             k_kino_legendary_quest_tutorial = {

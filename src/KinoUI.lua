@@ -1,5 +1,4 @@
 if kino_config.spellcasting then
-	print("test_entrance")
 	function create_UIBox_spells()
 		local _pool = {}
 		for i, v in pairs(SMODS.Spells) do
@@ -41,192 +40,9 @@ if kino_config.spellcasting then
 		}
 	end
 
-	--- Spellcaster Object UI
-
-	Kino.create_overylay_spell_showcase = function()
-		-- Create a 
-		local _pool = {}
-		for i, v in pairs(SMODS.Spells) do
-			if not v.no_collection then
-				_pool[#_pool + 1] = v
-			end
-		end
-
-		local _rows = {}
-
-		local _textnode = {
-			n = G.UIT.R,
-			config = {
-				align = 'cm',
-				padding = 0.05,
-				colour = G.C.CLEAR
-			},
-			nodes = {
-				{n = G.UIT.T,
-					config = {
-						text = "Spellbook",
-						colour = G.C.WHITE, 
-						scale = 0.5, 
-						shadow = false
-					}
-				},
-			}
-		}
-		-- table.insert(_rows, _textnode)
-		local _boxnode = {
-			n = G.UIT.R,
-			config = {
-				align = 'cm',
-				padding = 0.05,
-				colour = G.C.CLEAR
-			},
-			nodes = {
-				{n = G.UIT.B,
-				config = {
-					h = 0.3,
-					w = 1
-				}
-				},
-			}
-		}
-
-		-- table.insert(_rows, _boxnode)
-
-		local _textnode2 = {}
-
-		for i = 1, math.ceil(#_pool / 5) do
-			local _spellarea = CardArea(
-                    0,
-                    0,
-                    G.CARD_W * 4.50,
-                    G.CARD_H * 1.1,
-				{card_limit = 5, type = 'title', highlight_limit = 0, collection = true}
-			)
-
-			for j = 1, 5 do
-				local _center = _pool[-5 + (i * 5) + j]
-
-				if not _center then break end
-
-				local _card = Card(
-					_spellarea.T.x + _spellarea.T.w/2, 
-					_spellarea.T.y, 
-					G.CARD_W, 
-					G.CARD_H, 
-					nil, 
-					_center,
-					{bypass_discovery_center=true,bypass_discovery_ui=true,bypass_lock=true}
-				)
-
-				_card.states.visible = true
-				_card:start_materialize(nil, true)
-				_spellarea:emplace(_card)
-			end
-
-			local _row = {
-				n = G.UIT.R,
-				config = {
-					align = 'cm',
-					padding = 0.05,
-					colour = G.C.CLEAR
-				},
-				nodes = {
-						{n = G.UIT.O,
-						config = {
-							object = _spellarea
-						}
-					}
-				}
-			}
-
-			table.insert(_rows, _row)
-		end
-
-		local t  = G.FUNCS.overlay_menu({
-            definition = create_UIBox_generic_options({
-                back_colour = G.C.BLACK,
-                contents = {
-                    {
-                        n = G.UIT.C,
-                        -- nodes = _rows,
-						nodes = {
-							-- Text box Nodes (Explainer)
-							{
-								n = G.UIT.R,
-								config = {
-									align = 'cm',
-									padding = 0.05,
-									r = 0.01,
-									colour = G.C.WHITE
-								},
-								nodes = {
-									{n = G.UIT.T,
-										config = {
-											text = "Spellbook",
-											colour = G.C.WHITE, 
-											scale = 0.5, 
-											shadow = false
-										}
-									},
-								}
-							},
-
-							-- Spell Power Node (Left) < > Spellbook Node (Right)
-							{
-								n = G.UIT.R,
-								config = {
-									align = 'cm',
-									padding = 0.05,
-									r = 0.01,
-									colour = G.C.CLEAR
-								},
-								nodes = {
-
-									-- Spell Power Node (Left)
-									{
-										n = G.UIT.C,
-										config = {
-											align = 'lm',
-											padding = 0.05,
-											r = 0.01,
-											colour = G.C.BLACK,
-											minw = 3,
-										},
-										nodes = {
-											
-										}
-									},
-									-- Spellbook Node (Right)
-									{
-										n = G.UIT.C,
-										config = {
-											align = 'rm',
-											padding = 0.05,
-											r = 0.01,
-											colour = G.C.BLACK
-										},
-										nodes = _rows
-									},
-								}
-							},
-							-- Back Button Node? OPTIONAL???
-						}},
-				}}
-			)
-		})
-
-		-- NOdes
-		-- GENERIC UIBox
-			-- Column
-				-- Explainer Row
-				-- Content Row
-				-- Back Button Row
-
-		return t
-	end
 
 	SMODS.Keybind({
-    key_pressed = "d",
+    key_pressed = "s",
     action = function(self)
         local selected = G and G.CONTROLLER and
             (G.CONTROLLER.focused.target or G.CONTROLLER.hovering.target)
@@ -238,6 +54,9 @@ if kino_config.spellcasting then
         Kino.create_overylay_spell_showcase()
     end
 	})
+
+	-- Spell UI
+	
 end
 
 ----- CONFIG UI -----

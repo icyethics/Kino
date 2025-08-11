@@ -37,17 +37,17 @@ SMODS.Enhancement {
                 return true end)
         }))
         end
-        card.ability.bonus = card.ability.bonus + card.ability.a_chips
+        card.ability.bonus = card.ability.bonus + (card.ability.a_chips * _upgradenum)
 
         if next(find_joker('j_kino_terminator_2')) then
             for index, _joker in ipairs(G.jokers.cards) do
                 if type(_joker.ability.extra) == "table" and
                 _joker.ability.extra.affects_sci_fi then
-                    card.ability.x_mult = card.ability.x_mult + _joker.ability.extra.perma_x_mult
+                    card.ability.x_mult = card.ability.x_mult + (_joker.ability.extra.perma_x_mult *  _upgradenum)
                 end
             end
         else
-            card.ability.mult = card.ability.mult + card.ability.a_mult
+            card.ability.mult = card.ability.mult + (card.ability.a_mult *  _upgradenum)
         end
                 
                 
@@ -123,8 +123,10 @@ SMODS.DrawStep {
                     if true == false and  type(G.shared_segdisp[2 + i][_values[i] + 1].draw) == 'function' then
                         G.shared_segdisp[2 + i][_values[i]  + 1]:draw(self, layer)
                     else
-                        G.shared_segdisp[2 + i][_values[i]  + 1].role.draw_major = self
-                        G.shared_segdisp[2 + i][_values[i]  + 1]:draw_shader('dissolve', nil, nil, nil, self.children.center)
+                        if G.shared_segdisp[2 + i][_values[i]  + 1] then
+                            G.shared_segdisp[2 + i][_values[i]  + 1].role.draw_major = self
+                            G.shared_segdisp[2 + i][_values[i]  + 1]:draw_shader('dissolve', nil, nil, nil, self.children.center)
+                        end
                     end
                 end
             end

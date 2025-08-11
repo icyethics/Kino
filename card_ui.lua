@@ -701,7 +701,11 @@ Kino.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_va
         end
 
         if _multiplier > 1 then
-            info_queue[#info_queue+1] = {set = 'Other', key = "synergy_mult", vars = {_multiplier}}
+            info_queue[#info_queue+1] = {set = 'Other', key = "kino_valuechange", vars = {_multiplier}}
+        end
+
+        if card.ability.last_actor_count and card.ability.last_actor_count > 1 then
+            info_queue[#info_queue+1] = {set = 'Other', key = "kino_actor_synergy", vars = {card.ability.last_actor_count}}
         end
     end
 
