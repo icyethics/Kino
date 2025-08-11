@@ -250,6 +250,7 @@ joker_list = {
 "thing",
 "tmnt_1",
 "trading_places",
+"treasure_island",
 "treasure_planet",
 "true_lies",
 "turner_and_hooch",

@@ -54,13 +54,13 @@ SMODS.Joker {
             if _red < _black then
                 return {
                     chips = card.ability.extra.chips,
-                    message = localize("k_west_side_sharks"),
+                    message = localize("k_west_side_jets"),
                     colour = G.C.CHIPS
                 }
             elseif _red > _black then
                 return {
                     mult = card.ability.extra.mult,
-                    message = localize("k_west_side_jets"),
+                    message = localize("k_west_side_sharks"),
                     colour = G.C.MULT
                 }
             elseif _red == _black then

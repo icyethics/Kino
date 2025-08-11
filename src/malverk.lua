@@ -290,7 +290,7 @@ AltTexture{
         -- 'j_kino_gremlins_1',
         -- 'j_kino_sorcerers_apprentice',
         -- 'j_kino_dungeons_and_dragons_1',
-        -- 'j_kino_dungeons_and_dragons_4',
+        'j_kino_dungeons_and_dragons_4',
 
         -- Row 3
         -- 'j_kino_encanto',
@@ -369,7 +369,12 @@ AltTexture{
     original_sheet = true,
     keys = {
         -- Row 1
+        'j_kino_easy_a',
+        'j_kino_la_la_land',
+        'j_kino_cruella',
+        -- 'j_kino_fast_and_furious_5',
         'j_kino_bloodshot',
+        -- 'j_kino_pitch_black',
 
         -- Row 2
         -- 'j_kino_lord_of_the_rings_1',
@@ -420,6 +425,12 @@ AltTexture{
     original_sheet = true,
     keys = {
         -- Row 1
+        -- 'j_kino_taken',
+        -- 'j_kino_shaft_1',
+        'j_kino_con_air',
+        -- 'j_kino_rush_hour_1',
+        -- 'j_kino_tmnt_1',
+        -- 'j_kino_hot_fuzz',
 
         -- Row 2
         -- 'j_kino_paul',
@@ -431,6 +442,7 @@ AltTexture{
         
         -- Row 3
         'j_kino_dune_1984',
+        
         -- Row 4
         -- Row 5
         -- Row 6

@@ -4,7 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            money = 5
+            money = 2
         }
     },
     rarity = 2,
@@ -30,7 +30,6 @@ SMODS.Joker {
     enhancement_gate = "m_kino_crime",
 
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = {set = 'Other', key = "gloss_steal", vars = {Kino.crime_chips, tostring(G.GAME.money_stolen)}}
         return {
             vars = {
                 card.ability.extra.money
@@ -38,7 +37,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        -- Destroy the first discarded card and add $5 to the stolen value
+        -- Destroy the first discarded card and add $2 to the stolen value
         
         if context.first_hand_drawn then
             local eval = function() return G.GAME.current_round.discards_used == 0 and not G.RESET_JIGGLES end
@@ -47,7 +46,11 @@ SMODS.Joker {
 
         if context.discard and not context.blueprint and 
         G.GAME.current_round.discards_used <= 0 and context.full_hand and #context.full_hand == 1 then
-            Kino.increase_money_stolen(card.ability.extra.money)
+            for _index, _joker in ipairs(G.jokers.cards) do
+                _joker.ability.extra_value = _joker.ability.extra_value + card.ability.extra.money
+                _joker:juice_up()
+                _joker:set_cost()
+            end
             return {
                 remove = true
             }

@@ -30,6 +30,7 @@ SMODS.Spell {
     order = 0,
     atlas = "kino_spells",
     pos = {x = 0, y = 0},
+    no_collection = true,
     config = {
 
     },

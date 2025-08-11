@@ -92,9 +92,11 @@ local _gcp = get_current_pool
 function get_current_pool(_type, _rarity, _legendary, _append)
     G.ARGS.TEMP_POOL = EMPTY(G.ARGS.TEMP_POOL)
     local _pool, _starting_pool, _pool_key, _pool_size = G.ARGS.TEMP_POOL, nil, '', 0
+
     if type(_type) == 'table' or
     (G.GAME.modifiers.kino_back_c2n and G.jokers and #G.jokers.cards > 0 and 
     (_append == "sho" or _append == "buf")) then
+
         local _castlist = create_cast_list()
 
         local rarity = _rarity or pseudorandom('rarity'..G.GAME.round_resets.ante..(_append or '')) 
@@ -102,9 +104,15 @@ function get_current_pool(_type, _rarity, _legendary, _append)
         _starting_pool, _pool_key = G.P_JOKER_RARITY_POOLS[rarity], 'Joker'..rarity..((not _legendary and _append) or '')
 
         for k, v in ipairs(_starting_pool) do
-            local add = nil
 
-            if not (G.GAME.used_jokers[v.key] and not next(find_joker("Showman"))) and
+            local add = nil
+            local in_pool, pool_opts
+            if v.in_pool and type(v.in_pool) == 'function' then
+                in_pool, pool_opts = v:in_pool({source = _append})
+            end
+            pool_opts = pool_opts or {}
+
+            if not (G.GAME.used_jokers[v.key] and not pool_opts.allow_duplicates and not next(find_joker("Showman"))) and
             (v.unlocked ~= false or v.rarity == 4) then
                 if v.enhancement_gate then
                     add = nil
@@ -113,8 +121,6 @@ function get_current_pool(_type, _rarity, _legendary, _append)
                             add = true
                         end
                     end
-                else
-                    add = true
                 end
             else
                 add = true

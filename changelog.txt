@@ -1,20 +1,15 @@
-V 0.10-prerelease-0002
+V 0.10 
 
-Bug Fixes:
-- Codex jokers no longer crash the game
-- The Blair Witch Project can no be hovered over
-- Cardsleeves no longer required to prevent crash on start up
-- Thriller seals now properly work and can be properly applied
-
-V 0.10 Pre-release
+Texture Pack Change:
+- Pixel art jokers have become the default! If you prefer consistency, you can use the
+texture pack provided by the mod through the Malverk texture loader!
 
 New Mechanic:
 Counters!
 
 ## New Content: ##
 
-Jokers:
--- 0
+Jokers (53 new jokers):
 - Pirates of the Caribbean
 - Pirates of the Caribbean 2
 - Pirates of the Caribbean 3
@@ -27,7 +22,6 @@ Jokers:
 - Treasure Island
 - When Harry Met Sally
 
--- 10
 - House of Gucci
 - Lord of the Rings: The Fellowship of the Ring
 - School of Rock
@@ -40,7 +34,6 @@ Jokers:
 - The Pirates! Band of Misfits
 - Captain Blood
 
--- 20
 - Muppet Treasure Island
 - Trading Places
 - Mafia Mamma
@@ -53,7 +46,6 @@ Jokers:
 - Oppenheimer
 - Arrival
 
--- 30
 - Donnie Darko
 - Kiki's Delivery Service
 - Moulin Rouge
@@ -66,7 +58,6 @@ Jokers:
 - Blade Runner
 - Demolition Man
 
--- 40
 - Blue Velvet
 - Elephant Man
 - Resident Evil
@@ -79,7 +70,6 @@ Jokers:
 - Bucket List
 - The Star Wars Holiday Special
 
--- 50
 - Hit Man
 - Rush Hour
 - Peggy Sue Got Married
@@ -146,6 +136,7 @@ Jokers:
 - Snow White
 - Batman & Robin
 - Wall E 
+- Stripes
 
 Boss Blinds:
 - Gordon Gekko
@@ -165,6 +156,7 @@ Bug Fixes:
 - Citizen Kane is now a Legendary, as intended
 - Kino blinds can no longer lower your mult to 0
 - Moneyball is Cryptid compatible
+- c2n deck and IMDB packs no longer create duplicates of owned jokers
 
 Balance Changes:
 - Jaws: +30 Chips > +50 Chips

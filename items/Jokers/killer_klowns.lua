@@ -4,7 +4,8 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-
+            factor = 1,
+            cost_non = 3
         }
     },
     rarity = 3,
@@ -29,9 +30,9 @@ SMODS.Joker {
     pools, k_genre = {"Horror", "Comedy", "Sci-fi"},
 
     loc_vars = function(self, info_queue, card)
-        return {
+        return {    
             vars = {
-
+                card.ability.extra.cost_non / card.ability.extra.factor
             }
         }
     end,
@@ -66,7 +67,7 @@ SMODS.Joker {
                 -- end
                 -- found rarity
                 _sellvalue = joker_to_destroy.sell_cost
-                _planets_created = math.max(_sellvalue % 5, 1)
+                _planets_created = math.max(_sellvalue % (card.ability.extra.cost_non / card.ability.extra.factor), 1)
                 
                 
                 G.E_MANAGER:add_event(Event({func = function()
