@@ -2723,9 +2723,9 @@ return {
             j_kino_treasure_island = {
                 name = "Treasure Island",
                 text = {
-                    "Gives #1#x the total sell",
-                    "value of all current",
-                    "Jokers when you defeat a Boss blind",
+                    "Gives {C:attention}#1#x{} the Sell",
+                    "Value of all owned",
+                    "Jokers when Boss blind is defeated",
                     "{C:inactive}(Currently {C:money}$#2#{C:inactive})",
                 } 
             },

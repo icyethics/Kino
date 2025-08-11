@@ -30,8 +30,10 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         local _count = 0
-        for i = 1, #G.jokers.cards do
-            _count = _count + G.jokers.cards[i].sell_cost
+        if G.jokers and G.jokers.cards then
+            for i = 1, #G.jokers.cards do
+                _count = _count + G.jokers.cards[i].sell_cost
+            end
         end
 
         return {

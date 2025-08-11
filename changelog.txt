@@ -9,7 +9,7 @@ Counters!
 
 ## New Content: ##
 
-Jokers (53 new jokers):
+Jokers (54 new jokers):
 - Pirates of the Caribbean
 - Pirates of the Caribbean 2
 - Pirates of the Caribbean 3
@@ -73,6 +73,7 @@ Jokers (53 new jokers):
 - Hit Man
 - Rush Hour
 - Peggy Sue Got Married
+- Treasure Island
 
 Tarots:
 - Detective

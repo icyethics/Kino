@@ -8,6 +8,15 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
     G.ARGS.TEMP_POOL = EMPTY(G.ARGS.TEMP_POOL)
     local _pool = G.ARGS.TEMP_POOL
 
+
+    local _castlist = nil
+
+    if type(_type) == 'table' or
+    (G.GAME.modifiers.kino_back_c2n and G.jokers and #G.jokers.cards > 0 and _type == 'Joker' and
+    (_append == "sho" or _append == "buf")) then
+        _castlist = create_cast_list()
+    end
+
     -- tracking variables
     local _pool_size = 0
     local _total_weight = 0
@@ -139,16 +148,23 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
             add = in_pool and (add or pool_opts.override_base_checks)
         end
         
-            -- Checking Kino joker settings
+        -- Checking Kino joker settings
         if _cardobject.set == 'Joker' and not _cardobject.kino_joker and 
         ((kino_config and kino_config.movie_jokers_only) or
         G.GAME.modifiers.movie_jokers_only) then add = nil end
+
+        -- Checking for Kino forced cast settings
+        if _castlist and add and has_cast_from_table(_cardobject, _castlist) == false then
+            add = nil
+        end
 
         -- set weight and add to pool if not banned
         if add and not G.GAME.banned_keys[_cardobject.key] then
             
             local weight = _cardobject.rarity and _available_rarities[_cardobject.rarity] and _available_rarities[_cardobject.rarity].weight or 1
             local passtrue = true
+
+
 
             if _raritycount > 0 and (_cardobject.rarity and not _available_rarities[tostring(_cardobject.rarity)]) then
                 weight = 0
@@ -172,6 +188,11 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
             _pool[#_pool + 1] = {key = _cardobject.key, weight = weight}
             _pool_size = _pool_size + 1
         end
+    end
+
+    if _castlist and _pool_size <= 6 then
+        _pool = Kino.complex_pool('Joker', _rarity, _legendary, _append .. "_test", starting_pool, default_key, key_append, allow_duplicates)
+        _pool_size = #_pool
     end
 
     if _pool_size == 0 then
