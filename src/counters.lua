@@ -70,10 +70,10 @@ end
 Kino.investment_counter_effect = function(card)
     ease_dollars(card.ability.kino_numcounters)
     card.ability.kino_numcounters = card.ability.kino_numcounters - 1
-    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
-        card.ability.kino_numcounters = card.ability.kino_numcounters - 1
-    return true end }))
-    
+    if card.ability.kino_numcounters <= 0 then
+        card.ability.kino_numcounters = 0
+        card.ability.kino_counter = nil
+    end
 end
 
 Kino.power_counter_effect = function(card)
@@ -84,24 +84,30 @@ Kino.power_counter_effect = function(card)
     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
         card:juice_up()
         card.ability.kino_numcounters = card.ability.kino_numcounters - 1
-        if card.ability.kino_numcounters == 0 then
+        if card.ability.kino_numcounters <= 0 then
             card:set_multiplication_bonus(card, "kino_powercounter", 1, nil, 1 + 1)
+            card.ability.kino_numcounters = 0
+            card.ability.kino_counter = nil
         end
     return true end }))
 end
 
 Kino.debt_counter_effect = function(card)
     ease_dollars(-card.ability.kino_numcounters)
-    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
-        card.ability.kino_numcounters = card.ability.kino_numcounters - 1
-    return true end }))
+    card.ability.kino_numcounters = card.ability.kino_numcounters - 1
+    if card.ability.kino_numcounters <= 0 then
+        card.ability.kino_numcounters = 0
+        card.ability.kino_counter = nil
+    end
 end
 
 Kino.poison_effect = function(card)
     local _percentage = to_big((card.ability.kino_numcounters * 5) / 100)
-    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
-        card.ability.kino_numcounters = card.ability.kino_numcounters - 1
-    return true end }))
+    card.ability.kino_numcounters = card.ability.kino_numcounters - 1
+    if card.ability.kino_numcounters <= 0 then
+        card.ability.kino_numcounters = 0
+        card.ability.kino_counter = nil
+    end
     return {
         chips = to_number(-(hand_chips * _percentage)),
         mult = to_number(-(mult * _percentage)),
@@ -122,6 +128,8 @@ Kino.stun_effect = function(card)
         
         if card.ability.kino_numcounters <= 0 then
             SMODS.debuff_card(card, false, "kino_stuncounter")
+            card.ability.kino_numcounters = 0
+            card.ability.kino_counter = nil
         end
     return true end }))
 end

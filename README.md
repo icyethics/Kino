@@ -1,4 +1,4 @@
-# Balatro Goes Kino V0.10:
+# Balatro Goes Kino V0.10a:
 
 By Ice/IcyEthics
 

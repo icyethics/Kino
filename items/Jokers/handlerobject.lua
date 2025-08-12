@@ -63,16 +63,12 @@ SMODS.Joker {
 
                 -- Debt counters
                 if _joker.ability.kino_counter == "kino_debt" then
-                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
-                        Kino.debt_counter_effect(_joker)
-                    return true end }))
+                    Kino.debt_counter_effect(_joker)
                 end
 
                 -- Finance counters
                 if _joker.ability.kino_counter == "kino_investment" then
-                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
-                        Kino.investment_counter_effect(_joker)
-                    return true end }))
+                    Kino.investment_counter_effect(_joker)
                 end
 
                 -- Power counters

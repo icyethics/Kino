@@ -1,3 +1,8 @@
+V 0.10a:
+
+Bug Fix:
+Fixed an issue where counters could be retriggered to tick over into negatives, rather than be removed from the card
+
 V 0.10 
 
 Texture Pack Change:
