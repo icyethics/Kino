@@ -1,0 +1,35 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+## Add globals
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''
+local badges = {}
+'''
+position = "after"
+payload = '''
+local obj = card.counter
+if obj and type(obj.set_card_type_badge) == 'function' then
+    obj:set_card_type_badge(card, badges)
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+if card_type == 'Default' or card_type == 'Enhanced' and not _c.replace_base_card and card and card.base then
+'''
+position = "before"
+payload = '''
+if card and card.counter then
+    info_queue[#info_queue+1] = card.counter
+end
+'''
+match_indent = true
+

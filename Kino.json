@@ -8,6 +8,9 @@
     "badge_colour": "1b61ad",
     "priority": 1000,
     "version": "0.10a",
-    "dependencies": ["Steamodded (>=1.0.0~BETA-0711a)", "Lovely (>=0.7.1)"]
+    "dependencies": ["Steamodded (>=1.0.0~BETA-0711a)", "Lovely (>=0.7.1)"],
+    "provides": [
+		"Blockbuster-Counters"
+	]
     
 }

@@ -287,7 +287,10 @@ local _list_of_files = {
     "src/jumpscare.lua",
     "src/run_info.lua",
     "src/spell_UI_popup.lua",
-    "src/spellslinger_deck_UI.lua"
+    "src/spellslinger_deck_UI.lua",
+
+    -- Blockbuster loading
+    "src/blockbuster.lua"
 }
 
 for _index, _filename in ipairs(_list_of_files) do

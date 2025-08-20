@@ -1,27 +1,27 @@
 -- Draws counters
-SMODS.DrawStep {
-    key = "kino_counter_draw",
-    order = 71,
-    func = function(card, layer)
-        if card and card.ability.kino_counter and 
-        card.ability.kino_numcounters > 0 then
-            local card_type = card.ability.set
-            local _suffix = "jokers"
-            if card_type == 'Default' or card_type == 'Enhanced' or card.playing_card then
-                _suffix = "pcards"
-            end
+-- SMODS.DrawStep {
+--     key = "kino_counter_draw",
+--     order = 71,
+--     func = function(card, layer)
+--         if card and card.ability.kino_counter and 
+--         card.ability.kino_numcounters > 0 then
+--             local card_type = card.ability.set
+--             local _suffix = "jokers"
+--             if card_type == 'Default' or card_type == 'Enhanced' or card.playing_card then
+--                 _suffix = "pcards"
+--             end
 
-            local _counter = card.ability.kino_numcounters + 1
-            if card.ability.kino_numcounters >= 10 then _counter = 10 end
+--             local _counter = card.ability.kino_numcounters + 1
+--             if card.ability.kino_numcounters >= 10 then _counter = 10 end
 
-            G["counter_sprites_" .. _suffix][card.ability.kino_counter].role.draw_major = card
-            G["counter_sprites_" .. _suffix][card.ability.kino_counter]:draw_shader('dissolve', nil, nil, nil, card.children.center)
-            G["counter_numbers_" .. _suffix][_counter].role.draw_major = card
-            G["counter_numbers_" .. _suffix][_counter]:draw_shader('dissolve', nil, nil, nil, card.children.center)
-        end
-    end,
-    conditions = {vortex = false, facing = 'front'}
-}
+--             G["counter_sprites_" .. _suffix][card.ability.kino_counter].role.draw_major = card
+--             G["counter_sprites_" .. _suffix][card.ability.kino_counter]:draw_shader('dissolve', nil, nil, nil, card.children.center)
+--             G["counter_numbers_" .. _suffix][_counter].role.draw_major = card
+--             G["counter_numbers_" .. _suffix][_counter]:draw_shader('dissolve', nil, nil, nil, card.children.center)
+--         end
+--     end,
+--     conditions = {vortex = false, facing = 'front'}
+-- }
 
 -- add counters
 Kino.change_counters = function(card, type, num)

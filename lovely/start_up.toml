@@ -1,0 +1,33 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+## Add globals
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+self.shared_seals = {
+    Gold = Sprite(0, 0, self.CARD_W, self.CARD_H, self.ASSET_ATLAS["centers"], {x = 2,y = 0}),
+    Purple = Sprite(0, 0, self.CARD_W, self.CARD_H, self.ASSET_ATLAS["centers"], {x = 4,y = 4}),
+    Red = Sprite(0, 0, self.CARD_W, self.CARD_H, self.ASSET_ATLAS["centers"], {x = 5,y = 4}),
+    Blue = Sprite(0, 0, self.CARD_W, self.CARD_H, self.ASSET_ATLAS["centers"], {x = 6,y = 4}),
+}
+'''
+position = "after"
+payload = '''
+
+self.P_COUNTERS = {}
+
+
+self.shared_counters_joker = {}
+self.shared_counters_pcard = {}
+
+self.P_CENTER_POOLS.Counter = {}
+'''
+match_indent = true
+
+
+
+
