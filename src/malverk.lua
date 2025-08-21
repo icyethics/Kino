@@ -136,7 +136,7 @@ AltTexture{
         'j_kino_close_encounters',
         -- indiana jones
         'j_kino_always',
-        -- 'j_kino_hook',
+        'j_kino_hook',
         'j_kino_jurassic_park_1',
         'j_kino_catch_me_if_you_can',
 
@@ -151,10 +151,10 @@ AltTexture{
         -- Row 6
         'j_kino_prestige',
         'j_kino_dark_knight',
-        'j_kino_inception',
+        -- 'j_kino_inception',
         'j_kino_interstellar',
         -- 'j_kino_tenet',
-        -- 'j_kino_oppenheimer'
+        'j_kino_oppenheimer'
     },
 }
 
@@ -277,24 +277,24 @@ AltTexture{
     original_sheet = true,
     keys = {
         -- Row 1
-        -- 'j_kino_dark_crystal',
+        'j_kino_dark_crystal',
         'j_kino_fantasia',
         'j_kino_dinner_with_andre',
-        -- 'j_kino_oceans_11',
-        -- 'j_kino_harry_potter_1',
+        'j_kino_oceans_11',
+        'j_kino_harry_potter_1',
         'j_kino_clerks_1',
 
         -- Row 2
         -- 'j_kino_wonka',
         'j_kino_children_of_the_corn',
-        -- 'j_kino_gremlins_1',
+        'j_kino_gremlins_1',
         -- 'j_kino_sorcerers_apprentice',
         -- 'j_kino_dungeons_and_dragons_1',
         'j_kino_dungeons_and_dragons_4',
 
         -- Row 3
         -- 'j_kino_encanto',
-        -- 'j_kino_coco',
+        'j_kino_coco',
         'j_kino_cocktail',
         -- 'j_kino_shang_chi',
         'j_kino_exorcist_1',
@@ -310,7 +310,7 @@ AltTexture{
         
         -- Row 5
         -- 'j_kino_stargate',
-        -- 'j_kino_moonfall',
+        'j_kino_moonfall',
         -- 'j_kino_independence_day'
         'j_kino_zardoz',
         'j_kino_smurfs_1',
@@ -355,7 +355,7 @@ AltTexture{
         -- Row 6
         'j_kino_men_in_black_1',
         'j_kino_pirates_of_the_caribbean_1',
-        -- 'j_kino_double_dragon',
+        'j_kino_double_dragon',
         -- 'j_kino_kung_fu_panda_1',
         'j_kino_as_above',
         -- 'j_kino_grown_ups'
