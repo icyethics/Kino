@@ -106,7 +106,8 @@ SMODS.Back {
 
             for i = 1, _playbonus do
                 local _target = pseudorandom_element(G.playing_cards, pseudoseed("kino_invdeck"))
-                Kino.change_counters(_target, "kino_investment", 1)
+                -- Kino.change_counters(_target, "kino_investment", 1)
+                _target:bb_counter_apply('counter_money_counter', 1)
             end
         end
     end

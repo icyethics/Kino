@@ -287,7 +287,10 @@ local _list_of_files = {
     "src/jumpscare.lua",
     "src/run_info.lua",
     "src/spell_UI_popup.lua",
-    "src/spellslinger_deck_UI.lua"
+    "src/spellslinger_deck_UI.lua",
+
+    -- Blockbuster loading
+    "src/blockbuster.lua"
 }
 
 for _index, _filename in ipairs(_list_of_files) do
@@ -379,6 +382,12 @@ end
 local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Consumable_types")
 for _, file in ipairs(files) do
     assert(SMODS.load_file("Items/Consumable_types/" .. file))()
+end
+
+-- Register the Counters
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Counters")
+for _, file in ipairs(files) do
+    assert(SMODS.load_file("Items/Counters/" .. file))()
 end
 
 

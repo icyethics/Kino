@@ -141,14 +141,16 @@ if CardSleeves then
             and not context.individual and not context.repetition and not context.blueprint then
                 if self.get_current_deck_key() == "b_kino_investment" then
                     for _index, _pcard in ipairs(G.playing_cards) do
-                        Kino.change_counters(_pcard, "kino_investment", 1)
+                        -- Kino.change_counters(_pcard, "kino_investment", 1)
+                        _pcard:bb_counter_apply('counter_money_counter', 1)
                     end
                 else
                     local _playbonus = 10
 
                     for i = 1, _playbonus do
                         local _target = pseudorandom_element(G.playing_cards, pseudoseed("kino_invdeck"))
-                        Kino.change_counters(_target, "kino_investment", 1)
+                        -- Kino.change_counters(_target, "kino_investment", 1)
+                        _target:bb_counter_apply('counter_money_counter', 1)
                     end
                 end
             end

@@ -60,7 +60,8 @@ SMODS.Joker {
 
             if _target then
                 card.ability.extra.has_triggered = true
-                Kino.change_counters(_target, "kino_power", card.ability.extra.power_counters)
+                -- Kino.change_counters(_target, "kino_power", card.ability.extra.power_counters)
+                _target:bb_counter_apply("counter_kino_power", card.ability.extra.power_counters)
             end
         end
 

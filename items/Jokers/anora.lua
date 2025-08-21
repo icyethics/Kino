@@ -49,7 +49,8 @@ SMODS.Joker {
             if _romance_cards == 2 then
                 -- OLD ABILITY
                 for _index, _pcard in ipairs(G.hand.cards) do
-                    Kino.change_counters(_pcard, "kino_investment", 1)
+                    -- Kino.change_counters(_pcard, "kino_investment", 1)
+                    _pcard:bb_counter_apply("counter_money", 1)
                 end
 
 

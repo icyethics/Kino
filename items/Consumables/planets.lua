@@ -158,10 +158,11 @@ SMODS.Consumable {
         }
     },
     loc_vars = function(self, info_queue, card)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(self, 1 * (2 ^ (G.GAME.current_round.kryptons_used - 1)), card.ability.extra.chance_max, "kino_card_debuff")
         return {
             vars = {
-                math.min((G.GAME.probabilities.normal + 1 ) * (2 ^ (G.GAME.current_round.kryptons_used - 1)), card.ability.extra.chance_max),
-                card.ability.extra.chance_max,
+                math.min(new_numerator),
+                new_denominator,
                 G.GAME.current_round.kryptons_used
             }
         }
@@ -187,7 +188,8 @@ SMODS.Consumable {
             level=G.GAME.hands[_hand].level
         })
 
-        if pseudorandom("krypton") < (((G.GAME.probabilities.normal + 1 ) * (2 ^ (G.GAME.current_round.kryptons_used - 1))) / card.ability.extra.chance_max) then
+        -- if pseudorandom("krypton") < (((G.GAME.probabilities.normal + 1 ) * (2 ^ (G.GAME.current_round.kryptons_used - 1))) / card.ability.extra.chance_max) then
+        if SMODS.pseudorandom_probability(self, 'kino_krypton', 1 * (2 ^ (G.GAME.current_round.kryptons_used - 1)), card.ability.extra.chance_max, "kino_card_debuff") then    
             level_up_hand(card, _hand, nil, (-1 * G.GAME.hands[_hand].level) + 1)
         else
             level_up_hand(card, _hand, nil, G.GAME.hands[_hand].level)

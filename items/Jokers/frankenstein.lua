@@ -63,7 +63,7 @@ SMODS.Joker {
                         elseif _suitname == 'Clubs' then
                             card.ability.extra.mult = card.ability.extra.mult + (card.ability.extra.factor)
                         else
-                            card.ability.extra.x_chips = card.ability.extra.x_chips + (card.ability.extra.factor * 0.1)
+                            card.ability.extra.xchips = card.ability.extra.xchips + (card.ability.extra.factor * 0.1)
                         end
                     end
                 end
@@ -78,8 +78,8 @@ SMODS.Joker {
                 dollars = card.ability.extra.dollars,
                 chips = card.ability.extra.chips,
                 mult = card.ability.extra.mult,
-                x_mult = card.ability.extra.x_mult,
-                x_chips = card.ability.extra.x_chips
+                x_mult = card.ability.extra.xmult,
+                x_chips = card.ability.extra.xchips
             }
         end
     end

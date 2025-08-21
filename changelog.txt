@@ -1,3 +1,15 @@
+V 0.10.1:
+Content Changes:
+- Implemented Counters as an actual game item, viewable in the collection
+
+Bug Fixes:
+- Joker boss blind will no longer crash when you do not have any jokers when facing it
+- Fixed Frankenstein 
+- The Prestige functions again
+- Barbie now triggers properly on Queens, instead of Kings (we blame Ken)
+- Debuff counters now remove the debuff when they get removed in any way
+- The Anton Chigurh boss blind now functions as intended, with an update description
+
 V 0.10a:
 
 Bug Fix:

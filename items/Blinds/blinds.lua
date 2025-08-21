@@ -229,11 +229,12 @@ SMODS.Blind{
         debt_counters = 3
     },
     loc_vars = function(self)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(self, 1, 4, "kino_money")
         return {
             vars = {
-                G.GAME.probabilities.normal,
-                4,
-                4,
+                new_numerator,
+                new_denominator,
+                5,
                 3
             }
         }
@@ -241,9 +242,9 @@ SMODS.Blind{
     collection_loc_vars = function(self)
         return {
             vars = {
-                G.GAME.probabilities.normal,
+                1,
                 4,
-                4,
+                5,
                 3
             }
         }
@@ -251,7 +252,9 @@ SMODS.Blind{
     calculate = function(self, blind, context)
         if context.individual and context.cardarea == G.play then
             -- earn 5
-            if pseudorandom("gekko_blind_double") < (G.GAME.probabilities.normal / self.debuff.chance) then
+            -- if pseudorandom("gekko_blind_double") < (G.GAME.probabilities.normal / self.debuff.chance) then
+            
+            if SMODS.pseudorandom_probability(self, 'gekko_blind_double', 1, self.debuff.chance, "kino_card_money") then    
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
                     attention_text({
                         text = localize('k_blind_gekko_1'),
@@ -267,7 +270,8 @@ SMODS.Blind{
                     blind:wiggle()
                 return true end }))
 
-            elseif pseudorandom("gekko_blind_bust") < (G.GAME.probabilities.normal / self.debuff.chance) then
+            -- elseif pseudorandom("gekko_blind_bust") < (G.GAME.probabilities.normal / self.debuff.chance) then
+            elseif SMODS.pseudorandom_probability(self, 'gekko_blind_bust', 1, self.debuff.chance, "kino_card_debt") then   
                 local _target = context.other_card
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
                     attention_text({
@@ -279,7 +283,8 @@ SMODS.Blind{
                         offset = {x = 0, y = -1},
                         silent = true
                     })
-                    Kino.change_counters(_target, "kino_debt", 3)
+                    -- Kino.change_counters(_target, "kino_debt", 3)
+                    _target:bb_counter_apply("counter_debt", 3)
                     play_sound('tarot2', 1, 0.4)
                     blind:wiggle()
                 return true end }))
@@ -365,10 +370,12 @@ SMODS.Blind{
         chance = 3
     },
     loc_vars = function(self)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(self, 1, self.debuff.chance, "kino_card_debuff")
+          
         return {
             vars = {
-                G.GAME.probabilities.normal,
-                3
+                new_numerator,
+                new_denominator 
             }
         }
     end,
@@ -382,7 +389,8 @@ SMODS.Blind{
     end,
     calculate = function(self, blind, context)
         if context.individual and context.cardarea == G.play then
-            if pseudorandom("alien_blind") < (G.GAME.probabilities.normal / blind.debuff.chance) then
+            -- if pseudorandom("alien_blind") < (G.GAME.probabilities.normal / blind.debuff.chance) then
+            if SMODS.pseudorandom_probability(self, 'kino_alien_blind', 1, self.debuff.chance, "kino_card_debuff") then    
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
                     if context.other_card then
                         SMODS.debuff_card(context.other_card, true, "xenomorph_blind")
@@ -631,7 +639,7 @@ SMODS.Blind{
                 return true end })) 
             end
 
-            if G.GAME.current_round.boss_blind_joker_counter >= 2 then
+            if G.GAME.current_round.boss_blind_joker_counter >= 2 and #G.jokers.cards >= 1 then
                 G.GAME.current_round.boss_blind_joker_counter = 0
                 local _card = pseudorandom_element(G.jokers.cards, pseudoseed("joker_blind"))
                 
@@ -717,7 +725,8 @@ SMODS.Blind{
             local _target = context.other_card
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.5, func = function()
                 if _target.sell_cost <= 0 then
-                    Kino.change_counters(_target, "kino_stun", 1)
+                    -- Kino.change_counters(_target, "kino_stun", 1)
+                    _target:bb_counter_apply("counter_stun", 1)
                 else
                     _target.ability.extra_value = _target.ability.extra_value - self.debuff.value_lowering
                     _target:set_cost()
@@ -957,7 +966,8 @@ SMODS.Blind{
     calculate = function(self, blind, context)
         if context.after and context.scoring_hand then
             for _, _pcard in ipairs(context.scoring_hand) do
-                Kino.change_counters(_pcard, "kino_debt", self.debuff.debt_counters)
+                -- Kino.change_counters(_pcard, "kino_debt", self.debuff.debt_counters)
+                _target:bb_counter_apply("counter_debt", 3)
             end
         end
     end
@@ -1039,10 +1049,12 @@ SMODS.Blind{
         chance = 3
     },
     loc_vars = function(self)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(self, 1, self.debuff.chance, "kino_card_debuff")
+          
         return {
             vars = {
-                G.GAME.probabilities.normal, 
-                self.debuff.chance
+                new_numerator,
+                new_denominator 
             }
         }
     end,
@@ -1057,7 +1069,8 @@ SMODS.Blind{
 
     calculate = function(self, blind, context)
         if context.individual and context.cardarea == G.play then
-            if pseudorandom("kino_blind_entity") < G.GAME.probabilities.normal / blind.debuff.chance then
+            -- if pseudorandom("kino_blind_entity") < G.GAME.probabilities.normal / blind.debuff.chance then
+            if SMODS.pseudorandom_probability(self, 'kino_blind_entity', 1, self.debuff.chance, "kino_card_randomize") then    
                 local _pcard = context.other_card
                 G.E_MANAGER:add_event(Event({func = function()
                     local _suit = pseudorandom_element(SMODS.Suits, pseudoseed("kino_source_code"))
@@ -1226,7 +1239,8 @@ SMODS.Blind{
 
             for i = 1, self.debuff.targets do
                 local _target = pseudorandom_element(_valid_targets, pseudoseed("kino_sally"))
-                Kino.change_counters(_target, "kino_debt", 1)
+                -- Kino.change_counters(_target, "kino_debt", 1)
+                _target:bb_counter_apply("counter_debt", 1)
             end
         end
     end
@@ -1304,18 +1318,21 @@ SMODS.Blind{
         chance = 2
     },
     loc_vars = function(self)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(self, 1, self.debuff.chance, "kino_card_debuff")
+          
         return {
             vars = {
-                G.GAME.probabilities.normal,
-                self.debuff.chance
+                new_numerator,
+                new_denominator 
             }
         }
     end,
     collection_loc_vars = function(self)
+
         return {
             vars = {
-                G.GAME.probabilities.normal,
-                self.debuff.chance
+                1,
+                2 
             }
         }
     end,
@@ -1328,7 +1345,8 @@ SMODS.Blind{
         -- end
 
         if context.before then
-            if pseudorandom("kino_chigurhblind") < G.GAME.probabilities.normal / self.debuff.chance then
+            -- if pseudorandom("kino_chigurhblind") < G.GAME.probabilities.normal / self.debuff.chance then
+            if SMODS.pseudorandom_probability(self, 'kino_chigurhblind', 1, self.debuff.chance, "kino_card_debuff") then
                 if G.jokers then
                     -- find the leftmost non-debuffed joker
                     local _target = nil
@@ -1340,7 +1358,8 @@ SMODS.Blind{
                     end
 
                     if _target then
-                        Kino.change_counters(_target, "kino_stun", 3)
+                        -- Kino.change_counters(_target, "kino_stun", 3)
+                        _target:bb_counter_apply("counter_stun", G.GAME.current_round.hands_left)
                     end
                 end
             end
@@ -1465,7 +1484,8 @@ SMODS.Blind{
             for _index, _pcard in ipairs(G.hand.cards) do
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
                     blind:wiggle()
-                    Kino.change_counters(_pcard, "kino_poison", 2)
+                    -- Kino.change_counters(_pcard, "kino_poison", 2)
+                    _target:bb_counter_apply("counter_poison", 2)
                 return true end }))
             end
         end

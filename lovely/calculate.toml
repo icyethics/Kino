@@ -1,0 +1,84 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+-- TARGET: evaluate your own general effects
+'''
+position = "after"
+payload = '''
+if card.counter then
+    local counters = card:bb_calculate_counter(context)
+    if counters then
+        ret.counters = counters
+    end
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+-- TARGET: evaluate your own repetition effects
+'''
+position = "after"
+payload = '''
+if card.counter then
+    local counters = card:bb_calculate_counter(context)
+    if counters then
+        ret.counters = counters
+    end
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS _ "src/utils.lua"]'''
+pattern = '''
+for _, key in ipairs({'playing_card', 'enhancement', 'edition', 'seals'}) do
+    SMODS.calculate_effect_table_key(effect_table, key, card, ret)
+end
+'''
+position = "at"
+payload = '''
+for _, key in ipairs({'playing_card', 'enhancement', 'edition', 'seals', 'counters'}) do
+    SMODS.calculate_effect_table_key(effect_table, key, card, ret)
+end
+'''
+match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''
+-- TARGET: effects after hand evaluation
+'''
+position = "at"
+payload = '''
+SMODS.calculate_context({full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, after_debuff = true, ignore_debuff = true})
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS _ "src/utils.lua"]'''
+pattern = '''
+-- TARGET : Add extra conditions here
+'''
+position = "at"
+payload = '''
+if is_available == true then
+    is_available = (not self.bb_paralysis or ignore_debuff)
+end
+
+'''
+match_indent = true
+

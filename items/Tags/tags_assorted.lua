@@ -118,7 +118,8 @@ SMODS.Tag {
             tag:yep('+', G.C.GREEN, function()
                 for i = 1, 5 do
                     local _target = pseudorandom_element(G.playing_cards, pseudoseed("kino_countertag"))
-                    Kino.change_counters(_target, "kino_investment", 3)
+                    -- Kino.change_counters(_target, "kino_investment", 3)
+                    _target:bb_counter_apply('counter_money', 3)
                 end
                 return true
             end)

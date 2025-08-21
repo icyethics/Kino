@@ -1,0 +1,52 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+## Add globals
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+self.seal = cardTable.seal
+'''
+position = "after"
+payload = '''
+self.counter = G.P_COUNTERS[cardTable.counter]
+self.counter_config = cardTable.counter_config
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+remove_all(self.children)
+self.children = {}
+self.children.shadow = Moveable(0, 0, 0, 0)
+'''
+position = "after"
+payload = '''
+if self.counter_config then
+    BlockbusterCounters.counter_ui_text(self)
+end
+'''
+match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+edition = self.edition,
+seal = self.seal,
+'''
+position = "after"
+payload = '''
+counter = self.counter and self.counter.key or nil,
+counter_config = self.counter_config,
+'''
+match_indent = true
+
+
+

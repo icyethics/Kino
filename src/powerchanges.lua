@@ -90,6 +90,22 @@ function Card.calculate_joker(self,context)
     return ret
 end
 
+local base_gcb = Card.get_chip_bonus
+function Card:get_chip_bonus()
+    
+    local ret = base_gcb(self)
+
+    local _factor = 1
+    if self.ability.output_powerchange then
+        
+        for _source, _num in pairs(self.ability.output_powerchange) do
+            _factor = _factor * _num
+        end
+    end
+
+    return ret * _factor
+end
+
 function Kino.setpowerchange(card, source, powerchange)
     if not card.ability.output_powerchange then
         card.ability.output_powerchange = {}
