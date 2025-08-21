@@ -4,7 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            power_boost = 50
+            power_counters = 3
         }
     },
     rarity = 3,
@@ -31,7 +31,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.power_boost
+                card.ability.extra.power_counters
             }
         }
     end,
@@ -75,7 +75,8 @@ SMODS.Joker {
             -- boost it
             local _newtarget = pseudorandom_element(_validtargets, pseudoseed("kino_mortkom_boost"))
             _newtarget:juice_up()
-            Kino.change_counters(_newtarget, "kino_power", 3)
+            -- Kino.change_counters(_newtarget, "kino_power", 3)
+            _newtarget:bb_counter_apply("counter_kino_power", card.ability.extra.power_counters)
 
         end
     end

@@ -172,7 +172,8 @@ SMODS.Seal{
         context.full_hand and #context.full_hand > 0 then
             if G.jokers and #G.jokers.cards > 0 then
                 local _target = pseudorandom_element(G.jokers.cards, pseudoseed("kino_comedyseal"))
-                Kino.change_counters(_target, "kino_retrigger", 1)
+                -- Kino.change_counters(_target, "kino_retrigger", 1)
+                _target:bb_counter_apply("counter_retrigger", 1)
             end
         end
     end,

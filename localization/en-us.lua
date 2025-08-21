@@ -149,7 +149,7 @@ return {
                 name = "Anora",
                 text = {
                     "When you {C:attention}Make a Match{}",
-                    "add an {C:green}Investment Counter{}",
+                    "add a {C:green}Money Counter{}",
                     "to each card in hand"
                 }
             },
@@ -1749,8 +1749,8 @@ return {
                 text = {
                     "When selecting a blind",
                     "destroy a random joker",
-                    "and boost another's power",
-                    "by {C:attention}#1#%{}"
+                    "and place {C:attention}#1# Power Counters{}",
+                    "on a random Joker"
                 }
             },
             j_kino_moulin_rouge = {
@@ -3326,7 +3326,7 @@ return {
             c_kino_investor = {
                 name = "Investor",
                 text = {
-                    "Add an {C:green}Investment Counter{}",
+                    "Add a {C:green}Money Counter{}",
                     "to random card", 
                     "in your deck {C:attention}#1#{} times"
                 }
@@ -3924,7 +3924,7 @@ return {
                     "Earn no money from",
                     "blinds or interest",
                     "When you defeat a Blind",
-                    "put an {C:green}Investment Counter",
+                    "put a {C:green}Money Counter",
                     "on {C:attention}10{} random cards",
                     "in your deck"
                 }
@@ -4219,9 +4219,11 @@ return {
             bl_kino_anton_chigurh = {
                 name = "Anton Chigurh",
                 text = {
-                    "When you discard",
-                    "#1# in #2# chance to lose",
-                    "a hand"
+                    "{C:green}#1# in #2#{} chance to",
+                    "put {C:attention}Stun Counters{} equal",
+                    "to your current hands",
+                    "on your left-most Joker",
+                    "when a hand is played"
                 }
             },
             bl_kino_beachthatmakesyouold = {
@@ -4307,7 +4309,7 @@ return {
             tag_kino_counter = {
                 name = "Counter Tag",
                 text = {
-                    "Adds 3 {C:green}Investment Counters",
+                    "Adds 3 {C:green}Money Counters",
                     "to 5 random cards",
                     "in your deck"
                 }
@@ -5081,7 +5083,7 @@ return {
                     "Earn no money from",
                     "blinds or interest",
                     "When you defeat a Blind",
-                    "put an {C:green}Investment Counter",
+                    "put a {C:green}Money Counter",
                     "on {C:attention}10{} random cards",
                     "in your deck"
                 }
@@ -5092,7 +5094,7 @@ return {
                     "Earn no money from",
                     "blinds or interest",
                     "When you defeat a Blind",
-                    "put an {C:green}Investment Counter",
+                    "put a {C:green}Money Counter",
                     "on every card in your deck"
                 }
             },
@@ -5253,6 +5255,161 @@ return {
                 }
             }
         },
+        Counter = {
+            -- Score counters
+            counter_mult = {
+                name = "Mult Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    " ",
+                    "Gives {C:mult}+#1#{} Mult",
+                    "per Counter",
+                }
+            },
+            counter_chip = {
+                name = "Mult Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    " ",
+                    "Gives {C:chips}+#1#{} Chips",
+                    "per Counter",
+                }
+            },
+            counter_xmult = {
+                name = "xMult Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    " ",
+                    "Gives {X:mult,C:white}x#1#{} Mult",
+                    "per Counter",
+                }
+            },
+
+            -- Beneficial Counters
+            counter_retrigger = {
+                name = "Retrigger Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    " ",
+                    "Retrigger {C:attention}#1#{} time",
+                    "per Counter"
+                }
+            },
+            counter_money = {
+                name = "Money Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    " ",
+                    "Gain {C:money}$#1#{}",
+                    "per Counter"
+                }
+            },
+            counter_investment = {
+                name = "Investment Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    " ",
+                    "Lose $1 per Counter applied",
+                    "Gain {C:money}$#1#{}",
+                    "per Counter"
+                }
+            },
+
+            -- Detrimental Counters
+            counter_poison = {
+                name = "Poison Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    " ",
+                    "Reduce {C:chips}Chips{} & {C:mult}Mult",
+                    "by {C:attention}#1#%{} per Counter"
+                }
+            },
+            counter_stun = {
+                name = "Stun Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    "{C:attention}after hand is played",
+                    " ",
+                    "Debuffed while this has",
+                    "any counters"
+                }
+            },
+            counter_debt = {
+                name = "Debt Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    " ",
+                    "Lose {C:money}$#1#{}",
+                    "per Counter"
+                }
+            },
+
+            -- Status Counters
+            counter_burn = {
+                name = "Burn Counter",
+                text = {
+                    "{C:attention}Ticks Up 1",
+                    " ",
+                    "Has a {C:green}1 in 10{}",
+                    "chance to {C:red}self-destruct"
+                }
+            },
+            counter_frost = {
+                name = "Frost Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    " ",
+                    "Halves given score",
+                    "while this has any",
+                    "Counters"
+                }
+            },
+            counter_paralysis = {
+                name = "Paralysis Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    " ",
+                    "Has a {C:green}1 in 10{} chance",
+                    "to not trigger",
+                    "per Counter"
+                }
+            },
+            counter_sleep = {
+                name = "Sleep Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    "{C:attention}1 in Total Counters (#1#) chance",
+                    "to clear all Counters",
+                    " ",
+                    "Debuffed while this",
+                    "has any counters",
+    
+                }
+            },
+            counter_drowsy = {
+                name = "Drowsy Counter",
+                text = {
+                    "{C:attention}Ticks Up 1",
+                    " ",
+                    "{C:green}1 in 10{} chance per Counter",
+                    "to convert into",
+                    "Sleep counters"
+                }
+            },
+
+            -- Kino Counters
+            counter_kino_power = {
+                name = "Power Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    " ",
+                    "Increases card's Power by {C:attention}#1#%{}",
+                    "while this has any",
+                    "Counters"
+                }
+            }
+        }
     },
     misc = {
         dictionary = {
@@ -5597,6 +5754,17 @@ return {
                 "Have a The Emperor, The Hermit,",
                 "and The Earth in your inventory"
             },
+
+
+            -- ========= BLOCKBUSTER API MOD LOCALIZATION ======== --
+            bb_counter_tooltip = {
+                "Jokers and playing cards can have",
+                "only one type of counter",
+                "Counters decrease by 1 when they",
+                "are triggered"
+            },
+            bbcount_counter = "Counter",
+            bb_paralysis = "Paralyzed!"
         },
         challenge_names = {
             c_kino_minc = "Monsters Inc.",

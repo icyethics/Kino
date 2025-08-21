@@ -384,6 +384,12 @@ for _, file in ipairs(files) do
     assert(SMODS.load_file("Items/Consumable_types/" .. file))()
 end
 
+-- Register the Counters
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Counters")
+for _, file in ipairs(files) do
+    assert(SMODS.load_file("Items/Counters/" .. file))()
+end
+
 
 -- Register the Consumables
 local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Consumables")

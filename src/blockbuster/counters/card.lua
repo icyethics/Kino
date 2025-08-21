@@ -104,6 +104,7 @@ function Card:bb_remove_counter()
             counter_num = 0,
             counter_num_ui = 0
         }
+        self.ability.counter = 0
         if self.children.counter_ui_box then
             self.children.counter_ui_box = nil
         end
@@ -120,4 +121,15 @@ function Card:bb_calculate_counter(context)
             return o
         end
     end
+end
+
+local o_copy_card = copy_card
+function copy_card(other, new_card, card_scale, playing_card, strip_edition)
+    new_card = o_copy_card(other, new_card, card_scale, playing_card, strip_edition)
+
+    if other.counter then
+        new_card:bb_counter_apply(other.counter, other.counter_config.counter_num)
+    end
+
+    return new_card
 end

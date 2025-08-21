@@ -66,7 +66,8 @@ SMODS.Joker {
                     end
                 end
                 local _target = pseudorandom_element(_validtargets, pseudoseed("kino_apollo13"))
-                Kino.change_counters(_target, "kino_retrigger", 1)
+                -- Kino.change_counters(_target, "kino_retrigger", 1)
+                _target:bb_counter_apply("counter_retrigger", 1)
             end
         end
     end

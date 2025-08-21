@@ -1,6 +1,6 @@
 BlockbusterCounters.Counter {
-    key = "retrigger_counter",
-    prefix_config = {key = { atlas = false, mod = false}},
+    key = "retrigger",
+    prefix_config = {key = { mod = false, atlas = false}},
     order = 4,
     atlas = 'blockbuster_counters',
     pos = {x = 0, y = 0},
@@ -9,8 +9,6 @@ BlockbusterCounters.Counter {
         cap = 9,
     },
     loc_vars = function(self, info_queue, card)
-        print(card.counter_config)
-        print(self.key)
         return {
             vars = {
                 self.config.retriggers
@@ -35,11 +33,6 @@ BlockbusterCounters.Counter {
             
             local _retriggers = card.counter_config.counter_num * self.config.retriggers
             card:bb_increment_counter(-1)
-            -- if G.STATE == G.STATES.HAND_PLAYED then
-            --     context.other_card.ability.kino_retrigger_counters_triggered = true
-            -- else
-            --     context.other_card.ability.kino_numcounters = context.other_card.ability.kino_numcounters - 1
-            -- end
             
             return {
                 message = localize("k_again_ex"),
@@ -56,8 +49,8 @@ BlockbusterCounters.Counter {
 }
 
 BlockbusterCounters.Counter {
-    key = "investment_counter",
-    prefix_config = {key = { atlas = false, mod = false}},
+    key = "investment",
+    prefix_config = {key = { mod = false, atlas = false}},
     order = 5,
     atlas = 'blockbuster_counters',
     pos = {x = 1, y = 0},
@@ -73,8 +66,8 @@ BlockbusterCounters.Counter {
         }
     end,
     calculate = function(self, card, context)
-        if context.main_scoring or context.joker_main then
-            local return_val = card.counter_config.counter_num + self.config.money
+        if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
+            local return_val = card.counter_config.counter_num * self.config.money
             card:bb_increment_counter(-1)
             return {
                 dollars = return_val
@@ -90,8 +83,8 @@ BlockbusterCounters.Counter {
 }
 
 BlockbusterCounters.Counter {
-    key = "money_counter",
-    prefix_config = {key = { atlas = false, mod = false}},
+    key = "money",
+    prefix_config = {key = { mod = false, atlas = false}},
     order = 5,
     atlas = 'blockbuster_counters',
     pos = {x = 3, y = 2},
@@ -107,8 +100,8 @@ BlockbusterCounters.Counter {
         }
     end,
     calculate = function(self, card, context)
-        if context.main_scoring or context.joker_main then
-            local return_val = card.counter_config.counter_num + self.config.money
+        if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
+            local return_val = card.counter_config.counter_num * self.config.money
             card:bb_increment_counter(-1)
             return {
                 dollars = return_val

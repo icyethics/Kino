@@ -316,7 +316,8 @@ SMODS.Consumable {
 	use = function(self, card, area, copier)
 		for i = 1, card.ability.investment_counters do
             local _target = pseudorandom_element(G.playing_cards, pseudoseed("kino_investor"))
-            Kino.change_counters(_target, "kino_investment", 1)
+            -- Kino.change_counters(_target, "kino_investment", 1)
+            _target:bb_counter_apply("counter_money", 1)
         end
     end,
     can_use = function(self, card)

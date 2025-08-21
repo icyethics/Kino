@@ -1,6 +1,6 @@
 BlockbusterCounters.Counter {
-    key = "mult_counter",
-    prefix_config = {key = { atlas = false, mod = false}},
+    key = "mult",
+    prefix_config = {key = { mod = false, atlas = false}},
     order = 1,
     atlas = 'blockbuster_counters',
     config = {
@@ -8,7 +8,7 @@ BlockbusterCounters.Counter {
     },
     pos = {x = 0, y = 2},
     calculate = function(self, card, context)
-        if context.main_scoring or context.joker_main then
+        if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
             local return_val = card.counter_config.counter_num * self.config.mult
             card:bb_increment_counter(-1)
             
@@ -33,8 +33,8 @@ BlockbusterCounters.Counter {
 }
 
 BlockbusterCounters.Counter {
-    key = "chip_counter",
-    prefix_config = {key = { atlas = false, mod = false}},
+    key = "chip",
+    prefix_config = {key = { mod = false, atlas = false}},
     order = 2,
     atlas = 'blockbuster_counters',
     config = {
@@ -42,7 +42,7 @@ BlockbusterCounters.Counter {
     },
     pos = {x = 1, y = 2},
     calculate = function(self, card, context)
-        if context.main_scoring or context.joker_main  then
+        if (context.main_scoring and context.cardarea == G.play) or context.joker_main  then
             local return_val = card.counter_config.counter_num * self.config.chips
             card:bb_increment_counter(-1)
             return {
@@ -66,8 +66,8 @@ BlockbusterCounters.Counter {
 }
 
 BlockbusterCounters.Counter {
-    key = "xmult_counter",
-    prefix_config = {key = { atlas = false, mod = false}},
+    key = "xmult",
+    prefix_config = {key = { mod = false, atlas = false}},
     order = 3,
     atlas = 'blockbuster_counters',
     config = {
@@ -75,7 +75,7 @@ BlockbusterCounters.Counter {
     },
     pos = {x = 2, y = 2},
     calculate = function(self, card, context)
-        if context.main_scoring or context.joker_main then
+        if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
             local return_val = 1 + (card.counter_config.counter_num * 0.1)
             card:bb_increment_counter(-1)
             return {
