@@ -44,18 +44,44 @@ SMODS.Joker {
         -- this takes $3 and adds a booster pack to the shop
         if context.kino_enter_shop then
             card.ability.extra.times_available_counter_non = 0
-            local eval = function() return (card.ability.extra.times_available_counter_non <= card.ability.extra.times_available_reset_num) end
+            local eval = function(card) 
+                local _value = (card.ability.extra.times_available_counter_non < card.ability.extra.times_available_reset_num)
+                local _location = true
+
+                if G.GAME.blind.in_blind then
+                    _location = false
+                end
+
+                local _return = true
+                if _location == false or _value == false then
+                    _return = false
+                end
+                return _return
+            end
             juice_card_until(card, eval, true)
         end
 
         if context.reroll_shop and 
-        (to_big(G.GAME.dollars) + to_big(G.GAME.dollar_buffer)) >= to_big(3) 
+        (to_big(G.GAME.dollars + (G.GAME.dollar_buffer or 0))) >= to_big(3) 
         and card.ability.extra.times_available_counter_non < card.ability.extra.times_available_reset_num then
             card.ability.extra.times_available_counter_non = card.ability.extra.times_available_counter_non + 1
             ease_dollars(-card.ability.extra.fee_non)
             SMODS.add_booster_to_shop()
 
-            local eval = function() return (card.ability.extra.times_available_counter_non <= card.ability.extra.times_available_reset_num) end
+            local eval = function(card) 
+                local _value = (card.ability.extra.times_available_counter_non < card.ability.extra.times_available_reset_num)
+                local _location = true
+
+                if G.GAME.blind.in_blind then
+                    _location = false
+                end
+
+                local _return = true
+                if _location == false or _value == false then
+                    _return = false
+                end
+                return _return
+            end
             juice_card_until(card, eval, true)
         end
     end

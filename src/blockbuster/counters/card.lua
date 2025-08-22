@@ -76,10 +76,12 @@ function Card:bb_increment_counter(number)
         end
 
         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
-            self:juice_up()
-            self.counter_config.counter_num_ui = math.min(self.counter_config.counter_num_ui + number, self.counter.config.cap or 99)
-            if self.counter_config.counter_num_ui <= 0 then
-                self:bb_remove_counter()
+            if self.counter then
+                self:juice_up()
+                self.counter_config.counter_num_ui = math.min(self.counter_config.counter_num_ui + number, self.counter.config.cap or 99)
+                if self.counter_config.counter_num_ui <= 0 then
+                    self:bb_remove_counter()
+                end
             end
         return true end }))
 

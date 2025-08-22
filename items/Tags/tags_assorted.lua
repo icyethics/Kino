@@ -13,7 +13,12 @@ SMODS.Tag {
     end,
     apply = function(self, tag, context)
         if context.type == 'immediate' then
-            G.GAME.confections_powerboost = G.GAME.confections_powerboost + 1
+             tag:yep('+', G.C.GREEN, function()
+                G.GAME.confections_powerboost = G.GAME.confections_powerboost + 1
+                return true
+            end)
+            tag.triggered = true
+            
         end
     end
 }

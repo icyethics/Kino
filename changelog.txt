@@ -1,3 +1,16 @@
+V 0.10.1a:
+
+Content change:
+- Added 3 more new textures
+- Temporarily disabled Asteroid City
+
+Bug Fixes:
+- Annihilation now does not crash when used on rankless or suitless playing cards as the main target
+- Kiki's Delivery Service no longer crashes in specific circumstances
+- Fixed a bug that could crash the game when counters are retriggered
+- Fixed Dinner Tag softlocking the game
+- Spellcasting using modded Suits should no longer crash the game
+
 V 0.10.1:
 Content Changes:
 - Implemented Counters as an actual game item, viewable in the collection

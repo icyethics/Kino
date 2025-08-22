@@ -285,11 +285,11 @@ AltTexture{
         'j_kino_clerks_1',
 
         -- Row 2
-        -- 'j_kino_wonka',
+        'j_kino_wonka',
         'j_kino_children_of_the_corn',
         'j_kino_gremlins_1',
         -- 'j_kino_sorcerers_apprentice',
-        -- 'j_kino_dungeons_and_dragons_1',
+        'j_kino_dungeons_and_dragons_1',
         'j_kino_dungeons_and_dragons_4',
 
         -- Row 3
@@ -314,7 +314,7 @@ AltTexture{
         -- 'j_kino_independence_day'
         'j_kino_zardoz',
         'j_kino_smurfs_1',
-        -- 'j_kino_shazam',
+        'j_kino_shazam',
         
         -- Row 6
         -- 'j_kino_doctor_strange_1',

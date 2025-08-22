@@ -1,4 +1,11 @@
 --- Generate Spell object
+Kino.spellSuits = {
+    "Hearts",
+    "Diamonds",
+    "Spades",
+    "Clubs"
+}
+
 SMODS.Spells = {}
 SMODS.Spell = SMODS.Center:extend({
     obj_table = SMODS.Spells,
@@ -626,6 +633,25 @@ function check_spell_key(cards_in_hand)
 
     local _material_1 = cards_in_hand[1].base.suit
     local _material_2 = cards_in_hand[2].base.suit
+
+    local _mat1_exists = false
+    local _mat2_exists = false
+    for _index, _suitkey in ipairs(Kino.spellSuits) do
+        if _material_1 == _suitkey then
+            _mat1_exists = true
+        end
+        if _material_2 == _suitkey then
+            _mat2_exists = true
+        end
+    end
+
+    if _mat1_exists == false then
+        _material_1 = "Hearts"
+    end
+
+    if _mat2_exists == false then
+        _material_2 = "Hearts"
+    end
 
     local _spell_key = "spell_kino_" .. _material_1	.. "_" .. _material_2
     if type(SMODS.Spells[_spell_key]) == "nil" then

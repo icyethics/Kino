@@ -51,17 +51,23 @@ SMODS.Joker {
                     local _changes = false
                     
                     -- rank check
-                    if SMODS.pseudorandom_probability(card, 'kino_annihilation', card.ability.extra.chance_cur, card.ability.extra.chance, "kino_card_manipulation") then
-  
-                        SMODS.modify_rank(_pcard, nil, _basecard:get_id())
-                        _changes = true
+                    if not _basecard.config.center.overrides_base_rank then
+
+                        if SMODS.pseudorandom_probability(card, 'kino_annihilation', card.ability.extra.chance_cur, card.ability.extra.chance, "kino_card_manipulation") then
+    
+                            SMODS.modify_rank(_pcard, nil, _basecard:get_id())
+                            _changes = true
+                        end
                     end
 
                     -- suit check
-                    if SMODS.pseudorandom_probability(card, 'kino_annihilation', card.ability.extra.chance_cur, card.ability.extra.chance, "kino_card_manipulation") then
-                        SMODS.change_base(_pcard, _basecard.base.suit)
-                        _changes = true
+                    if not _basecard.config.center.no_suit and not _basecard.config.center.any_suit then
+                        if SMODS.pseudorandom_probability(card, 'kino_annihilation', card.ability.extra.chance_cur, card.ability.extra.chance, "kino_card_manipulation") then
+                            SMODS.change_base(_pcard, _basecard.base.suit)
+                            _changes = true
+                        end
                     end
+
 
                     -- seal check
                     if SMODS.pseudorandom_probability(card, 'kino_annihilation', card.ability.extra.chance_cur, card.ability.extra.chance, "kino_card_manipulation") then

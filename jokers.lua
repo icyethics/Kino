@@ -272,7 +272,7 @@ joker_list = {
 "angel_hearts",
 "annihilation",
 "arrival",
-"asteroid_city",
+-- "asteroid_city",
 "batman_2022",
 "batman_66",
 "batman_returns",

@@ -117,7 +117,9 @@ Kino.unabduct_cards = function(card)
     -- for i, abductee in ipairs(_table) do
     for i = #_table,1,-1 do
         local abductee = _table[i]
+        print(abductee)
         local _card = _cardtable[i]
+        print(_cardtable[i])
         _card.area:remove_card(_card)
         _card.abducted = false
 
