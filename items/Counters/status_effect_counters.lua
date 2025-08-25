@@ -1,6 +1,6 @@
 BlockbusterCounters.Counter {
     key = "burn",
-    prefix_config = {key = { mod = false, atlas = false}},
+    prefix_config = {key = { mod = false}},
     order = 6,
     atlas = 'blockbuster_counters',
     
@@ -40,7 +40,7 @@ BlockbusterCounters.Counter {
 
 BlockbusterCounters.Counter {
     key = "frost",
-    prefix_config = {key = { mod = false, atlas = false}},
+    prefix_config = {key = { mod = false}},
     order = 8,
     atlas = 'blockbuster_counters',
     pos = {x = 5, y = 2},
@@ -75,7 +75,7 @@ BlockbusterCounters.Counter {
 
 BlockbusterCounters.Counter {
     key = "paralysis",
-    prefix_config = {key = { mod = false, atlas = false}},
+    prefix_config = {key = { mod = false}},
     order = 7,
     atlas = 'blockbuster_counters',
     pos = {x = 6, y = 2},
@@ -118,7 +118,7 @@ BlockbusterCounters.Counter {
 
 BlockbusterCounters.Counter {
     key = "sleep",
-    prefix_config = {key = { mod = false, atlas = false}},
+    prefix_config = {key = { mod = false}},
     order = 7,
     atlas = 'blockbuster_counters',
     pos = {x = 7, y = 2},
@@ -136,7 +136,7 @@ BlockbusterCounters.Counter {
     calculate = function(self, card, context)
         if context.after_debuff and context.ignore_debuff then
             if SMODS.pseudorandom_probability(card, 'bb_sleep', 1, card.counter_config.counter_num, "card_debuff") then
-                card:bb_remove_counter()
+                card:bb_remove_counter("counter_effect")
             else
                 card:bb_increment_counter(-1)
             end
@@ -156,7 +156,7 @@ BlockbusterCounters.Counter {
 
 BlockbusterCounters.Counter {
     key = "drowsy",
-    prefix_config = {key = { mod = false, atlas = false}},
+    prefix_config = {key = { mod = false}},
     order = 7,
     atlas = 'blockbuster_counters',
     pos = {x = 8, y = 2},
@@ -175,7 +175,7 @@ BlockbusterCounters.Counter {
     calculate = function(self, card, context)
         if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
             if SMODS.pseudorandom_probability(card, 'bb_drowsy', card.counter_config.counter_num, self.config.chance, "card_transform") then
-                card:bb_counter_apply("counter_bbcount_sleep_counter", card.counter_config.counter_num)
+                card:bb_counter_apply("counter_sleep", card.counter_config.counter_num)
             else
                 card:bb_increment_counter(1)
             end

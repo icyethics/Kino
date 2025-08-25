@@ -1,3 +1,12 @@
+V 0.10.1b:
+Content update:
+- Added 3 new joker textures (The Sorcerer's Apprentice, Shang Chi, Hit-Man)
+Bug fix:
+- Fixed a crash upon switching profiles
+
+API (dev only):
+- Added contexts related to counters. See Blockbuster: Counters repo for more.
+
 V 0.10.1a:
 
 Content change:

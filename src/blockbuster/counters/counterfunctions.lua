@@ -44,3 +44,18 @@ function BlockbusterCounters.get_total_counters(types, targets)
         counter_values = _total_counter_values
     }
 end
+
+function BlockbusterCounters.get_counter(card)
+    if card.counter then
+        return card.counter
+    end
+end
+
+function BlockbusterCounters.is_counter(card, counter_key)
+    if card.counter then
+        if card.counter.key == counter_key then
+            return true
+        end
+        return false
+    end
+end

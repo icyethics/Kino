@@ -1,9 +1,4 @@
-function Card:bb_counter_apply(counter_type, number, operation, no_override)
-    if operation and operation ~= "add" and operation ~= "mult" then
-        print("no valid operation given, will default to addition")
-    elseif not operation then
-        operation = "add"
-    end
+function Card:bb_counter_apply(counter_type, number, no_override)
 
     if type(counter_type) == 'string' then
         assert(G.P_COUNTERS[counter_type], ("Could not find center \"%s\""):format(counter_type))
@@ -18,7 +13,9 @@ function Card:bb_counter_apply(counter_type, number, operation, no_override)
 
     if not self.counter or (self.counter ~= counter_type) then
         -- Cleanse
-        self:bb_remove_counter()
+
+        local _removal_type = "overwrite"
+        self:bb_remove_counter(_removal_type)
 
         self.counter_config = {
             counter_num = 0,
@@ -50,18 +47,17 @@ function Card:bb_counter_apply(counter_type, number, operation, no_override)
         end
     end
 
-    if operation == "add" then
-        self.counter_config.counter_num = self.counter_config.counter_num + number
-        self.counter_config.counter_num_ui = self.counter_config.counter_num_ui + number
-    elseif operation == "mult" then
-        self.counter_config.counter_num = math.floor(self.counter_config.counter_num * number)
-        self.counter_config.counter_num_ui = math.floor(self.counter_config.counter_num_ui * number)
-    end
+    SMODS.calculate_context({counter_applied = true, card = self, counter_type = self.counter, number = number})
 
+    self:bb_increment_counter(number, true)
 end
 
-function Card:bb_increment_counter(number)
+function Card:bb_increment_counter(number, first_application)
     if self.counter then
+
+        if not first_application then
+            SMODS.calculate_context({counter_incremented = true, card = self, counter_type = self.counter, number = number})
+        end
         
         self.counter_config.counter_num = math.min(self.counter_config.counter_num + number, self.counter.config.cap or 99)
 
@@ -80,7 +76,7 @@ function Card:bb_increment_counter(number)
                 self:juice_up()
                 self.counter_config.counter_num_ui = math.min(self.counter_config.counter_num_ui + number, self.counter.config.cap or 99)
                 if self.counter_config.counter_num_ui <= 0 then
-                    self:bb_remove_counter()
+                    self:bb_remove_counter("tick_down")
                 end
             end
         return true end }))
@@ -89,10 +85,13 @@ function Card:bb_increment_counter(number)
     end
 end
 
-function Card:bb_remove_counter()
+function Card:bb_remove_counter(removal_method)
     -- Remove Counter Action
     if self.counter then
         local obj = self.counter
+
+        SMODS.calculate_context({counter_removed = true, card = self, counter_type = self.counter, removal_method = removal_method or "unknown"})
+
         if obj.remove_counter and type(obj.remove_counter) == 'function' then
             local o = obj:remove_counter(self)
             if o then

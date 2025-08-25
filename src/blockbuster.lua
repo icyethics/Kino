@@ -4,6 +4,15 @@
 BlockbusterCounters = {}
 BlockbusterCounters.mod_dir = ''..SMODS.current_mod.path
 
+if not Blockbuster then
+    Blockbuster = {}
+    Blockbuster.counters = true
+end
+
+BlockbusterCounters.disabledCounters = {
+    
+}
+
 local atlases = 
 {
     {'blockbuster_counters', 73, 97, 'bbcount_counters.png'},

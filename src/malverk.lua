@@ -288,7 +288,7 @@ AltTexture{
         'j_kino_wonka',
         'j_kino_children_of_the_corn',
         'j_kino_gremlins_1',
-        -- 'j_kino_sorcerers_apprentice',
+        'j_kino_sorcerers_apprentice',
         'j_kino_dungeons_and_dragons_1',
         'j_kino_dungeons_and_dragons_4',
 
@@ -296,7 +296,7 @@ AltTexture{
         -- 'j_kino_encanto',
         'j_kino_coco',
         'j_kino_cocktail',
-        -- 'j_kino_shang_chi',
+        'j_kino_shang_chi',
         'j_kino_exorcist_1',
         -- 'j_kino_menu',
         
@@ -341,6 +341,7 @@ AltTexture{
         -- 'j_kino_gravity'
         
         -- Row 2
+        'j_kino_hitman',
         -- Row 3
         -- Row 4
 

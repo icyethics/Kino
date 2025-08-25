@@ -17,13 +17,21 @@ self.shared_seals = {
 '''
 position = "after"
 payload = '''
-
-self.P_COUNTERS = {}
-
-
 self.shared_counters_joker = {}
 self.shared_counters_pcard = {}
+'''
+match_indent = true
 
+## Add globals
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+self.P_LOCKED = {}
+'''
+position = "after"
+payload = '''
+self.P_COUNTERS = {}
 self.P_CENTER_POOLS.Counter = {}
 '''
 match_indent = true

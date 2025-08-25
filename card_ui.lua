@@ -908,9 +908,9 @@ function Card.generate_UIBox_ability_table(self, ...)
         end
     end
 
-    if self.ability.kino_counter and self.ability.kino_numcounters > 0 then
-        generate_card_ui({set = 'Other', key = self.ability.kino_counter .. "_counter", vars = {self.ability.kino_retrigger_counters}}, full_UI_table)
-    end
+    -- if self.ability.kino_counter and self.ability.kino_numcounters > 0 then
+    --     generate_card_ui({set = 'Other', key = self.ability.kino_counter .. "_counter", vars = {self.ability.kino_retrigger_counters}}, full_UI_table)
+    -- end
 
     return full_UI_table
 end
