@@ -63,12 +63,16 @@ function Card:bb_increment_counter(number, first_application)
 
         --Counter Increment action
         local obj = self.counter
-        if obj.increment and type(obj.increment) == 'function' then
+        if obj and obj.increment and type(obj.increment) == 'function' then
             local o = obj:increment(self, number)
             if o then
                 if not o.card then o.card = self end
                 return o
             end
+        end
+
+        if self.counter_config.counter_num <= 0 then
+            self:bb_remove_counter("tick_down")
         end
 
         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
@@ -115,7 +119,9 @@ end
 function Card:bb_calculate_counter(context)
     -- local obj = G.P_COUNTERS[self.counter] or {}
     local obj = self.counter
-    if obj.calculate and type(obj.calculate) == 'function' then
+    if self.counter_config and 
+    self.counter_config.counter_num >= 1 and 
+    obj.calculate and type(obj.calculate) == 'function' then
     	local o = obj:calculate(self, context)
     	if o then
             if not o.card then o.card = self end

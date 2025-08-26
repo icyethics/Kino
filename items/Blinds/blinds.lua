@@ -1485,7 +1485,7 @@ SMODS.Blind{
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
                     blind:wiggle()
                     -- Kino.change_counters(_pcard, "kino_poison", 2)
-                    _target:bb_counter_apply("counter_poison", 2)
+                    _pcard:bb_counter_apply("counter_poison", 2)
                 return true end }))
             end
         end

@@ -1,3 +1,16 @@
+V 0.10.1c:
+
+Content Update:
+- Added 6 new joker textures (Encanto, The Menu, Signs, Doctor Who, Stargate, Independence Day)
+
+Bug Fix:
+- Fixed mystery cards displaying 'Error' when the rank had been discovered
+- Annihilation is now actually fixed
+- Fixed the Snack Bag not properly spawning
+- Oscar Tag no longer awards multiple jokers
+- Fixed the PG & E blind crashing the game
+- Fixed a bug causing retriggered counters to go into the negatives
+
 V 0.10.1b:
 Content update:
 - Added 3 new joker textures (The Sorcerer's Apprentice, Shang Chi, Hit-Man)

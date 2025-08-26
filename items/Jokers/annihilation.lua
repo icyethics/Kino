@@ -54,8 +54,7 @@ SMODS.Joker {
                     if not _basecard.config.center.overrides_base_rank then
 
                         if SMODS.pseudorandom_probability(card, 'kino_annihilation', card.ability.extra.chance_cur, card.ability.extra.chance, "kino_card_manipulation") then
-    
-                            SMODS.modify_rank(_pcard, nil, _basecard:get_id())
+                            SMODS.change_base(_pcard, nil, _basecard.base.value)
                             _changes = true
                         end
                     end

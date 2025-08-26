@@ -91,10 +91,13 @@ SMODS.Tag {
 
             if #_validtargets > 0 then
                 tag:yep('+', G.C.GREEN, function()
-                    for i = 1, 5 do
-                        local _target = pseudorandom_element(_validtargets, pseudoseed("kino_awardstag"))
-                        SMODS.Stickers['kino_award']:apply(_target, true)
-                    end
+                    local _target = pseudorandom_element(_validtargets, pseudoseed("kino_awardstag"))
+                    SMODS.Stickers['kino_award']:apply(_target, true)
+                    return true
+                end)
+                tag.triggered = true
+            else
+                tag:yep('+', G.C.GREEN, function()
                     return true
                 end)
                 tag.triggered = true

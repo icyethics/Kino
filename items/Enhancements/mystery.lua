@@ -16,7 +16,7 @@ SMODS.Enhancement {
                 card.ability.x_mult,
                 card.ability.a_xmult,
                 (card.ability.suspect_suit and card.ability.suspect_suit_revealed) and card.ability.suspect_suit or "???",
-                (card.ability.suspect_rank and card.ability.suspect_rank_revealed) and localize(card.ability.suspect_rank, "suits_singular") or "???",
+                (card.ability.suspect_rank and card.ability.suspect_rank_revealed) and localize(card.ability.suspect_rank_visual, "suits_singular") or "???",
                 colours = {
                     (card.ability.suspect_suit and card.ability.suspect_suit_revealed) and G.C.SUITS[card.ability.suspect_suit] or G.C.FILTER
                 }
@@ -77,6 +77,7 @@ SMODS.Enhancement {
         local _table = Kino.mystery_card_select(card)
         card.ability.suspect_rank = _table.rank
         card.ability.suspect_suit = _table.suit
+        card.ability.suspect_rank_visual = _table.rank_visual
     end
 }
 
@@ -89,10 +90,12 @@ Kino.mystery_card_select = function(card)
 
     local _suit = _pickedcard.base.suit
     local _rank = _pickedcard:get_id()
+    local _rank_visual = _pickedcard.base.value
 
     return {
         suit = _suit,
-        rank = _rank
+        rank = _rank,
+        rank_visual = _rank_visual
     }
 end
 

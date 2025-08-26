@@ -2906,7 +2906,7 @@ return {
             j_kino_when_harry_met_sally = {
                 name = "When Harry Met Sally",
                 text = {
-                    "Scores cards give {X:mult,C:chips}X#1#{} Mult",
+                    "Scores cards give {X:mult,C:white}X#1#{} Mult",
                     "if they share rank",
                     "with a card held in hand"
                 }

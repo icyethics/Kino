@@ -293,25 +293,25 @@ AltTexture{
         'j_kino_dungeons_and_dragons_4',
 
         -- Row 3
-        -- 'j_kino_encanto',
+        'j_kino_encanto',
         'j_kino_coco',
         'j_kino_cocktail',
         'j_kino_shang_chi',
         'j_kino_exorcist_1',
-        -- 'j_kino_menu',
+        'j_kino_menu',
         
         -- Row 4
         -- 'j_kino_guardians_of_the_galaxy_3',
         'j_kino_asteroid_city',
-        -- 'j_kino_signs',
+        'j_kino_signs',
         'j_kino_they_live',
-        -- 'j_kino_doctor_who',
+        'j_kino_doctor_who',
         -- 'j_kino_thing_1',
         
         -- Row 5
-        -- 'j_kino_stargate',
+        'j_kino_stargate',
         'j_kino_moonfall',
-        -- 'j_kino_independence_day'
+        'j_kino_independence_day',
         'j_kino_zardoz',
         'j_kino_smurfs_1',
         'j_kino_shazam',
