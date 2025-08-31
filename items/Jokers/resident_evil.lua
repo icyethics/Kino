@@ -44,18 +44,7 @@ SMODS.Joker {
             for _index, _pcard in ipairs(G.hand.cards) do
                 if _pcard:get_id() == context.full_hand[1]:get_id() 
                 and _pcard ~= context.full_hand[1] then
-                    -- check if already in hand
-                    _pcard.marked_by_resident_evil = true
-                end
-            end
-        end
-
-        if context.remove_playing_cards then
-            for _, _pcard in ipairs(context.removed) do
-                if _pcard.marked_by_resident_evil then
-                    card_eval_status_text(card, 'extra', nil, nil, nil,
-                    { message = localize('k_longlegs_ex'), colour = G.C.RED })
-                    SMODS.debuff_card(card, true, "longlegs")
+                    SMODS.destroy_cards(_pcard)
                 end
             end
         end

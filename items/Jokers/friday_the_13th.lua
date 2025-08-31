@@ -29,6 +29,7 @@ SMODS.Joker {
     pools, k_genre = {"Horror"},
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_kino_horror
         return {
             vars = {
 

@@ -37,8 +37,9 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "bust_econ"}
 
-        local new_numerator_doubling, new_denominator_doubling = SMODS.get_probability_vars(card, (card.ability.extra.destroy_floor_non), card.ability.extra.destroy_chance_non, "kino_money_loss") 
-        local new_numerator_busting, new_denominator_busting = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.double_chance_non, "kino_money_generation")  
+        local new_numerator_busting, new_denominator_busting = SMODS.get_probability_vars(card, (card.ability.extra.destroy_floor_non), card.ability.extra.destroy_chance_non, "kino_money_loss") 
+        local new_numerator_doubling, new_denominator_doubling = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.double_chance_non, "kino_money_generation")  
+        
         return {
             
             vars = {

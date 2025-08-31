@@ -47,7 +47,7 @@ function Card:bb_counter_apply(counter_type, number, no_override)
         end
     end
 
-    SMODS.calculate_context({counter_applied = true, card = self, counter_type = self.counter, number = number})
+    SMODS.calculate_context({bb_counter_applied = true, card = self, counter_type = self.counter, number = number})
 
     self:bb_increment_counter(number, true)
 end

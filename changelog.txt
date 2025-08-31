@@ -1,3 +1,27 @@
+V 0.10.1d:
+Content Update:
+- Added 11 new joker textures (Guardiants of the Galaxy volume 3, Doctor Strange 1 & 2, Big Trouble in Little China, Popeye, Modern Times, Taken, Demolition Man, to Kill a Mockingbird, V for Vendetta & Black Swan)
+
+Content Changes:
+- Actor packs should now only spawn if there is a pool of 10 or more jokers to spawn
+
+Bug Fix:
+- Aliens no longer crashes the game when used with no valid targets left in the deck
+- Resident Evil functions properly
+- Demolition man now upgrades and destroys cards properly
+- Chow boss blind no longer crashes
+- Fixed Actor Pack crashing when set of connected movies is too small
+
+Localization Changes:
+- Added Info Queues for relevant cards for: Aliens 3, The Martian, Mars Attacks, Evil Dead, Ex Machina,
+The Exorcist, Friday the 13th, Gremlins, Halloween, I Robot, The Incredibly Hulk, M3gan, Pride & Prejudice,
+Sleepy Hollow, Steel, Tower Heist, Twilight, Us, 10 Things I Hate About You, 50 First Dates, Dead Zone, Mortal Kombat,
+- Set up description to use multi-boxes for: Elephant Man, Pitch Black, Star Wars Episode V, Signs
+- Changed Clerks description to be more precise
+- Fixed localization for Big Short
+- Fixed localization for Freaky Friday
+
+
 V 0.10.1c:
 
 Content Update:

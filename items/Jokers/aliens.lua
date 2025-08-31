@@ -41,12 +41,21 @@ SMODS.Joker {
         -- X2 mult, but debuffs two random cards when triggered.
         if context.joker_main then
             local _cards_debuffed = 0
+            local _valid_targets = {}
 
-            while _cards_debuffed < card.ability.extra.cards_debuffing_non do
-                local _rand_card = pseudorandom_element(G.deck.cards,  pseudoseed('aliens'))
-                if _rand_card.debuff == false then
-                    SMODS.debuff_card(_rand_card, true, card.config.center.key)
-                    _cards_debuffed = _cards_debuffed + 1
+            for _index, _pcard in ipairs(G.deck.cards) do
+                if _pcard.debuff == false then
+                    _valid_targets[#_valid_targets +1] = _pcard
+                end
+            end
+
+            if #_valid_targets > 0 then
+                for i = 1, math.max(card.ability.extra.cards_debuffing_non, #_valid_targets) do
+                    local _rand_card = pseudorandom_element(G.deck.cards,  pseudoseed('aliens'))
+                    if _rand_card.debuff == false then
+                        SMODS.debuff_card(_rand_card, true, card.config.center.key)
+                        _cards_debuffed = _cards_debuffed + 1
+                    end
                 end
             end
 

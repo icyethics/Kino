@@ -43,7 +43,7 @@ SMODS.Joker {
     end,
 
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = G.P_CENTERS.c_lv426
+        info_queue[#info_queue+1] = G.P_CENTERS.c_kino_lv426
         return {
             vars = {
                 card.ability.extra.will_trigger

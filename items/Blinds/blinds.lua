@@ -967,7 +967,7 @@ SMODS.Blind{
         if context.after and context.scoring_hand then
             for _, _pcard in ipairs(context.scoring_hand) do
                 -- Kino.change_counters(_pcard, "kino_debt", self.debuff.debt_counters)
-                _target:bb_counter_apply("counter_debt", 3)
+                _pcard:bb_counter_apply("counter_debt", 3)
             end
         end
     end

@@ -301,7 +301,7 @@ AltTexture{
         'j_kino_menu',
         
         -- Row 4
-        -- 'j_kino_guardians_of_the_galaxy_3',
+        'j_kino_guardians_of_the_galaxy_3',
         'j_kino_asteroid_city',
         'j_kino_signs',
         'j_kino_they_live',
@@ -317,9 +317,9 @@ AltTexture{
         'j_kino_shazam',
         
         -- Row 6
-        -- 'j_kino_doctor_strange_1',
-        -- 'j_kino_doctor_strange_2',
-        -- 'j_kino_big_trouble_little_china',
+        'j_kino_doctor_strange_1',
+        'j_kino_doctor_strange_2',
+        'j_kino_big_trouble_little_china',
         'j_kino_heart_eyes',
         'j_kino_hustle',
         -- 'j_kino_killer_klowns',
@@ -341,9 +341,28 @@ AltTexture{
         -- 'j_kino_gravity'
         
         -- Row 2
+        -- 'j_kino_da_5_bloods',
+        -- 'j_kino_pain_and_gain',
+        -- 'j_kino_fargo',
+        -- 'j_kino_metropolis',
+        -- 'j_kino_X',
         'j_kino_hitman',
+
         -- Row 3
+        'j_kino_popeye',
+        -- 'j_kino_X',
+        'j_kino_modern_times',
+        -- 'j_kino_snowpiercer',
+        -- 'j_kino_X',
+        -- 'j_kino_young_frankenstein',
+
         -- Row 4
+        -- 'j_kino_X',
+        -- 'j_kino_X',
+        -- 'j_kino_moulin_rouge',
+        -- 'j_kino_lost_in_translation',
+        -- 'j_kino_her',
+        'j_kino_hellboy_1',
 
         -- Row 5
         -- 'j_kino_demon_knight',
@@ -426,7 +445,7 @@ AltTexture{
     original_sheet = true,
     keys = {
         -- Row 1
-        -- 'j_kino_taken',
+        'j_kino_taken',
         -- 'j_kino_shaft_1',
         'j_kino_con_air',
         -- 'j_kino_rush_hour_1',
@@ -442,12 +461,36 @@ AltTexture{
         -- 'j_kino_star_wars_vii',
         
         -- Row 3
+        -- 'j_kino_star_wars_i',
+        -- 'j_kino_warriors',
+        'j_kino_demolition_man',
         'j_kino_dune_1984',
+        -- 'j_kino_blue_velvet',
+        -- 'j_kino_elephant_man',
         
         -- Row 4
+        'j_kino_v_for_vendatta',
+        -- 'j_kino_annihilation',
+        -- 'j_kino_sunshine',
+        'j_kino_black_swan',
+        -- 'j_kino_your_highness',
+        -- 'j_kino_bones_and_all',
+
         -- Row 5
+        -- 'j_kino_rear_window',
+        'j_kino_to_kill_a_mockingbird',
+        -- 'j_kino_city_people'
+        -- 'j_kino_general',
+        -- 'j_kino_cabinet_of_dr_caligari'
+        -- 'j_kino_wings',
+
         -- Row 6
+        -- 'j_kino_nightcrawler',
         'j_kino_donnie_darko',
+        -- 'j_kino_source_code',
+        -- 'j_kino_dead_zone',
+        -- 'j_kino_submarine',
+        -- 'j_kino_lobster',
     },
 }
 

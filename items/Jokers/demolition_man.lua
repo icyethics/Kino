@@ -42,14 +42,18 @@ SMODS.Joker {
             local eval = function() return G.GAME.current_round.discards_used == 0 and not G.RESET_JIGGLES end
             juice_card_until(card, eval, true)
         end
-        if context.discard and not context.blueprint and
-            G.GAME.current_round.discards_used <= 0 and #context.full_hand == 1 then
-            for _index, _pcard in ipairs(G.hand) do
+        
+        if context.discard and not context.blueprint and G.GAME.current_round.discards_used <= 0 and #context.full_hand == 1 then
+            card:juice_up()
+            for _index, _pcard in ipairs(G.hand.cards) do
                 if _pcard ~= context.full_hand[1] then
                     _pcard.ability.perma_mult = _pcard.ability.perma_mult or 0
                     _pcard.ability.perma_mult = _pcard.ability.perma_mult + card.ability.extra.a_mult
                 end
             end
+            return {
+                remove = true
+            }
         end
     end
 }

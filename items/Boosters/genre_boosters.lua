@@ -199,14 +199,8 @@ SMODS.Booster {
             return false
         end
         
-        local _count = 0
-        for _, _joker in ipairs(G.jokers.cards) do
-            if _joker.config.center.kino_joker then
-                _count = _count + 1
-            end
-        end
-
-        if _count >= 2 then
+        local _castlist = create_cast_list()
+        if #_castlist >= 10 then
             return true
         end
         return false

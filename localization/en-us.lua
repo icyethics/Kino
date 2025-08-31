@@ -194,7 +194,7 @@ return {
                 text = {
                     "Gains {C:chips}+1{} Chip for time your",
                     "most played hand type has been played",
-                    "when you use a {C:attention}Planet{}",
+                    "when you use a {C:planet}Planet{}",
                     "{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)"
                 }
             },
@@ -355,8 +355,9 @@ return {
                     {"When you {C:purple,E:1}Cast a Spell",
                     "gain {C:attention}1 Stack{}",},
                     {"Consume all stacks to lower",
-                    "{C:attention}Boss Blind{} requirements by {C:attention}%#3#{} per stack",
-                    "{C:inactive}(Currently: {C:attention}%#4#{C:inactive})"}
+                    "{C:attention}Boss Blind{} requirements ", 
+                    "by {C:attention}#3#%{} per stack",
+                    "{C:inactive}(Currently: {C:attention}#4#%{C:inactive})"}
                 }
             },
             j_kino_black_swan = {
@@ -565,9 +566,9 @@ return {
             j_kino_clerks_1 = {
                 name = "Clerks",
                 text = {
-                    "Whenever you've played",
+                    "{C:mult}+#3#{} Mult every time",
                     "cards adding up to {C:attention}#2#",
-                    "gain {C:mult}+#3#{} Mult",
+                    "have scored",
                     "{C:inactive}(Current rank: {C:attention}#1#{C:inactive})"
                 }
             },
@@ -918,10 +919,10 @@ return {
             j_kino_elephant_man = {
                 name = "Elephant Man",
                 text = {
-                    "{C:chips}+#1#{} Chips per played",
-                    "{C:chips}Hand{} this round",
-                    "{C:mult}+#2#{} Mult per used",
-                    "{C:mult}Discard{} this round"
+                    {"{C:chips}+#1#{} Chips per played",
+                    "{C:chips}Hand{} this round"},
+                    {"{C:mult}+#2#{} Mult per used",
+                    "{C:mult}Discard{} this round"}
                 }
             },
             j_kino_elf = {
@@ -1039,11 +1040,11 @@ return {
             j_kino_freaky_friday_3 = {
                 name = "Freaky Friday",
                 text = {
-                    "{C:attention}Active:{} When this joker has",
+                    {"{C:attention}Active:{} When this joker has",
                     "no edition, and a playing card with an edition",
-                    "triggers, this gains its edition",
-                    "if this joker does have an edition",
-                    "remove it and put it on the playing card"
+                    "triggers, remove its edition and this gains it",},
+                    {"{C:attention}Active:{} When this joker has an edition",
+                    "remove it and put it on the playing card"}
                 }
             },
             j_kino_friday_the_13th = {
@@ -1104,11 +1105,12 @@ return {
             j_kino_glass = {
                 name = "Glass",
                 text = {
-                    "{C:mult}+#1#{} Mult per Glass Card",
+                    {"{C:mult}+#1#{} Mult per Glass Card",
                     "in your deck",
-                    "Increase by {C:mult}+#2#{} Mult whenever",
+                    "{C:inactive}(Currently: {C:mult}+#3#{C:inactive} Mult)"},
+                    {"Increase by {C:mult}+#2#{} Mult whenever",
                     "a Glass card shatters",
-                    "{C:inactive}(Currently: {C:mult}+#3#{C:inactive} Mult)"
+                    }
                 }
             },
             j_kino_goodfellas = {
@@ -1335,7 +1337,7 @@ return {
                 name = "Independence Day",
                 text = {
                     "Lowers {C:attention}Boss Blinds",
-                    "by %#1# for every currently",
+                    "by #1#% for every currently",
                     "{C:attention}Abducted{} card"
                 }
             },
@@ -1359,7 +1361,7 @@ return {
             j_kino_interstellar = {
                 name = "Interstellar",
                 text = {
-                    "When you use a {C:attention}Planet{}",
+                    "When you use a {C:planet}Planet{}",
                     "store it in this joker instead",
                     "When you sell this joker",
                     "level up your most played",
@@ -2013,10 +2015,10 @@ return {
             j_kino_pitch_black = {
                 name = "Pitch Black",
                 text = {
-                    "{C:mult}+#1#{} Mult on your final hand",
-                    "and increase by {C:mult}+#2#{} Mult",
-                    "whenever a card scores in a",
-                    "non-final hand, then reset",
+                    {"{C:mult}+#1#{} Mult on your final hand",
+                "and reset stacked Mult"},
+                    {"Increase stacked Mult by {C:mult}+#2#{} Mult",
+                "when a card scores on a {C:attention}non-final hand{}"},
                 }
             },
             j_kino_point_break = {
@@ -2119,7 +2121,7 @@ return {
                 text = {
                     "{C:attention}Movie Jokers{} released in",
                     "the 70s and 80s give {C:chips}chips",
-                    "equal to their release year"
+                    "equal to their release year",
                 }
             },
             j_kino_resident_evil = {
@@ -2299,10 +2301,10 @@ return {
             j_kino_signs = {
                 name = "Signs",
                 text = {
-                    "{C:attention}Abduct{} a random unscored card",
-                    "Gives {C:mult}+#3#{} for each card",
+                    {"{C:attention}Abduct{} a random unscored card",},
+                    {"Gives {C:mult}+#3#{} for each card",
                     "abducted anywhere",
-                    "{C:inactive}(Currently: {C:mult}+#4#{C:inactive} Mult)"
+                    "{C:inactive}(Currently: {C:mult}+#4#{C:inactive} Mult)"}
                 }
             },
             j_kino_skyscraper = {
@@ -2504,9 +2506,10 @@ return {
             j_kino_star_wars_v = {
                 name = "Star Wars Episode V: The Empire Strikes Back",
                 text = {
-                    "Gives {C:mult}+#1#{} Mult",
-                    "{C:mult}-#2#{} per hand",
-                    "{C:mult}+#3#{} when you use a {C:planet}Planet"
+                    {"{C:mult}+#1#{} Mult",},
+                    {"Lower Mult by {C:mult}-#2#{} per hand"},
+                    {"Raise Mult by {C:mult}+#3#{} when", 
+                    "you use a {C:planet}Planet"}
                 }
             },
             j_kino_star_wars_vi = {
@@ -2564,7 +2567,7 @@ return {
                 name = "Steel",
                 text = {
                     "Gains {C:chips}+#2#{} Chips for",
-                    "each steel card in hand",
+                    "each {C:attention}Steel{} card in hand",
                     "{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)"
                 }
             },
@@ -2697,7 +2700,7 @@ return {
             j_kino_to_kill_a_mockingbird = {
                 name = "To Kill a Mockingbird",
                 text = {
-                    "Whenever a Joker",
+                    "Whenever another Joker",
                     "is destroyed",
                     "{C:green}#1# in #2#{} chance to",
                     "turn it {C:dark_edition}Negative{}",
@@ -2733,7 +2736,7 @@ return {
                 name = "Treasure Planet",
                 text = {
                     "Earn {C:money}$#1#{} when",
-                    "a {C:attention}Planet{} is used"
+                    "a {C:planet}Planet{} is used"
                 }
             },
             j_kino_tree_of_life = {
@@ -2867,7 +2870,7 @@ return {
                 name = "War of the Worlds",
                 text = {
                     "When you select a blind",
-                    "destroy every {C:attention}Planet{}",
+                    "destroy every {C:planet}Planet{}",
                     "you have, and gain {C:chips}+#1#{} Hand(s)",
                     "or {C:mult}+#2#{} Discard(s) for each"
                 }

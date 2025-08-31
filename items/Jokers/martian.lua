@@ -29,6 +29,7 @@ SMODS.Joker {
     pools, k_genre = {"Sci-fi"},
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.c_kino_mars
         return {
             vars = {
                 card.ability.extra.items_created

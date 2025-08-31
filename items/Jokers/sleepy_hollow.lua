@@ -29,6 +29,8 @@ SMODS.Joker {
     enhancement_gate = "m_kino_demonic",
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_kino_horror
+        info_queue[#info_queue+1] = G.P_CENTERS.m_kino_monster
         return {
             vars = {
             }
