@@ -103,7 +103,7 @@ SMODS.DrawStep {
     key = "kino_sci_fi_counter",
     order = 2,
     func = function(self, layer)
-        if self and SMODS.has_enhancement(self, 'm_kino_sci_fi') and G.shared_segdisp then
+        if self and self.config.center == G.P_CENTERS.m_kino_sci_fi and G.shared_segdisp then
             if self.ability.sprite_state == "level" then
                 if true == false and type(G.shared_segdisp[1][11].draw) == 'function' then
                     G.shared_segdisp[1][11]:draw(self, layer)

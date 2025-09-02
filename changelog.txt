@@ -1,3 +1,14 @@
+V 0.10.2:
+Content Updates:
+- Added 5 new Textures: House of Gucci, Gravity, Pain & Gain, Fargo, Metropolis
+
+API Changes:
+- Counters API changed. For more details, see the Blockbuster: Counters repository
+
+Content Changes:
+- Reduced lag when playing with some other mods enabled due to interaction between quantum enhancements and the draw step
+
+
 V 0.10.1d:
 Content Update:
 - Added 11 new joker textures (Guardiants of the Galaxy volume 3, Doctor Strange 1 & 2, Big Trouble in Little China, Popeye, Modern Times, Taken, Demolition Man, to Kill a Mockingbird, V for Vendetta & Black Swan)

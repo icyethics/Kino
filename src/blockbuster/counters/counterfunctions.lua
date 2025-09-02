@@ -1,4 +1,4 @@
-function BlockbusterCounters.get_total_counters(types, targets)
+function Blockbuster.Counters.get_total_counters(types, targets)
     -- Types determines which counters to count
     -- Targets determines which objects to assess
 
@@ -34,7 +34,7 @@ function BlockbusterCounters.get_total_counters(types, targets)
         for _index, _joker in ipairs(G.jokers.cards) do
             if _joker.counter then
                 _total_counters = _total_counters + 1
-                _total_counter_values = _total_counter_values + _joker.counter_config.counter_num
+                _total_counter_values = _total_counter_values + _joker.ability.counter.counter_num
             end
         end
     end
@@ -45,17 +45,23 @@ function BlockbusterCounters.get_total_counters(types, targets)
     }
 end
 
-function BlockbusterCounters.get_counter(card)
+function Blockbuster.Counters.get_counter(card)
     if card.counter then
         return card.counter
     end
 end
 
-function BlockbusterCounters.is_counter(card, counter_key)
+function Blockbuster.Counters.is_counter(card, counter_key)
     if card.counter then
         if card.counter.key == counter_key then
             return true
         end
         return false
+    end
+end
+
+function Blockbuster.Counters.get_counter_num(card)
+    if card.counter then
+        return card.ability.counter.counter_num
     end
 end

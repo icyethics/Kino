@@ -1,4 +1,4 @@
-BlockbusterCounters.Counter {
+Blockbuster.Counters.Counter {
     key = "power",
     prefix_config = {key = { mod = true}},
     order = 1,

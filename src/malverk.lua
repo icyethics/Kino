@@ -336,15 +336,15 @@ AltTexture{
         'j_kino_hard_eight',
         -- 'j_kino_doctor_zhivago',
         'j_kino_contagion',
-        -- 'j_kino_house_of_gucci',
+        'j_kino_house_of_gucci',
         'j_kino_arrival',
-        -- 'j_kino_gravity'
+        'j_kino_gravity',
         
         -- Row 2
         -- 'j_kino_da_5_bloods',
-        -- 'j_kino_pain_and_gain',
-        -- 'j_kino_fargo',
-        -- 'j_kino_metropolis',
+        'j_kino_pain_and_gain',
+        'j_kino_fargo',
+        'j_kino_metropolis',
         -- 'j_kino_X',
         'j_kino_hitman',
 

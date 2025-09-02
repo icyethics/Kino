@@ -28,7 +28,7 @@ self.children.shadow = Moveable(0, 0, 0, 0)
 position = "after"
 payload = '''
 if self.counter_config then
-    BlockbusterCounters.counter_ui_text(self)
+    Blockbuster.Counters.counter_ui_text(self)
 end
 '''
 match_indent = true

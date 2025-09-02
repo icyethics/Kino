@@ -1,4 +1,4 @@
-BlockbusterCounters.Counter {
+Blockbuster.Counters.Counter {
     key = "burn",
     prefix_config = {key = { mod = false}},
     order = 6,
@@ -19,7 +19,7 @@ BlockbusterCounters.Counter {
     end,
     calculate = function(self, card, context)
         if (context.main_scoring and context.cardarea == G.play) or context.main_scoring then
-            if SMODS.pseudorandom_probability(card, 'bb_fire', card.counter_config.counter_num, 10, "card_destruction") then
+            if SMODS.pseudorandom_probability(card, 'bb_fire', card.ability.counter.counter_num, 10, "card_destruction") then
                 card.marked_to_destroy_by_fire_counter = true
             else
                 card:bb_increment_counter(1)
@@ -38,7 +38,7 @@ BlockbusterCounters.Counter {
     end,
 }
 
-BlockbusterCounters.Counter {
+Blockbuster.Counters.Counter {
     key = "frost",
     prefix_config = {key = { mod = false}},
     order = 8,
@@ -65,15 +65,15 @@ BlockbusterCounters.Counter {
     increment = function(self, card, number)
     end,
     add_counter = function(self, card, number)
-        BlockbusterCounters.setpowerchange(card, self.key, self.config.value_change)
+        Blockbuster.Counters.setpowerchange(card, self.key, self.config.value_change)
     end,
     remove_counter = function(self, card)
-        BlockbusterCounters.setpowerchange(card, self.key, 1)
+        Blockbuster.Counters.setpowerchange(card, self.key, 1)
     end,
 }
 
 
-BlockbusterCounters.Counter {
+Blockbuster.Counters.Counter {
     key = "paralysis",
     prefix_config = {key = { mod = false}},
     order = 7,
@@ -93,7 +93,7 @@ BlockbusterCounters.Counter {
     calculate = function(self, card, context)
         if (context.before and context.cardarea == G.play) or 
         (context.before and context.cardarea == G.jokers) then
-            if SMODS.pseudorandom_probability(card, 'bb_paralysis', card.counter_config.counter_num, 10, "card_debuff") then
+            if SMODS.pseudorandom_probability(card, 'bb_paralysis', card.ability.counter.counter_num, 10, "card_debuff") then
                 card:juice_up()
                 card.bb_paralysis = true
                 card_eval_status_text(card, 'extra', nil, nil, nil,
@@ -116,7 +116,7 @@ BlockbusterCounters.Counter {
     end,
 }
 
-BlockbusterCounters.Counter {
+Blockbuster.Counters.Counter {
     key = "sleep",
     prefix_config = {key = { mod = false}},
     order = 7,
@@ -135,7 +135,7 @@ BlockbusterCounters.Counter {
 
     calculate = function(self, card, context)
         if context.after_debuff and context.ignore_debuff then
-            if SMODS.pseudorandom_probability(card, 'bb_sleep', 1, card.counter_config.counter_num, "card_debuff") then
+            if SMODS.pseudorandom_probability(card, 'bb_sleep', 1, card.ability.counter.counter_num, "card_debuff") then
                 card:bb_remove_counter("counter_effect")
             else
                 card:bb_increment_counter(-1)
@@ -154,7 +154,7 @@ BlockbusterCounters.Counter {
     end,
 }
 
-BlockbusterCounters.Counter {
+Blockbuster.Counters.Counter {
     key = "drowsy",
     prefix_config = {key = { mod = false}},
     order = 7,
@@ -174,8 +174,8 @@ BlockbusterCounters.Counter {
 
     calculate = function(self, card, context)
         if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
-            if SMODS.pseudorandom_probability(card, 'bb_drowsy', card.counter_config.counter_num, self.config.chance, "card_transform") then
-                card:bb_counter_apply("counter_sleep", card.counter_config.counter_num)
+            if SMODS.pseudorandom_probability(card, 'bb_drowsy', card.ability.counter.counter_num, self.config.chance, "card_transform") then
+                card:bb_counter_apply("counter_sleep", card.ability.counter.counter_num)
             else
                 card:bb_increment_counter(1)
             end

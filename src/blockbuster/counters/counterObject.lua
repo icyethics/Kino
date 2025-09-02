@@ -1,6 +1,6 @@
-BlockbusterCounters.Counters = {}
-BlockbusterCounters.Counter =  SMODS.GameObject:extend {
-    obj_table = BlockbusterCounters.Counters,
+Blockbuster.Counters.Counters = {}
+Blockbuster.Counters.Counter =  SMODS.GameObject:extend {
+    obj_table = Blockbuster.Counters.Counters,
     obj_buffer = {},
     class_prefix = "counter",
     rng_buffer = {},
@@ -12,6 +12,8 @@ BlockbusterCounters.Counter =  SMODS.GameObject:extend {
 
     discovered = false,
     badge_colour = HEX('7e3456'),
+    joker_only = false,
+    pcard_only = false,
     required_params = {
         'key',
         'pos',
@@ -110,5 +112,9 @@ BlockbusterCounters.Counter =  SMODS.GameObject:extend {
     end,
     calculate = function(self, card, context)
 
+    end,
+    remove_from_deck = function(self, card)
+        -- Remove from deck effects are to ensure no counter effects linger
+        -- if the card it was applied to has been destroyed
     end,
 }

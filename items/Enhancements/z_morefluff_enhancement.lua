@@ -476,7 +476,7 @@ SMODS.DrawStep {
     key = "kino_morefluff_angelic",
     order = 30,
     func = function(card, layer)
-        if card and SMODS.has_enhancement(card, 'm_kino_angelic') then
+        if card and card.config.center == G.P_CENTERS.m_kino_angelic then
             if G.shared_enhancement_sprites and G.shared_enhancement_sprites.angelic_sprite then
                 local _updown = 0.25 - ((5) * (0.07 + 0.02*math.sin(1.8*G.TIMERS.REAL) + 0.00*math.sin((G.TIMERS.REAL - math.floor(G.TIMERS.REAL))*math.pi*14)*(1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL)))^3))
                 G.shared_enhancement_sprites.angelic_sprite.role.draw_major = card 
@@ -491,7 +491,7 @@ SMODS.DrawStep {
     key = "kino_morefluff_time",
     order = 30,
     func = function(card, layer)
-        if card and SMODS.has_enhancement(card, 'm_kino_time') then
+        if card and card.config.center == G.P_CENTERS.m_kino_time then
             if G.shared_enhancement_sprites and G.shared_enhancement_sprites.time_sprite then
                 card.kino_time_card_rotation = card.kino_time_card_rotation or 0
                 local _currentrotation_target = (card.ability.angle / 360) * 2*math.pi

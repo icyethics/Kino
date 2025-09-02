@@ -29,7 +29,7 @@ SMODS.DrawStep {
     key = "kino_enhancement_superhero_step",
     order = 51,
     func = function(card, layer)
-        if card and SMODS.has_enhancement(card, 'm_kino_superhero') then
+        if card and card.config.center == G.P_CENTERS.m_kino_superhero then
             local _xOffset = 0
             local _yOffset = 0
             local scale_mod = 0.07 + 0.02*math.sin(1.8*G.TIMERS.REAL) + 0.00*math.sin((G.TIMERS.REAL - math.floor(G.TIMERS.REAL))*math.pi*14)*(1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL)))^3

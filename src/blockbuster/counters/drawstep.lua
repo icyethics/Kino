@@ -65,7 +65,7 @@ function create_UIBbox_counter_tooltip(card, scale)
     return ui
 end
 
-function BlockbusterCounters.counter_ui_text(card)
+function Blockbuster.Counters.counter_ui_text(card)
     
     local scale = card.T.w/G.CARD_W 
     local y_val = -1
@@ -94,13 +94,13 @@ SMODS.DrawStep {
     key = "counters_joker",
     order = 71,
     func = function(card, layer)
-        if card and card.counter and card.counter_config and
+        if card and card.counter_config and
         card.counter_config.counter_num_ui > 0 and 
         (card.ability.set ~= 'Default' and card.ability.set ~='Enhanced')  then
 
             -- Sprite
-            G["shared_counters_joker"][card.counter.key].role.draw_major = card
-            G["shared_counters_joker"][card.counter.key]:draw_shader('dissolve', nil, nil, nil, card.children.center)
+            G["shared_counters_joker"][card.counter_config.counter_key_ui].role.draw_major = card
+            G["shared_counters_joker"][card.counter_config.counter_key_ui]:draw_shader('dissolve', nil, nil, nil, card.children.center)
             
             if card.children and card.children.counter_ui_box then
                 card.children.counter_ui_box.states.visible = true
@@ -114,12 +114,11 @@ SMODS.DrawStep {
     key = "counters_pcard",
     order = 71,
     func = function(card, layer)
-        if card and card.counter and 
+        if card and card.counter_config and 
         card.counter_config.counter_num_ui > 0 and 
         (card.ability.set == 'Default' or card.ability.set =='Enhanced')  then
-
-            G["shared_counters_pcard"][card.counter.key].role.draw_major = card
-            G["shared_counters_pcard"][card.counter.key]:draw_shader('dissolve', nil, nil, nil, card.children.center)
+            G["shared_counters_pcard"][card.counter_config.counter_key_ui].role.draw_major = card
+            G["shared_counters_pcard"][card.counter_config.counter_key_ui]:draw_shader('dissolve', nil, nil, nil, card.children.center)
         
             if card.children and card.children.counter_ui_box then
                 card.children.counter_ui_box.states.visible = true
@@ -133,7 +132,7 @@ SMODS.DrawStep {
     key = "counters_back",
     order = 71,
     func = function(card, layer)
-        if card and card.counter and card.counter_config and
+        if card and card.counter_config and
         card.counter_config.counter_num_ui > 0 then
 
             if card.children and card.children.counter_ui_box then

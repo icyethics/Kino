@@ -1,4 +1,4 @@
-# Balatro Goes Kino V0.10.1d:
+# Balatro Goes Kino V0.10.2:
 
 By Ice/IcyEthics
 
