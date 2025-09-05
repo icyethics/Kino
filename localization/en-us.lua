@@ -3334,6 +3334,12 @@ return {
                     "in your deck {C:attention}#1#{} times"
                 }
             },
+            c_kino_investor_debug = {
+                name = "Investor DEBUG",
+                text = {
+                    "DEBUG CARD SHOULD NEVER SPAWN"
+                }
+            },
 
             c_kino_chef = {
                 name = "Chef",
@@ -5264,16 +5270,16 @@ return {
                 name = "Mult Counter",
                 text = {
                     "{C:attention}Ticks Down 1",
-                    " ",
+                    "{s:0.15} ",
                     "Gives {C:mult}+#1#{} Mult",
                     "per Counter",
                 }
             },
             counter_chip = {
-                name = "Mult Counter",
+                name = "Chips Counter",
                 text = {
                     "{C:attention}Ticks Down 1",
-                    " ",
+                    "{s:0.6} ",
                     "Gives {C:chips}+#1#{} Chips",
                     "per Counter",
                 }
@@ -5282,7 +5288,7 @@ return {
                 name = "xMult Counter",
                 text = {
                     "{C:attention}Ticks Down 1",
-                    " ",
+                    "{s:0.3} ",
                     "Gives {X:mult,C:white}x#1#{} Mult",
                     "per Counter",
                 }

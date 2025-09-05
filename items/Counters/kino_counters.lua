@@ -7,6 +7,10 @@ Blockbuster.Counters.Counter {
         power = 2
     },
     pos = {x = 2, y = 0},
+    counter_class = {
+        "beneficial",
+        "value_manip",
+    },
     calculate = function(self, card, context)
         if context.after and (context.cardarea == G.play or context.cardarea == G.jokers) then
             card:bb_increment_counter(-1)

@@ -4,10 +4,11 @@ function create_UIBox_counters()
         infotip = localize('bb_counter_tooltip'),
         hide_single_page = true,
         collapse_single_page = true,
+        no_materialize = true, 
         center = 'c_base',
         h_mod = 1.03,
         modify_card = function(card, center)
-            card:bb_counter_apply(center, 1)
+            card:bb_counter_apply(center, 1, nil, true)
         end,
     })
 end

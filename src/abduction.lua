@@ -190,6 +190,10 @@ G.FUNCS.draw_from_area_to_abduction = function(e)
                 
                 G.GAME.current_round.cards_abducted = G.GAME.current_round.cards_abducted + 1
 
+                if not _abductee then
+                    return
+                end
+
                 _abductee.area.config.card_limit = _abductee.area.config.card_limit - ((_abductee.edition and _abductee.edition.negative) and 1 or 0)
                 
                 if not _abductor.ability.extra.cards_abducted then

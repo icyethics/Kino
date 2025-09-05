@@ -210,7 +210,7 @@ AltTexture{
         'j_kino_lucky_number_slevin',
         -- 'j_kino_black_panther_1',
         'j_kino_blank_check',
-        -- 'j_kino_glass',
+        'j_kino_glass',
     },
 }
 
@@ -352,33 +352,33 @@ AltTexture{
         'j_kino_popeye',
         -- 'j_kino_X',
         'j_kino_modern_times',
-        -- 'j_kino_snowpiercer',
+        'j_kino_snowpiercer',
         -- 'j_kino_X',
         -- 'j_kino_young_frankenstein',
 
         -- Row 4
         -- 'j_kino_X',
         -- 'j_kino_X',
-        -- 'j_kino_moulin_rouge',
+        'j_kino_moulin_rouge',
         -- 'j_kino_lost_in_translation',
-        -- 'j_kino_her',
+        'j_kino_her',
         'j_kino_hellboy_1',
 
         -- Row 5
-        -- 'j_kino_demon_knight',
+        'j_kino_demon_knight',
         'j_kino_baby_driver',
-        -- 'j_kino_peggy_sue_got_married',
+        'j_kino_peggy_sue_got_married',
         -- 'j_kino_trial',
-        -- 'j_kino_tree_of_life',
+        'j_kino_tree_of_life',
         'j_kino_frighteners',
 
         -- Row 6
         'j_kino_men_in_black_1',
         'j_kino_pirates_of_the_caribbean_1',
         'j_kino_double_dragon',
-        -- 'j_kino_kung_fu_panda_1',
+        'j_kino_kung_fu_panda_1',
         'j_kino_as_above',
-        -- 'j_kino_grown_ups'
+        'j_kino_grown_ups'
     },
 }
 
@@ -394,15 +394,15 @@ AltTexture{
         'j_kino_cruella',
         -- 'j_kino_fast_and_furious_5',
         'j_kino_bloodshot',
-        -- 'j_kino_pitch_black',
+        'j_kino_pitch_black',
 
         -- Row 2
-        -- 'j_kino_lord_of_the_rings_1',
+        'j_kino_lord_of_the_rings_1',
         'j_kino_9_movie',
         'j_kino_up',
-        -- 'j_kino_iron_lady',
-        -- 'j_kino_kramervskramer',
-        -- 'j_kino_mamma_mia_1',
+        'j_kino_iron_lady',
+        'j_kino_kramervskramer',
+        'j_kino_mamma_mia_1',
 
         -- Row 3
         'j_kino_scarface_2',

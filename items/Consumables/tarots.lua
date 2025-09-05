@@ -325,6 +325,40 @@ SMODS.Consumable {
     end
 }
 
+SMODS.Consumable {
+    key = "investor_debug",
+    set = "Tarot",
+    order = 12,
+    pos = {x = 4, y = 1},
+    atlas = "kino_tarot",
+    config = {
+        investment_counters = 10
+    },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_COUNTERS.counter_money
+        return {
+            vars = {
+                self.config.investment_counters
+            }
+        }
+    end,
+	use = function(self, card, area, copier)
+        local _targets = Blockbuster.Counters.get_counter_targets(G.deck.cards, {"match"}, "counter_money")
+        local _class_table = {"detrimental"}
+        local _random_counter_type = pseudorandom_element(Blockbuster.Counters.get_counter_pool(_class_table, true), pseudoseed("kino_investor_DEBUG"))
+
+		for i = 1, card.ability.investment_counters do
+            local _target = pseudorandom_element(_targets, pseudoseed("kino_investor_DEBUG"))
+            -- Kino.change_counters(_target, "kino_investment", 1)
+            print(_random_counter_type)
+            _target:bb_counter_apply(_random_counter_type, 1)
+        end
+    end,
+    can_use = function(self, card)
+        return true
+    end
+}
+
 if kino_config.confection_mechanic then
 SMODS.Consumable {
     key = "chef",

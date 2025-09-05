@@ -1,4 +1,4 @@
-function Card:bb_counter_apply(counter_type, number, no_override)
+function Card:bb_counter_apply(counter_type, number, no_override, silent)
 
     if type(counter_type) == 'string' then
         assert(G.P_COUNTERS[counter_type], ("Could not find center \"%s\""):format(counter_type))
@@ -61,10 +61,10 @@ function Card:bb_counter_apply(counter_type, number, no_override)
 
     SMODS.calculate_context({bb_counter_applied = true, card = self, counter_type = self.counter, number = number})
 
-    self:bb_increment_counter(number, true)
+    self:bb_increment_counter(number, true, silent)
 end
 
-function Card:bb_increment_counter(number, first_application)
+function Card:bb_increment_counter(number, first_application, silent)
     if self.counter then
 
         if not first_application then
@@ -86,12 +86,18 @@ function Card:bb_increment_counter(number, first_application)
             self:bb_remove_counter("tick_down")
         end
 
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
+        if not silent then
+            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
+                if self.counter_config then
+                    self:juice_up()
+                    self.counter_config.counter_num_ui = math.min(self.counter_config.counter_num_ui + number, self.counter.config.cap or 99)
+                end
+            return true end }))
+        else
             if self.counter_config then
-                self:juice_up()
                 self.counter_config.counter_num_ui = math.min(self.counter_config.counter_num_ui + number, self.counter.config.cap or 99)
             end
-        return true end }))
+        end    
     end
 end
 
@@ -158,7 +164,7 @@ function copy_card(other, new_card, card_scale, playing_card, strip_edition)
     new_card = o_copy_card(other, new_card, card_scale, playing_card, strip_edition)
 
     if other.counter then
-        new_card:bb_counter_apply(other.counter, other.ability.counter.counter_num)
+        new_card:bb_counter_apply(other.counter, other.ability.counter.counter_num, nil, true)
     end
 
     return new_card

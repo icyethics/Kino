@@ -7,6 +7,10 @@ Blockbuster.Counters.Counter {
         mult = 1
     },
     pos = {x = 0, y = 2},
+    counter_class = {
+        "beneficial",
+        "score"
+    },
     calculate = function(self, card, context)
         if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
             local return_val = card.ability.counter.counter_num * self.config.mult
@@ -41,6 +45,10 @@ Blockbuster.Counters.Counter {
         chips = 10
     },
     pos = {x = 1, y = 2},
+    counter_class = {
+        "beneficial",
+        "score"
+    },
     calculate = function(self, card, context)
         if (context.main_scoring and context.cardarea == G.play) or context.joker_main  then
             local return_val = card.ability.counter.counter_num * self.config.chips
@@ -74,6 +82,10 @@ Blockbuster.Counters.Counter {
         xmult = 0.1
     },
     pos = {x = 2, y = 2},
+    counter_class = {
+        "beneficial",
+        "score"
+    },
     calculate = function(self, card, context)
         if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
             local return_val = 1 + (card.ability.counter.counter_num * 0.1)

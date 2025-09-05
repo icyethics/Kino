@@ -48,6 +48,10 @@ SMODS.Joker {
                 end
             end
 
+            if _target == nil then
+                return {}
+            end
+
             for _index, _pcard in ipairs(context.scoring_hand) do
                 if not context.blueprint and not context.retrigger then
                     -- Kino.change_counters(_pcard, "kino_stun", card.ability.extra.debuff_counters_non)

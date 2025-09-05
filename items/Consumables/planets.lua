@@ -161,7 +161,7 @@ SMODS.Consumable {
         local new_numerator, new_denominator = SMODS.get_probability_vars(self, 1 * (2 ^ (G.GAME.current_round.kryptons_used - 1)), card.ability.extra.chance_max, "kino_card_debuff")
         return {
             vars = {
-                math.min(new_numerator),
+                new_numerator,
                 new_denominator,
                 G.GAME.current_round.kryptons_used
             }

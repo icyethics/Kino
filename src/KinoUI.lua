@@ -12,6 +12,7 @@ if kino_config.spellcasting then
 			-- center = 'c_base',
 			h_mod = 1.03,
 			back_func = 'your_collection_other_gameobjects',
+			no_materialize = true, 
 			modify_card = function(card, center)
 				card.ignore_pinned = true
 				-- center:apply(card, true)

@@ -17,6 +17,10 @@ Blockbuster.Counters.Counter {
             }
         }
     end,
+    counter_class = {
+        "detrimental",
+        "status",
+    },
     calculate = function(self, card, context)
         if (context.main_scoring and context.cardarea == G.play) or context.main_scoring then
             if SMODS.pseudorandom_probability(card, 'bb_fire', card.ability.counter.counter_num, 10, "card_destruction") then
@@ -55,7 +59,10 @@ Blockbuster.Counters.Counter {
             }
         }
     end,
-
+    counter_class = {
+        "detrimental",
+        "status",
+    },
     calculate = function(self, card, context)
         if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
             card:bb_increment_counter(-1)
@@ -89,6 +96,10 @@ Blockbuster.Counters.Counter {
             }
         }
     end,
+    counter_class = {
+        "detrimental",
+        "status",
+    },
 
     calculate = function(self, card, context)
         if (context.before and context.cardarea == G.play) or 
@@ -132,6 +143,11 @@ Blockbuster.Counters.Counter {
             }
         }
     end,
+    counter_class = {
+        "detrimental",
+        "status",
+        "debuff"
+    },
 
     calculate = function(self, card, context)
         if context.after_debuff and context.ignore_debuff then
@@ -171,6 +187,11 @@ Blockbuster.Counters.Counter {
             }
         }
     end,
+    counter_class = {
+        "detrimental",
+        "status",
+        "debuff"
+    },
 
     calculate = function(self, card, context)
         if (context.main_scoring and context.cardarea == G.play) or context.joker_main then

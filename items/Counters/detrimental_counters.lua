@@ -16,6 +16,10 @@ Blockbuster.Counters.Counter {
             }
         }
     end,
+    counter_class = {
+        "detrimental",
+        "status",
+    },
     calculate = function(self, card, context)
         if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
             local mult = mult * (card.ability.counter.counter_num * (self.config.percentage))
@@ -51,7 +55,11 @@ Blockbuster.Counters.Counter {
             }
         }
     end,
-
+    counter_class = {
+        "detrimental",
+        "status",
+        "debuff",
+    },
     calculate = function(self, card, context)
         if context.after_debuff and context.ignore_debuff then
             card:bb_increment_counter(-1)
@@ -87,7 +95,10 @@ Blockbuster.Counters.Counter {
             }
         }
     end,
-
+    counter_class = {
+        "detrimental",
+        "economy",
+    },
     calculate = function(self, card, context)
         if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
             local return_val = card.ability.counter.counter_num + self.config.money

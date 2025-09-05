@@ -1,3 +1,21 @@
+V 0.10.2a:
+Content Updates:
+- Added 14 new textures:
+Glass, the Iron Lady, Lord of the Rings, Snowpiercer, Moulin Rouge, 
+Her, Hell Knight, Peggy Sue got Married, The Tree of Life, Kung Fu Panda, 
+Grown Ups, Kramer Vs. Kramer, Pitch Black, Mamma Mia,
+
+API Changes:
+- Added additional functionality to the counter API
+
+Bug Fixes:
+- Donnie Darko no longer crashes if no joker is present
+- Fixed Krypton crash in specific circumstances
+- Counters no longer animate being applied when a card is copied, or they're displayed in the UI
+
+New Content:
+- Inception
+
 V 0.10.2:
 Content Updates:
 - Added 5 new Textures: House of Gucci, Gravity, Pain & Gain, Fargo, Metropolis
