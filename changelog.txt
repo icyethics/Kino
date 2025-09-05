@@ -13,8 +13,6 @@ Bug Fixes:
 - Fixed Krypton crash in specific circumstances
 - Counters no longer animate being applied when a card is copied, or they're displayed in the UI
 
-New Content:
-- Inception
 
 V 0.10.2:
 Content Updates:
