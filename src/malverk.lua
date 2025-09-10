@@ -406,15 +406,15 @@ AltTexture{
 
         -- Row 3
         'j_kino_scarface_2',
-        -- 'j_kino_scarface_1',
-        -- 'j_kino_limitless',
+        'j_kino_scarface_1',
+        'j_kino_limitless',
         'j_kino_oceans_12',
-        -- 'j_kino_fast_and_furious_5',
-        -- 'j_kino_tower_heist',
+        'j_kino_fast_and_furious_5',
+        'j_kino_tower_heist',
         
         -- Row 4
-        -- 'j_kino_fish_called_wanda',
-        -- 'j_kino_big_daddy',
+        'j_kino_fish_called_wanda',
+        'j_kino_big_daddy',
         'j_kino_dick_tracy',
         'j_kino_freaky_friday_3',
         'j_kino_my_neighbor_totoro',
@@ -422,19 +422,19 @@ AltTexture{
         
         -- Row 5
         'j_kino_kiki_delivery',
-        -- 'j_kino_minecraft',
-        -- 'j_kino_school_of_rock',
-        -- 'j_kino_gullivers_travels',
-        -- 'j_kino_resident_evil',
+        'j_kino_minecraft',
+        'j_kino_school_of_rock',
+        'j_kino_gullivers_travels',
+        'j_kino_resident_evil',
         -- 'j_kino_death_race',
 
         -- Row 6
         'j_kino_mortal_kombat',
-        -- 'j_kino_shawshank_redemption',
+        'j_kino_shawshank_redemption',
         'j_kino_spirited_away',
-        -- 'j_kino_john_wick_1',
-        -- 'j_kino_die_hard_1',
-        -- 'j_kino_pulp_fiction',
+        'j_kino_john_wick_1',
+        'j_kino_die_hard_1',
+        'j_kino_pulp_fiction',
     },
 }
 
@@ -449,11 +449,11 @@ AltTexture{
         -- 'j_kino_shaft_1',
         'j_kino_con_air',
         -- 'j_kino_rush_hour_1',
-        -- 'j_kino_tmnt_1',
+        'j_kino_tmnt_1',
         -- 'j_kino_hot_fuzz',
 
         -- Row 2
-        -- 'j_kino_paul',
+        'j_kino_paul',
         'j_kino_sausage_party',
         'j_kino_martian',
         -- 'j_kino_blade_runner',
@@ -465,16 +465,16 @@ AltTexture{
         -- 'j_kino_warriors',
         'j_kino_demolition_man',
         'j_kino_dune_1984',
-        -- 'j_kino_blue_velvet',
-        -- 'j_kino_elephant_man',
+        'j_kino_blue_velvet',
+        'j_kino_elephant_man',
         
         -- Row 4
         'j_kino_v_for_vendatta',
-        -- 'j_kino_annihilation',
-        -- 'j_kino_sunshine',
+        'j_kino_annihilation',
+        'j_kino_sunshine',
         'j_kino_black_swan',
         -- 'j_kino_your_highness',
-        -- 'j_kino_bones_and_all',
+        'j_kino_bones_and_all',
 
         -- Row 5
         -- 'j_kino_rear_window',
@@ -485,10 +485,10 @@ AltTexture{
         -- 'j_kino_wings',
 
         -- Row 6
-        -- 'j_kino_nightcrawler',
+        'j_kino_nightcrawler',
         'j_kino_donnie_darko',
         -- 'j_kino_source_code',
-        -- 'j_kino_dead_zone',
+        'j_kino_dead_zone',
         -- 'j_kino_submarine',
         -- 'j_kino_lobster',
     },

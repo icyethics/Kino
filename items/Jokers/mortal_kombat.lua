@@ -42,6 +42,13 @@ SMODS.Joker {
 
         if context.setting_blind then
 
+            if #G.jokers.cards < 3 then
+                return {
+                    message = localize('k_kino_mortal_kombat_1'), 
+                    colour = G.C.BLACK
+                }
+            end
+
             -- pick a target pool
             local _validtargets = {}
             for _index, _joker in ipairs(G.jokers.cards) do

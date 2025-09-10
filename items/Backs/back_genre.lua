@@ -73,7 +73,7 @@ Kino.deck_list = {
     {key = "spooky", genre = "Horror", coords = {x = 0, y = 0}, consumables = {"c_kino_slasher", "c_kino_demon"}},
     {key = "tech", genre = "Sci-fi", coords = {x = 1, y = 0}, consumables = {"c_kino_droid", "c_kino_droid"}},
     {key = "flirty", genre = "Romance", coords = {x = 2, y = 0}, consumables = {"c_kino_meetcute", "c_kino_meetcute"}},
-    {key = "questionable", genre = "Mystery", coords = {x = 3, y = 0}, consumables = {"c_kino_mystery", "c_kino_mystery"}},
+    {key = "questionable", genre = "Mystery", coords = {x = 3, y = 0}, consumables = {"c_kino_detective", "c_kino_detective"}},
     {key = "enchanted", genre = "Fantasy", coords = {x = 4, y = 0}, consumables = {"c_kino_witch", "c_kino_witch"}},
     {key = "illicit", genre = "Crime", coords = {x = 5, y = 0}, consumables = {"c_kino_gangster", "c_kino_gangster"}},
     {key = "dangerous", genre = "Action", coords = {x = 0, y = 1}, consumables = {"c_kino_soldier", "c_kino_soldier"}},

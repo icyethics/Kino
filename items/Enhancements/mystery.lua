@@ -7,6 +7,7 @@ SMODS.Enhancement {
         suspect_suit = nil,
         suspect_rank_revealed = false,
         suspect_suit_revealed = false,
+        suspect_rank_visual = "",
         x_mult = 1,
         a_xmult = 1
     },
@@ -15,8 +16,8 @@ SMODS.Enhancement {
             vars = {
                 card.ability.x_mult,
                 card.ability.a_xmult,
-                (card.ability.suspect_suit and card.ability.suspect_suit_revealed) and card.ability.suspect_suit or "???",
-                (card.ability.suspect_rank and card.ability.suspect_rank_revealed) and localize(card.ability.suspect_rank_visual, "suits_singular") or "???",
+                (card.ability.suspect_suit and card.ability.suspect_suit_revealed) and localize(card.ability.suspect_suit, "suits_plural") or "???",
+                (card.ability.suspect_rank and card.ability.suspect_rank_revealed) and localize(card.ability.suspect_rank_visual, 'ranks') or "???",
                 colours = {
                     (card.ability.suspect_suit and card.ability.suspect_suit_revealed) and G.C.SUITS[card.ability.suspect_suit] or G.C.FILTER
                 }
@@ -31,6 +32,7 @@ SMODS.Enhancement {
                 local _table = Kino.mystery_card_select(card)
                 card.ability.suspect_rank = _table.rank
                 card.ability.suspect_suit = _table.suit
+                card.ability.suspect_rank_visual = _table.rank_visual
             end
 
             -- Find me
@@ -68,6 +70,7 @@ SMODS.Enhancement {
                     local _table = Kino.mystery_card_select(card)
                     card.ability.suspect_rank = _table.rank
                     card.ability.suspect_suit = _table.suit
+                    card.ability.suspect_rank_visual = _table.rank_visual
                 end
             end
         end
@@ -91,7 +94,7 @@ Kino.mystery_card_select = function(card)
     local _suit = _pickedcard.base.suit
     local _rank = _pickedcard:get_id()
     local _rank_visual = _pickedcard.base.value
-
+    
     return {
         suit = _suit,
         rank = _rank,

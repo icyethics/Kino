@@ -74,10 +74,10 @@ SMODS.Joker {
                     card:juice_up(0.8, 0.5)
                     card_eval_status_text(i_card, 'extra', nil, nil, nil,
                     { message = localize('k_shazam'), colour = G.C.MULT })
-                    i_card.flip()
+                    i_card:flip()
                     delay(0.1)
                     SMODS.change_base(i_card, nil, 'Jack')
-                    i_card.flip()
+                    i_card:flip()
                     delay(0.23)
                 return true end }))
             end

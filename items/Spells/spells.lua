@@ -537,6 +537,9 @@ function cast_spell(spell_key, strength, repeatable)
         repeatable = true
     end
 
+    if strength <= 0 then strength = 1 end
+    if strength >= 5 then strenth = 4 end
+
     if not SMODS.Spells then
         print("Mod error: no spells to index")
         return {

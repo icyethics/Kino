@@ -43,6 +43,8 @@ SMODS.Joker {
             if context.consumeable.ability.set == "Planet" and context.consumeable.ability.name == "Mars" then
 
                 if G.GAME.hands["Full House"].level == 1 then
+
+                    G.GAME.loss_condition = "mars_attacks"
                     card:juice_up(0.8, 0.5)
                     card_eval_status_text(card, 'extra', nil, nil, nil,
                     { message = localize('k_mars_attacks_2'), colour = G.C.MULT })
@@ -66,3 +68,22 @@ SMODS.Joker {
         end
     end
 }
+
+
+SMODS.JimboQuip({
+    key = 'mars_attacks_1',
+    type = 'loss',
+    extra = {
+        center = 'j_kino_mars_attacks',
+        particle_colours = {
+            G.C.RED,
+            G.C.GREEN,
+		    G.C.NEGATIVE
+        }
+    },
+    filter = function(self, type)
+        if G.GAME.loss_condition and G.GAME.loss_condition == "mars_attacks" then
+            return true, { weight = 10000 }
+        end
+    end
+})

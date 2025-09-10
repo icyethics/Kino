@@ -41,7 +41,7 @@ SMODS.Joker {
         -- When you play a card lower than 5, gain a stack
         -- When you play a Queen, consume each stack to gain +3 mult per stack
         if context.individual and context.cardarea == G.play then
-            if context.other_card:get_id() <= 2 then
+            if context.other_card:get_id() <= 5 then
                 card.ability.extra.stacked_count = card.ability.extra.stacked_count + 1
                 return {
                     message = localize('k_upgrade_ex'),
@@ -52,6 +52,7 @@ SMODS.Joker {
 
             if context.other_card:get_id() == 12 then
                 local _mult = card.ability.extra.stacked_count * card.ability.extra.mult
+                card.ability.extra.stacked_count = 0
                 return {
                     mult = _mult
                 }

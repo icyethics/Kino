@@ -4,7 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            next_card = nil,
+            next_card = {rank = nil, suit = nil},
             stacked_chips = 0,
             a_chips = 25,
             next_card_name = "2 of Hearts"
@@ -44,14 +44,26 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- Gain 10 chips when you play the narrated card. When you do not, set chips back to 0.
         if context.hand_drawn and not context.blueprint and not context.repetition then
-            card.ability.extra.next_card = pseudorandom_element(context.hand_drawn, pseudoseed('stf'))
-            card.ability.extra.next_card_name = G.P_CARDS[card.ability.extra.next_card.config.card_key].name
+            local _valid_targets = {}
+            for _index, _pcard in ipairs(context.hand_drawn) do
+                if not SMODS.has_no_suit(_pcard) then
+                    _valid_targets[#_valid_targets + 1] = _pcard
+                end
+            end
+            local _target = pseudorandom_element(_valid_targets, pseudoseed('kino_stf'))
+            
+
+            if _target then
+                card.ability.extra.next_card = {rank = _target:get_id(), suit = _target.base.suit}
+                card.ability.extra.next_card_name = G.P_CARDS[_target.config.card_key].name
+            end
         end
 
         if context.before and context.cardarea == G.jokers and not context.blueprint then
             local _has_card = false
             for i = 1, #context.scoring_hand do
-                if context.scoring_hand[i] == card.ability.extra.next_card then
+                if context.scoring_hand[i].base.suit == card.ability.extra.next_card.suit and
+                context.scoring_hand[i]:get_id() == card.ability.extra.next_card.rank then
                     _has_card = true
                     -- Page Turn Sound plays.
                     card.ability.extra.stacked_chips = card.ability.extra.stacked_chips + card.ability.extra.a_chips

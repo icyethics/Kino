@@ -5558,6 +5558,7 @@ return {
             k_kino_muppets_treasure_island = "Treasure!",
             k_kino_moulin_rouge = "Hand Size Up!",
             k_kino_pulp_fiction = "Overdose",
+            k_kino_mortal_kombat_1 = "Need more players",
 
 
             -- Enhancement Barks
@@ -5868,6 +5869,16 @@ return {
             kino_sports_seal = "Sports Seal",
             kino_comedy_seal = "Comedy Seal"
 
+        },
+		quips = {
+            kino_ringu_1 = {
+                "7 days..."
+            },
+            kino_mars_attacks_1 = {
+                "We come in peace!",
+                "We come in peace!",
+                "We come in peace!"
+            }
         }
     }
 }

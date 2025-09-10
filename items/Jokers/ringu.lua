@@ -58,6 +58,7 @@ SMODS.Joker {
 
             if card.ability.extra.days_left_non < 0 and not context.blueprint and not context.repetition then
 
+                G.GAME.loss_condition = "ringu"
 
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 1, func = function()
                     card:juice_up(0.8, 0.5)
@@ -71,3 +72,21 @@ SMODS.Joker {
         end
     end
 }
+
+SMODS.JimboQuip({
+    key = 'ringu_1',
+    type = 'loss',
+    extra = {
+        center = 'j_kino_ringu',
+        particle_colours = {
+            G.C.BLACK,
+            G.C.PURPLE,
+		    G.C.NEGATIVE
+        }
+    },
+    filter = function(self, type)
+        if G.GAME.loss_condition and G.GAME.loss_condition == "ringu" then
+            return true, { weight = 10000 }
+        end
+    end
+})

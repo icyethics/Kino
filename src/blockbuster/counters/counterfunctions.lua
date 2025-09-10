@@ -72,16 +72,22 @@ function Blockbuster.Counters.is_counter_of_class(card, counter_class_table)
         counter_class_table = {counter_class_table}
     end
 
+    local _count = 0
+
     if card.counter then
         for _index, _comparing_class in ipairs(counter_class_table) do
             for _index, _class in ipairs(card.counter.counter_class) do
-                if _class ~= _comparing_class then
-                    return false
+                if _class == _comparing_class then
+                    _count = _count + 1
                 end
             end
         end
     end
-    return _is_matching
+    if _count == #counter_class_table then
+        return true
+    end
+
+    return false
 end
 
 -- accepted conditions parameters:

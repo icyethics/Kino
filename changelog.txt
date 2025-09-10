@@ -1,3 +1,30 @@
+V 0.10.3:
+- Dependency changed to Smods 0827
+
+Content Updates:
+- Added 20 new joker textures:
+John Wick, Die Hard, Resident Evil, School of Rock, Big Daddy, 
+a Fish Called Wanda, Fast 5, Tower Heist, Minecraft, Gulliver's Travels,
+Pulp Fiction, Dead Zone, Bones & All, Blue Velvet, Elephant Man,
+Teenage Mutant Ninja Turtles, Paul, Annihilation, Sunshine, Nightcrawler
+
+API Changes:
+- Fixed Burn Counters not working properly when applied to jokers
+
+Content Updates:
+- Jokers with a loss condition will now taunt you after you lose your run
+
+Bug Fixes:
+- Fixed an issue related to Mystery cards
+- Fixed an issue with Stranger than Fiction crashing the game when used with Cryptid installed
+- Fixed the Questionable deck crashing upon start up
+- Snow White & The Seven Dwarves now works as intended
+- Shazam no longer crashes the game
+- Mortal Kombat no longer crashes when used when you do not have 2 other jokers
+- Fixed crashes that occured when spells were manipulated to have a strength below 1 or above 4
+- Retrigger Counters are no longer disabled
+- Fixed Talisman related crashes
+
 V 0.10.2a:
 Content Updates:
 - Added 14 new textures:

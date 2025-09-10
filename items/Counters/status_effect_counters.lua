@@ -22,9 +22,19 @@ Blockbuster.Counters.Counter {
         "status",
     },
     calculate = function(self, card, context)
-        if (context.main_scoring and context.cardarea == G.play) or context.main_scoring then
+        if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
+            print("ola")
             if SMODS.pseudorandom_probability(card, 'bb_fire', card.ability.counter.counter_num, 10, "card_destruction") then
                 card.marked_to_destroy_by_fire_counter = true
+                if card.config.center.set == 'Joker' then
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            card.getting_sliced = true
+                            card:start_dissolve()
+                            return true
+                        end)
+                    }))
+                end
             else
                 card:bb_increment_counter(1)
             end
