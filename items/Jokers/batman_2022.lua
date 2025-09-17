@@ -63,18 +63,18 @@ SMODS.Joker {
 
             for i = 1, _count do
                 local _chosencard = pseudorandom_element(context.scoring_hand, pseudoseed("kino_batman22"))
-                _chosencard.marked_by_batman22 = _chosencard.marked_by_batman22 or {}
-                _chosencard.marked_by_batman22[card.ID] = _chosencard.marked_by_batman22[card.ID] or 0
-                _chosencard.marked_by_batman22[card.ID] = _chosencard.marked_by_batman22[card.ID] + card.ability.extra.repetitions
-                -- _chosencard.marked_by_batman22 = (_chosencard.marked_by_batman22 and _chosencard.marked_by_batman22[card.ID]) and _chosencard.marked_by_batman22[card.ID] or {[card.ID] = 0} 
+                _chosencard.ability.marked_by_batman22 = _chosencard.ability.marked_by_batman22 or {}
+                _chosencard.ability.marked_by_batman22[card.ID] = _chosencard.ability.marked_by_batman22[card.ID] or 0
+                _chosencard.ability.marked_by_batman22[card.ID] = _chosencard.ability.marked_by_batman22[card.ID] + card.ability.extra.repetitions
+                -- _chosencard.ability.marked_by_batman22 = (_chosencard.ability.marked_by_batman22 and _chosencard.ability.marked_by_batman22[card.ID]) and _chosencard.ability.marked_by_batman22[card.ID] or {[card.ID] = 0} 
             end
             
         end
 
         if context.cardarea == G.play and context.repetition and not context.repetition_only and
-        context.other_card.marked_by_batman22 and context.other_card.marked_by_batman22[card.ID] then
-            local _reps = context.other_card.marked_by_batman22[card.ID]
-            context.other_card.marked_by_batman22[card.ID] = 0
+        context.other_card.ability.marked_by_batman22 and context.other_card.ability.marked_by_batman22[card.ID] then
+            local _reps = context.other_card.ability.marked_by_batman22[card.ID]
+            context.other_card.ability.marked_by_batman22[card.ID] = 0
             return {
                 message = 'Again!',
                 repetitions = _reps,

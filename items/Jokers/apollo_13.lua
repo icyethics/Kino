@@ -34,6 +34,9 @@ SMODS.Joker {
             }
         }
     end,
+    in_pool = function(self, args)
+        return #G.jokers.cards > 1
+    end,
     calculate = function(self, card, context)
         -- If your hand rank's add up to 13, create a planet
 
@@ -65,9 +68,12 @@ SMODS.Joker {
                         _validtargets[#_validtargets + 1] = _joker
                     end
                 end
-                local _target = pseudorandom_element(_validtargets, pseudoseed("kino_apollo13"))
-                -- Kino.change_counters(_target, "kino_retrigger", 1)
-                _target:bb_counter_apply("counter_retrigger", 1)
+
+                if #_validtargets > 1 then
+                    local _target = pseudorandom_element(_validtargets, pseudoseed("kino_apollo13"))
+                    -- Kino.change_counters(_target, "kino_retrigger", 1)
+                    _target:bb_counter_apply("counter_retrigger", 1)
+                end
             end
         end
     end

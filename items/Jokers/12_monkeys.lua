@@ -45,7 +45,6 @@ SMODS.Joker {
         if context.selling_card and card.ability.extra.current_target == nil and not context.blueprint and not context.retrigger then
             card.ability.extra.current_target = {
                key = context.card.ability.key,
-               cardarea = context.card.area,
                set = context.card.ability.set
             }
         end
@@ -55,11 +54,14 @@ SMODS.Joker {
         SMODS.pseudorandom_probability(card, 'kino_12monk', card.ability.extra.cur_chance, card.ability.extra.chance, "kino_card_creation") then
             local _inf = card.ability.extra.current_target
             local _buffer = nil
+            local _cardarea = nil
             
-            if _inf.cardarea == G.jokers then
+            if _inf.set == "Joker" then
                 _buffer = G.GAME.joker_buffer
+                _cardarea = G.jokers
             else
                 _buffer = G.GAME.consumeable_buffer
+                _cardarea = G.consumeables
             end
             _buffer = _buffer + 1
 

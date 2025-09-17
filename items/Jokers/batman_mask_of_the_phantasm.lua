@@ -45,22 +45,32 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.setting_blind then
             local _mypos = nil
-                for _index, _joker in ipairs(G.jokers.cards) do
-                    if _joker == card then
-                        _mypos = _index
-                    end
+            for _index, _joker in ipairs(G.jokers.cards) do
+                if _joker == card then
+                    _mypos = _index
                 end
+            end
+
             if G.jokers.cards[_mypos + 1] and not 
-            kino_quality_check(G.jokers.cards[_mypos + 1], "is_batman") and not
-            G.jokers.cards[_mypos + 1].config.center == G.P_CENTERS.j_joker then
+            kino_quality_check(G.jokers.cards[_mypos + 1], "is_batman") and
+            G.jokers.cards[_mypos + 1].config.center ~= G.P_CENTERS.j_joker then
                 local _target = G.jokers.cards[_mypos + 1]
 
                 -- if pseudorandom("kino_batphant") < (card.ability.extra.cur_chance) / card.ability.extra.chance then
                 if SMODS.pseudorandom_probability(card, 'kino_batphant', card.ability.extra.cur_chance, card.ability.extra.chance, "kino_joker_manipulation") then
                     local _pooled_card = Kino.get_complex_card("kino_batman", nil, "kino_phantmask")
                     _target:set_ability(_pooled_card)
+                    return{
+                        message = localize("k_kino_mask_of_the_phantasm_1"),
+                        card = _target
+                    }
                 else
                     _target:set_ability("j_joker")
+                    return{
+                        message = localize("k_kino_mask_of_the_phantasm_2"),
+                        card = _target,
+                        colour = G.C.GREEN
+                    }
                 end
 
             end

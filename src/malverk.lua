@@ -280,7 +280,7 @@ AltTexture{
         'j_kino_dark_crystal',
         'j_kino_fantasia',
         'j_kino_dinner_with_andre',
-        'j_kino_oceans_11',
+        'j_kino_oceans_11_2',
         'j_kino_harry_potter_1',
         'j_kino_clerks_1',
 
@@ -448,20 +448,20 @@ AltTexture{
         'j_kino_taken',
         -- 'j_kino_shaft_1',
         'j_kino_con_air',
-        -- 'j_kino_rush_hour_1',
+        'j_kino_rush_hour_1',
         'j_kino_tmnt_1',
-        -- 'j_kino_hot_fuzz',
+        'j_kino_hot_fuzz',
 
         -- Row 2
         'j_kino_paul',
         'j_kino_sausage_party',
         'j_kino_martian',
-        -- 'j_kino_blade_runner',
+        'j_kino_blade_runner',
         'j_kino_star_wars_iv',
-        -- 'j_kino_star_wars_vii',
+        'j_kino_star_wars_vii',
         
         -- Row 3
-        -- 'j_kino_star_wars_i',
+        'j_kino_star_wars_i',
         -- 'j_kino_warriors',
         'j_kino_demolition_man',
         'j_kino_dune_1984',
@@ -473,7 +473,7 @@ AltTexture{
         'j_kino_annihilation',
         'j_kino_sunshine',
         'j_kino_black_swan',
-        -- 'j_kino_your_highness',
+        'j_kino_your_highness',
         'j_kino_bones_and_all',
 
         -- Row 5
@@ -487,7 +487,7 @@ AltTexture{
         -- Row 6
         'j_kino_nightcrawler',
         'j_kino_donnie_darko',
-        -- 'j_kino_source_code',
+        'j_kino_source_code',
         'j_kino_dead_zone',
         -- 'j_kino_submarine',
         -- 'j_kino_lobster',
@@ -501,8 +501,21 @@ AltTexture{
     original_sheet = true,
     keys = {
         -- Row 1
+        -- 'j_kino_star_wars_v',
+        -- 'j_kino_star_wars_vi',
+        -- 'j_kino_star_wars_ii',
+        -- 'j_kino_star_wars_iii',
+        -- 'j_kino_star_wars_viii',
+        -- 'j_kino_star_wars_ix',
+
         -- Row 2
+        -- 'j_kino_star_wars_holiday',
+        -- 'j_kino_star_wars_clone_wars',
         'j_kino_solo',
+        -- 'j_kino_rogue_one',
+        -- 'j_kino_X',
+        -- 'j_kino_X',
+
         -- Row 3
         'j_kino_human_centipede',
         'j_kino_paulblart_1',
@@ -517,19 +530,23 @@ AltTexture{
         'j_kino_batman_mask_of_the_phantasm',
         'j_kino_batman_killing_joke',
         'j_kino_muppets_treasure_island',
-        -- 'j_kino_pirates_of_the_caribbean_2',
+        'j_kino_pirates_of_the_caribbean_2',
 
         -- Row 5
-        -- 'j_kinopirates_of_the_caribbean_3',
+        'j_kinopirates_of_the_caribbean_3',
         'j_kino_treasure_island',
         'j_kino_waterworld',
-        -- 'j_kino_pirates_movie',
+        'j_kino_pirates_movie',
         'j_kino_captain_blood',
-        -- 'j_kino_trading_places',
+        'j_kino_trading_places',
 
         -- Row 6
         'j_kino_mafiamamma',
+        -- 'j_kino_X',
+        -- 'j_kino_X',
         'j_kino_shinkamenrider'
+        -- 'j_kino_X',
+        -- 'j_kino_X',
     },
 }
 

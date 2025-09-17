@@ -157,7 +157,7 @@ return {
                 name = "Apollo 13",
                 text = {
                     "When you use",
-                    "a {C:planet}planet",
+                    "a {C:planet}Planet",
                     "put a {C:attention}Retrigger Counter",
                     "on another random Joker"
                 }
@@ -5559,6 +5559,8 @@ return {
             k_kino_moulin_rouge = "Hand Size Up!",
             k_kino_pulp_fiction = "Overdose",
             k_kino_mortal_kombat_1 = "Need more players",
+            k_kino_mask_of_the_phantasm_1 = "Batman!",
+            k_kino_mask_of_the_phantasm_2 = "Oh no, it's the Joker!",
 
 
             -- Enhancement Barks

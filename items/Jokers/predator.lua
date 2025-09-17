@@ -43,12 +43,12 @@ SMODS.Joker {
         if context.first_hand_drawn and card.ability.extra.predator_card == nil and not context.blueprint then
             -- card.ability.extra.predator_card = pseudorandom_element(context.hand_drawn, pseudoseed("kino_predator"))
             local _pcard = pseudorandom_element(context.hand_drawn, pseudoseed("kino_predator"))
-            _pcard.marked_by_predator = true
+            _pcard.ability.marked_by_predator = true
 
             local eval = function(card)
                 local result = false
                 for _, _card in ipairs(G.hand.cards) do
-                    if _card.marked_by_predator then
+                    if _card.ability.marked_by_predator then
                         result = true
                     end
                 end
@@ -56,9 +56,9 @@ SMODS.Joker {
             juice_card_until(card, eval, true)
         end
 
-        if context.individual and context.other_card.marked_by_predator and
+        if context.individual and context.other_card.ability.marked_by_predator and
         context.cardarea == G.play then
-            context.other_card.marked_by_predator = false
+            context.other_card.ability.marked_by_predator = false
             return {
                 x_mult = card.ability.extra.x_mult
             }
@@ -66,8 +66,8 @@ SMODS.Joker {
 
         if context.end_of_round and not context.blueprint then
             for _, _pcard in ipairs(G.playing_cards) do
-                if _pcard.marked_by_predator == true then
-                    _pcard.marked_by_predator = nil
+                if _pcard.ability.marked_by_predator == true then
+                    _pcard.ability.marked_by_predator = nil
                 end
             end
         end

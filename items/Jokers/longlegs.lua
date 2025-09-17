@@ -43,9 +43,8 @@ SMODS.Joker {
             -- card.ability.extra.hidden_card = pseudorandom_element(G.deck.cards)
             local _pcard = pseudorandom_element(G.playing_cards)
             card.ability.extra.hidden_card = true
-            _pcard.marked_by_longlegs = true
+            _pcard.ability.marked_by_longlegs = true
         end
-        
 
         if context.hand_drawn then
             local eval = function(card)

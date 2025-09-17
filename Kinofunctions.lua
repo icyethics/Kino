@@ -136,7 +136,9 @@ function display_egg_message()
 end
 
 function kino_quality_check(card, quality)
-
+    if card and card.config and card.config[quality] and card.config[quality] ~= false then
+        return true
+    end
     if card and card.ability and card.ability[quality] and card.ability[quality] ~= false then
         return true
     end
@@ -873,6 +875,7 @@ function upgrade_hand(card, hand, chips, mult, x_chips, x_mult, instant)
 
     if not hand then
         print("No hand was assigned! crash prevented")
+        return
     end
     -- upgrades should be put into an array with whether they were a level up.
     -- the level_up_hand function should be modified to upgrade the hand
@@ -881,15 +884,17 @@ function upgrade_hand(card, hand, chips, mult, x_chips, x_mult, instant)
     local _mult = mult + (G.GAME.hands[hand].mult * x_mult)
 
 
-    -- Set mult
+    -- Store amounts coming from bonusses
     G.GAME.hands[hand].mult_bonus = (G.GAME.hands[hand].mult_bonus or 0) + _mult
-    
-    -- Set chips
     G.GAME.hands[hand].chips_bonus = (G.GAME.hands[hand].chips_bonus or 0) + _chips 
 
+    -- Set bonuses as permanent upgrades
+    G.GAME.hands[hand].s_mult = math.max(G.GAME.hands[hand].s_mult + _mult, 1)
+    G.GAME.hands[hand].s_chips = math.max(G.GAME.hands[hand].s_chips + chips, 1)
+
     -- Set both
-    G.GAME.hands[hand].mult = math.max(G.GAME.hands[hand].s_mult + G.GAME.hands[hand].l_mult*(G.GAME.hands[hand].level - 1) +  G.GAME.hands[hand].mult_bonus, 1)
-    G.GAME.hands[hand].chips = math.max(G.GAME.hands[hand].s_chips + G.GAME.hands[hand].l_chips*(G.GAME.hands[hand].level - 1) +  G.GAME.hands[hand].chips_bonus, 1)
+    G.GAME.hands[hand].mult = math.max(G.GAME.hands[hand].s_mult + G.GAME.hands[hand].l_mult*(G.GAME.hands[hand].level - 1), 1)
+    G.GAME.hands[hand].chips = math.max(G.GAME.hands[hand].s_chips + G.GAME.hands[hand].l_chips*(G.GAME.hands[hand].level - 1), 1)
     -- play animation
 
     if not instant then

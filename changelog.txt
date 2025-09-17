@@ -1,3 +1,19 @@
+V 0.10.3a:
+Content Updates:
+Added 11 new Joker Textures:
+- Rush Hour, Hot Fuzz, Blade Runner, The Force Awakens, Your Highness
+Source Code, Trading Places, Pirates of the Caribbean 2: Dead Man's Chest, Pirates of the Caribbean 3: At World's End, Star Wars Episode 1
+The Pirates! In an Adventure with Scientists
+
+Bug Fixes:
+- Hand upgrade system has been properly updated; non-level upgrades no longer get wiped when leveling up a hand
+- Apollo no longer crashes when no valid target exists
+- 12 Monkeys no longer crashes when Cryptid is installed
+- Batman: Mask of the Phantasm actually works
+- Fixed spawn rates for Star Wars deck and Batman deck
+- Fixed certain jokers forgetting their current target when reloading 
+(Longlegs, The Batman (2022), Lord of the Rings: The Fellowship of the Ring, Predator)
+
 V 0.10.3:
 - Dependency changed to Smods 0827
 

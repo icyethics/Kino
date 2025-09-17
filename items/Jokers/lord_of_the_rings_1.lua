@@ -57,7 +57,7 @@ SMODS.Joker {
             -- check if joker to the right
             if G.jokers.cards[_mypos + 1] and context.other_card == G.jokers.cards[_mypos + 1] then
                 local _joker = G.jokers.cards[_mypos + 1]
-                _joker.marked_by_lotr_1 = card.ID
+                _joker.ability.marked_by_lotr_1 = card.ID
 
                 return {
                     card = _joker,
@@ -68,8 +68,8 @@ SMODS.Joker {
 
         if context.end_of_round and context.cardarea == G.jokers then
             for _index, _joker in ipairs(G.jokers.cards) do
-                if _joker.marked_by_lotr_1 == card.ID then
-                    _joker.marked_by_lotr_1 = nil
+                if _joker.ability.marked_by_lotr_1 == card.ID then
+                    _joker.ability.marked_by_lotr_1 = nil
                 
                     _joker.ability.extra_value = _joker.ability.extra_value - card.ability.extra.sell_value_loss_non
                     _joker:set_cost()
