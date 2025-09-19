@@ -501,10 +501,10 @@ AltTexture{
     original_sheet = true,
     keys = {
         -- Row 1
-        -- 'j_kino_star_wars_v',
-        -- 'j_kino_star_wars_vi',
-        -- 'j_kino_star_wars_ii',
-        -- 'j_kino_star_wars_iii',
+        'j_kino_star_wars_v',
+        'j_kino_star_wars_vi',
+        'j_kino_star_wars_ii',
+        'j_kino_star_wars_iii',
         -- 'j_kino_star_wars_viii',
         -- 'j_kino_star_wars_ix',
 

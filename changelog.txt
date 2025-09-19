@@ -1,3 +1,13 @@
+V 0.10.3b:
+Content Updates:
+Added 4 new Joker Textures:
+- Star Wars Episode II, Star Wars Episode III, Star Wars Episode V, Star Wars Episode VI
+
+Bug Fixes:
+- Debug tarot card removed from pool
+- specific Lovely patches no longer break other mods' patches
+
+
 V 0.10.3a:
 Content Updates:
 Added 11 new Joker Textures:

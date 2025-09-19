@@ -61,7 +61,7 @@ target = "functions/state_events.lua"
 pattern = '''
 -- TARGET: effects after hand evaluation
 '''
-position = "at"
+position = "after"
 payload = '''
 SMODS.calculate_context({full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, after_debuff = true, ignore_debuff = true})
 '''
@@ -73,7 +73,7 @@ target = '''=[SMODS _ "src/utils.lua"]'''
 pattern = '''
 -- TARGET : Add extra conditions here
 '''
-position = "at"
+position = "after"
 payload = '''
 if is_available == true then
     is_available = (not self.bb_paralysis or ignore_debuff)
