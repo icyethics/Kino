@@ -46,7 +46,8 @@ SMODS.Joker {
 
             for _, _card in ipairs(context.kino_sacrificed_cards) do
                 -- if pseudorandom("kino_evil_dead_1") < (card.ability.extra.cur_chance) / card.ability.extra.chance then
-                if SMODS.pseudorandom_probability(card, 'kino_evil_dead_1', card.ability.extra.cur_chance, card.ability.extra.chance, "kino_card_generation") then
+                if not _card.marked_by_evil_dead_for_res and SMODS.pseudorandom_probability(card, 'kino_evil_dead_1', card.ability.extra.cur_chance, card.ability.extra.chance, "kino_card_generation") then
+                    _card.marked_by_evil_dead_for_res = true
                     _returnedCards[#_returnedCards + 1] = _card
                 end    
             end
@@ -55,6 +56,7 @@ SMODS.Joker {
                 local _newcard = copy_card(_pcard)
                 _newcard:set_ability("m_kino_demonic")
                 _newcard.states.visible = nil
+                _newcard.marked_by_evil_dead_for_res = nil
 
                 G.E_MANAGER:add_event(Event({
                     func = function()

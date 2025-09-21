@@ -158,7 +158,7 @@ SMODS.Back {
     },
     apply = function()
         G.GAME.modifiers.kino_starwarsdeck = true
-        G.GAME.modifiers.kino_starwardsdeck_rarity = 2
+        G.GAME.modifiers.kino_starwarsdeck_rarity = 2
     end,
     calculate = function(self, card, context)
         -- When a round ends, level up a random hand for each remaining discard

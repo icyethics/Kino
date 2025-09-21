@@ -283,6 +283,7 @@ Kino.create_legend_ui = function(card, legend_entry, current_rarity)
 
     _quest_nodes[#_quest_nodes + 1] = _rarity_node
 
+
     return {
         {
             n = G.UIT.C,

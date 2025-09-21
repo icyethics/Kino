@@ -3,6 +3,8 @@ SMODS.Enhancement {
     atlas = "kino_enhancements",
     pos = { x = 1, y = 0},
     config = {
+        x_mult = 1,
+        base_xmult = 1,
         a_xmult = 0.25
     },
     loc_vars = function(self, info_queue, card)
