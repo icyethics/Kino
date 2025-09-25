@@ -322,7 +322,7 @@ AltTexture{
         'j_kino_big_trouble_little_china',
         'j_kino_heart_eyes',
         'j_kino_hustle',
-        -- 'j_kino_killer_klowns',
+        'j_kino_killer_klowns',
     },
 }
 
@@ -505,14 +505,14 @@ AltTexture{
         'j_kino_star_wars_vi',
         'j_kino_star_wars_ii',
         'j_kino_star_wars_iii',
-        -- 'j_kino_star_wars_viii',
-        -- 'j_kino_star_wars_ix',
+        'j_kino_star_wars_viii',
+        'j_kino_star_wars_ix',
 
         -- Row 2
-        -- 'j_kino_star_wars_holiday',
-        -- 'j_kino_star_wars_clone_wars',
+        'j_kino_star_wars_holiday',
+        'j_kino_star_wars_clone_wars',
         'j_kino_solo',
-        -- 'j_kino_rogue_one',
+        'j_kino_rogue_one',
         -- 'j_kino_X',
         -- 'j_kino_X',
 
