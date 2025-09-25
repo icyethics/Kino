@@ -1,5 +1,6 @@
 V 0.10.4:
 API Changes:
+- Decapitalized a decent number of folders and files. This may help with compiling the mod for unconventional set-ups
 - Blockbuster: Spellcasting, the API for all Kino's spell mechanics, has been released and is now implemented in the mod.
 
 Content changes:
@@ -12,6 +13,7 @@ Added spell retextures:
 Bug fixes:
 - Fixed Edward Scissorhands' missing description
 - Fixed 12 Monkeys crashing the game
+
 
 
 V 0.10.3c:
