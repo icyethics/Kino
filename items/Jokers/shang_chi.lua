@@ -49,7 +49,7 @@ SMODS.Joker {
         if _val > 10 then
             _val = 1
         end
-        info_queue[#info_queue + 1] = SMODS.Spells[_spell_list[_val]]
+        info_queue[#info_queue + 1] = Blockbuster.Spellcasting.Spells[_spell_list[_val]]
 
         return {
             vars = {

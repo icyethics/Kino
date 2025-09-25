@@ -1,6 +1,7 @@
 SMODS.Joker {
     key = "edward_scissorhands",
     order = 51,
+    generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
         }

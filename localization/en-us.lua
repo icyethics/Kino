@@ -4831,7 +4831,8 @@ return {
             }
         },
         Spell = {
-            spell_kino_None_None = {
+            -- None
+            spell_None_None = {
                 name = "No Spell",
                 text = {
                     "No spell will",
@@ -4840,72 +4841,123 @@ return {
                 }
             },
 
-            spell_kino_Hearts_Hearts = {
+            -- Wilds (5 entries)
+                        spell_Wild_Wild = {
+                name = "Wild Magic",
+                text = {
+                    "Cast a random spell",
+                    "of Spell Level {C:legendary}#1#{}"
+                }
+            },
+            spell_Wild_Hearts = {
+                name = "Wild Hearts",
+                text = {
+                    "Cast a random",
+                    "{C:hearts}Hearts{} spell",
+                    "of Spell Level {C:legendary}#1#{}"
+                }
+            },
+            spell_Wild_Diamonds = {
+                name = "Wild Diamonds",
+                text = {
+                    "Cast a random",
+                    "{C:diamonds}Diamonds{} spell",
+                    "of Spell Level {C:legendary}#1#{}"
+                }
+            },
+            spell_Wild_Clubs = {
+                name = "Wild Clubs",
+                text = {
+                    "Cast a random",
+                    "{C:clubs}Clubs{} spell",
+                    "of Spell Level {C:legendary}#1#{}"
+                }
+            },
+            spell_Wild_Spades = {
+                name = "Wild Spades",
+                text = {
+                    "Cast a random",
+                    "{C:spades}Spades{} spell",
+                    "of Spell Level {C:legendary}#1#{}"
+                }
+            },
+
+            -- Hearts (4 entries)
+
+            spell_Hearts_Hearts = {
                 name = "Double Hearts",
                 text = {
                     "Gives {C:mult}+#1#{} Mult"
                 }
             },
-            spell_kino_Hearts_Diamonds = {
+            spell_Hearts_Diamonds = {
                 name = "Diamond Heart",
                 text = {
                     "Gives {X:mult,C:white}X#1#{}"
                 }
             },
-            spell_kino_Hearts_Clubs = {
+            spell_Hearts_Clubs = {
                 name = "Hearty Club",
                 text = {
                     "Gives {C:mult}+#1#{} Mult and",
                     "{C:chips}+#2#{} Chips"
                 }
             },
-            spell_kino_Hearts_Spades = {
+            spell_Hearts_Spades = {
                 name = "Spade Heart",
                 text = {
                     "Upgrade a random card",
                     "in hand with {C:mult}+#1#{} Mult"
                 }
             },
-            spell_kino_Diamonds_Diamonds = {
+
+            -- Diamonds (3 Entries)
+            spell_Diamonds_Diamonds = {
                 name = "Double Diamonds",
                 text = {
                     "Earn {C:money}$#1#"
                 }
             },
-            spell_kino_Diamonds_Clubs = {
+            spell_Diamonds_Clubs = {
                 name = "Diamond Club",
                 text = {
                     "Gives {X:chips,C:white}X#1#{}"
                 }
             },
-            spell_kino_Diamonds_Spades = {
+            spell_Diamonds_Spades = {
                 name = "Diamond Spade",
                 text = {
                     "Create a {C:attention}#1#{}",
                     "{C:inactive}(Must have room)"
                 }
             },
-            spell_kino_Clubs_Spades = {
+
+            -- Clubs (2 entries)
+            spell_Clubs_Spades = {
                 name = "Club Spade",
                 text = {
                     "Upgrade a random card",
                     "in hand with {C:chips}+#1#{} Chips"
                 }
             },
-            spell_kino_Clubs_Clubs = {
+            spell_Clubs_Clubs = {
                 name = "Double Clubs",
                 text = {
                     "Gives {C:chips}+#1#{} Chips"
                 }
             },
-            spell_kino_Spades_Spades = {
+
+            -- Spades (1 entry)
+            spell_Spades_Spades = {
                 name = "Double Spades",
                 text = {
                     "Lower the {C:attention}Blind",
                     "by {C:attention}#1#%"
                 }
             },
-            spell_kino_EyeOfAgamoto = {
+
+            -- Generic
+            spell_EyeOfAgamoto = {
                 name = "The Eye of Agamotto",
                 text = {
                     "Gain {C:chips}2 Hands{}"
@@ -5619,14 +5671,14 @@ return {
             k_kino_saved = "Saved!",
 
             -- Spellcasting Text
-            k_kino_spellbook = "Spellbook",
-            k_kino_spelltext = {
+            k_bb_spellbook = "Spellbook",
+            k_bb_spelltext = {
                 "Spells are constructed of three ingredients: a primary suit, a secondary suit, and a power rank.",
                 "A spell is Cast when a spellcaster card or joker is triggered"
             },
-            k_kino_spell_power = "Spell Power",
-            k_kino_power_level = "Power Level ",
-            k_kino_spell_power_text = {
+            k_bb_spell_power = "Spell Power",
+            k_bb_power_level = "Power Level ",
+            k_bb_spell_power_text = {
                 "Spell Power is determined",
                 "based on the rank of the",
                 "third spell component",

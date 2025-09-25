@@ -1,3 +1,19 @@
+V 0.10.4:
+API Changes:
+- Blockbuster: Spellcasting, the API for all Kino's spell mechanics, has been released and is now implemented in the mod.
+
+Content changes:
+Added 6 new Joker Textures:
+- Star Wars Episode VIII, Star Wars Episode IX, Star Wars: The Clone Wars, Star Wars Holiday Special, Rogue One, Killer Klowns from Outer Space
+
+Added spell retextures:
+- Spell cards now have a new aesthetic
+
+Bug fixes:
+- Fixed Edward Scissorhands' missing description
+- Fixed 12 Monkeys crashing the game
+
+
 V 0.10.3c:
 Bug Fixes:
 - Alderaan Deck no longer crashes

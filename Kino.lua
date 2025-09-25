@@ -146,13 +146,6 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
-    key = "kino_spells",
-    px = 71,
-    py = 95,
-    path = 'kino_spells.png'
-}
-
-SMODS.Atlas {
     key = "kino_ui",
     px = 40,
     py = 40,
@@ -263,9 +256,9 @@ function Kino.load_file(file_address)
 end
 
 local _list_of_files = {
-    "src/KinoUI.lua",
+    "src/kino_ui.lua",
     "card_ui.lua",
-    "Kinofunctions.lua",
+    "kinofunctions.lua",
     "jokers.lua",
     "Kinogenres.lua",
 
@@ -286,8 +279,6 @@ local _list_of_files = {
     "src/consumable_functions.lua",
     "src/jumpscare.lua",
     "src/run_info.lua",
-    "src/spell_UI_popup.lua",
-    "src/spellslinger_deck_UI.lua",
 
     -- Blockbuster loading
     "src/blockbuster.lua"
@@ -335,14 +326,14 @@ for _i, joker in ipairs(joker_list) do
 end
 
 -- NEW JOKER LOADING --
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Jokers")
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/jokers")
 for _, joker in ipairs(_usedjokers) do
-    assert(SMODS.load_file("Items/Jokers/" .. joker .. ".lua"))()
+    assert(SMODS.load_file("items/jokers/" .. joker .. ".lua"))()
     Kino.jokers[#Kino.jokers + 1] = "j_kino_" .. joker
 end
 
 -- Register the Enhancements
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Enhancements")
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/enhancements")
 for _, file in ipairs(files) do
     local _add = true
     for i = 1, #_options do
@@ -356,86 +347,86 @@ for _, file in ipairs(files) do
         end
     end
     if _add then
-        assert(SMODS.load_file("Items/Enhancements/" .. file))()
+        assert(SMODS.load_file("items/enhancements/" .. file))()
     end
 end
 
 -- Register the Card Blinds
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Blinds")
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/blinds")
 for _, file in ipairs(files) do
-    assert(SMODS.load_file("Items/Blinds/" .. file))()
+    assert(SMODS.load_file("items/blinds/" .. file))()
 end
 
 -- Register the Backs
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Backs")
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/backs")
 for _, file in ipairs(files) do
-    assert(SMODS.load_file("Items/Backs/" .. file))()
+    assert(SMODS.load_file("items/backs/" .. file))()
 end
 
 -- Register the Sleeves
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Sleeve")
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/sleeve")
 for _, file in ipairs(files) do
-    assert(SMODS.load_file("Items/Sleeve/" .. file))()
+    assert(SMODS.load_file("items/sleeve/" .. file))()
 end
 
 -- Register the Consumable Types
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Consumable_types")
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/consumable_types")
 for _, file in ipairs(files) do
-    assert(SMODS.load_file("Items/Consumable_types/" .. file))()
+    assert(SMODS.load_file("items/consumable_types/" .. file))()
 end
 
 -- Register the Counters
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Counters")
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/counters")
 for _, file in ipairs(files) do
-    assert(SMODS.load_file("Items/Counters/" .. file))()
+    assert(SMODS.load_file("items/counters/" .. file))()
 end
 
 
 -- Register the Consumables
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Consumables")
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/consumables")
 for _, file in ipairs(files) do
-    assert(SMODS.load_file("Items/Consumables/" .. file))()
+    assert(SMODS.load_file("items/consumables/" .. file))()
 end
 
 -- Register the Boosters
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Boosters")
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/boosters")
 for _, file in ipairs(files) do
-    assert(SMODS.load_file("Items/Boosters/" .. file))()
+    assert(SMODS.load_file("items/boosters/" .. file))()
 end
 
 -- Register the Vouchers
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Vouchers")
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/vouchers")
 for _, file in ipairs(files) do
-    assert(SMODS.load_file("Items/Vouchers/" .. file))()
+    assert(SMODS.load_file("items/vouchers/" .. file))()
 end
 
 -- Register the Seals
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Seals")
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/seals")
 for _, file in ipairs(files) do
-    assert(SMODS.load_file("Items/Seals/" .. file))()
+    assert(SMODS.load_file("items/seals/" .. file))()
 end
 
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Stickers")
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/stickers")
 for _, file in ipairs(files) do
-    assert(SMODS.load_file("Items/Stickers/" .. file))()
+    assert(SMODS.load_file("items/stickers/" .. file))()
 end
 
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Tags")
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/tags")
 for _, file in ipairs(files) do
-    assert(SMODS.load_file("Items/Tags/" .. file))()
+    assert(SMODS.load_file("items/tags/" .. file))()
 end
 
 if kino_config.spellcasting then
-    local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Spells")
+    local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/spells")
     for _, file in ipairs(files) do
-        assert(SMODS.load_file("Items/Spells/" .. file))()
+        assert(SMODS.load_file("items/spells/" .. file))()
     end
 end
 
 if kino_config.spellcasting then
-    local files = NFS.getDirectoryItems(Kino.mod_dir .. "Items/Challenges")
+    local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/challenges")
     for _, file in ipairs(files) do
-        assert(SMODS.load_file("Items/Challenges/" .. file))()
+        assert(SMODS.load_file("items/challenges/" .. file))()
     end
 end
 

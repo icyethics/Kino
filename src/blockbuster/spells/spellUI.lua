@@ -1,10 +1,8 @@
-if not kino_config.spellcasting then return end
-
-Kino.create_overylay_spell_showcase = function()
+Blockbuster.create_overylay_spell_showcase = function()
 
 local _pool = {}
-for i, v in pairs(SMODS.Spells) do
-    if not v.no_collection then
+for i, v in pairs(Blockbuster.Spellcasting.Spells) do
+    if not v.no_collection and #v.suit_recipe == 2 then
         _pool[#_pool + 1] = v
     end
 end
@@ -100,7 +98,7 @@ for i = 1, math.ceil(#_pool / 5) do
 end
 
 local text = {
-    {text = localize("k_kino_spellbook"), size = 0.5},
+    {text = localize("k_bb_spellbook"), size = 0.5},
     {text = "Spells are constructed of three ingredients: a primary suit, a secondary suit, and a power rank.", size = 0.3},
     {text = "A spell is Cast when a spellcaster card or joker is triggered", size = 0.3},
 }
@@ -117,7 +115,7 @@ local _titlenode = {
         {
             n = G.UIT.T,
             config = {
-                text = localize("k_kino_spellbook"),
+                text = localize("k_bb_spellbook"),
                 colour = G.C.L_BLACK, 
                 scale = 0.6, 
                 shadow = false
@@ -128,7 +126,7 @@ local _titlenode = {
 table.insert(_textnodes_upperbox, _titlenode)
 
 
-for _index, _text in ipairs(localize("k_kino_spelltext")) do
+for _index, _text in ipairs(localize("k_bb_spelltext")) do
     local _node = {
         n = G.UIT.R,
         config = {
@@ -184,7 +182,7 @@ local _titlenode = {
         {
             n = G.UIT.T,
             config = {
-                text = localize("k_kino_spell_power"),
+                text = localize("k_bb_spell_power"),
                 colour = G.C.WHITE, 
                 scale = 0.6, 
                 shadow = false
@@ -231,7 +229,7 @@ for i = 1, #_spellevel_text do
                             {
                                 n = G.UIT.T,
                                 config = {
-                                    text = localize("k_kino_power_level") .. _spellevel_text[i].power_level,
+                                    text = localize("k_bb_power_level") .. _spellevel_text[i].power_level,
                                     colour = G.C.WHITE, 
                                     scale = 0.4, 
                                     shadow = false
@@ -266,7 +264,7 @@ end
 
 local _finalboxtext = {}
 
-for _index, _text in ipairs(localize("k_kino_spell_power_text")) do
+for _index, _text in ipairs(localize("k_bb_spell_power_text")) do
     local _node = {
         n = G.UIT.R,
         config = {
@@ -407,7 +405,7 @@ SMODS.Keybind({
             return
         end
 
-        Kino.create_overylay_spell_showcase()
+        Blockbuster.create_overylay_spell_showcase()
     end
 })
 

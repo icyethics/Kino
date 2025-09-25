@@ -4,13 +4,14 @@
     "author": ["IcyEthics"],
     "description": "A mod that adds content to the game based on and inspired by cinema",
     "prefix": "kino",
-    "main_file": "Kino.lua",
+    "main_file": "kino.lua",
     "badge_colour": "1b61ad",
     "priority": 1000,
-    "version": "0.10.3c",
+    "version": "0.10.4",
     "dependencies": ["Steamodded (>=1.0.0~BETA-0827a)", "Lovely (>=0.8)"],
     "provides": [
-		"Blockbuster-Counters"
+		"Blockbuster-Counters",
+    "Blockbuster-Spellcasting"
 	]
     
 }

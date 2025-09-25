@@ -70,9 +70,9 @@ SMODS.Joker {
                 delay = 0.0,
                 func = (function()
                     
-                    local _card = create_card(_inf.set, _inf.cardarea, nil, nil, nil, nil, _inf.key, "monkeys")
+                    local _card = create_card(_inf.set, _cardarea, nil, nil, nil, nil, _inf.key, "monkeys")
                     _card:add_to_deck()
-                    _inf.cardarea:emplace(_card)
+                    _cardarea:emplace(_card)
                     _buffer = 0
                     card.ability.extra.current_target = nil
                     return true

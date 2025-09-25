@@ -922,12 +922,6 @@ overwrite = false
 [[patches]]
 [patches.pattern]
 target = "game.lua"
-# pattern = '''
-#     self.title_top = CardArea(
-#         0, 0,
-#         CAI.TITLE_TOP_W,CAI.TITLE_TOP_H,
-#         {card_limit = 1, type = 'title'})
-# '''
 pattern = '''
 local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.c_base)
 '''

@@ -178,7 +178,7 @@ if CardSleeves then
             return { key = key, vars = vars }
         end,
         apply = function(self, sleeve)
-            G.GAME.starting_params.kino_spellcasting_deck = true
+            G.GAME.starting_params.blockbuster_spellcasting_deck = true
             if self.get_current_deck_key() == "b_kino_spellslinger" then
                 G.GAME.starting_params.kino_spellcasting_sleeve = true
             end

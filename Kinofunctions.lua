@@ -800,10 +800,7 @@ function CardArea:align_cards()
         check_genre_synergy()
         check_actor_synergy()
     end
-
-    if self == G.deck and G.GAME.starting_params.kino_spellcasting_deck then
-        Kino.update_spellslingerdeck_UI()
-    end
+    local base_align_cards = CardArea.align_cards
 end
 
 

@@ -2,9 +2,9 @@
 
 -- Update the textbox
 
-function Kino.generate_spellslingerdeck_UI(spell_key)
-    local _text_title = localize{type = 'name_text', set = 'Spell', key = spell_key or "spell_kino_None_None"}
-    local _text_description = localize{type = 'descriptions', set = 'Spell', key = spell_key or "spell_kino_None_None"}
+function Blockbuster.generate_spellslingerdeck_UI(spell_key)
+    local _text_title = localize{type = 'name_text', set = 'Spell', key = spell_key or "spell_None_None"}
+    local _text_description = localize{type = 'descriptions', set = 'Spell', key = spell_key or "spell_None_None"}
 
     local _text_description_nodes = {
         {
@@ -83,7 +83,7 @@ end
 
 
 -- create_UIBox_detailed_tooltip
-function Kino.initialize_spellslingerdeck_UI()
+function Blockbuster.initialize_spellslingerdeck_UI()
     local full_UI_table = {
         main = {},
         info = {},
@@ -91,13 +91,9 @@ function Kino.initialize_spellslingerdeck_UI()
         name = 'done',
         badges = {}
     }
-    -- print(G.P_CENTERS["spell_kino_None_None"])
-    -- print(SMODS.Spells["spell_kino_None_None"])
 
-    -- G.GAME.kino_ssd_UI = create_UIBox_detailed_tooltip(SMODS.Spells["spell_kino_None_None"])
-
-    G.GAME.kino_ssd_UI = UIBox{
-        definition = create_UIBox_detailed_tooltip(SMODS.Spells["spell_kino_None_None"]),
+    G.GAME.blockbuster_ssd_UI = UIBox{
+        definition = create_UIBox_detailed_tooltip(Blockbuster.Spellcasting.Spells["spell_None_None"]),
         config = {
             align = 'cm',
             offset ={x=0.3,y=-2.5}, 
@@ -105,22 +101,24 @@ function Kino.initialize_spellslingerdeck_UI()
             instance_type = 'ALERT',
         }
     }
-    G.GAME.kino_ssd_UI_current_spell = "spell_kino_None_None"
+    G.GAME.blockbuster_ssd_UI_current_spell = "spell_None_None"
 end
 
-function Kino.update_spellslingerdeck_UI()
-    if not G.GAME.kino_ssd_UI then return end
+function Blockbuster.update_spellslingerdeck_UI()
+    if not G.GAME.blockbuster_ssd_UI or not G.GAME.blockbuster_ssd_UI.remove then return end
 
     -- Gather the spell
-    local _key = check_spell_key(G.hand.cards)
-    if _key == G.GAME.kino_ssd_UI_current_spell then return end
+    local _key = Blockbuster.cards_to_spell_key(G.hand.cards)
+    -- if _key == G.GAME.blockbuster_ssd_UI_current_spell then 
+    --     return 
+    -- end
     
-    G.GAME.kino_ssd_UI:remove()
-    G.GAME.kino_ssd_UI = nil
-
-    -- G.GAME.kino_ssd_UI = create_UIBox_detailed_tooltip(SMODS.Spells[_key])
-    G.GAME.kino_ssd_UI = UIBox{
-        definition = create_UIBox_detailed_tooltip(SMODS.Spells[_key]),
+    G.GAME.blockbuster_ssd_UI:remove()
+    G.GAME.blockbuster_ssd_UI = nil
+    G.GAME.blockbuster_ssd_UI_current_spell = _key
+    -- G.GAME.blockbuster_ssd_UI = create_UIBox_detailed_tooltip(Blockbuster.Spellcasting.Spells[_key])
+    G.GAME.blockbuster_ssd_UI = UIBox{
+        definition = create_UIBox_detailed_tooltip(Blockbuster.Spellcasting.Spells[_key]),
         config = {
             align = 'cm',
             offset ={x=0.3,y=-2.5}, 
@@ -130,6 +128,15 @@ function Kino.update_spellslingerdeck_UI()
     }
 end
 
-function Kino.debugfunc_spell()
-    Kino.update_spellslingerdeck_UI()
+function Blockbuster.debugfunc_spell()
+    Blockbuster.update_spellslingerdeck_UI()
+end
+
+local base_align_cards = CardArea.align_cards
+function CardArea:align_cards()
+    base_align_cards(self)
+
+    if self == G.deck and G.GAME.starting_params.blockbuster_spellcasting_deck then
+        Blockbuster.update_spellslingerdeck_UI()
+    end
 end
