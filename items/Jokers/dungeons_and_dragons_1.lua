@@ -64,7 +64,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- Gain stacks when not in the active slot, turn stacks into mult in the active slot
-        if context.cast_spell then
+        if context.bb_cast_spell then
             card.ability.extra.stacks = card.ability.extra.stacks + context.strength * card.ability.extra.a_stacks
         end
 

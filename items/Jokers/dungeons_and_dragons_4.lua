@@ -59,7 +59,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- When you cast a spell, earn money equal to its spell level
-        if context.cast_spell then
+        if context.bb_cast_spell then
             ease_dollars(context.strength * card.ability.extra.money)
         end
     end

@@ -1499,7 +1499,7 @@ SMODS.Consumable {
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_spellcasting"}
         if G.hand and G.hand.cards and #G.hand.cards >= 3 then
-            info_queue[#info_queue + 1] = Blockbuster.Spellcasting.Spells[check_spell_key(G.hand.cards)]
+            info_queue[#info_queue + 1] = Blockbuster.Spellcasting.Spells[Blockbuster.cards_to_spell_key(G.hand.cards)]
         end
         
         local _return = card.ability.extra.spell_level_bonus + G.GAME.confections_powerboost
@@ -1551,7 +1551,7 @@ SMODS.Consumable {
         if context.joker_main
         and card.active and #G.hand.cards > 2 then
             
-            local _result = pick_spell(card, G.hand.cards)
+            local _result = Blockbuster.cast_spell_using_recipe(card, G.hand.cards)
             card.ability.extra.has_triggered = true
             card_eval_status_text(card, 'extra', nil, nil, nil,
             { message = localize('k_spell_cast'), colour = G.C.PURPLE })

@@ -1,3 +1,9 @@
+V 0.10.4a:
+Bug Fix:
+- Fixed Magic Beans confection
+- Fixed Fantasy enhancement
+- Fixed spell casting related joker contexts
+
 V 0.10.4:
 API Changes:
 - Decapitalized a decent number of folders and files. This may help with compiling the mod for unconventional set-ups

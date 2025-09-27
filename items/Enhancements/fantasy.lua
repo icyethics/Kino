@@ -22,9 +22,7 @@ SMODS.Enhancement {
         if context.main_scoring and context.cardarea == G.play then
             
             if #G.hand.cards > 2 then
-                local _result = pick_spell(card, G.hand.cards)
-                card_eval_status_text(card, 'extra', nil, nil, nil,
-                { message = localize('k_spell_cast'), colour = G.C.PURPLE })
+                local _result = Blockbuster.cast_spell_using_recipe(card, G.hand.cards)
                 return _result
             end
         end

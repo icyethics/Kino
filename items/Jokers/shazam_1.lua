@@ -58,7 +58,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.cast_spell then
+        if context.bb_cast_spell then
             local _valid_targets = {}
 
             for _, _card in ipairs(G.hand.cards) do

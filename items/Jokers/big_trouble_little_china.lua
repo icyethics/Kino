@@ -63,7 +63,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.cast_spell and not context.blueprint then
+        if context.bb_cast_spell and not context.blueprint then
             card.ability.extra.stacks = card.ability.extra.stacks + card.ability.extra.a_stacks
         end
 

@@ -61,7 +61,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.pre_spell_cast then
+        if context.bb_pre_spell_cast then
             card.ability.extra.stacks = card.ability.extra.stacks + 1
 
             if card.ability.extra.stacks == card.ability.extra.goal then
