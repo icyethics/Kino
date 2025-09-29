@@ -44,12 +44,16 @@ SMODS.Joker {
 
         if context.joker_main and context.scoring_name == "Full House" then
             local _strength = 1
+            local _card = nil
             for i = 1, #context.scoring_hand do
-                if context.scoring_hand[i]:get_id() > _strength then _strength = context.scoring_hand[i]:get_id() end
+                if context.scoring_hand[i]:get_id() > _strength then 
+                    _strength = context.scoring_hand[i]:get_id() 
+                    _card = context.scoring_hand[i]
+                end
             end
             card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_harry_potter'), colour = G.C.PURPLE })
-            return cast_random_base_spell(check_spell_strength(_strength))
+            return  Blockbuster.cast_spell("spell_Wild_Wild", Blockbuster.card_to_spell_level(_card))
         end
     end
 }

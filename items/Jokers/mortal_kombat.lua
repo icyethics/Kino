@@ -52,7 +52,7 @@ SMODS.Joker {
             -- pick a target pool
             local _validtargets = {}
             for _index, _joker in ipairs(G.jokers.cards) do
-                if _joker:can_calculate() and _joker ~= card and
+                if _joker:can_calculate(true) and _joker ~= card and
                 not SMODS.is_eternal(_joker, {kino_mortal_kombat = true, joker = true}) then
                     _validtargets[#_validtargets + 1] = _joker
                 end

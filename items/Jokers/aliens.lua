@@ -50,7 +50,8 @@ SMODS.Joker {
             end
 
             if #_valid_targets > 0 then
-                for i = 1, math.max(card.ability.extra.cards_debuffing_non, #_valid_targets) do
+                for i = 1, math.min(card.ability.extra.cards_debuffing_non, #_valid_targets) do
+                    print(i)
                     local _rand_card = pseudorandom_element(G.deck.cards,  pseudoseed('aliens'))
                     if _rand_card.debuff == false then
                         SMODS.debuff_card(_rand_card, true, card.config.center.key)
@@ -61,7 +62,6 @@ SMODS.Joker {
 
             return {
                 x_mult = card.ability.extra.x_mult,
-                message = localize{type='variable', key = 'a_xmult', vars = {card.ability.extra.x_mult}}
             }
         end
     end

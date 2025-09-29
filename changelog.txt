@@ -1,3 +1,12 @@
+V 0.10.4b:
+Bug Fix:
+- Shang Chi and the Legend of the Ten Rings no longer crashes the game
+- Doctor Strange properly casts its spell
+- Your Highness no longer gives negatives to jokers
+- Aliens now properly debuffs only 2 cards
+- Now You See Me, Encanto, Dark Crystal properly casts a spell now
+- Made it so Kino cards with destroy effects now also destroy debuffed objects
+
 V 0.10.4a:
 Bug Fix:
 - Fixed Magic Beans confection

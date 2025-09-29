@@ -4842,7 +4842,7 @@ return {
             },
 
             -- Wilds (5 entries)
-                        spell_Wild_Wild = {
+            spell_Wild_Wild = {
                 name = "Wild Magic",
                 text = {
                     "Cast a random spell",

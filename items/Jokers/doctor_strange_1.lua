@@ -51,7 +51,7 @@ SMODS.Joker {
     end,
 
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue + 1] = Blockbuster.Spellcasting.Spells["spell_kino_EyeOfAgamoto"]
+        info_queue[#info_queue + 1] = Blockbuster.Spellcasting.Spells["spell_EyeOfAgamoto"]
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_spellcasting"}
         return {
             vars = {
@@ -67,7 +67,7 @@ SMODS.Joker {
             if card.ability.extra.stacks == card.ability.extra.goal then
                 card.ability.extra.stacks = 0
                 G.GAME.current_round.spell_queue[#G.GAME.current_round.spell_queue + 1] = {
-                    spell_key = "spell_kino_EyeOfAgamoto",
+                    spell_key = "spell_EyeOfAgamoto",
                     strength = 1
                 }
             end

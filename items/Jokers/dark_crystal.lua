@@ -59,7 +59,7 @@ SMODS.Joker {
                 card.ability.extra.charges_non = card.ability.extra.charges_non - 1
             end
 
-            local _result = cast_random_base_spell(2)
+            local _result =  Blockbuster.cast_spell("spell_Wild_Wild", 2)
 
             card_eval_status_text(card, 'extra', nil, nil, nil,
             { message = localize('k_spell_cast'), colour = G.C.PURPLE })

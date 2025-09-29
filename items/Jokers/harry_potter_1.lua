@@ -50,7 +50,7 @@ SMODS.Joker {
             card.ability.extra.cast_spell = true
             card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_harry_potter'), colour = G.C.PURPLE })
-            return cast_random_base_spell(check_spell_strength(card.ability.extra.stacks))
+            return Blockbuster.cast_spell("spell_Wild_Wild", card.ability.extra.stacks)
         end
 
         if context.after and G.GAME.current_round.hands_left == 0

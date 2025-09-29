@@ -34,16 +34,16 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_spellcasting"}
         local _spell_list = {
-            "spell_kino_Hearts_Hearts",
-            "spell_kino_Hearts_Diamonds",
-            "spell_kino_Hearts_Clubs",
-            "spell_kino_Hearts_Spades",
-            "spell_kino_Diamonds_Diamonds",
-            "spell_kino_Diamonds_Clubs",
-            "spell_kino_Diamonds_Spades",
-            "spell_kino_Clubs_Spades",
-            "spell_kino_Clubs_Clubs",
-            "spell_kino_Spades_Spades"
+            "spell_Hearts_Hearts",
+            "spell_Hearts_Diamonds",
+            "spell_Hearts_Clubs",
+            "spell_Hearts_Spades",
+            "spell_Diamonds_Diamonds",
+            "spell_Diamonds_Clubs",
+            "spell_Diamonds_Spades",
+            "spell_Clubs_Spades",
+            "spell_Clubs_Clubs",
+            "spell_Spades_Spades"
         }
         local _val = card.ability.extra.cur_spell_non + 1
         if _val > 10 then
@@ -59,16 +59,16 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         local _spell_list = {
-            "spell_kino_Hearts_Hearts",
-            "spell_kino_Hearts_Diamonds",
-            "spell_kino_Hearts_Clubs",
-            "spell_kino_Hearts_Spades",
-            "spell_kino_Diamonds_Diamonds",
-            "spell_kino_Diamonds_Clubs",
-            "spell_kino_Diamonds_Spades",
-            "spell_kino_Clubs_Spades",
-            "spell_kino_Clubs_Clubs",
-            "spell_kino_Spades_Spades"
+            "spell_Hearts_Hearts",
+            "spell_Hearts_Diamonds",
+            "spell_Hearts_Clubs",
+            "spell_Hearts_Spades",
+            "spell_Diamonds_Diamonds",
+            "spell_Diamonds_Clubs",
+            "spell_Diamonds_Spades",
+            "spell_Clubs_Spades",
+            "spell_Clubs_Clubs",
+            "spell_Spades_Spades"
         }
 
         if context.joker_main then

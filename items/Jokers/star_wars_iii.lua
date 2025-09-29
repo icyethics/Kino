@@ -59,7 +59,7 @@ SMODS.Joker {
                         end
                     end
                     if my_pos and G.jokers.cards[my_pos + 1] and 
-                    G.jokers.cards[my_pos + 1]:can_calculate() and 
+                    G.jokers.cards[my_pos + 1]:can_calculate(true) and 
                     not SMODS.is_eternal(G.jokers.cards[my_pos + 1], {kino_star_wars_iii = true, joker = true}) then
                         local sliced_card = G.jokers.cards[my_pos + 1]
                         card.ability.extra.stacks = sliced_card.sell_cost * card.ability.extra.x_mult

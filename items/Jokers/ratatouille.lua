@@ -180,7 +180,7 @@ SMODS.Joker {
             if G.GAME.used_vouchers.v_kino_snackbag then _cardarea_cards = Kino.snackbag.cards end
 
             for _, _object in ipairs(_cardarea_cards) do
-                if _object.ability.set == 'confection' and (not _object.active  or _object.active == false) and _object:can_calculate() then
+                if _object.ability.set == 'confection' and (not _object.active  or _object.active == false) and _object:can_calculate(true) then
                     _object.getting_sliced = true
 
                     G.GAME.confections_powerboost = G.GAME.confections_powerboost + card.ability.extra.upgrade_confection_power

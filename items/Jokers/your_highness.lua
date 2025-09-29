@@ -4,7 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            stacks = 0,
+            stacks = 1,
             a_stacks = 1,
             threshold = 4,
             active = false
@@ -44,7 +44,9 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- Every fourth consumable you obtain becomes negative
         if context.card_added then
-            if context.card.set ~= "Voucher" and context.card.set ~=  "Joker" and context.card.set ~= "Booster" then
+            -- if context.card.set ~= "Voucher" or context.card.set ~=  "Joker" or context.card.set ~= "Booster" then
+            if context.card.ability.consumeable then
+                print("hello")
                 if card.ability.extra.active then
                     context.card:set_edition({negative = true}, true)
                     card.ability.extra.active = false

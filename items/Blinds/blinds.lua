@@ -1422,7 +1422,7 @@ SMODS.Blind{
                 func = function()
                     if self.debuff.active and #G.hand.cards > 0 then
                         local _randomtarget = pseudorandom_element(G.hand.cards, pseudoseed("kino_deckshaw"))
-                        if _randomtarget:get_id() == 14 and _randomtarget:can_calculate() then
+                        if _randomtarget:get_id() == 14 and _randomtarget:can_calculate(true) then
                             SMODS.destroy_cards(_randomtarget)
                         else
                             _randomtarget:flip()
