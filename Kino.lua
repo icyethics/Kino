@@ -6,6 +6,7 @@ kino_config = SMODS.current_mod.config
 -- Kino = SMODS.current_mod
 Kino.jokers = {}
 
+
 SMODS.current_mod.optional_features = {
 	retrigger_joker = true,
 	post_trigger = true,
@@ -279,6 +280,7 @@ local _list_of_files = {
     "src/consumable_functions.lua",
     "src/jumpscare.lua",
     "src/run_info.lua",
+    "src/actor_ui.lua",
 
     -- Blockbuster loading
     "src/blockbuster.lua"

@@ -101,6 +101,30 @@ function create_cast_list()
     return _castlist
 end
 
+function create_cast_list_for_specific_jokers(_list_of_jokers)
+    if _list_of_jokers.config then
+        local _list_temp = {}
+        _list_temp[#_list_temp + 1] = _list_of_jokers
+        _list_of_jokers = _list_temp
+    end
+
+    local _castlist = {}
+    local _hash = {}
+
+    for _, _joker in ipairs(_list_of_jokers) do
+        if _joker.config.center.kino_joker then
+            for _, _castmember in ipairs(_joker.config.center.kino_joker.cast) do
+                if not _hash[_castmember] then
+                    _castlist[#_castlist + 1] = _castmember
+                    _hash[_castmember] = true
+                end
+            end
+        end
+    end
+
+    return _castlist
+end
+
 function has_cast_from_table(joker, actor_table)
     for _, _castmember in ipairs(actor_table) do
         if has_cast(joker, _castmember) then
