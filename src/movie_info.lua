@@ -1,31 +1,31 @@
 function Kino.metadata()
 -- Load files
--- local movies, load_error = assert(SMODS.load_file("moviedata/movies.lua"))()
+-- local Kino.movies, load_error = assert(SMODS.load_file("moviedata/Kino.movies.lua"))()
 -- if load_error then
 --   sendDebugMessage ("The error is: "..load_error)
 -- end
 
--- print(movies.ID_653.name)
+-- print(Kino.movies.ID_653.name)
 
--- local actors, load_error = SMODS.load_file("moviedata/actors.lua")
+-- local Kino.actors, load_error = SMODS.load_file("moviedata/Kino.actors.lua")
 -- if load_error then
 --   sendDebugMessage ("The error is: "..load_error)
 -- end
 
 
 -- Load files
-local movies, load_error = assert(SMODS.load_file("moviedata/movies.lua"))()
+Kino.movies, load_error = assert(SMODS.load_file("moviedata/movies.lua"))()
 if load_error then
   sendDebugMessage ("The error is: "..load_error)
 end
 
-local actors, load_error = assert(SMODS.load_file("moviedata/actors.lua"))()
+Kino.actors, load_error = assert(SMODS.load_file("moviedata/actors.lua"))()
 if load_error then
   sendDebugMessage ("The error is: "..load_error)
 end
 
--- iterate through the movies
-for j, var in pairs(movies) do
+-- iterate through the Kino.movies
+for j, var in pairs(Kino.movies) do
     local id = string.sub(j, 4)
     for i, v in ipairs(Kino.jokers) do
       if SMODS.Centers[v] then
@@ -45,7 +45,7 @@ for j, var in pairs(movies) do
     end
 end
 
-Kino.moviemetadata = movies
-Kino.peoplemetadata = actors
+Kino.moviemetadata = Kino.movies
+Kino.peoplemetadata = Kino.actors
 
 end

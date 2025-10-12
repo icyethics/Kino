@@ -1,8 +1,8 @@
 Blockbuster.Spellcasting.Spell {
     key = "EyeOfAgamoto",
     order = 16,
-    atlas = "kino_spells",
-    pos = {x = 4, y = 1},
+    atlas = "kino_non_suit_spells",
+    pos = {x = 4, y = 0},
     config = {
         target = "unique",
         hands_gained = 2
@@ -12,7 +12,6 @@ Blockbuster.Spellcasting.Spell {
             self.config.hands_gained
         }
     end,
-    no_collection = true,
     cast = function(self, strength)
         G.E_MANAGER:add_event(Event({func = function()
             ease_hands_played(self.config.hands_gained)

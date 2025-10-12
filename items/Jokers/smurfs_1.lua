@@ -26,7 +26,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Fantasy", "Family"},
+    k_genre = {"Fantasy", "Family"},
     in_pool = function(self, args)
         -- Check for the right frequency
         local enhancement_gate = false

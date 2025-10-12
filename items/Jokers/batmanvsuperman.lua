@@ -43,7 +43,7 @@ SMODS.Joker {
             for _index, _joker in ipairs(G.jokers.cards) do
                 if _joker.ID ~= card.ID and kino_quality_check(_joker, "is_batman") then
                     card.ability.extra.boosted_cards[_joker.ID] = 1 + card.ability.extra.powerboost
-                    _joker:set_multiplication_bonus(_joker, "batvsupe_" .. card.ID, 1 + card.ability.extra.powerboost)
+                    Blockbuster.manipulate_value(_joker, "batvsupe_" .. card.ID, 1 + card.ability.extra.powerboost)
                 end
             end
         end
@@ -51,7 +51,7 @@ SMODS.Joker {
         if context.end_of_round and context.cardarea == G.jokers and G.GAME.blind.boss then
             for _index, _joker in ipairs(G.jokers.cards) do
                 if card.ability.extra.boosted_cards[_joker.ID] then
-                    _joker:set_multiplication_bonus(_joker, "batvsupe_" .. card.ID, 1, nil, card.ability.extra.boosted_cards[_joker.ID])
+                    Blockbuster.reset_value_multiplication(_joker, "batvsupe_" .. card.ID)
                 end
             end
         end

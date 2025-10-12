@@ -31,7 +31,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Horror"},
+    k_genre = {"Horror"},
     -- set_ability = function(self, card, initial, delay_sprites)
     --     if card.ability.is_active then print("1") end
     --     if card.is_active then print("2") end

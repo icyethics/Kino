@@ -5,7 +5,7 @@ SMODS.Joker {
     config = {
         extra = {
             cards_abducted = {},
-            num_cards_abducted_non = 0,
+            num_cards_abducted = 0,
             stacked_chips = 0,
             a_chips = 25
         }
@@ -29,7 +29,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi", "Adventure"},
+    k_genre = {"Sci-fi", "Adventure"},
     enhancement_gate = "m_stone",
 
     loc_vars = function(self, info_queue, card)
@@ -37,7 +37,7 @@ SMODS.Joker {
         return {
             vars = {
                 card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0,
-                card.ability.extra.num_cards_abducted_non,
+                card.ability.extra.num_cards_abducted,
                 card.ability.extra.stacked_chips,
                 card.ability.extra.a_chips
             }
@@ -45,7 +45,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- abduct stone cards. return them unstoned and get +25 chips for each one
-        card.ability.extra.num_cards_abducted_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
+        card.ability.extra.num_cards_abducted = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
 
         if context.joker_main then
             return {

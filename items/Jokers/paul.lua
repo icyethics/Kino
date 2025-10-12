@@ -26,7 +26,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi", "Comedy"},
+    k_genre = {"Sci-fi", "Comedy"},
 
     loc_vars = function(self, info_queue, card)
         return {
@@ -41,7 +41,7 @@ SMODS.Joker {
             -- and context.card.set == "Joker" 
             for _, _joker in ipairs(G.jokers.cards) do
                 if _joker.config.center.key ~= 'j_kino_paul' and is_genre(_joker, "Sci-fi") then
-                    _joker:set_multiplication_bonus(_joker, "paul", 1 + card.ability.extra.powerboost)
+                    Blockbuster.manipulate_value(_joker, "paul", 1 + card.ability.extra.powerboost)
                 end
             end
         end 
@@ -50,7 +50,7 @@ SMODS.Joker {
         if G.jokers then
             for _, _joker in ipairs(G.jokers.cards) do
                 if _joker.config.center.key ~= 'j_kino_paul' and is_genre(_joker, "Sci-fi") then
-                    _joker:set_multiplication_bonus(_joker, "paul", 1 + card.ability.extra.powerboost)
+                    Blockbuster.manipulate_value(_joker, "paul", 1 + card.ability.extra.powerboost)
                 end
             end
         end
@@ -60,7 +60,7 @@ SMODS.Joker {
             local _mypos =  nil
             for _, _joker in ipairs(G.jokers.cards) do
                 if _joker.config.center.key ~= 'j_kino_paul' and is_genre(_joker, "Sci-fi") then
-                    _joker:set_multiplication_bonus(_joker, "paul", 1)
+                    Blockbuster.reset_value_multiplication(_joker, "paul", 1)
                 end
             end
         end

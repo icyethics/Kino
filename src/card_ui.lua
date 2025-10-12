@@ -393,7 +393,7 @@ Kino.create_abduction_ui_2 = function(card)
                             n = G.UIT.T,
                             config = {
                                 ref_table = card.ability.extra,
-                                ref_value = "num_cards_abducted_non",
+                                ref_value = "num_cards_abducted",
                                 colour = G.C.WHITE, 
                                 scale = 0.3, 
                                 shadow = true
@@ -750,60 +750,6 @@ Kino.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_va
     }
 end
 
-
--- -- local o_genui = SMODS.Center.generate_ui
--- local o_cardgenui = Card.generate_UIBox_ability_table
--- -- function SMODS.Center.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
--- function Card.generate_UIBox_ability_table(vars_only)
---     -- o_genui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
---     o_cardgenui(self, vars_only)
---     local card = self
-
---     if not card or not card.ability then return end
---     print("test")
-
---     if card.ability.multipliers then
---         local _multiplier = 1
---         for _source, _mult in pairs(card.ability.multipliers) do
---             _multiplier = _multiplier * _mult
---         end
-
---         if _multiplier > 1 then
---             info_queue[#info_queue+1] = {set = 'Other', key = "synergy_mult", vars = {_multiplier}}
---         end
---     end
-
---     if card.ability.output_powerchange then
---         local _multiplier = 1
---         for _source, _mult in pairs(card.ability.output_powerchange) do
---             _multiplier = _multiplier * _mult
---         end
-
---         if _multiplier < 1 then
---             info_queue[#info_queue+1] = {set = 'Other', key = "output_powerchange", vars = {_multiplier}}
---         end
---     end
-
---     if card.ability.kino_additional_genres then
---         print("test")
-        
---         if #card.ability.kino_additional_genres > 1 then
---             local _genrestring = ""
-
---             for i = 1, #card.ability.kino_additional_genres do
---                 if i == 1 then
---                     _genrestring = _genrestring .. card.ability.kino_additional_genres[i]
---                 else
-
---                     _genrestring = _genrestring .. ", " .. card.ability.kino_additional_genres[i]
---                 end
---             end
-
---             info_queue[#info_queue+1] = {set = 'Other', key = "kino_additional_genres", vars = _genrestring}
---         end
---     end
--- end
-
 -- Confection card UI (Based on Cryptid's Code card implementation and Betmma's reserve implementation)
 local o_uasbs = G.UIDEF.use_and_sell_buttons
 function G.UIDEF.use_and_sell_buttons(card)
@@ -815,35 +761,6 @@ function G.UIDEF.use_and_sell_buttons(card)
             local sell = nil
             local use = nil
             local pull = nil
-
-    --             if (card.area == G.pack_cards and G.pack_cards) then
-    --   return {
-    --     n=G.UIT.ROOT, config = {padding = 0, colour = G.C.CLEAR}, nodes={
-    --       {n=G.UIT.R, config={mid = true}, nodes={
-    --       }},
-    --       {n=G.UIT.R, config={ref_table = card, r = 0.08, padding = 0.1, align = "bm", minw = 0.5*card.T.w - 0.15, minh = 0.8*card.T.h, maxw = 0.7*card.T.w - 0.15, hover = true, shadow = true, colour = G.C.UI.BACKGROUND_INACTIVE, one_press = true, button = 'use_card', func = 'can_use_consumeable'}, nodes={
-    --         {n=G.UIT.T, config={text = localize('b_use'),colour = G.C.UI.TEXT_LIGHT, scale = 0.55, shadow = true}}
-    --       }},
-    --   }}
-        -- pull =  {n=G.UIT.ROOT, 
-        -- config = {padding = 0, colour = G.C.CLEAR}, nodes={
-        --     {n=G.UIT.R, config={mid = true}, nodes={
-        --     }},
-        --     {n=G.UIT.R, config={ref_table = card, r = 0.08, padding = 0.1, align = "bm", minw = 0.5*card.T.w - 0.15, minh = 0.8*card.T.h, maxw = 0.7*card.T.w - 0.15, hover = true, shadow = true, colour = G.C.UI.BACKGROUND_INACTIVE, one_press = true, button = 'use_card', func = 'can_pull_consumeable'}, nodes={
-        --     {n=G.UIT.T, config={text = localize('b_kino_pull'),colour = G.C.UI.TEXT_LIGHT, scale = 0.55, shadow = true}}
-        --     }},
-        -- }}
-
-        -- use = {n=G.UIT.C, 
-        -- config={align = "cr"}, 
-        -- nodes={
-        --     {n=G.UIT.C, config={ref_table = card, align = "cr",maxw = 1.25, padding = 0.1, r=0.08, minw = 1.25, minh = (card.area and card.area.config.type == 'joker') and 0 or 1, hover = true, shadow = true, colour = G.C.UI.BACKGROUND_INACTIVE, one_press = true, button = 'use_card', func = 'can_use_consumeable'}, nodes={
-        --         {n=G.UIT.B, config = {w=0.1,h=0.6}},
-        --         {n=G.UIT.T, config={text = localize('b_use'),colour = G.C.UI.TEXT_LIGHT, scale = 0.55, shadow = true}}
-        --     }}
-        -- }}
-
-        -- sell = nil
 
         -- Pull button
         -- Use only when in consumables or snackbag
@@ -881,11 +798,6 @@ function G.UIDEF.use_and_sell_buttons(card)
 							},
 						},
 					},
-					-- { n = G.UIT.R, config = { align = "bm", w = 7.7 * card.T.w } },
-					-- { n = G.UIT.R, config = { align = "bm", w = 7.7 * card.T.w } },
-					-- { n = G.UIT.R, config = { align = "bm", w = 7.7 * card.T.w } },
-					-- { n = G.UIT.R, config = { align = "bm", w = 7.7 * card.T.w } },
-					-- Betmma can't explain it, neither can I
 				},
 			}
         end
@@ -908,10 +820,6 @@ function Card.generate_UIBox_ability_table(self, ...)
             generate_card_ui({set = 'Other', key = "output_powerchange", vars = {_multiplier}}, full_UI_table)
         end
     end
-
-    -- if self.ability.kino_counter and self.ability.kino_numcounters > 0 then
-    --     generate_card_ui({set = 'Other', key = self.ability.kino_counter .. "_counter", vars = {self.ability.kino_retrigger_counters}}, full_UI_table)
-    -- end
 
     return full_UI_table
 end
@@ -936,17 +844,13 @@ SMODS.DrawStep {
                     blind_indicator_sprite.role.draw_major = card
                     blind_indicator_sprite:draw_shader('dissolve',0, nil, nil, card.children.center,scale_mod, rotate_mod, _xOffset, 0.1 + 0.03*math.sin(1.8*G.TIMERS.REAL) + _yOffset,nil, 0.6)
                     -- blind_indicator_sprite:draw_shader(_shader, _shadow_height, _send, _no_tilt, other_obj, ms, mr, mx, my, custom_shader, tilt_shadow)
-                    -- blind_indicator_sprite:draw_shader('dissolve', 0, nil, nil, self.children.center, 0.1, nil, nil, 0.1 + 0.03*math.sin(1.8*G.TIMERS.REAL) + self.T.h*-0.2, nil, 0.6)
                     blind_indicator_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, scale_mod, rotate_mod, _xOffset, _yOffset)
-                    -- blind_indicator_sprite:draw_shader('dissolve', nil, nil, nil, self.children.center, 0.1, nil, nil, self.T.h*-0.2)
+
                 end
             else
             end
         end
 
-        -- if card and card.children.back_uibox then
-        --     card.children.back_uibox.states.visible = false
-        -- end
     end,
     conditions = {vortex = false, facing = 'front'}
 }
@@ -967,10 +871,6 @@ SMODS.DrawStep {
                 kino_monster_sprite:draw_shader('dissolve',0, nil, nil, card.children.center,scale_mod, rotate_mod, _xOffset, 0.1 + 0.03*math.sin(1.8*G.TIMERS.REAL) + _yOffset,nil, 0.6)
                 kino_monster_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, scale_mod, rotate_mod, _xOffset, _yOffset)
         end
-
-        -- if card and card.children.back_uibox then
-        --     card.children.back_uibox.states.visible = false
-        -- end
     end,
     conditions = {vortex = false, facing = 'front'}
 }
@@ -990,146 +890,3 @@ SMODS.DrawStep {
     end,
     conditions = {vortex = false, facing = 'front'}
 }
--- local textbox = nil
--- SMODS.DrawStep {
---     key = "kino_powerchange_indicator",
---     order = 51,
---     func = function(card, layer)
---         if card and card.ability and card.ability.output_powerchange then
---             local _multiplier = 1
---             for _source, _mult in pairs(card.ability.output_powerchange) do
---                 _multiplier = _multiplier * _mult
---             end
---             if _multiplier < 1 then
---                 local _xOffset = -0.25
---                 local _yOffset = 1.5
---                 G.shared_indicator_sprites.powerchange_sprite.role.draw_major = card
---                 G.shared_indicator_sprites.powerchange_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, -0.2, nil, _xOffset, _yOffset)
-                
---                 textbox = textbox or UIBox {
---                     definition = {
---                         n = G.UIT.ROOT,
---                         config = {
---                             minh = 0.6,
---                             maxh = 1.2,
---                             minw = 0.6,
---                             maxw = 2,
---                             r = 0.001,
---                             padding = 0,
---                             align = 'lb',
---                             colour = G.C.CLEAR,
---                             shadow = false,
---                             ref_table = card
---                         },  
---                         nodes = { 
---                             {
---                                 n = G.UIT.O,
---                                 config = {
---                                     object = DynaText({
---                                         string = "2",
---                                         colours = G.C.WHITE,
---                                         bump = true,
---                                         silent = true,
---                                         maxw = 1,
---                                         shadow = true,
---                                         y_offset = 0
---                                     })
---                                 }
---                             }
---                         }
---                     },
---                     config = {
---                         align = "bli",
---                         bond = 'Strong',
---                         parent = card,
---                     },
---                     states = {
---                         collide = {can = false},
---                         drag = { can = true }
---                     }
---                 }
---                 textbox.role.draw_major = card
---                 textbox:draw_shader('dissolve', nil, nil, nil, card.children.center, -0.2, nil, _xOffset, _yOffset)
-
-
---             end
---         end
---     end,
---     conditions = {vortex = false, facing = 'front'}
--- }
-
-
-
--- ===== Card upgrade steps ===== --
--- SMODS.DrawStep {
---     key = "card_buff_reader",
---     order = 40,
---     func = function(self, layer)
---         if self and self.ability and self.ability.set == 'Default' then
---             if self.ability.perma_bonus > 0 then
---                 -- Add 
---                 if not self.children.card_buff_reader_perma_bonus then
---                     self.children.card_buff_reader_perma_bonus = Kino.create_upgrade_ui_element(self, G.C.CHIPS)
---                 end
---             end
---         end
-
---     end,
---     conditions = {vortex = false, facing = 'front'}
--- }
-
--- -- UIBox element
--- Kino.create_upgrade_ui_element = function(card, colour, type)
---     local _usedColour = colour or G.C.CHIPS
-
---     local returnUI = UIBox {
---         definition = {
---             n = G.UIT.ROOT,
---             config = {
---                 minh = 0.01,
---                 maxh = 2,
---                 minw = 0.01,
---                 maxw = 2,
---                 r = 0.001,
---                 padding = 0.05,
---                 align = 'cm',
---                 colour = _usedColour,
---                 shadow = false,
---                 ref_table = card
---             },
---             nodes = {
---                 {
---                     n = G.UIT.C,
---                     config = {
---                         align = 'cm',
---                         colour = G.C.CLEAR,
---                         hover = true
---                     },
---                     nodes = {
---                         {
---                             n = G.UIT.T,
---                             config = {
---                                 ref_table = card.ability,
---                                 ref_value = "perma_bonus",
---                                 colour = G.C.WHITE, 
---                                 scale = 0.2, 
---                                 shadow = true
---                             }  
---                         }
---                     }
---                 }
---             }
---         },
---         config = {
---             align = "cl",
---             bond = 'Strong',
---             parent = card,
---         },
---         states = {
---             collide = {can = false},
---             drag = { can = true }
---         }
---     }
-
---     return returnUI
--- end

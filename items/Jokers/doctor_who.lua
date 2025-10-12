@@ -5,7 +5,7 @@ SMODS.Joker {
     config = {
         extra = {
             cards_abducted = {},
-            num_cards_abducted_non = 0,
+            num_cards_abducted = 0,
         }
     },
     rarity = 2,
@@ -27,7 +27,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi"},
+    k_genre = {"Sci-fi"},
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_active"}
@@ -35,13 +35,13 @@ SMODS.Joker {
         return {
             vars = {
                 card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0,
-                card.ability.extra.num_cards_abducted_non,
+                card.ability.extra.num_cards_abducted,
             }
         }
     end,
     calculate = function(self, card, context)
         -- If in your active joker slot, abduct a random card from your hand. When returned, it will have a random edition and Enhancement
-        card.ability.extra.num_cards_abducted_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
+        card.ability.extra.num_cards_abducted = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
 
         if context.after and context.cardarea == G.jokers and G.jokers.cards[1] == card then
             local _target = pseudorandom_element(G.hand.cards, pseudoseed("drwho"))

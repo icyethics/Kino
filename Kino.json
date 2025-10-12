@@ -5,13 +5,15 @@
     "description": "A mod that adds content to the game based on and inspired by cinema",
     "prefix": "kino",
     "main_file": "kino.lua",
-    "badge_colour": "1b61ad",
+    "badge_colour": "9f69bd",
+    "display_name": "Kino",
     "priority": 999,
     "version": "0.10.4b",
     "dependencies": ["Steamodded (>=1.0.0~BETA-0827a)", "Lovely (>=0.8)"],
     "provides": [
 		"Blockbuster-Counters",
-    "Blockbuster-Spellcasting"
+    "Blockbuster-Spellcasting",
+    "Blockbuster-ValueManipulation"
 	]
     
 }

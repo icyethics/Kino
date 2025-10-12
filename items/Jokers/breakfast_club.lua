@@ -4,7 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            starting_amount_non = 13,
+            starting_amount = 13,
             mult = 0,
             a_mult = 1
         }
@@ -28,7 +28,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Comedy", "Drama", "Romance"},
+    k_genre = {"Comedy", "Drama", "Romance"},
     in_pool = function(self, args)
         -- Check for the right frequency
         local suit_count = 0 

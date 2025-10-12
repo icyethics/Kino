@@ -31,9 +31,14 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
         end
     end
 
+    if _type == 'confection' and G.GAME.kino_food_stolen and G.GAME.kino_food_stolen > 0 then
+        _card:set_ability('c_kino_none')
+        G.GAME.kino_food_stolen = G.GAME.kino_food_stolen - 1
+    end
+
     -- Joker Changes --
     if G.GAME.used_vouchers.v_kino_awardsbait and _type == 'Joker' then
-        if _card.kino_joker then 
+        if Blockbuster.is_value_manip_compatible(_card) then 
             if pseudorandom("snack_boost_golden") < Kino.awardschance/100 then
                 SMODS.Stickers['kino_award']:apply(_card, true)
             end
@@ -57,7 +62,7 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
                 if _card.config.center.k_genre and genre_match(_genre, _card.config.center.k_genre) then
                     G.E_MANAGER:add_event(Event({
                         func = function()
-                            _card:set_multiplication_bonus(_card, 'card_back_' .. _genre, 1.5)
+                            Blockbuster.manipulate_value(_card, 'card_back_' .. _genre, 1.5)
                             return true
                         end
                     }))

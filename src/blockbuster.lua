@@ -6,7 +6,11 @@ if not Blockbuster then
 end
 Blockbuster.Counters = {}
 Blockbuster.Spellcasting = {}
+Blockbuster.ValueManipulation = {}
 Blockbuster.mod_dir = ''..SMODS.current_mod.path
+
+-- Config redirect
+Blockbuster.ValueManipulation_config = kino_config
 
 Blockbuster.Counters.disabledCounters = {
     
@@ -41,6 +45,7 @@ end
 local _list_of_folders = {
     "src/blockbuster/counters",
     "src/blockbuster/spells",
+    "src/blockbuster/value_manipulation"
 }
 
 for _index, _folder in ipairs(_list_of_folders) do
@@ -49,3 +54,5 @@ for _index, _folder in ipairs(_list_of_folders) do
         Blockbuster.load_file(_folder .. "/" .. _filename)
     end
 end
+
+Blockbuster.vanilla_joker_qualities()

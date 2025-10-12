@@ -5,7 +5,7 @@ SMODS.Joker {
     config = {
         is_starwars = true,
         extra = {
-            factor = 1,
+            handsize = 1,
             stacks = 0
         }
     },
@@ -34,7 +34,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.factor,
+                card.ability.extra.handsize,
                 card.ability.extra.stacks
             }
         }
@@ -42,7 +42,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- Gain handsize equal to the number of planet's used since last round
         if context.using_consumeable and context.consumeable.ability.set == "Planet" and not context.blueprint and not context.repetition then
-            card.ability.extra.stacks = card.ability.extra.stacks + card.ability.extra.factor
+            card.ability.extra.stacks = card.ability.extra.stacks + card.ability.extra.handsize
         end
 
         if context.setting_blind and not context.blueprint and not context.repetition then

@@ -4,7 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            items_created = 2
+            cards_created = 2
         }
     },
     rarity = 1,
@@ -26,20 +26,20 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi"},
+    k_genre = {"Sci-fi"},
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.c_kino_mars
         return {
             vars = {
-                card.ability.extra.items_created
+                card.ability.extra.cards_created
             }
         }
     end,
     calculate = function(self, card, context)
         if context.using_consumeable and not context.blueprint then
             if context.consumeable.ability.set == "Planet" and context.consumeable.ability.name == "Mars" then
-                for i = 1, card.ability.extra.items_created do
+                for i = 1, card.ability.extra.cards_created do
                     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
                         if G.consumeables.config.card_limit > #G.consumeables.cards then
                             play_sound('timpani')

@@ -33,7 +33,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Crime", "Mystery"},
+    k_genre = {"Crime", "Mystery"},
 
     loc_vars = function(self, info_queue, card)
         local _mainreturncodex = Kino.codex_ui("rank", card.ability.extra.codex_solve)

@@ -27,7 +27,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Horror", "Mystery", "Thriller"},
+    k_genre = {"Horror", "Mystery", "Thriller"},
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.counter_kino_power

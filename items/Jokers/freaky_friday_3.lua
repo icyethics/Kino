@@ -26,14 +26,13 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Comedy", "Family", "Fantasy"},
+    k_genre = {"Comedy", "Family", "Fantasy"},
     set_ability = function(self, card, initial, delay_sprites)
-        if card.area and card.area.config.collection then
+        if card.area and card.area.config.collection then return end
 
-        else
-            local edition = poll_edition('freaky_friday_3', nil, true, true)
-            card:set_edition({foil = true}, true)
-        end
+        local edition = poll_edition('freaky_friday_3', nil, true, true)
+        card:set_edition({foil = true}, true)
+
         
     end,
 

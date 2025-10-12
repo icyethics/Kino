@@ -29,7 +29,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Mystery", "Drama"},
+    k_genre = {"Mystery", "Drama"},
     legendary_conditions = function(self, card)
         -- Conditions for this legendary
 

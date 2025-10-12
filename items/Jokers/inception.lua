@@ -29,7 +29,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi", "Crime"},
+    k_genre = {"Sci-fi", "Crime"},
 
     loc_vars = function(self, info_queue, card)
         card.ability.blueprint_compat_ui = card.ability.blueprint_compat_ui or ""

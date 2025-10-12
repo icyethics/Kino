@@ -31,7 +31,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Biopic", "Drama", "Historical"},
+    k_genre = {"Biopic", "Drama", "Historical"},
 
     loc_vars = function(self, info_queue, card)
         local _mainreturncodex = Kino.codex_ui("rank", card.ability.extra.codex_solve)

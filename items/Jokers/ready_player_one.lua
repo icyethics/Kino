@@ -26,7 +26,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi", "Adventure"},
+    k_genre = {"Sci-fi", "Adventure"},
     in_pool = function(self, args)
         -- Check for the right frequency
         if G.jokers and G.jokers.cards then

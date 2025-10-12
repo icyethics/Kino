@@ -12,7 +12,7 @@ SMODS.Joker {
     cost = 7,
     blueprint_compat = true,
     perishable_compat = true,
-    pools, k_genre = {"Romance", "Musical"},
+    k_genre = {"Romance", "Musical"},
 
     loc_vars = function(self, info_queue, card)
         local _king_tally = 0

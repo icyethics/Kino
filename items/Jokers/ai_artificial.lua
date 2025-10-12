@@ -5,7 +5,6 @@ SMODS.Joker {
     config = {
         extra = {
             a_mult = 1,
-            mult = 0
         }
     },
     rarity = 1,
@@ -27,14 +26,14 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi"},
+    k_genre = {"Sci-fi"},
     enhancement_gate = 'm_kino_sci_fi',
 
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
                 card.ability.extra.a_mult,
-                card.ability.extra.mult,
+                card.ability.extra.a_mult * G.GAME.current_round.sci_fi_upgrades
             }
         }
     end,

@@ -26,7 +26,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Action", "Fantasy"},
+    k_genre = {"Action", "Fantasy"},
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.counter_kino_power
@@ -75,7 +75,7 @@ SMODS.Joker {
             -- pick a target pool: boosting
             local _validtargets = {}
             for _index, _joker in ipairs(G.jokers.cards) do
-                if _joker:can_calculate() and Kino.can_multiply(_joker) and _joker ~= card and _joker ~= _target then
+                if _joker:can_calculate() and Blockbuster.is_value_manip_compatible(_joker) and _joker ~= card and _joker ~= _target then
                     _validtargets[#_validtargets + 1] = _joker
                 end
             end

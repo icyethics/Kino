@@ -80,10 +80,8 @@ SMODS.Tag {
 
             local _validtargets = {}
             for _index, _joker in ipairs(G.jokers.cards) do
-                if Cryptid and ( not _joker.ability.kino_award or
-                G.GAME.used_vouchers.v_kino_egot) then
-                    _validtargets[#_validtargets + 1] = _joker
-                elseif _joker.config.center.kino_joker and ( not _joker.ability.kino_award or
+                if Blockbuster.is_value_manip_compatible(_joker) and 
+                (not _joker.ability.kino_award or
                 G.GAME.used_vouchers.v_kino_egot) then
                     _validtargets[#_validtargets + 1] = _joker
                 end

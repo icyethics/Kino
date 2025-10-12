@@ -1,3 +1,13 @@
+V 0.10.5:
+API Changes:
+- Blockbuster Value Manipulation has been added. Vanilla jokers now can be affected by value manipulation, and it will be easier to have other mods be compatible!
+
+Content Changes:
+- Jokers that do not benefit from value manipulation have been made incompatible, so that awards won't be able to be placed on them.
+- Specific values are now capped when value manipulated
+- Values that don't make sense to be decimals can no longer be manipulated into decimals, and instead are rounded up or down.
+
+
 V 0.10.4b:
 Bug Fix:
 - Shang Chi and the Legend of the Ten Rings no longer crashes the game

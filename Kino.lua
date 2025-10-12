@@ -6,245 +6,67 @@ kino_config = SMODS.current_mod.config
 -- Kino = SMODS.current_mod
 Kino.jokers = {}
 
-
 SMODS.current_mod.optional_features = {
 	retrigger_joker = true,
 	post_trigger = true,
 }
 
+local _jokeratlas_count = 10
 
--- Read in all the sprites
-SMODS.Atlas {
-    key = "kino_atlas_legendary",
-    px = 71,
-    py = 95,
-    path =  'kino_jokers_legendary.png'
-}
+for _index = 1, _jokeratlas_count do
+    local _numprefix = _index < 10 and "00" or "0"
 
-SMODS.Atlas {
-    key = "kino_atlas_1",
-    px = 71,
-    py = 95,
-    path =  '001_kino_jokerresprite.png'
-}
-SMODS.Atlas {
-    key = "kino_atlas_2",
-    px = 71,
-    py = 95,
-    path =  '002_kino_jokerresprite.png'
-}
-SMODS.Atlas {
-    key = "kino_atlas_3",
-    px = 71,
-    py = 95,
-    path =  '003_kino_jokerresprite.png'
-}
-SMODS.Atlas {
-    key = "kino_atlas_4",
-    px = 71,
-    py = 95,
-    path =  '004_kino_jokerresprite.png'
-}
-SMODS.Atlas {
-    key = "kino_atlas_5",
-    px = 71,
-    py = 95,
-    path =  '005_kino_jokerresprite.png'
-}
-SMODS.Atlas {
-    key = "kino_atlas_6",
-    px = 71,
-    py = 95,
-    path =  '006_kino_jokerresprite.png'
-}
-SMODS.Atlas {
-    key = "kino_atlas_7",
-    px = 71,
-    py = 95,
-    path =  '007_kino_jokerresprite.png'
-}
-SMODS.Atlas {
-    key = "kino_atlas_8",
-    px = 71,
-    py = 95,
-    path =  '008_kino_jokerresprite.png'
-}
-SMODS.Atlas {
-    key = "kino_atlas_9",
-    px = 71,
-    py = 95,
-    path =  '009_kino_jokerresprite.png'
+    SMODS.Atlas {
+        key = "kino_atlas_" .. _index,
+        px = 71,
+        py = 95,
+        path = _numprefix .. _index .. "_kino_jokerresprite.png"
+    }
+end
+
+local non_jokeratlases = 
+{
+    {"modicon", 32, 32, "modicon.png"},
+    {"kino_tarot", 71, 95, "kino_tarot.png"},
+    {"kino_enhancements", 71, 95, "kino_enhancements.png"},
+    {"kino_boosters", 71, 95, "kino_boosters.png"},
+    {"kino_confections", 71, 95, "kino_confections.png"},
+    {"kino_tags", 34, 34, "kino_tags.png"},
+    {"kino_vouchers", 71, 95, "kino_vouchers.png"},
+    {"kino_stickers", 71, 95, "kino_stickers.png"},
+    {"kino_ui", 40, 40, "kino_ui_assets.png"},
+    {"kino_ui_large", 71, 95, "kino_ui_assets_cardsized.png"},
+    {"kino_backs", 71, 95, "kino_backs.png"},
+    {"kino_backs_genre", 71, 95, "kino_genre_backs.png"},
+    {"kino_sleeves", 73, 95, "kino_sleeves.png"},
+    {"kino_sleeves_genre", 73, 95, "kino_genre_sleeves.png"},
+    {"kino_seg_display", 71, 95, "kino_seg_display.png"},
+    {"kino_counters_jokers", 71, 95, "kino_retrigger_info.png"},
+    {"kino_counters_pcards", 71, 95, "kino_counters_pcards.png"},
+    {"kino_splash_screen", 409, 211, "kino_splash_sprite.png"},
+    {'kino_atlas_legendary', 71, 95, 'kino_jokers_legendary.png'},
+    {'non_suit_spells', 71, 95, 'non_suit_spells.png'},
+
+    -- -- Crossmod
+    -- Cryptid
+    {"kino_cryptid_consumables", 71, 95, "kino_cryptid.png"},
+    {'kino_exotic', 71, 95, 'kino_exotic.png'},
+
+    -- MoreFluff
+    {"kino_morefluff_enhancements", 71, 95, "kino_morefluff_enhancements.png"},
+    {"kino_mf_rotarots", 107, 107, "kino_rotarot.png"},
+    {"kino_mf_time", 71, 71, "kino_timecard_special_asset.png"},
+    {"kino_mf_rotisserie", 71, 95, "kino_chicken_spritesheet.png"},
 }
 
-SMODS.Atlas {
-    key = "kino_atlas_10",
-    px = 71,
-    py = 95,
-    path =  '010_kino_jokerresprite.png'
-}
-
-SMODS.Atlas {
-    key = "kino_exotic",
-    px = 71,
-    py = 95,
-    path =  'kino_exotic.png'
-}
-
-SMODS.Atlas {
-    key = 'modicon',
-    px = 32,
-    py = 32,
-    path = 'modicon.png'
-}
-
-SMODS.Atlas {
-    key = 'kino_tarot',
-    px = 71,
-    py = 95,
-    path = 'kino_tarot.png'
-}
-
-SMODS.Atlas {
-    key = 'kino_enhancements',
-    px = 71,
-    py = 95,
-    path = 'kino_enhancements.png'
-}
-
-SMODS.Atlas {
-    key = 'kino_boosters',
-    px = 71,
-    py = 95,
-    path = 'kino_boosters.png'
-}
-
-SMODS.Atlas {
-    key = 'kino_confections',
-    px = 71,
-    py = 95,
-    path = 'kino_confections.png'
-}
-
-SMODS.Atlas {
-    key = "kino_tags",
-    px = 34,
-    py = 34,
-    path = 'kino_tags.png'
-}
-
-SMODS.Atlas {
-    key = "kino_vouchers",
-    px = 71,
-    py = 95,
-    path =  'kino_vouchers.png'
-}
-
-SMODS.Atlas {
-    key = "kino_stickers",
-    px = 71,
-    py = 95,
-    path = 'kino_stickers.png'
-}
-
-SMODS.Atlas {
-    key = "kino_ui",
-    px = 40,
-    py = 40,
-    path = 'kino_ui_assets.png'
-}
-
-SMODS.Atlas {
-    key = "kino_ui_large",
-    px = 71,
-    py = 95,
-    path = 'kino_ui_assets_cardsized.png'
-}
-
-SMODS.Atlas {
-    key = "kino_backs",
-    px = 71,
-    py = 95,
-    path = 'kino_backs.png'
-}
-
-SMODS.Atlas {
-    key = "kino_backs_genre",
-    px = 71,
-    py = 95,
-    path = 'kino_genre_backs.png'
-}
-
-SMODS.Atlas {
-    key = "kino_sleeves",
-    px = 73,
-    py = 95,
-    path = 'kino_sleeves.png'
-}
-
-SMODS.Atlas {
-    key = "kino_sleeves_genre",
-    px = 73,
-    py = 95,
-    path = 'kino_genre_sleeves.png'
-}
-
-SMODS.Atlas {
-    key = "kino_seg_display",
-    px = 71,
-    py = 95,
-    path = 'kino_seg_display.png'
-}
-
-SMODS.Atlas {
-    key = "kino_counters_jokers",
-    px = 71,
-    py = 95,
-    path = 'kino_retrigger_info.png'
-}
-
-SMODS.Atlas {
-    key = "kino_counters_pcards",
-    px = 71,
-    py = 95,
-    path = 'kino_counters_pcards.png'
-}
-
-SMODS.Atlas {
-    key = "kino_splash_screen",
-    px = 409,
-    py = 211,
-    path = 'kino_splash_sprite.png'
-}
-
--- Crossmod Atlases
-SMODS.Atlas {
-    key = "kino_cryptid_consumables",
-    px = 71,
-    py = 95,
-    path = 'kino_cryptid.png'
-}
-
-SMODS.Atlas {
-    key = "kino_morefluff_enhancements",
-    px = 71,
-    py = 95,
-    path = 'kino_morefluff_enhancements.png'
-}
-
-SMODS.Atlas {
-    key = "kino_mf_rotarots",
-    px = 107,
-    py = 107,
-    path = 'kino_rotarot.png'
-}
-
-SMODS.Atlas {
-    key = "kino_mf_time",
-    px = 71,
-    py = 71,
-    path = 'kino_timecard_special_asset.png'
-}
-
+for _index, _object in ipairs(non_jokeratlases) do
+    SMODS.Atlas {
+        key = _object[1],
+        px = _object[2],
+        py = _object[3],
+        path = _object[4]
+    }
+end
 -- New file loading code
 
 function Kino.load_file(file_address)
@@ -257,37 +79,29 @@ function Kino.load_file(file_address)
 end
 
 local _list_of_files = {
-    "src/kino_ui.lua",
+   
     "card_ui.lua",
     "kinofunctions.lua",
     "jokers.lua",
     "Kinogenres.lua",
-
     "movie_info.lua",
-    -- "src/boss_blinds.lua",
-    "src/abduction.lua",
-    "src/codex_rework.lua",
-    "src/counters.lua",
-    "src/snack_bag.lua",
-    "src/quest.lua",
-    "src/malverk.lua",
-    "src/per_card_rarity.lua",
-    "src/powerchanges.lua",
-    "src/create_card.lua",
-    "src/start_run.lua",
-    "src/cryptid.lua",
-    "src/spritemanipulation.lua",
-    "src/consumable_functions.lua",
-    "src/jumpscare.lua",
-    "src/run_info.lua",
-    "src/actor_ui.lua",
-
-    -- Blockbuster loading
-    "src/blockbuster.lua"
 }
 
 for _index, _filename in ipairs(_list_of_files) do
     Kino.load_file(_filename)
+end
+
+-- Read in Files
+local _list_of_folders = {
+    "src",
+    "src/crossmod",
+}
+
+for _index, _folder in ipairs(_list_of_folders) do
+    local files = NFS.getDirectoryItems(Kino.mod_dir .. _folder)
+    for _, _filename in ipairs(files) do
+        Kino.load_file(_folder .. "/" .. _filename)
+    end
 end
 
 -- Load game objects
@@ -383,6 +197,11 @@ for _, file in ipairs(files) do
     assert(SMODS.load_file("items/counters/" .. file))()
 end
 
+-- Register the CompatStandards
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/compat_standard")
+for _, file in ipairs(files) do
+    assert(SMODS.load_file("items/compat_standard/" .. file))()
+end
 
 -- Register the Consumables
 local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/consumables")
@@ -425,12 +244,11 @@ if kino_config.spellcasting then
     end
 end
 
-if kino_config.spellcasting then
-    local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/challenges")
-    for _, file in ipairs(files) do
-        assert(SMODS.load_file("items/challenges/" .. file))()
-    end
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/challenges")
+for _, file in ipairs(files) do
+    assert(SMODS.load_file("items/challenges/" .. file))()
 end
+
 
 kino_genre_init()
 Kino.metadata()

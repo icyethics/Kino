@@ -1,9 +1,9 @@
 Blockbuster.create_overylay_spell_showcase = function()
 
-local _pool = {}
+Blockbuster.Spellcasting.Spellbook_spells = {}
 for i, v in pairs(Blockbuster.Spellcasting.Spells) do
     if not v.no_collection and #v.suit_recipe == 2 then
-        _pool[#_pool + 1] = v
+        Blockbuster.Spellcasting.Spellbook_spells[#Blockbuster.Spellcasting.Spellbook_spells + 1] = v
     end
 end
 
@@ -48,36 +48,16 @@ local _boxnode = {
 -- table.insert(_rows, _boxnode)
 
 local _textnode2 = {}
-
-for i = 1, math.ceil(#_pool / 5) do
-    local _spellarea = CardArea(
+-- Create the card areas
+Blockbuster.Spellcasting.Spellbook_cardareas = {}
+for i = 1, 2 do
+    Blockbuster.Spellcasting.Spellbook_cardareas[i] = CardArea(
             0,
             0,
             G.CARD_W * 4.50,
             G.CARD_H * 1.1,
         {card_limit = 5, type = 'title', highlight_limit = 0, collection = true}
     )
-
-    for j = 1, 5 do
-        local _center = _pool[-5 + (i * 5) + j]
-
-        if not _center then break end
-
-        local _card = Card(
-            _spellarea.T.x + _spellarea.T.w/2, 
-            _spellarea.T.y, 
-            G.CARD_W, 
-            G.CARD_H, 
-            nil, 
-            _center,
-            {bypass_discovery_center=true,bypass_discovery_ui=true,bypass_lock=true}
-        )
-
-        _card.states.visible = true
-        _card:start_materialize(nil, true)
-        _spellarea:emplace(_card)
-    end
-
     local _row = {
         n = G.UIT.R,
         config = {
@@ -88,7 +68,7 @@ for i = 1, math.ceil(#_pool / 5) do
         nodes = {
                 {n = G.UIT.O,
                 config = {
-                    object = _spellarea
+                    object = Blockbuster.Spellcasting.Spellbook_cardareas[i]
                 }
             }
         }
@@ -96,6 +76,37 @@ for i = 1, math.ceil(#_pool / 5) do
 
     table.insert(_rows, _row)
 end
+
+-- Add the cards
+for i = 1, #Blockbuster.Spellcasting.Spellbook_cardareas do
+    for j = 1, 5 do
+        local _center = Blockbuster.Spellcasting.Spellbook_spells[-5 + (i * 5) + j]
+
+        if not _center then break end
+
+        local _card = Card(
+            Blockbuster.Spellcasting.Spellbook_cardareas[i].T.x + Blockbuster.Spellcasting.Spellbook_cardareas[i].T.w/2, 
+            Blockbuster.Spellcasting.Spellbook_cardareas[i].T.y, 
+            G.CARD_W, 
+            G.CARD_H, 
+            nil, 
+            _center,
+            {bypass_discovery_center=true,bypass_discovery_ui=true,bypass_lock=true}
+        )
+
+        _card.states.visible = true
+        _card:start_materialize(nil, true)
+        Blockbuster.Spellcasting.Spellbook_cardareas[i]:emplace(_card)
+    end
+end
+
+-- Add option wheel?
+local spell_options = {}
+for i = 1, math.ceil(#Blockbuster.Spellcasting.Spellbook_spells/(5 * #Blockbuster.Spellcasting.Spellbook_cardareas)) do
+    table.insert(spell_options, localize('k_page')..' '..tostring(i)..'/'..tostring(math.ceil(#Blockbuster.Spellcasting.Spellbook_spells/(5*#_rows))))
+end
+
+    
 
 local text = {
     {text = localize("k_bb_spellbook"), size = 0.5},
@@ -374,7 +385,19 @@ local t  = G.FUNCS.overlay_menu({
                                     r = 0.01,
                                     colour = G.C.BLACK
                                 },
-                                nodes = _rows
+                                nodes = {
+                                    {
+                                        n = G.UIT.C,
+                                        config = { align = "cr", colour = G.C.CLEAR},
+                                        nodes = {
+                                            {n=G.UIT.R, config={align = "cm", r = 0.1, colour = G.C.BLACK, emboss = 0.05}, nodes=_rows}, 
+                                            {n=G.UIT.R, config={align = "cm"}, nodes={
+                                            create_option_cycle({options = spell_options, w = 4.5, cycle_shoulders = true, opt_callback = 'blockbuster_spellbook_cycle', current_option = 1, colour = G.C.RED, no_pips = true, focus_args = {snap_to = true, nav = 'wide'}})
+                                                }
+                                            }
+                                        }
+                                    },
+                                }
                             },
                         }
                     },
@@ -409,3 +432,24 @@ SMODS.Keybind({
     end
 })
 
+G.FUNCS.blockbuster_spellbook_cycle = function(args)
+  if not args or not args.cycle_config then return end
+
+  for j = 1, #Blockbuster.Spellcasting.Spellbook_cardareas do
+    for i = #Blockbuster.Spellcasting.Spellbook_cardareas[j].cards,1, -1 do
+      local c = Blockbuster.Spellcasting.Spellbook_cardareas[j]:remove_card(Blockbuster.Spellcasting.Spellbook_cardareas[j].cards[i])
+      c:remove()
+      c = nil
+    end
+  end
+
+  for i = 1, 5 do
+    for j = 1, #Blockbuster.Spellcasting.Spellbook_cardareas do
+      local center = Blockbuster.Spellcasting.Spellbook_spells[i+(j-1)*5 + (5*#Blockbuster.Spellcasting.Spellbook_cardareas*(args.cycle_config.current_option - 1))]
+      if not center then break end
+      local card = Card(Blockbuster.Spellcasting.Spellbook_cardareas[j].T.x + Blockbuster.Spellcasting.Spellbook_cardareas[j].T.w/2, Blockbuster.Spellcasting.Spellbook_cardareas[j].T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, center)
+      card.sticker = get_joker_win_sticker(center)
+      Blockbuster.Spellcasting.Spellbook_cardareas[j]:emplace(card)
+    end
+  end
+end

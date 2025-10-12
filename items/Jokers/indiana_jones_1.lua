@@ -28,7 +28,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Adventure"},
+    k_genre = {"Adventure"},
     legendary_conditions = function(self, card)
         -- Conditions for this legendary
         -- Movie that shares a director

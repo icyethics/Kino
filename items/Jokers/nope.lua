@@ -7,7 +7,7 @@ SMODS.Joker {
             cards_abducted = {},
             stacked_mult = 0,
             a_mult = 5,
-            num_cards_abducted_non = 0,
+            num_cards_abducted = 0,
         }
     },
     rarity = 1,
@@ -29,7 +29,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi", "Horror"},
+    k_genre = {"Sci-fi", "Horror"},
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "keyword_abduct"}
@@ -38,7 +38,7 @@ SMODS.Joker {
                 card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0,
                 card.ability.extra.stacked_mult,
                 card.ability.extra.a_mult,
-                card.ability.extra.num_cards_abducted_non
+                card.ability.extra.num_cards_abducted
             }
         }
     end,
@@ -46,7 +46,7 @@ SMODS.Joker {
         -- When your hand contains 5 cards, abduct a random card
         -- When the abduction ends, return it to the hand debuffed
         -- and increase mult by 3
-        card.ability.extra.num_cards_abducted_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
+        card.ability.extra.num_cards_abducted = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
 
         if context.joker_main then
             return {

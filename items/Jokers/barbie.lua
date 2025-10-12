@@ -27,7 +27,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Comedy", "Adventure"},
+    k_genre = {"Comedy", "Adventure"},
 
     legendary_conditions = function(self, card)
         -- Conditions for this legendary

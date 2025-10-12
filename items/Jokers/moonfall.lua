@@ -5,7 +5,7 @@ SMODS.Joker {
     config = {
         extra = {
             cards_abducted = {},
-            num_cards_abducted_non = 0,
+            num_cards_abducted = 0,
             chips = 5
         }
     },
@@ -28,7 +28,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi"},
+    k_genre = {"Sci-fi"},
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "keyword_abduct"}
@@ -43,7 +43,7 @@ SMODS.Joker {
         return {
             vars = {
                 card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0,
-                card.ability.extra.num_cards_abducted_non,
+                card.ability.extra.num_cards_abducted,
                 card.ability.extra.chips,
                 _count * card.ability.extra.chips
             }
@@ -53,7 +53,7 @@ SMODS.Joker {
         -- On your first hand played, abduct all scoring non-club cards
         -- Release: Release them as club cards
         -- Gives +5 chips for each clubs in your starting deck
-        card.ability.extra.num_cards_abducted_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
+        card.ability.extra.num_cards_abducted = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
 
         if context.after and context.scoring_hand and context.cardarea == G.jokers
         and G.GAME.current_round.hands_played == 0 then

@@ -27,7 +27,7 @@ SMODS.Joker {
         cast = {},
     },
     enhancement_gate = "m_stone",
-    pools, k_genre = {"Action"},
+    k_genre = {"Action"},
 
     loc_vars = function(self, info_queue, card)
         return {

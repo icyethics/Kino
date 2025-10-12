@@ -152,6 +152,22 @@ Game.init_game_object = function(self)
         end
     end
 
+    -- Rotisserie Sprites loading
+
+    self.rotisserie_sprites = {
+    }
+
+    for segment_index = 1, 8 do
+        self.rotisserie_sprites[segment_index] = {}
+        for heat_index = 1, 8 do
+            self.rotisserie_sprites[segment_index][heat_index] = Sprite(0, 0, self.CARD_W, self.CARD_H,
+                G.ASSET_ATLAS["kino_mf_rotisserie"], {
+                    x = heat_index - 1,
+                    y = segment_index - 1,
+                })
+        end
+    end
+
     ret.kino_genre_weight = {}
     for _, _genre in ipairs(kino_genres) do
         ret.kino_genre_weight[_genre] = 0

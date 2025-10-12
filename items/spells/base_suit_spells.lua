@@ -3,9 +3,8 @@ Blockbuster.Spellcasting.Spell {
     key = "Wild_Wild",
     order = 1,
     atlas = "suit_spells",
-    no_collection = true,
     prefix_config = {key = { mod = false, atlas = false}},
-    pos = {x = 0, y = 0},
+    pos = {x = 0, y = 2},
     config = {
         target = "random_spell",
         strength = {1,2,3,4}
@@ -57,9 +56,8 @@ Blockbuster.Spellcasting.Spell {
     key = "Wild_Hearts",
     order = 1,
     atlas = "suit_spells",
-    no_collection = true,
     prefix_config = {key = { mod = false, atlas = false}},
-    pos = {x = 0, y = 0},
+    pos = {x = 1, y = 2},
     config = {
         target = "random_spell",
         strength = {1,2,3,4}
@@ -111,9 +109,8 @@ Blockbuster.Spellcasting.Spell {
     key = "Wild_Diamonds",
     order = 1,
     atlas = "suit_spells",
-    no_collection = true,
     prefix_config = {key = { mod = false, atlas = false}},
-    pos = {x = 0, y = 0},
+    pos = {x = 2, y = 2},
     config = {
         target = "random_spell",
         strength = {1,2,3,4}
@@ -165,9 +162,8 @@ Blockbuster.Spellcasting.Spell {
     key = "Wild_Clubs",
     order = 1,
     atlas = "suit_spells",
-    no_collection = true,
     prefix_config = {key = { mod = false, atlas = false}},
-    pos = {x = 0, y = 0},
+    pos = {x = 3, y = 2},
     config = {
         target = "random_spell",
         strength = {1,2,3,4}
@@ -219,9 +215,8 @@ Blockbuster.Spellcasting.Spell {
     key = "Wild_Spades",
     order = 1,
     atlas = "suit_spells",
-    no_collection = true,
     prefix_config = {key = { mod = false, atlas = false}},
-    pos = {x = 0, y = 0},
+    pos = {x = 4, y = 2},
     config = {
         target = "random_spell",
         strength = {1,2,3,4}

@@ -18,7 +18,7 @@ if not Cryptid then
         end,
         can_use = function(self, card)
             return #G.jokers.highlighted == 1
-                and G.jokers.highlighted[1].config.center.kino_joker
+                and Blockbuster.is_value_manip_compatible(G.jokers.highlighted[1])
                 and ( not G.jokers.highlighted[1].ability.kino_award or
                 G.GAME.used_vouchers.v_kino_egot)
         end,
@@ -46,6 +46,7 @@ if Cryptid and Talisman then
         end,
         can_use = function(self, card)
             return #G.jokers.highlighted == 1
+                and Blockbuster.is_value_manip_compatible(G.jokers.highlighted[1])
                 and ( not G.jokers.highlighted[1].ability.kino_award or
                 G.GAME.used_vouchers.v_kino_egot)
         end,

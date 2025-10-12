@@ -26,9 +26,9 @@ Blockbuster.Counters.Counter {
     increment = function(self, card, number)
     end,
     add_counter = function(self, card, number)
-        card:set_multiplication_bonus(card, self.key, 2)
+        Blockbuster.manipulate_value(card, self.key, 2)
     end,
     remove_counter = function(self, card)
-        card:set_multiplication_bonus(card, self.key, 1, nil, 1 + 1)
+        Blockbuster.reset_value_multiplication(card, self.key)
     end,
 }

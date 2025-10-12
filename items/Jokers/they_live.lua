@@ -5,7 +5,7 @@ SMODS.Joker {
     config = {
         extra = {
             cards_abducted = {},
-            num_cards_abducted_non = 0,
+            num_cards_abducted = 0,
             a_dollar = 1,
             payout_non = 0
         }
@@ -29,23 +29,23 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi", "Action"},
+    k_genre = {"Sci-fi", "Action"},
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "keyword_abduct"}
         return {
             vars = {
                 card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0,
-                card.ability.extra.num_cards_abducted_non,
+                card.ability.extra.num_cards_abducted,
                 card.ability.extra.a_dollar,
-                card.ability.extra.num_cards_abducted_non * card.ability.extra.a_dollar,
+                card.ability.extra.num_cards_abducted * card.ability.extra.a_dollar,
                 card.ability.extra.payout_non
             }
         }
     end,
     calculate = function(self, card, context)
         -- Abduct every card on your first discard. Give $1 per abducted card at the end of the round
-        card.ability.extra.num_cards_abducted_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
+        card.ability.extra.num_cards_abducted = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
 
         if context.discard and context.cardarea == G.jokers and G.GAME.current_round.discards_used <= 0 then
             card.ability.extra.payout_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0

@@ -29,7 +29,7 @@ SMODS.Joker {
         cast = {},
     },
     kino_spellcaster = true,
-    pools, k_genre = {"Superhero", "Fantasy"},
+    k_genre = {"Superhero", "Fantasy"},
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_spellcasting"}
@@ -49,7 +49,8 @@ SMODS.Joker {
         if _val > 10 then
             _val = 1
         end
-        info_queue[#info_queue + 1] = Blockbuster.Spellcasting.Spells[_spell_list[_val]]
+        -- info_queue[#info_queue + 1] = Blockbuster.Spellcasting.Spells[_spell_list[_val]]
+        info_queue[#info_queue + 1] = Blockbuster.spell_info_queue(_spell_list[_val])
 
         return {
             vars = {

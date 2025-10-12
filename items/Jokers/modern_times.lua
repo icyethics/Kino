@@ -29,7 +29,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Comedy", "Silent"},
+    k_genre = {"Comedy", "Silent"},
 
     loc_vars = function(self, info_queue, card)
         local new_numerator_retrigger, new_denominator_retrigger = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_tarot_creation")

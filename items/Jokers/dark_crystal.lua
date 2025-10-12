@@ -28,7 +28,7 @@ SMODS.Joker {
         cast = {},
     },
     kino_spellcaster = true,
-    pools, k_genre = {"Fantasy"},
+    k_genre = {"Fantasy"},
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_spellcasting"}

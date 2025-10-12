@@ -4,7 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            handsize_gain = 1
+            handsize = 1
         }   
     },
     rarity = 2,
@@ -26,12 +26,12 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Romance", "Musical"},
+    k_genre = {"Romance", "Musical"},
 
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.handsize_gain
+                card.ability.extra.handsize
             }
         }
     end,
@@ -54,7 +54,7 @@ SMODS.Joker {
             end
 
             if _suitcount > 1 then
-                local _handsize = _suitcount * card.ability.extra.handsize_gain
+                local _handsize = _suitcount * card.ability.extra.handsize
                 G.hand:change_size(_handsize)
                 G.GAME.round_resets.temp_handsize = (G.GAME.round_resets.temp_handsize or 0) + _handsize
                 return {

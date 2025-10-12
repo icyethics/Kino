@@ -30,7 +30,8 @@ SMODS.Sticker{
 
         card.ability[self.key] = val
         card.ability[self.key .. "_times"] = (card.ability[self.key .. "_times"] or 0) + 1
-        card:set_multiplication_bonus(card)
+        
+        Blockbuster.manipulate_value(card, "award_sticker", Kino.award_mult ^ card.ability.kino_award_times)
     end,
     badge_colour = HEX('ffd081'),
     no_collection = true,
@@ -72,7 +73,8 @@ SMODS.Sticker{
 
         card.ability.kino_award = val
         card.ability.kino_award_times = (card.ability.kino_award_times or 0) + 1
-        card:set_multiplication_bonus(card, "kino_award", Kino.award_mult)
+        
+        Blockbuster.manipulate_value(card, "award_sticker", Kino.award_mult ^ card.ability.kino_award_times)
     end,
     badge_colour = HEX('ffd081'),
     no_collection = true,

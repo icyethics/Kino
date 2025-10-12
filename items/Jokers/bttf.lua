@@ -4,11 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            card_1 = "???",
-            card_2 = "???",
-            card_3 = "???",
-            colours = {"nil","nil","nil"},
-            amount = 3
+            display_amount = 3
         }
     },
     rarity = 1,
@@ -30,43 +26,64 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi"},
+    k_genre = {"Sci-fi"},
 
     loc_vars = function(self, info_queue, card)
-        local _card1 = "???"
-        local _card2 = "???"
-        local _card3 = "???"
 
-        if card.area == G.jokers then
-            if G.deck and G.deck.cards[#G.deck.cards] then
-                local _cardname = G.deck.cards[#G.deck.cards].config.card_key
-                _card1 = G.P_CARDS[_cardname].name
-            end
-            if G.deck and G.deck.cards[#G.deck.cards - 1] then
-                local _cardname = G.deck.cards[#G.deck.cards - 1].config.card_key
-                _card2 = G.P_CARDS[_cardname].name
-            end
-
-            if G.deck and G.deck.cards[#G.deck.cards - 2] then
-                local _cardname = G.deck.cards[#G.deck.cards - 2].config.card_key
-                _card3 = G.P_CARDS[_cardname].name
-            end
-        end
-        
+        local _display = card.area == G.jokers and Kino.bttf_preview(G.deck.cards, card.ability.extra.display_amount) or nil
 
         return {
             vars = {
-                _card1,
-                _card2,
-                _card3
-            }
+                card.ability.extra.display_amount,
+            },
+            main_end = _display
         }
     end,
     calculate = function(self, card, context)
         -- Shows you the top three cards
-
-        card.ability.extra.card_1 = "" .. (G.deck and G.deck.cards[1] and G.deck.cards[#G.deck.cards].base.id or "?")..(G.deck and G.deck.cards[1] and G.deck.cards[#G.deck.cards].base.suit:sub(1,1) or '??')
-        card.ability.extra.card_2 = "" .. (G.deck and G.deck.cards[2] and G.deck.cards[#G.deck.cards -1].base.id or "???")..(G.deck and G.deck.cards[1] and G.deck.cards[#G.deck.cards-1].base.suit:sub(1,1) or '??')
-        card.ability.extra.card_3 = "" .. (G.deck and G.deck.cards[3] and G.deck.cards[#G.deck.cards -2].base.id or "???")..(G.deck and G.deck.cards[1] and G.deck.cards[#G.deck.cards-2].base.suit:sub(1,1) or '??')
     end
 }
+
+function Kino.bttf_preview(card_table, num)
+    if not card_table or type(card_table) ~= "table" or #card_table < 1 or num < 1 then
+        return nil
+    end
+
+    local _width = math.min(num*G.CARD_W, 6*G.CARD_W)
+    local _scale = 0.5
+    Kino.bttf_preview_area = CardArea(
+        2,2,
+        _width * _scale,
+        (0.95*G.CARD_H) * _scale, 
+        {card_limit = num, type = 'title', highlight_limit = 0, temporary = true}
+    )
+
+    for i = 1, num do
+        local _startScale = 0.3
+        local _card = copy_card(card_table[#card_table + 1 - (i)], nil, _startScale)
+        ease_value(_card.T, 'scale',0.5,nil,'REAL',true,0.2)
+        -- local _card = Card(0,0, 0.5*G.CARD_W, 0.5*G.CARD_H, G.P_CARDS['S_A'], G.P_CENTERS['c_base'])
+        Kino.bttf_preview_area:emplace(_card)
+    end
+
+    local _return = {
+        {
+            n = G.UIT.C,
+            config = {
+                align = 'cm',
+                colour = G.C.CLEAR,
+                padding = 0.1
+            },
+            nodes = {
+                {
+                    n=G.UIT.O, 
+                    config = {
+                        object = Kino.bttf_preview_area
+                    }
+                }
+            }
+        }
+    }
+
+    return _return
+end

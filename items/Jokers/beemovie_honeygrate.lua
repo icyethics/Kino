@@ -32,7 +32,7 @@ SMODS.Joker {
     in_pool = function(self, args)
         return false
     end,
-    -- pools, k_genre = {"Animation", "Comedy", "Family"},
+    -- k_genre = {"Animation", "Comedy", "Family"},
     loc_vars = function(self, info_queue, card)
         return {
             vars = {

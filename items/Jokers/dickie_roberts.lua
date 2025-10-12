@@ -28,7 +28,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Comedy"},
+    k_genre = {"Comedy"},
     in_pool = function(self, args)
         -- Check for the right frequency
         local suit_count = 0 

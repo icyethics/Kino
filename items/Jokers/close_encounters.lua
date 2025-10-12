@@ -5,7 +5,7 @@ SMODS.Joker {
     config = {
         extra = {
             cards_abducted = {},
-            num_cards_abducted_non = 0,
+            num_cards_abducted = 0,
             a_chips = 20,
         }
     },
@@ -28,14 +28,14 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi"},
+    k_genre = {"Sci-fi"},
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "keyword_abduct"}
         return {
             vars = {
                 card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0,
-                card.ability.extra.num_cards_abducted_non,
+                card.ability.extra.num_cards_abducted,
                 card.ability.extra.a_chips,
                 (Kino.abduction and Kino.abduction.cards) and (#Kino.abduction.cards * card.ability.extra.a_chips) or 0
             }
@@ -44,7 +44,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- If you play a High Card, abduct it
         -- Gives 20 chips for each card currently abducted
-        card.ability.extra.num_cards_abducted_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
+        card.ability.extra.num_cards_abducted = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
 
         if context.joker_main then
             return {

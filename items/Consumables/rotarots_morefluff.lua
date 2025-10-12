@@ -116,33 +116,33 @@ if next(SMODS.find_mod("MoreFluff")) then
     })
     
     -- Detective
-    -- SMODS.Consumable({
-    --     object_type = "Consumable",
-    --     set = "Rotarot",
-    --     name = "rot_kino_meetcute",
-    --     key = "rot_meetcute",
-    --     pos = { x = 3, y = 0 },
-    --     config = {
-    --         max_highlighted = 1,
-    --         mod_conv = "m_kino_finance"
-    --     },
-    --     cost = 4,
-    --     atlas = "kino_mf_rotarots",
-    --     unlocked = true,
-    --     discovered = true,
-    --     display_size = { w = 107, h = 107 },
-    --     can_use = function(self, card)
-    --         return #G.hand.highlighted >= 1 and #G.hand.highlighted <= card.ability.max_highlighted
-    --     end,
-    --     loc_vars = function(self, info_queue, card)
-    --         info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_finance
+    SMODS.Consumable({
+        object_type = "Consumable",
+        set = "Rotarot",
+        name = "rot_kino_detective",
+        key = "rot_detective",
+        pos = { x = 4, y = 0 },
+        config = {
+            max_highlighted = 1,
+            mod_conv = "m_kino_rotisserie"
+        },
+        cost = 4,
+        atlas = "kino_mf_rotarots",
+        unlocked = true,
+        discovered = true,
+        display_size = { w = 107, h = 107 },
+        can_use = function(self, card)
+            return #G.hand.highlighted >= 1 and #G.hand.highlighted <= card.ability.max_highlighted
+        end,
+        loc_vars = function(self, info_queue, card)
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_rotisserie
 
-    --         return { vars = { 
-    --         card and card.ability.max_highlighted or self.config.max_highlighted,
-    --         localize{type = 'name_text', set = 'Enhanced', key = self.config.mod_conv}
-    --         } }
-    --     end
-    -- })
+            return { vars = { 
+            card and card.ability.max_highlighted or self.config.max_highlighted,
+            localize{type = 'name_text', set = 'Enhanced', key = self.config.mod_conv}
+            } }
+        end
+    })
 
     
     -- Witch
@@ -234,34 +234,34 @@ if next(SMODS.find_mod("MoreFluff")) then
     })
 
     
-    -- RESERVED
-    -- SMODS.Consumable({
-    --     object_type = "Consumable",
-    --     set = "Rotarot",
-    --     name = "rot_kino_meetcute",
-    --     key = "rot_meetcute",
-    --     pos = { x = 3, y = 0 },
-    --     config = {
-    --         max_highlighted = 1,
-    --         mod_conv = "m_kino_finance"
-    --     },
-    --     cost = 4,
-    --     atlas = "kino_mf_rotarots",
-    --     unlocked = true,
-    --     discovered = true,
-    --     display_size = { w = 107, h = 107 },
-    --     can_use = function(self, card)
-    --         return #G.hand.highlighted >= 1 and #G.hand.highlighted <= card.ability.max_highlighted
-    --     end,
-    --     loc_vars = function(self, info_queue, card)
-    --         info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_finance
+    -- Superhero
+    SMODS.Consumable({
+        object_type = "Consumable",
+        set = "Rotarot",
+        name = "rot_kino_superhero",
+        key = "rot_superhero",
+        pos = { x = 2, y = 1 },
+        config = {
+            max_highlighted = 1,
+            mod_conv = "m_kino_supervillain"
+        },
+        cost = 4,
+        atlas = "kino_mf_rotarots",
+        unlocked = true,
+        discovered = true,
+        display_size = { w = 107, h = 107 },
+        can_use = function(self, card)
+            return #G.hand.highlighted >= 1 and #G.hand.highlighted <= card.ability.max_highlighted
+        end,
+        loc_vars = function(self, info_queue, card)
+            info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_supervillain
 
-    --         return { vars = { 
-    --         card and card.ability.max_highlighted or self.config.max_highlighted,
-    --         localize{type = 'name_text', set = 'Enhanced', key = self.config.mod_conv}
-    --         } }
-    --     end
-    -- })
+            return { vars = { 
+            card and card.ability.max_highlighted or self.config.max_highlighted,
+            localize{type = 'name_text', set = 'Enhanced', key = self.config.mod_conv}
+            } }
+        end
+    })
 
     
     -- Producer
@@ -310,6 +310,42 @@ if next(SMODS.find_mod("MoreFluff")) then
         end
     })
 
+    -- Investor
+    SMODS.Consumable({
+        object_type = "Consumable",
+        set = "Rotarot",
+        name = "rot_kino_investor",
+        key = "rot_investor",
+        pos = { x = 4, y = 1 },
+        config = {
+            reward = 20,
+            debt_counters = 10
+        },
+        cost = 4,
+        atlas = "kino_mf_rotarots",
+        unlocked = true,
+        discovered = true,
+        display_size = { w = 107, h = 107 },
+        loc_vars = function(self, info_queue, card)
+            return {
+                vars = {
+                    self.config.reward,
+                    self.config.debt_counters
+                }
+            }
+        end,
+        use = function(self, card, area, copier)
+            for i = 1, card.ability.investment_counters do
+                local _target = pseudorandom_element(G.playing_cards, pseudoseed("kino_investor"))
+                -- Kino.change_counters(_target, "kino_investment", 1)
+                _target:bb_counter_apply("counter_debt", 1)
+            end
+            ease_dollars(self.config.reward)
+        end,
+        can_use = function(self, card)
+            return true
+        end
+    })
     
     -- Chef
     SMODS.Consumable({

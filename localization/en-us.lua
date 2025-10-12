@@ -56,17 +56,6 @@ return {
                     }
                 }
             },
-            -- j_kino_30_days_of_night = {
-            --     name = "30 Days of Night",
-            --     text = {
-            --         "{C:mult,E:1}#4#{}",
-            --         "If Feeding: Drain the enhancement",
-            --         "from scoring cards",
-            --         "If Fed: Give {X:mult,C:white}X#3#{} Mult",
-            --         "for each enhancement drained",
-            --         "{C:inactive}(Currently: {X:mult,C:white}X#2#{C:inactive} Mult)"
-            --     }
-            -- },
             j_kino_50_first_dates = {
                 name = "50 First Dates",
                 text = {
@@ -192,7 +181,7 @@ return {
             j_kino_avatar = {
                 name = "Avatar",
                 text = {
-                    "Gains {C:chips}+1{} Chip for time your",
+                    "Gains {C:chips}+#2#{} Chip(s) for each time your",
                     "most played hand type has been played",
                     "when you use a {C:planet}Planet{}",
                     "{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)"
@@ -218,10 +207,10 @@ return {
             j_kino_batman_66 = {
                 name = "Batman (1966)",
                 text = {
-                    "Create a {C:tarot}Tarot{} when",
+                    "Create #1# {C:tarot}Tarot(s){} when",
                     "a blind is selected",
                     "if it's a {C:attention}Boss Blind{}",
-                    "create a {C:attention}Batman joker{} instead",
+                    "create #1# {C:attention}Batman joker(s){} instead",
                     "{C:inactive}(Must have room)"
                 }
             },
@@ -472,10 +461,7 @@ return {
             j_kino_bttf = {
                 name = "Back to the Future",
                 text = {
-                    {"Reveals top 3 cards of deck",},
-                    {"{C:attention}#1#{}",
-                    "{C:attention}#2#{}",
-                    "{C:attention}#3#{}"}
+                    {"Reveals top #1# cards of deck",},
                 }
             },
             j_kino_bucket_list = {
@@ -938,7 +924,6 @@ return {
                 text = {
                     "When you play a {C:attention}Full House",
                     "randomly {C:purple,E:1}Cast a Spell{}"
-
                 }
             },
             j_kino_et = {
@@ -1924,7 +1909,6 @@ return {
                     "Each Scoring {C:clubs}Clubs{}", 
                     "gives {C:money}$#1#{} for each", 
                     "{C:money}$#2#{} you have",
-
                 }
             },
             j_kino_paul = {
@@ -2454,10 +2438,12 @@ return {
             j_kino_star_wars_holiday = {
                 name = "The Star Wars Holiday Special",
                 text = {
-                    {"Gain #2# Charge when you",
-                    "defeat a Blind or",
-                    "use a planet",
-                    "{C:inactive}(Currently: #1# Charges)"},
+                    {
+                        "Gain #2# Charge when you",
+                        "defeat a Blind or",
+                        "use a planet",
+                        "{C:inactive}(Currently: #1# Charges)"
+                    },
                     {
                         "Create a Star Wars Joker",
                         "for each {C:attention}#3# Charges{}",
@@ -2847,7 +2833,7 @@ return {
             j_kino_wall_street = {
                 name = "Wall Street",
                 text = {
-                    {"When you discard a card, ",
+                    {"When you discard a card",
                     "increase the sell value",
                     "of this joker by {C:money}$#1#",},
                     {"When you play a hand",
@@ -3219,6 +3205,19 @@ return {
                     "{C:inactive}(Current investment: {C:money}$#2#{C:inactive} for #1# Rounds)"
                 }
             },
+            m_kino_rotisserie = {
+                name = "Rotisserie Card",
+                text = {
+                    "Cooks top and ", 
+                    "cools other segments",
+                    "when a hand is played",
+                    "Rotates 1/16th for each",
+                    "card scored",
+                    "Gives {C:mult}Mult{} depending",
+                    "on how evenly cooked",
+                    "{C:inactive}(Currently: {C:mult}+#1#{C:inactive} Mult)"
+                }
+            },
             m_kino_factory = {
                 name = "Factory Card",
                 text = {
@@ -3246,7 +3245,85 @@ return {
                     "this card's chip total",
                     "{C:inactive}(Currently: {C:mult}+#2#/#1#{C:inactive} Mult)"
                 }
-            }
+            },
+
+            -- Supervillain variants
+            m_kino_supervillain = {
+                name = "Supervillain Card",
+                text = {
+                    "Upgrade every hand",
+                    "when you foil its evil scheme!",
+                    "{C:inactive}Schemes only matter while in your hand",
+                    "  ",
+                    "Current Scheme: {C:attention}None",
+                    "This villain is chilling",
+                    "  ",
+                    "{C:attention}Foil scheme by:",
+                    "Doing nothing"
+                }
+            },
+            m_kino_supervillain_toddler = {
+                name = "Supervillain Card",
+                text = {
+                    "Upgrade every hand",
+                    "when you foil its evil scheme!",
+                    "{C:inactive}Schemes only matter while in your hand",
+                    "  ",
+                    "Current Scheme: {C:attention}Stealing Candy from a Toddler",
+                    "Lose {C:money}$1{} for every",
+                    "scored {C:attention}2",
+                    "  ",
+                    "{C:attention}Foil scheme by:",
+                    "Playing a {C:attention}Straight",
+                    "with a card lower than {C:attention}5"
+                }
+            },
+            m_kino_supervillain_sidekick = {
+                name = "Supervillain Card",
+                text = {
+                    "Upgrade every hand",
+                    "when you foil its evil scheme!",
+                    "{C:inactive}Schemes only matter while in your hand",
+                    "  ",
+                    "Current Scheme: {C:attention}Crowbar the Sidekick",
+                    "If you play a {C:attention}High Card",
+                    "destroy Joker with lowest sell value",
+                    "  ",
+                    "{C:attention}Foil scheme by:",
+                    "Play a hand containing {C:attention}Two Pair{}", 
+                    "while holding another Pair"
+                }
+            },
+            m_kino_supervillain_moon = {
+                name = "Supervillain Card",
+                text = {
+                    "Upgrade every hand",
+                    "when you foil its evil scheme!",
+                    "{C:inactive}Schemes only matter while in your hand",
+                    "  ",
+                    "Current Scheme: {C:attention}Blowing Up the Moon",
+                    "Put 2 {C:attention}Stun Counters{} on",
+                    "each scoring {C:clubs}Clubs",
+                    "  ",
+                    "{C:attention}Foil scheme by:",
+                    "Play a hand containing a {C:attention}Flush{}", 
+                }
+            },
+            m_kino_supervillain_cakes = {
+                name = "Supervillain Card",
+                text = {
+                    "Upgrade every hand",
+                    "when you foil its evil scheme!",
+                    "{C:inactive}Schemes only matter while in your hand",
+                    "  ",
+                    "Current Scheme: {C:attention}Stealing Forty Cakes",
+                    "Steal a future confection",
+                    "whenever you play a hand",
+                    "  ",
+                    "{C:attention}Foil scheme by:",
+                    "Play a hand that adds up to {C:attention}Forty", 
+                }
+            },
 
 
         },
@@ -3356,9 +3433,10 @@ return {
             c_kino_award = {
                 name = "Award",
                 text = {
-                    "Give an award to a {C:attention}Movie Joker",
+                    "Give an award to a {C:attention}Joker",
                     "doubling it's stats",
-                    "{C:inactive}(Movie Jokers can only be awarded once)"
+                    "{C:inactive}(Jokers can only be awarded once)",
+                    "{s:0.5, C:inactive}Joker must be compatible"
                 }
             },
             c_kino_homerun = {
@@ -3620,6 +3698,13 @@ return {
                     "hext hand"
                 }
             },
+            c_kino_none = {
+                name = "...?!",
+                text = {
+                    "...",
+                    "..."
+                }
+            },
             c_kino_ratatouille = {
                 name = "Ratatouille Snack",
                 text = {
@@ -3698,6 +3783,14 @@ return {
                     "{C:attention}#2#s"
                 }   
             },
+            c_kino_rot_detective = {
+                name = "The Detective!",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s"
+                }   
+            },
             c_kino_rot_witch = {
                 name = "The Witch!",
                 text = {
@@ -3721,6 +3814,23 @@ return {
                     "selected cards to",
                     "{C:attention}#2#s"
                 }   
+            },
+            c_kino_rot_superhero = {
+                name = "The Superhero!",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s"
+                }   
+            },
+            c_kino_rot_investor = {
+                name = "The Investor!",
+                text = {
+                    'Gain {C:money}$#1#{} and',
+                    "add a {C:red}Debt Counter{}",
+                    "to random card", 
+                    "in your deck {C:attention}#2#{} times"
+                }
             },
             c_kino_rot_producer = {
                 name = "The Producer!",
@@ -4328,6 +4438,50 @@ return {
 
         },
         Other =  {
+            -- VALUE MANIPULATION            
+            blockbuster_valmanip_boost = {
+                name = "Value Boost",
+                    text = {
+                        "Values have been",
+                        "boosted by {C:legendary}#1#x{}"
+                    }
+            },
+
+            compat_standard_none = {
+                name = "Incompatible",
+                text = {
+                    "This card is not",
+                    "affected by", 
+                    "Value Manipulation"
+                }
+            },
+
+            compat_standard_vanilla_base = {
+                name = "Vanilla",
+                text = {
+                    "This card uses",
+                    "the Vanilla",
+                    "Value Manipulation"
+                }
+            },
+
+            compat_standard_vanilla_chips = {
+                name = "Vanilla (Chips Joker)",
+                text = {
+                    "This card uses",
+                    "the Vanilla",
+                    "Value Manipulation"
+                }
+            },
+
+            compat_standard_grabbag = {
+                name = "Grab Bag",
+                text = {
+                    "Testing this out",
+                    "for Grab Bag",
+                }
+            },
+            
             -- Booster packs
             p_kino_horror_booster = {
                 name = "Horror Pack",
@@ -4611,7 +4765,7 @@ return {
                 name = "Awarded",
                 text = {
                     "Doubles the power",
-                    "of Movie Joker"
+                    "of Joker"
                 }
             },
             kino_award_cryptid = {
@@ -5479,6 +5633,16 @@ return {
             b_kino_pull = "TAKE",
             b_questlog = "Quests",
 
+            -- Actor UI
+            k_kino_shared_cast = "Jokers with Shared Cast",
+            k_kino_directed_by = "Directed by: ",
+            k_kino_budget = "Budget: ",
+            k_kino_box_office = "Box Office: ",
+            k_kino_release_date = "Release Date: ",
+            k_kino_shared_cast_list = "Movies with Shared Cast: ",
+
+
+
             -- Mod Config --
             kino_settings_header_enhancements = "Card Enhancements",
             kino_settings_header_joker_mechanics = "Joker Mechanics",
@@ -5623,6 +5787,9 @@ return {
             k_kino_finance_investing = "Investing!",
             k_kino_finance_investing_2 = "Time for Payouts!",
             k_kino_angelic_create = "Be Blessed, Child",
+            k_kino_cooked = "Cooked",
+            k_kino_supervillain_foiled = "Halt, Vile Villain!",
+            k_kino_supervillain_enacted = "My evil plan!",
 
             -- Confection Barks
             k_eaten = "Eaten",
@@ -5669,6 +5836,7 @@ return {
             k_kino_joker_batman = "Oh no! It's Bats!",
             k_kino_batman_forever = "I'm Batman",
             k_kino_saved = "Saved!",
+            
 
             -- Spellcasting Text
             k_bb_spellbook = "Spellbook",
@@ -5828,7 +5996,12 @@ return {
                 "are triggered"
             },
             bbcount_counter = "Counter",
-            bb_paralysis = "Paralyzed!"
+            bb_paralysis = "Paralyzed!",
+
+            -- Value Manipulation
+            blockbuster_config_debug_print = "Print Debug statements",
+            blockbuster_config_compat_box = "Always display compatibility tooltips",
+            blockbuster_config_header = "Blockbuster: Value Manipulation"
         },
         challenge_names = {
             c_kino_minc = "Monsters Inc.",

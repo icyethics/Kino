@@ -28,7 +28,7 @@ SMODS.Joker {
         cast = {},
     },
     is_vampire = true,
-    pools, k_genre = {"Horror", "Silent"},
+    k_genre = {"Horror", "Silent"},
 
     loc_vars = function(self, info_queue, card)
         return {

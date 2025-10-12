@@ -116,23 +116,8 @@ SMODS.Voucher {
             local _targets = {}
 
             for _, _joker in ipairs(G.jokers.cards) do
-                if not Cryptid then
-                    if _joker.config.center.k_genre and G.GAME.used_vouchers.v_kino_egot then
-                        _targets[#_targets + 1] = _joker
-                    end
-
-                    if _joker.config.center.k_genre and not _joker.ability.kino_award then
-                        _targets[#_targets + 1] = _joker
-                    end
-                end
-                if Cryptid and Talisman then
-                    if  G.GAME.used_vouchers.v_kino_egot then
-                        _targets[#_targets + 1] = _joker
-                    end
-
-                    if not _joker.ability.kino_award then
-                        _targets[#_targets + 1] = _joker
-                    end
+                if Blockbuster.is_value_manip_compatible(_joker) and (G.GAME.used_vouchers.v_kino_egot or not _joker.ability.kino_award) then
+                    _targets[#_targets + 1] = _joker
                 end
             end
 

@@ -179,16 +179,14 @@ SMODS.Consumable {
                 local _target = G.jokers.cards[1]
                 _target:juice_up()
                 if _target:can_calculate() then
-                    local _multiplier = _target:get_multiplier_by_source(_target, "kino_nutrition") or 1
+
                     
                     local _addition = card.ability.extra.powerboost + G.GAME.confections_powerboost
                     if card.ability.kino_chocolate then
                         _addition = _addition + card.ability.choco_bonus
                     end
 
-                    _multiplier = _multiplier + _addition
-
-                    _target:set_multiplication_bonus(_target, "kino_nutrition", _multiplier)
+                    Blockbuster.manipulate_value(_target, "kino_nutrition", _addition)
                 end
             end
             Kino.confection_trigger(card)

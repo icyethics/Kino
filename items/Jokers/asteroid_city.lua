@@ -5,7 +5,7 @@ SMODS.Joker {
     config = {
         extra = {
             cards_abducted = {},
-            num_cards_abducted_non = 0,
+            num_cards_abducted = 0,
         }
     },
     rarity = 3,
@@ -27,23 +27,23 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Sci-fi", "Comedy"},
+    k_genre = {"Sci-fi", "Comedy"},
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "keyword_abduct"}
         return {
             vars = {
                 card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0,
-                card.ability.extra.num_cards_abducted_non,
+                card.ability.extra.num_cards_abducted,
             }
         }
     end,
     calculate = function(self, card, context)
         -- Upon entering a blind, abduct the joker to the right
         -- Return it Negative
-        card.ability.extra.num_cards_abducted_non = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
+        card.ability.extra.num_cards_abducted = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
 
-        if context.setting_blind and card.ability.extra.num_cards_abducted_non == 0 and not card.getting_sliced then
+        if context.setting_blind and card.ability.extra.num_cards_abducted == 0 and not card.getting_sliced then
             -- find position
             local _mypos = nil
             for i = 1, #G.jokers.cards do

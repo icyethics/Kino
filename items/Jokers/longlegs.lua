@@ -27,7 +27,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Horror", "Crime"},
+    k_genre = {"Horror", "Crime"},
 
     loc_vars = function(self, info_queue, card)
         return {

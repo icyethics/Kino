@@ -27,7 +27,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Horror", "Thriller"},
+    k_genre = {"Horror", "Thriller"},
 
     loc_vars = function(self, info_queue, card)
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, (G.GAME.probabilities.normal), card.ability.extra.chance, "kino_chips")

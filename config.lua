@@ -24,5 +24,10 @@ return {
 
     -- Customization
     ["speed_factor"] = 60,
-    ["movie_jokers_only"] = false
+    ["movie_jokers_only"] = false,
+
+    -- Blockbuster: Value Manipulation
+    ["compat_box"] = false,
+    ["debug_print"] = false,
+    ["display_current_boost"] = true
 }

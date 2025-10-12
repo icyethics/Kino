@@ -28,7 +28,7 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    pools, k_genre = {"Comedy"},
+    k_genre = {"Comedy"},
 
     loc_vars = function(self, info_queue, card)
         return {
@@ -41,31 +41,6 @@ SMODS.Joker {
         -- The joker to the right is 2x as strong
     end,
     update = function(self, card, dt)
-        -- if G.jokers then
-        --     local _mypos =  nil
-        --     for _, _joker in ipairs(G.jokers.cards) do
-        --         if _joker == card then
-        --             _mypos = _
-        --             if not G.jokers.cards[_ + 1] and
-        --             card.ability.extra.right_joker then
-        --                 card:set_multiplication_bonus(card.ability.extra.right_joker, "popeye", 1, nil, 1 + card.ability.extra.powerboost)
-        --                 card.ability.extra.right_joker = nil
-        --             end
-        --             if G.jokers.cards[_ + 1] and
-        --             G.jokers.cards[_mypos + 1] ~= card.ability.extra.right_joker then
-        --                 if card.ability.extra.right_joker then
-        --                     card:set_multiplication_bonus(card.ability.extra.right_joker, "popeye", 1, nil, 1 + card.ability.extra.powerboost)
-        --                     card.ability.extra.right_joker.ability.kino_popeyetarget = false
-        --                 end
-        --                 card.ability.extra.right_joker = G.jokers.cards[_ + 1]
-        --                 G.jokers.cards[_ + 1].ability.kino_popeyetarget = true
-        --                 card:set_multiplication_bonus(card.ability.extra.right_joker, "popeye", 1 + card.ability.extra.powerboost)
-        --             end
-        --             break
-        --         end
-        --     end
-        -- end
-
         if G.jokers then
             -- Find and set own address
             local _mypos = nil
@@ -80,12 +55,12 @@ SMODS.Joker {
             for _index, _joker in ipairs(G.jokers.cards) do
                 if _joker ~= card then
                     if _joker.ability.kino_popeyetarget == card.ID and _index ~= _mypos + 1 then
-                        card:set_multiplication_bonus(_joker, "popeye", 1, nil, 1 + card.ability.extra.powerboost)
+                        Blockbuster.reset_value_multiplication(_joker, "popeye")
                         _joker.ability.kino_popeyetarget = nil
                     end
 
                     if _index == _mypos + 1 and _joker.ability.kino_popeyetarget ~= card.ID then
-                        card:set_multiplication_bonus(_joker, "popeye", 1 + card.ability.extra.powerboost)
+                        Blockbuster.manipulate_value(_joker, "popeye", 1 + card.ability.extra.powerboost)
                         _joker.ability.kino_popeyetarget = card.ID
                     end
                 end
@@ -94,8 +69,7 @@ SMODS.Joker {
     end,
     remove_from_deck = function(self, card, from_debuff)
 		for _index, _joker in ipairs(G.jokers.cards) do
-            card:set_multiplication_bonus(_joker, "popeye", 1, nil, 1 + card.ability.extra.powerboost)
-            _joker.ability.kino_popeyetarget = nil
+            Blockbuster.reset_value_multiplication(_joker, "popeye")
         end
 	end,
 }
