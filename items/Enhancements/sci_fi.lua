@@ -1,13 +1,11 @@
 SMODS.Enhancement {
     key = "sci_fi",
+    name = "Sci-Fi Card",
     atlas = "kino_enhancements",
     pos = { x = 0, y = 0},
     config = {
         a_mult = 1,
         a_chips = 5,
-        bonus = 0,
-        mult = 0,
-        x_mult = 1,
         times_upgraded = 0,
         times_upgraded_ui = 0,
         sprite_state = "level"
@@ -17,9 +15,9 @@ SMODS.Enhancement {
             vars = {
                 card and card.ability.a_mult or self.config.a_mult,
                 card and card.ability.a_chips or self.config.a_chips,
-                card and card.ability.bonus or self.config.bonus,
-                card and card.ability.mult or self.config.mult,
-                card and card.ability.x_mult or self.config.x_mult,
+                card and card.ability.bonus or nil,
+                card and card.ability.perma_mult or nil,
+                card and card.ability.perma_x_mult or nil,
                 card and card.ability.times_upgraded or self.config.times_upgraded
             }
         }
@@ -43,11 +41,11 @@ SMODS.Enhancement {
             for index, _joker in ipairs(G.jokers.cards) do
                 if type(_joker.ability.extra) == "table" and
                 _joker.ability.extra.affects_sci_fi then
-                    card.ability.x_mult = card.ability.x_mult + (_joker.ability.extra.perma_x_mult *  _upgradenum)
+                    card.ability.perma_x_mult = card.ability.perma_x_mult + (_joker.ability.extra.perma_x_mult *  _upgradenum)
                 end
             end
         else
-            card.ability.mult = card.ability.mult + (card.ability.a_mult *  _upgradenum)
+            card.ability.perma_mult = card.ability.perma_mult + (card.ability.a_mult *  _upgradenum)
         end
                 
                 

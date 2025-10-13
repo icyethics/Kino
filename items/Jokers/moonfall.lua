@@ -32,6 +32,7 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "keyword_abduct"}
+        info_queue[#info_queue+1] = Kino.abduction_info_queue(card)
         local _count = 0
         if G.playing_cards then
             for i, _pc in ipairs(G.playing_cards) do

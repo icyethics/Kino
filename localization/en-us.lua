@@ -46,11 +46,11 @@ return {
                 name = "30 Days of Night",
                 text = {
                     {
-                        "{C:attention}Active:{} Drain the enhancement",
+                        "{C:white,X:attention}Active:{} Drain the enhancement",
                         "from scoring cards and gain {X:mult,C:white}X#3#{} Mult"
                     },
                     {
-                        "{C:attention}Inactive:{} Give {X:mult,C:white}X#2#{} Mult",
+                        "{C:white,X:attention}Inactive:{} Give {X:mult,C:white}X#2#{} Mult",
                         "{C:inactive}(This joker cannot become Active",
                         "{C:inactive}again after scoring)"
                     }
@@ -173,9 +173,9 @@ return {
                 name = "Asteroid City",
                 text = {
                     {"If no joker is currently",
-                    "{C:purple}Abducted{}, abduct the one",
+                    "{C:Alien}Abducted{}, Abduct the one",
                     "to the right"},
-                    {"{C:attention}Release:{} Return {C:attention}Negative"}
+                    {"{C:white,X:Alien}Release:{} Return {C:dark_edition}Negative"}
                 }
             },
             j_kino_avatar = {
@@ -307,8 +307,8 @@ return {
             j_kino_benjamin_button = {
                 name = "The Curious Case of Benjamin Button",
                 text = {
-                    "Decrease the rank",
-                    "of every scored card",
+                    "Decrease rank",
+                    "of scored cards by {C:attention}1",
                 }
             },
             j_kino_bfg = {
@@ -341,7 +341,7 @@ return {
             j_kino_big_trouble_little_china = {
                 name = "Big Trouble in Little China",
                 text = {
-                    {"When you {C:purple,E:1}Cast a Spell",
+                    {"When you {C:Magic}Cast a Spell",
                     "gain {C:attention}1 Stack{}",},
                     {"Consume all stacks to lower",
                     "{C:attention}Boss Blind{} requirements ", 
@@ -401,7 +401,7 @@ return {
             j_kino_bloodshot = {
                 name = "Bloodshot",
                 text = {
-                    "{C:attention}Active:{} If you have any {C:mult}Red Seals",
+                    "{C:white,X:attention}Active:{} If you have any {C:mult}Red Seals",
                     "in your deck, remove it from the card",
                     "and put it on the first scoring card"
                 }
@@ -518,16 +518,16 @@ return {
             j_kino_charlie_and_the_chocolate_factory = {
                 name = "Charlie & the Chocolate Factory",
                 text = {
-                    "{C:attention}Confections{} are always",
+                    "{C:Confection}Confections{} are always",
                     "{C:attention}Chocolate{}",
-                    "{C:inactive}(Chocolate increases confection's values)"
+                    "{C:inactive}(Chocolate increases {C:Confection}Confections'{C:inactive} values)"
                 }
             },
             j_kino_chef = {
                 name = "Chef",
                 text = {
                     "When you select a Blind",
-                    "create a {C:attention}Confection{}",
+                    "create a {C:Confection}Confection{}",
                     "{C:inactive}(Must have room)"
                 }
             },
@@ -561,7 +561,7 @@ return {
             j_kino_clockwork_orange = {
                 name = "A Clockwork Orange",
                 text = {
-                    {"{C:attention}Active:{} Consume charges to give",
+                    {"{C:white,X:attention}Active:{} Consume charges to give",
                     "{X:mult,C:white}X1{} + {X:mult,C:white}#2#X{} Mult per charge",
                     "{C:inactive}(Currently: #1# Stacks)"},
                     {"Gain a {C:attention}Charge{} whenever",
@@ -572,10 +572,10 @@ return {
                 name = "Close Encounters of the Third Kind",
                 text = {
                     {"If your played hand contains",
-                    "only {C:attention}1{} card, {C:attention}Abduct{} it",},
-                    {"{C:attention}Release:{} return abducted card to the deck"},
+                    "only {C:attention}1{} card, {C:Alien}Abduct{} it",},
+                    {"{C:white,X:Alien}Release:{} return Abducted card to the deck"},
                     {"Gives {C:chips}+#3#{} Chips for {C:attention}every card",
-                    "currently abducted",
+                    "currently Abducted",
                     "{C:inactive}(Currently: {C:chips}+#4#{C:inactive} Chips)"}
                 }
             },
@@ -592,7 +592,7 @@ return {
                 name = "Cocktail",
                 text = {
                     "Gains {C:money}$#1#{} Sell Value",
-                    "when a {C:mult}Confection{}",
+                    "when a {C:Confection}Confection{}",
                     "is used"
                 }
             },
@@ -671,7 +671,7 @@ return {
                     "doesn't defeat the blind",
                     "gain #2# charge",
                     "if you have a charge",
-                    "{C:purple, E:1}cast a random spell",
+                    "{C:Magic,}Cast a random spell",
                     "{C:inactive}(Currently: #1# charge)"
                 }
             },
@@ -764,32 +764,34 @@ return {
                 name = "My Dinner With André",
                 text = {
                     "Gains {X:mult,C:white}X#2#{} Mult when",
-                    "a {C:attention}Confection{} is used",
+                    "a {C:Confection}Confection{} is used",
                     "{C:inactive}(Currently: {X:mult,C:white}X#1#{C:inactive})"
                 }
             },
             j_kino_doctor_strange_1 = {
                 name = "Doctor Strange",
                 text = {
-                    "Every {C:attention}Third{} spell",
-                    "{C:purple,E:1}Cast{} turns into",
+                    "Every {C:attention}Third{} {C:Magic}Spell",
+                    "{C:Magic}Cast{} turns into",
                     "{C:green,E:1}The Eye of Agamotto",
-                    "{C:inactive}(Currently: #1# Spells Cast)"
+                    "{C:inactive}(Currently: #1# {C:Magic}Spells Cast{C:inactive})"
                 }
             },
             j_kino_doctor_strange_2 = {
                 name = "Doctor Strange in the Multiverse of Madness",
                 text = {
-                    "{C:attention}Active:{} Redraw your hand"
+                    "{C:white,X:attention}Active:{} Redraw your hand"
                 }
             },
             j_kino_doctor_who = {
                 name = "Doctor Who: The Movie",
                 text = {
-                    {"{C:attention}Active:{}",
-                    "abduct a {C:attention}Card{} from {C:attention}Hand"},
-                    {"{C:attention}Release:{} Return with a random",
-                    "{C:attention}Enhancement{} and {C:attention}Edition"}
+                    {"{C:white,X:attention}Active:{} {C:Alien}Abduct{}",
+                    "random {C:attention}Card{}",
+                    "from {C:attention}Hand"},
+                    {"{C:white,X:Alien}Release:{} Return with",
+                    "random {C:attention}Enhancement{}",
+                    "and {C:attention}Edition"}
                 }
             },
             j_kino_donnie_darko = {
@@ -863,11 +865,11 @@ return {
             j_kino_dungeons_and_dragons_1 = {
                 name = "Dungeons & Dragons",
                 text = {
-                    { "{C:attention}Active:{} {C:mult}+#3#{} Mult",
+                    { "{C:white,X:attention}Active:{} {C:mult}+#3#{} Mult",
                     "for each {C:purple}Charge{}, then",
                     "consume all charges",
                     "{C:inactive}(Currently: {C:purple}#1#{C:inactive} Stacks)"},
-                    {"When you {C:purple,E:1}Cast a Spell",
+                    {"When you {C:Magic}Cast a Spell",
                     "this gains #2# {C:purple}Charge",
                     "per spell level"},
                 }
@@ -875,8 +877,8 @@ return {
             j_kino_dungeons_and_dragons_4 = {
                 name = "Dungeons & Dragons: Honour Among Thieves",
                 text = {
-                    "When you {C:purple,E:1}Cast a Spell", 
-                    "earn {C:money}$#1#{} per Spell Level"
+                    "When you {C:Magic}Cast a Spell", 
+                    "earn {C:money}$#1#{} per {C:Magic}Spell{} Level"
                 }
             },
             j_kino_easy_a = {
@@ -923,7 +925,7 @@ return {
                 name = "Encanto",
                 text = {
                     "When you play a {C:attention}Full House",
-                    "randomly {C:purple,E:1}Cast a Spell{}"
+                    "randomly {C:Magic}Cast a Spell{}"
                 }
             },
             j_kino_et = {
@@ -965,8 +967,8 @@ return {
             j_kino_fantasia = {
                 name = "Fantasia",
                 text = {
-                    "Whenever you {C:purple,E:1}cast",
-                    "{C:purple,E:1}a spell{}, cast it",
+                    "Whenever you {C:Magic}Cast",
+                    "{C:Magic}a Spell{}, cast it",
                     "one rank higher"
                 }
             },
@@ -1025,10 +1027,10 @@ return {
             j_kino_freaky_friday_3 = {
                 name = "Freaky Friday",
                 text = {
-                    {"{C:attention}Active:{} When this joker has",
+                    {"{C:white,X:attention}Active:{} When this joker has",
                     "no edition, and a playing card with an edition",
                     "triggers, remove its edition and this gains it",},
-                    {"{C:attention}Active:{} When this joker has an edition",
+                    {"{C:white,X:attention}Active:{} When this joker has an edition",
                     "remove it and put it on the playing card"}
                 }
             },
@@ -1146,8 +1148,10 @@ return {
             j_kino_guardians_of_the_galaxy_1 = {
                 name = "Guardians of the Galaxy",
                 text = {
-                    "{C:planet}Planets{} you own",
-                    "give {C:mult}+#1#{} Mult"
+                    "Gain {C:mult}+#1#{} Mult",
+                    "per {C:planet}Planet{} for",
+                    "each {C:planet}Planet{} you own",
+                    "{C:inactive}(Currently: {C:mult}+#2#{C:inactive} Mult)"
                 }
             },
             j_kino_guardians_of_the_galaxy_2 = {
@@ -1203,7 +1207,7 @@ return {
                     "Gain a charge whenever ",
                     "a card is scored",
                     "On your final hand",
-                    "{C:purple, E:1}Cast a Random Spell",
+                    "{C:Magic}Cast a Random Spell",
                     "with the strength based on",
                     "the gathered stacks",
                     "{C:inactive}(Currently: #1# stacks)"
@@ -1323,7 +1327,7 @@ return {
                 text = {
                     "Lowers {C:attention}Boss Blinds",
                     "by #1#% for every currently",
-                    "{C:attention}Abducted{} card"
+                    "{C:Alien}Abducted{} card"
                 }
             },
             j_kino_insidious = {
@@ -1618,7 +1622,7 @@ return {
                 name = "The Martian",
                 text = {
                     "When you use {C:planet}Mars",
-                    "create #1# {C:attention}Confections"
+                    "create #1# {C:Confection}Confections"
                 }
             },
             j_kino_matrix_1 = {
@@ -1652,14 +1656,14 @@ return {
                 name = "Men in Black",
                 text = {
                     "Gains {X:mult,C:white}X#2#{} when",
-                    "a card is abducted",
+                    "a card is {C:Alien}Abducted",
                     "{C:inactive}(Currently: {X:mult,C:white}X#1#{C:inactive} Mult)"
                 }
             },
             j_kino_menu = {
                 name = "The Menu",
                 text = {
-                    "Create a {C:attention}Confection",
+                    "Create a {C:Confection}Confection",
                     "when you sell a Joker"
                 }
             },
@@ -1714,9 +1718,9 @@ return {
                     {"Give {C:chips}+#3#{} Chips for each",
                     "{C:clubs}Clubs{} in your deck",
                     "{C:inactive}(Currently: {C:chips}+#4#{C:inactive} Chips)",},
-                    {"{C:purple}Abduct{} each scored non-{C:clubs}clubs{} card",
+                    {"{C:Alien}Abduct{} each scored non-{C:clubs}clubs{} card",
                     "on the {C:attention}First{} hand each round"},
-                    {"{C:attention}Release:{} Return cards", 
+                    {"{C:white,X:Alien}Release:{} Return cards", 
                     "transformed into {C:clubs}Clubs",}
                     
                 }
@@ -1782,8 +1786,8 @@ return {
             j_kino_ponyo = {
                 name = "Ponyo",
                 text = {
-                    {"{C:attention}Active:{} {X:mult,C:white}X#2#{} Mult",},
-                    {"{C:attention}Inactive:{} Gain {X:mult,C:white}X#1#{} Mult",
+                    {"{C:white,X:attention}Active:{} {X:mult,C:white}X#2#{} Mult",},
+                    {"{C:white,X:attention}Inactive:{} Gain {X:mult,C:white}X#1#{} Mult",
                     "for each unscored card"}
                 }
             },
@@ -1806,10 +1810,11 @@ return {
             j_kino_nope = {
                 name = "Nope",
                 text = {
-                    {"{C:attention}Abduct{} a random card when",
+                    {"{C:Alien}Abduct{} a random card when",
                     "you play a hand with 5 or more cards",},
-                    {"{C:attention}Release:{} Return debuffed",
+                    {"{C:white,X:Alien}Release:{} Debuff Abducted card",
                     "and gain {C:mult}+#3#{} Mult",
+                    "for each returned card",
                     "{C:inactive}(Currently: {C:mult}+#2#{C:inactive} Mult)"}
                 }
             },
@@ -1924,7 +1929,7 @@ return {
                     {"Consume a Charge to give {C:mult}+#1#{} Mult",
                     "{C:inactive}(Currently: #3# Charges)"},
                     {"Gain {C:attention}+#2# Charges{}", 
-                    "when you eat a {C:mult}Confection"}
+                    "when you eat a {C:Confection}Confection"}
                 }
             },
             j_kino_peggy_sue_got_married = {
@@ -2106,6 +2111,8 @@ return {
                     "{C:attention}Movie Jokers{} released in",
                     "the 70s and 80s give {C:chips}chips",
                     "equal to their release year",
+                    "{s:0.5,C:inactive}Press 'k' when hovering Kino",
+                    "{s:0.5,C:inactive}jokers for additional info"
                 }
             },
             j_kino_resident_evil = {
@@ -2172,7 +2179,7 @@ return {
                 text = {
                     "{C:green}#1# in #2#{} Chance to upgrade",
                     "a random hand",
-                    "whenever a {C:attention}Confection{} triggers",
+                    "whenever a {C:Confection}Confection{} triggers",
                     
                 }
             },
@@ -2233,7 +2240,7 @@ return {
             j_kino_shang_chi = {
                 name = "Shang-Chi and the Legend of the 10 Rings",
                 text = {
-                    "{C:purple, E:1}Cast the next Spell",
+                    "{C:Magic}Cast the next Spell",
                     "of the {C:attention}10"
                 }
             },
@@ -2248,7 +2255,7 @@ return {
             j_kino_shazam_1 = {
                 name = "Shazam",
                 text = {
-                    "When you {C:purple}Cast a Spell",
+                    "When you {C:Magic}Cast a Spell",
                     "transform a random",
                     "{c:attention}Non-Face Card{} into a {C:attention}Jack"
                 }
@@ -2285,9 +2292,9 @@ return {
             j_kino_signs = {
                 name = "Signs",
                 text = {
-                    {"{C:attention}Abduct{} a random unscored card",},
+                    {"{C:Alien}Abduct{} a random unscored card",},
                     {"Gives {C:mult}+#3#{} for each card",
-                    "abducted anywhere",
+                    "{C:Alien}Abducted{} anywhere",
                     "{C:inactive}(Currently: {C:mult}+#4#{C:inactive} Mult)"}
                 }
             },
@@ -2322,7 +2329,7 @@ return {
                 text = {
                     "Scoring {C:attention}2s{} and {C:attention}3s{}",
                     "give {C:chips}+#1#{} Chips for",
-                    "each time you {C:purple}Cast a Spell",
+                    "each time you {C:Magic}Cast a Spell",
                     "{C:inactive}(Currently: {C:chips}+#2#{C:inactive} Chips)"
                 }
             },
@@ -2370,7 +2377,7 @@ return {
             j_kino_sorcerers_apprentice = {
                 name = "The Sorcerer's Apprentice",
                 text = {
-                    "When you {C:purple,E:1}Cast a Spell",
+                    "When you {C:Magic}Cast a Spell",
                     "cast it again at a lower rank"
                 }
             },
@@ -2535,9 +2542,10 @@ return {
             j_kino_stargate = {
                 name = "Stargate",
                 text = {
-                    {"{C:attention}Abduct{} every {C:attention}Stone ",
+                    {"{C:Alien}Abduct{} every {C:attention}Stone ",
                     "card scored",},
-                    {"{C:attention}Release:{} return them unstoned",
+                    {"{C:white,X:Alien}Release:{} Return {C:Alien}Abducted Cards",
+                    "with their enhancement removed",
                     "and gain {C:chips}+#4#{} Chips for each",
                     "{C:inactive}(Currently: {C:chips}+#3#{C:inactive} Chips)"}
                 }
@@ -2605,9 +2613,9 @@ return {
             j_kino_sugarland_express = {
                 name = "The Sugarland Express",
                 text = {
-                    {"{C:attention}Active:{} {C:chips}+#3#{} Chips for",
+                    {"{C:white,X:attention}Active:{} {C:chips}+#3#{} Chips for",
                     "each time this took money",},
-                    {"{C:attention}Inactive:{} Takes {C:money}$#1#",
+                    {"{C:white,X:attention}Inactive:{} Takes {C:money}$#1#",
                     "when you play a hand",
                     "{C:inactive}(Currently: taken money #2# times)"}
                 }
@@ -2631,10 +2639,10 @@ return {
             j_kino_they_live = {
                 name = "They Live",
                 text = {
-                    "{C:attention}Abduct{} every card {C:mult}discarded",
+                    "{C:Alien}Abduct{} every card {C:mult}discarded",
                     "on your first discard",
                     "Earn {C:money}#3#{} for each card",
-                    "this joker has Abducted",
+                    "this joker has {C:Alien}Abducted",
                     "{C:inactive}(Currently: {C:money}$#4#{C:inactive})"
                 }
             },
@@ -2917,7 +2925,7 @@ return {
             j_kino_wonka = {
                 name = "Wonka",
                 text = {
-                    "{C:red}+#1#{} Mult per {C:attention}Confection{}",
+                    "{C:red}+#1#{} Mult per {C:Confection}Confection{}",
                     "card used this run",
                     "{C:inactive}(Currently {C:red}+#2#{C:inactive} Mult)",
                 }
@@ -2975,7 +2983,7 @@ return {
                 name = "The Human Centipede (First Sequence)",
                 text = {
                     "Each scoring card gives {X:dark_edition,C:white}^#1#{} Mult",
-                    "increased by {{X:dark_edition,C:white}#2#{} Mult for each",
+                    "increased by {X:dark_edition,C:white}#2#{} Mult for each",
                     "scoring card to the left of it",
                     "if played hand",
                     "contains a {C:attention}Straight{}",
@@ -3036,8 +3044,8 @@ return {
                 name = "Ratatouille",
                 text = {
                     "When you select a blind",
-                    "destroy a non-active {C:mult}Confection{} and {C:attention}Upgrade",
-                    "every future Confection's values with {C:attention}+#1#"
+                    "destroy a non-active {C:Confection}Confection{} and {C:attention}Upgrade",
+                    "every future {C:Confection}Confection{}'s values with {C:attention}+#1#"
                 }
             },
             j_kino_citizen_kane = {
@@ -3077,8 +3085,6 @@ return {
                     "Gains {C:mult}+#1#{} Mult and {C:chips}+#2#{} Chips",
                     "whenever this card gets scored",
                     "{C:inactive}(Upgraded {C:attention}#6#{C:inactive} times)",
-                    "{C:mult}+#4#{} extra mult",
-                    "{X:mult,C:white}X#5#{} extra mult"
                 }
             },
             m_kino_demonic = {
@@ -3145,7 +3151,7 @@ return {
             m_kino_fantasy = {
                 name = "Fantasy Card",
                 text = {
-                    "Casts a {C:purple,E:1}Spell{}",
+                    "{C:Magic}Casts a Spell{}",
                     "when scored based on",
                     "the first three cards",
                     "held in your hand"
@@ -3317,7 +3323,7 @@ return {
                     "{C:inactive}Schemes only matter while in your hand",
                     "  ",
                     "Current Scheme: {C:attention}Stealing Forty Cakes",
-                    "Steal a future confection",
+                    "Steal a future {C:Confection}Confection",
                     "whenever you play a hand",
                     "  ",
                     "{C:attention}Foil scheme by:",
@@ -3399,7 +3405,9 @@ return {
                     "selected {C:attention}Movie Joker",
                     "and receive potential {C:money}Profit",
                     "based on its success",
-                    "{C:inactive}(Max of {C:money}$#1#{C:inactive})"
+                    "{C:inactive}(Max of {C:money}$#1#{C:inactive})",
+                    "{s:0.5,C:inactive}Press 'k' when hovering Kino",
+                    "{s:0.5,C:inactive}jokers for additional info"
                 }
             },
             
@@ -3422,7 +3430,7 @@ return {
                 name = "Chef",
                 text = {
                     "Creates up to {C:attention}#1#",
-                    "random {C:attention}Confection{} cards",
+                    "random {C:Confection}Confection{} cards",
                     "{C:inactive}(Must have room)",
                 }
             }
@@ -3502,9 +3510,12 @@ return {
             c_kino_ego = {
                 name = "Ego, the Living Planet",
                 text = {
-                    "Upgrade a random hand",
+                    "Upgrade a {C:attention}random poker hand",
                     "with {C:chips}+#1#{} Chips",
-                    "and {C:mult}+#2#{} Mult"
+                    "and {C:mult}+#2#{} Mult",
+                    "then {C:attention}Terraform{} another",
+                    "{C:attention}consumable{} into a stronger",
+                    "version of {C:attention}Ego"
                 }
             },
             c_kino_pandora = {
@@ -3710,7 +3721,7 @@ return {
                 text = {
                     "Permanently {C:attention}increase",
                     "the value of all",
-                    "confections by {C:attention}#1#",
+                    "{C:Confection}Confections{} by {C:attention}#1#",
                     "{C:inactive}(Except for Ratatouille)"
                 }
             },
@@ -3718,8 +3729,8 @@ return {
                 name = "Snack Bag",
                 text = {
                     "A Bag filled",
-                    "with {C:mult}Confections{}",
-                    "{C:inactive}(Currently: {C:attention}#1#{C:inactive} Confections)"
+                    "with {C:Confection}Confections{}",
+                    "{C:inactive}(Currently: {C:attention}#1# {C:Confection}Confections{C:inactive})"
                 }
             },
             -- CROSSMOD Confections
@@ -3844,7 +3855,7 @@ return {
             c_kino_rot_chef = {
                 name = "The chef!",
                 text = {
-                    "Strengthen all {C:mult}Confections{}"
+                    "Strengthen all {C:Confection}Confections{}"
                 }   
             },
 
@@ -4407,7 +4418,7 @@ return {
                 name = "Dinner Tag",
                 text = {
                     "Upgrades all future",
-                    "{C:mult}Confections{} with",
+                    "{C:Confection}Confections{} with",
                     "+1 values"
                 }
             },
@@ -4539,7 +4550,7 @@ return {
                 name = "Snack Pack",
                 text = {
                     "Choose {C:attention}#1#{} of",
-                    "up to {C:attention}#2# Confections{}",
+                    "up to {C:attention}#2# {C:Confection}Confections{}",
                     "{C:inactive}(Must have room)"
                 }
             },
@@ -4547,7 +4558,7 @@ return {
                 name = "Jumbo Snack Pack",
                 text = {
                     "Choose {C:attention}#1#{} of",
-                    "up to {C:attention}#2# Confections{}",
+                    "up to {C:attention}#2# {C:Confection}Confections{}",
                     "{C:inactive}(Must have room)"
                 }
             },
@@ -4555,7 +4566,7 @@ return {
                 name = "Mega Snack Pack",
                 text = {
                     "Choose {C:attention}#1#{} of",
-                    "up to {C:attention}#2# Confections{}",
+                    "up to {C:attention}#2# {C:Confection}Confections{}",
                     "{C:inactive}(Must have room)"
                 }
             },
@@ -4718,7 +4729,7 @@ return {
             gloss_spellcasting = {
                 name = "Spellcasting",
                 text = {
-                    "{C:purple}Spells{} are effects",
+                    "{C:Magic}Spells{} are effects",
                     "created by certain jokers",
                     "and the {C:attention}Fantasy enhancement{}",
                     "Spells can be cast at ",
@@ -4752,10 +4763,10 @@ return {
             keyword_abduct = {
                 name = "Abduct",
                 text = {
-                    "Store the Abducted card",
+                    "Store the {C:Alien}Abducted{} card",
                     "in this joker",
                     "Upon defeating a {C:attention}Boss Blind",
-                    "abducted cards are {C:attention}released"
+                    "{C:Alien}Abducted{} cards are {C:attention}released"
                 }
             },
 
@@ -4779,21 +4790,21 @@ return {
                 name = "Choco",
                 text = {
                     "Increases potency",
-                    "of this confection"
+                    "of this {C:Confection}Confection"
                 }
             },
             kino_goldleaf = {
                 name = "Goldleaf",
                 text = {
                     "Earn {C:money}$1{} for each",
-                    "goldleaf confection used",
-                    "when this confection activates"
+                    "goldleaf {C:Confection}Confection{} used",
+                    "when this {C:Confection}Confection{} activates"
                 }
             },
             kino_extra_large = {
                 name = "Extra Large",
                 text = {
-                    "This confection has",
+                    "This {C:Confection}Confection{} has",
                     "an additional use"
                 }
             },
@@ -4866,7 +4877,7 @@ return {
             kino_cheese_seal = {
                 name = "Cheese Seal",
                 text = {
-                    "Create a {C:attention}Confection",
+                    "Create a {C:Confection}Confection",
                     "when a played hand contains",
                     "a scoring Cheese Seal"
                 }
@@ -4878,13 +4889,21 @@ return {
             },
             kino_legendary_unlock = {
                 name = "Spawn Conditions"
+            },
+
+            -- Abduction System
+            kino_abductionInfo = {
+                name = "Abducted Cards",
+                text = {
+                    "{C:Alien}Currently Abducted: #1#"
+                }
             }
         },
         Voucher = {
             v_kino_confection_merchant = {
                 name = "Confection Merchant",
                 text = {
-                    "{C:mult}Confection{} cards appear",
+                    "{C:Confection}Confection{} cards appear",
                     "{C:attention}#1#X{} more frequently",
                     "in the shop",
                 }
@@ -4892,7 +4911,7 @@ return {
             v_kino_confection_tycoon = {
                 name = "Confection Tycoon",
                 text = {
-                    "{C:mult}Confection{} cards appear",
+                    "{C:Confection}Confection{} cards appear",
                     "{C:attention}#1#X{} more frequently",
                     "in the shop",
                 }
@@ -4900,14 +4919,14 @@ return {
             v_kino_special_treats = {
                 name = "Special Treats",
                 text = {
-                    "{C:mult}Confections{} can appear",
+                    "{C:Confection}Confections{} can appear",
                     "with additional treats"
                 }
             },
             v_kino_snackbag = {
                 name = "Snack Bag",
                 text = {
-                    "Up to 4 {C:mult}Confections{}",
+                    "Up to 4 {C:Confection}Confections{}",
                     "can stack into a {C:mult}Snack Bag",
                     "which takes up only",
                     "1 Consumable slot"
@@ -4953,11 +4972,11 @@ return {
             v_kino_confection_acclimator = {
                 name = "Confection Acclimator",
                 text = {
-					"{C:mult}Confection{} cards appear",
+					"{C:Confection}Confection{} cards appear",
 					"{C:attention}X#1#{} more frequently",
 					"in the shop",
 					"Allows control of the",
-					"shop's {C:mult}Confection Rate{}",
+					"shop's {C:Confection}Confection Rate{}",
 					"{C:inactive}(Check {C:attention}Run Info{C:inactive})",
                 }
             },
@@ -4965,7 +4984,7 @@ return {
                 name = "Heavenly Treats",
                 text = {
                     "When defeating a blind",
-                    "upgrade each {C:mult}Confection's{}",
+                    "upgrade each {C:Confection}Confection's{}",
                     "power by {C:attention}#2#%{}"
                 }
             },
@@ -5728,6 +5747,7 @@ return {
             k_exorcist_1 = "The Power of Christ compells you",
             k_menu = "Bon appetit",
             k_m3gan = "Beep. Boop",
+            k_kino_guardians_1 = "Booyah",
             k_guardians_2 = "Visited",
             k_guardians_3 = "Saved!",
             k_princess_bride_1 = "As... You... Wish...",
@@ -5796,6 +5816,9 @@ return {
             k_extra_large = "Took a Bite",
             k_kino_blessedconf = "Blessed be this meal",
 
+            -- Planet Barks
+            k_kino_ego_planet = "Ego!",
+            
             -- Seals
             k_kino_sportsseal_1 = "Coached",
             k_kino_sportsseal_2 = "Coaching",

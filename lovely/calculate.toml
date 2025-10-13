@@ -79,6 +79,10 @@ if is_available == true then
     is_available = (not self.bb_paralysis or ignore_debuff)
 end
 
+if self.config.center.is_snackbag then
+    is_available = false
+end
+
 '''
 match_indent = true
 

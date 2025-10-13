@@ -10,8 +10,10 @@ SMODS.Consumable {
 	end,
     config = {
         extra = {
-            chips = 30,
-            mult = 3
+            chips = 5,
+            mult = 1,
+            a_chips = 5,
+            a_mult = 1,
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -23,7 +25,16 @@ SMODS.Consumable {
         }
     end,
     get_weight_mod = function()
-        return 0.5
+        local _bonus = 0
+        if G.jokers and G.jokers.cards then
+            for _index, _joker in ipairs(G.jokers.cards) do
+                if string.find(_joker.config.center.key, "guardians_of_the_galaxy") then
+                    _bonus = _bonus + 0.25
+                end
+            end
+        end
+
+        return math.min(0.25 + _bonus, 1)
     end,
     use = function(self, card, area, copier)
         -- Select random planet
@@ -33,6 +44,36 @@ SMODS.Consumable {
 			{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
 			{ mult = 0, chips = 0, handname = "", level = "" }
 		)
+
+        -- Terraform another consumable
+        if G.consumeables and G.consumeables.cards and #G.consumeables.cards > 0 then
+            local _valid_targets = {}
+            for _index, _cons in ipairs(G.consumeables.cards) do
+                if not _cons.ability.eternal and _cons:can_calculate() then
+                    _valid_targets[#_valid_targets + 1] = _cons
+                end
+            end
+
+            if #_valid_targets > 0 then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local _target = pseudorandom_element(_valid_targets, pseudoseed("kino_ego_planet"))
+                        _target:flip()
+                        delay(0.1)
+                        copy_card(card, _target)
+                        _target.ability.extra.chips = _target.ability.extra.chips + card.ability.extra.a_chips
+                        _target.ability.extra.mult = _target.ability.extra.mult + card.ability.extra.a_mult
+                        _target:flip()
+                        _target:juice_up()
+                        delay(0.1)
+                        card_eval_status_text(_card, 'extra', nil, nil, nil,
+                            { message = localize('k_kino_ego_planet'), colour = G.C.LEGENDARY})
+                        
+                        return true
+                    end
+                }))
+            end
+        end
     end
 }
 

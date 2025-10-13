@@ -47,9 +47,6 @@ function Game:start_run(args)
         G.jokers.T.w, G.jokers.T.h,
         { type = "joker", card_limit = 100000, highlighted_limit = 0 }
     )
-
-    local _calcjoker = SMODS.add_card{key = "j_kino_handlerobject", area = self.kino_offscreen_area, skip_materialize = true, no_edition = true}
-
     return ret
 end
 

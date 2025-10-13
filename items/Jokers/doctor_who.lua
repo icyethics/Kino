@@ -32,6 +32,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_active"}
         info_queue[#info_queue+1] = {set = 'Other', key = "keyword_abduct"}
+        info_queue[#info_queue+1] = Kino.abduction_info_queue(card)
         return {
             vars = {
                 card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0,

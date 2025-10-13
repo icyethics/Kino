@@ -927,24 +927,26 @@ local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*S
 '''
 position = "after"
 payload = '''
-G.KINO_SPLASH_LOGO = Sprite(0, 0, 
-    13*SC_scale, 
-    13*SC_scale*(G.ASSET_ATLAS["kino_splash_screen"].py/G.ASSET_ATLAS["kino_splash_screen"].px),
-    G.ASSET_ATLAS["kino_splash_screen"], {x=0,y=0})
+if G.ASSET_ATLAS["kino_splash_screen"] then
+    G.KINO_SPLASH_LOGO = Sprite(0, 0, 
+        13*SC_scale, 
+        13*SC_scale*(G.ASSET_ATLAS["kino_splash_screen"].py/G.ASSET_ATLAS["kino_splash_screen"].px),
+        G.ASSET_ATLAS["kino_splash_screen"], {x=0,y=0})
 
-G.KINO_SPLASH_LOGO:set_alignment({
-    major = G.title_top,
-    instance_type = "NODE",
-    type = 'cm',
-    bond = 'Strong',
-    offset = {x=2.25,y=0.33}
-})
-G.KINO_SPLASH_LOGO:define_draw_steps({{
-        shader = 'dissolve',
-    }})
+    G.KINO_SPLASH_LOGO:set_alignment({
+        major = G.title_top,
+        instance_type = "NODE",
+        type = 'cm',
+        bond = 'Strong',
+        offset = {x=2.25,y=0.33}
+    })
+    G.KINO_SPLASH_LOGO:define_draw_steps({{
+            shader = 'dissolve',
+        }})
 
-G.KINO_SPLASH_LOGO.dissolve_colours = {G.C.WHITE, G.C.WHITE}
-G.KINO_SPLASH_LOGO.dissolve = 1   
+    G.KINO_SPLASH_LOGO.dissolve_colours = {G.C.WHITE, G.C.WHITE}
+    G.KINO_SPLASH_LOGO.dissolve = 1
+end
 '''
 match_indent = true
 overwrite = false
@@ -958,7 +960,9 @@ ease_value(G.SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, change_context == 'spla
 '''
 position = "before"
 payload = '''
-ease_value(G.KINO_SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)
+if G.KINO_SPLASH_LOGO then
+    ease_value(G.KINO_SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)
+end
 '''
 match_indent = true
 overwrite = false
@@ -1021,7 +1025,6 @@ end
 position = "before"
 payload = '''
 if G.KINO_SPLASH_LOGO then
-    print("test false")
     G.KINO_SPLASH_LOGO.states.visible = false
 end
 '''

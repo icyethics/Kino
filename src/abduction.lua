@@ -5,44 +5,6 @@
 -- the abducted card is returned to the cardarea it came from
 -- regardless of whether there is space
 
--- If the source of an abduction is sold or destroyed, the abducted items are sold or destroyed with them
--- local _o_gsr = Game.start_run
--- function Game:start_run(args)
---     _o_gsr(self, args)
-
---     -- Abduction Mechanics
---     self.kino_abductionarea = CardArea(
---         0,
---         0,
---         self.CARD_W * 4.95,
---         self.CARD_H * 0.95,
---         {
---             card_limit = 999,
---             type = "abduction",
---             highlight_limit = 0
---         }
---     )
---     self.kino_abductionarea.states.visible = false
---     Kino.abduction = G.kino_abductionarea
-
---     -- Confection Mechanics
---     self.kino_snackbag = CardArea(
---         G.consumeables.T.x + 2.25,
---         G.consumeables.T.y + G.consumeables.T.h + 1,
---         self.CARD_W * 2.2,
---         self.CARD_H * 0.95,
---         {
---             card_limit = 4,
---             type = 'joker',
---             highlight_limit = 1,
---             -- card_w = G.CARD_W * 0.7,
---         }
---     )
---     self.kino_snackbag.states.visible = false
---     Kino.snackbag = G.kino_snackbag
-
--- end
-
 Kino.abduction_id_num_list = {}
 Kino.register_abducter_entity = function(card)
 
@@ -72,6 +34,9 @@ Kino.abduct_card = function(card, abducted_card)
 
     if abducted_card.ability.set ~= 'Joker' then
         abducted_card.abducted = true
+
+        if abducted_card.playing_card then abducted_card.playing_card = false end
+
         G.GAME.current_round.abduction_waitinglist[#G.GAME.current_round.abduction_waitinglist + 1] = {
             abductor = card,
             abducted_card = abducted_card,
@@ -127,6 +92,9 @@ Kino.unabduct_cards = function(card)
         if _card.ability.set == 'Joker' then
             _cardarea = G.jokers
         end
+        if _card.ability.set == 'Default' or _card.ability.set == 'Enhanced' then
+            _card.playing_card = true
+        end
         -- if abductee.abducted_from ~= G.play and
         -- abductee.abducted_from ~= G.hand then
         --     _cardarea = abductee.abducted_from 
@@ -163,6 +131,7 @@ Kino.gather_abducted_cards_by_abductor = function(card)
     local _list_of_cards = {}
 
     for _index, _card in ipairs(Kino.abduction.cards) do
+        print(_index)
         if _card.ability.kino_abductor_id == _id then
             _list_of_cards[_card.ability.kino_abduction_id] = _card
         end
@@ -235,6 +204,65 @@ G.FUNCS.draw_from_area_to_abduction = function(e)
             G.GAME.current_round.abduction_waitinglist = {}
             return true end
     }))
+end
+
+function Kino.abduction_info_queue(card)
+    if not card or not Kino.abduction or not Kino.abduction.cards then
+        return nil
+    end
+    local card_table = Kino.gather_abducted_cards_by_abductor(card)
+
+    if not card_table or type(card_table) ~= "table" or #card_table < 1 then
+        return nil
+    end
+    print(card.config.center.key)
+    
+    local num = #card_table 
+    print(num)
+    local _width = num*G.CARD_W
+    local _scale = 0.5
+    Kino.abduction_preview_area = CardArea(
+        2,2,
+        math.min(_width *0.8, _width * 0.8 * 5),
+        (0.95*G.CARD_H) * _scale, 
+        {card_limit = num, type = 'title', highlight_limit = 0, temporary = true}
+    )
+
+    for i = 1, num do
+        local _startScale = 0.3
+        local _card = copy_card(card_table[i], nil, _startScale)
+        ease_value(_card.T, 'scale',0.5,nil,'REAL',true,0.2)
+        -- local _card = Card(0,0, 0.5*G.CARD_W, 0.5*G.CARD_H, G.P_CARDS['S_A'], G.P_CENTERS['c_base'])
+        Kino.abduction_preview_area:emplace(_card)
+    end
+
+    local _card_showcase = {
+        {
+            n = G.UIT.C,
+            config = {
+                align = 'cm',
+                colour = G.C.CLEAR,
+                padding = 0.1
+            },
+            nodes = {
+                {
+                    n=G.UIT.O, 
+                    config = {
+                        object = Kino.abduction_preview_area
+                    }
+                }
+            }
+        }
+    }
+
+    return {
+            set = "Other", 
+            key = "kino_abductionInfo",
+            vars = {
+                #card_table
+            }, 
+            main_end = _card_showcase
+        }
 end
 
 function Card:abduct_animation(dissolve_colours, silent, dissolve_time_fac, no_juice)

@@ -1,11 +1,22 @@
 V 0.10.5:
 API Changes:
 - Blockbuster Value Manipulation has been added. Vanilla jokers now can be affected by value manipulation, and it will be easier to have other mods be compatible!
+- MoreFluff has been made value manipulation compatible
+
+Balance Changes:
+- Nope has been made stronger
+- Star Wars Episode 2 now accounts for the default value of x chips and x mult upgrades and won't include it when upgrading
+
+Reworks:
+- Guardians of the Galaxy 1 has a new effect
+- Ego the Living Planet has a new effect
 
 Content Changes:
 - Jokers that do not benefit from value manipulation have been made incompatible, so that awards won't be able to be placed on them.
 - Specific values are now capped when value manipulated
 - Values that don't make sense to be decimals can no longer be manipulated into decimals, and instead are rounded up or down.
+- Sci Fi cards upgrades now persist after the enhancement changes
+- Movie Joker Menu: When hovering over a Kino joker, you can press 'K' to get more info on it
 
 
 V 0.10.4b:
