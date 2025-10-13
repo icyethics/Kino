@@ -1,3 +1,10 @@
+V 0.10.5a:
+Balance Changes:
+- Movie jokers no longer have actor synergy with themselves, and do not benefit from you owning multiple copies of the same joker
+
+Config Options:
+- Allows you to re-enable Joker Self-synergy
+
 V 0.10.5:
 API Changes:
 - Blockbuster Value Manipulation has been added. Vanilla jokers now can be affected by value manipulation, and it will be easier to have other mods be compatible!

@@ -5683,6 +5683,7 @@ return {
             kino_settings_confection_mechanic = "Confections?", 
 
             kino_settings_actor_synergy = "Actors?",
+            kino_settings_self_synergize = "Jokers can synergize with themselves?",
             kino_settings_genre_synergy = "Genre?",
             kino_settings_movie_jokers_only = "Movie Jokers Only?",
             kino_settings_custom_rarity = "Rarity System?",

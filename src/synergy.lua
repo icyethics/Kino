@@ -30,11 +30,16 @@ function Card:kino_synergy(card)
         -- actor_ID = num of matches
     }
 
+
+
     -- Iterate through actor list
     for _, actor in pairs(_actors) do
+        local _joker_hash = {}
         -- Iterate through other jokers
         for i = 1, #G.jokers.cards do
-            if G.jokers.cards[i] ~= card then
+            if G.jokers.cards[i] ~= card and 
+            (kino_config.self_synergize or 
+            G.jokers.cards[i].config.center ~= self.config.center and not _joker_hash[G.jokers.cards[i].config.center.key]) then
                 if G.jokers.cards[i].config.center.kino_joker then
                     local _compared_actors = G.jokers.cards[i].config.center.kino_joker.cast
 
@@ -49,6 +54,8 @@ function Card:kino_synergy(card)
                         end
                     end
                 end
+
+                _joker_hash[G.jokers.cards[i].config.center.key] = true
             end
         end
     end

@@ -23,6 +23,7 @@ local mod_mechanics_toggles = {
 	{ref_value = "genre_synergy", label = "kino_settings_genre_synergy"},
 	{ref_value = "movie_jokers_only", label = "kino_settings_movie_jokers_only"},
 	{ref_value = "custom_rarity", label = "kino_settings_custom_rarity"},
+	{ref_value = "self_synergize", label = "kino_settings_self_synergize"}
 }
 
 local mod_mechanics_sliders = {
