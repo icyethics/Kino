@@ -255,7 +255,26 @@ SMODS.current_mod.extra_tabs = function()
 									scale = scale * 0.5,
 									colour = G.C.BLUE
 								}
+							},
+							{
+								n = G.UIT.T,
+								config = {
+									text = ", poin",
+									shadow = true,
+									scale = scale * 0.5,
+									colour = G.C.BLUE
+								}
+							},
+							{
+								n = G.UIT.T,
+								config = {
+									text = ", Wombat",
+									shadow = true,
+									scale = scale * 0.5,
+									colour = G.C.BLUE
+								}
 							}
+							
 						}
 					},
 					{
@@ -299,6 +318,16 @@ SMODS.current_mod.extra_tabs = function()
 								n = G.UIT.T,
 								config = {
 									text = ", strmnn",
+									shadow = true,
+									scale = scale * 0.5,
+									colour = G.C.BLUE
+								}
+							}
+							,
+							{
+								n = G.UIT.T,
+								config = {
+									text = ", Meta",
 									shadow = true,
 									scale = scale * 0.5,
 									colour = G.C.BLUE
@@ -378,3 +407,13 @@ function G.FUNCS.kino_wiki(e)
 	love.system.openURL("https://balatromods.miraheze.org/wiki/Balatro_Goes_Kino")
 end
 
+
+
+-- Collection Tab
+
+SMODS.current_mod.custom_collection_tabs = function()
+	local  _return_table = {}
+	_return_table[#_return_table + 1] = Blockbuster.Spellcasting.CollectionTab()[1]
+	_return_table[#_return_table + 1] = Blockbuster.Counters.CollectionTab()[1]
+    return _return_table
+end

@@ -64,6 +64,7 @@ Blockbuster.ValueManipulation.CompatStandard{
 
         -- 10
         -- j_kino_bttf = true,
+        j_kino_blank_check = true,
         j_kino_bucket_list = true,
         j_kino_charlie_and_the_chocolate_factory = true,
         j_kino_chef = true,

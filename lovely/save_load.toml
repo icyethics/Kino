@@ -21,23 +21,6 @@ match_indent = true
 [patches.pattern]
 target = "card.lua"
 pattern = '''
-remove_all(self.children)
-self.children = {}
-self.children.shadow = Moveable(0, 0, 0, 0)
-'''
-position = "after"
-payload = '''
-if self.counter_config then
-    Blockbuster.Counters.counter_ui_text(self)
-end
-'''
-match_indent = true
-
-
-[[patches]]
-[patches.pattern]
-target = "card.lua"
-pattern = '''
 edition = self.edition,
 seal = self.seal,
 '''

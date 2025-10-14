@@ -19,6 +19,7 @@ position = "after"
 payload = '''
 self.shared_counters_joker = {}
 self.shared_counters_pcard = {}
+self.shared_counters_ui = {}
 '''
 match_indent = true
 

@@ -30,6 +30,9 @@ Blockbuster.Counters.Counter =  SMODS.GameObject:extend {
         G.shared_counters_pcard[self.key] = Sprite(0, 0, G.CARD_W, G.CARD_H,
             G.ASSET_ATLAS[self.atlas], sec_pos)
 
+        G.shared_counters_ui[self.key] = UISprite(0, 0, G.CARD_W, G.CARD_H,
+            G.ASSET_ATLAS[self.atlas], { x = 0, y = 0 })
+
         SMODS.insert_pool(G.P_CENTER_POOLS[self.set], self)
         G.P_COUNTERS[self.key] = self
 

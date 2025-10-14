@@ -7,8 +7,8 @@
     "main_file": "kino.lua",
     "badge_colour": "9f69bd",
     "display_name": "Kino",
-    "priority": 999,
-    "version": "0.10.5a",
+    "priority": 0,
+    "version": "0.10.5b",
     "dependencies": ["Steamodded (>=1.0.0~BETA-0827a)", "Lovely (>=0.8)"],
     "provides": [
 		"Blockbuster-Counters",

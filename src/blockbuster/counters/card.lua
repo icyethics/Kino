@@ -35,8 +35,6 @@ function Card:bb_counter_apply(counter_type, number, no_override, silent)
         -- Set new counter type
         self.counter = counter_type
 
-        Blockbuster.Counters.counter_ui_text(self)
-
         -- Copy config table from template to _object
         self.ability.counter = {}
         if counter_type then
@@ -71,7 +69,7 @@ function Card:bb_increment_counter(number, first_application, silent)
             SMODS.calculate_context({bb_counter_incremented = true, card = self, counter_type = self.counter, number = number})
         end
         
-        self.ability.counter.counter_num = math.min(self.ability.counter.counter_num + number, self.counter and self.counter.config.cap or 99)
+        self.ability.counter.counter_num = math.min(self.ability.counter.counter_num + number, self.counter.config.cap or 99)
         --Counter Increment action
         local obj = self.counter
         if obj and obj.increment and type(obj.increment) == 'function' then
@@ -90,12 +88,12 @@ function Card:bb_increment_counter(number, first_application, silent)
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
                 if self.counter_config then
                     self:juice_up()
-                    self.counter_config.counter_num_ui = math.min(self.counter_config.counter_num_ui + number, self.counter and self.counter.config.cap or 99)
+                    self.counter_config.counter_num_ui = math.min(self.counter_config.counter_num_ui + number, self.counter.config.cap or 99)
                 end
             return true end }))
         else
             if self.counter_config then
-                self.counter_config.counter_num_ui = math.min(self.counter_config.counter_num_ui + number, self.counter and self.counter.config.cap or 99)
+                self.counter_config.counter_num_ui = math.min(self.counter_config.counter_num_ui + number, self.counter.config.cap or 99)
             end
         end    
     end
@@ -125,9 +123,6 @@ function Card:bb_remove_counter(removal_method)
 
             self:juice_up()
             self.counter_config = nil
-            if self.children.counter_ui_box then
-                self.children.counter_ui_box = nil
-            end
         end
     return true end }))
 end

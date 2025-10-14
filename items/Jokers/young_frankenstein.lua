@@ -65,7 +65,8 @@ SMODS.Joker {
         
     end,
     add_to_deck = function(self, card, from_debuff)
-        card.ability.extra.codex, card.ability.extra.codex_solve = Kino.create_codex(nil, card.ability.extra.codex_type, card.ability.extra.codex_length, 'young_frankie')
-   
+        if not from_debuff and not card.from_quantum then
+            card.ability.extra.codex, card.ability.extra.codex_solve = Kino.create_codex(nil, card.ability.extra.codex_type, card.ability.extra.codex_length, 'young_frankie')
+        end
     end,
 }

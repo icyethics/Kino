@@ -20,6 +20,10 @@ function create_UIBox_spells()
 end
 
 SMODS.current_mod.custom_collection_tabs = function()
+    return Blockbuster.Spellcasting.CollectionTab()
+end
+
+Blockbuster.Spellcasting.CollectionTab = function()
     return {
         UIBox_button({
             button = 'your_collection_spells', 

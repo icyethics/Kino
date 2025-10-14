@@ -48,16 +48,20 @@ SMODS.Joker {
     
     end,
     add_to_deck = function(self, card, from_debuff)
-        local _money = card.ability.extra.money - G.GAME.dollars
-        if card and card.juice_card then
-            card:juice_card()
+        if not from_debuff and not card.from_quantum then
+            local _money = card.ability.extra.money - G.GAME.dollars
+            if card and card.juice_card then
+                card:juice_card()
+            end
+            ease_dollars(_money)
         end
-        ease_dollars(_money)
 	end,
     remove_from_deck = function(self, card, from_debuff)
-        if card and card.juice_card then
-            card:juice_card()
+        if not from_debuff and not card.from_quantum then
+            if card and card.juice_card then
+                card:juice_card()
+            end
+            ease_dollars(-G.GAME.dollars)
         end
-        ease_dollars(-G.GAME.dollars)
 	end,
 }

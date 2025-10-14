@@ -79,10 +79,14 @@ SMODS.Joker {
         end
     end,
     add_to_deck = function(self, card, from_debuff)
-		G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 1
-		calculate_reroll_cost(true)
+        if not from_debuff and not card.from_quantum then
+            G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 1
+            calculate_reroll_cost(true)
+        end
 	end,
     remove_from_deck = function(self, card, from_debuff)
-		calculate_reroll_cost(true)
+        if not from_debuff and not card.from_quantum then
+		    calculate_reroll_cost(true)
+        end
 	end,
 }

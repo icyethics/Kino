@@ -40,18 +40,22 @@ SMODS.Joker {
         
     end,
     add_to_deck = function(self, card, from_debuff)
-        G.GAME.kino_oceans_11 = true
-        if G.shop_booster and G.shop_booster.cards then
-            for i = 1, #G.shop_booster.cards do
-                G.shop_booster.cards[i]:set_cost()
+        if not card.from_quantum then
+            G.GAME.kino_oceans_11 = true
+            if G.shop_booster and G.shop_booster.cards then
+                for i = 1, #G.shop_booster.cards do
+                    G.shop_booster.cards[i]:set_cost()
+                end
             end
         end
 	end,
     remove_from_deck = function(self, card, from_debuff)
-        G.GAME.kino_oceans_11 = false
-        if G.shop_booster and G.shop_booster.cards then
-            for i = 1, #G.shop_booster.cards do
-                G.shop_booster.cards[i]:set_cost()
+        if not card.from_quantum then
+            G.GAME.kino_oceans_11 = false
+            if G.shop_booster and G.shop_booster.cards then
+                for i = 1, #G.shop_booster.cards do
+                    G.shop_booster.cards[i]:set_cost()
+                end
             end
         end
 	end,

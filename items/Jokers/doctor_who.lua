@@ -63,9 +63,11 @@ SMODS.Joker {
         
     end,
     add_to_deck = function(self, card, from_debuff)
-        card.children.abduction_display = Kino.create_abduction_ui(card)
-        card.children.abduction_display_2 = Kino.create_abduction_ui_2(card)
-        Kino.register_abducter_entity(card)
+        if not from_debuff and not card.from_quantum then
+            card.children.abduction_display = Kino.create_abduction_ui(card)
+            card.children.abduction_display_2 = Kino.create_abduction_ui_2(card)
+            Kino.register_abducter_entity(card)
+        end
     end,
     update = function(self, card, dt)
         if card.area and card.area == G.jokers then

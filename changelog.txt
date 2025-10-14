@@ -1,3 +1,16 @@
+V 0.10.5b:
+Visual Update:
+- Counters no longer have the number act separately from the card
+- Counters now successfully appear in the collection
+
+Credits Update:
+Added the following credits:
+- On-card Text rendering: Meta
+- Bug Reporting: Womb4t, 泡影 (poin)
+
+Bug Fixes:
+- Blank Check, Blair Witch Project, and Oceans 11 no longer soft lock the game when affected by aura-style value manipulation
+
 V 0.10.5a:
 Balance Changes:
 - Movie jokers no longer have actor synergy with themselves, and do not benefit from you owning multiple copies of the same joker

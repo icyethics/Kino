@@ -14,6 +14,10 @@ function create_UIBox_counters()
 end
 
 SMODS.current_mod.custom_collection_tabs = function()
+    return Blockbuster.Counters.CollectionTab()
+end
+
+Blockbuster.Counters.CollectionTab = function()
     return {
         UIBox_button({
             button = 'your_collection_counters', 
