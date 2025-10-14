@@ -1,6 +1,4 @@
 joker_list = {
-"handlerobject",
-
     ------ Common
 "9_movie",
 "ai_artificial",

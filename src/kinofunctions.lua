@@ -391,7 +391,7 @@ function CardArea:set_ranks()
         check_actor_synergy()
     end
 end
-
+local _infcount = 0
 local base_align_cards = CardArea.align_cards
 function CardArea:align_cards()
     base_align_cards(self)
@@ -400,10 +400,11 @@ function CardArea:align_cards()
         -- if G.GAME.modifiers.kino_genre_variety then
         --     check_genre_match()            
         -- end
+        -- _infcount = _infcount + 1
+        -- print("how often does this trigger? " .. _infcount)
         check_genre_synergy()
         check_actor_synergy()
     end
-    local base_align_cards = CardArea.align_cards
 end
 
 
