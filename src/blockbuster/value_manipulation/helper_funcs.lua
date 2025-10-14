@@ -57,7 +57,7 @@ function Blockbuster.get_standard_from_card(card)
         return nil
     end
 
-    if Blockbuster.ValueManipulation.CompatStandards[_standard_key].redirect_objects then
+    if Blockbuster.ValueManipulation.CompatStandards[_standard_key] and Blockbuster.ValueManipulation.CompatStandards[_standard_key].redirect_objects then
         for _key, _dict in pairs(Blockbuster.ValueManipulation.CompatStandards[_standard_key].redirect_objects) do
             if _dict[card.config.center.key] then
                 return _key
