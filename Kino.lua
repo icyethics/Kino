@@ -27,6 +27,7 @@ end
 local non_jokeratlases = 
 {
     {"modicon", 32, 32, "modicon.png"},
+    {"kino_counters", 73, 97, "kino_counters.png"},
     {"kino_tarot", 71, 95, "kino_tarot.png"},
     {"kino_enhancements", 71, 95, "kino_enhancements.png"},
     {"kino_boosters", 71, 95, "kino_boosters.png"},

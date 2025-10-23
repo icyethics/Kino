@@ -641,7 +641,7 @@ return {
                 text = {
                     "If your hand contains",
                     "a single card",
-                    "{C:attention}Drain{} half its rank",
+                    "{C:Drain}Drain{} half its rank",
                     "and gain #2# times that many chips",
                     "{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)"
                 }
@@ -4756,7 +4756,7 @@ return {
             keyword_drain = {
                 name = "Drain",
                 text = {
-                    "Remove the {C:attention}Enhancement",
+                    "{C:Drain}Remove{} the target {C:attention}Quality",
                     "from a playing card"
                 }
             },
@@ -5642,6 +5642,14 @@ return {
                     "while this has any",
                     "Counters"
                 }
+            },
+            counter_kino_blood = {
+                name = "Blood Counter",
+                text = {
+                    "When this card is {C:Drain}Drained",
+                    "{C:attention}Ticks Down 1",
+                    "and do not lose {C:Drain}Drained Property"
+                }
             }
         }
     },
@@ -5720,7 +5728,7 @@ return {
             k_romance_match_ex = "Hey there ;)",
             k_summoned_ex = "Summoned",
             kino_codex = "Solved",
-
+            k_kino_drained = "Drained!",
             
             k_longlegs_ex = "Captured",
             k_ghost_rider_1 = "Vengeance!",

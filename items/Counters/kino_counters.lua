@@ -32,3 +32,24 @@ Blockbuster.Counters.Counter {
         Blockbuster.reset_value_multiplication(card, self.key)
     end,
 }
+
+Blockbuster.Counters.Counter {
+    key = "blood",
+    prefix_config = {key = { mod = true}},
+    order = 1,
+    atlas = 'kino_counters',
+    config = {
+    },
+    pos = {x = 0, y = 0},
+    counter_class = {
+        "archetype",
+    },
+    calculate = function(self, card, context)
+
+    end,
+    loc_vars = function(self, info_queue, card)
+
+    end,
+    increment = function(self, card, number)
+    end
+}

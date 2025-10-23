@@ -45,7 +45,6 @@ SMODS.Joker {
         and #context.full_hand == 1
         and not context.blueprint and not context.repetition then
             local i_card = context.scoring_hand[1]
-            local suit_prefix = string.sub(i_card.base.suit, 1, 1).."_"
             local rank = i_card.base.id
             local _halfrank = math.max(math.floor(rank / 2), 2)
 
@@ -55,16 +54,9 @@ SMODS.Joker {
                 }
             end
 
-            card.ability.extra.stacked_chips = card.ability.extra.stacked_chips + (rank - _halfrank) *card.ability.extra.a_chips
-
-            local _rank_suffix = tostring(_halfrank)
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
-                i_card:juice_up(0.8, 0.5)
-                card_eval_status_text(i_card, 'extra', nil, nil, nil,
-                { message = localize('k_cronos'), colour = G.C.CHIPS })
-                i_card:set_base(G.P_CARDS[suit_prefix.._rank_suffix])
-                delay(0.23)
-            return true end }))
+            if Kino.drain_property(i_card, card, {Rank = {Intensity = _halfrank}}) then
+                card.ability.extra.stacked_chips = card.ability.extra.stacked_chips + (rank - _halfrank) *card.ability.extra.a_chips 
+            end
         end
 
         if context.joker_main then

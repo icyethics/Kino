@@ -111,9 +111,6 @@ function Kino.supervillain_enact_scheme(card, context, scheme)
 end
 
 function Kino.supervillain_foil_scheme(card, context, scheme)
-    print("args reference:", tostring(context))
-    
-
     return Kino.table_of_schemes[scheme].foil(card, context)
 end
 -- Schemes

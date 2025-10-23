@@ -760,7 +760,8 @@ G.C.KINO = {
     PINK = HEX("f7b7f2"),
     MAGIC = HEX("7F00FF"),
     ALIEN = HEX("71d027"),
-    CONFECTION = HEX("8e1212")
+    CONFECTION = HEX("8e1212"),
+    DRAIN = HEX("b52727"),
 }
 
 local genrecolors = loc_colour
@@ -795,6 +796,7 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS["Magic"] = G.C.KINO.MAGIC
     G.ARGS.LOC_COLOURS["Alien"] = G.C.KINO.ALIEN
     G.ARGS.LOC_COLOURS["Confection"] = G.C.KINO.CONFECTION
+    G.ARGS.LOC_COLOURS["Drain"] = G.C.KINO.DRAIN
 
     return genrecolors(_c, _default)
 end

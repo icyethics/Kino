@@ -1432,7 +1432,6 @@ SMODS.Blind{
                         end
                     end
                     if self.debuff.defeated == false and G.hand and G.GAME.blind.in_blind then
-                        print("ping")
                         event.start_timer = false
                     else
                         return true

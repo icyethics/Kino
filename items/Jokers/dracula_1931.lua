@@ -48,28 +48,11 @@ SMODS.Joker {
             local enhanced = {}
             local unenhanced = {}
             for k, v in ipairs(context.scoring_hand) do
-                if v.config.center ~= G.P_CENTERS.c_base and not v.debuff and not v.vampired then
-                    enhanced[#enhanced+1] = v
-                    v.vampired = true
-                    v:set_ability(G.P_CENTERS.c_base, nil, true)
-                    G.E_MANAGER:add_event(Event({
-                        func = function()
-                            v:juice_up()
-                            v.vampired = nil
-                            return true
-                        end
-                    }))
-                elseif not v.debuff and not v.vampired then 
-                    unenhanced[#unenhanced+1] = v
-                    SMODS.debuff_card(v, true, card.config.center.key)
-                    v.vampired = true
-                    G.E_MANAGER:add_event(Event({
-                        func = function()
-                            v:juice_up()
-                            v.vampired = nil
-                            return true
-                        end
-                    }))
+                if v.config.center ~= G.P_CENTERS.c_base and Kino.drain_property(v, card, {Enhancement = {true}}) then
+                    enhanced[#enhanced + 1] = v
+                    print(#enhanced)
+                elseif Kino.drain_property(v, card, {Base = {debuff = "j_kino_dracula_1931"}}) then
+                    unenhanced[#unenhanced + 1] = v
                 end
             end
 
