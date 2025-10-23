@@ -4,48 +4,50 @@ SMODS.Enhancement {
     atlas = "kino_enhancements",
     pos = { x = 0, y = 0},
     config = {
-        a_mult = 1,
-        a_chips = 5,
-        times_upgraded = 0,
-        times_upgraded_ui = 0,
-        sprite_state = "level"
+        extra = {
+            a_mult = 1,
+            a_chips = 5,
+            times_upgraded = 0,
+            times_upgraded_ui = 0,
+            sprite_state = "level"
+        }
     },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card and card.ability.a_mult or self.config.a_mult,
-                card and card.ability.a_chips or self.config.a_chips,
-                card and card.ability.bonus or nil,
-                card and card.ability.perma_mult or nil,
-                card and card.ability.perma_x_mult or nil,
-                card and card.ability.times_upgraded or self.config.times_upgraded
+                card and card.ability.extra.a_mult or self.config.a_mult,
+                card and card.ability.extra.a_chips or self.config.a_chips,
+                card and card.ability.extra.bonus or nil,
+                card and card.ability.extra.perma_mult or nil,
+                card and card.ability.extra.perma_x_mult or nil,
+                card and card.ability.extra.times_upgraded or self.config.times_upgraded
             }
         }
     end,
     upgrade = function(self, card, num)
         local _upgradenum = num or 1
-        card.ability.times_upgraded = card.ability.times_upgraded + _upgradenum
+        card.ability.extra.times_upgraded = card.ability.extra.times_upgraded + _upgradenum
 
-        if card.ability.times_upgraded_ui < 99 then
+        if card.ability.extra.times_upgraded_ui < 99 then
         G.E_MANAGER:add_event(Event({
             trigger = 'immediate',
             func = (function() 
-                card.ability.times_upgraded_ui = math.min(card.ability.times_upgraded_ui + _upgradenum, 99)
+                card.ability.extra.times_upgraded_ui = math.min(card.ability.extra.times_upgraded_ui + _upgradenum, 99)
 
                 return true end)
         }))
         end
-        card.ability.bonus = card.ability.bonus + (card.ability.a_chips * _upgradenum)
+        card.ability.extra.bonus = card.ability.extra.bonus + (card.ability.extra.a_chips * _upgradenum)
 
         if next(find_joker('j_kino_terminator_2')) then
             for index, _joker in ipairs(G.jokers.cards) do
                 if type(_joker.ability.extra) == "table" and
                 _joker.ability.extra.affects_sci_fi then
-                    card.ability.perma_x_mult = card.ability.perma_x_mult + (_joker.ability.extra.perma_x_mult *  _upgradenum)
+                    card.ability.extra.perma_x_mult = card.ability.extra.perma_x_mult + (_joker.ability.extra.perma_x_mult *  _upgradenum)
                 end
             end
         else
-            card.ability.perma_mult = card.ability.perma_mult + (card.ability.a_mult *  _upgradenum)
+            card.ability.extra.perma_mult = card.ability.extra.perma_mult + (card.ability.extra.a_mult *  _upgradenum)
         end
                 
                 
@@ -102,7 +104,7 @@ SMODS.DrawStep {
     order = 2,
     func = function(self, layer)
         if self and self.config.center == G.P_CENTERS.m_kino_sci_fi and G.shared_segdisp then
-            if self.ability.sprite_state == "level" then
+            if self.ability.extra.sprite_state == "level" then
                 if true == false and type(G.shared_segdisp[1][11].draw) == 'function' then
                     G.shared_segdisp[1][11]:draw(self, layer)
                     G.shared_segdisp[2][12]:draw(self, layer)
@@ -114,8 +116,8 @@ SMODS.DrawStep {
                     G.shared_segdisp[2][12]:draw_shader('dissolve', nil, nil, nil, self.children.center)
                 end
                 local _values = {0, 0}
-                _values[2] = self.ability.times_upgraded_ui % 10
-                _values[1] = (self.ability.times_upgraded_ui - _values[2]) / 10
+                _values[2] = self.ability.extra.times_upgraded_ui % 10
+                _values[1] = (self.ability.extra.times_upgraded_ui - _values[2]) / 10
                 
                 for i = 1, 2 do
                     if true == false and  type(G.shared_segdisp[2 + i][_values[i] + 1].draw) == 'function' then
@@ -130,12 +132,12 @@ SMODS.DrawStep {
             end
 
             -- Chips display
-            if self.ability.sprite_state == "chips" then
+            if self.ability.extra.sprite_state == "chips" then
                 
             end
 
             -- Mult display
-            if self.ability.sprite_state == "mult" then
+            if self.ability.extra.sprite_state == "mult" then
                 
             end
 

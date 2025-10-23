@@ -3,16 +3,16 @@ SMODS.Enhancement {
     atlas = "kino_enhancements",
     pos = { x = 3, y = 0},
     config = {
-        chips_mult = 2,
-        mult_mult = 2,
-        temp_bonusses = {}
+        extra = {
+            chips_mult = 2,
+            mult_mult = 2,
+        }
     },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card and card.ability.chips_mult and self.config.chips_mult,
-                card and card.ability.mult_mult and self.config.mult_mult,
-                card and card.ability.temp_bonusses and self.config.temp_bonusses
+                card and card.ability.extra.chips_mult and self.config.chips_mult,
+                card and card.ability.extra.mult_mult and self.config.mult_mult,
             }
         }
     end,
@@ -21,7 +21,7 @@ SMODS.Enhancement {
         if (context.main_scoring and context.cardarea == G.play) and not context.repetition then
             local _romance_count = 0
             local _is_left = false
-            card.ability.current_match = nil
+            card.ability.extra.current_match = nil
             for i = 1, #context.scoring_hand do 
                 if SMODS.has_enhancement(context.scoring_hand[i], 'm_kino_romance') then
                     if _romance_count == 0 and context.scoring_hand[i] == card then
@@ -48,11 +48,11 @@ SMODS.Enhancement {
                 if _is_left then
                     SMODS.calculate_context({match_made = true})
                     return {
-                        x_chips = card.ability.chips_mult + _bonus
+                        x_chips = card.ability.extra.chips_mult + _bonus
                     }
                 else
                     return {
-                        x_mult = card.ability.mult_mult + _bonus
+                        x_mult = card.ability.extra.mult_mult + _bonus
                     }
                 end
             end

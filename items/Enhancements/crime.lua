@@ -3,14 +3,16 @@ SMODS.Enhancement {
     atlas = "kino_enhancements",
     pos = { x = 3, y = 1},
     config = {
-        steal_val = 1,
-        earn_val = 2
+        extra = {
+            steal_val = 1,
+            earn_val = 2
+        }
     },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.steal_val,
-                card.ability.earn_val,
+                card.ability.extra.steal_val,
+                card.ability.extra.earn_val,
                 G.GAME.money_stolen
             }
         }
@@ -18,7 +20,7 @@ SMODS.Enhancement {
     calculate = function(self, card, context, effect)
         -- New Effect, lower sell value of a joker or consumable by 1, if possible, and earn $2
         if (context.main_scoring and context.cardarea == G.play) then
-            local _val = Kino:steal_money(card.ability.steal_val, card.ability.earn_val)
+            local _val = Kino:steal_money(card.ability.extra.steal_val, card.ability.extra.earn_val)
 
             if _val then
                 return {

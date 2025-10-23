@@ -27,9 +27,9 @@ Blockbuster.Spellcasting.Spell = SMODS.Center:extend({
     end,
     cast_spell = function(self, strength)
         local _obj = Blockbuster.Spellcasting.Spells[self.key]
-        G.GAME.current_round.spells_cast = G.GAME.current_round.spells_cast + 1
-        G.GAME.current_round.last_spell_cast.key = self.key
-        G.GAME.current_round.last_spell_cast.strength = strength
+        G.GAME.current_round.bb_spells_cast = G.GAME.current_round.bb_spells_cast + 1
+        G.GAME.current_round.bb_last_spell_cast.key = self.key
+        G.GAME.current_round.bb_last_spell_cast.strength = strength
         if _obj and _obj.cast and type(_obj.cast) == 'function' then
             local _returnval = _obj:cast()
             return _returnval

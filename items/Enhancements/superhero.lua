@@ -3,14 +3,16 @@ SMODS.Enhancement {
     atlas = "kino_enhancements",
     pos = { x = 5, y = 5},
     config = {
-        given_x_mult = 1,
-        a_xmult = 0.5
+        extra = {
+            given_x_mult = 1,
+            a_xmult = 0.5
+        }
     },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.a_xmult,
-                card.ability.given_x_mult + (G.GAME.current_round.hands_played * card.ability.a_xmult)
+                card.ability.extra.a_xmult,
+                card.ability.extra.given_x_mult + (G.GAME.current_round.hands_played * card.ability.extra.a_xmult)
             }
         }
     end,
@@ -18,7 +20,7 @@ SMODS.Enhancement {
         -- Gives X0.5 mult for each hand used
         if context.main_scoring and context.cardarea == G.play then
             return {
-                x_mult = card.ability.given_x_mult + (G.GAME.current_round.hands_played * card.ability.a_xmult)
+                x_mult = card.ability.extra.given_x_mult + (G.GAME.current_round.hands_played * card.ability.extra.a_xmult)
             }
         end
     end

@@ -1,3 +1,8 @@
+V 0.10.5c:
+Bug Fix:
+- Fixed crash when launching with Cryptid enabled
+- Fixed crash caused by spellcasting
+
 V 0.10.5b:
 Visual Update:
 - Counters no longer have the number act separately from the card

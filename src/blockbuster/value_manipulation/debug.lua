@@ -48,8 +48,11 @@ function Blockbuster.Debug.cardPrintValueKeys(arg)
     end
 
     if _card then
+        for _key, _value in ipairs(_card.config.ability) do
+            print("ability." .. _key)
+        end
         for _key, _value in ipairs(_card.config.ability.extra) do
-            print(_key)
+            print("ability.extra." .. _key)
         end
         return true
     else
@@ -167,6 +170,19 @@ function Blockbuster.Debug.valManipMult()
             end
         end
     end
+end
+
+function bb_constest(val)
+    Blockbuster.manipulate_value(G.consumeables.cards[1], 'r', val or 2)
+end
+function bb_handtest(val)
+    Blockbuster.manipulate_value(G.hand.cards[1], 'r', val or 2)
+end
+function bb_handtest2(val)
+    for _index, _card in ipairs(G.hand.cards) do
+        Blockbuster.manipulate_value(_card, 'r', val or 2, {Base = true})
+    end
+   
 end
 
 -- SMODS.Keybind({

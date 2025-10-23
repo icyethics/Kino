@@ -35,8 +35,8 @@ Game.init_game_object = function(self)
         end
     end
 
-    ret.current_round.spells_cast = 0
-    ret.current_round.last_spell_cast = {key = nil, strength = 0}
+    ret.current_round.bb_spells_cast = 0
+    ret.current_round.bb_last_spell_cast = {key = nil, strength = 0}
     ret.current_round.spell_queue = {
         -- should be {spell_key = KEY, strength = STRENGTH}
     }

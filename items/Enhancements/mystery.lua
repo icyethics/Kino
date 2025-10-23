@@ -3,23 +3,26 @@ SMODS.Enhancement {
     atlas = "kino_enhancements",
     pos = { x = 5, y = 5},
     config = {
-        suspect_rank = nil,
-        suspect_suit = nil,
-        suspect_rank_revealed = false,
-        suspect_suit_revealed = false,
-        suspect_rank_visual = "",
-        x_mult = 1,
-        a_xmult = 1
+        extra = {
+            suspect_rank = nil,
+            suspect_suit = nil,
+            suspect_rank_revealed = false,
+            suspect_suit_revealed = false,
+            suspect_rank_visual = "",
+            x_mult = 1,
+            a_xmult = 1
+        }
+
     },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.x_mult,
-                card.ability.a_xmult,
-                (card.ability.suspect_suit and card.ability.suspect_suit_revealed) and localize(card.ability.suspect_suit, "suits_plural") or "???",
-                (card.ability.suspect_rank and card.ability.suspect_rank_revealed) and localize(card.ability.suspect_rank_visual, 'ranks') or "???",
+                card.ability.extra.x_mult,
+                card.ability.extra.a_xmult,
+                (card.ability.extra.suspect_suit and card.ability.extra.suspect_suit_revealed) and localize(card.ability.extra.suspect_suit, "suits_plural") or "???",
+                (card.ability.extra.suspect_rank and card.ability.extra.suspect_rank_revealed) and localize(card.ability.extra.suspect_rank_visual, 'ranks') or "???",
                 colours = {
-                    (card.ability.suspect_suit and card.ability.suspect_suit_revealed) and G.C.SUITS[card.ability.suspect_suit] or G.C.FILTER
+                    (card.ability.extra.suspect_suit and card.ability.extra.suspect_suit_revealed) and G.C.SUITS[card.ability.extra.suspect_suit] or G.C.FILTER
                 }
             }
         }
@@ -28,11 +31,11 @@ SMODS.Enhancement {
         -- Gain 0.75 mult if you find your suspect
         if context.main_scoring and context.cardarea == G.play then
             -- Pre-check
-            if card.ability.suspect_rank == nil then
+            if card.ability.extra.suspect_rank == nil then
                 local _table = Kino.mystery_card_select(card)
-                card.ability.suspect_rank = _table.rank
-                card.ability.suspect_suit = _table.suit
-                card.ability.suspect_rank_visual = _table.rank_visual
+                card.ability.extra.suspect_rank = _table.rank
+                card.ability.extra.suspect_suit = _table.suit
+                card.ability.extra.suspect_rank_visual = _table.rank_visual
             end
 
             -- Find me
@@ -49,28 +52,28 @@ SMODS.Enhancement {
                 local _suitmatch = false
                 local _rankmatch = false
 
-                if _suspect:is_suit(card.ability.suspect_suit) then
+                if _suspect:is_suit(card.ability.extra.suspect_suit) then
                     _suitmatch = true
-                    card.ability.suspect_suit_revealed = true
+                    card.ability.extra.suspect_suit_revealed = true
                     card:juice_up()
                 end
 
-                if _suspect:get_id() == card.ability.suspect_rank then
+                if _suspect:get_id() == card.ability.extra.suspect_rank then
                     _rankmatch = true
-                    card.ability.suspect_rank_revealed = true
+                    card.ability.extra.suspect_rank_revealed = true
                     card:juice_up()
                 end
 
                 if _suitmatch and _rankmatch then
-                    card.ability.x_mult = card.ability.x_mult + card.ability.a_xmult
+                    card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.a_xmult
 
                     -- reset card
-                    card.ability.suspect_suit_revealed = false
-                    card.ability.suspect_rank_revealed = false
+                    card.ability.extra.suspect_suit_revealed = false
+                    card.ability.extra.suspect_rank_revealed = false
                     local _table = Kino.mystery_card_select(card)
-                    card.ability.suspect_rank = _table.rank
-                    card.ability.suspect_suit = _table.suit
-                    card.ability.suspect_rank_visual = _table.rank_visual
+                    card.ability.extra.suspect_rank = _table.rank
+                    card.ability.extra.suspect_suit = _table.suit
+                    card.ability.extra.suspect_rank_visual = _table.rank_visual
                 end
             end
         end
@@ -78,9 +81,9 @@ SMODS.Enhancement {
     add_to_deck = function(self, card, from_debuff)
         -- Pick target card
         local _table = Kino.mystery_card_select(card)
-        card.ability.suspect_rank = _table.rank
-        card.ability.suspect_suit = _table.suit
-        card.ability.suspect_rank_visual = _table.rank_visual
+        card.ability.extra.suspect_rank = _table.rank
+        card.ability.extra.suspect_suit = _table.suit
+        card.ability.extra.suspect_rank_visual = _table.rank_visual
     end
 }
 

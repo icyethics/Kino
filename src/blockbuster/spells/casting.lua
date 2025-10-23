@@ -16,11 +16,11 @@ function Blockbuster.cast_spell(spell_key, strength, repeatable)
 
     SMODS.calculate_context({bb_pre_spell_cast = true, strength = strength, spell_key = spell_key, repeatable = repeatable})
 
-    G.GAME.current_round.spells_cast = G.GAME.current_round.spells_cast + 1
-    G.GAME.current_round.last_spell_cast.key = spell_key
-    G.GAME.current_round.last_spell_cast.strength = strength
+    G.GAME.current_round.bb_spells_cast = G.GAME.current_round.bb_spells_cast + 1
+    G.GAME.current_round.bb_last_spell_cast.key = spell_key
+    G.GAME.current_round.bb_last_spell_cast.strength = strength
 
-    if #G.GAME.current_round.spell_queue > 0 then
+    if #G.GAME.current_round.bb_spell_queue > 0 then
         local _nextspell = G.GAME.current_round.bb_spell_queue[1]
         spell_key = _nextspell.spell_key
         strength = _nextspell.strength

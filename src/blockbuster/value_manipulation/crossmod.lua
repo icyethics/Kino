@@ -1,3 +1,5 @@
+-- This is a function to account for loading priority
+function Blockbuster.cryptid_crossmod()
 if Cryptid and Talisman then
 
     Cryptid.misprintize_value_blacklist.multipliers = false
@@ -64,4 +66,5 @@ if Cryptid and Talisman then
             end
         end
     end
+end
 end

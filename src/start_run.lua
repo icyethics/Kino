@@ -53,6 +53,11 @@ end
 
 local igo = Game.init_game_object
 Game.init_game_object = function(self)
+    if Cryptid or Talisman then
+        Kino.cryptid_crossmod_loading()
+    end
+    
+
     local ret = igo(self)
     
 
@@ -77,8 +82,8 @@ Game.init_game_object = function(self)
     ret.current_round.genre_synergy_treshold = 5
     
     -- Fantasy cards
-    ret.current_round.spells_cast = 0
-    ret.current_round.last_spell_cast = {
+    ret.current_round.bb_spells_cast = 0
+    ret.current_round.bb_last_spell_cast = {
         key = "",
         rank = 1
     }

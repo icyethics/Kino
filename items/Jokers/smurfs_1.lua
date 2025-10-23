@@ -46,7 +46,7 @@ SMODS.Joker {
             end
         end
 
-        if (G.GAME.current_round.spells_cast or 0) > 1 then
+        if (G.GAME.current_round.bb_spells_cast or 0) > 1 then
             enhancement_gate = true
         end
 
@@ -58,7 +58,7 @@ SMODS.Joker {
         return {
             vars = {
                 card.ability.extra.a_chips,
-                (G.GAME.current_round.spells_cast or 0) * card.ability.extra.a_chips
+                (G.GAME.current_round.bb_spells_cast or 0) * card.ability.extra.a_chips
             }
         }
     end,
@@ -67,7 +67,7 @@ SMODS.Joker {
         (context.other_card:get_id() == 2 or context.other_card:get_id() == 3) then
             return {
                 
-                chips = G.GAME.current_round.spells_cast * card.ability.extra.a_chips
+                chips = G.GAME.current_round.bb_spells_cast * card.ability.extra.a_chips
             }
         end
     end

@@ -49,7 +49,7 @@ SMODS.Joker {
                 }
             end
 
-            local level = context.other_card.ability.times_upgraded
+            local level = context.other_card.ability.extra.times_upgraded
             if level > 0 then
                 local _x_mult = 1 + (card.ability.extra.a_xmult * level)
                 return {

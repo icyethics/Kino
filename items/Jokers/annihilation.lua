@@ -71,7 +71,7 @@ SMODS.Joker {
                     -- seal check
                     if SMODS.pseudorandom_probability(card, 'kino_annihilation', card.ability.extra.chance_cur, card.ability.extra.chance, "kino_card_manipulation") then
                         local _seal = nil
-                        if _basecard:get_seal() then seal = _basecard:get_seal() end
+                        if _basecard:get_seal() then _seal = _basecard:get_seal() end
                         _pcard:set_seal(_seal)
                         _changes = true
                     end

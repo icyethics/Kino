@@ -1,4 +1,5 @@
 -- Containing functins and hooks that relate to Cryptid crossmod mechanics
+function Kino.cryptid_crossmod_loading()
 
 if Cryptid and Talisman then
 
@@ -50,4 +51,7 @@ if Talisman then
         end
         if  G.GAME.seeded  then return end
     end
+end
+
+Blockbuster.cryptid_crossmod()
 end

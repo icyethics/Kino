@@ -88,12 +88,12 @@ function Card:bb_increment_counter(number, first_application, silent)
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
                 if self.counter_config then
                     self:juice_up()
-                    self.counter_config.counter_num_ui = math.min(self.counter_config.counter_num_ui + number, self.counter.config.cap or 99)
+                    self.counter_config.counter_num_ui = math.min(self.counter_config.counter_num_ui + number, self.counter and self.counter.config.cap or 99)
                 end
             return true end }))
         else
             if self.counter_config then
-                self.counter_config.counter_num_ui = math.min(self.counter_config.counter_num_ui + number, self.counter.config.cap or 99)
+                self.counter_config.counter_num_ui = math.min(self.counter_config.counter_num_ui + number, self.counter and self.counter.config.cap or 99)
             end
         end    
     end
