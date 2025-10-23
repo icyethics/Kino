@@ -409,13 +409,13 @@ times = 1
 target = 'functions/common_events.lua'
 pattern = '''
 for _, v in ipairs(info_queue) do
-    generate_card_ui(v, full_UI_table, {is_info_queue = true})
+    generate_card_ui(v, full_UI_table)
 end
 '''
 position = "at"
 payload = '''
 for _, v in ipairs(info_queue) do
-    generate_card_ui(v, full_UI_table, {is_info_queue = true}, nil, nil, nil, v.main_start, v.main_end)
+    generate_card_ui(v, full_UI_table, nil, nil, nil, v.main_start, v.main_end)
 end
 '''
 match_indent = true

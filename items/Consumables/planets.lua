@@ -66,7 +66,7 @@ SMODS.Consumable {
                         _target:flip()
                         _target:juice_up()
                         delay(0.1)
-                        card_eval_status_text(_card, 'extra', nil, nil, nil,
+                        card_eval_status_text(_target, 'extra', nil, nil, nil,
                             { message = localize('k_kino_ego_planet'), colour = G.C.LEGENDARY})
                         
                         return true

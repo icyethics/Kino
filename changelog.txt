@@ -2,6 +2,8 @@ V 0.10.5c:
 Bug Fix:
 - Fixed crash when launching with Cryptid enabled
 - Fixed crash caused by spellcasting
+- Fixed crash when Ego is used with another consumeable
+- Fixed issue where abduction previews would spawn cards on screen permanently on the 1016 release of SMODS
 
 V 0.10.5b:
 Visual Update:
