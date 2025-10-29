@@ -23,7 +23,9 @@ local mod_mechanics_toggles = {
 	{ref_value = "genre_synergy", label = "kino_settings_genre_synergy"},
 	{ref_value = "movie_jokers_only", label = "kino_settings_movie_jokers_only"},
 	{ref_value = "custom_rarity", label = "kino_settings_custom_rarity"},
-	{ref_value = "self_synergize", label = "kino_settings_self_synergize"}
+	{ref_value = "self_synergize", label = "kino_settings_self_synergize"},
+	{ref_value = "halloween_music", label = "kino_settings_halloween_music"},
+	{ref_value = "halloween_mode", label = "kino_settings_halloween_mode"},
 }
 
 local mod_mechanics_sliders = {
@@ -356,6 +358,34 @@ SMODS.current_mod.extra_tabs = function()
 								n = G.UIT.T,
 								config = {
 									text = "Doctor Flamingo",
+									shadow = true,
+									scale = scale * 0.5,
+									colour = G.C.BLUE
+								}
+							}
+						}
+					},
+					{
+						n = G.UIT.R,
+						config = {
+							padding = 0,
+							align = "cl",
+							scale = scale * 0.6,
+						},
+						nodes = {
+							{
+								n = G.UIT.T,
+								config = {
+									text = localize("kino_credits_music"),
+									shadow = true,
+									scale = scale * 0.5,
+									colour = G.C.UI.TEXT_LIGHT
+								}
+							},
+							{
+								n = G.UIT.T,
+								config = {
+									text = "Ren",
 									shadow = true,
 									scale = scale * 0.5,
 									colour = G.C.BLUE

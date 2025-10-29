@@ -5,8 +5,7 @@ SMODS.Joker {
     config = {
         extra = {
             stacked_x_mult = 1,
-            a_xmult = 0.1,
-            aa_xmult = 0.2
+            a_xmult = 0.05,
         }
     },
     rarity = 3,
@@ -30,35 +29,46 @@ SMODS.Joker {
         cast = {},
     },
     k_genre = {"Horror"},
+    in_pool = function(self, args)
+        -- Check for the right frequency
+        local enhancement_gate = false
+        if G.playing_cards then
+            for k, v in ipairs(G.jokers.cards) do
+                if v.config.center.is_vampire then
+                    enhancement_gate = true
+                    break
+                end
+            end
+        end
+
+        return enhancement_gate
+    end,
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1]  = {set = 'Other', key = "keyword_drain"}
         return {
             vars = {
                 card.ability.extra.stacked_x_mult,
                 card.ability.extra.a_xmult,
-                card.ability.extra.aa_xmult
             }
         }
     end,
     calculate = function(self, card, context)
         -- Debuffs scored cards. Gains x0.1 per card debuff. Gains x0.2 instead if they were enhanced.
         
-        if context.cardarea == G.jokers and context.before and not context.blueprint then
-            -- suck up the enhancement
-            local enhanced = {}
-            local unenhanced = {}
-            for k, v in ipairs(context.scoring_hand) do
-                if v.config.center ~= G.P_CENTERS.c_base and Kino.drain_property(v, card, {Enhancement = {true}}) then
-                    enhanced[#enhanced + 1] = v
-                    print(#enhanced)
-                elseif Kino.drain_property(v, card, {Base = {debuff = "j_kino_dracula_1931"}}) then
-                    unenhanced[#unenhanced + 1] = v
-                end
-            end
+        -- if context.cardarea == G.jokers and context.before and not context.blueprint then
+        --     -- suck up the enhancement
+        --     local enhanced = {}
+        --     for k, v in ipairs(context.scoring_hand) do
+        --         if Kino.drain_property(v, card, {Enhancement = {true}}) then
+        --             enhanced[#enhanced + 1] = v
+        --         end
+        --     end
+        -- end
 
-            local enhanced_bonus = #enhanced * card.ability.extra.aa_xmult
-            local unenhanced_bonus = #unenhanced * card.ability.extra.a_xmult
-            card.ability.extra.stacked_x_mult = card.ability.extra.stacked_x_mult + enhanced_bonus + unenhanced_bonus
+        if context.kino_drain then
+
+            card.ability.extra.stacked_x_mult = card.ability.extra.stacked_x_mult + card.ability.extra.a_xmult
 
             return {
                 extra = { focus = card,

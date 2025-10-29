@@ -11,7 +11,7 @@ SMODS.current_mod.optional_features = {
 	post_trigger = true,
 }
 
-local _jokeratlas_count = 10
+local _jokeratlas_count = 11
 
 for _index = 1, _jokeratlas_count do
     local _numprefix = _index < 10 and "00" or "0"

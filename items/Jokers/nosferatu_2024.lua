@@ -31,6 +31,7 @@ SMODS.Joker {
     k_genre = {"Fantasy", "Horror", "Romance"},
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1]  = {set = 'Other', key = "keyword_drain"}
         return {
             vars = {
                 card.ability.extra.stacked_mult,
@@ -45,17 +46,8 @@ SMODS.Joker {
                 -- Add mult and drain
                 local enhanced = {}
                 for k, v in ipairs(context.scoring_hand) do
-                    if v.config.center ~= G.P_CENTERS.c_base and not v.debuff and not v.vampired then
+                    if Kino.drain_property(v, card, {Enhancement = {true}}) then
                         enhanced[#enhanced+1] = v
-                        v.vampired = true
-                        v:set_ability(G.P_CENTERS.c_base, nil, true)
-                        G.E_MANAGER:add_event(Event({
-                            func = function()
-                                v:juice_up()
-                                v.vampired = nil
-                                return true
-                            end
-                        }))
                     end
                 end
 

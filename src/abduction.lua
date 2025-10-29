@@ -82,9 +82,7 @@ Kino.unabduct_cards = function(card)
     -- for i, abductee in ipairs(_table) do
     for i = #_table,1,-1 do
         local abductee = _table[i]
-        print(abductee)
         local _card = _cardtable[i]
-        print(_cardtable[i])
         _card.area:remove_card(_card)
         _card.abducted = false
 
@@ -131,7 +129,7 @@ Kino.gather_abducted_cards_by_abductor = function(card)
     local _list_of_cards = {}
 
     for _index, _card in ipairs(Kino.abduction.cards) do
-        print(_index)
+
         if _card.ability.kino_abductor_id == _id then
             _list_of_cards[_card.ability.kino_abduction_id] = _card
         end
@@ -215,10 +213,8 @@ function Kino.abduction_info_queue(card)
     if not card_table or type(card_table) ~= "table" or #card_table < 1 then
         return nil
     end
-    print(card.config.center.key)
     
     local num = #card_table 
-    print(num)
     local _width = num*G.CARD_W
     local _scale = 0.5
     Kino.abduction_preview_area = CardArea(

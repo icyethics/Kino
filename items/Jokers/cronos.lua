@@ -31,6 +31,7 @@ SMODS.Joker {
     is_vampire = true,
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1]  = {set = 'Other', key = "keyword_drain"}
         return {
             vars = {
                 card.ability.extra.stacked_chips,

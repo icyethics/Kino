@@ -185,7 +185,6 @@ SMODS.Joker {
             for _, _card in ipairs(context.scoring_hand) do
                 if _card:get_id() == 12 then
                     _queen_count = _queen_count + 1 
-                    print(_queen_count)
                 end
             end
 

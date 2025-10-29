@@ -1,3 +1,38 @@
+V 0.11-HALLOWEEN:
+Vampire Rework:
+Vampire jokers now use the Drain mechanic, and have all been changed to reflect this.
+
+New Jokers:
+- Drácula (1931)
+- Bram Stoker's Dracula 
+- Fright Night
+- Annabella
+- Sinners
+
+- What We Do In The Shadows
+- The Conjuring
+- War of the Worlds (2025)
+- The Nightmare Before Halloween
+- Hellraiser
+
+- X
+
+New Decks:
+- Pumpkin Deck
+- Vampire Deck
+
+New Blinds:
+- Pennywise (Halloween Decks only)
+- The Pale Man (Halloween Decks only)
+- Jack Skellington (Halloween Decks only)
+- Fabricator Machine (Halloween Decks Only)
+
+New Tags:
+- Trick 'r Treat Tag (Halloween Decks only)
+
+Halloween Mode:
+You can disable Halloween mode in the config. This will turn the halloween decks into just decks
+
 V 0.10.5c:
 Bug Fix:
 - Fixed crash when launching with Cryptid enabled

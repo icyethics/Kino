@@ -32,13 +32,10 @@ SMODS.Joker {
         cast = {},
     },
     k_genre = {"Horror"},
-    -- set_ability = function(self, card, initial, delay_sprites)
-    --     if card.ability.is_active then print("1") end
-    --     if card.is_active then print("2") end
-    --     card.is_active = true
-    -- end,
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1]  = {set = 'Other', key = "gloss_active"}
+        info_queue[#info_queue + 1]  = {set = 'Other', key = "keyword_drain"}
         return {
             vars = {
                 card.ability.extra.is_active,

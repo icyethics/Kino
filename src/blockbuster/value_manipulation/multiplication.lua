@@ -225,7 +225,7 @@ function Blockbuster.manipulate_value(card, source, num, include_layers, change)
 
     if change then
         local _curnum = card:get_multiplier_by_source(card, source) or 1
-        num = _curnum + change
+        num = _curnum + num
     end
 
     -- Temporary gate all use of blockbuster to jokers only

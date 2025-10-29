@@ -31,11 +31,13 @@ Blockbuster.ValueManipulation.CompatStandard{
             "repetitions",
             "joker_slots",
             "handsize",
-            "display_amount"
+            "display_amount",
+            "counters_applied"
         },
         ends_on = {
             "_int",
-            "_slots"
+            "_slots",
+            "_counters",
         },
         starts_with = {
         },
@@ -47,6 +49,7 @@ Blockbuster.ValueManipulation.CompatStandard{
         joker_slots = 25,
         handsize = 25,
         display_amount = 10,
+        counters_applied = 25
     },
     exempt_jokers = {
         -- Non compatible designs

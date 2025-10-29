@@ -7,6 +7,8 @@ function Kino.drain_property(target, source, property_table)
         target:bb_increment_counter(-1)
         card_eval_status_text(target, 'extra', nil, nil, nil,
         { message = localize('k_kino_drained'), colour = G.C.KINO.DRAIN})
+        SMODS.calculate_context({kino_drain = true, drained_card = target, drainer = source, properties = property_table})
+
         return true
     end
 
@@ -17,6 +19,7 @@ function Kino.drain_property(target, source, property_table)
         _targeted_properties = property_table
     end
 
+    -- Enhancement
     if property_table.Enhancement and not target.drained_enhancement and
     target.config.center ~= G.P_CENTERS.c_base and 
     not target.debuff and not target.vampired then
@@ -29,10 +32,43 @@ function Kino.drain_property(target, source, property_table)
             func = function()
                 target:flip()
                 if property_table.Enhancement.debuff then
-                    SMODS.debuff_card(target, true, type(property_table.Enhancement.debuff) == 'string' or nil)
+                    if type(property_table.Enhancement.debuff) == 'string' then
+                        SMODS.debuff_card(target, true, property_table.Enhancement.debuff)
+                    else
+                        target:set_debuff(true)
+                    end
                 end
+                
                 target:juice_up()
                 target.drained_enhancement = nil
+                delay(0.2)
+
+                target:flip()
+                return true
+            end
+        }))
+        _result = true
+    end
+
+    -- Seal
+    if property_table.Seal and not target.drained_seal and target:get_seal() ~= nil then
+        target.drained_seal = true
+        
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                target:flip()
+                if property_table.Seal.debuff then
+                    if type(property_table.Seal.debuff) == 'string' then
+                        SMODS.debuff_card(target, true, property_table.Seal.debuff)
+                    else
+                        target:set_debuff(true)
+                    end
+                else
+                    target:set_seal()
+                end
+                
+                target:juice_up()
+                target.drained_seal = nil
                 delay(0.2)
 
                 target:flip()
@@ -45,7 +81,17 @@ function Kino.drain_property(target, source, property_table)
     -- Rank (has intensity)
     if property_table.Rank and not target.drained_rank and
     not SMODS.has_no_rank(target) then
-        target.drained_rank = true
+        if not property_table.Rank.repeatable then
+            target.drained_rank = true
+        else
+            target.drained_rank_count = target.drained_rank_count or 0
+            target.drained_rank_count = target.drained_rank_count + property_table.Rank.Intensity
+
+            if target:get_id() - target.drained_rank_count <= 2 then
+                target.drained_rank = true
+            end
+        end
+        
 
         G.E_MANAGER:add_event(Event({
             func = function()
@@ -99,8 +145,6 @@ function Kino.drain_property(target, source, property_table)
     if property_table.Base and not target.drained_base then
         target.drained_base = true
 
-
-
         G.E_MANAGER:add_event(Event({
             func = function()
                 target:flip()
@@ -121,6 +165,7 @@ function Kino.drain_property(target, source, property_table)
     if _result == true then
         card_eval_status_text(target, 'extra', nil, nil, nil,
         { message = localize('k_kino_drained'), colour = G.C.KINO.DRAIN})
+        SMODS.calculate_context({kino_drain = true, drained_card = target, drainer = source, properties = property_table})
     end
     return _result
 end

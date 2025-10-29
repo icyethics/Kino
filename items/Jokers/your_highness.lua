@@ -46,7 +46,6 @@ SMODS.Joker {
         if context.card_added then
             -- if context.card.set ~= "Voucher" or context.card.set ~=  "Joker" or context.card.set ~= "Booster" then
             if context.card.ability.consumeable then
-                print("hello")
                 if card.ability.extra.active then
                     context.card:set_edition({negative = true}, true)
                     card.ability.extra.active = false

@@ -549,6 +549,11 @@ G.FUNCS.can_discard = function(e)
             _monster = _monster + 1
             break
         end
+
+        if SMODS.has_enhancement(v, "m_kino_fabricated_monster") and v.ability.extra.level_non >= 2 then
+            _monster = _monster + 1
+            break
+        end
     end
 
     local _monster_exemptions = 0

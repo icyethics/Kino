@@ -49,8 +49,8 @@ SMODS.Joker {
                             G.consumeables:emplace(_card) 
                             return true
                         end}))
-                        card:juice_up()
-                        card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_plus_planet'), colour = G.C.PURPLE})
+                    card:juice_up()
+                    card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_plus_planet'), colour = G.C.PURPLE})
                 end
             
         end

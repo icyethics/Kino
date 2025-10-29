@@ -46,7 +46,7 @@ return {
                 name = "30 Days of Night",
                 text = {
                     {
-                        "{C:white,X:attention}Active:{} Drain the enhancement",
+                        "{C:white,X:attention}Active:{} {C:Drain}Drain{} the Enhancement",
                         "from scoring cards and gain {X:mult,C:white}X#3#{} Mult"
                     },
                     {
@@ -122,6 +122,16 @@ return {
                     "gives {C:mult}+#2#{} Mult, then",
                     "doubles the Mult given",
                     "{C:inactive}(Resets at end of round)"
+                }
+            },
+            j_kino_annabelle = {
+                name = "Annabelle",
+                text = {
+                    "Cards in hand with a rank",
+                    "of {C:attention}5 or lower",
+                    "have a {C:green}X in #2#{} chance",
+                    "to {C:attention}Jumpscare{}",
+                    "with X being equal to its rank"
                 }
             },
             j_kino_annihilation = {
@@ -620,6 +630,17 @@ return {
                     "scoring {C:attention}Crime Card"
                 }
             },
+            j_kino_conjuring_1 = {
+                name = "The Conjuring",
+                text = {
+                    "{C:attention}Cannot be sold!{}",
+                    " ",
+                    "Destroys the first card",
+                    "drawn each hand",
+                    "to gain {C:mult}+#1#{} Mult",
+                    "{C:inactive}(Currently: {C:mult}+#2#{C:inactive} Mult)"
+                }
+            },
             j_kino_contagion = {
                 name = "Contagion",
                 text = {
@@ -836,13 +857,27 @@ return {
             j_kino_dracula_1931 = {
                 name = "Dracula (1931)",
                 text = {
-                    "This Joker gains {X:mult,C:white} X#3# {} Mult",
-                    "per scoring {C:attention}Enhanced card{} played,",
-                    "removes card {C:attention}Enhancement",
-                    "It gains {X:mult,C:white}X#2#{} Mult per",
-                    "scoring {C:attention}Unenhanced card{} played,",
-                    "debuffs card",
+                    "Gain {C:white,X:mult}X#2#{} Mult",
+                    "whenever any card is {C:Drain}Drained",
                     "{C:inactive}(Currently {X:mult,C:white} X#1# {C:inactive} Mult)",
+                }
+            },
+            j_kino_dracula_1931_2 = {
+                name = "Drácula (1931)",
+                text = {
+                    "{C:Drain}Drain{} scoring Enhancements",
+                    "and gain {C:white,X:mult}X#3#{} Mult",
+                    "{C:Drain}Debuff{} unenhanced Scoring cards",
+                    "and gain {C:white,X:mult}X#2#{} Mult",
+                    "{C:inactive}(Currently {X:mult,C:white} X#1# {C:inactive} Mult)",
+                }
+            },
+            j_kino_dracula_bram_stoker = {
+                name = "Bram Stoker's Dracula",
+                text = {
+                    "Whenever a {C:attention}Queen{} scores",
+                    "put {C:attention}#1#{} {C:Drain}Blood Counters",
+                    "on random cards in deck"
                 }
             },
             j_kino_duel = {
@@ -1044,6 +1079,15 @@ return {
                     "in hand into a {C:attention}Horror Card"
                 }
             },
+            j_kino_fright_night = {
+                name = "Fright Night",
+                text = {
+                    "{C:Drain}Drain{} scoring Seal",
+                    "and gain {X:mult,C:white}x#1#{} Mult",
+                    "for each Seal drained",
+                    "{C:inactive}(Currently {X:mult,C:white}x#2#{C:inactive} Mult)",
+                }
+            },
             j_kino_gentlemen_prefer_blondes = {
                 name = "Gentlemen Prefer Blondes",
                 text = {
@@ -1229,6 +1273,18 @@ return {
                     "Gain {C:chips}+#2#{} Chips when",
                     "a {C:attention}Demonic Card{} scores",
                     "{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)"
+                }
+            },
+            j_kino_hellraiser_1 = {
+                name = "Hellraiser",
+                text = {
+                    "Whenever you solve",
+                    "the {C:attention}Codex{}",
+                    "Destroy either {C:attention}ALL{} scoring",
+                    "or cards in hand",
+                    "and give {C:attention}Enhancements{}, {C:attention}Seals{},",
+                    "and {C:attention}Editions{} to all",
+                    "of the others"
                 }
             },
             j_kino_her = {
@@ -1729,7 +1785,7 @@ return {
                 name = "Morbius",
                 text = {
                     "When you play a hand,", 
-                    "{C:attention}Debuff{} every {C:attention}Enhanced Card",
+                    "{C:Drain}Debuff{} every {C:attention}Enhanced Card",
                     "in your hand and gain {X:mult,C:white}x#2#{} Mult",
                     "until the end of round.",
                     "{C:inactive}(Currently: {X:mult,C:white}x#1#{C:inactive} Mult)"
@@ -1800,6 +1856,14 @@ return {
                     "{C:inactive}(Currently: {X:mult,C:white}X#3#{C:inactive} Mult)"
                 }
             },
+            j_kino_nightmare_before_christmas = {
+                name = "The Nightmare Before Christmas",
+                text = {
+                    "{C:Horror}Horror jokers{} adjacent",
+                    "to {C:Christmas}Christmas jokers{}",
+                    "retrigger {C:attention}#1#{} time(s)"
+                }
+            },
             j_kino_nightmare_on_elm_street = {
                 name = "A Nightmare on Elm Street",
                 text = {
@@ -1821,18 +1885,18 @@ return {
             j_kino_nosferatu_1 = {
                 name = "Nosferatu (1922)",
                 text = {
-                    "Gains {C:mult}+#1#{} Mult",
-                    "per scoring {C:attention}Enhanced card{} played",
-                    "removes card {C:attention}Enhancement",
+                    "{C:Drain}Drain{} scoring Enhancements",
+                    "and gain {C:mult}+#1#{} Mult",
+                    "for each Enhancement drained",
                     "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
                 },
             },
             j_kino_nosferatu_2024 = {
                 name = "Nosferatu (2024)",
                 text = {
-                    {"This Joker gains {C:mult}+#2#{} Mult",
-                    "per scoring {C:attention}Enhanced card{} played,",
-                    "removes card {C:attention}Enhancement"},
+                    {"{C:Drain}Drain{} scoring Enhancements",
+                    "and gain {C:mult}+#2#{} Mult",
+                    "for each Enhancement drained",},
                     {"Whenever a {C:hearts}Hearts{} scores",
                     "it gives {C:mult}+#1#{} Mult"}
                 }
@@ -1881,8 +1945,7 @@ return {
                 text = {
                     "If you play a {C:attention}Pair{}",
                     "and both are {C:attention}Romance Cards{}",
-                    "destroy them and gain {X:mult,C:white}X#2#{} Mult",
-                    "per card destroyed",
+                    "{C:Drain}Drain{} them and gain {X:mult,C:white}X#2#{} Mult",
                     "{C:inactive}(Currently: {X:mult,C:white}X#1#{C:inactive} Mult)"
                 }
             },
@@ -2296,6 +2359,15 @@ return {
                     {"Gives {C:mult}+#3#{} for each card",
                     "{C:Alien}Abducted{} anywhere",
                     "{C:inactive}(Currently: {C:mult}+#4#{C:inactive} Mult)"}
+                }
+            },
+            j_kino_sinners = {
+                name = "Sinners",
+                text = {
+                    "{C:Drain}Drain-Debuff{} the first scoring card",
+                    "each round and put {C:Drain}#1# Blood Counters",
+                    "on every card in your deck",
+                    "that shares its rank"
                 }
             },
             j_kino_skyscraper = {
@@ -2776,7 +2848,7 @@ return {
             j_kino_twilight_1 = {
                 name = "Twilight",
                 text = {
-                    {"Drain the {C:attention}Enhancement{} from",
+                    {"{C:Drain}Drain{} the {C:attention}Enhancement{} from",
                     "any non-romance cards played",},
                     {"{C:attention}Romance Cards{} have an",
                     "additional {X:legendary,C:white}X#2#{} when they trigger",
@@ -2869,6 +2941,16 @@ return {
                     "or {C:mult}+#2#{} Discard(s) for each"
                 }
             },
+            j_kino_war_of_the_worlds_2025 = {
+                name = "War of the Worlds (2025)",
+                text = {
+                    "When you select a blind",
+                    "lower your {C:chips}Hands",
+                    "and {C:mult}Discards{} down to 2 each",
+                    "and gain {C:money}$#1#{} for each",
+                    "Hand or Discard removed this way"
+                }
+            },
             j_kino_warriors = {
                 name = "The Warriors",
                 text = {
@@ -2900,6 +2982,18 @@ return {
                     "if it has more {C:hearts}Hearts{} and {C:diamonds}Diamonds"}
                 }
             },
+            j_kino_what_we_do_in_the_shadows = {
+                name = "What We Do In The Shadows",
+                text = {
+                    "{C:green}#3# in #4#{} chance to {C:Drain}Drain",
+                    "a rank from first",
+                    "scoring card each hand",
+                    "and gain {C:chips}+#2#{} Chips",
+                    "Repeats with {C:green}-1{} odds when successful",
+                    "{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)"
+                    
+                }
+            },
             j_kino_when_harry_met_sally = {
                 name = "When Harry Met Sally",
                 text = {
@@ -2928,6 +3022,14 @@ return {
                     "{C:red}+#1#{} Mult per {C:Confection}Confection{}",
                     "card used this run",
                     "{C:inactive}(Currently {C:red}+#2#{C:inactive} Mult)",
+                }
+            },
+            j_kino_x = {
+                name = "X",
+                text = {
+                    "{C:attention}Active{}: Draw {C:attention}#1#{} additional cards",
+                    "and destroy 1 random card for",
+                    "your first hand"
                 }
             },
             j_kino_yes_man = {
@@ -3164,6 +3266,51 @@ return {
                     "per played hand",
                     "this round",
                     "{C:inactive}(Currently: {X:mult,C:white}X#2#{C:inactive} Mult)"
+                }
+            },
+
+            -- Special enhancements
+            m_kino_pennywise_balloon = {
+                name = "Balloon Card",
+                text = {
+                    "Any card can {C:attention,E:1}Pop{}"
+                }
+            },
+
+            m_kino_fabricated_monster = {
+                name = "Mechanical Card",
+                text = {
+
+                }
+            },
+            m_kino_fabricated_monster_1 = {
+                name = "Mechanical Card, Mk. 1",
+                text = {
+                    "{C:white,X:mult}x#1#{} Mult while in Hand",
+                    "Upgrade if card sharing Rank",
+                    "in hand",
+                    "Downgrade if scored"
+                }
+            },
+            m_kino_fabricated_monster_2 = {
+                name = "Mechanical Card, Mk. 2",
+                text = {
+                    "{C:attention}Cannot be Discarded{}",
+                    "",
+                    "{C:white,X:mult}x#1#{} Mult while in Hand",
+                    "Upgrade if card sharing Suit",
+                    "in hand",
+                    "Downgrade if scored"
+                }
+            },
+            m_kino_fabricated_monster_3 = {
+                name = "Mechanical Card, Mk. 3",
+                text = {
+                    "{C:attention}Cannot be Discarded{}",
+                    "",
+                    "{C:white,X:mult}x#1#{} Mult and {C:white,X:chips}x#2#{}", 
+                    "while in Hand",
+                    "Downgrade if scored"
                 }
             },
 
@@ -3716,6 +3863,16 @@ return {
                     "..."
                 }
             },
+            c_kino_fruit = {
+                name = "Delicious Fruits",
+                text = {
+                    "Berries most succulent",
+                    "their {C:attention,E:1}allure{}",
+                    "hard to ignore",
+                    "Able to {C:attention,E:1}sate any hunger",
+                    "{C:attention}50%{} power boost to all Jokers"
+                }
+            },
             c_kino_ratatouille = {
                 name = "Ratatouille Snack",
                 text = {
@@ -4111,6 +4268,26 @@ return {
                     "random {C:attention}Enhancement"
                 }
             },
+            b_kino_kinoween_pumpkin = {
+                name = "Trick or Treat Deck",
+                text = {
+                    "{C:attention,E:1}HALLOWEEN DECK{}",
+                    "When you select a Blind",
+                    "fill empty Consumable slots",
+                    "with {C:Confection,T:c_kino_candycorn}Candy Corn"
+                }
+            },
+            b_kino_kinoween_vampire = {
+                name = "Bloodlust Deck",
+                text = {
+                    "{C:attention,E:1}HALLOWEEN DECK{}",
+                    "{C:Drain}Vampire jokers{} are twice",
+                    "as common",
+                    "Playing a single {C:attention}enhanced{}",
+                    "card {C:Drain}drains{} it and boosts",
+                    "a random joker with {C:attention}20% Power{}"
+                }
+            },
 
 
 
@@ -4411,7 +4588,47 @@ return {
                     "must be larger than",
                     "the previous hand"
                 }
-            }
+            },
+
+            -- Halloween blinds
+            bl_kino_pale_man = {
+                name = "The Pale Man",
+                text = {
+                    "..."
+                }
+            },
+            bl_kino_pale_man_awoken = {
+                name = "The Pale Man",
+                text = {
+                    "Destroy a buffed Joker",
+                    "whenever a hand is played"
+                }
+            },
+            bl_kino_pennywise = {
+                name = "Pennywise",
+                text = {
+                    "He he he he he he!",
+                    "WE. ALL.",
+                    "FLOAT. DOWN. HERE."
+                }
+            },
+            bl_kino_fabrication_machine = {
+                name = "Fabrication Machine",
+                text = {
+                    "Its hunters tear paper,",
+                    "wanting nothing more",
+                    "than to mechanize it"
+                }
+            },
+            bl_kino_jack_skellington = {
+                name = "Jack Skellington",
+                text = {
+                    "What's this? What's this?",
+                    "There's white things in the air!",
+                    "What's this? What's this?",
+                    "I can't believe my eyes, this isn't fair!"
+                }
+            },
         },
         Tag = {
             tag_kino_dinner = {
@@ -4442,6 +4659,33 @@ return {
                     "Adds 3 {C:green}Money Counters",
                     "to 5 random cards",
                     "in your deck"
+                }
+            },
+            tag_kino_trickortreat_1 = {
+                name = "Trick 'r Treat Tag",
+                text = {
+                    "Either gain",
+                    "{C:attention}1{} {C:Horror}Negative{}",
+                    "{C:Confection}Confections",
+                    "or {C:Horror}Haunt{} your Deck"
+                }
+            },
+            tag_kino_trickortreat_2 = {
+                name = "Trick 'r Treat Tag",
+                text = {
+                    "Either gain",
+                    "{C:attention}3{} {C:Horror}Negative{}",
+                    "{C:Confection}Confections",
+                    "or {C:Horror}Haunt{} your Deck"
+                }
+            },
+            tag_kino_trickortreat_3 = {
+                name = "Trick 'r Treat Tag",
+                text = {
+                    "Either gain",
+                    "{C:attention}5{} {C:Horror}Negative{}",
+                    "{C:Confection}Confections",
+                    "or {C:Horror}Haunt{} your Deck"
                 }
             }
         },
@@ -4756,8 +5000,9 @@ return {
             keyword_drain = {
                 name = "Drain",
                 text = {
-                    "{C:Drain}Remove{} the target {C:attention}Quality",
-                    "from a playing card"
+                    "{C:Drain}Remove{} the target",
+                    "{C:attention}Quality{} from",
+                    "a card"
                 }
             },
             keyword_abduct = {
@@ -5695,6 +5940,8 @@ return {
             kino_settings_genre_synergy = "Genre?",
             kino_settings_movie_jokers_only = "Movie Jokers Only?",
             kino_settings_custom_rarity = "Rarity System?",
+            kino_settings_halloween_music = "Halloween Deck Music?",
+            kino_settings_halloween_mode = "Halloween Mode?",
 
             -- OTHER --
             kino_credits_header = "Credits",
@@ -5702,6 +5949,7 @@ return {
             kino_credits_specialthanks = "Playtesting Feedback: ",
             kino_credits_programminghelp = "Additional Programming: ",
             kino_credits_wiki = "Wiki Maintenance Help: ",
+            kino_credits_music = "Halloween Deck Music: ",
             ---------------------
             k_confection = "Confection",
             b_confection_cards = "Confection Cards",
@@ -5806,7 +6054,8 @@ return {
             k_kino_mortal_kombat_1 = "Need more players",
             k_kino_mask_of_the_phantasm_1 = "Batman!",
             k_kino_mask_of_the_phantasm_2 = "Oh no, it's the Joker!",
-
+            k_kino_dracula_stoker = "Sing For Me",
+            k_kino_sinners_blood = "Let me in, so I can help",
 
             -- Enhancement Barks
             k_monster_turn = "ROAR!",
@@ -5868,7 +6117,19 @@ return {
             k_kino_joker_batman = "Oh no! It's Bats!",
             k_kino_batman_forever = "I'm Batman",
             k_kino_saved = "Saved!",
+            k_kino_blind_pale_man = "...",
+            k_blind_fabrication_machine = "The machine whirrs. Your deck feels U N S A F E",
             
+            -- Tag barks
+            k_tag_treat_low_1 = "Edible Money! Eh Eh Eh",
+            k_tag_treat_low_2 = "That's no Mars Bar! That's two flying monkeys!",
+            k_tag_treat_low_3 = "A handful of Rocks :(",
+            k_tag_treat_mid_1 = "An imp jumped out and stole your cash!",
+            k_tag_treat_mid_2 = "The candy was Poisoned and leaked into your deck",
+            k_tag_treat_mid_3 = "Cotton Candy demons tore your face(s) off",
+            k_tag_treat_bad_1 = "The worst horror of all. Financial debt.",
+            k_tag_treat_bad_2 = "Your deck starts doing the monster mash",
+            k_tag_treat_bad_3 = "Curses. Curse your entire deck!",
 
             -- Spellcasting Text
             k_bb_spellbook = "Spellbook",

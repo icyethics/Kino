@@ -33,6 +33,7 @@ SMODS.Joker {
     k_genre = {"Superhero"},
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1]  = {set = 'Other', key = "keyword_drain"}
         return {
             vars = {
                 card.ability.extra.stacked_x_mult,
@@ -46,10 +47,9 @@ SMODS.Joker {
         if context.cardarea == G.jokers and context.before and not context.blueprint then
             local _count = 0
             
-            for i = 1, #G.hand.cards do
-                if G.hand.cards[i].config.center ~= G.P_CENTERS.c_base and not G.hand.cards[i].debuff and not G.hand.cards[i].vampired then
+            for _index, _pcard in ipairs(G.hand.cards) do
+                if Kino.drain_property(_pcard, card, {Enhancement = {debuff = "kino_drain"}}) then
                     _count = _count + 1
-                    G.hand.cards[i]:set_debuff(true)
                 end
             end
 

@@ -5,7 +5,7 @@ SMODS.Joker {
     config = {
         extra = {
             stacked_x_mult = 1,
-            a_xmult = 0.2,
+            a_xmult = 0.5,
         }
     },
     rarity = 2,
@@ -32,6 +32,7 @@ SMODS.Joker {
     enhancement_gate = 'm_kino_romance',
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1]  = {set = 'Other', key = "keyword_drain"}
         return {
             vars = {
                 card.ability.extra.stacked_x_mult,
@@ -42,21 +43,20 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- if a pair is played, and both are romance cards, destroy them and upgrade this card with
         -- x0.2
-        if context.destroying_card and context.scoring_name == "Pair" and not context.blueprint then
-            local _is_rom = false
-            for i = 1, #context.scoring_hand do
-                if not SMODS.has_enhancement(context.scoring_hand[i], 'm_kino_romance') and not context.scoring_hand[i].debuff then
-                    break
+        if context.cardarea == G.jokers and context.before and not context.blueprint
+        and context.scoring_name == "Pair" then
+            local romance_count = {}
+            for _index, _pcard in ipairs(context.scoring_hand) do
+                if SMODS.has_enhancement(_pcard, 'm_kino_romance') and not _pcard.debuff then
+                    romance_count[#romance_count + 1] = _pcard
                 end
-                _is_rom = true
             end
             
-            -- upgrade and destroy
-            if _is_rom then
+            if #romance_count == 2 then
+                for _index, _pcard in ipairs(romance_count) do
+                    Kino.drain_property(_pcard, card, {Enhancement = {true}})
+                end
                 card.ability.extra.stacked_x_mult = card.ability.extra.stacked_x_mult + card.ability.extra.a_xmult
-                card_eval_status_text(card, 'extra', nil, nil, nil,
-                { message = localize('k_upgrade_ex'), colour = G.C.MULT })
-                return true
             end
         end
 

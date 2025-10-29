@@ -145,7 +145,6 @@ SMODS.Seal{
     calculate = function(self, card, context)
         -- if context.individual and context.other_card == card then
         if context.main_scoring and context.cardarea == G.hand then
-            print("test")
             -- if pseudorandom("kino_thrillerseal") < G.GAME.probabilities.normal / card.ability.seal.chance then
             if SMODS.pseudorandom_probability(card, 'kino_thrillerseal', 1, card.ability.seal.chance, "kino_jumpscare") then
                 local x_mult = Kino.jumpscare(card)

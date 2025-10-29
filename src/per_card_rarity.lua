@@ -253,6 +253,13 @@ Kino.modify_weight = function(card, starting_weight)
         end
     end
 
+    -- Vampire
+    if G.GAME.modifiers.kino_vampiredeck then
+        if kino_quality_check(card, "is_vampire") then 
+            weight_from_other_adjustments = weight_from_other_adjustments +  G.GAME.modifiers.kino_vampiredeck_rarity
+        end
+    end
+
     -- Calc final weight
     final_weight = final_weight * (weight_mod_from_card + weight_mod_from_genre + weight_from_other_adjustments)
     return final_weight

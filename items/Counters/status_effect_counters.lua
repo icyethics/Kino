@@ -23,7 +23,6 @@ Blockbuster.Counters.Counter {
     },
     calculate = function(self, card, context)
         if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
-            print("ola")
             if SMODS.pseudorandom_probability(card, 'bb_fire', card.ability.counter.counter_num, 10, "card_destruction") then
                 card.marked_to_destroy_by_fire_counter = true
                 if card.config.center.set == 'Joker' then

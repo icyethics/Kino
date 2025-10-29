@@ -20,7 +20,8 @@ SMODS.Tag {
             tag.triggered = true
             
         end
-    end
+    end,
+
 }
 
 SMODS.Tag {
