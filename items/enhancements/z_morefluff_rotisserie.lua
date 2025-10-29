@@ -1,3 +1,4 @@
+if next(SMODS.find_mod("MoreFluff")) then
 SMODS.Enhancement {
     key = "rotisserie",
     atlas = "kino_morefluff_enhancements",
@@ -143,3 +144,4 @@ SMODS.DrawStep {
     end,
     conditions = {vortex = false, facing = 'front'}
 }
+end

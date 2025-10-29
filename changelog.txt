@@ -1,3 +1,10 @@
+V 0.11-HALLOWEENa:
+
+Bug fix:
+- Sci-fi Cards no longer crash
+- Romance Cards display their values properly
+- MoreFluff crossmod enhancements no longer load without MoreFluff
+
 V 0.11-HALLOWEEN:
 Vampire Rework:
 Vampire jokers now use the Drain mechanic, and have all been changed to reflect this.

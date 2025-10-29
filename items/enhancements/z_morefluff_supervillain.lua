@@ -1,3 +1,4 @@
+if next(SMODS.find_mod("MoreFluff")) then
 SMODS.Enhancement {
     key = "supervillain",
     atlas = "kino_enhancements",
@@ -370,3 +371,4 @@ SMODS.Consumable {
 }
 
 
+end

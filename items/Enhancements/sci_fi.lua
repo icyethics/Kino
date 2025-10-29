@@ -17,9 +17,9 @@ SMODS.Enhancement {
             vars = {
                 card and card.ability.extra.a_mult or self.config.a_mult,
                 card and card.ability.extra.a_chips or self.config.a_chips,
-                card and card.ability.extra.bonus or nil,
-                card and card.ability.extra.perma_mult or nil,
-                card and card.ability.extra.perma_x_mult or nil,
+                card and card.ability.perma_bonus or nil,
+                card and card.ability.perma_mult or nil,
+                card and card.ability.perma_x_mult or nil,
                 card and card.ability.extra.times_upgraded or self.config.times_upgraded
             }
         }
@@ -37,17 +37,20 @@ SMODS.Enhancement {
                 return true end)
         }))
         end
-        card.ability.extra.bonus = card.ability.extra.bonus + (card.ability.extra.a_chips * _upgradenum)
+        card.ability.perma_bonus = card.ability.perma_bonus or 0
+        card.ability.perma_bonus = card.ability.perma_bonus + (card.ability.extra.a_chips * _upgradenum)
 
         if next(find_joker('j_kino_terminator_2')) then
             for index, _joker in ipairs(G.jokers.cards) do
                 if type(_joker.ability.extra) == "table" and
                 _joker.ability.extra.affects_sci_fi then
-                    card.ability.extra.perma_x_mult = card.ability.extra.perma_x_mult + (_joker.ability.extra.perma_x_mult *  _upgradenum)
+                    card.ability.perma_x_mult = card.ability.perma_x_mult or 0
+                    card.ability.perma_x_mult = card.ability.perma_x_mult + (_joker.ability.perma_x_mult *  _upgradenum)
                 end
             end
         else
-            card.ability.extra.perma_mult = card.ability.extra.perma_mult + (card.ability.extra.a_mult *  _upgradenum)
+            card.ability.perma_mult = card.ability.perma_mult or 0
+            card.ability.perma_mult = card.ability.perma_mult + (card.ability.extra.a_mult *  _upgradenum)
         end
                 
                 
