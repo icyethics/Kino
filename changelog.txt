@@ -1,3 +1,33 @@
+V 0.12:
+New Jokers:
+- Inception
+- Meet the Parents
+- Marty
+- 500 Days of Summer
+- Eternal Sunshine of the Spotless Mind
+
+- Weapons
+- Joker
+- Superman (2025)
+- Cat People
+
+Reworked Jokers:
+- Her
+
+Planned Jokers:
+- Final Destination
+- The Substance
+
+- Robot Dreams
+- Rocket Man
+- Godzilla
+
+- King Kong
+- Shin Kamen Rider
+- Rear Window
+- City People
+- The Lobster
+
 V 0.11-HALLOWEEN:
 Vampire Rework:
 Vampire jokers now use the Drain mechanic, and have all been changed to reflect this.

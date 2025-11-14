@@ -53,3 +53,26 @@ Blockbuster.Counters.Counter {
     increment = function(self, card, number)
     end
 }
+
+Blockbuster.Counters.Counter {
+    key = "heartbreak",
+    prefix_config = {key = { mod = true}},
+    order = 2,
+    atlas = 'kino_counters',
+    config = {
+    },
+    pos = {x = 1, y = 0},
+    counter_class = {
+        "archetype",
+    },
+    calculate = function(self, card, context)
+        if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
+            card:bb_increment_counter(-card.ability.counter.counter_num )
+        end
+    end,
+    loc_vars = function(self, info_queue, card)
+
+    end,
+    increment = function(self, card, number)
+    end
+}

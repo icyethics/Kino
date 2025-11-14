@@ -63,6 +63,22 @@ return {
                     "an additional time"
                 }
             },
+            j_kino_500_days_of_summer = {
+                name = "(500) Days of Summer",
+                text = {
+                    {
+                        "Put {C:Heartache}#2# Heartbreak Counters",
+                        "on unscored {C:attention}#1#s{},",
+                        "rank changes every round"
+                    },
+                    {
+                        "Gain {C:mult}+#3#{} Mult when",
+                        "a {C:Heartache}Heartbreak Counter",
+                        "is removed",
+                        "{C:inactive}(Currently: {C:mult}+#4#{C:inactive} Mult)"
+                    }
+                }
+            },
             j_kino_abyss = {
                 name = "The Abyss",
                 text = {
@@ -518,6 +534,14 @@ return {
                     "for every unscored card"
                 }
             },
+            j_kino_cat_people = {
+                name = "Cat People",
+                text = {
+                    "When a {C:attention}Lucky Card{} fails,",
+                    "put {C:attention}#1# Retrigger Counter(s)",
+                    "on it"
+                }
+            },
             j_kino_catch_me_if_you_can = {
                 name = "Catch Me If You Can",
                 text = {
@@ -971,6 +995,23 @@ return {
                     "a {C:attention}Boss Blind"
                 }
             },
+            j_kino_eternal_sunshine_of_the_spotless_mind = {
+                name = "Eternal Sunshine of the Spotless Mind",
+                text = {
+                    {
+                        "When a card is destroyed",
+                        "put {C:Heartache}#1# Heartbreak Counters",
+                        "on every card in deck",
+                        "that shares a rank"
+                    },
+                    {
+                        "Gain {X:mult,C:white}X#2#{} Mult when",
+                        "a {C:Heartache}Heartbreak Counter",
+                        "is removed",
+                        "{C:inactive}(Currently: {X:mult,C:white}X#3#{C:inactive} Mult)"
+                    } 
+                }
+            },
             j_kino_evil_dead_1 = {
                 name = "The Evil Dead (2013)",
                 text = {
@@ -1287,12 +1328,29 @@ return {
                     "of the others"
                 }
             },
-            j_kino_her = {
+            j_kino_her_OLD = {
                 name = "Her",
                 text = {
                     "When you {C:attention}Make a Match{}",
                     "every {C:attention}Sci-fi card{} held in hand",
                     "is upgraded"
+                }
+            },
+            j_kino_her = {
+                name = "Her",
+                text = {
+                     {
+                        "Whenever a {C:attention}Sci-fi Card{} upgrades",
+                        "put {C:Heartache}#1# Heartbreak Counter",
+                        "on every {C:attention} Sci-Fi Card{}",
+                        "in your deck"
+                    },
+                    {
+                        "Gain {C:chips}+#2#{} Chips when",
+                        "a {C:Heartache}Heartbreak Counter",
+                        "is removed",
+                        "{C:inactive}(Currently: {C:chips}+#3#{C:inactive} Chips)"
+                    }
                 }
             },
             j_kino_hitman = {
@@ -1361,13 +1419,15 @@ return {
             j_kino_inception = {
                 name = "Inception",
                 text = {
-                    "Copies the effect of any",
-                    "joker you own that this",
-                    "joker has spent {C:attention}3 blinds{}",
-                    "to the left of",
-                    "{C:inactive}(Will copy the joker to",
-                    "{C:inactive}the right in #3# turns)",
-                    "{C:inactive}Currently copying #4# joker(s))"
+                    {
+                        "When you select a Blind",
+                        "put a {C:attention}Drowsy Counter{}",
+                        "on Joker to the right"
+                    },
+                    {
+                        "Copies abilities of Jokers",
+                        "with {C:attention}Drowsy Counters"
+                    }
                 }
             },
             j_kino_incredible_hulk = {
@@ -1464,6 +1524,15 @@ return {
                     "{C:attention}#2# Bullets{} for",
                     "each card destroyed this {C:attention}Ante",
                     "{C:inactive}(Currently: {C:attention}#1# Bullets{C:inactive})"
+                }
+            },
+            j_kino_joker = {
+                name = "Joker (2018)",
+                text = {
+                    "{C:mult}+#1#{} Mult for",
+                    "every unique Joker {C:attention,E:1}SEEN",
+                    "this run",
+                    "{C:inactive}(Currently: {C:mult}+#2#{C:inactive} Mult)"
                 }
             },
             j_kino_junior = {
@@ -1681,6 +1750,21 @@ return {
                     "create #1# {C:Confection}Confections"
                 }
             },
+            j_kino_marty = {
+                name = "Marty",
+                text = {
+                    {
+                        "Put {C:Heartache}#1# Heartbreak Counter",
+                        "on unscored cards"
+                    },
+                    {
+                        "Gain {C:chips}+#2#{} Chips when",
+                        "a {C:Heartache}Heartbreak Counter",
+                        "is removed",
+                        "{C:inactive}(Currently: {C:chips}+#3#{C:inactive} Chips)"
+                    }
+                }
+            },
             j_kino_matrix_1 = {
                 name = "The Matrix",
                 text = {
@@ -1688,6 +1772,14 @@ return {
                     "every {C:attention}Sci-fi card{}",
                     "in your deck",
                     "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
+                }
+            },
+            j_kino_meet_the_parents = {
+                name = "Meet the Parents",
+                text = {
+                    "Non-face cards give {C:chips}+#1#{} Chips",
+                    "for each {C:attention}Face card{} in hand",
+                    "that matches its suit"
                 }
             },
             j_kino_megalopolis = {
@@ -2699,6 +2791,27 @@ return {
                     "{C:hearts}Hearts{} held in hand"
                 }
             },
+            j_kino_superman_2025 = {
+                name = "Superman (2025)",
+                text = {
+                    {
+                        "Gain {C:attention}#1# Charge{} when",
+                        "a {C:hearts}Hearts{} scores,",
+                        "halve current {C:attention}Charges{}",
+                        "if no {C:hearts}Hearts{} scored",
+                        "{C:inactive}(Currently: #2# Charges)"
+                    },
+                    {
+                        "{C:attention}Gain abilities based on Charges",
+                        " ",
+                        "{B:1,C:white}10{}: {C:chips}+#3#{} Chips",
+                        "{B:2,C:white}20{}: {C:mult}+#4#{} Mult",
+                        "{B:3,C:white}50{}: {X:mult,C:white}x#5#{} Mult",
+                        "{B:4,C:white}200{}: This is {C:attention}x#6#{} stronger",
+                        "{B:5,C:white}1000{}: This is {C:attention}x#7#{} stronger",
+                    }
+                }
+            },
             j_kino_terror_train = {
                 name = "Terror Train",
                 text = {
@@ -2966,6 +3079,15 @@ return {
                     "of a random joker",
                     "by {C:money}$#1#{} for",
                     "each unscoring card"
+                }
+            },
+            j_kino_weapons = {
+                name = "Weapons",
+                text = {
+                    "The first #2# times each Ante",
+                    "a {C:attention}5 or lower{} is destroyed",
+                    "create a {C:tarot}Hanged Man",
+                    "{C:inactive}(#1# triggers left this Ante)"
                 }
             },
             j_kino_west_side_story_1 = {
@@ -5895,7 +6017,14 @@ return {
                     "{C:attention}Ticks Down 1",
                     "and do not lose {C:Drain}Drained Property"
                 }
-            }
+            },
+            counter_kino_heartbreak = {
+                name = "Heartbreak Counter",
+                text = {
+                    "{C:attention}Remove all counters",
+                    "{C:attention}when this card scores"
+                }
+            },
         }
     },
     misc = {
@@ -6056,6 +6185,12 @@ return {
             k_kino_mask_of_the_phantasm_2 = "Oh no, it's the Joker!",
             k_kino_dracula_stoker = "Sing For Me",
             k_kino_sinners_blood = "Let me in, so I can help",
+            k_kino_weapons = "What the Fuck?!",
+            k_kino_superman2025_powerdown = "Power Lost",
+            k_kino_superman2025_powerup = "Powered Up!",
+            k_kino_cat_people = "Meow",
+
+            k_kino_heartache_stack = "</3",
 
             -- Enhancement Barks
             k_monster_turn = "ROAR!",

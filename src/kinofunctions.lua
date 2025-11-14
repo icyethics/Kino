@@ -244,6 +244,7 @@ function reset_ancient_card()
     reset_bonnieandclyde()
     Kino.reset_source_code()
     Kino.reset_dead_zone()
+    Kino.reset_summer_rank()
 end
 
  -- Indiana Jones checks
@@ -767,6 +768,7 @@ G.C.KINO = {
     ALIEN = HEX("71d027"),
     CONFECTION = HEX("8e1212"),
     DRAIN = HEX("b52727"),
+    HEARTACHE = HEX("d586c6"),
 }
 
 local genrecolors = loc_colour
@@ -802,6 +804,7 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS["Alien"] = G.C.KINO.ALIEN
     G.ARGS.LOC_COLOURS["Confection"] = G.C.KINO.CONFECTION
     G.ARGS.LOC_COLOURS["Drain"] = G.C.KINO.DRAIN
+    G.ARGS.LOC_COLOURS["Heartache"] = G.C.KINO.HEARTACHE
 
     return genrecolors(_c, _default)
 end

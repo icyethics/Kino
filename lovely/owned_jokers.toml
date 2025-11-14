@@ -1,0 +1,17 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+G.GAME.used_jokers[self.config.center.key] = true
+'''
+position = "after"
+payload = '''
+G.GAME.seen_jokers[self.config.center.key] = true
+'''
+match_indent = true

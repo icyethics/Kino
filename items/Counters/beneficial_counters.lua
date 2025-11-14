@@ -20,7 +20,7 @@ Blockbuster.Counters.Counter {
     },
     calculate = function(self, card, context)
         if card.ability.set ~= 'Joker' 
-        and context.repetition then
+        and context.repetition and not card.ability.counter.applied_this_turn then
             local _retriggers = card.ability.counter.counter_num * self.config.retriggers
             card:bb_increment_counter(-1)
 
@@ -31,7 +31,7 @@ Blockbuster.Counters.Counter {
 
         elseif context.retrigger_joker_check and 
         context.other_card and
-        context.other_card ~= self then
+        context.other_card ~= self and not card.ability.counter.applied_this_turn then
             
             
             local _retriggers = card.ability.counter.counter_num * self.config.retriggers

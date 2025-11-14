@@ -4,9 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            heartache = 1,
-            stacked_chips = 0,
-            a_chips = 5
+
         }
     },
     rarity = 2,
@@ -48,36 +46,26 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.heartache,
-                card.ability.extra.a_chips,
-                card.ability.extra.stacked_chips,
+
             }
         }
     end,
     calculate = function(self, card, context)
-
-        
-        if context.upgrading_sci_fi_card and not context.blueprint then
-
-            for _index, _pcard in ipairs(G.deck.cards) do
-                if SMODS.has_enhancement(_pcard, "m_kino_sci_fi") then
-                    _pcard:bb_counter_apply("counter_kino_heartbreak", card.ability.extra.heartache)     
+        if context.joker_main then
+            local _romance_cards = 0
+            for i = 1, #context.scoring_hand do
+                if SMODS.has_enhancement(context.scoring_hand[i], 'm_kino_romance') and not context.scoring_hand[i].debuff then
+                    _romance_cards = _romance_cards + 1
                 end
             end
-        end
 
-        if context.bb_counter_incremented and context.counter_type == G.P_COUNTERS.counter_kino_heartbreak and context.number < 0 then
-            local _chipgain = card.ability.extra.a_chips * (context.number * -1)
-            card.ability.extra.stacked_chips = card.ability.extra.stacked_chips + _chipgain
-            card:juice_up(0.8, 0.5)
-            card_eval_status_text(card, 'extra', nil, nil, nil,
-            { message = localize('k_kino_heartache_stack'), colour = G.C.KINO.HEARTACHE })
-        end
-
-        if context.joker_main then
-            return {
-                chips = card.ability.extra.stacked_chips
-            }
+            if _romance_cards == 2 then
+                for _, _pcard in ipairs(G.hand.cards) do
+                    if SMODS.has_enhancement(_pcard, 'm_kino_sci_fi') then
+                        _pcard.config.center:upgrade(_pcard)
+                    end
+                end
+            end
         end
     end
 }

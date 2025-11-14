@@ -60,7 +60,7 @@ Game.init_game_object = function(self)
 
     local ret = igo(self)
     
-
+    ret.seen_jokers = {}
     ret.modifiers.genre_bonus = {}
     ret.last_played_hand = nil
 
