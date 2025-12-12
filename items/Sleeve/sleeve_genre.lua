@@ -94,7 +94,8 @@ for _index, _info in ipairs(Kino.sleeve_list) do
         genre_bonus = _info.genre,
         consumables = _info.consumables,
     },
-    apply = function()
+    apply = function(self, sleeve)
+        CardSleeves.Sleeve.apply(self)
         G.GAME.modifiers.genre_bonus[#G.GAME.modifiers.genre_bonus + 1] = _info.genre
         G.GAME.kino_genre_weight[_info.genre] = (1 + G.GAME.kino_genre_weight[_info.genre]) * 3
     end,
