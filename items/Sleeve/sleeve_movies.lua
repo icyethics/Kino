@@ -187,10 +187,20 @@ if CardSleeves then
             if context.individual and context.cardarea == G.play and
             context.scoring_hand[#context.scoring_hand] == context.other_card then
                 if #G.hand.cards > 2 then
-                    local _result = pick_spell_reverse(context.other_card, G.hand.cards)
-                    card_eval_status_text(context.other_card, 'extra', nil, nil, nil,
-                    { message = localize('k_spell_cast'), colour = G.C.PURPLE })
-                    return _result
+
+                    if self.get_current_deck_key() == "b_kino_spellslinger" then
+                        -- local _result = pick_spell_reverse(context.other_card, G.hand.cards)
+                        local _new_card_list = {}
+                        for i = 1, #G.hand.cards do
+                            _new_card_list[i] = G.hand.cards[#G.hand.cards + 1 - i]
+                        end
+
+                        local _result = Blockbuster.cast_spell_using_recipe(context.other_card, _new_card_list)
+                        return _result
+                    else
+                        local _result = Blockbuster.cast_spell_using_recipe(context.other_card, G.hand.cards)
+                        return _result
+                    end
                 end
             end
         end

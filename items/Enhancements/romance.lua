@@ -11,8 +11,8 @@ SMODS.Enhancement {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card and card.ability.extra.chips_mult and self.config.chips_mult,
-                card and card.ability.extra.mult_mult and self.config.mult_mult,
+                card and card.ability.extra.chips_mult and self.config.extra.chips_mult,
+                card and card.ability.extra.mult_mult and self.config.extra.mult_mult,
             }
         }
     end,

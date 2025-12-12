@@ -11,6 +11,9 @@ function Game:start_run(args)
     if G.GAME.starting_params.blockbuster_spellcasting_deck then
         Blockbuster.initialize_spellslingerdeck_UI()
     end
+    if G.GAME.starting_params.kino_spellcasting_sleeve then
+        Blockbuster.initialize_spellslingerdeck_UI_sleeve()
+    end
     return ret
 end
 

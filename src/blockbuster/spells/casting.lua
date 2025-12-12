@@ -22,7 +22,7 @@ function Blockbuster.cast_spell(spell_key, strength, repeatable)
     G.GAME.current_round.bb_last_spell_cast.key = spell_key
     G.GAME.current_round.bb_last_spell_cast.strength = strength
 
-    if #G.GAME.current_round.bb_spell_queue > 0 then
+    if G.GAME.current_round.bb_spell_queue and #G.GAME.current_round.bb_spell_queue > 0 then
         local _nextspell = G.GAME.current_round.bb_spell_queue[1]
         spell_key = _nextspell.spell_key
         strength = _nextspell.strength

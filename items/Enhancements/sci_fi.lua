@@ -17,9 +17,9 @@ SMODS.Enhancement {
             vars = {
                 card and card.ability.extra.a_mult or self.config.a_mult,
                 card and card.ability.extra.a_chips or self.config.a_chips,
-                card and card.ability.extra.bonus or nil,
-                card and card.ability.extra.perma_mult or nil,
-                card and card.ability.extra.perma_x_mult or nil,
+                card and card.ability.perma_bonus or nil,
+                card and card.ability.perma_mult or nil,
+                card and card.ability.perma_x_mult or nil,
                 card and card.ability.extra.times_upgraded or self.config.times_upgraded
             }
         }
@@ -39,7 +39,6 @@ SMODS.Enhancement {
         }))
         end
         card.ability.extra.bonus = (card.ability.extra.bonus or 0) + (card.ability.extra.a_chips * _upgradenum)
-
         if next(find_joker('j_kino_terminator_2')) then
             for index, _joker in ipairs(G.jokers.cards) do
                 if type(_joker.ability.extra) == "table" and

@@ -1,6 +1,7 @@
 SMODS.Joker {
     key = "frankenstein",
     order = 99,
+    generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
             chips = 0,
