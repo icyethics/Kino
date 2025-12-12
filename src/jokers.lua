@@ -1,6 +1,7 @@
 joker_list = {
     ------ Common
 "9_movie",
+"10_things_i_hate_about_you",
 "ai_artificial",
 "alien_3",
 "aliens",
@@ -35,6 +36,7 @@ joker_list = {
 "dark_knight",
 -- "death_race",
 "dickie_roberts",
+"james_bond_dr_no",
 "double_dragon",
 "double",
 "duel",
@@ -95,7 +97,6 @@ joker_list = {
 "ringu",
 "rocky_1",
 "scarface_1",
-"scream_1",
 "secretary",
 "shazam_1",
 "shining",
@@ -129,14 +130,15 @@ joker_list = {
 "what_we_do_in_the_shadows",
 "wonka",
 "x",
+"zoolander",
 
 ------ Uncommon
 "500_days_of_summer",
 "6_underground",
-"10_things_i_hate_about_you",
 "30_days_of_night",
 "50_first_dates",
 "abyss",
+"accountant_1",
 "alien_1",
 "anora",
 "apollo_13",
@@ -169,6 +171,7 @@ joker_list = {
 "dick_tracy",
 "die_hard_1",
 "dinner_with_andre",
+"dirty_harry",
 "doctor_who",
 "dr_strangelove",
 "dune_1984",
@@ -184,10 +187,12 @@ joker_list = {
 "ghoulies",
 "glass",
 "gone_girl",
+"good_burger",
 "goodfellas",
 "gravity",
 "guardians_of_the_galaxy_2", 
 "hard_eight",
+"hardcore_henry",
 "harry_potter_1",
 "hellboy_1",
 "her",
@@ -201,11 +206,13 @@ joker_list = {
 "john_wick_1",
 "joker",
 "junior",
+"king_kong",
 "kramervskramer",
 "kraven",
 "krazy_house",
 "la_la_land",
 "longlegs",
+"maltese_falcon",
 "man_who_laughs",
 "mars_attacks",
 "marty",
@@ -218,6 +225,7 @@ joker_list = {
 "morbius",
 "moulin_rouge",
 "muppets_treasure_island",
+"nacho_libre",
 "nightcrawler",
 "nightmare_on_elm_street",
 "nosferatu_2024",
@@ -240,6 +248,7 @@ joker_list = {
 "sausage_party",
 "scarface_2",
 "school_of_rock",
+"scream_1",
 "se7en",
 "shang_chi",
 "signs",
@@ -255,6 +264,7 @@ joker_list = {
 "star_wars_vii",
 "starman",
 "stranger_than_fiction",
+"superman_1978",
 "terminator_1",
 "terror_train",
 "thing",
@@ -281,10 +291,11 @@ joker_list = {
 'zodiac',
 
 ------ Rare
+"12_angry_men",
 "angel_hearts",
 "annihilation",
 "arrival",
--- "asteroid_city",
+"asteroid_city",
 "batman_2022",
 "batman_66",
 "batman_returns",
@@ -302,6 +313,7 @@ joker_list = {
 "eternal_sunshine_of_the_spotless_mind",
 "fight_club",
 "founder",
+"godzilla",
 "guardians_of_the_galaxy_3",
 "hellraiser_1",
 "hitman",
@@ -333,6 +345,7 @@ joker_list = {
 'ponyo',
 "popeye",
 "princess_bride",
+'quick_and_the_dead',
 "shawshank_redemption",
 "shinkamenrider",
 "shopaholic",
@@ -344,6 +357,7 @@ joker_list = {
 "terminator_2",
 "they_live",
 "to_kill_a_mockingbird",
+"tron",
 -- "truman_show",
 "12_monkeys",
 "wall_e",
@@ -368,7 +382,7 @@ joker_list = {
 -- The Godfather 1970s 
 -- "2001_odyssey", 1960s
 -- UNIMPLEMENTED A Streetcar Named Desire 1950s STRANGERS ON A TRAIN
--- UNIMPLEMENTED Citizen Kane 1940s
+-- Citizen Kane 1940s
 -- UNIMPLEMENTED Bringing Up Baby 1930s
 -- UNIMPLEMENTED Wings 1920s
 
@@ -402,10 +416,10 @@ cryptid_content = {
     jokers = {
         'human_centipede'
     },
-    enhancements = {"action",},
+    enhancements = {},
     confections = {},
     planets = {},
-    tarots = {"soldier"},
+    tarots = {},
     vouchers = {},
 }
 
@@ -564,8 +578,6 @@ romance_objects = {
         "50_first_dates",
         "always",
         "anora",
-        "heart_eyes",
-        "her",
         "only_lovers_left_alive",
         "starman",
         "pride_and_prejudice",

@@ -4,14 +4,14 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            stacked_mult = 0,
-            a_mult = 2,
+            stacked_chips = 0,
+            a_chips = 1,
         }
     },
-    rarity = 1,
+    rarity = 2,
     atlas = "kino_atlas_4",
     pos = { x = 4, y = 0},
-    cost = 1,
+    cost = 6,
     blueprint_compat = true,
     perishable_compat = true,
     kino_joker = {
@@ -32,27 +32,39 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.stacked_mult,
-                card.ability.extra.a_mult
+                card.ability.extra.stacked_chips,
+                card.ability.extra.a_chips
             }
         }
     end,
     calculate = function(self, card, context)
         -- Gain +2 mult for every Horror joker you have at the end of a blind
         -- Lose money equal to this joker's mult when you sell it.
-        if context.end_of_round and context.cardarea == G.jokers and not context.blueprint then
-            for i, v in ipairs(G.jokers.cards) do
-                if is_genre(v, "Horror") then
-                    card.ability.extra.stacked_mult = card.ability.extra.stacked_mult + card.ability.extra.a_mult
-                    card.ability.extra_value = card.ability.extra_value - card.ability.extra.a_mult
-                    card:set_cost()
-                end
-            end
+        -- if context.end_of_round and context.cardarea == G.jokers and not context.blueprint then
+        --     for i, v in ipairs(G.jokers.cards) do
+        --         if is_genre(v, "Horror") then
+        --             card.ability.extra.stacked_mult = card.ability.extra.stacked_mult + card.ability.extra.a_mult
+        --             card.ability.extra_value = card.ability.extra_value - card.ability.extra.a_mult
+        --             card:set_cost()
+        --         end
+        --     end
+        -- end
+
+        -- if context.joker_main then
+        --     return {
+        --         mult = card.ability.extra.stacked_mult
+        --     }
+        -- end
+        if context.post_trigger and context.cardarea == G.jokers and
+        not context.other_context.destroying_card 
+        and not context.other_context.post_trigger
+        and is_genre(context.other_card, "Horror") then
+            card.ability.extra.stacked_chips = card.ability.extra.stacked_chips + card.ability.extra.a_chips
         end
 
         if context.joker_main then
             return {
-                mult = card.ability.extra.stacked_mult
+                chips = card.ability.extra.stacked_chips
             }
         end
     end

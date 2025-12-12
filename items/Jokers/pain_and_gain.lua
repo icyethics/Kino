@@ -4,11 +4,10 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            bullets_non = 0,
-            retriggers = {}
+            x_mult = 2.5
         }
     },
-    rarity = 3,
+    rarity = 2,
     atlas = "kino_atlas_7",
     pos = { x = 1, y = 1},
     cost = 8,
@@ -29,44 +28,59 @@ SMODS.Joker {
     },
     k_genre = {"Action", "Crime"},
     enhancement_gate = "m_kino_action",
+    kino_bullet_compat = true,
 
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-
+                card.ability.extra.x_mult
             }
         }
     end,
     calculate = function(self, card, context)
         -- Retrigger a random card once for each bullet
-        if context.before then
-            card.ability.extra.bullets_non = Kino:count_bullets()
-            local _array = {}
 
-            for i = 1, #context.scoring_hand do
-                card.ability.extra.retriggers[i] = 0
-                _array[i] = i
-            end
+        -- OLD EFFECT
+        -- if context.before then
+        --     card.ability.extra.bullets_non = Kino:count_bullets()
+        --     local _array = {}
 
-            for i = 1, card.ability.extra.bullets_non do
-                local _index = pseudorandom_element(_array, pseudoseed('pag'))
-                card.ability.extra.retriggers[_index] = card.ability.extra.retriggers[_index] + 1
-            end
-        end
+        --     for i = 1, #context.scoring_hand do
+        --         card.ability.extra.retriggers[i] = 0
+        --         _array[i] = i
+        --     end
 
-        if context.repetition and context.cardarea == G.play then
-            for _, _pcard in ipairs(context.scoring_hand) do
-                if context.other_card == _pcard then
-                    return {
-                        repetitions = card.ability.extra.retriggers[_]
-                    }
-                end
-            end
-        end
+        --     for i = 1, card.ability.extra.bullets_non do
+        --         local _index = pseudorandom_element(_array, pseudoseed('pag'))
+        --         card.ability.extra.retriggers[_index] = card.ability.extra.retriggers[_index] + 1
+        --     end
+        -- end
 
-        if context.after then
-            card.ability.extra.bullets_non = 0
-            card.ability.extra.retriggers = {}
+        -- if context.repetition and context.cardarea == G.play then
+        --     for _, _pcard in ipairs(context.scoring_hand) do
+        --         if context.other_card == _pcard then
+        --             return {
+        --                 repetitions = card.ability.extra.retriggers[_]
+        --             }
+        --         end
+        --     end
+        -- end
+
+        -- if context.after then
+        --     card.ability.extra.bullets_non = 0
+        --     card.ability.extra.retriggers = {}
+        -- end
+
+        if context.individual and context.cardarea == G.play and 
+        card.counter and card.counter == "counter_kino_bullet" and
+        card.ability.counter and card.ability.counter.counter_num and card.ability.counter.counter_num > 0 then
+        
+            
+            card:bb_increment_counter(-1)
+
+            return {
+                x_mult = card.ability.extra.x_mult
+            }
         end
 
     end

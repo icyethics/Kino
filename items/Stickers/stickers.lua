@@ -58,6 +58,21 @@ SMODS.Sticker{
     atlas = 'kino_stickers'
 }
 
+SMODS.Sticker{
+    key = "spilled_beans",
+    apply = function(self, card, val)
+        card.ability.spilled_beans = true
+        card.ability[self.key] = val
+    end,
+    badge_colour = HEX('ffd081'),
+    no_collection = true,
+
+    order = 8,
+
+    pos = { x = 4, y = 2},
+    atlas = 'kino_stickers'
+}
+
 if Cryptid and Talisman then
 SMODS.Sticker{
     key = 'award_cryptid',
@@ -137,5 +152,13 @@ SMODS.Sticker{
     order = 9,
 
     pos = { x = 4, y = 0},
-    atlas = 'kino_stickers'
+    atlas = 'kino_stickers',
+    calculate = function(self, card, context)
+        if (context.main_scoring and context.cardarea == G.play) or context.joker_main then
+            return {
+                chips = 1
+            }
+        end
+        
+    end
 }

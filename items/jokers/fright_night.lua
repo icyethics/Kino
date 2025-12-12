@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 0,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_vampire = true,
         extra = {
             a_xmult = 0.5,
             stacked_xmult = 1

@@ -25,7 +25,7 @@ local mod_mechanics_toggles = {
 	{ref_value = "custom_rarity", label = "kino_settings_custom_rarity"},
 	{ref_value = "self_synergize", label = "kino_settings_self_synergize"},
 	{ref_value = "halloween_music", label = "kino_settings_halloween_music"},
-	{ref_value = "halloween_mode", label = "kino_settings_halloween_mode"},
+	{ref_value = "halloween_deck", label = "kino_settings_halloween_deck"},
 }
 
 local mod_mechanics_sliders = {
@@ -445,5 +445,6 @@ SMODS.current_mod.custom_collection_tabs = function()
 	local  _return_table = {}
 	_return_table[#_return_table + 1] = Blockbuster.Spellcasting.CollectionTab()[1]
 	_return_table[#_return_table + 1] = Blockbuster.Counters.CollectionTab()[1]
+	_return_table[#_return_table + 1] = Blockbuster.Playset.CollectionTab()[1]
     return _return_table
 end

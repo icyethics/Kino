@@ -115,7 +115,7 @@ function Card:bb_remove_counter(removal_method)
         end
 
         self.counter = nil
-        self.ability.counter = 0
+        self.ability.counter = nil
     end
 
     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()

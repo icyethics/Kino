@@ -1,4 +1,17 @@
 SMODS.Back {
+    name = "Video Store Deck",
+    key = "videostore",
+    atlas = "kino_backs",
+    pos = {x = 2, y = 3},
+    config = {
+    },
+    apply = function()
+        G.GAME.modifiers.kino_videostore = true
+        G.GAME.modifiers.kino_videostore_rarity = 2
+    end
+}
+
+SMODS.Back {
     name = "Bacon Deck",
     key = "bacon",
     atlas = "kino_backs",
@@ -7,7 +20,39 @@ SMODS.Back {
     },
     apply = function()
         G.GAME.modifiers.bacon_bonus = 1.5
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            local _condition_failed = false
+            for i, _joker in ipairs(G.jokers.cards) do
+                local _has_matches = false
+                local _castlist = create_cast_list_for_specific_jokers(_joker)
+                for j, _jokercomp in ipairs(G.jokers.cards) do
+                    if _jokercomp ~= _joker and
+                    has_cast_from_table(_jokercomp, _castlist) then
+                        _has_matches = true
+                        break
+                    end
+                end
+
+                if _has_matches == false then
+                    _condition_failed = true
+                    break
+                end
+            end
+            if not _condition_failed then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 
 
@@ -22,7 +67,23 @@ SMODS.Back {
     },
     apply = function()
         G.GAME.modifiers.kino_back_c2n = true
-    end
+    end,
+    
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win_deck' then
+            if get_deck_win_stake("b_kino_bacon") > 0 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 
 SMODS.Back {
@@ -79,7 +140,22 @@ SMODS.Back {
                 ease_dollars(reward - 10)
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            if to_big(G.GAME.dollars) >= 1000 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 
 SMODS.Back {
@@ -110,7 +186,23 @@ SMODS.Back {
                 _target:bb_counter_apply('counter_money', 1)
             end
         end
-    end
+    end,
+        -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win_deck' then
+            if get_deck_win_stake("b_kino_producer") > 0 then
+                unlock_card(self)
+            end
+        end
+    end,
+
 }
 
 SMODS.Back {
@@ -131,7 +223,23 @@ SMODS.Back {
                 return _result
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count or 0
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'bb_spell_cast' then
+            if G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count >= 100 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 
 SMODS.Back {
@@ -144,7 +252,34 @@ SMODS.Back {
     apply = function()
         G.GAME.modifiers.kino_batmandeck = true
         G.GAME.modifiers.kino_batmandeck_rarity = 2
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count or 0
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'discover_amount' then
+            local _total_count = 0
+            local _discovered_count = 0
+            for i, _joker in pairs(G.P_CENTERS) do
+                if kino_quality_check(_joker, 'is_batman') then
+                    _total_count = _total_count + 1
+                    if _joker.discovered then
+                        _discovered_count = _discovered_count + 1
+                    end
+                end
+            end
+
+            if _total_count == _discovered_count then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 
 SMODS.Back {
@@ -172,30 +307,66 @@ SMODS.Back {
             --     edition = {negative = true}
             -- })
             -- G.consumeables:emplace(_card)
-
-
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count or 0
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_star_wars_unlocks' then
+            if G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count >= 100 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 
--- SMODS.Back {
---     name = "Cosmonaut's Deck",
---     key = "cosmonaut",
---     atlas = "kino_backs",
---     pos = {x = 1, y = 0},
---     config = {
---     },
---     apply = function()
+SMODS.Back {
+    name = "Cosmonaut's Deck",
+    key = "cosmonaut",
+    atlas = "kino_backs",
+    pos = {x = 1, y = 0},
+    config = {
+    },
+    apply = function()
 
---         for _key, _object in pairs(G.P_CENTERS) do
---             if _object.set == "Planet" and _object.config.hand_type then
---                 -- 
---                 G.GAME.banned_keys[_object.key] = true
---                 print("banned object: " .. _object.key)
---             end
---         end
---     end
--- }
+        G.GAME.modifiers.kino_cosmonaut = true
+        G.GAME.modifiers.kino_cosmonaut_rarity = 4
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count or 0
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'discover_amount' then
+            local _total_count = 0
+            local _discovered_count = 0
+            for i, _planet in pairs(G.P_CENTERS) do
+                if _planet.set == "Planet" and _planet.strange_planet then
+                    _total_count = _total_count + 1
+                    if _planet.discovered then
+                        _discovered_count = _discovered_count + 1
+                    end
+                end
+            end
+
+            if _total_count == _discovered_count then
+                unlock_card(self)
+            end
+        end
+    end,
+}
 
 SMODS.Back {
     name = "Empowered Deck",
@@ -206,7 +377,27 @@ SMODS.Back {
     },
     apply = function()
         G.GAME.starting_params.kino_empowereddeck = true
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count or 0
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            for _, _joker in ipairs(G.jokers.cards) do
+                if _joker.config.center == G.P_CENTERS.j_egg then
+                    if _joker.sell_cost >= 30 then
+                        unlock_card(self)
+                    end
+                end
+            end
+        end
+    end,
 }
 
 
@@ -254,7 +445,33 @@ SMODS.Back {
         }
     },
     apply = function()
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'discover_amount' then
+            local _total_count = 0
+            local _discovered_count = 0
+            for i, _confection in pairs(G.P_CENTERS) do
+                if _confection.set == "confection" then
+                    _total_count = _total_count + 1
+                    if _confection.discovered then
+                        _discovered_count = _discovered_count + 1
+                    end
+                end
+            end
+
+            if _total_count == _discovered_count then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 end
 SMODS.Back {
@@ -269,7 +486,22 @@ SMODS.Back {
         }
     },
     apply = function()
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_awards_given' then
+            if G.PROFILES[G.SETTINGS.profile].kino_awards_given >= 5 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 else
 if kino_config.confection_mechanic then
@@ -286,7 +518,33 @@ SMODS.Back {
         }
     },
     apply = function()
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'discover_amount' then
+            local _total_count = 0
+            local _discovered_count = 0
+            for i, _confection in pairs(G.P_CENTERS) do
+                if _confection.set == "confection" then
+                    _total_count = _total_count + 1
+                    if _confection.discovered then
+                        _discovered_count = _discovered_count + 1
+                    end
+                end
+            end
+
+            if _total_count == _discovered_count then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 end
 
@@ -303,7 +561,22 @@ SMODS.Back {
         }
     },
     apply = function()
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_awards_given' then
+            if G.PROFILES[G.SETTINGS.profile].kino_awards_given >= 5 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 end
 
@@ -331,15 +604,30 @@ SMODS.Back {
                 end
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            local _condition_failed = false
+            for i, _pcard in ipairs(G.playing_cards) do
+                if _pcard:get_id() <= 5 then
+                    _condition_failed = true
+                    break
+                end
+            end
+            if not _condition_failed then
+                unlock_card(self)
+            end
+        end
+    end,
 }
-
--- Alderaan Deck (Star Wars): Create a Death Star when you defeat a blind. Star Wars jokers are 2x as common
-
--- Spacefarer's Deck: Handtype Planets no longer spawn in the shop or booster packs
-
--- Empowered Deck: Each suit's face card start with the same random enhancement
-
 
 SMODS.Back {
     name = "Egg Deck",
@@ -351,5 +639,42 @@ SMODS.Back {
     },
     apply = function()
         G.GAME.modifiers.egg_genre = "Romance"
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            for _, _joker in ipairs(G.jokers.cards) do
+                if _joker.config.center == G.P_CENTERS.j_egg then
+                    if _joker.sell_cost >= 30 then
+                        unlock_card(self)
+                    end
+                end
+            end
+        end
+    end,
 }
+
+-- SMODS.Back {
+--     name = "DEBUG DECK",
+--     key = "debug_deck",
+--     atlas = "kino_backs",
+--     pos = {x = 1, y = 1},
+--     config = {
+--         vouchers = {
+--         }
+--     },
+--     apply = function()
+--         G.GAME.kino_boss_mode.Big = true
+--         G.GAME.kino_boss_mode_odds.Big = 0.5
+--         G.GAME.kino_boss_mode.Small = true
+--         G.GAME.kino_boss_mode_odds.Small = 1
+--     end
+-- }
+

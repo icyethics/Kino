@@ -23,7 +23,8 @@ Kino.abduct_card = function(card, abducted_card)
     if not card or not card.area then return end
     if not abducted_card or not abducted_card.area then return end
     local _ret = SMODS.calculate_context({pre_abduct = true}, {stop_abduction = false})
-
+    inc_career_stat("kino_cards_abducted", 1)
+    check_for_unlock({type = "kino_cards_abducted", abducter = card, abducted_card = abducted_card})
     if _ret and _ret.stop_abduction then
         return
     end
@@ -47,25 +48,16 @@ Kino.abduct_card = function(card, abducted_card)
         abducted_card.abducted = true
         card:juice_up()
         G.GAME.current_round.cards_abducted = G.GAME.current_round.cards_abducted + 1
-        if not card.ability.extra.cards_abducted then
-            card.ability.extra.cards_abducted = {
-                -- Cards should be formatted as such
-                -- {
-                --     -- card = card,
-                --     -- abudcted_from = cardarea,
-                --     -- abducted_when = when,
-                -- }
-            }
-        end
 
         abducted_card.area.config.card_limit = abducted_card.area.config.card_limit - ((abducted_card.edition and abducted_card.edition.negative) and 1 or 0)
-        card.ability.extra.cards_abducted[#card.ability.extra.cards_abducted + 1] = {
-            card = abducted_card,
+        G.GAME.current_round.abduction_waitinglist[#G.GAME.current_round.abduction_waitinglist + 1] = {
+            abductor = card,
+            abducted_card = abducted_card,
             abducted_from = abducted_card.area
         }
     
-        abducted_card.area:remove_card(abducted_card)
-        Kino.abduction:emplace(abducted_card)
+        -- abducted_card.area:remove_card(abducted_card)
+        -- Kino.abduction:emplace(abducted_card)
 
     end
     SMODS.calculate_context({abduct = true, joker = card, abducted_card = abducted_card})
@@ -129,7 +121,6 @@ Kino.gather_abducted_cards_by_abductor = function(card)
     local _list_of_cards = {}
 
     for _index, _card in ipairs(Kino.abduction.cards) do
-
         if _card.ability.kino_abductor_id == _id then
             _list_of_cards[_card.ability.kino_abduction_id] = _card
         end

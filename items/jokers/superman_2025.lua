@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 0,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_superman = true,
         extra = {
             charges_non = 0,
             a_charge = 1,

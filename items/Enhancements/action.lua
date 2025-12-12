@@ -6,6 +6,7 @@ SMODS.Enhancement {
 
     },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_kino_bullets
         return {
             vars = {
 
@@ -13,13 +14,20 @@ SMODS.Enhancement {
         }
     end,
     calculate = function(self, card, context, effect)
-        if context.repetition and context.cardarea == G.play and context.other_card == card then
-            local _bullet_count = Kino.count_bullets()
+        -- if context.repetition and context.cardarea == G.play and context.other_card == card then
+        --     local _bullet_count = Kino.count_bullets()
 
-            return {
-                repetitions = _bullet_count,
-                message = localize("k_action_card")
-            }
+        --     return {
+        --         repetitions = _bullet_count,
+        --         message = localize("k_action_card")
+        --     }
+        -- end
+        if context.hand_drawn then
+            for i, _pcard in ipairs(context.hand_drawn) do
+                if _pcard == card then
+                    Kino:add_bullet()
+                end
+            end
         end
     end,
     -- update = function()

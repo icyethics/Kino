@@ -260,6 +260,19 @@ Kino.modify_weight = function(card, starting_weight)
         end
     end
 
+    -- Cosmonaut Deck
+    if G.GAME.modifiers.kino_cosmonaut then
+        if card.set == "Planet" and card.strange_planet then
+            weight_from_other_adjustments = weight_from_other_adjustments + G.GAME.modifiers.kino_cosmonaut_rarity
+        end
+    end
+
+    if G.GAME.modifiers.kino_videostore then
+        if Blockbuster.get_mod_id_from_card(card) == "kino" then
+            weight_from_other_adjustments = weight_from_other_adjustments + G.GAME.modifiers.kino_videostore_rarity
+        end
+    end
+
     -- Calc final weight
     final_weight = final_weight * (weight_mod_from_card + weight_mod_from_genre + weight_from_other_adjustments)
     return final_weight

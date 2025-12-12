@@ -4,7 +4,8 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            mult = 8
+            mult = 10,
+            triggered = false
         }
     },
     rarity = 1,
@@ -37,12 +38,17 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
-            if context.scoring_name == "High Card" then
-                return {
-                    mult = card.ability.extra.mult
-                }
-            end
+        if context.before then
+            card.ability.extra.triggered = false
+        end
+
+        if context.individual and context.cardarea == "unscored" and card.ability.extra.triggered == false then
+            card.ability.extra.triggered = true
+
+            return {
+                mult = card.ability.extra.mult
+            }
+
         end
     end
 }

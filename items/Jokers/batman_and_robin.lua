@@ -69,5 +69,21 @@ SMODS.Joker {
                 end
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_superhero and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_superhero.count or 0,
+                20
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'career_stat' and
+        G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_superhero and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_superhero.count == 5 then
+            unlock_card(self)
+        end
+    end,
 }

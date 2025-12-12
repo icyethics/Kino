@@ -124,6 +124,7 @@ Blockbuster.Counters.Counter {
         end
     end,
     increment = function(self, card, number)
+        check_for_unlock({type = "bb_increment_money_counter", card = card})
     end,
     add_counter = function(self, card, number)
     end,

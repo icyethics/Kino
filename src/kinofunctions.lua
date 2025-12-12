@@ -212,6 +212,24 @@ function get_least_played_hand()
     return _hands
 end
 
+function get_most_played_hand()
+    local _tally
+    local _hands = {}
+        for k, v in ipairs(G.handlist) do
+        if G.GAME.hands[v].visible and (_tally == nil or G.GAME.hands[v].played > _tally) then
+            _hands = {}
+            _hands[#_hands + 1] = v
+            
+            _tally = G.GAME.hands[v].played
+        end
+        if G.GAME.hands[v].visible and (_tally == nil or G.GAME.hands[v].played == _tally) and not G.GAME.hands[v].played == 0 then
+            _hands[#_hands + 1] = v
+        end
+    end
+
+    return _hands
+end
+
 -- Add a function to trigger jokers when money is spend in the shop (Based on cryptid, exotic.lua, l. 1407-1413)
 local base_ease_dollars = ease_dollars
 function ease_dollars(mod, x)
@@ -561,12 +579,12 @@ G.FUNCS.can_discard = function(e)
     for i, _joker in ipairs(G.jokers.cards) do
         if _joker and _joker.ability and type(_joker.ability.extra) == "table" and
         _joker.ability.extra.stacked_monster_exemptions then
-            _monster_exemptions = _monster_exemptions + _joker.ability.extra.stacked_monster_exemptions
+            _monster_exemptions = true
         end
     end
 
     if G.GAME.current_round.discards_left <= 0 or #G.hand.highlighted <= 0 or 
-    (_monster > 0 and _monster > _monster_exemptions)then 
+    ((_monster > 0) and not _monster_exemptions ) then 
         e.config.colour = G.C.UI.BACKGROUND_INACTIVE
         e.config.button = nil
     else
@@ -591,6 +609,30 @@ SMODS.Enhancement:take_ownership('lucky', {
         local numerator_mult, denominator_mult = SMODS.get_probability_vars(card, 1 * (cfg.lucky_bonus or 1), 5, 'lucky_mult')
         local numerator_dollars, denominator_dollars = SMODS.get_probability_vars(card, 1 * (cfg.lucky_bonus or 1), 15, 'lucky_money')
         return {vars = {numerator_mult, cfg.mult, denominator_mult, cfg.p_dollars, denominator_dollars, numerator_dollars}}
+    end,
+},
+true)
+
+SMODS.Consumable:take_ownership('death', {
+    loc_vars = function (self, info_queue, card)
+        local cfg = (card and card.ability) or self.config
+
+        local _index, _object = next(find_joker("j_kino_coco"))
+        local _max_high = cfg.max_highlighted
+        if _object then
+            _max_high = _max_high + _object.ability.extra.additional_card
+        end
+
+        return {vars = {cfg.max_highlighted}}
+    end,
+    get_weight_mod = function()
+        local _value = 1
+
+        local _index, _object = next(find_joker("j_kino_coco"))
+        if _object then
+            _value = _value * _object.ability.extra.common_rate
+        end
+        return _value
     end,
 })
 ------------ Helpers ------------
@@ -725,6 +767,15 @@ function SMODS.calculate_context(context, return_table)
     return _o_cc(context, return_table)
 end
 
+local o_ca_shuffle = CardArea.shuffle
+function CardArea:shuffle(_seed)
+	SMODS.calculate_context({ kino_shuffling_area = true, cardarea = self, kino_pre_shuffle = true })
+
+	o_ca_shuffle(self, _seed)
+
+	SMODS.calculate_context({ kino_shuffling_area = true, cardarea = self, kino_post_shuffle = true })
+end
+
 ----------------------
 to_big = to_big or function(x, y)
     return x
@@ -737,6 +788,8 @@ end
 
 ----------------------
 -- COLOURS --
+
+
 
 G.C.KINO = {
     ACTION = HEX("0a4a59"),
@@ -769,7 +822,18 @@ G.C.KINO = {
     CONFECTION = HEX("8e1212"),
     DRAIN = HEX("b52727"),
     HEARTACHE = HEX("d586c6"),
+    STRANGE_PLANET_COLOUR = HEX("1b9d6e"),
+    BULLET = HEX("899dbb"),
+    POWER = HEX("8862ab")
 }
+
+SMODS.Gradient({
+    key = "STRANGE_PLANET",
+    colours = { G.C.SECONDARY_SET.Planet, G.C.KINO.STRANGE_PLANET_COLOUR},
+    cycle = 2.5,
+})
+
+G.C.KINO.STRANGE_PLANET = SMODS.Gradients.kino_STRANGE_PLANET
 
 local genrecolors = loc_colour
 function loc_colour(_c, _default)
@@ -805,9 +869,14 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS["Confection"] = G.C.KINO.CONFECTION
     G.ARGS.LOC_COLOURS["Drain"] = G.C.KINO.DRAIN
     G.ARGS.LOC_COLOURS["Heartache"] = G.C.KINO.HEARTACHE
+    G.ARGS.LOC_COLOURS["StrangePlanet"] = G.C.KINO.STRANGE_PLANET
+    G.ARGS.LOC_COLOURS["Bullet"] = G.C.KINO.BULLET
+    G.ARGS.LOC_COLOURS["Power"] = G.C.KINO.POWER
 
     return genrecolors(_c, _default)
 end
+
+
 
 --- Global Variables ---
 Kino.jump_scare_mult = 2
@@ -824,4 +893,4 @@ Kino.award_mult = 2
 Kino.awards_max = 1
 
 Kino.crime_chips = 5
-Kino.bullet_magazine_max = 6
+Kino.bullet_magazine_max = 24

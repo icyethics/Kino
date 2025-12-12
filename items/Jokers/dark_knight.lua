@@ -52,6 +52,10 @@ SMODS.Joker {
                 G.jokers.cards[i]:can_calculate(true) then
                     _jokers_destroyed = _jokers_destroyed + 1
                     G.jokers.cards[i].getting_sliced = true
+                    if G.jokers.cards[i].config.center == G.P_CENTERS.j_joker or
+                    G.jokers.cards[i].config.center == G.P_CENTERS.j_kino_joker
+                    then check_for_unlock("kino_batman_kill") end
+
                     G.E_MANAGER:add_event(Event({func = function()
                         if G.jokers and G.jokers.cards and G.jokers.cards[i] then
                             (context.blueprint_card or card):juice_up(0.8, 0.8)

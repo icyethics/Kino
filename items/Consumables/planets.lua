@@ -1,3 +1,9 @@
+function Kino.create_planet_badge(self, card, badges)
+    badges[#badges + 1] = create_badge(localize('k_kino_strange_planet'),
+        G.C.KINO.STRANGE_PLANET, G.C.WHITE,
+        1.2)
+end
+
 -- Gives 30 chips and 3 mult to a random hand.
 SMODS.Consumable {
     key = "ego",
@@ -5,6 +11,8 @@ SMODS.Consumable {
     order = 1,
     pos = {x = 0, y = 4},
     atlas = "kino_tarot",
+    pull_button = true,
+    strange_planet = true,
     can_use = function(self, card)
 		return true
 	end,
@@ -37,6 +45,7 @@ SMODS.Consumable {
         return math.min(0.25 + _bonus, 1)
     end,
     use = function(self, card, area, copier)
+        check_for_unlock({type = 'kino_strange_planet'})
         -- Select random planet
         local _hand = get_random_hand()
         upgrade_hand(card, _hand, card.ability.extra.chips, card.ability.extra.mult)
@@ -74,7 +83,8 @@ SMODS.Consumable {
                 }))
             end
         end
-    end
+    end,
+    set_card_type_badge = Kino.create_planet_badge
 }
 
 -- your most played hand gains +mult and +2 * chips equal to its level
@@ -84,6 +94,8 @@ SMODS.Consumable {
     order = 2,
     pos = {x = 1, y = 4},
     atlas = "kino_tarot",
+    pull_button = true,
+    strange_planet = true,
     can_use = function(self, card)
 		return true
 	end,
@@ -103,7 +115,7 @@ SMODS.Consumable {
         return 0.3
     end,
     use = function(self, card, area, copier)
-
+        check_for_unlock({type = 'kino_strange_planet'})
         local _hand, _tally = nil, -1
 
 		for k, v in ipairs(G.handlist) do
@@ -118,7 +130,8 @@ SMODS.Consumable {
 			{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
 			{ mult = 0, chips = 0, handname = "", level = "" }
 		)
-    end
+    end,
+    set_card_type_badge = Kino.create_planet_badge
 }
 
 -- Arrakis: double the mult and chips of one of your least played hands.
@@ -128,6 +141,8 @@ SMODS.Consumable {
     order = 3,
     pos = {x = 2, y = 4},
     atlas = "kino_tarot",
+    pull_button = true,
+    strange_planet = true,
     can_use = function(self, card)
 		return true
 	end,
@@ -164,7 +179,7 @@ SMODS.Consumable {
         return 0.5
     end,
     use = function(self, card, area, copier)
-
+        check_for_unlock({type = 'kino_strange_planet'})
         local _hands = get_least_played_hand()
         local _hand =  pseudorandom_element(_hands, pseudoseed("arrakis"))
 
@@ -176,7 +191,8 @@ SMODS.Consumable {
 			{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
 			{ mult = 0, chips = 0, handname = "", level = "" }
 		)
-    end
+    end,
+    set_card_type_badge = Kino.create_planet_badge
 }
 
 -- Krypton: level up your most played hand once for each level it has.
@@ -188,6 +204,8 @@ SMODS.Consumable {
     order = 4,
     pos = {x = 3, y = 4},
     atlas = "kino_tarot",
+    pull_button = true,
+    strange_planet = true,
     can_use = function(self, card)
 		return true
 	end,
@@ -212,7 +230,7 @@ SMODS.Consumable {
         return 0.1
     end,
     use = function(self, card, area, copier)
-
+        check_for_unlock({type = 'kino_strange_planet'})
         local _hand, _tally = nil, -1
 
 		for k, v in ipairs(G.handlist) do
@@ -242,7 +260,8 @@ SMODS.Consumable {
         )
 
         G.GAME.current_round.kryptons_used = G.GAME.current_round.kryptons_used + 1
-    end
+    end,
+    set_card_type_badge = Kino.create_planet_badge
 }
 
 -- Cybertron: upgrade a random hand with X0.1 for each time a sci-fi card was upgraded this round.
@@ -253,6 +272,8 @@ SMODS.Consumable {
     order = 5,
     pos = {x = 4, y = 4},
     atlas = "kino_tarot",
+    pull_button = true,
+    strange_planet = true,
     enhancement_gate = "m_kino_sci_fi",
     can_use = function(self, card)
 		return true
@@ -274,7 +295,7 @@ SMODS.Consumable {
         }
     end,
     use = function(self, card, area, copier)
-
+        check_for_unlock({type = 'kino_strange_planet'})
         local _hand = get_random_hand()
         local _x_mult = G.GAME.current_round.sci_fi_upgrades_last_round * card.ability.extra.x_mult
         upgrade_hand(card, _hand, 0, 0, 0, _x_mult)
@@ -283,7 +304,8 @@ SMODS.Consumable {
 			{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
 			{ mult = 0, chips = 0, handname = "", level = "" }
         )
-    end
+    end,
+    set_card_type_badge = Kino.create_planet_badge
 }
 end
 
@@ -294,6 +316,8 @@ SMODS.Consumable {
     order = 6,
     pos = {x = 5, y = 4},
     atlas = "kino_tarot",
+    pull_button = true,
+    strange_planet = true,
     can_use = function(self, card)
 		return true
 	end,
@@ -348,7 +372,418 @@ SMODS.Consumable {
 			{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
 			{ mult = 0, chips = 0, handname = "", level = "" }
         )
-    end
+        check_for_unlock({type = 'kino_strange_planet'})
+        check_for_unlock({type = 'kino_lv426_usage'})
+    end,
+    set_card_type_badge = Kino.create_planet_badge
+}
+
+
+SMODS.Consumable {
+    key = "treasure_planet",
+    set = "Planet",
+    order = 5,
+    pos = {x = 1, y = 5},
+    atlas = "kino_tarot",
+    pull_button = true,
+    strange_planet = true,
+    can_use = function(self, card)
+        if card.ability.extra.money_seen_non < card.ability.extra.money_threshold then
+            return false
+        end
+		return true
+	end,
+    config = {
+        extra = {
+            money_threshold = 10,
+            money_seen_non = 0
+        }
+    },
+    get_weight_mod = function()
+        return 0.5
+    end,
+    loc_vars = function(self, info_queue, card)
+         local _count = math.floor((card.ability.extra.money_seen_non / card.ability.extra.money_threshold) + 0.5)
+
+        return {
+            vars = {
+                card.ability.extra.money_threshold,
+                card.ability.extra.money_seen_non,
+                _count,
+            }
+        }
+    end,
+    use = function(self, card, area, copier)
+        check_for_unlock({type = 'kino_strange_planet'})
+        local _count = math.floor((card.ability.extra.money_seen_non / card.ability.extra.money_threshold) + 0.5)
+        for i = 1, _count do
+            local _hand = get_random_hand()
+            local _instant = _count <= 5 and false or true
+            SMODS.smart_level_up_hand(nil, _hand, _instant, 1)
+        end
+
+    end,
+    calculate = function(self, card, context)
+        if context.kino_ease_dollars and to_big(context.kino_ease_dollars) < to_big(0) and not context.blueprint then
+            card.ability.extra.money_seen_non = card.ability.extra.money_seen_non + (-1 * context.kino_ease_dollars)
+            return {
+                message = localize("k_kino_treasure_planet_cons"),
+                colour = G.C.MONEY
+            }
+        end
+    end,
+    set_card_type_badge = Kino.create_planet_badge
+}
+
+-- Vulcan. Upgrade all hands with +0.5 mult for every discard leftover
+SMODS.Consumable {
+    key = "vulcan",
+    set = "Planet",
+    order = 5,
+    pos = {x = 2, y = 5},
+    atlas = "kino_tarot",
+    pull_button = true,
+    strange_planet = true,
+    can_use = function(self, card)
+		return true
+	end,
+    
+    config = {
+        extra = {
+            mult = 0.5,
+            stacks = 0
+        }
+    },
+    get_weight_mod = function()
+        return 0.2
+    end,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.mult,
+                card.ability.extra.stacks
+            }
+        }
+    end,
+    use = function(self, card, area, copier)
+        check_for_unlock({type = 'kino_strange_planet'})
+        local _mult = card.ability.extra.mult * card.ability.extra.stacks
+        card_eval_status_text(card, 'extra', nil, nil, nil,
+            { message = localize('k_kino_vulcan_use'),  colour = G.C.BLACK })
+
+        update_hand_text(
+            { sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
+            { mult = _mult, chips = 0, handname = "All Hands", level = "" }
+        )
+        delay(0.5)
+        update_hand_text(
+			{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
+			{ mult = 0, chips = 0, handname = "", level = "" }
+        )
+        
+        for _i, _hand in ipairs(G.handlist) do
+            upgrade_hand(card, _hand, 0, _mult, 0, 0, true)
+        end
+
+    end,
+    calculate = function(self, card, context)
+        if context.end_of_round and not context.individual and not context.repetition and not context.blueprint and G.GAME.current_round.discards_left > 0 then
+            card.ability.extra.stacks = card.ability.extra.stacks + G.GAME.current_round.discards_left
+            return {
+                message = "+" .. tostring(G.GAME.current_round.discards_left),
+                colour = G.C.MULT
+            }
+        end
+    end,
+    set_card_type_badge = Kino.create_planet_badge
+}
+
+-- Thra: Upgrade a random hand for every unique spell cast while holding this
+SMODS.Consumable {
+    key = "thra",
+    set = "Planet",
+    order = 5,
+    pos = {x = 3, y = 5},
+    atlas = "kino_tarot",
+    pull_button = true,
+    strange_planet = true,
+    can_use = function(self, card)
+		return true
+	end,
+    config = {
+        extra = {
+            list_of_spells = {}
+        }
+    },
+    in_pool = function(self, args)
+        -- Check for the right frequency
+        local enhancement_gate = false
+        if G.playing_cards then
+            for k, v in pairs(G.playing_cards) do
+                if SMODS.has_enhancement(v, "m_kino_fantasy") then
+                    enhancement_gate = true
+                    break
+                end
+            end
+
+            for k, v in ipairs(G.jokers.cards) do
+                if v.config.center.kino_spellcaster then
+                    enhancement_gate = true
+                    break
+                end
+            end
+        end
+
+        return enhancement_gate
+    end,
+    get_weight_mod = function()
+        return 0.5
+    end,
+    loc_vars = function(self, info_queue, card)
+        local _count = 0
+
+        for i, _spell in pairs(card.ability.extra.list_of_spells) do
+            _count = _count + 1
+        end
+        return {
+            vars = {
+                _count
+            }
+        }
+    end,
+    use = function(self, card, area, copier)
+        check_for_unlock({type = 'kino_strange_planet'})
+        local _count = 0
+        for i, _spell in pairs(card.ability.extra.list_of_spells) do
+            _count = _count + 1
+        end
+
+        for i = 1, _count do
+            local _hand = get_random_hand()
+            local _instant = _count <= 5 and false or true
+            SMODS.smart_level_up_hand(nil, _hand, _instant, 1)
+        end
+
+    end,
+    calculate = function(self, card, context)
+        if context.bb_cast_spell and not card.ability.extra.list_of_spells[context.spell_key] then
+            card.ability.extra.list_of_spells[context.spell_key] = true
+            return {
+                message = "+1",
+                colour = G.C.KINO.MAGIC
+            }
+        end
+    end,
+    set_card_type_badge = Kino.create_planet_badge
+}
+
+-- Solaris:
+SMODS.Consumable {
+    key = "solaris",
+    set = "Planet",
+    order = 5,
+    pos = {x = 4, y = 5},
+    atlas = "kino_tarot",
+    pull_button = true,
+    strange_planet = true,
+    can_use = function(self, card)
+		return true
+	end,
+    config = {
+        extra = {
+            stacks = 0
+        }
+    },
+    get_weight_mod = function()
+        return 0.1
+    end,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.stacks
+            }
+        }
+    end,
+    use = function(self, card, area, copier)
+        check_for_unlock({type = 'kino_strange_planet'})
+        -- Flip all jokers back
+        for _, joker in ipairs(G.jokers.cards) do
+            if joker.facing == 'back' then
+                joker:flip()
+            end
+        end
+
+        -- Set a random hand to the same level as the highest level hand
+        local _heighest_level = to_big(1)
+        local _invalid_hands = {}
+
+        for _i, _handname in ipairs(G.handlist) do
+            local _handlevel = G.GAME.hands[_handname].level
+            if _handlevel > _heighest_level then
+                _invalid_hands = {}
+                _invalid_hands[_handname] = true
+                _heighest_level = _handlevel
+            elseif _handlevel == _heighest_level then
+                _invalid_hands[_handname] = true
+            end
+        end
+
+        for i = 1, card.ability.extra.stacks do
+            -- construct list of valid hands
+            local _validhands = {}
+            for _i, _handname in ipairs(G.handlist) do
+                if not _invalid_hands[_handname] and 
+                G.GAME.hands[_handname].visible then
+                    _validhands[#_validhands + 1] = _handname
+                end
+            end
+            if #_validhands > 0 then
+                local _rand_hand = pseudorandom_element(_validhands, pseudoseed("solaris"))
+                _invalid_hands[_rand_hand] = true
+                local _difference = _heighest_level - G.GAME.hands[_rand_hand].level
+
+                local _instant = card.ability.extra.stacks <= 5 and false or true
+                SMODS.smart_level_up_hand(nil, _rand_hand, _instant, _difference)
+            end
+            
+        end
+
+    end,
+    calculate = function(self, card, context)
+        if context.setting_blind then
+            if #G.jokers.cards > 0 then
+                G.jokers:unhighlight_all()
+                for _, joker in ipairs(G.jokers.cards) do
+                    if joker.facing == 'front' then
+                        joker:flip()
+                    end
+                end
+                if #G.jokers.cards > 1 then
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'after',
+                        delay = 0.2,
+                        func = function()
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    G.jokers:shuffle('aajk')
+                                    play_sound('cardSlide1', 0.85)
+                                    return true
+                                end,
+                            }))
+                            delay(0.15)
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    G.jokers:shuffle('aajk')
+                                    play_sound('cardSlide1', 1.15)
+                                    return true
+                                end
+                            }))
+                            delay(0.15)
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    G.jokers:shuffle('aajk')
+                                    play_sound('cardSlide1', 1)
+                                    return true
+                                end
+                            }))
+                            delay(0.5)
+                            return true
+                        end
+                    }))
+                    return {
+                        message = localize("k_kino_solaris"),
+                        colour = G.C.PLANET
+                    }
+                end
+            end
+        end
+
+        if context.end_of_round and not context.individual and not context.repetition and not context.blueprint then
+            card.ability.extra.stacks = card.ability.extra.stacks + 1
+            return {
+                message = localize("k_upgrade_ex"),
+                colour = G.C.PLANET
+            }
+        end
+    end,
+    set_card_type_badge = Kino.create_planet_badge
+}
+
+
+-- Altair 4
+SMODS.Consumable {
+    key = "altair",
+    set = "Planet",
+    order = 5,
+    pos = {x = 5, y = 5},
+    atlas = "kino_tarot",
+    pull_button = true,
+    strange_planet = true,
+    can_use = function(self, card)
+		return true
+	end,
+    config = {
+        extra = {
+            chips = 3,
+            poison = 2,
+            stacks = 0
+        }
+    },
+    get_weight_mod = function()
+        return 0.4
+    end,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.chips,
+                card.ability.extra.poison,
+                card.ability.extra.stacks
+            }
+        }
+    end,
+    use = function(self, card, area, copier)
+        check_for_unlock({type = 'kino_strange_planet'})
+        -- Poison
+        for i = 1, card.ability.extra.stacks * card.ability.extra.poison do
+            local _valid_targets = Blockbuster.Counters.get_counter_targets(G.playing_cards, {"none", "match"}, "counter_poison")
+            
+            if #_valid_targets > 0 then
+                local _target = pseudorandom_element(_valid_targets, pseudoseed("altair_4"))
+                _target:bb_counter_apply("counter_poison", 1)
+            end
+            
+        end
+
+        -- Upgrade
+        local _chips = card.ability.extra.chips * card.ability.extra.stacks
+        card_eval_status_text(card, 'extra', nil, nil, nil,
+            { message = localize('k_kino_altair4'),  colour = G.C.BLACK })
+
+        update_hand_text(
+            { sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
+            { mult = 0, chips = _chips, handname = "All Hands", level = "" }
+        )
+        delay(0.5)
+        update_hand_text(
+			{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
+			{ mult = 0, chips = 0, handname = "", level = "" }
+        )
+        
+        for _i, _hand in ipairs(G.handlist) do
+            upgrade_hand(card, _hand, _chips, 0, 0, 0, true)
+        end
+
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            card.ability.extra.stacks = card.ability.extra.stacks + 1
+            return {
+                message = "+" .. card.ability.extra.chips,
+                colour = G.C.CHIPS
+            }
+        end
+    end,
+    set_card_type_badge = Kino.create_planet_badge
 }
 
 -- Death Star: level up every hand once and destroy a joker
@@ -358,6 +793,8 @@ SMODS.Consumable {
     order = 7,
     pos = {x = 0, y = 5},
     atlas = "kino_tarot",
+    pull_button = true,
+    strange_planet = true,
     can_use = function(self, card)
         local _eligible_targets = {}
 
@@ -386,7 +823,7 @@ SMODS.Consumable {
         }
     end,
     use = function(self, card, area, copier)
-
+        check_for_unlock({type = 'kino_strange_planet'})
         -- Find most played hand
         local _eligible_targets = {}
 
@@ -418,5 +855,6 @@ SMODS.Consumable {
 			{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
 			{ mult = 0, chips = 0, handname = "", level = "" }
         )
-    end
+    end,
+    set_card_type_badge = Kino.create_planet_badge
 }

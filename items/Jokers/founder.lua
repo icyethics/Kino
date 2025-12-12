@@ -29,6 +29,7 @@ SMODS.Joker {
     k_genre = {"Drama", "Biopic"},
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.c_kino_fries
         return {
             vars = {
 

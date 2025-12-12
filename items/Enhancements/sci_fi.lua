@@ -27,7 +27,8 @@ SMODS.Enhancement {
     upgrade = function(self, card, num)
         local _upgradenum = num or 1
         card.ability.extra.times_upgraded = card.ability.extra.times_upgraded + _upgradenum
-
+        inc_career_stat("kino_sci_fi_upgrades", num)
+        check_for_unlock({type = 'kino_sci_fi_upgrades', current_level = card.ability.extra.times_upgraded})
         if card.ability.extra.times_upgraded_ui < 99 then
         G.E_MANAGER:add_event(Event({
             trigger = 'immediate',

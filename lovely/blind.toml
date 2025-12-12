@@ -1,0 +1,19 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+G.GAME.round_resets.blind_choices.Boss = get_new_boss()
+'''
+position = "at"
+payload = '''
+G.GAME.round_resets.blind_choices.Small = Kino.get_blind("Small")
+G.GAME.round_resets.blind_choices.Big = Kino.get_blind("Big")
+G.GAME.round_resets.blind_choices.Boss = Kino.get_blind("Boss")
+'''
+match_indent = true

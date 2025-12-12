@@ -47,6 +47,7 @@ local non_jokeratlases =
     {"kino_splash_screen", 409, 211, "kino_splash_sprite.png"},
     {'kino_atlas_legendary', 71, 95, 'kino_jokers_legendary.png'},
     {'non_suit_spells', 71, 95, 'non_suit_spells.png'},
+    {'kino_bullets', 71, 95, 'kino_bullets.png'},
 
     -- -- Crossmod
     -- Cryptid
@@ -248,6 +249,16 @@ end
 local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/challenges")
 for _, file in ipairs(files) do
     assert(SMODS.load_file("items/challenges/" .. file))()
+end
+
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/playsets")
+for _, file in ipairs(files) do
+    assert(SMODS.load_file("items/playsets/" .. file))()
+end
+
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/content_packages")
+for _, file in ipairs(files) do
+    assert(SMODS.load_file("items/content_packages/" .. file))()
 end
 
 

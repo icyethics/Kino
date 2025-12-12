@@ -40,6 +40,7 @@ SMODS.Joker {
         if context.post_trigger and context.cardarea == G.jokers and
         not context.other_context.destroying_card 
         and not context.other_context.post_trigger and
+        is_genre(context.other_card, "Romance") and
         G.STATE == G.STATES.HAND_PLAYED then
             return {
                 mult = card.ability.extra.mult

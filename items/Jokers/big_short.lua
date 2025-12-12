@@ -74,5 +74,5 @@ SMODS.Joker {
         
         -- Check for set money
         return money
-    end
+    end,
 }

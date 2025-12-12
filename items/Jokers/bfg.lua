@@ -44,5 +44,20 @@ SMODS.Joker {
                 mult = card.ability.extra.a_mult * G.GAME.current_round.beaten_run_high
             }
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'chip_score' then
+            if 1000000000 <= args.chips then
+                unlock_card(self)
+            end
+        end
+    end,
 }

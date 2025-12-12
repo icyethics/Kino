@@ -125,6 +125,8 @@ SMODS.Voucher {
                 local _target = pseudorandom_element(_targets, pseudoseed("awards"))
 
                 SMODS.Stickers['kino_award']:apply(_target, true)
+                inc_career_stat("kino_awards_given", 1)
+                check_for_unlock({type = "kino_awards_given"})
             end
         end
     end

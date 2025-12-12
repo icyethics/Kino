@@ -7,7 +7,7 @@ SMODS.Joker {
             mult = 1
         }
     },
-    rarity = 3,
+    rarity = 2,
     atlas = "kino_atlas_9",
     pos = { x = 2, y = 5},
     cost = 8,
@@ -45,7 +45,7 @@ SMODS.Joker {
 
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit(G.GAME.current_round.kino_source_code) then
-                local _bullets = Kino:count_bullets()
+                local _bullets = G.GAME.bullet_count
 
                 return {
                     mult = _bullets * card.ability.extra.mult

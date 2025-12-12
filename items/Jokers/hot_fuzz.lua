@@ -4,8 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            bullet_count_non = 0,
-            bullet_increase = 1,
+            bullets_created = 1
         }
     },
     rarity = 2,
@@ -33,8 +32,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.bullet_count_non,
-                card.ability.extra.bullet_increase
+                card.ability.extra.bullets_created
             }
         }
     end,
@@ -42,9 +40,8 @@ SMODS.Joker {
         -- When you play a Pair, increase the bullet count of this card by 1. Resets when you play a high card
         if context.joker_main then
             if context.scoring_name == "Pair" then
-                card.ability.extra.bullet_count_non = card.ability.extra.bullet_count_non + card.ability.extra.bullet_increase
-            elseif context.scoring_name == "High Card" then
-                card.ability.extra.bullet_count_non = 0
+                Kino.add_bullet(card.ability.extra.bullets_created)
+                card:juice_up()
             end
         end
     end

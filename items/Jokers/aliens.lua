@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 59,
     generate_ui = Kino.generate_info_ui,
     config = {
+        kino_alien_franchise = true,
         extra = {
             cards_debuffing_non = 2,
             x_mult = 2
@@ -28,7 +29,7 @@ SMODS.Joker {
         cast = {},
     },
     k_genre = {"Sci-fi", "Action"},
-
+    kino_alien_franchise = true,
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -63,5 +64,41 @@ SMODS.Joker {
                 x_mult = card.ability.extra.x_mult,
             }
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {}
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'round_win' and G.GAME.blind:get_type() == "Boss" and  G.GAME.round_resets.blind_choices.Boss == "bl_kino_pale_man" then
+            
+        end
+
+        if args.type == 'modify_deck' then
+            local _tally = 0
+            for i, _pcard in ipairs(G.playing_cards) do
+                if _pcard.debuff then
+                    _tally = _tally + 1
+                end
+            end
+            if _tally >= 10 then
+                unlock_card(self)
+            end
+        end
+        if args.type == 'win' and G.jokers and G.jokers.cards then
+            local _true = false
+            for _i, _joker in ipairs(G.jokers.cards) do
+                if kino_quality_check(_joker, 'kino_alien_franchise') then
+                    _true = true
+                end
+            end
+
+            if _true then
+                unlock_card(self)
+            end
+        end
+    end,
 }

@@ -469,7 +469,7 @@ AltTexture{
         'j_kino_elephant_man',
         
         -- Row 4
-        'j_kino_v_for_vendatta',
+        'j_kino_v_for_vendetta',
         'j_kino_annihilation',
         'j_kino_sunshine',
         'j_kino_black_swan',
@@ -544,9 +544,9 @@ AltTexture{
         'j_kino_mafiamamma',
         -- 'j_kino_X',
         -- 'j_kino_X',
-        'j_kino_shinkamenrider'
-        -- 'j_kino_X',
-        -- 'j_kino_X',
+        'j_kino_shinkamenrider',
+        'j_kino_godzilla',
+        'j_kino_king_kong',
     },
 }
 

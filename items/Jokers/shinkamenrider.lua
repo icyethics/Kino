@@ -40,6 +40,10 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.end_of_round and context.cardarea == G.jokers and G.GAME.blind.boss then
             card.ability.extra.stacked_xmult = card.ability.extra.stacked_xmult + card.ability.extra.a_xmult
+            return {
+                message = localize("k_upgrade_ex"),
+                colour = G.C.MULT
+            }
         end
 
         if context.joker_main and card.ability.extra.stacked_xmult > 1 then
@@ -49,13 +53,13 @@ SMODS.Joker {
         end
     end,
     add_to_deck = function(self, card, from_debuff)
-        G.GAME.kino_boss_mode = true
-        G.GAME.kino_boss_mode_odds = 0.5
+        G.GAME.kino_boss_mode.Big = true
+        G.GAME.kino_boss_mode_odds.Big = 0.5
     end,
     remove_from_deck = function(self, card, from_debuff)
 		if not from_debuff then
-            G.GAME.kino_boss_mode = false
-            G.GAME.kino_boss_mode_odds = 0
+            G.GAME.kino_boss_mode.Big = false
+            G.GAME.kino_boss_mode_odds.Big = 0
         end
 	end,
 }

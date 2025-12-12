@@ -32,6 +32,8 @@ SMODS.Joker {
         cast = {},
     },
     k_genre = {"Sports", "Animation"},
+    is_cars = true,
+    has_timer = true,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_quick", vars = {kino_config.speed_factor}}
         return {
@@ -65,10 +67,6 @@ SMODS.Joker {
             card.ability.extra.time_spent = 0
         end
     end,
-    add_to_deck =  function(self, card, from_debuff)
-        -- card.children.timer_display = Kino.create_timer_ui(card)
-        -- card.children.timer_display_2 = Kino.create_timer_ui_2(card)
-    end,
     update = function(self, card, dt)
         if G.STATE ~= G.STATES.HAND_PLAYED and
         not G.SETTINGS.paused and G.GAME.blind and G.GAME.blind.in_blind then
@@ -76,10 +74,5 @@ SMODS.Joker {
             card.ability.extra.cur_chips = math.max(card.ability.extra.start_chips - math.floor(card.ability.extra.start_chips * (card.ability.extra.time_spent / card.ability.extra.timing_quick_non)), 0)
             card.ability.extra.timer_num_non = card.ability.extra.cur_chips
         end
-
-        -- if card.area and card.area == G.jokers then
-        --     card.children.timer_display = Kino.create_timer_ui(card)
-        --     card.children.timer_display_2 = Kino.create_timer_ui_2(card)
-        -- end
     end
 }

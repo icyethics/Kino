@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 125,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_vampire = true,
         is_active = true,
         extra = {
             is_active = true,
@@ -79,5 +80,13 @@ SMODS.Joker {
                 x_mult = card.ability.extra.stacked_x_mult
             }
         end
-    end
+    end,
+    unlocked = false,
+    check_for_unlock = function(self, args)
+        if args.type == 'round_win' then
+            if G.GAME.round >= 29 then 
+                unlock_card(self)
+            end
+        end
+    end, 
 }

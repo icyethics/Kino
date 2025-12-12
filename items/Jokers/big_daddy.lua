@@ -66,8 +66,28 @@ SMODS.Joker {
                 card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_upgrade_ex'), colour = G.C.Mult })
             end
-
-            
         end
-    end
+    end,
+        -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'discard_custom' and #args.cards == 2 then
+            local _king, _two
+            for j = 1, #args.cards do
+                if args.cards[j]:get_id() == 13 then _king = true end
+                if args.cards[j]:get_id() == 2 then _two = true end
+            end
+
+            if _king and _two then
+                unlock_card(self)
+            end
+        end
+    end,
 }

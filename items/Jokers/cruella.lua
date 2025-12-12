@@ -33,7 +33,8 @@ SMODS.Joker {
         return {
             vars = {
                 card.ability.extra.count_non,
-                card.ability.extra.threshold
+                card.ability.extra.threshold,
+                card.ability.extra.threshold - card.ability.extra.count_non
             }
         }
     end,

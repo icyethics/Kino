@@ -4,6 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         is_batman = true,
+        is_superman = true,
         extra = {
             powerboost = 1,
             boosted_cards = {}
@@ -55,5 +56,26 @@ SMODS.Joker {
                 end
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            local _batman, _superman
+            for _, _joker in ipairs(G.jokers.cards) do
+                if kino_quality_check(_joker, 'is_batman') then
+                    _batman = true
+                end
+                if kino_quality_check(_joker, 'is_superman') then
+                    _batman = true
+                end
+            end
+        end
+    end,
 }

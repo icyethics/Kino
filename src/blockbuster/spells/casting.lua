@@ -15,6 +15,8 @@ function Blockbuster.cast_spell(spell_key, strength, repeatable)
     end
 
     SMODS.calculate_context({bb_pre_spell_cast = true, strength = strength, spell_key = spell_key, repeatable = repeatable})
+    inc_career_stat("kino_spells_cast", 1)
+    check_for_unlock({type = "bb_spell_cast", spell_key = spell_key, strength = strength})
 
     G.GAME.current_round.bb_spells_cast = G.GAME.current_round.bb_spells_cast + 1
     G.GAME.current_round.bb_last_spell_cast.key = spell_key

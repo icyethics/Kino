@@ -98,5 +98,32 @@ SMODS.Joker {
                 end
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'modify_deck' then
+            local _tally = 0
+
+            for i, _pcard in ipairs(G.playing_cards) do
+                if _pcard:get_seal() or 
+                _pcard.config.center ~= G.P_CENTERS.c_base or
+                _pcard.edition then
+                else
+                    _tally = _tally + 1
+                    break
+                end
+            end
+
+            if _tally == 0 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

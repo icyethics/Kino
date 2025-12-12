@@ -259,17 +259,30 @@ if CardSleeves then
     }
 
     -- Cosmonaut
-    -- CardSleeves.Sleeve {
-    --     key = "cosmonaut",
-    --     atlas = "kino_sleeves",
-    --     pos = { x = 1, y = 0},
-    --     config = {
+    CardSleeves.Sleeve {
+        key = "cosmonaut",
+        atlas = "kino_sleeves",
+        pos = { x = 1, y = 0},
+        config = {
             
-    --     },
-    --     apply = function(self, sleeve)
-            
-    --     end
-    -- }
+        },
+        loc_vars = function(self)
+            local key, vars
+            if self.get_current_deck_key() == "b_kino_cosmonaut" then
+                key = self.key .. "_alt"
+                vars = {}
+            else
+                key = self.key
+                vars = {}
+            end
+            return { key = key, vars = vars }
+        end,
+        apply = function()
+
+            G.GAME.modifiers.kino_cosmonaut = true
+            G.GAME.modifiers.kino_cosmonaut_rarity = G.GAME.modifiers.kino_cosmonaut_rarity and 16 or 4
+        end
+    }
 
     CardSleeves.Sleeve {
         key = "empowered",

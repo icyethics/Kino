@@ -31,6 +31,7 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "keyword_abduct"}
+        info_queue[#info_queue+1] = Kino.abduction_info_queue(card)
         return {
             vars = {
                 card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0,
@@ -63,10 +64,6 @@ SMODS.Joker {
             for _index, _card in ipairs(Kino.gather_abducted_cards_by_abductor(card)) do
                 _card:set_edition("e_negative", true, nil, true)
             end
-            -- for i, _object in ipairs(card.ability.extra.cards_abducted) do
-                
-            --     _object.card:set_edition("e_negative", true, nil, true)
-            -- end
             card.ability.extra.cards_abducted = Kino.unabduct_cards(card)
         end
     end,
@@ -80,6 +77,23 @@ SMODS.Joker {
             if not card.children.abduction_display and card.ability.extra.cards_abducted  then
                 card.children.abduction_display = Kino.create_abduction_ui(card)
                 card.children.abduction_display_2 = Kino.create_abduction_ui_2(card)
+            end
+        end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino and G.PROFILES[G.SETTINGS.profile].kino_cards_abducted.count or 0,
+                100
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_cards_abducted' then
+            if G.PROFILES[G.SETTINGS.profile].kino_cards_abducted and G.PROFILES[G.SETTINGS.profile].kino_cards_abducted.count >= 100 then
+                unlock_card(self)
             end
         end
     end,

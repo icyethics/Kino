@@ -1,5 +1,17 @@
 V 0.12:
-New Jokers:
+Bug Fixes:
+- Asteroid City no longer crashes the game and has been reenabled
+
+Visual / Sound changes:
+- Confections now have a sound effect when eaten
+
+Mechanical Changes:
+- All Kino planets are now the 'Strange Planet' subtype
+- Strange Planets have a 'Take' function instead of a 'Use' function
+- Halloween mode is now disabled, meaning the two halloween decks have become regular decks. You can, however, reenable their spooky versions in the configurations of the mod!
+- Ratatouille is no longer a confection, but the Confection's rare spectral equivalent
+
+New Jokers (25):
 - Inception
 - Meet the Parents
 - Marty
@@ -10,9 +22,90 @@ New Jokers:
 - Joker
 - Superman (2025)
 - Cat People
+- The Accountant
+
+- Dirty Harry
+- The Quick & The Dead
+- The Maltese Falcon
+- Zoolander
+- Tron
+
+- 12 Angry Men
+- Nacho Libre
+- Godzilla (1954)
+- King Kong (1933)
+- Superman (1978)
+
+- Hardcore Henry
+- Good Burger
+- The Simpsons
+- Man of Steel
+- Dr. No
+
+- Final Destination
+
+-- PLANNED:
+- Lost in Translation
+- The Trial (1962) (System with custom UI)
+- The Fast & The Furious
+- The Substance
+- The Lobster
+
+- City People
+- Da 5 Bloods
+- The Truman Show (System with custom UI)
+- Pan's Labyrinth (System with custom UI)
+- Black Panther
+
+-- LEGENDARIES:
+- The Godfather (1973)
+- The Avengers (2012)
+- Strangers on a Train (1951)
+- Bringing Up Baby (1938)
+- Wings (1927)
 
 Reworked Jokers:
 - Her
+- Child's Play
+- Duel
+- Coco !!! WIP THIS NEEDS TO BE FINISHED
+- Piranha
+- Hook
+- Dune (1984)
+- Scream (1997)
+- Shin Kamen Rider (Now has a secondary effect)
+
+Balance Changes:
+- Angel Hearts: Only doubles mult on first trigger of any specific card
+- Baby Driver: Mult > Chips
+
+Action Card Rework:
+- John Wick
+- Pain & Gain
+- Hot Fuzz
+- Source Code
+-
+
+
+POTENTIAL REWORKS:
+- Scarface (1932)
+- Scarface (1981)
+- Tower Heist
+- Dick Tracy
+- Fast Five
+- A Fish Called Wanda
+
+ENHANCEMENT REWORKS:
+- Action Cards (PENDING)
+
+REWORKS:
+- Blank Check
+- Frankenstein
+
+More Mechanically Interesting:
+- Cars
+- Stripes
+- Taken
 
 Planned Jokers:
 - Final Destination
@@ -20,13 +113,137 @@ Planned Jokers:
 
 - Robot Dreams
 - Rocket Man
-- Godzilla
 
-- King Kong
-- Shin Kamen Rider
 - Rear Window
 - City People
 - The Lobster
+
+New Planets:
+- Treasure Planet
+- Vulcan 
+- Thra
+- Altair IV
+- Solaris
+
+New Confection:
+- Burger 
+- Donut
+- Beans 
+- Nachos 
+- Milkshake 
+- Mint
+- Banana
+
+New Deck:
+- Cosmonaut's Deck
+
+New Sleeve:
+- Cosmonaut's Sleeve
+
+Unlock Conditions:
+Unlock Conditions have been added to the following objects:
+Jokers (13/375):
+Common Jokers (4):
+- 9
+- 10 Things I Hate About You
+- Aliens
+- Alien 3
+
+Uncommon Jokers (5):
+- 30 Days of Night
+- The Accountant
+- Alien
+- Annihilation
+- Anora 
+
+Rare Joker (5):
+- 12 Angry Men
+- Angel Heart
+- Apollo 13
+- Arrival
+- Asteroid City
+- Batman '66
+- Batman '89
+- The Batman
+- Batman & Robin
+
+Description Rework:
+(STOPPED AT: Hardcore Henry)
+- 6 Underground
+- 9
+- 12 Monkeys
+- 50 First Dates
+- A.I. Artificial Intelligence
+- Alien
+- Alien 3
+- Aliens
+- Always
+- Annihilation
+- Anora
+- Apollo 13
+- Arrival
+- As Above, So Below
+- Asteroid City
+- Batman '66
+- Batman '89
+- The Batman
+- Batman & Robin
+- Batman Begins
+- Batman Forever
+- Batman: the Killing Joke
+- Batman Mask Of the Phantasm
+- Batman Returns
+- Batman V Superman
+- Beetlejuice
+- Benjamin Button
+- BFG
+- Big Daddy
+- The Big Short
+- Big Trouble in Little China
+- Black Swan
+- Blade
+- The Blair Witch Project
+- Bloodshot
+- Blue Velvet
+- Bones and All
+- The Bucket List
+- Catch Me If You Can
+- Children of the Corn
+- Clerks
+- Clockwork Orange
+- Conjuring
+- Contagion
+- Creature From the Black Lagoon
+- Cruella
+- The Dark Knight
+- Dead Zone
+- Demolition Man
+- Tales of the Crypt: Demon Knight
+- Die Hard
+- Doctor Strange
+- Donnie Darko
+- Double Dragon
+- Ed Wood
+- ET
+- Ex Machina
+- The Exorcist
+- Fantasia
+- Fargo
+- Friday the 13th
+- Get Out
+- Ghost Rider
+- Goodfellas
+
+
+
+Style Guide Assesment:
+10 Things I Hate About You (consuming charges)
+Annabelle
+Avatar
+Baby Driver
+Dark Crystal (change random spell to Wild Wild spell?)
+Ghostbusters
+
 
 V 0.11-HALLOWEEN:
 Vampire Rework:

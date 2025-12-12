@@ -76,3 +76,70 @@ Blockbuster.Counters.Counter {
     increment = function(self, card, number)
     end
 }
+
+Blockbuster.Counters.Counter {
+    key = "bullet_pcard",
+    prefix_config = {key = { mod = true}},
+    order = 3,
+    atlas = 'kino_counters',
+    config = {
+        retriggers = 1,
+        cap = 6,
+    },
+    pos = {x = 2, y = 0},
+    counter_class = {
+        "enhancement",
+    },
+    pcard_only = true,
+    calculate = function(self, card, context)
+        if context.repetition and not card.ability.counter.applied_this_turn then
+            local _retriggers = card.ability.counter.counter_num * self.config.retriggers
+            card:bb_remove_counter("counter_effect")
+
+            return {
+                message = localize("k_again_ex"),
+                repetitions = _retriggers
+            }
+        end
+    end,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                (card.ability and card.ability.counter) and card.ability.counter.counter_num or 0,
+                6
+            }
+        }
+    end,
+    increment = function(self, card, number)
+    end
+}
+
+Blockbuster.Counters.Counter {
+    key = "bullet_joker",
+    prefix_config = {key = { mod = true}},
+    order = 3,
+    atlas = 'kino_counters',
+    config = {
+        retriggers = 1,
+        cap = 6,
+    },
+    no_collection = true,
+    pos = {x = 2, y = 0},
+    counter_class = {
+        "enhancement",
+    },
+    joker_only = true,
+    calculate = function(self, card, context)
+
+    end,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                (card.ability and card.ability.counter) and card.ability.counter.counter_num or 0,
+                6
+            }
+        }
+    end,
+    increment = function(self, card, number)
+    end
+}

@@ -4,8 +4,9 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            stacked_monster_exemptions = 0,
-            a_stacks = 1
+            stacked_monster_exemptions = true,
+            stacks = 0,
+            chips = 8,
         }
     },
     rarity = 1,
@@ -28,31 +29,14 @@ SMODS.Joker {
         cast = {},
     },
     k_genre = {"Horror"},
-    in_pool = function(self, args)
-        -- Check for the right frequency
-        local enhancement_gate = false
-        if G.playing_cards then
-            for k, v in pairs(G.playing_cards) do
-                if SMODS.has_enhancement(v, "m_kino_horror") or
-                SMODS.has_enhancement(v, "m_kino_monster") then
-                    enhancement_gate = true
-                    break
-                end
-            end
-        end
-
-        return enhancement_gate
-    end,
 
     loc_vars = function(self, info_queue, card)
-        local _string = "Inactive"
-        if card.ability.extra.stacked_monster_exemptions > 0 then
-            _string = "Active"
-        end
+
 
         return {
             vars = {
-                _string
+                card.ability.extra.chips,
+                card.ability.extra.stacks,
             }
         }
     end,
@@ -60,26 +44,22 @@ SMODS.Joker {
         -- When you play a hand containing a 2, activate
         -- When active, you may discard monster cards
 
-        if context.joker_main then
-            local _hastwo = false
-            for i, _card in ipairs(context.scoring_hand) do
-                if _card:get_id() == 2 then
-                    _hastwo = true
-                    break
-                end
-            end
-
-            if _hastwo then
-                card.ability.extra.stacked_monster_exemptions = card.ability.extra.stacked_monster_exemptions + card.ability.extra.a_stacks
+        if context.discard and
+        not context.other_card.debuff 
+        and not context.blueprint then
+            if context.other_card:get_id() <= 5 or 
+            SMODS.has_enhancement(context.other_card, "m_kino_monster") or
+            SMODS.has_enhancement(context.other_card, "m_kino_horror") then
+                card.ability.extra.stacks = card.ability.extra.stacks + 1
             end
         end
 
-        if context.pre_discard and context.cardarea == G.jokers and not context.blueprint and not context.repetition then
-            for i, _card in ipairs(context.full_hand) do
-                if SMODS.has_enhancement(_card, "m_kino_monster") then
-                    card.ability.extra.stacked_monster_exemptions = 0
-                end
-            end
+        if context.joker_main and card.ability.extra.stacks > 0 then
+            local _chips = card.ability.extra.stacks * card.ability.extra.chips
+            card.ability.extra.stacks = math.floor(card.ability.extra.stacks / 2)
+            return {
+                chips = _chips
+            }
         end
     end
 }

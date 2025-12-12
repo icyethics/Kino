@@ -7,6 +7,7 @@ end
 Blockbuster.Counters = {}
 Blockbuster.Spellcasting = {}
 Blockbuster.ValueManipulation = {}
+Blockbuster.Playset = {}
 Blockbuster.mod_dir = ''..SMODS.current_mod.path
 
 -- Config redirect
@@ -45,7 +46,8 @@ end
 local _list_of_folders = {
     "src/blockbuster/counters",
     "src/blockbuster/spells",
-    "src/blockbuster/value_manipulation"
+    "src/blockbuster/value_manipulation",
+    "src/blockbuster/playset"
 }
 
 for _index, _folder in ipairs(_list_of_folders) do
@@ -56,3 +58,15 @@ for _index, _folder in ipairs(_list_of_folders) do
 end
 
 Blockbuster.vanilla_joker_qualities()
+
+-- Set up Kino's new item groups to be compatible with Playsets
+local _list_of_new_object_types = {
+    {"counters", "counter_", "Counter", false},
+    {"confections", "c_", "confection", true},
+    {"spells", "spell_", "Spell", false}
+}
+
+for i, item in ipairs(_list_of_new_object_types) do
+    -- print(item)
+    Blockbuster.Playset.register_new_Blockbuster(item[1], item[2], item[3], item[4])
+end

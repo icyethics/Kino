@@ -568,59 +568,6 @@ Kino.create_timer_ui_2 = function(card)
     }
 end
 
--- function ufo_sprite(pos, value)
---     local text_colour = G.C.BLACK
-
---     local t_s = Sprite(0,0,0.5,0.5, G.ASSET_ATLAS["kino_ui"], {x=pos.x or 0, y=pos.y or 0})
---     t_s.states.drag.can = false
---     t_s.states.hover.can = false
---     t_s.states.collide.can = false
---     return {
---         n=G.UIT.C, 
---         config= {
---             align = "cm", 
---             padding = 0.07,
---             force_focus = true,  
---             focus_args = {type = 'sprite'}, 
---             tooltip = {text = "Abductions"}
---         }, 
---         nodes = {{
---             n= G.UIT.R, 
---             config = {
---                 align = "cm", 
---                 r = 0.1, 
---                 padding = 0.04, 
---                 emboss = 0.05, 
---                 colour = G.C.JOKER_GREY
---             }, 
---             nodes={{
---                 n = G.UIT.O, 
---                 config = {
---                     w = 0.5, 
---                     h = 0.5,
---                     can_collide = false, 
---                     object = t_s, 
---                     tooltip = {text = "Abductions"}
---                 }
---             }}
---         },
---         {
---             n = G.UIT.R, 
---             config = {
---                 align = "cm"
---             }, 
---             nodes = {{
---                 n = G.UIT.T, 
---                 config = {
---                     text = value,
---                     colour = text_colour, 
---                     scale = 0.4, 
---                     shadow = true
---                 }
---             },}
---         }}
---     }
--- end
 
 --- CODE BASED ON THE card_ui.lua IMPLEMENTATION
 --- FROM JOYOUSSPRING BY 'N
@@ -756,7 +703,8 @@ function G.UIDEF.use_and_sell_buttons(card)
 	local return_obj = o_uasbs(card)
 
     -- Pull cards
-    if card.config.center.pull_button then
+    if card.config.center.pull_button or
+    card.config.center.set == "Planet" and G.GAME.modifiers.kino_cosmonaut then
         if (card.area == G.pack_cards and G.pack_cards) and card.ability.consumeable then
             local sell = nil
             local use = nil
@@ -903,6 +851,42 @@ SMODS.DrawStep {
                 local kino_active_sprite = G.shared_enhancement_sprites.active_sprite
                 kino_active_sprite.role.draw_major = card
                 kino_active_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center)
+        end
+    end,
+    conditions = {vortex = false, facing = 'front'}
+}
+
+-- the canvas
+local canvas = love.graphics.newCanvas(1920, 1080)
+canvas:renderTo(love.graphics.clear, 0, 0, 0, 0)
+
+local kino_timer_sprite
+local kino_timer_sprite_ui
+SMODS.DrawStep {
+    key = "kino_timer_indicator",
+    order = 50,
+    func = function(card, layer)
+        if card and card.config and card.config.center and card.config.center.has_timer and
+        card.area and card.area == G.jokers and
+        card.ability and card.ability.extra and card.ability.extra.timer_num_non then
+
+            -- Sprite
+            kino_timer_sprite = kino_timer_sprite or Sprite(0,0,0.5,0.5, G.ASSET_ATLAS["kino_ui"], {x=3, y=0})
+            kino_timer_sprite.role.draw_major = card
+            kino_timer_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center)
+            
+            love.graphics.push()
+            love.graphics.origin()
+            canvas:renderTo(love.graphics.clear, 0, 0, 0, 0)
+            love.graphics.setColor(1, 1, 1)
+            local _time = math.max(math.floor(card.ability.extra.timing_quick_non - card.ability.extra.time_spent),0)
+            canvas:renderTo(love.graphics.print, _time, 75, 35, 0, 1.5)
+            love.graphics.pop()
+
+            kino_timer_sprite_ui = kino_timer_sprite_ui or UISprite(0, 0, G.CARD_W, G.CARD_H,
+            G.ASSET_ATLAS["kino_ui"], { x = 0, y = 0 })
+            kino_timer_sprite_ui.role.draw_major = card
+            kino_timer_sprite_ui:draw_shader(card.children.center, canvas)
         end
     end,
     conditions = {vortex = false, facing = 'front'}

@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 73,
     generate_ui = Kino.generate_info_ui,
     config = {
+        kino_alien_franchise = true,
         extra = {
             will_trigger = true
         }
@@ -27,6 +28,7 @@ SMODS.Joker {
         cast = {},
     },
     k_genre = {"Sci-fi", "Action"},
+    kino_alien_franchise = true,
     in_pool = function(self, args)
         -- Check for the right frequency
         local enhancement_gate = false
@@ -76,5 +78,31 @@ SMODS.Joker {
                     return true
                 end}))
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_lv426 and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_lv426.count or 0
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_lv426_usage' and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_lv426.count == 5 then
+            unlock_card(self)
+        end
+        if args.type == 'win' and G.jokers and G.jokers.cards then
+            local _true = false
+            for _i, _joker in ipairs(G.jokers.cards) do
+                if kino_quality_check(_joker, 'kino_alien_franchise') then
+                    _true = true
+                end
+            end
+
+            if _true then
+                unlock_card(self)
+            end
+        end
+    end,
 }

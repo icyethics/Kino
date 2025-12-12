@@ -4,8 +4,8 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            a_chips = 20,
-            stacked_chips = 0
+            common_rate = 2,
+            additional_card = 1
         }
     },
     rarity = 2,
@@ -32,28 +32,12 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.a_chips,
-                card.ability.extra.stacked_chips
+                card.ability.extra.common_rate,
+                card.ability.extra.additional_card
             }
         }
     end,
     calculate = function(self, card, context)
-        -- Gain +20 chips when you use a Death
-        if context.using_consumeable and not context.blueprint then
-            if context.consumeable.ability.set == "Tarot" and context.consumeable.ability.name == "Death" then
-                card.ability.extra.stacked_chips = card.ability.extra.stacked_chips + card.ability.extra.a_chips
-                return {
-                    message = localize('k_upgrade_ex'),
-                    card = card,
-                    colour = G.C.MULT
-                }
-            end
-        end
-
-        if context.joker_main then
-            return {
-                chips = card.ability.extra.stacked_chips
-            }
-        end
+        -- Death is twice as common, and can select an additional card
     end
 }

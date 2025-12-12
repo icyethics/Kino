@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 117,
     generate_ui = Kino.generate_info_ui,
     config = {
+        kino_alien_franchise = true,
         extra = {
             chance_cur = 1,
             a_chance = 1,
@@ -30,7 +31,7 @@ SMODS.Joker {
         cast = {},
     },
     k_genre = {"Horror", "Sci-fi"},
-
+    kino_alien_franchise = true,
     loc_vars = function(self, info_queue, card)
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, card.ability.extra.chance_cur, card.ability.extra.chance, "kino_joker_destruction")
           
@@ -75,5 +76,30 @@ SMODS.Joker {
         if context.selling_card and context.card.config.center.set == 'Joker' then
             card.ability.extra.chance_cur = 1
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {}
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'round_win' and G.GAME.blind:get_type() == "Boss" and G.GAME.round_resets.blind_choices.Boss == "bl_kino_xenomorph" then
+            unlock_card(self)
+        end
+
+        if args.type == 'win' and G.jokers and G.jokers.cards then
+            local _true = false
+            for _i, _joker in ipairs(G.jokers.cards) do
+                if kino_quality_check(_joker, 'kino_alien_franchise') then
+                    _true = true
+                end
+            end
+
+            if _true then
+                unlock_card(self)
+            end
+        end
+    end,
 }

@@ -4,7 +4,8 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-
+            stacked_xmult = 1,
+            a_xmult = 0.25
         }
     },
     rarity = 3,
@@ -31,11 +32,28 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-
+                card.ability.extra.stacked_xmult,
+                card.ability.extra.a_xmult
             }
         }
     end,
     calculate = function(self, card, context)
-        -- Creates 3 conditions when you buy it. When a condition is met, destroy that card
+        -- Gain x0.25 whenever a card is destroyed
+        if context.remove_playing_cards then
+            for i = 1, #context.removed do
+                card.ability.extra.stacked_xmult = card.ability.extra.stacked_xmult + card.ability.extra.a_xmult
+            end
+            return {
+                message = localize("k_upgrade_ex"),
+                colour = G.C.MULT
+            }
+        end
+
+        if context.joker_main then
+            return {
+                x_mult = card.ability.extra.stacked_xmult
+            }
+        end
+    
     end
 }

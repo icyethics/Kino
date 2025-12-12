@@ -104,7 +104,7 @@ SMODS.Consumable {
     order = 19,
     pos = {x = 4, y = 3},
     atlas = "kino_confections",
-    -- no_collection = true,
+    no_collection = true,
     config = {
         choco_bonus = 0,
         extra = {

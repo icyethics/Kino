@@ -427,6 +427,7 @@ SMODS.Consumable {
     order = 6,
     pos = {x = 5, y = 0},
     atlas = "kino_confections",
+    sound_effect = "kino_gulp",
     config = {
         choco_bonus = 1,
         extra = {
@@ -944,22 +945,23 @@ SMODS.Consumable {
     end
 }
 
--- Permanently increase the power of all confections
+-- Burger
 SMODS.Consumable {
-    key = "ratatouille",
+    key = "burger",
     set = "confection",
-    order = 10,
+    order = 12,
     pos = {x = 5, y = 1},
     atlas = "kino_confections",
     config = {
-        choco_bonus = 1,
+        choco_bonus = 2,
         extra = {
+            active = false,
             times_used = 0,
-            powerboost = 1
+            cards_drawn = 2
         }
     },
     loc_vars = function(self, info_queue, card)
-        local _return = card.ability.extra.powerboost
+        local _return = card.ability.extra.cards_drawn + G.GAME.confections_powerboost
         if card.ability.kino_chocolate then
             _return = _return + self.config.choco_bonus
         end
@@ -968,16 +970,10 @@ SMODS.Consumable {
                 _return
             }
         } 
-    end,
+    end, 
     
     pull_button = true,
     active = false,
-    immutable = true,
-
-    hidden = true,
-    soul_rate = 0.005,
-    soul_set = 'confection',
-
     can_use = function(self, card)
         -- Checks if it can be activated
         if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
@@ -1011,20 +1007,75 @@ SMODS.Consumable {
         end
 
         if G.GAME.blind.in_blind then
-            local _powerboost = (card.ability.kino_choco and (card.ability.extra.powerboost + card.ability.choco_bonus) or card.ability.extra.powerboost)
-            G.GAME.confections_powerboost = G.GAME.confections_powerboost + _powerboost
-            
+            local _cards_drawn = (card.ability.kino_choco and (card.ability.extra.cards_drawn + card.ability.choco_bonus) or card.ability.extra.cards_drawn) + G.GAME.confections_powerboost
+            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                card_eval_status_text(card, 'extra', nil, nil, nil,
+                { message = localize('k_eaten'), colour = G.C.MULT})
+
+                for i = 1, _cards_drawn do
+                
+                    local _enhanced_card = nil
+                    local _enhanced_spot = 0
+                    for i = 1, #G.deck.cards do
+                        if G.deck.cards[i].config.center ~= G.P_CENTERS.c_base then
+                            _enhanced_card = G.deck.cards[i]
+                            _enhanced_spot = i
+                            break
+                        end
+                    end
+
+                    if _enhanced_spot ~= 0 then
+                        local _buffer_card = G.deck.cards[#G.deck.cards]
+                        G.deck.cards[#G.deck.cards] = _enhanced_card
+                        G.deck.cards[_enhanced_spot] = _buffer_card
+
+                        G.FUNCS.draw_from_deck_to_hand(1)
+                    end
+
+                    delay(0.1)
+                end
+            return true end }))
 
             Kino.confection_trigger(card)
         end
     end,
     calculate = function(self, card, context)
 
-        if context.setting_blind and card.active then
-            local _powerboost = (card.ability.kino_choco and (card.ability.extra.powerboost + card.ability.choco_bonus) or card.ability.extra.powerboost)
-            G.GAME.confections_powerboost = G.GAME.confections_powerboost + _powerboost
+        if context.hand_drawn and card.active then
+            local _cards_drawn = (card.ability.kino_choco and (card.ability.extra.cards_drawn + card.ability.choco_bonus) or card.ability.extra.cards_drawn) + G.GAME.confections_powerboost
+            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                card_eval_status_text(card, 'extra', nil, nil, nil,
+                { message = localize('k_eaten'), colour = G.C.MULT})
+
+                for i = 1, _cards_drawn do
+                
+                    local _enhanced_card = nil
+                    local _enhanced_spot = 0
+                    for i = 1, #G.deck.cards do
+                        if G.deck.cards[i].config.center ~= G.P_CENTERS.c_base then
+                            _enhanced_card = G.deck.cards[i]
+                            _enhanced_spot = i
+                            break
+                        end
+                    end
+
+                    if _enhanced_spot ~= 0 then
+                        local _buffer_card = G.deck.cards[#G.deck.cards]
+                        G.deck.cards[#G.deck.cards] = _enhanced_card
+                        G.deck.cards[_enhanced_spot] = _buffer_card
+
+                        G.FUNCS.draw_from_deck_to_hand(1)
+                    end
+
+                    delay(0.1)
+                end
+            return true end }))
 
             Kino.confection_trigger(card)
+        end
+        
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
         end
     end
 }
@@ -1568,6 +1619,619 @@ SMODS.Consumable {
     end
 }
 
+
+-- Donut
+SMODS.Consumable {
+    key = "donut",
+    set = "confection",
+    order = 19,
+    pos = {x = 0, y = 4},
+    atlas = "kino_confections",
+    config = {
+        choco_bonus = 3,
+        extra = {
+            active = false,
+            times_used = 0,
+            chips = 3,
+            has_triggered = false
+        }
+    },
+    get_weight_mod = function()
+        return 0.4
+    end,
+    loc_vars = function(self, info_queue, card)
+        local _return = card.ability.extra.chips + G.GAME.confections_powerboost
+        if card.ability.kino_chocolate then
+            _return = _return + self.config.choco_bonus
+        end
+        return {
+            
+            vars = {
+                _return
+            }
+        } 
+    end,
+    pull_button = true,
+    active = false,
+    can_use = function(self, card)
+        -- Checks if it can be activated
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
+		    return false
+        end
+
+        -- Checks if it can be added to the inventory
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.config.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
+        end
+
+        return true
+	end,
+    keep_on_use = function(self, card)
+        return true
+    end,
+    use = function(self, card, area, copier)
+        if card.area ~= G.pack_cards and card.area ~= nil then
+            play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
+            play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
+            card.active = true
+
+            local eval = function(card) return card.active end
+            juice_card_until(card, eval, true, 0.05)
+        end
+    end,
+    calculate = function(self, card, context)
+        if context.before and card.active then
+            -- Calculate the amount of chips
+            local _count = 0
+            local _hash = {}
+            for i, _pcard in ipairs(context.scoring_hand) do
+                local _suit = "nil"
+                if SMODS.has_no_suit(_pcard) then
+                    _suit = "None"
+                elseif SMODS.has_any_suit(_pcard) then
+                    _suit = "Wild"
+                else
+                    _suit = _pcard.config.card.suit
+                end
+
+                if not _hash[_suit] then
+                    _count = _count + 1
+                    _hash[_suit] = true
+                end
+
+            end
+
+            local _chips = _count * ((card.ability.kino_choco and (card.ability.extra.chips + card.ability.choco_bonus) or card.ability.extra.chips) + G.GAME.confections_powerboost)
+            
+            -- Upgrade
+            update_hand_text(
+                { sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
+                { mult = 0, chips = _chips, handname = "All Hands", level = "" }
+            )
+            delay(0.5)
+            update_hand_text(
+                { sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
+                { mult = 0, chips = 0, handname = "", level = "" }
+            )
+            
+            for _i, _hand in ipairs(G.handlist) do
+                upgrade_hand(card, _hand, _chips, 0, 0, 0, true)
+            end
+
+
+            Kino.confection_trigger(card)
+        end
+
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
+        end
+    end
+}
+
+-- Nachos
+SMODS.Consumable {
+    key = "nachos",
+    set = "confection",
+    order = 20,
+    pos = {x = 1, y = 4},
+    atlas = "kino_confections",
+    config = {
+        choco_bonus = 0,
+        extra = {
+            active = false,
+            times_used = 0,
+            has_triggered = false
+        }
+    },
+    get_weight_mod = function()
+        return 0.4
+    end,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        } 
+    end,
+    pull_button = true,
+    active = false,
+    can_use = function(self, card)
+        -- Checks if it can be activated
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
+		    return false
+        end
+
+        -- Checks if it can be added to the inventory
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.config.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
+        end
+
+        return true
+	end,
+    keep_on_use = function(self, card)
+        return true
+    end,
+    use = function(self, card, area, copier)
+        if card.area ~= G.pack_cards and card.area ~= nil then
+            play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
+            play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
+            card.active = true
+
+            local eval = function(card) return card.active end
+            juice_card_until(card, eval, true, 0.05)
+        end
+    end,
+    calculate = function(self, card, context)
+        if context.before and card.active then
+            
+            local _firstcard = context.scoring_hand[1]
+
+            if _firstcard.config.center == G.P_CENTERS.c_base then
+                local _enhancement = SMODS.poll_enhancement({guaranteed = true, key = 'kino_nachos'})
+                _firstcard:set_ability(G.P_CENTERS[_enhancement])
+            end
+
+            if _firstcard.edition == nil then
+                local edition = poll_edition('kino_nachos', nil, true, true)
+                _firstcard:set_edition(edition, true)
+            end
+
+            if _firstcard:get_seal() == nil then
+                local _seal = SMODS.poll_seal({guaranteed = true, key = 'kino_nachos'})
+                _firstcard:set_seal(_seal)
+            end
+
+            Kino.confection_trigger(card)
+        end
+
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
+        end
+    end
+}
+
+-- Milkshake
+SMODS.Consumable {
+    key = "milkshake",
+    set = "confection",
+    order = 21,
+    pos = {x = 2, y = 4},
+    atlas = "kino_confections",
+    sound_effect = "kino_gulp",
+    config = {
+        extra = {
+            active = false,
+            times_used = 0,
+            has_triggered = false
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+
+            }
+        } 
+    end,
+    pull_button = true,
+    active = false,
+    can_use = function(self, card)
+        -- Checks if it can be activated
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
+		    return false
+        end
+
+        -- Checks if it can be added to the inventory
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.config.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
+        end
+
+        return true
+	end,
+    keep_on_use = function(self, card)
+        return true
+    end,
+    use = function(self, card, area, copier)
+        if card.area ~= G.pack_cards and card.area ~= nil then
+            play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
+            play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
+            card.active = true
+
+            local eval = function(card) return card.active end
+            juice_card_until(card, eval, true, 0.05)
+        end
+    end,
+    calculate = function(self, card, context)
+        if context.before and card.active then
+            local _initial_card_suit
+            for i, _pcard in ipairs(context.scoring_hand) do
+                if _initial_card_suit == nil then
+                    if not SMODS.has_no_suit(_pcard) and
+                    not SMODS.has_any_suit(_pcard) then
+                        _initial_card_suit = _pcard.config.card.suit
+                    end
+                end
+
+                if _initial_card_suit and i > 1 then
+                    SMODS.change_base(_pcard, _initial_card_suit)
+                end
+            end
+
+
+            if _initial_card_suit == nil then return end
+
+            Kino.confection_trigger(card)
+        end
+
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
+        end
+    end
+}
+
+-- Canned Beans
+SMODS.Consumable {
+    key = "beans",
+    set = "confection",
+    order = 22,
+    pos = {x = 3, y = 4},
+    atlas = "kino_confections",
+    config = {
+        choco_bonus = 1,
+        extra = {
+            active = false,
+            times_used = 0,
+            counters = 2,
+            cards = 4,
+            cards_used = 0,
+            has_triggered = false
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        local _return = card.ability.extra.counters + G.GAME.confections_powerboost
+        local _return2 = card.ability.extra.cards + G.GAME.confections_powerboost
+        if card.ability.kino_chocolate then
+            _return = _return + self.config.choco_bonus
+        end
+        return {
+            
+            vars = {
+                _return,
+                _return2
+            }
+        } 
+    end,
+    pull_button = true,
+    active = false,
+    no_collection = true,
+    can_use = function(self, card)
+        -- Checks if it can be activated
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
+		    return false
+        end
+
+        -- Checks if it can be added to the inventory
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.config.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
+        end
+
+        return true
+	end,
+    keep_on_use = function(self, card)
+        return true
+    end,
+    use = function(self, card, area, copier)
+        if card.area ~= G.pack_cards and card.area ~= nil then
+            play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
+            play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
+
+            if G.jokers then
+                for i, _joker in ipairs(G.jokers.cards) do
+                    if _joker.config.center.is_cars == true then
+                        if SMODS.pseudorandom_probability(card, 'kino_bean_spill', 1, 1, "random_event") then
+                            print("should work")
+                            local _targets = {}
+
+                            -- joker targets
+                            for _index, _joker2 in ipairs(G.jokers.cards) do
+                                if pseudorandom("spill_beans_joker") < 0.3 then
+                                    _targets[#_targets + 1] = _joker2
+                                end
+                            end
+
+                            for _index, _consumables in ipairs(G.consumeables.cards) do
+                                if pseudorandom("spill_beans_consumables") < 0.3 then
+                                    _targets[#_targets + 1] = _consumables
+                                end
+                            end
+
+                            for _index, _heldcard in ipairs(G.hand.cards) do
+                                if pseudorandom("spill_beans_consumables") < 0.3 then
+                                    _targets[#_targets + 1] = _heldcard
+                                end
+                            end
+                            
+                            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                                card_eval_status_text(_joker, 'extra', nil, nil, nil,
+                                { message = localize('k_kino_eating_beans_1'), colour = G.C.MULT})
+                                card:set_ability("c_kino_beans_spilled")
+                                delay(1)
+
+                                for _index, _target in ipairs(_targets) do
+                                    SMODS.Stickers['kino_spilled_beans']:apply(_target, true)
+                                end
+
+                                card_eval_status_text(_joker, 'extra', nil, nil, nil,
+                                { message = "...", colour = G.C.MULT})
+                                delay(1)
+                                card_eval_status_text(_joker, 'extra', nil, nil, nil,
+                                { message = localize('k_kino_eating_beans_2'), colour = G.C.MULT})
+                                delay(0.23)
+                                card_eval_status_text(_joker, 'extra', nil, nil, nil,
+                                { message = localize('k_kino_eating_beans_3'), colour = G.C.MULT})
+                                delay(0.23)
+                            return true end }))
+
+                            return true
+                        end
+                    end
+                end
+            end
+
+            card.active = true
+
+            local eval = function(card) return card.active end
+            juice_card_until(card, eval, true, 0.05)
+        end
+    end,
+    calculate = function(self, card, context)
+        if context.hand_drawn and card.active then
+            for i = 1, #context.hand_drawn do
+                if card.ability.extra.cards_used < card.ability.extra.cards + G.GAME.confections_powerboost then
+                    card.ability.extra.cards_used = card.ability.extra.cards_used + 1
+
+                    local _random_counter_type = pseudorandom_element(Blockbuster.Counters.get_counter_pool({"beneficial"}, true), pseudoseed("kino_beans"))
+
+                    local _counter_count = card.ability.extra.counters + G.GAME.confections_powerboost
+                    if card.ability.kino_chocolate then
+                        _counter_count = _return + self.config.choco_bonus
+                    end
+
+                    context.hand_drawn[i]:bb_counter_apply(_random_counter_type, _counter_count)
+                end
+            end
+
+            if card.ability.extra.cards_used == card.ability.extra.cards + G.GAME.confections_powerboost then
+                Kino.confection_trigger(card)
+            end
+        end
+
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
+        end
+    end
+}
+
+-- Mints
+SMODS.Consumable {
+    key = "mints",
+    set = "confection",
+    order = 23,
+    pos = {x = 4, y = 4},
+    atlas = "kino_confections",
+    config = {
+        choco_bonus = 1,
+        extra = {
+            active = false,
+            times_used = 0,
+            triggers = 1,
+            triggers_used = 0,
+            has_triggered = false
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        local _return = card.ability.extra.triggers + G.GAME.confections_powerboost
+        if card.ability.kino_chocolate then
+            _return = _return + self.config.choco_bonus
+        end
+        return {
+            
+            vars = {
+                _return,
+            }
+        } 
+    end,
+    pull_button = true,
+    active = false,
+    can_use = function(self, card)
+        -- Checks if it can be activated
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
+		    return false
+        end
+
+        -- Checks if it can be added to the inventory
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.config.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
+        end
+
+        return true
+	end,
+    keep_on_use = function(self, card)
+        return true
+    end,
+    use = function(self, card, area, copier)
+        if card.area ~= G.pack_cards and card.area ~= nil then
+            play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
+            play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
+            card.active = true
+
+            local eval = function(card) return card.active end
+            juice_card_until(card, eval, true, 0.05)
+        end
+    end,
+    calculate = function(self, card, context)
+        if context.before and card.active and G.GAME.current_round.discards_left > 0 then
+            local _triggers = card.ability.extra.triggers + G.GAME.confections_powerboost
+            if card.ability.kino_chocolate then
+                _triggers = _triggers + self.config.choco_bonus
+            end
+
+            if card.ability.extra.triggers_used < _triggers then
+                
+                ease_discard(-1)
+                ease_hands_played(1)
+
+                Kino.confection_trigger(card)
+            end
+        end
+
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
+        end
+    end
+}
+
+-- Banana
+SMODS.Consumable {
+    key = "banana",
+    set = "confection",
+    order = 24,
+    pos = {x = 5, y = 4},
+    atlas = "kino_confections",
+    config = {
+        choco_bonus = 1,
+        extra = {
+            active = false,
+            times_used = 0,
+            triggers = 1,
+            triggers_used = 0,
+            has_triggered = false
+        }
+    },
+    get_weight_mod = function()
+        return 0.4
+    end,
+    loc_vars = function(self, info_queue, card)
+        local _return = card.ability.extra.triggers + G.GAME.confections_powerboost
+        if card.ability.kino_chocolate then
+            _return = _return + self.config.choco_bonus
+        end
+        return {
+            
+            vars = {
+                _return,
+            }
+        } 
+    end,
+    pull_button = true,
+    active = false,
+    can_use = function(self, card)
+        -- Checks if it can be activated
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
+		    return false
+        end
+
+        -- Checks if it can be added to the inventory
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.config.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
+        end
+
+        return true
+	end,
+    keep_on_use = function(self, card)
+        return true
+    end,
+    use = function(self, card, area, copier)
+        if card.area ~= G.pack_cards and card.area ~= nil then
+            play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
+            play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
+            card.active = true
+
+            local eval = function(card) return card.active end
+            juice_card_until(card, eval, true, 0.05)
+        end
+    end,
+    calculate = function(self, card, context)
+
+        if context.post_trigger and context.cardarea == G.consumeables
+        and not context.other_context.post_trigger and
+        not context.other_context.destroying_card and
+        G.STATE == G.STATES.HAND_PLAYED then
+
+            local _key = context.other_card.config.center.key
+            G.GAME.banned_keys[_key] = true
+            SMODS.destroy_cards(context.other_card)
+
+            local _triggers = card.ability.extra.triggers + G.GAME.confections_powerboost
+            if card.ability.kino_chocolate then
+                _triggers = _triggers + self.config.choco_bonus
+            end
+
+            if card.ability.extra.triggers_used < _triggers then
+                Kino.confection_trigger(card)
+            end
+        end
+
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
+        end
+    end
+}
+
 SMODS.Consumable {
     key = "snackbag",
     set = "confection",
@@ -1619,3 +2283,96 @@ SMODS.Consumable {
 }
 
 end
+
+-- SPILLED BEANS
+-- Canned Beans
+SMODS.Consumable {
+    key = "beans_spilled",
+    set = "confection",
+    order = 22,
+    pos = {x = 3, y = 5},
+    atlas = "kino_confections",
+    config = {
+        choco_bonus = 0,
+        extra = {
+            active = false,
+            times_used = 0,
+            counters = 1,
+            cards = 1,
+            cards_used = 0,
+            has_triggered = false
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return {
+            
+            vars = {
+                2,
+                4
+            }
+        } 
+    end,
+    pull_button = true,
+    active = false,
+    hidden = true,
+    soul_rate = 0,
+    can_use = function(self, card)
+        -- Checks if it can be activated
+        if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
+		    return false
+        end
+
+        -- Checks if it can be added to the inventory
+        if card.area == G.pack_cards then
+            if (#G.consumeables.cards < G.consumeables.config.card_limit or 
+            (G.GAME.used_vouchers.v_kino_snackbag and #Kino.snackbag.cards < Kino.snackbag.config.card_limit)) then
+                return true
+            else
+                return false
+            end
+                
+        end
+
+        return true
+	end,
+    keep_on_use = function(self, card)
+        return true
+    end,
+    use = function(self, card, area, copier)
+        if card.area ~= G.pack_cards and card.area ~= nil then
+            play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
+            play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
+
+            card.active = true
+
+            local eval = function(card) return card.active end
+            juice_card_until(card, eval, true, 0.05)
+        end
+    end,
+    calculate = function(self, card, context)
+        if context.hand_drawn and card.active then
+            for i = 1, #context.hand_drawn do
+                if card.ability.extra.cards_used < card.ability.extra.cards + G.GAME.confections_powerboost then
+                    card.ability.extra.cards_used = card.ability.extra.cards_used + 1
+
+                    local _random_counter_type = pseudorandom_element(Blockbuster.Counters.get_counter_pool({"beneficial"}, true), pseudoseed("kino_beans"))
+
+                    local _counter_count = card.ability.extra.counters + G.GAME.confections_powerboost
+                    if card.ability.kino_chocolate then
+                        _counter_count = _return + self.config.choco_bonus
+                    end
+
+                    context.hand_drawn[i]:bb_counter_apply(_random_counter_type, _counter_count)
+                end
+            end
+
+            if card.ability.extra.cards_used == card.ability.extra.cards + G.GAME.confections_powerboost then
+                Kino.confection_trigger(card)
+            end
+        end
+
+        if context.end_of_round and not context.repetition and not context.individual and not context.blueprint then
+            Kino.powerboost_confection(card)
+        end
+    end
+}

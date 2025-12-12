@@ -6,7 +6,7 @@ SMODS.Back {
     config = {
     },
     apply = function()
-        if kino_config.halloween_mode then
+        if kino_config.halloween_deck then
             G.GAME.modifiers.kinoween = true
             Kino.kinoween_ban_list()
         end
@@ -38,7 +38,7 @@ SMODS.Back {
     },
     apply = function()
 
-        if kino_config.halloween_mode then
+        if kino_config.halloween_deck then
             G.GAME.modifiers.kinoween = true
             Kino.kinoween_ban_list()
         end

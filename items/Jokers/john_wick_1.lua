@@ -4,8 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            bullet_count_non = 0,
-            bullet_increase = 1,
+            bullets_created = 2
         }
     },
     rarity = 2,
@@ -33,21 +32,16 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.bullet_count_non,
-                card.ability.extra.bullet_increase
+                card.ability.extra.bullets_created
             }
         }
     end,
     calculate = function(self, card, context)
-        -- Has 1 bullet for each card destroyed this ante
+        -- Create 2 bullets whenever a card is destroyed
         if context.remove_playing_cards then
-            for i = 1, #context.removed do
-                card.ability.extra.bullet_count_non= card.ability.extra.bullet_count_non+ card.ability.extra.bullet_increase
-            end
-        end
+            Kino.add_bullet(#context.removed * card.ability.extra.bullets_created)
 
-        if context.end_of_round and not context.individual and not context.repetition and G.GAME.blind.boss and not context.blueprint_card and not context.retrigger_joker then
-            card.ability.extra.bullet_count_non= 0
+            card:juice_up()
         end
     end
 }

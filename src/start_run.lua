@@ -47,6 +47,13 @@ function Game:start_run(args)
         G.jokers.T.w, G.jokers.T.h,
         { type = "joker", card_limit = 100000, highlighted_limit = 0 }
     )
+
+    -- Set Boss Blind generation hooks
+    
+    self.GAME.round_resets.blind_choices.Small = Kino.get_blind("Small")
+    self.GAME.round_resets.blind_choices.Big = Kino.get_blind("Big")
+    self.GAME.round_resets.blind_choices.Boss = Kino.get_blind("Boss")
+    
     return ret
 end
 
@@ -98,11 +105,13 @@ Game.init_game_object = function(self)
     ret.confections_goldleaf_bonus = 1
     ret.current_round.confections_temp_boost = 0
     ret.current_round.confection_used = false
-
+    ret.bullet_count = 0
     ret.current_round.abduction_waitinglist = {}
 
     -- Joker Pool information
     ret.current_round.joker_queue = {}
+    ret.kino_boss_mode = {}
+    ret.kino_boss_mode_odds = {}
 
     -- Boss Blind info
     ret.current_round.boss_blind_joker_counter = 0
@@ -174,6 +183,5 @@ Game.init_game_object = function(self)
     for _, _genre in ipairs(kino_genres) do
         ret.kino_genre_weight[_genre] = 0
     end
-
     return ret
 end

@@ -241,6 +241,7 @@ elseif card.config.center.set == 'confection' then
 	end
     G.GAME.current_round.confection_used = true
 	G.GAME.consumeable_usage_total.confection = G.GAME.consumeable_usage_total.confection + 1
+    inc_career_stat("kino_consumables_used", 1)
 '''
 
 ## Lucky card changes for the Prestige (Kept for compatibility reasons)

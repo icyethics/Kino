@@ -60,5 +60,5 @@ SMODS.Joker {
         end
 
         return card.ability.extra.total_non
-    end
+    end,
 }

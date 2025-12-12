@@ -12,7 +12,8 @@ Blockbuster.ValueManipulation.CompatStandard{
             "time_spent",
             "codex_length",
             "num_cards_abducted",
-            "starting_amount"
+            "starting_amount",
+            "powerboost"
         },
         ends_on = {
             "_non"
@@ -32,7 +33,8 @@ Blockbuster.ValueManipulation.CompatStandard{
             "joker_slots",
             "handsize",
             "display_amount",
-            "counters_applied"
+            "counters_applied",
+            "bullets_created"
         },
         ends_on = {
             "_int",

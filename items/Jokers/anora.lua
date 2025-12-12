@@ -4,7 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            money = 3
+            money = 1
         }
     },
     rarity = 2,
@@ -47,21 +47,26 @@ SMODS.Joker {
             end
 
             if _romance_cards == 2 then
-                -- OLD ABILITY
                 for _index, _pcard in ipairs(G.hand.cards) do
-                    -- Kino.change_counters(_pcard, "kino_investment", 1)
-                    _pcard:bb_counter_apply("counter_money", 1)
+                    _pcard:bb_counter_apply("counter_money", card.ability.extra.money)
                 end
 
-
-                -- G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.money
-                -- G.E_MANAGER:add_event(Event({func = (function() G.GAME.dollar_buffer = 0; return true end)}))
-                -- return {
-                --     message = localize("$")..card.ability.extra.money,
-                --     dollars = card.ability.extra.money,
-                --     colour = G.C.MONEY
-                -- }
             end
         end
-    end
+    end,
+        -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'bb_increment_money_counter' then
+            if args.card and args.card.ability.counter.counter_num >= 5 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
