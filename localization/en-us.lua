@@ -633,6 +633,10 @@ return {
                     "gain {C:chips}+1{} Hand",
                     "if {C:attention}round{} not yet won",
                     "{C:inactive}(Currently: #1# Charges Left)"
+                },
+                unlock = {
+                    "Lose a run",
+                    "in {C:attention}Round 7"
                 }
             },
             j_kino_captain_blood = {
@@ -829,6 +833,10 @@ return {
                     "{C:Drain}Drain{} half its rank",
                     "and gain #2# times that many chips",
                     "{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)"
+                },
+                unlock = {
+                    "{C:Drain}Drain{} {C:attention}#2#{} Times",
+                    "{C:inactive}(#1#)"
                 }
             },
             j_kino_cruella = {
@@ -1032,6 +1040,9 @@ return {
                     "Gain {C:white,X:mult}X#2#{} Mult",
                     "whenever any card is {C:Drain}Drained",
                     "{C:inactive}(Currently {X:mult,C:white} X#1# {C:inactive} Mult)",
+                },
+                unlock = {
+                    "Defeat {C:attention}Dracula{}"
                 }
             },
             j_kino_dracula_1931_2 = {
@@ -1042,6 +1053,9 @@ return {
                     "{C:Drain}Debuff{} unenhanced Scoring cards",
                     "and gain {C:white,X:mult}X#2#{} Mult",
                     "{C:inactive}(Currently {X:mult,C:white} X#1# {C:inactive} Mult)",
+                },
+                unlock = {
+                    "Defeat {C:attention}Dracula{}"
                 }
             },
             j_kino_dracula_bram_stoker = {
@@ -1050,6 +1064,9 @@ return {
                     "When a {C:attention}Queen{} scores",
                     "put {C:attention}#1#{} {C:Drain}Blood Counters",
                     "on random cards in deck"
+                },
+                unlock = {
+                    "Defeat {C:attention}Dracula{}"
                 }
             },
             j_kino_duel = {
@@ -1107,6 +1124,9 @@ return {
                     "{C:money}$#2#{} if hand",
                     "scores less than {C:attention}#1#%{} of blind",
                     "requirement"
+                },
+                unlock = {
+                    "Win a run with {C:money}$0{} remaining"
                 }
             },
             j_kino_edward_scissorhands = {
@@ -1505,6 +1525,10 @@ return {
                     "Gain {C:chips}+#2#{} Chips when",
                     "a {C:attention}Demonic Card{} scores",
                     "{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)"
+                },
+                unlock = {
+                    "Sacrifice {C:attention}#2#{} cards",
+                    "{C:inactive}(#1#)"
                 }
             },
             j_kino_hellraiser_1 = {
@@ -2267,6 +2291,10 @@ return {
                     "{C:chips}+#1#{} Chips if you've made",
                     "at least {C:attention}#2#{} sacrifices",
                     "{C:inactive}(Currently: {C:attention}#3#{C:inactive} sacrifices made)"
+                },
+                unlock = {
+                    "Sacrifice {C:attention}10{} cards",
+                    "in one run"
                 }
             },
             j_kino_only_lovers_left_alive = {
@@ -2964,12 +2992,15 @@ return {
             j_kino_stargate = {
                 name = "Stargate",
                 text = {
-                    {"{C:Alien}Abduct{} every {C:attention}Stone ",
-                    "card scored",},
+                    {"{C:Alien}Abduct{} every scoring",
+                    "{C:attention}Stone Card",},
                     {"{C:white,X:Alien}Release:{} Return {C:Alien}Abducted Cards",
                     "with their enhancement removed",
                     "and gain {C:chips}+#4#{} Chips for each",
                     "{C:inactive}(Currently: {C:chips}+#3#{C:inactive} Chips)"}
+                },
+                unlock = {
+                    "Abduct a {C:attention}Stone Card"
                 }
             },
             j_kino_starman = {
@@ -3403,6 +3434,9 @@ return {
                     "Scores cards give {X:mult,C:white}X#1#{} Mult",
                     "if they share rank",
                     "with a card held in hand"
+                },
+                unlock = {
+                    "Make {C:attention}20{C:Romance} Matches"
                 }
             },
             j_kino_wizard_of_oz = {

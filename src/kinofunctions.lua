@@ -375,6 +375,8 @@ end
 function update_matches(num, is_set)
     -- num is the number to increment or set the scrap by
     -- is_set == true will set instead of increment
+    inc_career_stat("kino_matches_made", num)
+    check_for_unlock({type = "kino_matches_made"})
     if not G.GAME.current_round.matchmade_total then
         G.GAME.current_round.matchmade_total = 0
 
@@ -622,6 +624,13 @@ G.FUNCS.can_discard = function(e)
         e.config.colour = G.C.RED
         e.config.button = 'discard_cards_from_highlighted'
     end
+end
+
+local o_sdl = set_deck_loss
+function set_deck_loss(self)
+    check_for_unlock({type="kino_game_loss"})
+    local _ret = o_sdl(self)
+    return _ret
 end
 
 ------------ TAG functionality ------------

@@ -84,7 +84,7 @@ SMODS.Joker {
     unlocked = false,
     check_for_unlock = function(self, args)
         if args.type == 'round_win' then
-            if G.GAME.round >= 29 then 
+            if G.GAME.round == 7 then 
                 unlock_card(self)
             end
         end

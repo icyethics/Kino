@@ -73,10 +73,6 @@ SMODS.Joker {
         }
     end,
     check_for_unlock = function(self, args)
-        if args.type == 'round_win' and G.GAME.blind:get_type() == "Boss" and  G.GAME.round_resets.blind_choices.Boss == "bl_kino_pale_man" then
-            
-        end
-
         if args.type == 'modify_deck' then
             local _tally = 0
             for i, _pcard in ipairs(G.playing_cards) do

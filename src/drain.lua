@@ -8,7 +8,8 @@ function Kino.drain_property(target, source, property_table)
         card_eval_status_text(target, 'extra', nil, nil, nil,
         { message = localize('k_kino_drained'), colour = G.C.KINO.DRAIN})
         SMODS.calculate_context({kino_drain = true, drained_card = target, drainer = source, properties = property_table})
-
+        inc_career_stat("kino_blood_counters_drained", 1)
+        check_for_unlock({type = "kino_blood_counters_drained"})
         return true
     end
 
@@ -166,6 +167,8 @@ function Kino.drain_property(target, source, property_table)
         card_eval_status_text(target, 'extra', nil, nil, nil,
         { message = localize('k_kino_drained'), colour = G.C.KINO.DRAIN})
         SMODS.calculate_context({kino_drain = true, drained_card = target, drainer = source, properties = property_table})
+        inc_career_stat("kino_times_drained", 1)
+        check_for_unlock({type = "kino_times_drained"})
     end
     return _result
 end

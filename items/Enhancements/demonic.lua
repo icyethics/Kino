@@ -52,6 +52,8 @@ SMODS.Enhancement {
         not next(find_joker("j_kino_hellboy_1")) then
             SMODS.calculate_context({kino_sacrifices = true, kino_sacrifice_num = 1, kino_sacrificed_cards = {context.destroy_card}})
             G.GAME.current_round.sacrifices_made = G.GAME.current_round.sacrifices_made + 1
+            inc_career_stat("kino_sacrifices_made", 1)
+            check_for_unlock({type = "kino_sacrifices_made"})
             -- Challenge specific
             if G.GAME.modifiers.kino_bestsong then
                 G.E_MANAGER:add_event(Event({
