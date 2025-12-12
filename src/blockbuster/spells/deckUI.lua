@@ -104,6 +104,27 @@ function Blockbuster.initialize_spellslingerdeck_UI()
     G.GAME.blockbuster_ssd_UI_current_spell = "spell_None_None"
 end
 
+function Blockbuster.initialize_spellslingerdeck_UI_sleeve()
+    local full_UI_table = {
+        main = {},
+        info = {},
+        type = {},
+        name = 'done',
+        badges = {}
+    }
+
+    G.GAME.blockbuster_ssd_UI_sleeve = UIBox{
+        definition = create_UIBox_detailed_tooltip(Blockbuster.Spellcasting.Spells["spell_None_None"]),
+        config = {
+            align = 'cm',
+            offset ={x=0.3,y=-4}, 
+            major = G.deck,
+            instance_type = 'ALERT',
+        }
+    }
+    G.GAME.blockbuster_ssd_UI_current_spell = "spell_None_None"
+end
+
 function Blockbuster.update_spellslingerdeck_UI()
     if not G.GAME.blockbuster_ssd_UI or not G.GAME.blockbuster_ssd_UI.remove then return end
 
@@ -128,8 +149,38 @@ function Blockbuster.update_spellslingerdeck_UI()
     }
 end
 
+function Blockbuster.update_spellslingerdeck_UI_sleeve()
+    if not G.GAME.starting_params.kino_spellcasting_sleeve then return end
+    if not G.GAME.blockbuster_ssd_UI_sleeve or not G.GAME.blockbuster_ssd_UI_sleeve.remove then return end
+
+    -- Gather the spell
+    local _new_card_list = {}
+    for i = 1, #G.hand.cards do
+        _new_card_list[i] = G.hand.cards[#G.hand.cards + 1 - i]
+    end
+    local _key = Blockbuster.cards_to_spell_key(_new_card_list)
+    -- if _key == G.GAME.blockbuster_ssd_UI_current_spell then 
+    --     return 
+    -- end
+    
+    G.GAME.blockbuster_ssd_UI_sleeve:remove()
+    G.GAME.blockbuster_ssd_UI_sleeve = nil
+    G.GAME.blockbuster_ssd_UI_current_spell = _key
+    -- G.GAME.blockbuster_ssd_UI = create_UIBox_detailed_tooltip(Blockbuster.Spellcasting.Spells[_key])
+    G.GAME.blockbuster_ssd_UI_sleeve = UIBox{
+        definition = create_UIBox_detailed_tooltip(Blockbuster.Spellcasting.Spells[_key]),
+        config = {
+            align = 'cm',
+            offset ={x=0.3,y=-4}, 
+            major = G.deck,
+            instance_type = 'ALERT',
+        }
+    }
+end
+
 function Blockbuster.debugfunc_spell()
     Blockbuster.update_spellslingerdeck_UI()
+    Blockbuster.update_spellslingerdeck_UI_sleeve()
 end
 
 local base_align_cards = CardArea.align_cards
@@ -138,5 +189,6 @@ function CardArea:align_cards()
 
     if self == G.deck and G.GAME.starting_params.blockbuster_spellcasting_deck then
         Blockbuster.update_spellslingerdeck_UI()
+        Blockbuster.update_spellslingerdeck_UI_sleeve()
     end
 end

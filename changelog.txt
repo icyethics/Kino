@@ -1,3 +1,11 @@
+V 0.11-HALLOWEENc:
+
+Bug Fix:
+- Shang Chi no longer crashes the game
+- The Sorcerer's Apprentice no longer crashes the game
+- Spellslinger's Sleeve no longer crashes the game
+- Zodiac no longer has incorrect metadata
+
 V 0.11-HALLOWEENb:
 
 Bug Fix:

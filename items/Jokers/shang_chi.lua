@@ -79,7 +79,7 @@ SMODS.Joker {
 
             card.ability.extra.cur_spell_non = round_number(card.ability.extra.cur_spell_non)
 
-            return cast_spell(_spell_list[card.ability.extra.cur_spell_non], pseudorandom_element({1, 2, 3, 4}, pseudoseed("shangchi")))
+            return Blockbuster.cast_spell(_spell_list[card.ability.extra.cur_spell_non], pseudorandom_element({1, 2, 3, 4}, pseudoseed("shangchi")))
         end
     end
 }
