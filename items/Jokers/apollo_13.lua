@@ -35,7 +35,9 @@ SMODS.Joker {
         }
     end,
     in_pool = function(self, args)
-        return #G.jokers.cards > 1
+        if G.jokers and G.jokers.cards then
+            return #G.jokers.cards > 1
+        end
     end,
     calculate = function(self, card, context)
         -- If your hand rank's add up to 13, create a planet

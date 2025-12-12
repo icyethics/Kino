@@ -7,8 +7,8 @@ if not Cryptid then
         pos = {x = 0, y = 2},
         atlas = "kino_tarot",
         cost = 4,
-        unlocked = true,
-        discovered = true,
+        
+        discovered = false,
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {
@@ -35,8 +35,8 @@ if Cryptid and Talisman then
         pos = {x = 0, y = 2},
         atlas = "kino_tarot",
         cost = 4,
-        unlocked = true,
-        discovered = true,
+        
+        discovered = false,
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {
@@ -64,8 +64,8 @@ SMODS.Consumable {
     pos = {x = 1, y = 2},
     atlas = "kino_tarot",
     cost = 4,
-    unlocked = true,
-    discovered = true,
+    
+    discovered = false,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {key = 'kino_sports_seal', set = 'Other'}
         return {
@@ -102,8 +102,8 @@ SMODS.Consumable {
     pos = {x = 2, y = 2},
     atlas = "kino_tarot",
     cost = 4,
-    unlocked = true,
-    discovered = true,
+    
+    discovered = false,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {key = 'kino_family_seal', set = 'Other'}
         return {
@@ -140,8 +140,8 @@ SMODS.Consumable {
     pos = {x = 3, y = 2},
     atlas = "kino_tarot",
     cost = 4,
-    unlocked = true,
-    discovered = true,
+    
+    discovered = false,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {key = 'kino_adventure_seal', set = 'Other', vars = {0}}
         return {
@@ -178,8 +178,8 @@ SMODS.Consumable {
     pos = {x = 4, y = 2},
     atlas = "kino_tarot",
     cost = 4,
-    unlocked = true,
-    discovered = true,
+    
+    discovered = false,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {key = 'kino_thriller_seal', set = 'Other', vars = {1, 3}}
         return {
@@ -219,8 +219,8 @@ SMODS.Consumable {
     pos = {x = 5, y = 2},
     atlas = "kino_tarot",
     cost = 4,
-    unlocked = true,
-    discovered = true,
+    
+    discovered = false,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {key = 'kino_cheese_seal', set = 'Other'}
         return {
@@ -258,8 +258,8 @@ SMODS.Consumable {
     pos = {x = 0, y = 3},
     atlas = "kino_tarot",
     cost = 4,
-    unlocked = true,
-    discovered = true,
+    
+    discovered = false,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {key = 'kino_comedy_seal', set = 'Other'}
         return {

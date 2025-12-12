@@ -151,7 +151,7 @@ SMODS.Back {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'win' then
-            if to_big(G.GAME.dollars) >= 1000 then
+            if to_big(G.GAME.dollars) >= to_big(1000)then
                 unlock_card(self)
             end
         end
@@ -258,7 +258,6 @@ SMODS.Back {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count or 0
             }
         }
     end,
@@ -314,13 +313,23 @@ SMODS.Back {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count or 0
             }
         }
     end,
     check_for_unlock = function(self, args)
-        if args.type == 'kino_star_wars_unlocks' then
-            if G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count >= 100 then
+        if args.type == 'discover_amount' then
+            local _total_count = 0
+            local _discovered_count = 0
+            for i, _joker in pairs(G.P_CENTERS) do
+                if kino_quality_check(_joker, 'is_starwars') then
+                    _total_count = _total_count + 1
+                    if _joker.discovered then
+                        _discovered_count = _discovered_count + 1
+                    end
+                end
+            end
+
+            if _total_count == _discovered_count then
                 unlock_card(self)
             end
         end
@@ -344,7 +353,6 @@ SMODS.Back {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count or 0
             }
         }
     end,
@@ -388,13 +396,22 @@ SMODS.Back {
         }
     end,
     check_for_unlock = function(self, args)
-        if args.type == 'win' then
-            for _, _joker in ipairs(G.jokers.cards) do
-                if _joker.config.center == G.P_CENTERS.j_egg then
-                    if _joker.sell_cost >= 30 then
-                        unlock_card(self)
+        if args.type == 'discover_amount' then
+            local _total_count = 0
+            local _discovered_count = 0
+            for i, _tarot in pairs(G.P_CENTERS) do
+                if _tarot.set == "Tarot" and _tarot and _tarot.original_mod  and _tarot.original_mod.id == "kino" and _tarot.config.mod_conv then
+                    _total_count = _total_count + 1
+                    if _tarot.discovered then
+                        _discovered_count = _discovered_count + 1
                     end
                 end
+            end
+
+            if _total_count == _discovered_count then
+                print(_total_count)
+                print(_discovered_count)
+                unlock_card(self)
             end
         end
     end,
@@ -492,12 +509,14 @@ SMODS.Back {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_awards_given,
+                20
             }
         }
     end,
     check_for_unlock = function(self, args)
         if args.type == 'kino_awards_given' then
-            if G.PROFILES[G.SETTINGS.profile].kino_awards_given >= 5 then
+            if G.PROFILES[G.SETTINGS.profile].kino_awards_given >= 20 then
                 unlock_card(self)
             end
         end

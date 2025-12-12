@@ -26,7 +26,23 @@ SMODS.Back {
             end
             delay(0.6)
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_jumpscared_times and G.PROFILES[G.SETTINGS.profile].kino_jumpscared_times.count or 0
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_jumpscare' then
+            if G.PROFILES[G.SETTINGS.profile].kino_jumpscared_times and G.PROFILES[G.SETTINGS.profile].kino_jumpscared_times.count >= 10 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 
 SMODS.Back {
@@ -68,7 +84,33 @@ SMODS.Back {
                 end
              end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'discover_amount' then
+            local _total_count = 0
+            local _discovered_count = 0
+            for i, _joker in pairs(G.P_CENTERS) do
+                if kino_quality_check(_joker, 'is_vampire') then
+                    _total_count = _total_count + 1
+                    if _joker.discovered then
+                        _discovered_count = _discovered_count + 1
+                    end
+                end
+            end
+
+            if _total_count == _discovered_count then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 
 function Kino.kinoween_ban_list()

@@ -196,5 +196,16 @@ SMODS.Joker {
         if context.end_of_round and not context.repetition and not context.blueprint then
             card.ability.extra.a_xmult = card.ability.extra.base_value
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+    end,
 }

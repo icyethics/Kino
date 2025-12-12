@@ -9,7 +9,7 @@ SMODS.Consumable({
     cost = 0,
     atlas = "kino_bullets",
     unlocked = true,
-    discovered = true,
+    discovered = false,
     keep_on_use = function(self, card)
         return true
     end,

@@ -13,7 +13,7 @@ SMODS.Booster {
     order = 1,
     weight = 2,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     create_card = function(self, card)
         local _card = create_card("confection", G.pack_cards, nil, nil, true, true, nil, nil)
         if G.GAME.used_vouchers.v_kino_special_treats then
@@ -48,7 +48,7 @@ SMODS.Booster {
     order = 1,
     weight = 1,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     create_card = function(self, card)
         local _card = create_card("confection", G.pack_cards, nil, nil, true, true, nil, nil)
         if G.GAME.used_vouchers.v_kino_special_treats then
@@ -83,7 +83,7 @@ SMODS.Booster {
     order = 1,
     weight = 0.5,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     create_card = function(self, card)
         local _card = create_card("confection", G.pack_cards, nil, nil, true, true, nil, nil)
         if G.GAME.used_vouchers.v_kino_special_treats then

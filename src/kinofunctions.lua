@@ -36,14 +36,21 @@ function is_genre(joker, genre, debug)
         return true
     end
 
-    if joker.config.center.k_genre then
-        for i = 1, #joker.config.center.k_genre do
+    local _center
+    if joker.config and joker.config.center then
+        _center = joker.config.center
+    else
+        _center = joker
+    end
+
+    if _center.k_genre then
+        for i = 1, #_center.k_genre do
             if debug then
             
                 print("Checking: " .. genre)
-                print(joker.config.center.k_genre[i])
+                print(_center.k_genre[i])
             end
-            if genre == joker.config.center.k_genre[i] then
+            if genre == _center.k_genre[i] then
                 if debug then print("------ TRUE") end
                 return true
             end
@@ -76,6 +83,30 @@ function has_cast(joker, actor)
 
     for _, _castmember in ipairs(_center.cast) do
         if actor == _castmember then
+            return true
+        end
+    end
+
+    return false
+end
+
+function Kino.has_director(joker, director)
+    local _center
+
+    if joker.kino_joker then
+        _center = joker.kino_joker
+    else
+        if joker.config.center and joker.config.center.kino_joker then
+            _center = joker.config.center.kino_joker
+        else
+            _center = joker.kino_joker
+            return false
+        end 
+    end
+
+
+    for _, _director in ipairs(_center.directors) do
+        if director == _director then
             return true
         end
     end
@@ -824,7 +855,8 @@ G.C.KINO = {
     HEARTACHE = HEX("d586c6"),
     STRANGE_PLANET_COLOUR = HEX("1b9d6e"),
     BULLET = HEX("899dbb"),
-    POWER = HEX("8862ab")
+    POWER = HEX("8862ab"),
+    JUMPSCARE = HEX("856439")
 }
 
 SMODS.Gradient({
@@ -872,6 +904,7 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS["StrangePlanet"] = G.C.KINO.STRANGE_PLANET
     G.ARGS.LOC_COLOURS["Bullet"] = G.C.KINO.BULLET
     G.ARGS.LOC_COLOURS["Power"] = G.C.KINO.POWER
+    G.ARGS.LOC_COLOURS["Jumpscare"] = G.C.KINO.JUMPSCARE
 
     return genrecolors(_c, _default)
 end

@@ -79,7 +79,7 @@ Kino.complex_pool = function(_type, _rarity, _legendary, _append, starting_pool,
         pool_opts = pool_opts or {}
 
         if not (G.GAME.used_jokers[_cardobject.key] and not pool_opts.allow_duplicates and not allow_duplicates and not next(find_joker("Showman"))) and
-        (_cardobject.unlocked ~= false) and
+        (_legendary or (_cardobject.unlocked ~= false)) and
         G.playing_cards then
             -- Check for enhancement gates
             if _cardobject.enhancement_gate then

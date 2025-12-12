@@ -101,6 +101,32 @@ for _index, _info in ipairs(Kino.deck_list) do
         G.GAME.modifiers.genre_bonus[#G.GAME.modifiers.genre_bonus + 1] = _info.genre
         G.GAME.kino_genre_weight[_info.genre] = (1 + G.GAME.kino_genre_weight[_info.genre]) * 3
     end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                _info.genre,
+                3,
+                colours = {
+                    G.ARGS.LOC_COLOURS[_info.genre]
+                }
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            local _tally = 0
+            for i, _joker in ipairs(G.jokers.cards) do
+                if is_genre(_joker, _info.genre) then
+                    _tally = _tally + 1
+                end
+            end
+            if _tally >= 3 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 end
 -- Horror

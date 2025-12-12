@@ -58,5 +58,20 @@ SMODS.Joker {
         if context.post_confection_used and not context.blueprint then
             card.ability.extra.stacks = card.ability.extra.stacks + card.ability.extra.a_charge
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'chocolate_confection_eaten' then
+            if G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count >= 50 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

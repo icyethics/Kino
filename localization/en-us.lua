@@ -1146,6 +1146,10 @@ return {
                 text = {
                     "Create {C:attention}#1#{} Negative {C:planet}Planets{}",
                     "when {C:attention}Boss Blind{} is defeated",
+                },
+                unlock = {
+                    "Win a run with",
+                    "at least one {C:attention}Spielberg Joker"
                 }
             },
             j_kino_eternal_sunshine_of_the_spotless_mind = {
@@ -1967,6 +1971,10 @@ return {
                 text = {
                     "When you use {C:planet}Mars",
                     "create #1# {C:Confection}Confections"
+                },
+                unlock = {
+                    "Level up {C:attention}Four of a Kind",
+                    "to level {C:attention}10{} or higher"
                 }
             },
             j_kino_marty = {
@@ -2305,6 +2313,10 @@ return {
                 text = {
                     "{C:attention}Sci-Fi Jokers{} you own",
                     "are {C:attention}#1#%{} stronger"
+                },
+                unlock = {
+                    "Win a run with",
+                    "{C:attention}5 {C:Sci-Fi}Sci-Fi{} Jokers"
                 }
             },
             j_kino_paulblart_1 = {
@@ -2314,6 +2326,9 @@ return {
                     "{C:inactive}(Currently: #3# Charges)"},
                     {"Gain {C:attention}+#2# Charges{}", 
                     "when you eat a {C:Confection}Confection"}
+                },
+                unlock = {
+                    "Consume a {C:attention}Chocolate {C:Confection}Confection"
                 }
             },
             j_kino_peggy_sue_got_married = {
@@ -3283,6 +3298,10 @@ return {
                     "if it is metallic",
                     "gain {C:mult}+#2#{} Mult instead",
                     "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+                },
+                unlock = {
+                    "Discard {C:attention}5",
+                    "Enhanced cards at once"
                 }
             },
             j_kino_wall_street = {
@@ -3513,7 +3532,10 @@ return {
                     "When you use a {C:planet}Planet",
                     "{C:attention}Upgrade{} every {C:attention}Sci-Fi",
                     "{C:attention}card{} in your deck"
-                }
+                },
+                unlock={
+                    "{E:1,s:1.3}?????",
+                },
             },
             j_kino_indiana_jones_1 = {
                 name = "Raiders of the Lost Ark",
@@ -3522,7 +3544,10 @@ return {
                     "when a {C:attention}#3#{} scores,",
                     "card changes every round",
                     "{C:inactive}(Currently: {X:mult,C:white}X#2#{C:inactive} Mult)"
-                }
+                },
+                unlock={
+                    "{E:1,s:1.3}?????",
+                },
             },
             j_kino_barbie = {
                 name = "Barbie",
@@ -3531,7 +3556,10 @@ return {
                     "held in hand",
                     "gives {X:mult,C:white}X1{} + {X:mult,C:white}X#1#{} Mult",
                     "for each scoring {C:attention}Queen{}"
-                }
+                },
+                unlock={
+                    "{E:1,s:1.3}?????",
+                },
             },
             j_kino_ratatouille = {
                 name = "Ratatouille",
@@ -3539,7 +3567,10 @@ return {
                     "When you select a blind",
                     "destroy a non-active {C:Confection}Confection{} and {C:attention}Upgrade",
                     "every future {C:Confection}Confection{}'s values with {C:attention}+#1#"
-                }
+                },
+                unlock={
+                    "{E:1,s:1.3}?????",
+                },
             },
             j_kino_citizen_kane = {
                 name = "Citizen Kane",
@@ -3549,7 +3580,10 @@ return {
                     "and double the gain until",
                     "the end of the round",
                     "{C:inactive}(Currently: {X:mult,C:white}X#2#{C:inactive} Mult)"
-                }
+                },
+                unlock={
+                    "{E:1,s:1.3}?????",
+                },
             }
 
         },
@@ -4531,6 +4565,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with a {C:attention}The Slasher{}",
                     "and a {C:attention}The Demon"
+                },
+                unlock = {
+                    "Win a run with at least",
+                    "{C:attention}#2#{} {V:1}#1#{} Jokers"
                 }
             },
             b_kino_tech = {
@@ -4540,6 +4578,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}The Droid{}"
+                },
+                unlock = {
+                    "Win a run with at least",
+                    "{C:attention}#2#{} {V:1}#1#{} Jokers"
                 }
             },
             b_kino_flirty = {
@@ -4549,6 +4591,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}The Meetcute{}"
+                },
+                unlock = {
+                    "Win a run with at least",
+                    "{C:attention}#2#{} {V:1}#1#{} Jokers"
                 }
             },
             b_kino_questionable = {
@@ -4558,6 +4604,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}The Detective{}"
+                },
+                unlock = {
+                    "Win a run with at least",
+                    "{C:attention}#2#{} {V:1}#1#{} Jokers"
                 }
             },
             b_kino_enchanted = {
@@ -4567,6 +4617,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}The Witch{}"
+                },
+                unlock = {
+                    "Win a run with at least",
+                    "{C:attention}#2#{} {V:1}#1#{} Jokers"
                 }
             },
             b_kino_illicit = {
@@ -4576,6 +4630,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}The Gangster{}"
+                },
+                unlock = {
+                    "Win a run with at least",
+                    "{C:attention}#2#{} {V:1}#1#{} Jokers"
                 }
             },
             b_kino_dangerous = {
@@ -4585,6 +4643,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}The Soldier{}"
+                },
+                unlock = {
+                    "Win a run with at least",
+                    "{C:attention}#2#{} {V:1}#1#{} Jokers"
                 }
             },
             b_kino_heroic = {
@@ -4594,6 +4656,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}The Superhero{}"
+                },
+                unlock = {
+                    "Win a run with at least",
+                    "{C:attention}#2#{} {V:1}#1#{} Jokers"
                 }
             },
 
@@ -4604,6 +4670,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}Homerun{}"
+                },
+                unlock = {
+                    "Win a run with at least",
+                    "{C:attention}#2#{} {V:1}#1#{} Jokers"
                 }
             },
             b_kino_childlike = {
@@ -4613,6 +4683,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}Gathering{}"
+                },
+                unlock = {
+                    "Win a run with at least",
+                    "{C:attention}#2#{} {V:1}#1#{} Jokers"
                 }
             },
             b_kino_adventurous = {
@@ -4622,6 +4696,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}Artifact{}"
+                },
+                unlock = {
+                    "Win a run with at least",
+                    "{C:attention}#2#{} {V:1}#1#{} Jokers"
                 }
             },
             b_kino_highpressure = {
@@ -4631,6 +4709,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}Fright{}"
+                },
+                unlock = {
+                    "Win a run with at least",
+                    "{C:attention}#2#{} {V:1}#1#{} Jokers"
                 }
             },
             b_kino_funny = {
@@ -4640,6 +4722,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}Whimsy{}"
+                },
+                unlock = {
+                    "Win a run with at least",
+                    "{C:attention}#2#{} {V:1}#1#{} Jokers"
                 }
             },
 
@@ -4737,7 +4823,8 @@ return {
                     "and {C:attention}Award Show{} vouchers"
                 },
                 unlock = {
-                    "Give {C:attention}five{} awards"
+                    "Give {C:attention}20{} Awards",
+                    "{C:inactive}(#1#)"
                 }
             },
             b_kino_investment = {
@@ -4836,6 +4923,9 @@ return {
                     "Fill empty Consumable slots",
                     "with {C:Confection,T:c_kino_candycorn}Candy Corn",
                     "when {C:attention}Blind{} is selected"
+                },
+                unlock = {
+                    "Trigger {C:Jumpscare}Jumpscare{} {C:attention}10{} times"
                 }
             },
             b_kino_kinoween_vampire = {
@@ -4847,6 +4937,9 @@ return {
                     "Playing a single {C:attention}enhanced{}",
                     "card {C:Drain}drains{} it and boosts",
                     "a random joker with {C:Power}20% Power{}"
+                },
+                unlock = {
+                    "Discover every {C:Drain}Vampire{} Joker"
                 }
             },
 
@@ -5734,6 +5827,12 @@ return {
                     "{C:Confection}Confection{} cards appear",
                     "{C:attention}#1#X{} more frequently",
                     "in the shop",
+                },
+                unlock = {
+                    "Buy a total of",
+                    "{C:attention}#1#{C:Confection} Confection{} cards",
+                    "from the shop",
+                    "{C:inactive}(#2#)",
                 }
             },
             v_kino_special_treats = {
@@ -5750,6 +5849,11 @@ return {
                     "can stack into a {C:mult}Snack Bag",
                     "which takes up only",
                     "1 Consumable slot"
+                },
+                unlock = {
+                    "Consume {C:attention}25 {C:Confection}Confections",
+                    "with additional treats",
+                    "{C:inactive}(#1#)"
                 }
             },
             v_kino_awardsbait = {
@@ -5768,6 +5872,10 @@ return {
                     "an {C:money}Award{} when",
                     "a {C:attention}Boss Blind{} is",
                     "defeated"
+                },
+                unlock = {
+                    "Give {C:attention}5{} Awards",
+                    "{C:inactive}(#1#)"
                 }
             },
             v_kino_media_collection = {
@@ -5786,6 +5894,11 @@ return {
                     "synergy need {C:attention}1",
                     "less joker to",
                     "synergize"
+                },
+                unlock = {
+                    "Buy {C:attention}Media Collection{} ",
+                    "{C:attention}20{} times",
+                    "{C:inactive}(#1#)"
                 }
             },
             -- Cryptid crossmod Vouchers

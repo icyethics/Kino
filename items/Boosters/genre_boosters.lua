@@ -22,7 +22,7 @@ SMODS.Booster {
         return self.weight
     end,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     create_card = function(self, card)
         return create_card("Action", G.pack_cards, nil, nil, true, true, nil, "buf")
     end
@@ -52,7 +52,7 @@ SMODS.Booster {
         return self.weight
     end,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     create_card = function(self, card)
         return create_card("Comedy", G.pack_cards, nil, nil, true, true, nil, "buf")
     end
@@ -83,7 +83,7 @@ SMODS.Booster {
         return self.weight
     end,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     create_card = function(self, card)
         return create_card("Horror", G.pack_cards, nil, nil, true, true, nil, "buf")
     end
@@ -113,7 +113,7 @@ SMODS.Booster {
         return self.weight
     end,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     create_card = function(self, card)
         return create_card("Romance", G.pack_cards, nil, nil, true, true, nil, "buf")
     end
@@ -143,7 +143,7 @@ SMODS.Booster {
         return self.weight
     end,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     create_card = function(self, card)
         return create_card("Sci-fi", G.pack_cards, nil, nil, true, true, nil, "buf")
     end
@@ -173,7 +173,7 @@ SMODS.Booster {
         return self.weight
     end,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     create_card = function(self, card)
         return create_card("Fantasy", G.pack_cards, nil, nil, true, true, nil, "buf")
     end
@@ -193,7 +193,7 @@ SMODS.Booster {
     order = 1,
     weight = 1,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     in_pool = function(self, args)
         if not G.jokers or not G.jokers.cards then
             return false

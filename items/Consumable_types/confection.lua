@@ -38,6 +38,15 @@ Kino.confection_trigger = function(card)
 
     card.ability.extra.times_used = card.ability.extra.times_used + 1
     SMODS.calculate_context({confection_used = true, other_confection = card, times_used = card.ability.extra.times_used})
+    inc_career_stat('kino_confections_consumed', 1)
+
+    if card.ability.kino_goldleaf or card.ability.kino_extra_large or card.ability.kino_chocolate then
+        inc_career_stat('kino_confections_with_treats_consumed', 1)
+    end
+
+    if card.ability.kino_chocolate then
+        check_for_unlock({type="chocolate_confection_eaten"})
+    end
 
     if card.ability.kino_extra_large and
     card.ability.extra.times_used < 2 then

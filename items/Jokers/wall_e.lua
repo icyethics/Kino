@@ -65,5 +65,27 @@ SMODS.Joker {
                 }
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'discard_custom' and #args.cards >= 5 then
+            local _tally = 0
+            for j = 1, #args.cards do
+                if args.cards[j].config.center ~= G.P_CENTERS.c_base then 
+                    _tally = _tally + 1
+                end
+            end
+
+            if _tally >= 5 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

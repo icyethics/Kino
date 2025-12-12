@@ -121,7 +121,7 @@ SMODS.Joker {
                 end
             end
 
-            if _tally == 0 then
+            if _tally == 0 and G.GAME.round >= 2 then
                 unlock_card(self)
             end
         end

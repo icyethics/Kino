@@ -1,4 +1,6 @@
 function Kino.jumpscare(card)
+    inc_career_stat("kino_jumpscared_times", 1)
+    check_for_unlock({type="kino_jumpscare"})
     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
         -- Kino.change_counters(card, "kino_stun", Kino.jumpscare_stunned_duration)
         card:bb_counter_apply('counter_stun', 1)

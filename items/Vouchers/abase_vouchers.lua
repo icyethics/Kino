@@ -6,8 +6,6 @@ SMODS.Voucher {
     set = "Voucher",
     pos = { x = 0, y = 0 },
     config = {increase = 2},
-    discovered = true,
-    unlocked = true,
     available = true,
     cost = 10,
     loc_vars = function(self, info_queue)
@@ -28,8 +26,6 @@ SMODS.Voucher {
     set = "Voucher",
     pos = { x = 0, y = 1 },
     config = {increase = 2, total = 4},
-    discovered = true,
-    unlocked = true,
     available = true,
     requires = { "v_kino_confection_merchant"},
     cost = 10,
@@ -41,7 +37,24 @@ SMODS.Voucher {
     end,
     unredeem = function(self)
         G.GAME["confection_rate"]= G.GAME["confection_rate"]/ self.config.increase
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].c_confections_bought and G.PROFILES[G.SETTINGS.profile].c_confections_bought.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'career_stat' then
+            if G.PROFILES[G.SETTINGS.profile].c_confections_bought and G.PROFILES[G.SETTINGS.profile].c_confections_bought.count >= 50 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 
 SMODS.Voucher {
@@ -51,8 +64,6 @@ SMODS.Voucher {
     set = "Voucher",
     pos = { x = 1, y = 0 },
     config = {},
-    discovered = true,
-    unlocked = true,
     available = true,
     cost = 10,
     loc_vars = function(self, info_queue)
@@ -67,14 +78,29 @@ SMODS.Voucher {
     set = "Voucher",
     pos = { x = 1, y = 1 },
     config = {},
-    discovered = true,
-    unlocked = true,
     available = true,
     requires = { "v_kino_special_treats"},
     cost = 10,
     loc_vars = function(self, info_queue)
         return { vars = {} }
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_confections_with_treats_consumed and G.PROFILES[G.SETTINGS.profile].kino_confections_with_treats_consumed.count or 0,
+                25
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'career_stat' then
+            if G.PROFILES[G.SETTINGS.profile].kino_confections_with_treats_consumed and G.PROFILES[G.SETTINGS.profile].kino_confections_with_treats_consumed.count >= 50 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 end
 
@@ -86,8 +112,6 @@ SMODS.Voucher {
     set = "Voucher",
     pos = { x = 2, y = 0 },
     config = {},
-    discovered = true,
-    unlocked = true,
     available = true,
     cost = 10,
     loc_vars = function(self, info_queue)
@@ -102,8 +126,6 @@ SMODS.Voucher {
     set = "Voucher",
     pos = { x = 2, y = 1 },
     config = {},
-    discovered = true,
-    unlocked = true,
     available = true,
     requires = { "v_kino_awardsbait"},
     cost = 10,
@@ -129,7 +151,24 @@ SMODS.Voucher {
                 check_for_unlock({type = "kino_awards_given"})
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_awards_given and G.PROFILES[G.SETTINGS.profile].kino_awards_given.count or 0,
+                5
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'career_stat' then
+            if G.PROFILES[G.SETTINGS.profile].kino_awards_given and G.PROFILES[G.SETTINGS.profile].kino_awards_given.count >= 5 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 
 
@@ -140,14 +179,13 @@ SMODS.Voucher {
     set = "Voucher",
     pos = { x = 3, y = 0 },
     config = {},
-    discovered = true,
-    unlocked = true,
     available = true,
     cost = 10,
     loc_vars = function(self, info_queue)
         return { vars = {} }
     end,
     redeem = function(self)
+        check_for_unlock({type="kino_media_collection_redeem"})
         G.GAME.current_round["genre_synergy_treshold"] = G.GAME.current_round["genre_synergy_treshold"] - 1
         G.GAME.current_round["actors_check"] = G.GAME.current_round["actors_check"] - 1
         G.GAME.current_round["actors_table_offset"] = G.GAME.current_round["actors_table_offset"] + 1
@@ -166,8 +204,6 @@ SMODS.Voucher {
     set = "Voucher",
     pos = { x = 3, y = 1 },
     config = {},
-    discovered = true,
-    unlocked = true,
     available = true,
     requires = { "v_kino_media_collection"},
     cost = 10,
@@ -183,6 +219,23 @@ SMODS.Voucher {
         G.GAME.current_round["genre_synergy_treshold"] = G.GAME.current_round["genre_synergy_treshold"] + 1
         G.GAME.current_round["actors_check"] = G.GAME.current_round["actors_check"] + 1 
         G.GAME.current_round["actors_table_offset"] = G.GAME.current_round["actors_table_offset"] - 1
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].voucher_usage['v_kino_media_collection'] and G.PROFILES[G.SETTINGS.profile].voucher_usage['v_kino_media_collection'].count or 0,
+                20
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_media_collection_redeem' then
+            if G.PROFILES[G.SETTINGS.profile].voucher_usage['v_kino_media_collection'] and G.PROFILES[G.SETTINGS.profile].voucher_usage['v_kino_media_collection'].count >= 20 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 end

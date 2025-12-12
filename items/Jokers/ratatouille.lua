@@ -195,6 +195,16 @@ SMODS.Joker {
                 end
             end
         end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
 
-    end
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+    end,
 }
