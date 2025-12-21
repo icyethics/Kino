@@ -142,22 +142,24 @@ function Card:kino_synergy(card)
     return _return_count
 end
 
-
+local _DEBUGcount = 0
 function check_genre_synergy()
     -- check jokers, then if 5 of them share a genre, add a joker slot
     if not G.jokers or not G.jokers.cards or not kino_config.genre_synergy
-    or not G.GAME.current_round.genre_synergy_treshold then
+    or not G.GAME.current_round.genre_synergy_treshold 
+    or G.jokers.config.card_limit == 0 then
         return false
     end
+
 
     local five_of_genres = {}
 
     if not G.jokers.config.synergyslots then
         G.jokers.config.synergyslots = 0
+        G.GAME.kino_current_synergyslots = 0
     end
 
-    G.jokers.config.card_limit = G.jokers.config.card_limit - G.jokers.config.synergyslots
-
+    -- G.jokers.config.card_limit = G.jokers.config.card_limit - G.jokers.config.synergyslots
     for i, genre in ipairs(kino_genres) do
         local count = 0
         for j, joker in ipairs(G.jokers.cards) do
@@ -177,8 +179,8 @@ function check_genre_synergy()
             five_of_genres[#five_of_genres + 1] = genre
         end
     end
-
-    if #five_of_genres > G.jokers.config.synergyslots then
+    print(#G.jokers.cards)
+    if #five_of_genres > G.GAME.kino_current_synergyslots then
         -- Genre synergy!
         for i, genre in ipairs(five_of_genres) do
             local _text = localize('k_genre_synergy')
@@ -201,10 +203,21 @@ function check_genre_synergy()
         end
     end
 
-    G.jokers.config.synergyslots = (#five_of_genres * Kino.genre_synergy_slots)
-    G.jokers.config.card_limit = G.jokers.config.card_limit + G.jokers.config.synergyslots
-    if G.jokers.config.synergyslots > 0 then
-        G.jokers.config.card_limit_UI_text = " (+" .. G.jokers.config.synergyslots .. " Genre Bonus)"
+    
+    G.GAME.kino_current_synergyslots = (#five_of_genres * Kino.genre_synergy_slots)
+
+    if G.GAME.kino_current_synergyslots ~= #five_of_genres then
+        if G.GAME.kino_current_synergyslots > #five_of_genres then
+            local _dif = #five_of_genres - G.GAME.kino_current_synergyslots
+            G.jokers.config.card_limit = G.jokers.config.card_limit + _dif
+        elseif G.GAME.kino_current_synergyslots < #five_of_genres then
+            local _dif = G.GAME.kino_current_synergyslots - #five_of_genres
+            G.jokers.config.card_limit = G.jokers.config.card_limit - _dif
+        end
+    end
+    
+    if G.GAME.kino_current_synergyslots > 0 then
+        G.jokers.config.card_limit_UI_text = " (+" .. G.GAME.kino_current_synergyslots .. " Genre Bonus)"
     else
         G.jokers.config.card_limit_UI_text = ""
     end
