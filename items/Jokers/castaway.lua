@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 129,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_wet = true,
         extra = {
             bonus = 5
         }
@@ -27,7 +28,7 @@ SMODS.Joker {
         cast = {},
     },
     k_genre = {"Drama"},
-    is_water = true,
+    is_wet = true,
 
     loc_vars = function(self, info_queue, card)
         return {
@@ -53,5 +54,22 @@ SMODS.Joker {
                 card = context.scoring_hand[1]
             }          
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            if #G.playing_cards <= 26 then
+                unlock_card(self) 
+            end
+        end
+    end,
 }

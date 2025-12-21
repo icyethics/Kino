@@ -73,4 +73,52 @@ SMODS.Joker {
     update = function(self, card, front)
 
 	end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        local _nolan_total = 0
+        local _nolan_win = 0
+        for key, _joker in pairs(G.P_CENTERS) do
+            if _joker ~= self then
+                for j, _director in ipairs(self.kino_joker.directors) do
+                    if Kino.has_director(_joker, _director) then
+                        _nolan_total = _nolan_total + 1
+                        if get_joker_win_sticker(_joker) and get_joker_win_sticker(_joker) >0 then
+                            _nolan_win = _nolan_win + 1
+                        end
+                    end
+                end
+            end
+        end
+
+        return {
+            vars = {
+                _nolan_total,
+                _nolan_win
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            local _nolan_match = false
+            local _nolan_total = 0
+            local _nolan_win = 0
+            for key, _joker in pairs(G.P_CENTERS) do
+                if _joker ~= self then
+                    for j, _director in ipairs(self.kino_joker.directors) do
+                        if Kino.has_director(_joker, _director) then
+                            _nolan_match = true
+                            _nolan_total = _nolan_total + 1
+                            if get_joker_win_sticker(_joker) >0 then
+                                _nolan_win = _nolan_win + 1
+                            end
+                        end
+                    end
+                end
+            end
+            if _nolan_total == _nolan_win then
+                unlock_card(self)
+            end
+        end
+    end,
 }

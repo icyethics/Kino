@@ -77,5 +77,31 @@ SMODS.Joker {
                 mult = card.ability.extra.stacked_mult
             }
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        local _tally = 0
+        for _key, _count in pairs(G.PROFILES[G.SETTINGS.profile].consumeable_usage) do
+            _tally = _tally + _count.count
+        end
+        return {
+            vars = {
+                _tally,
+                100
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'career_stat' then
+            local _tally = 0
+            for _key, _count in pairs(G.PROFILES[G.SETTINGS.profile].consumeable_usage) do
+                _tally = _tally + _count.count
+            end
+
+            if _tally >= 100 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

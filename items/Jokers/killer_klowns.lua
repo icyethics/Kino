@@ -90,5 +90,33 @@ SMODS.Joker {
                     end}))
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            local _com, _unc, _rare, _leg
+            for i, _joker in ipairs(G.jokers.cards) do
+                if _joker.config.center.rarity == 1 then
+                    _com = true
+                elseif _joker.config.center.rarity == 2 then
+                    _unc = true
+                elseif _joker.config.center.rarity == 3 then
+                    _rare = true
+                elseif _joker.config.center.rarity == 4 then
+                    _leg = true
+                end
+            end
+
+            if _com and _unc and _rare and _leg then
+                unlock_card(self)
+            end
+        end
+    end,
 }

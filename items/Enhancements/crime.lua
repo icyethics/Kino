@@ -53,6 +53,8 @@ function Kino:steal_money(steal_num, earn_num)
         _target.ability.extra_value = _target.ability.extra_value - steal_num
         _target:set_cost()
         ease_dollars(earn_num)
+        inc_career_stat("kino_crime_card_earned", steal_num)
+        inc_career_stat("kino_crime_card_used", 1)
         return Kino:increase_money_stolen(steal_num)
     end
 

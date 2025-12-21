@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 0,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_pirate = true,
         extra = {
             factor = 1
         }

@@ -58,5 +58,32 @@ SMODS.Joker {
                 }
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'modify_deck' then
+            local _tally_2 = 0
+            local _queen = false
+            for i, _pcard in ipairs(G.playing_cards) do
+                if _pcard:get_id() == 2 then
+                    _tally_2 = _tally_2 + 1
+                elseif _pcard:get_id() == 12 then
+                    _queen = true
+                end
+            end
+
+            if _tally_2 >= 7 and _queen then
+                unlock_card(self)
+            end
+        end
+    end,
 }

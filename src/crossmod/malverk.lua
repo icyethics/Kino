@@ -281,7 +281,7 @@ AltTexture{
         'j_kino_fantasia',
         'j_kino_dinner_with_andre',
         'j_kino_oceans_11_2',
-        'j_kino_harry_potter_1',
+        'j_kino_nowyouseeme_1',
         'j_kino_clerks_1',
 
         -- Row 2

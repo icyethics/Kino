@@ -55,5 +55,21 @@ SMODS.Joker {
                 _target:set_ability("m_kino_crime", nil, true)
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_gangster and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_gangster.count or 0,
+                10
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'career_stat' and
+        G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_gangster and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_gangster.count >= 10 then
+            unlock_card(self)
+        end
+    end,
 }

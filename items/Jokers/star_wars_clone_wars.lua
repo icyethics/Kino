@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 0,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_starwars = true,
         extra = {
             mult = 5
         }
@@ -100,6 +101,30 @@ SMODS.Joker {
             return {
                 mult = _mult
             }
+        end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            local _star_wars_keys = {}
+            for i, _joker in ipairs(G.jokers.cards) do
+                if kino_quality_check(_joker, "is_starwars") then
+                    if _star_wars_keys[_joker.config.center.key] == true then
+                        unlock_card(self)
+                        break
+                    end
+                    _star_wars_keys[_joker.config.center.key] = true
+                end
+            end
         end
     end
 }

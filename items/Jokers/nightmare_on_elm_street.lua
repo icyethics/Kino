@@ -59,5 +59,29 @@ SMODS.Joker {
                 card = context.other_card
             }
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'modify_deck' then
+            local _tally = 0
+            for i, _pcard in ipairs(G.playing_cards) do
+                if (_pcard.config.center == G.P_CENTERS.m_kino_horror and _pcard.config.center == G.P_CENTERS.m_kino_monster) then
+                    _tally = _tally + 1
+                end
+            end
+
+            if _tally >= 10 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

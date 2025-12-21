@@ -55,5 +55,24 @@ SMODS.Joker {
                 mult = card.ability.extra.stacked_mult
             }
         end
-    end
+    end,
+    unlocked = false,
+    check_for_unlock = function(self, args)
+        if args.type == 'hand_contents' then
+            local _tally_jacks = 0
+            local _tally_fives = 0
+            for j = 1, #args.cards do
+                if args.cards[j]:get_id() == 11 then
+                    _tally_jacks = _tally_jacks + 1
+                elseif args.cards[j]:get_id() == 5 then
+                    _tally_fives = _tally_fives + 1
+                end
+            end
+            if _tally_jacks <= 3 and
+            _tally_fives <= 3 and 
+            _tally_jacks + _tally_fives == 5 then 
+                unlock_card(self)
+            end
+        end
+    end, 
 }

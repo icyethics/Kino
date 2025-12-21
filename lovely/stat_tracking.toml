@@ -1,0 +1,135 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+## Adds confection tracking
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''
+elseif c1.config.center.set == 'Tarot' then
+    inc_career_stat('c_tarots_bought', 1)
+'''
+position = 'after'
+match_indent = true
+payload = '''
+elseif c1.config.center.set == 'confection' then
+    inc_career_stat('c_confections_bought', 1)
+'''
+
+## Adds Booster tracking
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''
+if card.ability.set == 'Booster' and not nosave and G.STATE == G.STATES.SHOP then
+'''
+position = 'after'
+match_indent = true
+payload = '''
+    if card.config.center == G.P_CENTERS.p_kino_sci_fi_booster then
+        inc_career_stat('kino_scifi_packs_opened', 1)
+    elseif card.config.center == G.P_CENTERS.p_kino_action_booster then
+        inc_career_stat('kino_action_packs_opened', 1)
+    end
+'''   
+
+## Adds Reroll tracking
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''
+inc_career_stat('c_shop_rerolls', 1)
+'''
+position = 'after'
+match_indent = true
+payload = '''
+G.GAME.times_rerolled = G.GAME.times_rerolled or 1
+G.GAME.times_rerolled = G.GAME.times_rerolled + 1
+check_for_unlock({type="kino_reroll"})
+'''
+
+## When consumables are used
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = '''
+if not card.config.center.discovered then
+    discover_card(card)
+end
+'''
+position = 'after'
+match_indent = true
+payload = '''
+check_for_unlock({type="kino_item_used"})
+'''
+
+## When a joker is destroyed
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if flags.no_destroy then self.getting_sliced = nil; return end
+'''
+position = 'after'
+match_indent = true
+payload = '''
+inc_career_stat("kino_jokers_destroyed", 1)
+check_for_unlock({type="kino_jokers_destroyed"})
+'''
+
+## When payout happens
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''
+add_round_eval_row({name = 'bottom', dollars = dollars})
+'''
+position = 'before'
+match_indent = true
+payload = '''
+if dollars >= 50 then
+    check_for_unlock({type="kino_fifty_single_payout"})
+end
+
+if G.GAME.last_blind and G.GAME.last_blind.boss then
+    G.GAME.boss_blinds_defeated = G.GAME.boss_blinds_defeated or 1
+    G.GAME.boss_blinds_defeated = G.GAME.boss_blinds_defeated + 1
+    inc_career_stat("kino_boss_blind_defeated", 1)
+    check_for_unlock({type="kino_boss_blind_defeated",blind=G.GAME.last_blind.boss})
+end
+'''
+
+## When Jokers are sold
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+inc_career_stat('c_jokers_sold', 1)
+'''
+position = 'after'
+match_indent = true
+payload = '''
+G.GAME.jokers_sold_this_run = G.GAME.jokers_sold_this_run or 0
+G.GAME.jokers_sold_this_run = G.GAME.jokers_sold_this_run + 1
+'''
+
+## When cards are sold
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+inc_career_stat('c_cards_sold', 1)
+'''
+position = 'after'
+match_indent = true
+payload = '''
+G.GAME.cards_sold_this_run = G.GAME.cards_sold_this_run or 0
+G.GAME.cards_sold_this_run = G.GAME.cards_sold_this_run + 1
+'''
+
+
+
+

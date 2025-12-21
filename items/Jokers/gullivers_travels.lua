@@ -54,5 +54,24 @@ SMODS.Joker {
                 }
             end
         end
-    end
+    end,
+    unlocked = false,
+    check_for_unlock = function(self, args)
+        if args.type == 'hand_contents' then
+            local _tally_face = 0
+            local _tally_low = 0
+            for j = 1, #args.cards do
+                if args.cards[j]:is_face() and args.cards[j]:get_id() ~= 2  then
+                    _tally_face = _tally_face + 1
+                elseif args.cards[j]:get_id() == 2 then
+                    _tally_low = _tally_low + 1
+                end
+            end
+            if _tally_face <= 3 and
+            _tally_low <= 3 and 
+            _tally_face + _tally_low == 5 then 
+                unlock_card(self)
+            end
+        end
+    end, 
 }

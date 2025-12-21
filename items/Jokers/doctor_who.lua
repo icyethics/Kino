@@ -85,4 +85,21 @@ SMODS.Joker {
         end
         
     end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_strange_planets_used and G.PROFILES[G.SETTINGS.profile].kino_strange_planets_used.count or 0,
+                10
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'career_stat' then
+            if G.PROFILES[G.SETTINGS.profile].kino_strange_planets_used and G.PROFILES[G.SETTINGS.profile].kino_strange_planets_used.count >= 10 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

@@ -26,6 +26,10 @@ function Kino.drain_property(target, source, property_table)
     not target.debuff and not target.vampired then
         target.drained_enhancement = true
         if not property_table.Enhancement.debuff then
+            if target.config.center == G.P_CENTERS.m_kino_romance then
+                check_for_unlock({type="kino_drained_romance"})
+            end
+
             target:set_ability(G.P_CENTERS.c_base, nil, true)
         end
 

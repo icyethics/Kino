@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 60,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_wet = true,
         extra = {
             cur_chance = 1,
             chance = 5,
@@ -29,8 +30,7 @@ SMODS.Joker {
         cast = {},
     },
     k_genre = {"Thriller", "Sci-fi"},
-    is_water = true,
-
+    
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_jump_scare", vars = {tostring(Kino.jump_scare_mult)}}
         

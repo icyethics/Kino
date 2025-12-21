@@ -67,5 +67,21 @@ SMODS.Joker {
                 }
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'hand_contents' then
+            if G.GAME.current_round.hands_played == 0 and mult * hand_chips >= 300 and G.GAME.round == 1 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

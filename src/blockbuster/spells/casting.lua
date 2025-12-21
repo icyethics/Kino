@@ -18,6 +18,13 @@ function Blockbuster.cast_spell(spell_key, strength, repeatable)
     inc_career_stat("kino_spells_cast", 1)
     check_for_unlock({type = "bb_spell_cast", spell_key = spell_key, strength = strength})
 
+    if strength >= 4 then
+        inc_career_stat("kino_max_level_spells_cast", 1)
+    end
+    if strength <= 1 then
+        inc_career_stat("kino_min_level_spells_cast", 1)
+    end
+
     G.GAME.current_round.bb_spells_cast = G.GAME.current_round.bb_spells_cast + 1
     G.GAME.current_round.bb_last_spell_cast.key = spell_key
     G.GAME.current_round.bb_last_spell_cast.strength = strength

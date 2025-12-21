@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 174,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_pirate = true,
         extra = {
             money = 3,
             big_money = 300,
@@ -54,5 +55,21 @@ SMODS.Joker {
                 }
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_treasure_planet and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_treasure_planet.count or 0,
+                25
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'career_stat' and
+        G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_treasure_planet and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_treasure_planet.count >= 1 then
+            unlock_card(self)
+        end
+    end,
 }

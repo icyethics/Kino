@@ -49,6 +49,36 @@ SMODS.Joker {
                 return true end }))
             end
         end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'modify_deck' and G.GAME.round >= 2  then
+            local _hash = {}
+            local _hit_10 = false
+            for i, _pcard in ipairs(G.playing_cards) do
+                if not SMODS.has_no_suit(_pcard) and not SMODS.has_any_suit(_pcard) then
+                    _hash[_pcard.base.suit] = _hash[_pcard.base.suit] or {}
+                    _hash[_pcard.base.suit][to_string(_pcard:get_id())] = _hash[_pcard.base.suit][to_string(_pcard:get_id())] or 0
+                    _hash[_pcard.base.suit][to_string(_pcard:get_id())] = _hash[_pcard.base.suit][to_string(_pcard:get_id())] + 1
+                    if _hash[_pcard.base.suit][to_string(_pcard:get_id())] >= 10 then
+                        _hit_10 = true
+                        break
+                    end
+                end
+            end
 
-    end
+            if _hit_10 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

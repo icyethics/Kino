@@ -67,5 +67,29 @@ SMODS.Joker {
                 chips = card.ability.extra.stacked_chips
             }
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            local _tally = 0
+            for i, _joker in ipairs(G.jokers.cards) do
+                if is_genre(_joker, "Horror") then
+                    _tally = _tally + 1
+                end
+            end
+
+            if _tally >= 5 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

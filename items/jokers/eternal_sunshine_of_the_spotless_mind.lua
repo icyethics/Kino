@@ -65,5 +65,23 @@ SMODS.Joker {
                 x_mult = card.ability.extra.stacked_xmult
             }
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.playing_cards and Blockbuster.Counters.get_total_counters(nil, "Full Deck") or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'bb_counters_applied' then
+            if Blockbuster.Counters.get_total_counters(nil, "Full Deck") >= 50 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
+

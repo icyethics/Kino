@@ -42,17 +42,32 @@ SMODS.Joker {
         -- When a joker is destroyed, create a Death Star
         if context.joker_type_destroyed then
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                    G.E_MANAGER:add_event(Event({
-                        func = function()
-                            local _card = SMODS.create_card({type = "planet", area = G.consumeables, key = "c_kino_death_star", no_edition = true})
-                            _card:add_to_deck()
-                            G.consumeables:emplace(_card) 
-                            return true
-                        end}))
-                    card:juice_up()
-                    card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_plus_planet'), colour = G.C.PURPLE})
-                end
-            
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        local _card = SMODS.create_card({type = "planet", area = G.consumeables, key = "c_kino_death_star", no_edition = true})
+                        _card:add_to_deck()
+                        G.consumeables:emplace(_card) 
+                    return true
+                end}))
+                card:juice_up()
+                card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_plus_planet'), colour = G.C.PURPLE})
+            end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_death_star and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_death_star.count or 0,
+                10
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'career_stat' and
+        G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_death_star and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_death_star.count >= 10 then
+            unlock_card(self)
+        end
+    end,
 }

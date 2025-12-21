@@ -61,5 +61,22 @@ SMODS.Joker {
             G.GAME.kino_boss_mode.Big = false
             G.GAME.kino_boss_mode_odds.Big = 0
         end
-	end,
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_boss_blind_defeated and G.PROFILES[G.SETTINGS.profile].kino_boss_blind_defeated.count or 0,
+                100
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_boss_blind_defeated' then
+            if G.PROFILES[G.SETTINGS.profile].kino_boss_blind_defeated and G.PROFILES[G.SETTINGS.profile].kino_boss_blind_defeated.count >= 100 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

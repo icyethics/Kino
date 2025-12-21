@@ -39,5 +39,21 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- Face cards aren't sacrificed, but do count towards sacrifice
             
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'round_win' then
+            if G.GAME.kino_played_non_faces_this_round then
+                unlock_card(self)
+            end
+        end
+    end,
 }

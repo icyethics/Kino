@@ -77,7 +77,24 @@ SMODS.Joker {
                 mult = card.ability.extra.stacked_mult
             }
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].bb_counter_application and G.PROFILES[G.SETTINGS.profile].counter_kino_heartbreak.counter_ and G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_kino_heartbreak.count or 0,
+                20 
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'bb_counters_applied' then
+            if G.PROFILES[G.SETTINGS.profile].bb_counter_application and G.PROFILES[G.SETTINGS.profile].counter_kino_heartbreak.counter_ and G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_kino_heartbreak.count >= 20 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
 
 function Kino.reset_summer_rank()

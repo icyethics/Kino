@@ -68,6 +68,22 @@ SMODS.Joker {
         else
             card.children.activedisplay = nil
         end
-        
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_crime_card_used and G.PROFILES[G.SETTINGS.profile].kino_crime_card_used.count or 0,
+                5
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'career_stat' then
+            if G.PROFILES[G.SETTINGS.profile].kino_crime_card_used and G.PROFILES[G.SETTINGS.profile].kino_crime_card_used.count >= 50 then
+                unlock_card(self)
+            end
+        end
     end,
 }

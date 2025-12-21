@@ -90,5 +90,31 @@ SMODS.Joker {
                 card.ability.extra.codex, card.ability.extra.codex_solve = Kino.create_codex(nil, 'oppie')
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'discover_amount' then
+            local _total_count = 0
+            local _discovered_count = 0
+            for i, _confection in pairs(G.P_CENTERS) do
+                if _confection.set == "Spectral" then
+                    _total_count = _total_count + 1
+                    if _confection.discovered then
+                        _discovered_count = _discovered_count + 1
+                    end
+                end
+            end
+
+            if _total_count == _discovered_count then
+                unlock_card(self)
+            end
+        end
+    end,
 }

@@ -93,5 +93,4 @@ SMODS.Joker {
             unlock_card(self)
         end
     end,
-
 }

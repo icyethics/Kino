@@ -199,6 +199,15 @@ function display_egg_message()
 end
 
 function kino_quality_check(card, quality)
+    -- Hardcode vanilla jokers
+    if quality == "is_wet" and 
+    card and card.config and (
+        card.config.center == G.P_CENTERS.j_splash or
+        card.config.center == G.P_CENTERS.j_seltzer or
+        card.config.center == G.P_CENTERS.j_diet_cola) then
+        return true     
+    end
+
     if card and card.config and card.config[quality] and card.config[quality] ~= false then
         return true
     end
@@ -398,6 +407,10 @@ function Card:set_cost()
     if (self.ability and self.ability.set == "Booster" and G.GAME.kino_oceans_11) then
         self.cost = 0
     end
+    if G and G.GAME and G.GAME.current_round and G.GAME.round >= 1 then
+        check_for_unlock({type="kino_set_cost", card=self, value=self.cost})
+    end
+    
     
 end
 ------------------------------
@@ -413,6 +426,7 @@ function Card:add_to_deck(from_debuff)
         check_genre_synergy()
         check_actor_synergy()
     end
+    check_for_unlock({type="kino_add_to_deck", card=self})
 end
 
 local base_rmd = Card.remove_from_deck
@@ -506,6 +520,7 @@ function level_up_hand(card, hand, instant, amount, interstellar)
         SMODS.calculate_context({interstellar = true, planet = card})
     else
         luh(card, hand, instant, amount)
+        check_for_unlock({type="kino_level_up_hand"})
     end
 end
 

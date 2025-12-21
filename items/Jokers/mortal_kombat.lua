@@ -87,5 +87,32 @@ SMODS.Joker {
             _newtarget:bb_counter_apply("counter_kino_power", card.ability.extra.power_counters)
 
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].bb_counter_application and G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_retrigger and G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_retrigger.count or 0,
+                10 
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            if G.GAME.current_round.hands_played == 1 and
+                G.GAME.current_round.discards_left == G.GAME.round_resets.discards and
+                G.GAME.blind:get_type() == 'Boss' and
+                G.P_BLINDS[G.GAME.round_resets.blind_choices.Boss].config.blind.boss.showdown then
+                unlock_card(card)   
+            end
+        end
+        if args.type == 'bb_counters_applied' then
+            if G.PROFILES[G.SETTINGS.profile].bb_counter_application and G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_retrigger and G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_retrigger.count >= 10 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
+
+                

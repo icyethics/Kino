@@ -68,11 +68,7 @@ SMODS.Joker {
 
         if context.joker_main then
             for i, _joker in ipairs(G.jokers.cards) do
-                if _joker.config.center == G.P_CENTERS.j_splash or 
-                _joker.config.center.is_water or 
-                _joker.config.center == G.P_CENTERS.j_seltzer or
-                _joker.config.center == G.P_CENTERS.j_diet_cola 
-                then
+                if kino_quality_check(_joker, 'is_wet') then
                     G.E_MANAGER:add_event(Event({
                         func = function()
                             _joker:flip()
@@ -87,5 +83,29 @@ SMODS.Joker {
                 end
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            local _tally = 0
+            for i, _joker in ipairs(G.jokers.cards) do
+                if kino_quality_check(_joker, 'is_wet') then
+                    _tally = _tally + 1
+                end
+            end
+
+            if _tally >= 2 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

@@ -74,5 +74,19 @@ SMODS.Joker {
             card.ability.extra.cur_chips = math.max(card.ability.extra.start_chips - math.floor(card.ability.extra.start_chips * (card.ability.extra.time_spent / card.ability.extra.timing_quick_non)), 0)
             card.ability.extra.timer_num_non = card.ability.extra.cur_chips
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_beans_and_movies' then
+            unlock_card(self)
+        end
+    end,
 }

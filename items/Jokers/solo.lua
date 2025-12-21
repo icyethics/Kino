@@ -53,5 +53,22 @@ SMODS.Joker {
                 card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = localize('k_et')})
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'discover_amount' then
+            if G.P_CENTERS.j_kino_star_wars_iv.discovered and
+            G.P_CENTERS.j_kino_star_wars_v.discovered and
+            G.P_CENTERS.j_kino_star_wars_vi.discovered then
+                unlock_card(self)
+            end
+        end
+    end,
 }

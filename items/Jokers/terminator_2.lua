@@ -39,5 +39,21 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- When sci-fi cards upgrade, they gain x.1 mult instead
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'k_kino_terminator_destroyed' then
+            unlock_card(self)
+        end
+    end,
 }
+

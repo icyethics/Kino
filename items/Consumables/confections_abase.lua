@@ -2043,6 +2043,13 @@ SMODS.Consumable {
                 end
             end
 
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i] and G.jokers.cards[i].config and
+                G.jokers.cards[i].config.center and G.jokers.cards[i].config.center.k_genre then
+                    check_for_unlock({type="kino_beans_and_movies"})
+                end
+            end
+
             if card.ability.extra.cards_used == card.ability.extra.cards + G.GAME.confections_powerboost then
                 Kino.confection_trigger(card)
             end

@@ -74,6 +74,8 @@ SMODS.Enhancement {
                     card.ability.extra.suspect_rank = _table.rank
                     card.ability.extra.suspect_suit = _table.suit
                     card.ability.extra.suspect_rank_visual = _table.rank_visual
+
+                    check_for_unlock({type="kino_mystery_card_solved"})
                 end
             end
         end

@@ -51,6 +51,7 @@ Blockbuster.Counters.Counter {
 
     end,
     increment = function(self, card, number)
+        inc_career_stat("kino_blood_counters_drained", number)
     end
 }
 
@@ -74,7 +75,12 @@ Blockbuster.Counters.Counter {
 
     end,
     increment = function(self, card, number)
-    end
+    end,
+    add_counter = function(self, card, number)
+        if card.config.center == G.P_CENTERS.m_kino_sci_fi then
+            check_for_unlock({type="kino_heartbreak_sci_fi"})
+        end
+    end,
 }
 
 Blockbuster.Counters.Counter {
@@ -111,6 +117,9 @@ Blockbuster.Counters.Counter {
         }
     end,
     increment = function(self, card, number)
+        if (card.ability and card.ability.counter) and card.ability.counter.counter_num == 6 then
+            check_for_unlock({type = "kino_john_wick_unlock", card = card})
+        end
     end
 }
 
@@ -141,5 +150,8 @@ Blockbuster.Counters.Counter {
         }
     end,
     increment = function(self, card, number)
+        if (card.ability and card.ability.counter) and card.ability.counter.counter_num == 6 then
+            check_for_unlock({type = "kino_john_wick_unlock", card = card})
+        end
     end
 }

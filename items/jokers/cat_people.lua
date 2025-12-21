@@ -59,5 +59,33 @@ SMODS.Joker {
                 _pcard.kino_cat_people_trigger = nil
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {}
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' and G.jokers and G.jokers.cards then
+            local _true = false
+            for _i, _joker in ipairs(G.jokers.cards) do
+                if _joker.config.center == G.P_CENTERS.j_lucky_cat then
+                    _true = true
+                end
+            end
+
+            local _tally = 0
+            for _i, _pcard in ipairs(G.playing_cards) do
+                if _pcard.config.center == G.P_CENTERS.m_lucky then
+                    _tally = _tally + 1
+                end
+            end
+
+            if _true or _tally >= 10 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

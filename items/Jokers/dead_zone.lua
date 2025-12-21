@@ -69,5 +69,26 @@ SMODS.Joker {
         if context.end_of_round and context.cardarea == G.jokers then
             card.ability.extra.has_triggered = false
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {}
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' and G.jokers and G.jokers.cards then
+            local _true = false
+            for _i, _joker in ipairs(G.jokers.cards) do
+                if _joker.config.center == G.P_CENTERS.j_mr_bones then
+                    _true = true
+                end
+            end
+
+            if _true then
+                unlock_card(self)
+            end
+        end
+    end,
 }

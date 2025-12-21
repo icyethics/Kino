@@ -58,7 +58,9 @@ function Card:bb_counter_apply(counter_type, number, no_override, silent)
     end
 
     SMODS.calculate_context({bb_counter_applied = true, card = self, counter_type = self.counter, number = number})
-
+    Blockbuster.set_counter_usage(self.counter, number)
+    check_for_unlock({type="bb_counters_applied"})
+    
     self:bb_increment_counter(number, true, silent)
 end
 

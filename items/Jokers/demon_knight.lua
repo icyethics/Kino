@@ -52,5 +52,27 @@ SMODS.Joker {
                 end
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            if G.GAME.current_round.sacrifices_made <= 0 then
+                for i, _pcard in ipairs(G.playing_cards) do
+                    if _pcard.config.center == G.P_CENTERS.m_kino_demonic then
+                        unlock_card(self)
+                        break
+                    end
+                end
+            end
+        end
+    end,
 }

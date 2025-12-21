@@ -50,5 +50,23 @@ SMODS.Joker {
                 end
             end 
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_sci_fi_upgrades' then
+            if G.GAME.current_round.sci_fi_upgrades >= 40 then
+                unlock_card(self)
+            end
+        end
+    end,
+
+    
 }

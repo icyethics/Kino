@@ -44,5 +44,22 @@ SMODS.Joker {
                 message = localize('k_level_up_ex')
             }
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_level_up_hand' then
+            if to_big(G.GAME.hands["High Card"].level) >= to_big(10) then
+                unlock_card(self)
+            end
+        end
+    end,
 }

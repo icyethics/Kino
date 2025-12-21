@@ -59,5 +59,20 @@ SMODS.Joker {
         end
 
         card.ability.extra.kino_sci_fi_upgrade_inc = _num
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_droid_on_gold' then
+            unlock_card(self)
+        end
+    end,
 }

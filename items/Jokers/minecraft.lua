@@ -70,5 +70,34 @@ SMODS.Joker {
                 end
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'hand_contents' then
+            local _tally_gold = 0
+            local _tally_steel = 0
+            local _tally_stone = 0
+            for j = 1, #args.cards do
+                if args.cards[j].config.center == G.P_CENTERS.m_gold then
+                    _tally_gold = _tally_gold+1
+                end
+                if args.cards[j].config.center == G.P_CENTERS.m_steel then
+                    _tally_steel = _tally_steel+1
+                end
+                if args.cards[j].config.center == G.P_CENTERS.m_stone then
+                    _tally_stone = _tally_stone+1
+                end
+            end
+            if _tally_gold >= 3 and _tally_steel >= 3 and _tally_stone >= 3 then 
+                unlock_card(self)
+            end
+        end
+    end,
 }

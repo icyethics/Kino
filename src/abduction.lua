@@ -60,6 +60,8 @@ Kino.abduct_card = function(card, abducted_card)
         -- Kino.abduction:emplace(abducted_card)
 
     end
+    G.GAME.kino_abduction_count_in_one_hand = G.GAME.kino_abduction_count_in_one_hand or 0
+    G.GAME.kino_abduction_count_in_one_hand = G.GAME.kino_abduction_count_in_one_hand + 1
     SMODS.calculate_context({abduct = true, joker = card, abducted_card = abducted_card})
 end
 
@@ -130,7 +132,11 @@ Kino.gather_abducted_cards_by_abductor = function(card)
 end
 
 G.FUNCS.draw_from_area_to_abduction = function(e)
-    
+    if G.GAME.kino_abduction_count_in_one_hand and G.GAME.kino_abduction_count_in_one_hand >= 5 then
+        check_for_unlock({type="kino_five_cards_one_abduction"})
+    end
+
+    G.GAME.kino_abduction_count_in_one_hand = nil
     G.E_MANAGER:add_event(Event({
         trigger = 'before',
         delay = 0.1,

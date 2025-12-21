@@ -55,7 +55,7 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'chip_score' then
-            if 1000000000 <= args.chips then
+            if to_big(1000000000) <= to_big(args.chips) then
                 unlock_card(self)
             end
         end

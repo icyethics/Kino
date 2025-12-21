@@ -49,5 +49,22 @@ SMODS.Joker {
         if context.abduct and not context.blueprint then
             card.ability.extra.stacked_xmult = card.ability.extra.stacked_xmult + card.ability.extra.a_xmult
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino and G.PROFILES[G.SETTINGS.profile].kino_cards_abducted.count or 0,
+                1
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_cards_abducted' then
+            if G.PROFILES[G.SETTINGS.profile].kino_cards_abducted and G.PROFILES[G.SETTINGS.profile].kino_cards_abducted.count >= 1 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

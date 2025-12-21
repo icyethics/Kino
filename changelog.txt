@@ -78,6 +78,7 @@ Reworked Jokers:
 Balance Changes:
 - Angel Hearts: Only doubles mult on first trigger of any specific card
 - Baby Driver: Mult > Chips
+- Ego the Living Planet: Scaling has been significantly reduced
 
 Action Card Rework:
 - John Wick
@@ -135,9 +136,11 @@ New Confection:
 - Banana
 
 New Deck:
+- Videostore Deck
 - Cosmonaut's Deck
 
 New Sleeve:
+- Videostore Sleeve
 - Cosmonaut's Sleeve
 
 Unlock Conditions:
@@ -168,7 +171,7 @@ Rare Joker (5):
 - Batman & Robin
 
 Description Rework:
-(STOPPED AT: Hardcore Henry)
+(STOPPED AT: Taken)
 - 6 Underground
 - 9
 - 12 Monkeys
@@ -233,7 +236,47 @@ Description Rework:
 - Get Out
 - Ghost Rider
 - Goodfellas
-
+- Heart Eyes
+- Hellboy
+- Her
+- Hit Man
+- Home Alone
+- Hook
+- Hot Fuzz
+- House of Gucci
+- Hustle
+- Inception
+- Incredible Hulk
+- Independence Day
+- Insidious
+- Interstellar
+- Iron Giant
+- Iron Lady
+- Iron Man
+- Joe Dirt
+- Jurassic Park
+- Kiki's Delivery
+- Kindergarten Cop
+- Kraven the Hunter
+- Kung Fu Panda
+- La La Land
+- Limitless
+- Lord of the Rings
+- M3gan
+- Mafia Mamma
+- Mamma Mia
+- Man Who Laughs
+- Mars Attacks
+- Martian
+- Memento
+- Menu
+- Minecraft
+- Moneyball
+- Mortal Kombat
+- Moulin Rouge
+- Mr. & Mrs. Smith
+- Muppets Treasure Island
+- Nightcrawler
 
 
 Style Guide Assesment:
@@ -243,6 +286,12 @@ Avatar
 Baby Driver
 Dark Crystal (change random spell to Wild Wild spell?)
 Ghostbusters
+Now You See Me
+Hellraiser (All codex jokers, really)
+Krazy House
+Lethal Weapon - (ALL Hand stacking jokers)
+Shopaholic
+Sound of Music
 
 V 0.11-HALLOWEENd:
 

@@ -44,5 +44,26 @@ SMODS.Joker {
                 card = context.other_card
             }
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'hand_contents' then
+            local _tally = 0
+            for j = 1, #args.cards do
+                if args.cards[j].config.center == G.P_CENTERS.m_kino_romance then
+                    _tally = _tally+1
+                end
+            end
+            if args.cards == 2 and _tally == 2 then 
+                unlock_card(self)
+            end
+        end
+    end,
 }

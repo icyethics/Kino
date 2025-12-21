@@ -159,11 +159,13 @@ function Blockbuster.value_manipulation_vanilla_card(card, source, num)
         
         if not card.ability.base then
             card.ability.base = card.ability.Xmult
+            card.ability.base = card.ability.x_mult
         end
 
         card.ability.Xmult = card.ability.base
         for source, mult in pairs(_multipliers) do
             card.ability.Xmult = card.ability.Xmult * mult
+            card.ability.x_mult = card.ability.x_mult * mult
         end
     end
     

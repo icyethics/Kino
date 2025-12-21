@@ -84,5 +84,23 @@ SMODS.Joker {
             end
             juice_card_until(card, eval, true)
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_reroll' then
+            if G.GAME.times_rerolled and G.GAME.times_rerolled >= 100 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
+

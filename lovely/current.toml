@@ -226,21 +226,7 @@ payload = '''
 self.config.center.can_be_sold ~= false and
 '''
 
-## Adds confection tracking
-[[patches]]
-[patches.pattern]
-target = "functions/button_callbacks.lua"
-pattern = '''
-elseif c1.config.center.set == 'Tarot' then
-    inc_career_stat('c_tarots_bought', 1)
-'''
-position = 'after'
-match_indent = true
-payload = '''
-elseif c1.config.center.set == 'confection' then
-    inc_career_stat('c_confections_bought', 1)
-'''
-            
+
 ## Adds an additional check for :can_sell_card so
 ## some cards cannot be sold
 [[patches]]

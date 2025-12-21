@@ -8,22 +8,22 @@ function Blockbuster.Counters.get_total_counters(types, targets)
         if type(types) == "table" then
             for _index, _entry in ipairs(types) do
                 if type(_entry) == "string" then
-                    countertypestocheck[#countertypestocheck] = G.P_COUNTERS[_entry]
+                    countertypestocheck[#countertypestocheck + 1] = G.P_COUNTERS[_entry]
                 else
-                    countertypestocheck[#countertypestocheck] = _entry
+                    countertypestocheck[#countertypestocheck + 1] = _entry
                 end
             end
         else 
             if type(types) == "string" then
-                countertypestocheck[#countertypestocheck] = G.P_COUNTERS[types]
+                countertypestocheck[#countertypestocheck + 1] = G.P_COUNTERS[types]
             else
-                countertypestocheck[#countertypestocheck] = types
+                countertypestocheck[#countertypestocheck + 1] = types
             end
         end
 
     else
         for _key, _entry in pairs(G.P_COUNTERS) do
-            countertypestocheck[#countertypestocheck] = _entry
+            countertypestocheck[#countertypestocheck + 1] = _entry
         end
     end
 
@@ -35,6 +35,15 @@ function Blockbuster.Counters.get_total_counters(types, targets)
             if _joker.counter then
                 _total_counters = _total_counters + 1
                 _total_counter_values = _total_counter_values + _joker.ability.counter.counter_num
+            end
+        end
+    elseif targets == "Full Deck" then
+        for _index, _pcard in ipairs(G.playing_cards) do
+            for _index2, _counter in ipairs(countertypestocheck) do
+                if Blockbuster.Counters.is_counter(_pcard, _counter) then
+                    _total_counters = _total_counters + 1
+                    _total_counter_values = _total_counter_values + _pcard.ability.counter.counter_num
+                end
             end
         end
     end
@@ -166,4 +175,34 @@ function Blockbuster.Counters.get_counter_pool(counter_class_table, key_only)
         end
     end
     return _returntable
+end
+
+function Blockbuster.set_counter_usage(counter, number)
+
+    if not G.GAME.counter_application then
+        G.GAME.counter_application = {}
+        G.GAME.counter_application.all = 0
+    end
+
+    if not G.PROFILES[G.SETTINGS.profile].bb_counter_application then
+        G.PROFILES[G.SETTINGS.profile].bb_counter_application = {}
+        G.PROFILES[G.SETTINGS.profile].bb_counter_application.all = 0
+    end
+
+    if G.PROFILES[G.SETTINGS.profile].bb_counter_application[counter] then
+        G.PROFILES[G.SETTINGS.profile].bb_counter_application[counter].count = G.PROFILES[G.SETTINGS.profile].bb_counter_application[counter].count + number
+    else
+        G.PROFILES[G.SETTINGS.profile].bb_counter_application[counter] = {count = number}
+    end
+
+    if G.GAME.counter_application[counter] then
+        G.GAME.counter_application[counter].count = G.GAME.counter_application[counter].count + number
+    else
+        G.GAME.counter_application[counter] = {count = number}
+    end
+
+    G.GAME.counter_application.all = G.GAME.counter_application.all + number
+    G.PROFILES[G.SETTINGS.profile].bb_counter_application.all = G.PROFILES[G.SETTINGS.profile].bb_counter_application.all + number
+
+    G:save_settings()
 end

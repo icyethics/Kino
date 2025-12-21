@@ -72,7 +72,7 @@ SMODS.Joker {
         }
     end,
     check_for_unlock = function(self, args)
-        if args.type == 'modify_deck' then
+        if args.type == 'modify_deck' and G.GAME.round >= 2  then
             local _tally = 0
 
             for i, _pcard in ipairs(G.playing_cards) do

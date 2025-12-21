@@ -72,5 +72,22 @@ SMODS.Joker {
                 x_mult = _xmult
             }
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_romance_jokers_destroyed and G.PROFILES[G.SETTINGS.profile].kino_romance_jokers_destroyed.count or 0,
+                5
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'career_stat' then
+            if G.PROFILES[G.SETTINGS.profile].kino_romance_jokers_destroyed and G.PROFILES[G.SETTINGS.profile].kino_romance_jokers_destroyed.count >= 5 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

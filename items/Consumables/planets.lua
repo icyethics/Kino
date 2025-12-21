@@ -20,8 +20,8 @@ SMODS.Consumable {
         extra = {
             chips = 5,
             mult = 1,
-            a_chips = 5,
-            a_mult = 1,
+            a_chips = 1,
+            a_mult = 0.2,
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -45,7 +45,7 @@ SMODS.Consumable {
         return math.min(0.25 + _bonus, 1)
     end,
     use = function(self, card, area, copier)
-        check_for_unlock({type = 'kino_strange_planet'})
+        
         -- Select random planet
         local _hand = get_random_hand()
         upgrade_hand(card, _hand, card.ability.extra.chips, card.ability.extra.mult)
@@ -53,6 +53,12 @@ SMODS.Consumable {
 			{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
 			{ mult = 0, chips = 0, handname = "", level = "" }
 		)
+
+        G.GAME.consumeable_usage_total.kino_ego = G.GAME.consumeable_usage_total.kino_ego or 0
+        G.GAME.consumeable_usage_total.kino_ego = G.GAME.consumeable_usage_total.kino_ego + 1
+        if G.GAME.consumeable_usage_total.kino_ego >= 5 then
+            check_for_unlock({type="kino_ego_usage_20"})
+        end
 
         -- Terraform another consumable
         if G.consumeables and G.consumeables.cards and #G.consumeables.cards > 0 then
@@ -115,7 +121,7 @@ SMODS.Consumable {
         return 0.3
     end,
     use = function(self, card, area, copier)
-        check_for_unlock({type = 'kino_strange_planet'})
+        
         local _hand, _tally = nil, -1
 
 		for k, v in ipairs(G.handlist) do
@@ -179,7 +185,7 @@ SMODS.Consumable {
         return 0.5
     end,
     use = function(self, card, area, copier)
-        check_for_unlock({type = 'kino_strange_planet'})
+        
         local _hands = get_least_played_hand()
         local _hand =  pseudorandom_element(_hands, pseudoseed("arrakis"))
 
@@ -230,7 +236,7 @@ SMODS.Consumable {
         return 0.1
     end,
     use = function(self, card, area, copier)
-        check_for_unlock({type = 'kino_strange_planet'})
+        
         local _hand, _tally = nil, -1
 
 		for k, v in ipairs(G.handlist) do
@@ -295,7 +301,7 @@ SMODS.Consumable {
         }
     end,
     use = function(self, card, area, copier)
-        check_for_unlock({type = 'kino_strange_planet'})
+        
         local _hand = get_random_hand()
         local _x_mult = G.GAME.current_round.sci_fi_upgrades_last_round * card.ability.extra.x_mult
         upgrade_hand(card, _hand, 0, 0, 0, _x_mult)
@@ -372,7 +378,7 @@ SMODS.Consumable {
 			{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
 			{ mult = 0, chips = 0, handname = "", level = "" }
         )
-        check_for_unlock({type = 'kino_strange_planet'})
+        
         check_for_unlock({type = 'kino_lv426_usage'})
     end,
     set_card_type_badge = Kino.create_planet_badge
@@ -414,7 +420,7 @@ SMODS.Consumable {
         }
     end,
     use = function(self, card, area, copier)
-        check_for_unlock({type = 'kino_strange_planet'})
+        
         local _count = math.floor((card.ability.extra.money_seen_non / card.ability.extra.money_threshold) + 0.5)
         for i = 1, _count do
             local _hand = get_random_hand()
@@ -466,7 +472,7 @@ SMODS.Consumable {
         }
     end,
     use = function(self, card, area, copier)
-        check_for_unlock({type = 'kino_strange_planet'})
+        
         local _mult = card.ability.extra.mult * card.ability.extra.stacks
         card_eval_status_text(card, 'extra', nil, nil, nil,
             { message = localize('k_kino_vulcan_use'),  colour = G.C.BLACK })
@@ -552,7 +558,7 @@ SMODS.Consumable {
         }
     end,
     use = function(self, card, area, copier)
-        check_for_unlock({type = 'kino_strange_planet'})
+        
         local _count = 0
         for i, _spell in pairs(card.ability.extra.list_of_spells) do
             _count = _count + 1
@@ -605,7 +611,7 @@ SMODS.Consumable {
         }
     end,
     use = function(self, card, area, copier)
-        check_for_unlock({type = 'kino_strange_planet'})
+        
         -- Flip all jokers back
         for _, joker in ipairs(G.jokers.cards) do
             if joker.facing == 'back' then
@@ -742,7 +748,7 @@ SMODS.Consumable {
         }
     end,
     use = function(self, card, area, copier)
-        check_for_unlock({type = 'kino_strange_planet'})
+        
         -- Poison
         for i = 1, card.ability.extra.stacks * card.ability.extra.poison do
             local _valid_targets = Blockbuster.Counters.get_counter_targets(G.playing_cards, {"none", "match"}, "counter_poison")
@@ -823,7 +829,7 @@ SMODS.Consumable {
         }
     end,
     use = function(self, card, area, copier)
-        check_for_unlock({type = 'kino_strange_planet'})
+        
         -- Find most played hand
         local _eligible_targets = {}
 
@@ -837,6 +843,10 @@ SMODS.Consumable {
         local _target = pseudorandom_element(_eligible_targets, pseudoseed("kino_death_star"))
         -- local _target = G.jokers.cards[1]
         _target.getting_sliced = true
+
+        if kino_quality_check(_target, "is_star_wars") then
+            check_for_unlock({type="kino_destroy_star_wars_with_death_star"})
+        end
         _target:start_dissolve()
 
         for k, v in ipairs(G.handlist) do

@@ -57,5 +57,19 @@ SMODS.Joker {
             
             
         end
-    end
+    end,
+    unlocked = false,
+    check_for_unlock = function(self, args)
+        if args.type == 'hand_contents' then
+            local tally = 0
+            for j = 1, #args.cards do
+                if args.cards[j].config.center == G.P_CENTERS.m_stone then
+                    tally = tally+1
+                end
+            end
+            if tally >= 5 then 
+                unlock_card(self)
+            end
+        end
+    end, 
 }

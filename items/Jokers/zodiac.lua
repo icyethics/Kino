@@ -93,6 +93,30 @@ SMODS.Joker {
             G.GAME.blind.chips = math.max((G.GAME.blind.chips * ((card.ability.extra.lower_by) / 100)), 0)
             G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
         end
-        
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'win' then
+            local _fincher_match = false
+            for i, _joker in ipairs(G.jokers.cards) do
+                for j, _director in ipairs(self.kino_joker.directors) do
+                    if Kino.has_director(_joker, _director) then
+                        _fincher_match = true
+                        break
+                    end
+                end
+            end
+
+            if _fincher_match then
+                unlock_card(self)
+            end
+        end
+    end,
 }

@@ -46,7 +46,7 @@ Blockbuster.Playset.ContentPackage {
         j_kino_dungeons_and_dragons_4 = true,
         j_kino_encanto = true,
         j_kino_fantasia = true,
-        j_kino_harry_potter_1 = true,
+        j_kino_nowyouseeme_1 = true,
         j_kino_shang_chi = true,
         j_kino_shazam_1 = true,
         j_kino_smurfs_1 = true,

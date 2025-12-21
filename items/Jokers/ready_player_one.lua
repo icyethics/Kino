@@ -59,5 +59,32 @@ SMODS.Joker {
                 }
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'kino_add_to_deck' then
+            local _tally = 0
+            for i, _joker in ipairs(G.jokers.cards) do
+                if _joker.config.center.kino_joker then
+                    local _joker_date = Card:get_release(_joker)
+                    if _joker_date[1] >= 1970 and _joker_date[1] <= 1989 then
+                        _tally = _tally + 1
+                    end
+                end
+            end
+            
+            if _tally >= 3 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 13,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_wet = true,
         extra = {
             perma_mult = 1
         }
@@ -27,7 +28,7 @@ SMODS.Joker {
         cast = {},
     },
     k_genre = {"Horror", "Romance", "Fantasy"},
-    is_water = true,
+    is_wet = true,
 
     loc_vars = function(self, info_queue, card)
         return {

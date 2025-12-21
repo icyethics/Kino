@@ -83,7 +83,7 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'hand_contents' then
-                local tally = 0
+            local tally = 0
             for j = 1, #args.cards do
                 if args.cards[j]:get_id() == 12 and 
                 (args.cards[j]:is_suit('Clubs') or args.cards[j]:is_suit('Spades')) then

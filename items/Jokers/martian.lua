@@ -63,7 +63,7 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'modify_deck' then
-            if G.GAME.hands["Four of a Kind"].level >= 10 then
+            if G.GAME.hands["Four of a Kind"].level >= to_big(10) then
                 unlock_card(self)
             end
         end

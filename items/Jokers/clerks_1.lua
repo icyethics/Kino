@@ -55,5 +55,29 @@ SMODS.Joker {
                 }
             end
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'hand_contents' then
+            local tally = 0
+            for j = 1, #args.cards do
+                if SMODS.has_no_rank(args.cards[j]) then
+                else
+                    tally = args.cards[j]:get_id()
+                end
+            end
+            if tally >= 37 then 
+                unlock_card(self)
+            end
+        end
+    end,
 }

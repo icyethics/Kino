@@ -61,7 +61,7 @@ SMODS.Joker {
         -- Whenever a fantasy card casts a spell
         if context.bb_cast_spell and context.repeatable then
             card_eval_status_text(card, 'extra', nil, nil, nil,
-            { message = localize('k_harry_potter'), colour = G.C.PURPLE })
+            { message = localize('k_nowyouseeme'), colour = G.C.PURPLE })
             return Blockbuster.cast_spell(context.spell_key, context.strength - 1, false)
             -- return true
         end

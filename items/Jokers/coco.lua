@@ -39,5 +39,21 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- Death is twice as common, and can select an additional card
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_death and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_death.count or 0,
+                25
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'career_stat' and
+        G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_death and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_death.count >= 25 then
+            unlock_card(self)
+        end
+    end,
 }

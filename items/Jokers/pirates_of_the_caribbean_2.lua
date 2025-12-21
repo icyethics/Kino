@@ -3,6 +3,7 @@ SMODS.Joker {
     order = 0,
     generate_ui = Kino.generate_info_ui,
     config = {
+        is_pirate = true,
         extra = {
             a_xmult = 0.1
         }
@@ -44,5 +45,22 @@ SMODS.Joker {
                 x_mult = 1 + (card.ability.extra.a_xmult * _value)
             }
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_unscored_cards_played and G.PROFILES[G.SETTINGS.profile].kino_unscored_cards_played.count or 0,
+                300
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'career_stat' then
+            if G.PROFILES[G.SETTINGS.profile].kino_unscored_cards_played and G.PROFILES[G.SETTINGS.profile].kino_unscored_cards_played.count >= 300 then
+                unlock_card(self)
+            end
+        end
+    end,
 }

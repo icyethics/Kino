@@ -1,5 +1,5 @@
 SMODS.Joker {
-    key = "harry_potter_1",
+    key = "nowyouseeme_1",
     order = 185,
     generate_ui = Kino.generate_info_ui,
     config = {
@@ -49,7 +49,7 @@ SMODS.Joker {
         if context.joker_main and G.GAME.current_round.hands_left == 0 then
             card.ability.extra.cast_spell = true
             card_eval_status_text(card, 'extra', nil, nil, nil,
-                { message = localize('k_harry_potter'), colour = G.C.PURPLE })
+                { message = localize('k_nowyouseeme'), colour = G.C.PURPLE })
             return Blockbuster.cast_spell("spell_Wild_Wild", card.ability.extra.stacks)
         end
 
@@ -59,5 +59,23 @@ SMODS.Joker {
             card.ability.extra.cast_spell = false
             card.ability.extra.stacks = 0
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count or 0,
+                20
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'career_stat' then
+            if G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count >= 20 then
+                unlock_card(self)
+            end
+        end
+    end,
 }
+

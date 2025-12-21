@@ -97,7 +97,7 @@ Blockbuster.ValueManipulation.CompatStandard{
         -- 30
         j_kino_guardians_of_the_galaxy_2 = true,
         j_kino_guardians_of_the_galaxy_3 = true,
-        j_kino_harry_potter_1 = true,
+        j_kino_nowyouseeme_1 = true,
         j_kino_her = true,
         j_kino_hook = true,
 

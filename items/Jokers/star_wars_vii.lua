@@ -46,5 +46,25 @@ SMODS.Joker {
                 mult = _level
             }
         end
-    end
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
+                50
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args.type == 'modify_jokers' then
+            for i, _joker in ipairs(G.jokers.cards) do
+                if kino_quality_check(_joker, "is_starwars") and _joker.edition and _joker.edition.polychrome then
+                    unlock_card(self)
+                    break
+                end
+            end
+        end
+    end,
 }
