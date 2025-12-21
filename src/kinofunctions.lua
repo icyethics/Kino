@@ -358,7 +358,7 @@ function Card:add_to_deck(from_debuff)
     --     check_genre_match()            
     -- end
     if not from_debuff then
-        -- check_genre_synergy()
+        check_genre_synergy()
         check_actor_synergy()
     end
 end
@@ -371,7 +371,7 @@ function Card:remove_from_deck(from_debuff)
     --     check_genre_match()            
     -- end
     if not from_debuff then
-        -- check_genre_synergy()
+        check_genre_synergy()
         check_actor_synergy()
     end
 end

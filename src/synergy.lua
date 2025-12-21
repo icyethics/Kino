@@ -144,6 +144,9 @@ end
 
 local _DEBUGcount = 0
 function check_genre_synergy()
+    if true then
+        return true
+    end
     -- check jokers, then if 5 of them share a genre, add a joker slot
     if not G.jokers or not G.jokers.cards or not kino_config.genre_synergy
     or not G.GAME.current_round.genre_synergy_treshold 
