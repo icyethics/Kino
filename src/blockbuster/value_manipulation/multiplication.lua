@@ -144,15 +144,24 @@ function Blockbuster.change_values_in_table(card, value_table, reference_table, 
             -- check the values
             if Blockbuster.check_variable_validity_for_mult(name, standard, override) and type(value_table[name]) == "number" and
             reference_table[name] then
+                print(name .. ": VALUE START")
                 
                 -- Keeps into account any changes that originated from other systems than this one
                 local _current_value = value_table[name]
                 local _no_changes_result = reference_table[name] * (card.ability.last_multiplication ~= 0 and card.ability.last_multiplication or 1)
                 local _calculate_from = reference_table[name] + (_current_value - _no_changes_result) 
-
+                print(_current_value)
+                print(_no_changes_result)
+                print(_calculate_from)
+                print("INITIALISM")
+                
+                print(value_table[name])
                 value_table[name] = _calculate_from
+                print(value_table[name])
                 for source, mult in pairs(multiplier_table) do
+                    print("PROCESSING: " .. source .. "/" .. mult)
                     value_table[name] = value_table[name] * mult
+                    print(value_table[name])
                 end
 
                 if Blockbuster.check_variable_validity_for_int_only(name, standard, override) then
@@ -170,6 +179,7 @@ function Blockbuster.change_values_in_table(card, value_table, reference_table, 
                     local _usedStandard = override or _standardObj 
                     local _min = _usedStandard.min_max_values.min
                     local _max = _usedStandard.min_max_values.max
+                    
                     value_table[name] = math.min(math.max(value_table[name], (_calculate_from * _min)), _calculate_from * _max)
                 end
             end
@@ -200,12 +210,15 @@ function Card:get_total_multiplier(card)
         return false
     end
 
-    local _total = 0
+    local _total = 1
 
+    print("===")
+    print("Examined Joker: " .. self.config.center.key)
     for _source, _mult in pairs(card.ability.blockbuster_multipliers) do
-        if _mult > 1 then
-            _total = _total + _mult
+        if _mult ~= 1 then
+            _total = _total * _mult
         end
+        print(_source .. ": " .. _mult)
     end
     return _total
 end

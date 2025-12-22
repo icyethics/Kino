@@ -90,7 +90,7 @@ add_round_eval_row({name = 'bottom', dollars = dollars})
 position = 'before'
 match_indent = true
 payload = '''
-if dollars >= 50 then
+if to_big(dollars) >= to_big(50) then
     check_for_unlock({type="kino_fifty_single_payout"})
 end
 

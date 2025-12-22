@@ -1,4 +1,12 @@
-Kino.calculate = function(self, context)
+SMODS.current_mod.calculate = function(self, context)
+
+    -- Synergy System
+    if context.kino_joker_order_change and context.full_area then
+        -- check_genre_synergy()
+        Kino.actor_adjacency_check()
+        Kino.genre_adjacency_check()
+
+    end
     
     -- Stat Tracking related Calculations
     if context.individual then
@@ -7,7 +15,7 @@ Kino.calculate = function(self, context)
 
             inc_career_stat("kino_unscored_cards_played", 1)
 
-            if context.other_card.config.center == G.P_CENTER.m_kino_crime then
+            if context.other_card.config.center == G.P_CENTERS.m_kino_crime then
                 check_for_unlock({type="kino_wanda"})
             end
         end
@@ -42,7 +50,7 @@ Kino.calculate = function(self, context)
                 if context.removed[i].debuff == true then
                     check_for_unlock({type="kino_destroyed_debuffed_card"})
                 end
-                if context.removed[i].config.center == G.P_CENTER.m_kino_sci_fi then
+                if context.removed[i].config.center == G.P_CENTERS.m_kino_sci_fi then
                     inc_career_stat("kino_sci_fi_cards_destroyed", 1)
                 end
 
@@ -86,10 +94,10 @@ Kino.calculate = function(self, context)
             check_for_unlock({type = 'kino_strange_planet'})
         end
 
-        if context.consumeable.config.center == G.P_CENTER.c_death then
+        if context.consumeable.config.center == G.P_CENTERS.c_death then
             local rightmost = G.hand.highlighted[1]
             for i=1, #G.hand.highlighted do if G.hand.highlighted[i].T.x > rightmost.T.x then rightmost = G.hand.highlighted[i] end end
-            if rightmost.config.center == G.P_CENTER.m_lucky then
+            if rightmost.config.center == G.P_CENTERS.m_lucky then
                 G.GAME.kino_lucky_death = true
             end
 
@@ -98,16 +106,16 @@ Kino.calculate = function(self, context)
             end
         end
 
-        if context.consumeable.config.center == G.P_CENTER.c_emperor then
+        if context.consumeable.config.center == G.P_CENTERS.c_emperor then
             if G.GAME.blind:get_type() == 'Boss' and
             G.GAME.round_resets.blind_choices.Boss == "bl_kino_palpatine" then
                 check_for_unlock({type="kino_double_emp"})
             end
         end
 
-        if context.consumeable.config.center == G.P_CENTER.c_hanged_man then
+        if context.consumeable.config.center == G.P_CENTERS.c_hanged_man then
             for i=1, #G.hand.highlighted do 
-                if G.hand.highlighted[i].config.center == G.P_CENTER.m_lucky then 
+                if G.hand.highlighted[i].config.center == G.P_CENTERS.m_lucky then 
                     G.GAME.kino_lucky_hanged_man = true
                 end 
             end
@@ -121,7 +129,7 @@ Kino.calculate = function(self, context)
     end
 
     if context.card_added then
-        if kino_quality_check(context.card_added, "is_vampire") then
+        if kino_quality_check(context.card, "is_vampire") then
             inc_career_stat("kino_vampire_jokers_obtained", 1)
         end
     end

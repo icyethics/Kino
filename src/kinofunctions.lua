@@ -36,21 +36,14 @@ function is_genre(joker, genre, debug)
         return true
     end
 
-    local _center
-    if joker.config and joker.config.center then
-        _center = joker.config.center
-    else
-        _center = joker
-    end
-
-    if _center.k_genre then
-        for i = 1, #_center.k_genre do
+    if joker.config.center.k_genre then
+        for i = 1, #joker.config.center.k_genre do
             if debug then
             
                 print("Checking: " .. genre)
-                print(_center.k_genre[i])
+                print(joker.config.center.k_genre[i])
             end
-            if genre == _center.k_genre[i] then
+            if genre == joker.config.center.k_genre[i] then
                 if debug then print("------ TRUE") end
                 return true
             end
@@ -83,30 +76,6 @@ function has_cast(joker, actor)
 
     for _, _castmember in ipairs(_center.cast) do
         if actor == _castmember then
-            return true
-        end
-    end
-
-    return false
-end
-
-function Kino.has_director(joker, director)
-    local _center
-
-    if joker.kino_joker then
-        _center = joker.kino_joker
-    else
-        if joker.config.center and joker.config.center.kino_joker then
-            _center = joker.config.center.kino_joker
-        else
-            _center = joker.kino_joker
-            return false
-        end 
-    end
-
-
-    for _, _director in ipairs(_center.directors) do
-        if director == _director then
             return true
         end
     end
@@ -199,15 +168,6 @@ function display_egg_message()
 end
 
 function kino_quality_check(card, quality)
-    -- Hardcode vanilla jokers
-    if quality == "is_wet" and 
-    card and card.config and (
-        card.config.center == G.P_CENTERS.j_splash or
-        card.config.center == G.P_CENTERS.j_seltzer or
-        card.config.center == G.P_CENTERS.j_diet_cola) then
-        return true     
-    end
-
     if card and card.config and card.config[quality] and card.config[quality] ~= false then
         return true
     end
@@ -252,24 +212,6 @@ function get_least_played_hand()
     return _hands
 end
 
-function get_most_played_hand()
-    local _tally
-    local _hands = {}
-        for k, v in ipairs(G.handlist) do
-        if G.GAME.hands[v].visible and (_tally == nil or G.GAME.hands[v].played > _tally) then
-            _hands = {}
-            _hands[#_hands + 1] = v
-            
-            _tally = G.GAME.hands[v].played
-        end
-        if G.GAME.hands[v].visible and (_tally == nil or G.GAME.hands[v].played == _tally) and not G.GAME.hands[v].played == 0 then
-            _hands[#_hands + 1] = v
-        end
-    end
-
-    return _hands
-end
-
 -- Add a function to trigger jokers when money is spend in the shop (Based on cryptid, exotic.lua, l. 1407-1413)
 local base_ease_dollars = ease_dollars
 function ease_dollars(mod, x)
@@ -302,7 +244,6 @@ function reset_ancient_card()
     reset_bonnieandclyde()
     Kino.reset_source_code()
     Kino.reset_dead_zone()
-    Kino.reset_summer_rank()
 end
 
  -- Indiana Jones checks
@@ -384,8 +325,6 @@ end
 function update_matches(num, is_set)
     -- num is the number to increment or set the scrap by
     -- is_set == true will set instead of increment
-    inc_career_stat("kino_matches_made", num)
-    check_for_unlock({type = "kino_matches_made"})
     if not G.GAME.current_round.matchmade_total then
         G.GAME.current_round.matchmade_total = 0
 
@@ -407,54 +346,36 @@ function Card:set_cost()
     if (self.ability and self.ability.set == "Booster" and G.GAME.kino_oceans_11) then
         self.cost = 0
     end
-    if G and G.GAME and G.GAME.current_round and G.GAME.round >= 1 then
-        check_for_unlock({type="kino_set_cost", card=self, value=self.cost})
-    end
-    
     
 end
 ------------------------------
 
 local base_atd = Card.add_to_deck
 function Card:add_to_deck(from_debuff)
-    base_atd(self, from_debuff)
+    if not self.added_to_deck then
+        base_atd(self, from_debuff)
+        if not from_debuff then
+            Kino.genre_synergy(self)
+            Kino.actor_synergy_check_new(self)
 
-    -- if G.GAME.modifiers.kino_genre_variety then
-    --     check_genre_match()            
-    -- end
-    if not from_debuff then
-        check_genre_synergy()
-        check_actor_synergy()
+            if G.GAME.modifiers.kino_genre_variety then
+                for i, _joker in ipairs(G.jokers.cards) do
+                    Kino.genre_variety_check(_joker)
+                end
+            end
+        end
     end
-    check_for_unlock({type="kino_add_to_deck", card=self})
 end
 
 local base_rmd = Card.remove_from_deck
 function Card:remove_from_deck(from_debuff)
-    base_rmd(self, from_debuff)
-    
-    -- if G.GAME.modifiers.kino_genre_variety then
-    --     check_genre_match()            
-    -- end
-    if not from_debuff then
-        check_genre_synergy()
-        check_actor_synergy()
-    end
-end
-
-local base_set_rank = CardArea.set_ranks
-function CardArea:set_ranks()
-    -- Do synergy checks
-    base_set_rank(self)
-
-    -- print("set ranks")
-
-    if self == G.jokers then
-        -- if G.GAME.modifiers.kino_genre_variety then
-        --     check_genre_match()            
-        -- end
-        check_genre_synergy()
-        check_actor_synergy()
+    if self.added_to_deck then
+        base_rmd(self, from_debuff)
+        
+        if not from_debuff and self.ability.set == "Joker" then
+            Kino.genre_synergy(self, true)
+            Kino.actor_synergy_check_new(self, true)
+        end
     end
 end
 
@@ -463,11 +384,20 @@ function CardArea:align_cards()
     base_align_cards(self)
 
     if self == G.jokers then
-        -- if G.GAME.modifiers.kino_genre_variety then
-        --     check_genre_match()            
-        -- end
-        check_genre_synergy()
-        check_actor_synergy()
+        local _changes_in_joker_order = false
+        for i, _joker in ipairs(G.jokers.cards) do
+            if not _joker.index then
+                _joker.index = i
+            elseif _joker.index ~= i then
+                _changes_in_joker_order = true
+                SMODS.calculate_context({kino_joker_order_change = true, card = _joker, old_position = _joker.index, new_positioned = i})
+
+                _joker.index = i
+            end
+        end
+        if _changes_in_joker_order then
+            SMODS.calculate_context({kino_joker_order_change = true, full_area = true})
+        end
     end
 end
 
@@ -520,7 +450,6 @@ function level_up_hand(card, hand, instant, amount, interstellar)
         SMODS.calculate_context({interstellar = true, planet = card})
     else
         luh(card, hand, instant, amount)
-        check_for_unlock({type="kino_level_up_hand"})
     end
 end
 
@@ -627,25 +556,18 @@ G.FUNCS.can_discard = function(e)
     for i, _joker in ipairs(G.jokers.cards) do
         if _joker and _joker.ability and type(_joker.ability.extra) == "table" and
         _joker.ability.extra.stacked_monster_exemptions then
-            _monster_exemptions = true
+            _monster_exemptions = _monster_exemptions + 1
         end
     end
 
     if G.GAME.current_round.discards_left <= 0 or #G.hand.highlighted <= 0 or 
-    ((_monster > 0) and not _monster_exemptions ) then 
+    (_monster > 0 and _monster > _monster_exemptions)then 
         e.config.colour = G.C.UI.BACKGROUND_INACTIVE
         e.config.button = nil
     else
         e.config.colour = G.C.RED
         e.config.button = 'discard_cards_from_highlighted'
     end
-end
-
-local o_sdl = set_deck_loss
-function set_deck_loss(self)
-    check_for_unlock({type="kino_game_loss"})
-    local _ret = o_sdl(self)
-    return _ret
 end
 
 ------------ TAG functionality ------------
@@ -664,30 +586,6 @@ SMODS.Enhancement:take_ownership('lucky', {
         local numerator_mult, denominator_mult = SMODS.get_probability_vars(card, 1 * (cfg.lucky_bonus or 1), 5, 'lucky_mult')
         local numerator_dollars, denominator_dollars = SMODS.get_probability_vars(card, 1 * (cfg.lucky_bonus or 1), 15, 'lucky_money')
         return {vars = {numerator_mult, cfg.mult, denominator_mult, cfg.p_dollars, denominator_dollars, numerator_dollars}}
-    end,
-},
-true)
-
-SMODS.Consumable:take_ownership('death', {
-    loc_vars = function (self, info_queue, card)
-        local cfg = (card and card.ability) or self.config
-
-        local _index, _object = next(find_joker("j_kino_coco"))
-        local _max_high = cfg.max_highlighted
-        if _object then
-            _max_high = _max_high + _object.ability.extra.additional_card
-        end
-
-        return {vars = {cfg.max_highlighted}}
-    end,
-    get_weight_mod = function()
-        local _value = 1
-
-        local _index, _object = next(find_joker("j_kino_coco"))
-        if _object then
-            _value = _value * _object.ability.extra.common_rate
-        end
-        return _value
     end,
 })
 ------------ Helpers ------------
@@ -822,15 +720,6 @@ function SMODS.calculate_context(context, return_table)
     return _o_cc(context, return_table)
 end
 
-local o_ca_shuffle = CardArea.shuffle
-function CardArea:shuffle(_seed)
-	SMODS.calculate_context({ kino_shuffling_area = true, cardarea = self, kino_pre_shuffle = true })
-
-	o_ca_shuffle(self, _seed)
-
-	SMODS.calculate_context({ kino_shuffling_area = true, cardarea = self, kino_post_shuffle = true })
-end
-
 ----------------------
 to_big = to_big or function(x, y)
     return x
@@ -843,8 +732,6 @@ end
 
 ----------------------
 -- COLOURS --
-
-
 
 G.C.KINO = {
     ACTION = HEX("0a4a59"),
@@ -876,20 +763,7 @@ G.C.KINO = {
     ALIEN = HEX("71d027"),
     CONFECTION = HEX("8e1212"),
     DRAIN = HEX("b52727"),
-    HEARTACHE = HEX("d586c6"),
-    STRANGE_PLANET_COLOUR = HEX("1b9d6e"),
-    BULLET = HEX("899dbb"),
-    POWER = HEX("8862ab"),
-    JUMPSCARE = HEX("856439")
 }
-
-SMODS.Gradient({
-    key = "STRANGE_PLANET",
-    colours = { G.C.SECONDARY_SET.Planet, G.C.KINO.STRANGE_PLANET_COLOUR},
-    cycle = 2.5,
-})
-
-G.C.KINO.STRANGE_PLANET = SMODS.Gradients.kino_STRANGE_PLANET
 
 local genrecolors = loc_colour
 function loc_colour(_c, _default)
@@ -924,16 +798,9 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS["Alien"] = G.C.KINO.ALIEN
     G.ARGS.LOC_COLOURS["Confection"] = G.C.KINO.CONFECTION
     G.ARGS.LOC_COLOURS["Drain"] = G.C.KINO.DRAIN
-    G.ARGS.LOC_COLOURS["Heartache"] = G.C.KINO.HEARTACHE
-    G.ARGS.LOC_COLOURS["StrangePlanet"] = G.C.KINO.STRANGE_PLANET
-    G.ARGS.LOC_COLOURS["Bullet"] = G.C.KINO.BULLET
-    G.ARGS.LOC_COLOURS["Power"] = G.C.KINO.POWER
-    G.ARGS.LOC_COLOURS["Jumpscare"] = G.C.KINO.JUMPSCARE
 
     return genrecolors(_c, _default)
 end
-
-
 
 --- Global Variables ---
 Kino.jump_scare_mult = 2
@@ -950,4 +817,4 @@ Kino.award_mult = 2
 Kino.awards_max = 1
 
 Kino.crime_chips = 5
-Kino.bullet_magazine_max = 24
+Kino.bullet_magazine_max = 6

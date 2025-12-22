@@ -53,6 +53,8 @@ function Game:start_run(args)
     self.GAME.round_resets.blind_choices.Small = Kino.get_blind("Small")
     self.GAME.round_resets.blind_choices.Big = Kino.get_blind("Big")
     self.GAME.round_resets.blind_choices.Boss = Kino.get_blind("Boss")
+
+    self.jokers.config.card_limit_UI_text = ""
     
     return ret
 end
