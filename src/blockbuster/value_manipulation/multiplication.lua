@@ -212,13 +212,10 @@ function Card:get_total_multiplier(card)
 
     local _total = 1
 
-    print("===")
-    print("Examined Joker: " .. self.config.center.key)
     for _source, _mult in pairs(card.ability.blockbuster_multipliers) do
         if _mult ~= 1 then
             _total = _total * _mult
         end
-        print(_source .. ": " .. _mult)
     end
     return _total
 end

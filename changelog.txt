@@ -1,6 +1,9 @@
 V 0.12:
 Bug Fixes:
 - Asteroid City no longer crashes the game and has been reenabled
+- Fixed bugs on latest SMODS with joker slots being 0
+- Fixed issues with the actor synergy system
+- Re-enabled genre synergy system
 
 Visual / Sound changes:
 - Confections now have a sound effect when eaten
