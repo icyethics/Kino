@@ -225,6 +225,17 @@ Incorrect Unlock Conditions:
 Star Wars V
 Blade Runner
 
+V 0.11-HALLOWEENf:
+
+Hotfix:
+- Fixed Cryptlib compatibility
+
+V 0.11-HALLOWEENe:
+
+- Hotfix:
+- Genre synergy is disabled due to changes in smods that need the system to be reworked.
+     To make sure the mod is still playable, it's temporarily disabled.
+
 V 0.11-HALLOWEENd:
 
 Bug Fix:

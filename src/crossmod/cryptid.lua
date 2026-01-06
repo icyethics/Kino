@@ -1,7 +1,9 @@
 -- Containing functins and hooks that relate to Cryptid crossmod mechanics
 function Kino.cryptid_crossmod_loading()
 
-if Cryptid and Talisman then
+if Cryptid and Talisman and not CryptLibNoCryptid then
+
+Kino_Cryptidcheck = true
 
 local enh_table = {
     m_kino_action = {"action"},

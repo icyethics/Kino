@@ -27,7 +27,7 @@ if not Cryptid then
         end
     }
 end
-if Cryptid and Talisman then
+if Kino_Cryptidcheck then
     SMODS.Consumable {
         key = "award_cryptid",
         set = "Spectral",
