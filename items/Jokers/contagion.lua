@@ -80,7 +80,7 @@ SMODS.Joker {
     check_for_unlock = function(self, args)
         if args.type == 'modify_deck' or args.type == 'win' then
             for i, _pcard in ipairs(G.playing_cards) do
-                if _pcard.perma_bonus and _pcard.perma_bonus >= 100 then
+                if _pcard.ability.perma_bonus and _pcard.ability.perma_bonus >= 100 then
                     unlock_card(self)
                     break
                 end

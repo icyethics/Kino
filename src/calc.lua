@@ -32,6 +32,8 @@ SMODS.current_mod.calculate = function(self, context)
     end
 
     if context.joker_type_destroyed then
+        print(context.card.ability.set)
+        print(context.card.config.center.k_genre)
         if context.card.ability.set == "Joker" and is_genre(context.card, "Romance") then
             inc_career_stat("kino_romance_jokers_destroyed", 1)
         end
@@ -62,7 +64,7 @@ SMODS.current_mod.calculate = function(self, context)
                     G.GAME.kino_destroyed_ranks_count = G.GAME.kino_destroyed_ranks_count + 1
                 end
 
-                if G.GAME.kino_destroyed_ranks_count >= 14 then
+                if G.GAME.kino_destroyed_ranks_count >= 13 then
                     check_for_unlock({type="kino_destroyed_every_rank"})
                 end
                 
@@ -151,16 +153,20 @@ SMODS.current_mod.calculate = function(self, context)
         end
     end
 
-    if context.joker_main then
+    if context.after then
         for i, _hand in ipairs(get_least_played_hand()) do
+            print(_hand)
+            print(context.scoring_name)
             if context.scoring_name == _hand then
                 G.GAME.kino_played_least_played_hand_this_round = true
+                print("Set to true")
             end
         end
     end
 
-    if context.end_of_round then
-        G.GAME.kino_played_non_faces_this_round = nil
-        G.GAME.kino_played_least_played_hand_this_round = nil
+    if context.setting_blind then
+        G.GAME.kino_played_non_faces_this_round = false
+        G.GAME.kino_played_least_played_hand_this_round = false
+        print("has been reset")
     end
 end

@@ -27,7 +27,7 @@ SMODS.Enhancement {
     upgrade = function(self, card, num)
         local _upgradenum = num or 1
         card.ability.extra.times_upgraded = card.ability.extra.times_upgraded + _upgradenum
-        inc_career_stat("kino_sci_fi_upgrades", num)
+        inc_career_stat("kino_sci_fi_upgrades", _upgradenum)
         check_for_unlock({type = 'kino_sci_fi_upgrades', current_level = card.ability.extra.times_upgraded})
         if card.ability.extra.times_upgraded_ui < 99 then
         G.E_MANAGER:add_event(Event({
@@ -93,6 +93,18 @@ SMODS.Enhancement {
 
             if wall_e then
                 update_scrap(0, true)
+            end
+
+            if card.ability.extra.times_upgraded >= 1 then
+                local _return = {}
+
+                _return.chips = card.ability.extra.bonus or 0
+                _return.mult = card.ability.extra.perma_mult or 0
+                if card.ability.extra.perma_x_mult then
+                    _return.x_mult = card.ability.extra.perma_x_mult
+                end
+
+                return _return
             end
         end
     end

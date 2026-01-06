@@ -91,7 +91,7 @@ SMODS.Joker {
                 _tally = _tally + 1
             end
 
-            if _tally >= 14 then
+            if _tally >= 13 then
                 unlock_card(self)
             end
         end

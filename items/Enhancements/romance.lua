@@ -48,7 +48,7 @@ SMODS.Enhancement {
                 if _is_left then
                     SMODS.calculate_context({match_made = true})
                     return {
-                        x_chips = card.ability.extra.chips_mult + _bonus
+                        xchips = card.ability.extra.chips_mult + _bonus
                     }
                 else
                     return {

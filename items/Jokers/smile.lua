@@ -51,7 +51,7 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'round_win' then
-            if G.GAME.kino_played_non_faces_this_round then
+            if G.GAME.kino_played_non_faces_this_round == false then
                 unlock_card(self)
             end
         end

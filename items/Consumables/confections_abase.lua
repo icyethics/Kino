@@ -16,7 +16,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.mult + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -90,7 +90,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.chips + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -165,7 +165,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.hand_size + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -253,7 +253,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.extra + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -336,7 +336,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.repetition + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -437,7 +437,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.repetition + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -526,7 +526,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.cards_drawn + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -618,7 +618,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.bonus_chips + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -694,7 +694,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.level + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -770,7 +770,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.hands + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -866,7 +866,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.discards + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -962,7 +962,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.cards_drawn + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -1097,7 +1097,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.upgrade + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -1263,7 +1263,7 @@ SMODS.Consumable {
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_jump_scare", vars = {tostring(Kino.jump_scare_mult)}}
         local _chance = 1
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _chance = _chance + self.config.choco_bonus
         end
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, _chance, card.ability.extra.odds, "kino_jumpscare")
@@ -1313,7 +1313,7 @@ SMODS.Consumable {
 
         if context.individual and card.active and context.cardarea == G.hand then
             local _chance = 1
-            if card.ability.kino_chocolate then
+            if card.ability.kino_choco then
                 _chance = _chance + self.config.choco_bonus
             end
             if SMODS.pseudorandom_probability(card, 'kino_candycorn', _chance, card.ability.extra.odds, "kino_jumpscare") then
@@ -1358,7 +1358,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.added_cards + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -1407,7 +1407,7 @@ SMODS.Consumable {
         if context.before and card.active and #context.full_hand > 0 then
             local _cards_added = {}
             local _times = card.ability.extra.added_cards + G.GAME.confections_powerboost
-            if card.ability.kino_chocolate then
+            if card.ability.kino_choco then
                 _times = _times + self.config.choco_bonus
             end
             for i = 1, _times do
@@ -1466,7 +1466,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.value + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -1514,7 +1514,7 @@ SMODS.Consumable {
 
         if context.after and card.active then
             local _return = card.ability.extra.value + G.GAME.confections_powerboost
-            if card.ability.kino_chocolate then
+            if card.ability.kino_choco then
                 _return = _return + self.config.choco_bonus
             end
             for _index, _joker in ipairs(G.jokers.cards) do
@@ -1554,7 +1554,7 @@ SMODS.Consumable {
         end
         
         local _return = card.ability.extra.spell_level_bonus + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -1641,7 +1641,7 @@ SMODS.Consumable {
     end,
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.chips + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -1926,7 +1926,7 @@ SMODS.Consumable {
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.counters + G.GAME.confections_powerboost
         local _return2 = card.ability.extra.cards + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -2034,7 +2034,7 @@ SMODS.Consumable {
                     local _random_counter_type = pseudorandom_element(Blockbuster.Counters.get_counter_pool({"beneficial"}, true), pseudoseed("kino_beans"))
 
                     local _counter_count = card.ability.extra.counters + G.GAME.confections_powerboost
-                    if card.ability.kino_chocolate then
+                    if card.ability.kino_choco then
                         _counter_count = _return + self.config.choco_bonus
                     end
 
@@ -2079,7 +2079,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.triggers + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -2126,7 +2126,7 @@ SMODS.Consumable {
     calculate = function(self, card, context)
         if context.before and card.active and G.GAME.current_round.discards_left > 0 then
             local _triggers = card.ability.extra.triggers + G.GAME.confections_powerboost
-            if card.ability.kino_chocolate then
+            if card.ability.kino_choco then
                 _triggers = _triggers + self.config.choco_bonus
             end
 
@@ -2167,7 +2167,7 @@ SMODS.Consumable {
     end,
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.triggers + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -2223,7 +2223,7 @@ SMODS.Consumable {
             SMODS.destroy_cards(context.other_card)
 
             local _triggers = card.ability.extra.triggers + G.GAME.confections_powerboost
-            if card.ability.kino_chocolate then
+            if card.ability.kino_choco then
                 _triggers = _triggers + self.config.choco_bonus
             end
 
@@ -2365,7 +2365,7 @@ SMODS.Consumable {
                     local _random_counter_type = pseudorandom_element(Blockbuster.Counters.get_counter_pool({"beneficial"}, true), pseudoseed("kino_beans"))
 
                     local _counter_count = card.ability.extra.counters + G.GAME.confections_powerboost
-                    if card.ability.kino_chocolate then
+                    if card.ability.kino_choco then
                         _counter_count = _return + self.config.choco_bonus
                     end
 

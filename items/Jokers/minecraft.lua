@@ -80,21 +80,24 @@ SMODS.Joker {
         }
     end,
     check_for_unlock = function(self, args)
-        if args.type == 'hand_contents' then
+        if args.type == 'modify_deck' then
             local _tally_gold = 0
             local _tally_steel = 0
             local _tally_stone = 0
-            for j = 1, #args.cards do
-                if args.cards[j].config.center == G.P_CENTERS.m_gold then
+            for i, _pcard in ipairs(G.playing_cards) do
+                if _pcard.config.center == G.P_CENTERS.m_gold then
                     _tally_gold = _tally_gold+1
                 end
-                if args.cards[j].config.center == G.P_CENTERS.m_steel then
+                if _pcard.config.center == G.P_CENTERS.m_steel then
                     _tally_steel = _tally_steel+1
                 end
-                if args.cards[j].config.center == G.P_CENTERS.m_stone then
+                if _pcard.config.center == G.P_CENTERS.m_stone then
                     _tally_stone = _tally_stone+1
                 end
             end
+            print(_tally_gold)
+            print(_tally_steel)
+            print(_tally_stone)
             if _tally_gold >= 3 and _tally_steel >= 3 and _tally_stone >= 3 then 
                 unlock_card(self)
             end

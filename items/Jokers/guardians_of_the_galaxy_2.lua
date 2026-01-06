@@ -70,7 +70,7 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'career_stat' and
-        G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_ego and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_ego.count == 20 then
+        G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_ego and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_kino_ego.count >= 20 then
             unlock_card(self)
         end
     end,

@@ -67,7 +67,7 @@ SMODS.Joker {
         end
 
         if context.joker_type_destroyed and context.card == card then
-            check_for_unlock({type="kino_terminator_destroyed"})
+            check_for_unlock({type="k_kino_terminator_destroyed"})
 
             return {
                 message = localize("k_kino_terminator_destroyed")
@@ -86,7 +86,7 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'career_stat' then
-            if G.PROFILES[G.SETTINGS.profile].kino_sci_fi_cards_destroyed and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_cards_destroyed >= 10 then
+            if G.PROFILES[G.SETTINGS.profile].career_stats.kino_sci_fi_cards_destroyed and G.PROFILES[G.SETTINGS.profile].career_stats.kino_sci_fi_cards_destroyed >= 10 then
                 unlock_card(self)
             end
         end

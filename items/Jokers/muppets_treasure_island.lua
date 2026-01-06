@@ -60,6 +60,7 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'kino_set_cost' then
+            print(args)
             if args.value >= 30 then
                 unlock_card(self)
             end

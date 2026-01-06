@@ -128,8 +128,21 @@ match_indent = true
 payload = '''
 G.GAME.cards_sold_this_run = G.GAME.cards_sold_this_run or 0
 G.GAME.cards_sold_this_run = G.GAME.cards_sold_this_run + 1
+check_for_unlock({type="kino_cards_sold"})
 '''
 
 
+## When runs are lost
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+inc_career_stat('c_losses', 1)
+'''
+position = 'after'
+match_indent = true
+payload = '''
+check_for_unlock({type="kino_game_loss"})
+'''
 
 

@@ -84,7 +84,7 @@ SMODS.Joker {
         if args.type == 'win' then
             local _tally = 0
             for i, _joker in ipairs(G.jokers.cards) do
-                if _joker.edition == "e_polychrome" then
+                if _joker.edition.key == "e_polychrome" then
                     _tally = _tally + 1
                 end
             end

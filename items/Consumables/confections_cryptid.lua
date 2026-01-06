@@ -22,7 +22,7 @@ SMODS.Consumable {
 	},
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.jollies + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
 
@@ -86,7 +86,7 @@ SMODS.Consumable {
                 if _count >= 2 then
 
                     _triggers = (_triggers + card.ability.extra.jollies) + G.GAME.confections_powerboost
-                    if card.ability.kino_chocolate then
+                    if card.ability.kino_choco then
                         _triggers= _triggers + card.ability.choco_bonus
                     end
                 end
@@ -129,7 +129,7 @@ SMODS.Consumable {
 	},
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.powerboost + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {
@@ -182,7 +182,7 @@ SMODS.Consumable {
 
                     
                     local _addition = card.ability.extra.powerboost + G.GAME.confections_powerboost
-                    if card.ability.kino_chocolate then
+                    if card.ability.kino_choco then
                         _addition = _addition + card.ability.choco_bonus
                     end
 
@@ -221,7 +221,7 @@ SMODS.Consumable {
 	},
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.retriggers + G.GAME.confections_powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
 
@@ -288,7 +288,7 @@ SMODS.Consumable {
         not context.retrigger_joker and context.other_card ~= self then
 
             local _total_retriggers = card.ability.extra.retriggers + G.GAME.confections_powerboost
-            if card.ability.kino_chocolate then
+            if card.ability.kino_choco then
                 _total_retriggers = _total_retriggers + card.ability.choco_bonus
             end
 

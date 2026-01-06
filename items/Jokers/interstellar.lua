@@ -66,7 +66,7 @@ SMODS.Joker {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.GAME.consumeable_usage_total.planet and G.GAME.consumeable_usage_total.planet or 0,
+                G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.planet and G.GAME.consumeable_usage_total.planet or 0,
                 20
             }
         }

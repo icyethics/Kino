@@ -62,7 +62,7 @@ SMODS.Joker {
                     tally = tally+1
                 end
             end
-            if tally >= 5 then 
+            if tally >= 3 then 
                 unlock_card(self)
             end
         end

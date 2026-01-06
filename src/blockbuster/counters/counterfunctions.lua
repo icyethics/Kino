@@ -23,7 +23,7 @@ function Blockbuster.Counters.get_total_counters(types, targets)
 
     else
         for _key, _entry in pairs(G.P_COUNTERS) do
-            countertypestocheck[#countertypestocheck + 1] = _entry
+            countertypestocheck[#countertypestocheck + 1] = _key
         end
     end
 

@@ -57,11 +57,13 @@ SMODS.Joker {
         if args.type == 'hand_contents' then
             local _tally = 0
             for j = 1, #args.cards do
+                print("Testing cards for Mr and Mrs Smith")
                 if args.cards[j].config.center == G.P_CENTERS.m_kino_romance then
                     _tally = _tally+1
+                    print("Going up by 1")
                 end
             end
-            if args.cards == 2 and _tally == 2 then 
+            if #args.cards == 2 and _tally == 2 then 
                 unlock_card(self)
             end
         end

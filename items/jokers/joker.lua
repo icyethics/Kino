@@ -82,7 +82,9 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'kino_add_to_deck' then
-            if args.card == G.P_CENTERS.j_joker then
+            print("Joker check")
+            print(args.card.config.center == G.P_CENTERS.j_joker)
+            if args.card.config.center == G.P_CENTERS.j_joker then
                 unlock_card(self)
             end
         end

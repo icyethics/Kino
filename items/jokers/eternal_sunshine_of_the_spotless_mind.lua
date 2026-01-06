@@ -78,7 +78,7 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'bb_counters_applied' then
-            if Blockbuster.Counters.get_total_counters(nil, "Full Deck").counters >= 50 then
+            if Blockbuster.Counters.get_total_counters(nil, "Full Deck").counter_values >= 50 then
                 unlock_card(self)
             end
         end

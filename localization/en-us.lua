@@ -241,7 +241,7 @@ return {
                     "to each card in hand"
                 },
                 unlock = {
-                    "Have {C:attention}five{} {C:green}Money Counters{}",
+                    "Have {C:attention}3{} {C:green}Money Counters{}",
                     "on a single card"
                 }
             },
@@ -264,7 +264,7 @@ return {
                     "when {C:attention}Codex{} is solved"
                 },
                 unlock = {
-                    "Reach ante {C:attention}0"
+                    "Beat ante {C:attention}0"
                 }
             },
             j_kino_as_above = {
@@ -364,7 +364,8 @@ return {
                 },
                 unlock = {
                     "Use {C:attention}The Superhero{}",
-                    "{C:attention}20{} times"
+                    "{C:attention}#2#{} times",
+                    "{C:inactive}(#1#)"
                 }
             },
             j_kino_batman_begins = {
@@ -1059,8 +1060,9 @@ return {
                     "{C:inactive}(Currently: #1# {C:Magic}Spells Cast{C:inactive})"
                 },
                 unlock = {
-                    "{C:Magic}Cast {C:attention}10{C:Magic} Spells{}",
-                    "at maximum Spell Level"
+                    "{C:Magic}Cast {C:attention}#2#{C:Magic} Spells{}",
+                    "at maximum Spell Level",
+                    "{C:inactive}(#1#)"
                 }
             },
             j_kino_doctor_strange_2 = {
@@ -1342,7 +1344,8 @@ return {
                 },
                 unlock = {
                     "{C:Magic}Cast{C:attention} 10{C:Magic} Spells",
-                    "at spell level 1"
+                    "at spell level 1",
+                    "{C:inactive}(#1#)"
                 }
             },
             j_kino_fargo = {
@@ -1610,7 +1613,8 @@ return {
                 },
                 unlock = {
                     "Use {C:StrangePlanet}Ego the Living Planet{}",
-                    "{C:attention}20{} times"
+                    "{C:attention}#2#{} times",
+                    "{C:inactive}(#1#)"
                 }
             },
             j_kino_guardians_of_the_galaxy_3 = {
@@ -2774,8 +2778,8 @@ return {
                     "in hand gives {X:mult,C:white}X#1#{} Mult"
                 },
                 unlock = {
-                    "Have {C:attention}5{} Demonic Cards",
-                    "in hand"
+                    "Play {C:attention}3{} Demonic Cards",
+                    "in a single hand"
                 }
             },
             j_kino_popeye = {
@@ -3852,7 +3856,8 @@ return {
                 },
                 unlock = {
                     "Sell {C:attention}30{} cards",
-                    "in a single run"
+                    "in a single run",
+                    "{C:inactive}(#1#)"
                 }
             },
             j_kino_war_of_the_worlds = {
@@ -3942,7 +3947,8 @@ return {
                     "with a card held in hand"
                 },
                 unlock = {
-                    "Make {C:attention}20{C:Romance} Matches"
+                    "Make {C:attention}#2#{C:Romance} Matches",
+                    "{C:inactive}(#1#)"
                 }
             },
             j_kino_wizard_of_oz = {
@@ -4807,7 +4813,7 @@ return {
                     "next round"
                 }
             },
-            c_kino_chocolate_bar = {
+            c_kino_choco_bar = {
                 name = "Chocolate Bar",
                 text = {
                     "Draw {C:attention}#1#{} cards"

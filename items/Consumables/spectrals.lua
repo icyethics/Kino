@@ -308,7 +308,7 @@ SMODS.Consumable {
     },
     loc_vars = function(self, info_queue, card)
         local _return = card.ability.extra.powerboost
-        if card.ability.kino_chocolate then
+        if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
         end
         return {

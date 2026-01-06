@@ -170,12 +170,10 @@ function Kino.actor_synergy_check(joker, removed)
 end
 
 function Card:kino_actor_synergy_new(card)
-    print("Actual synergy on card is entered")
     if not kino_config.actor_synergy or not card.config.center.kino_joker then
         return 0
     end
 
-    print("making empty table")
     card.ability.current_synergy_actors = {
         -- actor_ID = num of matches
     }
@@ -190,8 +188,6 @@ function Card:kino_actor_synergy_new(card)
         end
     end
 
-    print("Final state of the table:")
-    print(card.ability.current_synergy_actors)
     local function sort_actor_freq(ID_1, ID_2)
         return G.GAME.kino_actors_currently_owned[ID_1] > G.GAME.kino_actors_currently_owned[ID_2]
     end
@@ -205,7 +201,6 @@ function Card:kino_actor_synergy_new(card)
             local _num = ((_freq + G.GAME.current_round.actors_table_offset) <= #Kino.actor_synergy) and _freq + G.GAME.current_round.actors_table_offset or #Kino.actor_synergy
             local _order = Kino.actor_synergy[_num]
             Blockbuster.manipulate_value(card, _ID, _order)
-            print("Should trigger for " .. card.config.center.key .. ": " .. _ID .. " / " .. _order)
         end
     end
 

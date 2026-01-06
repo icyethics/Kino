@@ -67,11 +67,13 @@ SMODS.Joker {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
+                G.GAME.cards_sold_this_run or 0
             }
         }
     end,
     check_for_unlock = function(self, args)
-        if args.type == 'career_stat' then
+        if args.type == 'kino_cards_sold' then
+            print("Wicker man trigger")
             if G.GAME.cards_sold_this_run and G.GAME.cards_sold_this_run >= 30 then
                 unlock_card(self)
             end

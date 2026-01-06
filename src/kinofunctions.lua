@@ -32,6 +32,7 @@ function genre_match(_listA, _listB)
 end
 
 function is_genre(joker, genre, debug)
+    if not joker then return false end
     if G.GAME.modifiers.egg_genre == genre then
         return true
     end
@@ -83,9 +84,13 @@ function has_cast(joker, actor)
     return false
 end
 
-function Kino.has_director(joker, director)
-    if not joker.kino_joker then return false end
-
+function Kino.has_director(joker, director, debug)
+    if joker and joker.config and joker.config.center and joker.config.center.kino_joker then
+        joker = joker.config.center
+    end
+    if not joker.kino_joker then 
+        return false 
+    end
     for i, _director in ipairs(joker.kino_joker.directors) do
         if _director == director then
             return true
@@ -337,7 +342,6 @@ function update_matches(num, is_set)
     -- is_set == true will set instead of increment
     if not G.GAME.current_round.matchmade_total then
         G.GAME.current_round.matchmade_total = 0
-
     end
 
     if is_set then
@@ -345,6 +349,8 @@ function update_matches(num, is_set)
     else
         G.GAME.current_round.matchmade_total = G.GAME.current_round.matchmade_total + num
     end
+    inc_career_stat("kino_matches_made", num)
+    check_for_unlock({type="kino_matches_made"})
 end
 
 
@@ -356,6 +362,7 @@ function Card:set_cost()
     if (self.ability and self.ability.set == "Booster" and G.GAME.kino_oceans_11) then
         self.cost = 0
     end
+    check_for_unlock({type = "kino_set_cost", value = self.sell_cost, card = self})
     
 end
 ------------------------------
@@ -374,6 +381,8 @@ function Card:add_to_deck(from_debuff)
                 end
             end
         end
+
+        check_for_unlock({type="kino_add_to_deck", card = self})
     end
 end
 
@@ -459,6 +468,7 @@ function level_up_hand(card, hand, instant, amount, interstellar)
     and not interstellar then
         SMODS.calculate_context({interstellar = true, planet = card})
     else
+        check_for_unlock({type="kino_level_up_hand"})
         luh(card, hand, instant, amount)
     end
 end

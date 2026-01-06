@@ -55,8 +55,8 @@ SMODS.Joker {
         end
 
         if context.individual and SMODS.has_enhancement(context.other_card, "m_stone") 
-        and not context.blueprint and not context.retrigger then
-            Kino.abduct_card(card, context.scoring_hand[1])
+        and not context.blueprint and not context.retrigger and context.cardarea == G.play and not context.end_of_round then
+            Kino.abduct_card(card, context.other_card)
         end
 
         if context.abduction_ending and not context.blueprint and not context.retrigger then

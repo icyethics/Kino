@@ -4,6 +4,8 @@ Bug Fixes:
 - Fixed bugs on latest SMODS with joker slots being 0
 - Fixed issues with the actor synergy system
 - Re-enabled genre synergy system
+- Fixed Stargate crashing
+- Fixed Stargate only abducting a single card
 
 Visual / Sound changes:
 - Confections now have a sound effect when eaten
@@ -223,7 +225,7 @@ Sound of Music
 Incorrect Unlock Conditions:
 30 Days of Night
 Star Wars V
-Blade Runner
+Up
 
 V 0.11-HALLOWEENf:
 

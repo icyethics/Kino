@@ -55,7 +55,7 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'kino_level_up_hand' then
-            if to_big(G.GAME.hands["High Card"].level) >= to_big(10) then
+            if to_big(G.GAME.hands["High Card"].level) >= to_big(9) then
                 unlock_card(self)
             end
         end

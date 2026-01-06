@@ -54,7 +54,7 @@ SMODS.Joker {
                     G.jokers.cards[i].getting_sliced = true
                     if G.jokers.cards[i].config.center == G.P_CENTERS.j_joker or
                     G.jokers.cards[i].config.center == G.P_CENTERS.j_kino_joker
-                    then check_for_unlock("kino_batman_kill") end
+                    then check_for_unlock({type="kino_batman_kill"}) end
 
                     G.E_MANAGER:add_event(Event({func = function()
                         if G.jokers and G.jokers.cards and G.jokers.cards[i] then

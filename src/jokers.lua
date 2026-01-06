@@ -115,7 +115,7 @@ joker_list = {
 "stripes",
 "sugarland_express",
 "sunshine",
--- "superman_2025",
+"superman_2025",
 "taken_1",
 "thor_1",
 "three_musketeers_1",

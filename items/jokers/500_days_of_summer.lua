@@ -85,14 +85,19 @@ SMODS.Joker {
             vars = {
                 G.PROFILES[G.SETTINGS.profile].bb_counter_application and
                 G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_kino_heartbreak and 
-                G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_kino_heartbreak.count and 
-                G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_kino_heartbreak.count >= 20 or 0,
+                G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_kino_heartbreak.count or 0,
                 20 
             }
         }
     end,
     check_for_unlock = function(self, args)
         if args.type == 'bb_counters_applied' then
+            if G.PROFILES[G.SETTINGS.profile].bb_counter_application then
+                -- print(G.PROFILES[G.SETTINGS.profile].bb_counter_application)
+                print(G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_kino_heartbreak)
+                print(G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_kino_heartbreak.count)
+            end
+
             if G.PROFILES[G.SETTINGS.profile].bb_counter_application and
              G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_kino_heartbreak and 
              G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_kino_heartbreak.count and 

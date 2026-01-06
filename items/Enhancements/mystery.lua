@@ -99,6 +99,9 @@ Kino.mystery_card_select = function(card)
     local _suit = _pickedcard.base.suit
     local _rank = _pickedcard:get_id()
     local _rank_visual = _pickedcard.base.value
+
+    print(_suit)
+    print(_rank)
     
     return {
         suit = _suit,

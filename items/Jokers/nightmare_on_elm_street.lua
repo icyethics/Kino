@@ -72,7 +72,7 @@ SMODS.Joker {
         if args.type == 'modify_deck' then
             local _tally = 0
             for i, _pcard in ipairs(G.playing_cards) do
-                if (_pcard.config.center == G.P_CENTERS.m_kino_horror and _pcard.config.center == G.P_CENTERS.m_kino_monster) then
+                if (_pcard.config.center == G.P_CENTERS.m_kino_horror or _pcard.config.center == G.P_CENTERS.m_kino_monster) then
                     _tally = _tally + 1
                 end
             end

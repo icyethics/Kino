@@ -73,8 +73,12 @@ SMODS.Joker {
                     _batman = true
                 end
                 if kino_quality_check(_joker, 'is_superman') then
-                    _batman = true
+                    _superman = true
                 end
+            end
+
+            if _batman and _superman then
+                unlock_card(self)
             end
         end
     end,

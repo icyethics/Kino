@@ -79,7 +79,8 @@ SMODS.Joker {
             local _kubrick_match = false
             for i, _joker in ipairs(G.jokers.cards) do
                 for j, _director in ipairs(self.kino_joker.directors) do
-                    if Kino.has_director(_joker, _director) then
+                    print(_director)
+                    if Kino.has_director(_joker, _director, true) then
                         _kubrick_match = true
                         break
                     end

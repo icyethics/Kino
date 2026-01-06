@@ -64,7 +64,7 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'bb_increment_money_counter' then
-            if args.card and args.card.ability.counter.counter_num >= 5 then
+            if args.card and args.card.ability.counter.counter_num >= 3 then
                 unlock_card(self)
             end
         end
