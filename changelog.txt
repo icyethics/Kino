@@ -1,3 +1,8 @@
+V 0.11-HALLOWEENf:
+
+Hotfix:
+- Fixed Cryptlib compatibility
+
 V 0.11-HALLOWEENe:
 
 - Hotfix:

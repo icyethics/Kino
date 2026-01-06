@@ -1,6 +1,6 @@
 -- This is a function to account for loading priority
 function Blockbuster.cryptid_crossmod()
-if Cryptid and Talisman then
+if Kino_Cryptidcheck then
 
     Cryptid.misprintize_value_blacklist.multipliers = false
 

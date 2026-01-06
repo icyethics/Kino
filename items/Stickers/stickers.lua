@@ -58,7 +58,7 @@ SMODS.Sticker{
     atlas = 'kino_stickers'
 }
 
-if Cryptid and Talisman then
+if Kino_Cryptidcheck then
 SMODS.Sticker{
     key = 'award_cryptid',
 

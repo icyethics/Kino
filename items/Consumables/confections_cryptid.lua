@@ -1,4 +1,4 @@
-if Cryptid and Talisman and kino_config.confection_mechanic then
+if Kino_Cryptidcheck and kino_config.confection_mechanic then
 -- Upgrade the next hand you play with +2 mult
 SMODS.Consumable {
     key = "mam",

@@ -1,4 +1,4 @@
-if Cryptid and Talisman then
+if Kino_Cryptidcheck then
 
     -- Implemented
 if kino_config.confection_mechanic then

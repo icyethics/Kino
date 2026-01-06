@@ -1,4 +1,4 @@
-# Balatro Goes Kino V0.11-HALLOWEENe:
+# Balatro Goes Kino V0.11-HALLOWEENf:
 
 By Ice/IcyEthics
 

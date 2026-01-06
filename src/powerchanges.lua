@@ -43,7 +43,7 @@ function Card.calculate_joker(self,context)
         if ret.chips then ret.chips = ret.chips * multiplier end
     end
 
-    if Cryptid and Talisman then
+    if Kino_Cryptidcheck then
         if next(find_joker('j_kino_shrek_1')) then
             if not ret then return ret end
             local _shrek = find_joker('j_kino_shrek_1')
