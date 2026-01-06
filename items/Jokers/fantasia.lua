@@ -65,14 +65,14 @@ SMODS.Joker {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_min_level_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_min_level_spells_cast.count or 0,
+                G.PROFILES[G.SETTINGS.profile].career_stats.kino_min_level_spells_cast or 0,
                 10
             }
         }
     end,
     check_for_unlock = function(self, args)
         if args.type == 'career_stat' then
-            if G.PROFILES[G.SETTINGS.profile].kino_min_level_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_min_level_spells_cast.count >= 10 then
+            if G.PROFILES[G.SETTINGS.profile].career_stats.kino_min_level_spells_cast and G.PROFILES[G.SETTINGS.profile].career_stats.kino_min_level_spells_cast >= 10 then
                 unlock_card(self)
             end
         end

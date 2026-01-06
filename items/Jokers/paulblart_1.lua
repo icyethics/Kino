@@ -69,9 +69,7 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'chocolate_confection_eaten' then
-            if G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count >= 50 then
-                unlock_card(self)
-            end
+            unlock_card(self)
         end
     end,
 }

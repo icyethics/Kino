@@ -78,8 +78,8 @@ SMODS.Joker {
         }
     end,
     check_for_unlock = function(self, args)
-        if args.type == 'hand_contents' then
-            if G.GAME.current_round.hands_played == 0 and mult * hand_chips >= 300 and G.GAME.round == 1 then
+        if args.type == 'hand_contents' and mult and hand_chips then
+            if to_big(G.GAME.current_round.hands_played) == to_big(0) and to_big(mult * hand_chips )>= to_big(300) and to_big(G.GAME.round) == to_big(1) then
                 unlock_card(self)
             end
         end

@@ -102,7 +102,8 @@ Game.init_game_object = function(self)
 
     -- 
 
-    ret.confections_used = 0
+    ret.confections_used = {}
+    ret.confections_used.all = 0
     ret.confections_powerboost = 0
     ret.confections_goldleaf_bonus = 1
     ret.current_round.confections_temp_boost = 0

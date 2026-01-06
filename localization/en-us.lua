@@ -3096,6 +3096,10 @@ return {
                     {"Gives {C:mult}+#3#{} for each card",
                     "{C:Alien}Abducted{}",
                     "{C:inactive}(Currently: {C:mult}+#4#{C:inactive} Mult)"}
+                },
+                unlock = {
+                    "Win a run without playing",
+                    "any unscoring cards"
                 }
             },
             j_kino_simpsons = {
@@ -3490,7 +3494,8 @@ return {
                     "in deck and upgrade it"
                 },
                 unlock = {
-                    "Destroy {C:attention}10{} Sci-Fi Cards"
+                    "Destroy {C:attention}10{} Sci-Fi Cards",
+                    "{C:inactive}(#1#)"
                 }
             },
             j_kino_terminator_2 = {
@@ -6625,6 +6630,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with a {C:attention}The Slasher{}",
                     "and a {C:attention}The Demon"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Spooky Deck{}"
                 }
             },
             sleeve_kino_tech = {
@@ -6634,6 +6643,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}The Droid{}"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}T3ch_d3ck{}"
                 }
             },
             sleeve_kino_flirty = {
@@ -6643,6 +6656,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}The Meetcute{}"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Flirty Deck{}"
                 }
             },
             sleeve_kino_questionable = {
@@ -6652,6 +6669,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}The Detective{}"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Questionable Deck{}"
                 }
             },
             sleeve_kino_enchanted = {
@@ -6661,6 +6682,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}The Witch{}"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Enchanted Deck{}"
                 }
             },
             sleeve_kino_illicit = {
@@ -6670,6 +6695,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}The Gangster{}"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Illicit Deck{}"
                 }
             },
             sleeve_kino_dangerous = {
@@ -6679,6 +6708,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}The Soldier{}"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Dangerous Deck{}"
                 }
             },
             sleeve_kino_heroic = {
@@ -6688,6 +6721,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}The Superhero{}"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Heroic Deck{}"
                 }
             },
 
@@ -6698,6 +6735,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}Homerun{}"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Athletic Deck{}"
                 }
             },
             sleeve_kino_childlike = {
@@ -6707,6 +6748,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}Gathering{}"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Childlike Deck{}"
                 }
             },
             sleeve_kino_adventurous = {
@@ -6716,6 +6761,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}Artifact{}"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Adventerous Deck{}"
                 }
             },
             sleeve_kino_highpressure = {
@@ -6725,6 +6774,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}Fright{}"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}High Pressure Deck{}"
                 }
             },
             sleeve_kino_funny = {
@@ -6734,6 +6787,10 @@ return {
                     "{C:attention}50%{} stronger and {C:attention}3{} times as common",
                     "Start with 2 copies of ",
                     "{C:attention}Whimsy{}"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Whimsy Deck{}"
                 }
             },
 
@@ -6746,6 +6803,10 @@ return {
                     "they share {C:attention}Cast or",
                     "{C:attention}Director{} with adjacent",
                     "Jokers"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Bacon Deck{}"
                 }
             },
             sleeve_kino_bacon_alt = {
@@ -6756,6 +6817,10 @@ return {
                     "they share {C:attention}Cast or",
                     "{C:attention}Director{} with adjacent",
                     "Jokers"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Bacon Deck{}"
                 }
             },
 
@@ -6766,6 +6831,10 @@ return {
                     "then all jokers that spawn",
                     "will share cast with your",
                     "current jokers"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Cine2Nerdle Deck{}"
                 }
             },
 
@@ -6777,6 +6846,10 @@ return {
                     "After defeating a {C:attention}Boss Blind",
                     "each {C:attention}Movie Joker{} pays out",
                     "based on it's {C:attention}Profit Margin"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Producer Deck{}"
                 }
             },
             sleeve_kino_producer_alt = {
@@ -6787,6 +6860,10 @@ return {
                     "After defeating a {C:attention}Blind",
                     "each {C:attention}Movie Joker{} pays out",
                     "based on it's {C:attention}Profit Margin"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Producer Deck{}"
                 }
             },
 
@@ -6799,6 +6876,10 @@ return {
                     "put a {C:green}Money Counter",
                     "on {C:attention}10{} random cards",
                     "in your deck"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Investment Deck{}"
                 }
             },
             sleeve_kino_investment_alt = {
@@ -6809,6 +6890,10 @@ return {
                     "When you defeat a Blind",
                     "put a {C:green}Money Counter",
                     "on every card in your deck"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Investment Deck{}"
                 }
             },
 
@@ -6819,6 +6904,10 @@ return {
                     "casts a spell based",
                     "on the first three cards",
                     "in hand when a hand is played"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Spellslinger's Deck{}"
                 }
             },
             sleeve_kino_spellslinger_alt = {
@@ -6828,6 +6917,10 @@ return {
                     "casts a spell based",
                     "on the last three cards",
                     "in hand when a hand is played"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Spellslinger's Deck{}"
                 }
             },
 
@@ -6838,6 +6931,10 @@ return {
                     "as common",
                     "{C:attention}Jokers{} have a {green}1 in 4{}",
                     "chance to spawn with a {C:attention}Robin sticker"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Dark Knight Deck{}"
                 }
             },
             sleeve_kino_darkknight_alt = {
@@ -6847,6 +6944,10 @@ return {
                     "four times as common",
                     "{C:attention}Jokers{} have a {green}1 in 4{}",
                     "chance to spawn with a {C:attention}Robin sticker"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Dark Knight Deck{}"
                 }
             },
 
@@ -6858,6 +6959,10 @@ return {
                     "When you defeat a blind",
                     "level up a random hand",
                     "for each unused {C:mult}Discard"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Alderaan Deck{}"
                 }
             },
             sleeve_kino_alderaan_alt = {
@@ -6869,6 +6974,10 @@ return {
                     "level up a random hand",
                     "for each unused {C:mult}Discard",
                     "and {C:chips}Hand"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Alderaan Deck{}"
                 }
             },
 
@@ -6878,6 +6987,10 @@ return {
                     "{C:StrangePlanet}Strange Planets{} are {C:attention}4x",
                     "as common and {C:attention}ALL{} {C:planet}planets",
                     "can be taken instead of used"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Cosmonaut's Deck{}"
                 }
             },
             sleeve_kino_cosmonaut_alt = {
@@ -6886,6 +6999,10 @@ return {
                     "{C:StrangePlanet}Strange Planets{} are {C:attention}16x",
                     "as common and {C:attention}ALL{} {C:planet}planets",
                     "can be taken instead of used"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Cosmonaut's Deck{}"
                 }
             },
 
@@ -6895,6 +7012,10 @@ return {
                     "{C:attention}Face Cards{} of each",
                     "suit start with the same",
                     "random {C:attention}Enhancement"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Empowered Deck{}"
                 }
             },
             sleeve_kino_empowered_alt = {
@@ -6903,6 +7024,10 @@ return {
                     "All {C:attention}cards{} of each",
                     "suit start with the same",
                     "random {C:attention}Enhancement"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Empowered Deck{}"
                 }
             },
             
@@ -6913,6 +7038,10 @@ return {
                     "increase the rank",
                     "of every card held",
                     "in hand that shares a Suit"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Deck That Makes You Old{}"
                 }
             },
             sleeve_kino_deckthatmakesyouold_alt = {
@@ -6922,6 +7051,10 @@ return {
                     "increase the rank",
                     "of every card held",
                     "in hand"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Deck That Makes You Old{}"
                 }
             },
             
@@ -6936,6 +7069,10 @@ return {
                     "{C:inactive,E:1}they flirt in scene 19!",
                     "{C:attention}Movie Jokers{} always count",
                     "as {C:Romance}Romance Jokers{}"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Egg Deck{}"
                 }
             },
             
@@ -6947,6 +7084,10 @@ return {
                     "Start your run with the",
                     "{C:attention}Special Treats{} and",
                     "{C:attention}Snack Bag{} vouchers"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Snack Deck{}"
                 }
             },
             sleeve_kino_trophydeck = {
@@ -6955,6 +7096,10 @@ return {
                     "Start your run with the",
                     "{C:attention}Awards Bait{} and",
                     "and {C:attention}Award Show{} vouchers"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Winner's Deck{}"
                 }
             },
 
@@ -6966,6 +7111,10 @@ return {
                     "Start your run with the",
                     "{C:attention}Special Treats{}, {C:attention}Snack Bag{},",
                     "and {C:attention}Heavenly Treats{} vouchers"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Snack Deck{}"
                 }
             },
             sleeve_kino_trophydeck_cryptid = {
@@ -6974,6 +7123,10 @@ return {
                     "Start your run with the",
                     "{C:attention}Awards Bait{}, {C:attention}Award Show{},",
                     "and {C:attention}EGOT Winner{} vouchers"
+                },
+                unlock = {
+                    "Defeat {C:black}Black Stake{} using",
+                    "{C:attention}Winner's Deck{}"
                 }
             }
         },

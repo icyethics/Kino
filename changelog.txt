@@ -14,58 +14,29 @@ Mechanical Changes:
 - Halloween mode is now disabled, meaning the two halloween decks have become regular decks. You can, however, reenable their spooky versions in the configurations of the mod!
 - Ratatouille is no longer a confection, but the Confection's rare spectral equivalent
 
-New Jokers (25):
+Balance Changes:
+- Angel Hearts: Only doubles mult on first trigger of any specific card
+- Baby Driver: Mult > Chips
+- Shin Kamen Rider: 1x mult > 0.5x mult
+- Ego the Living Planet: Scaling has been significantly reduced
+
+New & Reworked Content:
+
+Jokers (12):
 - Inception
-- Meet the Parents
 - Marty
 - 500 Days of Summer
 - Eternal Sunshine of the Spotless Mind
-
-- Weapons
-- Joker
-- Superman (2025)
-- Cat People
 - The Accountant
 
 - Dirty Harry
 - The Quick & The Dead
 - The Maltese Falcon
-- Zoolander
-- Tron
-
-- 12 Angry Men
 - Nacho Libre
 - Godzilla (1954)
+
 - King Kong (1933)
-- Superman (1978)
-
 - Hardcore Henry
-- Good Burger
-- The Simpsons
-- Man of Steel
-- Dr. No
-
-- Final Destination
-
--- PLANNED:
-- Lost in Translation
-- The Trial (1962) (System with custom UI)
-- The Fast & The Furious
-- The Substance
-- The Lobster
-
-- City People
-- Da 5 Bloods
-- The Truman Show (System with custom UI)
-- Pan's Labyrinth (System with custom UI)
-- Black Panther
-
--- LEGENDARIES:
-- The Godfather (1973)
-- The Avengers (2012)
-- Strangers on a Train (1951)
-- Bringing Up Baby (1938)
-- Wings (1927)
 
 Reworked Jokers:
 - Her
@@ -73,22 +44,20 @@ Reworked Jokers:
 - Duel
 - Coco !!! WIP THIS NEEDS TO BE FINISHED
 - Piranha
+
 - Hook
 - Dune (1984)
 - Scream (1997)
 - Shin Kamen Rider (Now has a secondary effect)
-
-Balance Changes:
-- Angel Hearts: Only doubles mult on first trigger of any specific card
-- Baby Driver: Mult > Chips
-- Ego the Living Planet: Scaling has been significantly reduced
-
-Action Card Rework:
 - John Wick
+
 - Pain & Gain
 - Hot Fuzz
 - Source Code
--
+- Blank Check
+- Frankenstein
+
+- Taken
 
 
 POTENTIAL REWORKS:
@@ -100,27 +69,9 @@ POTENTIAL REWORKS:
 - A Fish Called Wanda
 
 ENHANCEMENT REWORKS:
-- Action Cards (PENDING)
+- Action Cards 
 
-REWORKS:
-- Blank Check
-- Frankenstein
 
-More Mechanically Interesting:
-- Cars
-- Stripes
-- Taken
-
-Planned Jokers:
-- Final Destination
-- The Substance
-
-- Robot Dreams
-- Rocket Man
-
-- Rear Window
-- City People
-- The Lobster
 
 New Planets:
 - Treasure Planet
@@ -145,33 +96,6 @@ New Deck:
 New Sleeve:
 - Videostore Sleeve
 - Cosmonaut's Sleeve
-
-Unlock Conditions:
-Unlock Conditions have been added to the following objects:
-Jokers (13/375):
-Common Jokers (4):
-- 9
-- 10 Things I Hate About You
-- Aliens
-- Alien 3
-
-Uncommon Jokers (5):
-- 30 Days of Night
-- The Accountant
-- Alien
-- Annihilation
-- Anora 
-
-Rare Joker (5):
-- 12 Angry Men
-- Angel Heart
-- Apollo 13
-- Arrival
-- Asteroid City
-- Batman '66
-- Batman '89
-- The Batman
-- Batman & Robin
 
 Description Rework:
 (STOPPED AT: Taken)
@@ -295,6 +219,11 @@ Krazy House
 Lethal Weapon - (ALL Hand stacking jokers)
 Shopaholic
 Sound of Music
+
+Incorrect Unlock Conditions:
+30 Days of Night
+Star Wars V
+Blade Runner
 
 V 0.11-HALLOWEENd:
 

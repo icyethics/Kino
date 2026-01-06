@@ -229,13 +229,13 @@ SMODS.Back {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count or 0
+                G.PROFILES[G.SETTINGS.profile].career_stats.kino_spells_cast or 0
             }
         }
     end,
     check_for_unlock = function(self, args)
         if args.type == 'bb_spell_cast' then
-            if G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count >= 100 then
+            if G.PROFILES[G.SETTINGS.profile].career_stats.kino_spells_cast and G.PROFILES[G.SETTINGS.profile].career_stats.kino_spells_cast >= 100 then
                 unlock_card(self)
             end
         end
@@ -391,7 +391,7 @@ SMODS.Back {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_spells_cast and G.PROFILES[G.SETTINGS.profile].kino_spells_cast.count or 0
+                G.PROFILES[G.SETTINGS.profile].career_stats.kino_spells_cast or 0
             }
         }
     end,
@@ -509,14 +509,14 @@ SMODS.Back {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_awards_given,
+                G.PROFILES[G.SETTINGS.profile].career_stats.kino_awards_given,
                 20
             }
         }
     end,
     check_for_unlock = function(self, args)
         if args.type == 'kino_awards_given' then
-            if G.PROFILES[G.SETTINGS.profile].kino_awards_given >= 20 then
+            if G.PROFILES[G.SETTINGS.profile].career_stats.kino_awards_given >= 20 then
                 unlock_card(self)
             end
         end
@@ -591,7 +591,7 @@ SMODS.Back {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'kino_awards_given' then
-            if G.PROFILES[G.SETTINGS.profile].kino_awards_given >= 5 then
+            if G.PROFILES[G.SETTINGS.profile].career_stats.kino_awards_given >= 5 then
                 unlock_card(self)
             end
         end

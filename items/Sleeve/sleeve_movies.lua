@@ -22,7 +22,27 @@ if CardSleeves then
         end,
         apply = function(self, sleeve)
             G.GAME.modifiers.bacon_bonus = self.config.bacon_bonus
-        end
+        end,
+        -- Unlock Functions
+        unlocked = false,
+        locked_loc_vars = function(self, info_queue, card)
+            local _key = "b_kino" .. self.key
+
+            return {
+                vars = {
+
+                }
+            }
+        end,
+        check_for_unlock = function(self, args)
+            if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                local _key = "b_kino" .. self.key
+                print(_key)
+                if get_deck_win_stake(_key) > 4 then
+                    unlock_card(self)
+                end
+            end
+        end,
     }
 
     -- Cine2Nerdle
@@ -34,7 +54,27 @@ if CardSleeves then
         },
         apply = function()
             G.GAME.modifiers.kino_back_c2n = true
-        end
+        end,
+        -- Unlock Functions
+        unlocked = false,
+        locked_loc_vars = function(self, info_queue, card)
+            local _key = "b_kino" .. self.key
+
+            return {
+                vars = {
+
+                }
+            }
+        end,
+        check_for_unlock = function(self, args)
+            if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                local _key = "b_kino" .. self.key
+                print(_key)
+                if get_deck_win_stake(_key) > 4 then
+                    unlock_card(self)
+                end
+            end
+        end,
     }
 
     -- Producer 
@@ -105,7 +145,27 @@ if CardSleeves then
                     end
                 end
             end
-        end
+        end,
+        -- Unlock Functions
+        unlocked = false,
+        locked_loc_vars = function(self, info_queue, card)
+            local _key = "b_kino" .. self.key
+
+            return {
+                vars = {
+
+                }
+            }
+        end,
+        check_for_unlock = function(self, args)
+            if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                local _key = "b_kino" .. self.key
+                print(_key)
+                if get_deck_win_stake(_key) > 4 then
+                    unlock_card(self)
+                end
+            end
+        end,
     }
 
     -- Investment
@@ -154,7 +214,27 @@ if CardSleeves then
                     end
                 end
             end
-        end
+        end,
+        -- Unlock Functions
+        unlocked = false,
+        locked_loc_vars = function(self, info_queue, card)
+            local _key = "b_kino" .. self.key
+
+            return {
+                vars = {
+
+                }
+            }
+        end,
+        check_for_unlock = function(self, args)
+            if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                local _key = "b_kino" .. self.key
+                print(_key)
+                if get_deck_win_stake(_key) > 4 then
+                    unlock_card(self)
+                end
+            end
+        end,
     }
     
 
@@ -203,7 +283,27 @@ if CardSleeves then
                     end
                 end
             end
-        end
+        end,
+        -- Unlock Functions
+        unlocked = false,
+        locked_loc_vars = function(self, info_queue, card)
+            local _key = "b_kino" .. self.key
+
+            return {
+                vars = {
+
+                }
+            }
+        end,
+        check_for_unlock = function(self, args)
+            if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                local _key = "b_kino" .. self.key
+                print(_key)
+                if get_deck_win_stake(_key) > 4 then
+                    unlock_card(self)
+                end
+            end
+        end,
     }
 
     -- Dark Knight
@@ -228,7 +328,27 @@ if CardSleeves then
         apply = function(self, sleeve)
             G.GAME.modifiers.kino_batmandeck = true
             G.GAME.modifiers.kino_batmandeck_rarity = G.GAME.modifiers.kino_batmandeck_rarity and 4 or 2
-        end
+        end,
+        -- Unlock Functions
+        unlocked = false,
+        locked_loc_vars = function(self, info_queue, card)
+            local _key = "b_kino" .. self.key
+
+            return {
+                vars = {
+
+                }
+            }
+        end,
+        check_for_unlock = function(self, args)
+            if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                local _key = "b_kino" .. self.key
+                print(_key)
+                if get_deck_win_stake(_key) > 4 then
+                    unlock_card(self)
+                end
+            end
+        end,
     }
 
     -- Alderaan
@@ -265,7 +385,27 @@ if CardSleeves then
                 SMODS.smart_level_up_hand(nil, _hand, nil, 1)
             end
         end
-    end
+        end,
+        -- Unlock Functions
+        unlocked = false,
+        locked_loc_vars = function(self, info_queue, card)
+            local _key = "b_kino" .. self.key
+
+            return {
+                vars = {
+
+                }
+            }
+        end,
+        check_for_unlock = function(self, args)
+            if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                local _key = "b_kino" .. self.key
+                print(_key)
+                if get_deck_win_stake(_key) > 4 then
+                    unlock_card(self)
+                end
+            end
+        end,
     }
 
     -- Cosmonaut
@@ -291,7 +431,27 @@ if CardSleeves then
 
             G.GAME.modifiers.kino_cosmonaut = true
             G.GAME.modifiers.kino_cosmonaut_rarity = G.GAME.modifiers.kino_cosmonaut_rarity and 16 or 4
-        end
+        end,
+        -- Unlock Functions
+        unlocked = false,
+        locked_loc_vars = function(self, info_queue, card)
+            local _key = "b_kino" .. self.key
+
+            return {
+                vars = {
+
+                }
+            }
+        end,
+        check_for_unlock = function(self, args)
+            if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                local _key = "b_kino" .. self.key
+                print(_key)
+                if get_deck_win_stake(_key) > 4 then
+                    unlock_card(self)
+                end
+            end
+        end,
     }
 
     CardSleeves.Sleeve {
@@ -317,7 +477,27 @@ if CardSleeves then
             if self.get_current_deck_key() == "b_kino_empowered" then
                 G.GAME.starting_params.kino_empoweredsleeve = true
             end
-        end
+        end,
+        -- Unlock Functions
+        unlocked = false,
+        locked_loc_vars = function(self, info_queue, card)
+            local _key = "b_kino" .. self.key
+
+            return {
+                vars = {
+
+                }
+            }
+        end,
+        check_for_unlock = function(self, args)
+            if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                local _key = "b_kino" .. self.key
+                print(_key)
+                if get_deck_win_stake(_key) > 4 then
+                    unlock_card(self)
+                end
+            end
+        end,
     }
     
     
@@ -332,7 +512,26 @@ if CardSleeves then
                         "v_kino_special_treats",
                         "v_kino_snackbag",
                     }
-                }
+                },
+                -- Unlock Functions
+                unlocked = false,
+                locked_loc_vars = function(self, info_queue, card)
+                    local _key = "b_kino" .. self.key
+
+                    return {
+                        vars = {
+                        }
+                    }
+                end,
+                check_for_unlock = function(self, args)
+                    if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                        local _key = "b_kino" .. self.key
+                        print(_key)
+                        if get_deck_win_stake(_key) > 4 then
+                            unlock_card(self)
+                        end
+                    end
+                end,
             }
         end
         CardSleeves.Sleeve {
@@ -344,7 +543,27 @@ if CardSleeves then
                     "v_kino_awardsbait",
                     "v_kino_awardsshow",
                 }
-            }
+            },
+            -- Unlock Functions
+            unlocked = false,
+            locked_loc_vars = function(self, info_queue, card)
+                local _key = "b_kino" .. self.key
+
+                return {
+                    vars = {
+
+                    }
+                }
+            end,
+            check_for_unlock = function(self, args)
+                if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                    local _key = "b_kino" .. self.key
+                    print(_key)
+                    if get_deck_win_stake(_key) > 4 then
+                        unlock_card(self)
+                    end
+                end
+            end,
         }
     else
         if kino_config.confection_mechanic then
@@ -358,7 +577,27 @@ if CardSleeves then
                         "v_kino_snackbag",
                         "v_kino_heavenly_treats"
                     }
+                },
+            -- Unlock Functions
+            unlocked = false,
+            locked_loc_vars = function(self, info_queue, card)
+                local _key = "b_kino" .. self.key
+
+                return {
+                    vars = {
+
+                    }
                 }
+                end,
+                check_for_unlock = function(self, args)
+                    if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                        local _key = "b_kino" .. self.key
+                        print(_key)
+                        if get_deck_win_stake(_key) > 4 then
+                            unlock_card(self)
+                        end
+                    end
+                end,
             }
         end
 
@@ -372,7 +611,27 @@ if CardSleeves then
                     "v_kino_awardsshow",
                     "v_kino_egot"
                 }
-            }
+            },
+            -- Unlock Functions
+            unlocked = false,
+            locked_loc_vars = function(self, info_queue, card)
+                local _key = "b_kino" .. self.key
+
+                return {
+                    vars = {
+
+                    }
+                }
+            end,
+            check_for_unlock = function(self, args)
+                if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                    local _key = "b_kino" .. self.key
+                    print(_key)
+                    if get_deck_win_stake(_key) > 4 then
+                        unlock_card(self)
+                    end
+                end
+            end,
         }
     end
 
@@ -415,7 +674,27 @@ if CardSleeves then
                     end
                 end
             end
-        end
+        end,
+        -- Unlock Functions
+        unlocked = false,
+        locked_loc_vars = function(self, info_queue, card)
+            local _key = "b_kino" .. self.key
+
+            return {
+                vars = {
+
+                }
+            }
+        end,
+        check_for_unlock = function(self, args)
+            if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                local _key = "b_kino" .. self.key
+                print(_key)
+                if get_deck_win_stake(_key) > 4 then
+                    unlock_card(self)
+                end
+            end
+        end,
     }
 
     CardSleeves.Sleeve {
@@ -428,7 +707,27 @@ if CardSleeves then
         
         apply = function(self, sleeve)
             G.GAME.modifiers.egg_genre = "Romance"
-        end
+        end,
+        -- Unlock Functions
+        unlocked = false,
+        locked_loc_vars = function(self, info_queue, card)
+            local _key = "b_kino" .. self.key
+
+            return {
+                vars = {
+
+                }
+            }
+        end,
+        check_for_unlock = function(self, args)
+            if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+                local _key = "b_kino" .. self.key
+                print(_key)
+                if get_deck_win_stake(_key) > 4 then
+                    unlock_card(self)
+                end
+            end
+        end,
     }
 
 end

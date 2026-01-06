@@ -1939,7 +1939,6 @@ SMODS.Consumable {
     end,
     pull_button = true,
     active = false,
-    no_collection = true,
     can_use = function(self, card)
         -- Checks if it can be activated
         if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then
@@ -2323,6 +2322,7 @@ SMODS.Consumable {
     active = false,
     hidden = true,
     soul_rate = 0,
+    no_collection = true,
     can_use = function(self, card)
         -- Checks if it can be activated
         if card.active == true or (card.area and card.area.config and card.area.config.type == 'shop') then

@@ -52,8 +52,6 @@ SMODS.Joker {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
-                50
             }
         }
     end,
@@ -62,7 +60,7 @@ SMODS.Joker {
             local _tally = 0
             local _level = 0
             for i, _pcard in ipairs(G.playing_cards) do
-                if _pcard.center.config == G.P_CENTERS.m_kino_sci_fi then
+                if _pcard.config.center == G.P_CENTERS.m_kino_sci_fi then
                     _level = _pcard.ability.extra.times_upgraded
                 end
             end

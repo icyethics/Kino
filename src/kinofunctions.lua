@@ -83,6 +83,16 @@ function has_cast(joker, actor)
     return false
 end
 
+function Kino.has_director(joker, director)
+    if not joker.kino_joker then return false end
+
+    for i, _director in ipairs(joker.kino_joker.directors) do
+        if _director == director then
+            return true
+        end
+    end
+end
+
 function create_cast_list()
     if not G or not G.jokers or not G.jokers.cards then
         return nil

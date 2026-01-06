@@ -52,7 +52,7 @@ SMODS.Joker {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_unscored_cards_played and G.PROFILES[G.SETTINGS.profile].kino_unscored_cards_played.count or 0,
+                G.PROFILES[G.SETTINGS.profile].career_stats.kino_unscored_cards_played or 0,
                 300
             }
         }

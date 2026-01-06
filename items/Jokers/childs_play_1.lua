@@ -67,8 +67,6 @@ SMODS.Joker {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
-                50
             }
         }
     end,
@@ -77,7 +75,7 @@ SMODS.Joker {
             local _tally = 0
             for i, _pcard in ipairs(G.playing_cards) do
                 if _pcard:get_id() == 2 and 
-                (_pcard.config.center == G.P_CENTERS.m_kino_horror and _pcard.config.center == G.P_CENTERS.m_kino_monster) then
+                (_pcard.config.center == G.P_CENTERS.m_kino_horror or _pcard.config.center == G.P_CENTERS.m_kino_monster) then
                     _tally = _tally + 1
                 end
             end

@@ -1,69 +1,4 @@
 if CardSleeves then
---     CardSleeves.Sleeve {
---         key = "spooky",
---         atlas = "kino_sleeves",
---         pos = { x = 0, y = 0 },
---         config = {
---             genre_bonus = "Horror"
---         },
---         apply = function(self, sleeve)
---             G.GAME.modifiers.genre_bonus[#G.GAME.modifiers.genre_bonus + 1] = "Horror"
---             G.GAME.kino_genre_weight["Horror"] = (1 + G.GAME.kino_genre_weight["Horror"]) * 3
---         end
---     }
-
---     CardSleeves.Sleeve {
---         key = "flirty",
---         atlas = "kino_sleeves",
---         pos = { x = 1, y = 0 },
---         config = {
---             genre_bonus = "Romance"
---         },
---         apply = function(self, sleeve)
---             G.GAME.modifiers.genre_bonus[#G.GAME.modifiers.genre_bonus + 1] = "Romance"
---             G.GAME.kino_genre_weight["Romance"] = (1 + G.GAME.kino_genre_weight["Romance"]) * 3
---         end
---     }
-
---     CardSleeves.Sleeve {
---         key = "dangerous",
---         atlas = "kino_sleeves",
---         pos = { x = 2, y = 0 },
---         config = {
---             genre_bonus = "Action"
---         },
---         apply = function(self, sleeve)
---             G.GAME.modifiers.genre_bonus[#G.GAME.modifiers.genre_bonus + 1] = "Action"
---             G.GAME.kino_genre_weight["Action"] = (1 + G.GAME.kino_genre_weight["Action"]) * 3
---         end
---     }
-
---     CardSleeves.Sleeve {
---         key = "tech",
---         atlas = "kino_sleeves",
---         pos = { x = 3, y = 0 },
---         config = {
---             genre_bonus = "Sci-fi"
---         },
---         apply = function(self, sleeve)
---             G.GAME.modifiers.genre_bonus[#G.GAME.modifiers.genre_bonus + 1] = "Sci-fi"
---             G.GAME.kino_genre_weight["Sci-fi"] = (1 + G.GAME.kino_genre_weight["Sci-fi"]) * 3
---         end
---     }
-
---     CardSleeves.Sleeve {
---         key = "enchanted",
---         atlas = "kino_sleeves",
---         pos = { x = 4, y = 0 },
---         config = {
---             genre_bonus = "Fantasy"
---         },
---         apply = function(self, sleeve)
---             G.GAME.modifiers.genre_bonus[#G.GAME.modifiers.genre_bonus + 1] = "Fantasy"
---             G.GAME.kino_genre_weight["Fantasy"] = (1 + G.GAME.kino_genre_weight["Fantasy"]) * 3
---         end
---     }
--- end
 
 Kino.sleeve_list = {
     -- tarots
@@ -98,6 +33,30 @@ for _index, _info in ipairs(Kino.sleeve_list) do
         CardSleeves.Sleeve.apply(self)
         G.GAME.modifiers.genre_bonus[#G.GAME.modifiers.genre_bonus + 1] = _info.genre
         G.GAME.kino_genre_weight[_info.genre] = (1 + G.GAME.kino_genre_weight[_info.genre]) * 3
+    end,
+    -- Unlock Functions
+    unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        local _key = "b_kino" .. self.key
+
+        return {
+            vars = {
+                _info.genre,
+                3,
+                colours = {
+                    G.ARGS.LOC_COLOURS[_info.genre]
+                }
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
+            local _key = "b_kino" .. self.key
+            print(_key)
+            if get_deck_win_stake(_key) > 4 then
+                unlock_card(self)
+            end
+        end
     end,
 }
 end

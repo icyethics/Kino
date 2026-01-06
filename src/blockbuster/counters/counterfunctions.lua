@@ -177,6 +177,7 @@ function Blockbuster.Counters.get_counter_pool(counter_class_table, key_only)
     return _returntable
 end
 
+
 function Blockbuster.set_counter_usage(counter, number)
 
     if not G.GAME.counter_application then

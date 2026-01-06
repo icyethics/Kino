@@ -79,14 +79,12 @@ SMODS.Joker {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
-                50
             }
         }
     end,
     check_for_unlock = function(self, args)
         if args.type == 'kino_consumable_used' then
-            if G.GAME.consumeables_used.c_sun >= 2 and G.GAME.consumeables_used.c_moon then
+            if G.GAME.consumeables_used.c_sun and G.GAME.consumeables_used.c_sun >= 2 and G.GAME.consumeables_used.c_moon then
                 unlock_card(self)
             end
         end

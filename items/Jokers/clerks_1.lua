@@ -61,8 +61,6 @@ SMODS.Joker {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
-                50
             }
         }
     end,
@@ -72,10 +70,10 @@ SMODS.Joker {
             for j = 1, #args.cards do
                 if SMODS.has_no_rank(args.cards[j]) then
                 else
-                    tally = args.cards[j]:get_id()
+                    tally = tally + args.cards[j]:get_id()
                 end
             end
-            if tally >= 37 then 
+            if tally == 37 then 
                 unlock_card(self)
             end
         end

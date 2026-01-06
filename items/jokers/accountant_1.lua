@@ -37,14 +37,6 @@ SMODS.Joker {
             }
         }
     end,
-    locked_loc_vars = function(self, info_queue, card)
-        return {
-            vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_bullets_loaded and G.PROFILES[G.SETTINGS.profile].kino_bullets_loaded.count or 0,
-                50
-            }
-        }
-    end,
     calculate = function(self, card, context)
         -- When Loaded: Earn $1 per Bullet, then consume 1 Bullet
 
@@ -61,9 +53,17 @@ SMODS.Joker {
         end
     end,
     unlocked = false,
+    locked_loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.PROFILES[G.SETTINGS.profile].career_stats.kino_bullets_loaded or 0,
+                50
+            }
+        }
+    end,
     check_for_unlock = function(self, args)
         if args.type == 'load_bullet' then
-            if G.PROFILES[G.SETTINGS.profile].kino_bullets_loaded and G.PROFILES[G.SETTINGS.profile].kino_bullets_loaded.count >= 50 then
+            if G.PROFILES[G.SETTINGS.profile].career_stats.kino_bullets_loaded and G.PROFILES[G.SETTINGS.profile].career_stats.kino_bullets_loaded >= 50 then
                 unlock_card(self)
             end
         end

@@ -52,23 +52,27 @@ SMODS.Joker {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades and G.PROFILES[G.SETTINGS.profile].kino_sci_fi_upgrades.count or 0,
-                50
             }
         }
     end,
     check_for_unlock = function(self, args)
         if args.type == 'hand_contents' then
             local _ownPants = false
-            if next(find_joker("j_runner")) then
+            if next(find_joker("Runner")) then
                 _ownPants = true
             end
+            -- print(find_joker("j_runner"))
+            print("pants = ")
+            print(_ownPants)
 
             local _isFlush = false
             local eval = evaluate_poker_hand(args.cards)
-            if next(eval['Flush']) then
+            
+            if next(eval['Straight']) then
                 _isFlush = true
             end
+            print("flush = ")
+            print(_isFlush)
 
             local _isSciFiOnly = true
             for i, _pcard in ipairs(args.cards) do
@@ -76,6 +80,8 @@ SMODS.Joker {
                     _isSciFiOnly = false
                 end
             end
+            print("_isSciFiOnly = ")
+            print(_isSciFiOnly)
 
             if _ownPants and _isFlush and _isSciFiOnly then
                 unlock_card(self)

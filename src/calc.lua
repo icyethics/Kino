@@ -38,7 +38,7 @@ SMODS.current_mod.calculate = function(self, context)
     end
 
     if context.remove_playing_cards then
-        if not G.GAME.face_card_destroyed or (G.GAME.face_card_destroyed and G.GAME.face_card_destroyed > 10) then
+        if not G.GAME.face_card_destroyed or (G.GAME.face_card_destroyed and G.GAME.face_card_destroyed <= 10) then
             for i = 1, #context.removed do
                 if context.removed[i]:is_face() then
                     G.GAME.face_card_destroyed = G.GAME.face_card_destroyed or 0
@@ -51,6 +51,7 @@ SMODS.current_mod.calculate = function(self, context)
                     check_for_unlock({type="kino_destroyed_debuffed_card"})
                 end
                 if context.removed[i].config.center == G.P_CENTERS.m_kino_sci_fi then
+                    print("This is being incremented")
                     inc_career_stat("kino_sci_fi_cards_destroyed", 1)
                 end
 
@@ -66,6 +67,7 @@ SMODS.current_mod.calculate = function(self, context)
                 end
                 
             end
+
             if G.GAME.face_card_destroyed and G.GAME.face_card_destroyed >= 10 then
                 check_for_unlock({type="kino_ten_faces_destroyed"})
             end
@@ -81,7 +83,7 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.consumeables_used_this_run = G.GAME.consumeables_used_this_run + 1
 
         if context.consumeable.config.center.set == "confection" then
-            G.GAME.confections_used = G.GAME.confections_used or {}
+            G.GAME.confections_used.all = G.GAME.confections_used.all + 1
             G.GAME.confections_used[context.consumeable.config.center.key] = G.GAME.confections_used[context.consumeable.config.center.key] or 0
             G.GAME.confections_used[context.consumeable.config.center.key] = G.GAME.confections_used[context.consumeable.config.center.key] + 1
             inc_career_stat("kino_confections_used", 1)

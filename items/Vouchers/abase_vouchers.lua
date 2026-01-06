@@ -43,14 +43,14 @@ SMODS.Voucher {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].c_confections_bought and G.PROFILES[G.SETTINGS.profile].c_confections_bought.count or 0,
+                G.PROFILES[G.SETTINGS.profile].career_stats.c_confections_bought or 0,
                 50
             }
         }
     end,
     check_for_unlock = function(self, args)
         if args.type == 'career_stat' then
-            if G.PROFILES[G.SETTINGS.profile].c_confections_bought and G.PROFILES[G.SETTINGS.profile].c_confections_bought.count >= 50 then
+            if G.PROFILES[G.SETTINGS.profile].career_stats.c_confections_bought and G.PROFILES[G.SETTINGS.profile].career_stats.c_confections_bought >= 50 then
                 unlock_card(self)
             end
         end
@@ -89,14 +89,14 @@ SMODS.Voucher {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_confections_with_treats_consumed and G.PROFILES[G.SETTINGS.profile].kino_confections_with_treats_consumed.count or 0,
+                G.PROFILES[G.SETTINGS.profile].career_stats.kino_confections_with_treats_consumed or 0,
                 25
             }
         }
     end,
     check_for_unlock = function(self, args)
         if args.type == 'career_stat' then
-            if G.PROFILES[G.SETTINGS.profile].kino_confections_with_treats_consumed and G.PROFILES[G.SETTINGS.profile].kino_confections_with_treats_consumed.count >= 50 then
+            if G.PROFILES[G.SETTINGS.profile].career_stats.kino_confections_with_treats_consumed and G.PROFILES[G.SETTINGS.profile].career_stats.kino_confections_with_treats_consumed >= 50 then
                 unlock_card(self)
             end
         end
@@ -157,14 +157,14 @@ SMODS.Voucher {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].kino_awards_given and G.PROFILES[G.SETTINGS.profile].kino_awards_given.count or 0,
+                G.PROFILES[G.SETTINGS.profile].career_stats.kino_awards_given or 0,
                 5
             }
         }
     end,
     check_for_unlock = function(self, args)
         if args.type == 'career_stat' then
-            if G.PROFILES[G.SETTINGS.profile].kino_awards_given and G.PROFILES[G.SETTINGS.profile].kino_awards_given.count >= 5 then
+            if G.PROFILES[G.SETTINGS.profile].career_stats.kino_awards_given and G.PROFILES[G.SETTINGS.profile].career_stats.kino_awards_given >= 5 then
                 unlock_card(self)
             end
         end

@@ -844,7 +844,7 @@ SMODS.Consumable {
         -- local _target = G.jokers.cards[1]
         _target.getting_sliced = true
 
-        if kino_quality_check(_target, "is_star_wars") then
+        if kino_quality_check(_target, "is_starwars") then
             check_for_unlock({type="kino_destroy_star_wars_with_death_star"})
         end
         _target:start_dissolve()

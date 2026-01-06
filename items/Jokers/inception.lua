@@ -109,7 +109,7 @@ SMODS.Joker {
                         if Kino.has_director(_joker, _director) then
                             _nolan_match = true
                             _nolan_total = _nolan_total + 1
-                            if get_joker_win_sticker(_joker) >0 then
+                            if get_joker_win_sticker(_joker) and get_joker_win_sticker(_joker) > 0 then
                                 _nolan_win = _nolan_win + 1
                             end
                         end

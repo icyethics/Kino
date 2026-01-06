@@ -107,7 +107,7 @@ SMODS.Joker {
         end
 
         -- Checking confection use Conditions
-        if G.GAME.confections_used >= 10 then
+        if G.GAME.confections_used.all >= 10 then
             _quest_status[2] = true
         end
 
