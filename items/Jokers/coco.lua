@@ -4,8 +4,6 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            common_rate = 2,
-            additional_card = 1
         }
     },
     rarity = 2,
@@ -32,13 +30,31 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.common_rate,
-                card.ability.extra.additional_card
+
             }
         }
     end,
     calculate = function(self, card, context)
-        -- Death is twice as common, and can select an additional card
+        -- When you use a Death, transform an additional random card in hand as well
+        if context.using_consumeable and context.consumeable.ability.set == "Tarot" and context.consumeable.ability.name == "Death" then
+            local _valid_targets = {}
+            local _transform_goal = G.hand.highlighted[2]
+            
+            for i, _pcard in ipairs(G.hand.cards) do
+                if _pcard ~= G.hand.highlighted[1] and _pcard ~= G.hand.highlighted[2] then
+                    _valid_targets[#_valid_targets + 1] = _pcard
+                end
+            end
+
+            if #_valid_targets > 0 then
+                local _target = pseudorandom_element(_valid_targets, pseudoseed("kino_coco"))
+                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
+                    local new_card = copy_card(_transform_goal, _target)
+                    new_card:juice_up()
+                    return true end }))
+                card:juice_up()
+            end
+        end
     end,
     -- Unlock Functions
     unlocked = false,
@@ -46,13 +62,13 @@ SMODS.Joker {
         return {
             vars = {
                 G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_death and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_death.count or 0,
-                25
+                10
             }
         }
     end,
     check_for_unlock = function(self, args)
         if args.type == 'career_stat' and
-        G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_death and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_death.count >= 25 then
+        G.PROFILES[G.SETTINGS.profile].consumeable_usage and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_death and G.PROFILES[G.SETTINGS.profile].consumeable_usage.c_death.count >= 10 then
             unlock_card(self)
         end
     end,

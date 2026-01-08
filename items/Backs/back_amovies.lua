@@ -409,8 +409,6 @@ SMODS.Back {
             end
 
             if _total_count == _discovered_count then
-                print(_total_count)
-                print(_discovered_count)
                 unlock_card(self)
             end
         end
@@ -509,7 +507,7 @@ SMODS.Back {
     locked_loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.PROFILES[G.SETTINGS.profile].career_stats.kino_awards_given,
+                G.PROFILES[G.SETTINGS.profile].career_stats.kino_awards_given or 0,
                 20
             }
         }

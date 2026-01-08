@@ -59,8 +59,6 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'kino_game_loss' then
-            print("hello")
-            print(G.GAME.round)
             if G.GAME.round == 7 then
                 unlock_card(self)
             end

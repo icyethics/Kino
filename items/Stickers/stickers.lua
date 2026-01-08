@@ -30,6 +30,8 @@ SMODS.Sticker{
 
         card.ability[self.key] = val
         card.ability[self.key .. "_times"] = (card.ability[self.key .. "_times"] or 0) + 1
+        inc_career_stat("kino_awards_given", 1)
+        check_for_unlock({type = "kino_awards_given"})
         
         Blockbuster.manipulate_value(card, "award_sticker", Kino.award_mult ^ card.ability.kino_award_times)
     end,

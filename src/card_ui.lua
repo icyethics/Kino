@@ -772,23 +772,6 @@ function Card.generate_UIBox_ability_table(self, ...)
     return full_UI_table
 end
 
--- Card info update
-local o_gen_card_ui = generate_card_ui
-function generate_card_ui(_c, full_UI_table, specific_vars, card_type, badges, hide_desc, main_start, main_end, card)
-    local full_UI_table = o_gen_card_ui(_c, full_UI_table, specific_vars, card_type, badges, hide_desc, main_start, main_end, card)
-
-    -- if _c.set == 'Enhanced' and _c.name == "Sci-Fi Card" then
-    --     print(specific_vars)
-    --     if specific_vars and specific_vars.mult then
-    --         localize{type = 'other', key = 'card_extra_mult', nodes = desc_nodes, vars = {SMODS.signed(specific_vars.mult)}}
-    --     end
-    --     if specific_vars and specific_vars.x_mult then
-    --         localize{type = 'other', key = 'card_x_mult', nodes = desc_nodes, vars = {specific_vars.x_mult}}
-    --     end
-    -- end
-
-    return full_UI_table
-end
 -- UI indicators
 local blind_indicator_sprite
 SMODS.DrawStep {

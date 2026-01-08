@@ -27,7 +27,6 @@ Kino.confection_trigger = function(card)
     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
         card_eval_status_text(card, 'extra', nil, nil, nil,
         { message = localize('k_eaten'), colour = G.C.MULT})
-        print(_sound_key)
         play_sound(_sound_key)
     return true end }))
 

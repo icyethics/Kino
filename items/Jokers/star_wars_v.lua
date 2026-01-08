@@ -67,8 +67,6 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'round_win' and G.GAME.blind:get_type() == "Boss" and G.GAME.round_resets.blind_choices.Boss == "bl_kino_vader" then
-            print("Star Wars V: Boss match")
-            print(G.GAME.round_resets.blind_choices.Boss)
             unlock_card(self)
         end
     end,

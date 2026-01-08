@@ -81,13 +81,8 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == "round_win" then
-            print("Triggered")
-            print(G.GAME.kino_played_least_played_hand_this_round)
-            print(G.GAME.blind:get_type())
-            print(G.GAME.blind:get_type() == 'Boss')
             if G.GAME.kino_played_least_played_hand_this_round and
             G.GAME.blind:get_type() == 'Boss' then
-                print("Unlocked")
                 unlock_card(self)   
             end
         end

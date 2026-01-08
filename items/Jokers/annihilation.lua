@@ -115,10 +115,8 @@ SMODS.Joker {
                 if _pcard:get_seal() or 
                 _pcard.config.center ~= G.P_CENTERS.c_base or
                 _pcard.edition then
-                    print("working")
                 else
                     _tally = _tally + 1
-                    print("Found an unmodified card")
                     break
                 end
             end

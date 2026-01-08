@@ -21,6 +21,8 @@ Kino.sleeve_list = {
 
 for _index, _info in ipairs(Kino.sleeve_list) do
 
+    local _key = "b_kino_" .. _info.key
+
     CardSleeves.Sleeve  {
     key = _info.key,
     atlas = "kino_sleeves_genre",
@@ -36,28 +38,7 @@ for _index, _info in ipairs(Kino.sleeve_list) do
     end,
     -- Unlock Functions
     unlocked = false,
-    locked_loc_vars = function(self, info_queue, card)
-        local _key = "b_kino" .. self.key
-
-        return {
-            vars = {
-                _info.genre,
-                3,
-                colours = {
-                    G.ARGS.LOC_COLOURS[_info.genre]
-                }
-            }
-        }
-    end,
-    check_for_unlock = function(self, args)
-        if args and args.type == 'win_deck' and G and G.GAME and G.jokers then
-            local _key = "b_kino" .. self.key
-            print(_key)
-            if get_deck_win_stake(_key) > 4 then
-                unlock_card(self)
-            end
-        end
-    end,
+    unlock_condition = { deck = _key, stake = "stake_black" },
 }
 end
 

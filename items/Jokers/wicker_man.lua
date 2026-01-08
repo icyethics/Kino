@@ -73,7 +73,6 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'kino_cards_sold' then
-            print("Wicker man trigger")
             if G.GAME.cards_sold_this_run and G.GAME.cards_sold_this_run >= 30 then
                 unlock_card(self)
             end

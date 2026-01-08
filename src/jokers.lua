@@ -263,7 +263,7 @@ joker_list = {
 "star_wars_vii",
 "starman",
 "stranger_than_fiction",
--- "superman_1978",
+"superman_1978",
 "terminator_1",
 "terror_train",
 "thing",

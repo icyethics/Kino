@@ -95,9 +95,6 @@ SMODS.Joker {
                     _tally_stone = _tally_stone+1
                 end
             end
-            print(_tally_gold)
-            print(_tally_steel)
-            print(_tally_stone)
             if _tally_gold >= 3 and _tally_steel >= 3 and _tally_stone >= 3 then 
                 unlock_card(self)
             end

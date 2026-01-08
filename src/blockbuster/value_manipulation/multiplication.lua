@@ -144,24 +144,15 @@ function Blockbuster.change_values_in_table(card, value_table, reference_table, 
             -- check the values
             if Blockbuster.check_variable_validity_for_mult(name, standard, override) and type(value_table[name]) == "number" and
             reference_table[name] then
-                print(name .. ": VALUE START")
                 
                 -- Keeps into account any changes that originated from other systems than this one
                 local _current_value = value_table[name]
                 local _no_changes_result = reference_table[name] * (card.ability.last_multiplication ~= 0 and card.ability.last_multiplication or 1)
                 local _calculate_from = reference_table[name] + (_current_value - _no_changes_result) 
-                print(_current_value)
-                print(_no_changes_result)
-                print(_calculate_from)
-                print("INITIALISM")
                 
-                print(value_table[name])
                 value_table[name] = _calculate_from
-                print(value_table[name])
                 for source, mult in pairs(multiplier_table) do
-                    print("PROCESSING: " .. source .. "/" .. mult)
                     value_table[name] = value_table[name] * mult
-                    print(value_table[name])
                 end
 
                 if Blockbuster.check_variable_validity_for_int_only(name, standard, override) then

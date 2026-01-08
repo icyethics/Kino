@@ -105,6 +105,7 @@ SMODS.Enhancement {
     atlas = "kino_enhancements",
     pos = { x = 0, y = 3},
     no_collection = true,
+    hidden = true,
     config = {
         extra = {
             level_non = 1,

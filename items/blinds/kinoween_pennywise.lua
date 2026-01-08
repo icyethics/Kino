@@ -72,6 +72,7 @@ SMODS.Enhancement {
     no_collection = true,
     replace_base_card = true,
     overrides_base_rank = true,
+    hidden = true,
     no_suit = true,
     always_scores = true,
     config = {

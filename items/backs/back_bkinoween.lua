@@ -6,10 +6,6 @@ SMODS.Back {
     config = {
     },
     apply = function()
-        if kino_config.halloween_deck then
-            G.GAME.modifiers.kinoween = true
-            Kino.kinoween_ban_list()
-        end
     end,
     calculate = function(self, card, context)
         if context.setting_blind and not context.repetition and not context.blueprint then
@@ -18,6 +14,18 @@ SMODS.Back {
                     if G.consumeables.config.card_limit > #G.consumeables.cards then
                         play_sound('timpani')
                         local card = create_card('confection', G.consumeables, nil, nil, nil, nil, "c_kino_candycorn", 'kinoween_pumpkin')
+                        if G.GAME.modifiers.kinoween_pumpkin_sleeve then
+                            if pseudorandom("snack_boost_golden") < 0.5 then
+                                SMODS.Stickers['kino_goldleaf']:apply(card, true)
+                            end
+                            if pseudorandom("snack_boost_choco") < 0.5 then
+                                SMODS.Stickers['kino_choco']:apply(card, true)
+                            end
+                            if pseudorandom("snack_boost_XL") < 0.5 then
+                                SMODS.Stickers['kino_extra_large']:apply(card, true)
+                            end
+                        end
+                        
                         card:add_to_deck()
                         G.consumeables:emplace(card)
                         card:juice_up(0.3, 0.5)
@@ -53,11 +61,6 @@ SMODS.Back {
     config = {
     },
     apply = function()
-
-        if kino_config.halloween_deck then
-            G.GAME.modifiers.kinoween = true
-            Kino.kinoween_ban_list()
-        end
 
         G.GAME.modifiers.kino_vampiredeck = true
         G.GAME.modifiers.kino_vampiredeck_rarity = 2

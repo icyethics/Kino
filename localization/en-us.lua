@@ -1,6 +1,17 @@
 return {
     descriptions = {
         Joker = {
+            -- Vanille Joker overwrites
+            j_vampire = {
+                name = "Vampire",
+                text = {
+                    "{C:Drain}Drain{} scoring Enhancements",
+                    "and gain {X:mult,C:white}x#1#{} Mult",
+                    "for each Enhancement drained",
+                    "{C:inactive}(Currently {X:mult,C:white}x#2#{C:inactive} Mult)",
+                },
+            },
+            -- Kino Jokers
             j_kino_6_underground = {
                 name = "6 Underground",
                 text = {
@@ -822,9 +833,9 @@ return {
             j_kino_coco = {
                 name = "Coco",
                 text = {
-                    "{C:tarot}Death{} cards are",
-                    "{C:attention}x#1#{} as common and",
-                    "can select {C:attention}+#2#{} additional cards"
+                    "Using {C:attention}Death{} also transforms",
+                    "a random card held in hand",
+                    "into the right card"
                 },
                 unlock = {
                     "Use {C:attention}Death{} 25 times"
@@ -3507,7 +3518,7 @@ return {
                 text = {
                     "{C:attention}Sci-fi Cards{} gain",
                     "{X:mult,C:white}X#1#{} Mult instead of",
-                    "{C:mult}Mult{} when they upgrade"
+                    "{C:mult}+1{} mult when upgraded"
                 },
                 unlock = {
                     "Destroy {C:attention}The Terminator"
@@ -3540,6 +3551,11 @@ return {
                     "The top card of your deck",
                     "is always a {C:attention}Superhero{} Card",
                     "(if any left in your deck)"
+                },
+                unlock = {
+                    "Play a {C:attention}Superhero Card{}",
+                    "on your final hand",
+                    "of a round"
                 }
             },
             j_kino_superman_2025 = {
@@ -4221,8 +4237,8 @@ return {
                 text = {
                     {"{X:mult,C:white}x#1#{} Mult",
                     "Increased by {X:mult,C:white}x#2#{} when",
-                    "scored adjacent",
-                    "to Suspect card",},
+                    "scored while holding",
+                    "{C:attention}Suspect Card{} in hand",},
                     {
                         "SUSPECT:",
                         "Suit: {V:1}#3#{}",
@@ -5476,7 +5492,6 @@ return {
             b_kino_kinoween_pumpkin = {
                 name = "Trick or Treat Deck",
                 text = {
-                    "{C:attention,E:1}HALLOWEEN DECK{}",
                     "Fill empty Consumable slots",
                     "with {C:Confection,T:c_kino_candycorn}Candy Corn",
                     "when {C:attention}Blind{} is selected"
@@ -5488,7 +5503,6 @@ return {
             b_kino_kinoween_vampire = {
                 name = "Bloodlust Deck",
                 text = {
-                    "{C:attention,E:1}HALLOWEEN DECK{}",
                     "{C:Drain}Vampire Jokers{} are twice",
                     "as common",
                     "Playing a single {C:attention}enhanced{}",
@@ -6367,7 +6381,24 @@ return {
                 text = {
                     "{C:Alien}Currently Abducted: #1#"
                 }
-            }
+            },
+
+            -- Sci-fi Cards
+            kino_scifi_card_extra_chips={
+                text={
+                    "{C:chips}#1#{} chips from upgrades",
+                },
+            },
+            kino_scifi_card_extra_mult={
+                text={
+                    "{C:mult}#1#{} mult from upgrades",
+                },
+            },
+            kino_scifi_card_extra_xmult={
+                text={
+                    "{X:mult,C:white}x#1#{} mult from upgrades",
+                },
+            },
         },
         Voucher = {
             v_kino_confection_merchant = {
@@ -6387,9 +6418,9 @@ return {
                 },
                 unlock = {
                     "Buy a total of",
-                    "{C:attention}#1#{C:Confection} Confection{} cards",
+                    "{C:attention}#2#{C:Confection} Confection{} cards",
                     "from the shop",
-                    "{C:inactive}(#2#)",
+                    "{C:inactive}(#1#)",
                 }
             },
             v_kino_special_treats = {
@@ -6801,6 +6832,23 @@ return {
             },
 
             -- Non-genre sleeves
+            sleeve_kino_videostore = {
+                name = "Video Store Sleeve",
+                text = {
+                    "{C:attention}Movie Jokers{} and",
+                    "{C:attention}Movie Consumables are",
+                    "{C:attention}twice{} as common"
+                }
+            },
+            sleeve_kino_videostore_alt = {
+                name = "Video Store Sleeve",
+                text = {
+                    "{C:attention}Movie Jokers{} and",
+                    "{C:attention}Movie Consumables are",
+                    "{C:attention}four times{} as common"
+                }
+            },
+
             sleeve_kino_bacon = {
                 name = "Bacon Sleeve",
                 text = {
@@ -7107,6 +7155,44 @@ return {
                     "Defeat {C:black}Black Stake{} using",
                     "{C:attention}Winner's Deck{}"
                 }
+            },
+
+            sleeve_kino_kinoween_pumpkin = {
+                name = "Trick or Treat Sleeve",
+                text = {
+                    "Fill empty Consumable slots",
+                    "with {C:Confection,T:c_kino_candycorn}Candy Corn",
+                    "when {C:attention}Blind{} is selected"
+                }
+            },
+            sleeve_kino_kinoween_pumpkin_alt = {
+                name = "Trick or Treat Sleeve",
+                text = {
+                    "Fill empty Consumable slots",
+                    "with {C:Confection,T:c_kino_candycorn}Candy Corn",
+                    "with a {C:green}High Chance{} of additional treats",
+                    "when {C:attention}Blind{} is selected",
+                }
+            },
+
+            sleeve_kino_kinoween_vampire = {
+                name = "Bloodlust Sleeve",
+                text = {
+                    "{C:Drain}Vampire Jokers{} are twice",
+                    "as common",
+                    "Playing a single {C:attention}enhanced{}",
+                    "card {C:Drain}drains{} it and boosts",
+                    "a random joker with {C:Power}20% Power{}"
+                },
+            },
+            sleeve_kino_kinoween_vampire_alt = {
+                name = "Bloodlust Sleeve",
+                text = {
+                    "{C:Drain}Vampire Jokers{} are four times",
+                    "as common",
+                    "Put {C:attention}10{C:Drain} Blood Counters{}",
+                    "in your deck when blind is selected" 
+                },
             },
 
 
@@ -7659,6 +7745,8 @@ return {
             k_monster_turn = "ROAR!",
             k_crime_card = "Stolen",
             k_action_card = "Bang!",
+            k_kino_mystery = "I would've gotten away with it too!",
+
                  -- CROSS MOD BARKS
             k_kino_finance_investing = "Investing!",
             k_kino_finance_investing_2 = "Time for Payouts!",

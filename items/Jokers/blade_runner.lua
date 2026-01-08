@@ -61,9 +61,6 @@ SMODS.Joker {
             if next(find_joker("Runner")) then
                 _ownPants = true
             end
-            -- print(find_joker("j_runner"))
-            print("pants = ")
-            print(_ownPants)
 
             local _isFlush = false
             local eval = evaluate_poker_hand(args.cards)
@@ -71,8 +68,6 @@ SMODS.Joker {
             if next(eval['Straight']) then
                 _isFlush = true
             end
-            print("flush = ")
-            print(_isFlush)
 
             local _isSciFiOnly = true
             for i, _pcard in ipairs(args.cards) do
@@ -80,8 +75,6 @@ SMODS.Joker {
                     _isSciFiOnly = false
                 end
             end
-            print("_isSciFiOnly = ")
-            print(_isSciFiOnly)
 
             if _ownPants and _isFlush and _isSciFiOnly then
                 unlock_card(self)

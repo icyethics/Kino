@@ -41,6 +41,11 @@ function Game:start_run(args)
         end
     end
 
+    if kino_config.halloween_deck then
+        G.GAME.modifiers.kinoween = true
+        Kino.kinoween_ban_list()
+    end
+
     -- Invisible Joker Behaviour Handler
     self.kino_offscreen_area = CardArea(
         G.TILE_W - 600*G.CARD_W - 200.95, -100.1*G.jokers.T.h,

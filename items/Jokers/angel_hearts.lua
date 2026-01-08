@@ -40,17 +40,18 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Hearts") then
-                local final_mod = card.ability.extra.mult
                 if not context.other_card.first_trigger_angel_heart then
                     card.ability.extra.mult = card.ability.extra.mult * 2
                     card:juice_up()
                     context.other_card.first_trigger_angel_heart = true
                 end
-                return {
-                    mult = final_mod,
-                    card = context.other_card
-                }
             end
+        end
+
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.mult
+            }
         end
 
         if context.after and context.cardarea == G.jokers then

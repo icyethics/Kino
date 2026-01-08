@@ -183,6 +183,13 @@ function display_egg_message()
 end
 
 function kino_quality_check(card, quality)
+    -- Hardcode in some specific vanilla jokers to count
+    if quality == "is_wet" and 
+    (card.config.center == G.P_CENTERS.j_selzer or
+    card.config.center == G.P_CENTERS.j_splash or
+    card.config.center == G.P_CENTERS.j_diet_cola) then
+        return true
+    end
     if card and card.config and card.config[quality] and card.config[quality] ~= false then
         return true
     end
@@ -206,18 +213,26 @@ function get_random_hand()
 end
 
 -- Only accounts for played hands
-function get_least_played_hand()
+function get_least_played_hand(include_unplayed_hands)
     local _tally = nil
     local _hands = {}
     for k, v in ipairs(G.handlist) do
-        if G.GAME.hands[v].visible and (_tally == nil or G.GAME.hands[v].played < _tally) and G.GAME.hands[v].played ~= 0 then
-            _hands = {}
-            _hands[#_hands + 1] = v
-            
-            _tally = G.GAME.hands[v].played
+        if G.GAME.hands[v].visible and (_tally == nil or G.GAME.hands[v].played < _tally) then
+            if not include_unplayed_hands and G.GAME.hands[v].played ~= 0 or 
+            include_unplayed_hands then
+                _hands = {}
+                _hands[#_hands + 1] = v
+                
+                _tally = G.GAME.hands[v].played               
+            end
+
         end
-        if G.GAME.hands[v].visible and (_tally == nil or G.GAME.hands[v].played == _tally) and not G.GAME.hands[v].played == 0 then
-            _hands[#_hands + 1] = v
+        if G.GAME.hands[v].visible and (_tally == nil or G.GAME.hands[v].played == _tally) then
+            if not include_unplayed_hands and not G.GAME.hands[v].played == 0 or 
+            include_unplayed_hands then
+                _hands[#_hands + 1] = v
+            end
+            
         end
     end
 
@@ -599,15 +614,6 @@ function Tag:set_chocolate_bonus(chocolate_bonus)
     return true
 end
 
--------------
-SMODS.Enhancement:take_ownership('lucky', {
-    loc_vars = function (self, info_queue, card)
-        local cfg = (card and card.ability) or self.config
-        local numerator_mult, denominator_mult = SMODS.get_probability_vars(card, 1 * (cfg.lucky_bonus or 1), 5, 'lucky_mult')
-        local numerator_dollars, denominator_dollars = SMODS.get_probability_vars(card, 1 * (cfg.lucky_bonus or 1), 15, 'lucky_money')
-        return {vars = {numerator_mult, cfg.mult, denominator_mult, cfg.p_dollars, denominator_dollars, numerator_dollars}}
-    end,
-})
 ------------ Helpers ------------
 function Kino.debugfunc(inc)
     print(G.GAME.last_played_hand[inc])

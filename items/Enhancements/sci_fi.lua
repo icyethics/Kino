@@ -20,8 +20,14 @@ SMODS.Enhancement {
                 card and card.ability.perma_bonus or nil,
                 card and card.ability.perma_mult or nil,
                 card and card.ability.perma_x_mult or nil,
-                card and card.ability.extra.times_upgraded or self.config.times_upgraded
-            }
+                card and card.ability.extra.times_upgraded or self.config.times_upgraded,
+                bonus_chips_sci_fi = card.ability.extra.bonus or 10,
+                bonus_mult = card.ability.extra.perma_mult or nil,
+                bonus_xmult = card.ability.extra.perma_x_mult or nil
+            },
+            -- main_end = {
+            --     localize{type = 'other', key = 'card_extra_chips', nodes = desc_nodes, vars = {SMODS.signed(specific_vars.bonus_chips_sci_fi)}}
+            -- },
         }
     end,
     upgrade = function(self, card, num)
@@ -43,7 +49,7 @@ SMODS.Enhancement {
             for index, _joker in ipairs(G.jokers.cards) do
                 if type(_joker.ability.extra) == "table" and
                 _joker.ability.extra.affects_sci_fi then
-                    card.ability.extra.perma_x_mult = (card.ability.extra.perma_x_mult or 0) + (_joker.ability.extra.perma_x_mult *  _upgradenum)
+                    card.ability.extra.perma_x_mult = (card.ability.extra.perma_x_mult or 1) + (_joker.ability.extra.perma_x_mult *  _upgradenum)
                 end
             end
         else
@@ -107,8 +113,43 @@ SMODS.Enhancement {
                 return _return
             end
         end
-    end
+    end,
+
+    -- UI
+    generate_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+        local always_show = self.config and self.config.always_show or {}
+        if specific_vars and specific_vars.nominal_chips and not self.replace_base_card then
+            localize { type = 'other', key = 'card_chips', nodes = desc_nodes, vars = { specific_vars.nominal_chips } }
+        end
+        SMODS.Enhancement.super.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+        if specific_vars and specific_vars.bonus_chips then
+            local remaining_bonus_chips = specific_vars.bonus_chips - (self.config.bonus or 0)
+            if remaining_bonus_chips ~= 0 then
+                localize { type = 'other', key = 'card_extra_chips', nodes = desc_nodes, vars = { SMODS.signed(remaining_bonus_chips) } }
+            end
+        end
+        if card then
+            local cfg = card.ability
+            Kino.sci_fi_bonuses(cfg, specific_vars, desc_nodes)
+        end
+        SMODS.localize_perma_bonuses(specific_vars, desc_nodes)
+        
+    end,
 }
+
+function Kino.sci_fi_bonuses(cfg, specific_vars, desc_nodes)
+    if cfg and cfg.extra then
+        if cfg.extra.bonus and cfg.extra.bonus > 0 then
+            localize{type = 'other', key = 'kino_scifi_card_extra_chips', nodes = desc_nodes, vars = {SMODS.signed(cfg.extra.bonus)}}
+        end
+        if cfg.extra.perma_mult and cfg.extra.perma_mult > 0 then
+            localize{type = 'other', key = 'kino_scifi_card_extra_mult', nodes = desc_nodes, vars = {SMODS.signed(cfg.extra.perma_mult)}}
+        end
+        if cfg.extra.perma_x_mult and cfg.extra.perma_x_mult > 0 then
+            localize{type = 'other', key = 'kino_scifi_card_extra_xmult', nodes = desc_nodes, vars = {cfg.extra.perma_x_mult}}
+        end
+    end
+end
 
 
 SMODS.DrawStep {

@@ -17,9 +17,7 @@ function Kino.get_small_blind()
     G.GAME.kino_boss_mode_small_is_boss = nil
 
     if G.GAME.kino_boss_mode and G.GAME.kino_boss_mode.Small then
-        print("small blind might be Boss blind")
         if SMODS.pseudorandom_probability(nil, 'kino_blind_roll', G.GAME.kino_boss_mode_odds.Small or 0, 1, "boss_reroll") then
-            print("Small blind WILL be a boss blind")
             _blind = get_new_boss()
             G.GAME.kino_boss_mode_small_is_boss = true
         end
@@ -32,12 +30,8 @@ function Kino.get_big_blind()
     local _blind = "bl_big"
     G.GAME.kino_boss_mode_big_is_boss = nil
 
-    print("entered")
-    print(G.GAME.kino_boss_mode.Big)
     if G.GAME.kino_boss_mode and G.GAME.kino_boss_mode.Big then
-        print("Big blind might be Boss blind")
         if SMODS.pseudorandom_probability(nil, 'kino_blind_roll', G.GAME.kino_boss_mode_odds.Big or 0, 1, "boss_reroll") then
-            print("Big blind WILL be a boss blind")
             _blind = get_new_boss()
             G.GAME.kino_boss_mode_big_is_boss = true
         end

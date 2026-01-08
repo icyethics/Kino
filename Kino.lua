@@ -251,15 +251,15 @@ for _, file in ipairs(files) do
     assert(SMODS.load_file("items/challenges/" .. file))()
 end
 
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/playsets")
-for _, file in ipairs(files) do
-    assert(SMODS.load_file("items/playsets/" .. file))()
-end
+-- local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/playsets")
+-- for _, file in ipairs(files) do
+--     assert(SMODS.load_file("items/playsets/" .. file))()
+-- end
 
-local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/content_packages")
-for _, file in ipairs(files) do
-    assert(SMODS.load_file("items/content_packages/" .. file))()
-end
+-- local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/content_packages")
+-- for _, file in ipairs(files) do
+--     assert(SMODS.load_file("items/content_packages/" .. file))()
+-- end
 
 
 kino_genre_init()

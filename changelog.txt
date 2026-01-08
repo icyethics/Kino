@@ -6,6 +6,7 @@ Bug Fixes:
 - Re-enabled genre synergy system
 - Fixed Stargate crashing
 - Fixed Stargate only abducting a single card
+- Halloween Blind-related enhancements no longer spawn naturally during a run
 
 Visual / Sound changes:
 - Confections now have a sound effect when eaten
@@ -15,9 +16,11 @@ Mechanical Changes:
 - Strange Planets have a 'Take' function instead of a 'Use' function
 - Halloween mode is now disabled, meaning the two halloween decks have become regular decks. You can, however, reenable their spooky versions in the configurations of the mod!
 - Ratatouille is no longer a confection, but the Confection's rare spectral equivalent
+- Mystery cards now seek to find their suspect in your hand, rather than in the adjacent card when played. 
+- Vampire now is recognized as a Vampiric joker
 
 Balance Changes:
-- Angel Hearts: Only doubles mult on first trigger of any specific card
+- Angel Hearts: Only doubles mult on first trigger of any specific card, and only gives mult once per played hand.
 - Baby Driver: Mult > Chips
 - Shin Kamen Rider: 1x mult > 0.5x mult
 - Ego the Living Planet: Scaling has been significantly reduced
@@ -44,7 +47,7 @@ Reworked Jokers:
 - Her
 - Child's Play
 - Duel
-- Coco !!! WIP THIS NEEDS TO BE FINISHED
+- Coco
 - Piranha
 
 - Hook
@@ -61,17 +64,9 @@ Reworked Jokers:
 
 - Taken
 
-
-POTENTIAL REWORKS:
-- Scarface (1932)
-- Scarface (1981)
-- Tower Heist
-- Dick Tracy
-- Fast Five
-- A Fish Called Wanda
-
 ENHANCEMENT REWORKS:
 - Action Cards 
+- Mystery Cards
 
 
 
@@ -98,6 +93,8 @@ New Deck:
 New Sleeve:
 - Videostore Sleeve
 - Cosmonaut's Sleeve
+- Trick 'r Treat Sleeve
+- Bloodlust Sleeve
 
 Description Rework:
 (STOPPED AT: Taken)
@@ -206,26 +203,6 @@ Description Rework:
 - Mr. & Mrs. Smith
 - Muppets Treasure Island
 - Nightcrawler
-
-
-Style Guide Assesment:
-10 Things I Hate About You (consuming charges)
-Annabelle
-Avatar
-Baby Driver
-Dark Crystal (change random spell to Wild Wild spell?)
-Ghostbusters
-Now You See Me
-Hellraiser (All codex jokers, really)
-Krazy House
-Lethal Weapon - (ALL Hand stacking jokers)
-Shopaholic
-Sound of Music
-
-Incorrect Unlock Conditions:
-30 Days of Night
-Star Wars V
-Up
 
 V 0.11-HALLOWEENf:
 

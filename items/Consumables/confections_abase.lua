@@ -1970,7 +1970,6 @@ SMODS.Consumable {
                 for i, _joker in ipairs(G.jokers.cards) do
                     if _joker.config.center.is_cars == true then
                         if SMODS.pseudorandom_probability(card, 'kino_bean_spill', 1, 1, "random_event") then
-                            print("should work")
                             local _targets = {}
 
                             -- joker targets

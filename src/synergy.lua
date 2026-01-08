@@ -159,7 +159,6 @@ function Kino.actor_synergy_check(joker, removed)
 
     for i = 1, #_jokers do
         _jokers[i]:juice_up()
-        print(_jokers[i].ability.key)
         local _retcount = _jokers[i]:kino_actor_synergy(_jokers[i], i, _jokers)
         if _retcount > 0 then
             card_eval_status_text(_jokers[i], 'extra', nil, nil, nil,
@@ -240,7 +239,6 @@ function Kino.actor_synergy_check_new(joker, removed)
     if not removed then joker:kino_actor_synergy_new(joker) end
     for i, _joker in ipairs(G.jokers.cards) do
         local _ret = _joker:kino_actor_synergy_new(_joker)
-        print("Test only: " .. _ret)
     end
 end
 
@@ -418,7 +416,7 @@ function check_genre_synergy()
             five_of_genres[#five_of_genres + 1] = genre
         end
     end
-    print(#G.jokers.cards)
+
     if #five_of_genres > G.GAME.kino_current_synergyslots then
         -- Genre synergy!
         for i, genre in ipairs(five_of_genres) do

@@ -10,7 +10,7 @@ SMODS.Enhancement {
             suspect_suit_revealed = false,
             suspect_rank_visual = "",
             x_mult = 1,
-            a_xmult = 1
+            a_xmult = 0.5
         }
 
     },
@@ -41,14 +41,7 @@ SMODS.Enhancement {
             -- Find me
             local _mypos = nil
 
-            for _index, _pcard in ipairs(context.scoring_hand) do
-                if _pcard == card then
-                    _mypos = _index
-                end
-            end
-
-            if context.scoring_hand[_mypos + 1] then
-                local _suspect = context.scoring_hand[_mypos + 1]
+            for _index, _suspect in ipairs(G.hand.cards) do
                 local _suitmatch = false
                 local _rankmatch = false
 
@@ -65,6 +58,9 @@ SMODS.Enhancement {
                 end
 
                 if _suitmatch and _rankmatch then
+                    _suspect:juice_up()
+                    card_eval_status_text(_suspect, 'extra', nil, nil, nil,
+                    { message = localize('k_kino_mystery'), colour = G.C.MULT})
                     card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.a_xmult
 
                     -- reset card
@@ -76,8 +72,50 @@ SMODS.Enhancement {
                     card.ability.extra.suspect_rank_visual = _table.rank_visual
 
                     check_for_unlock({type="kino_mystery_card_solved"})
+                    break
                 end
             end
+
+            if card.ability.extra.x_mult ~= 1 then
+                return {
+                    x_mult = card.ability.extra.x_mult
+                }
+            end
+
+
+
+            -- OLD FUNCTIONALITY
+            -- if context.scoring_hand[_mypos + 1] then
+            --     local _suspect = context.scoring_hand[_mypos + 1]
+            --     local _suitmatch = false
+            --     local _rankmatch = false
+
+            --     if _suspect:is_suit(card.ability.extra.suspect_suit) then
+            --         _suitmatch = true
+            --         card.ability.extra.suspect_suit_revealed = true
+            --         card:juice_up()
+            --     end
+
+            --     if _suspect:get_id() == card.ability.extra.suspect_rank then
+            --         _rankmatch = true
+            --         card.ability.extra.suspect_rank_revealed = true
+            --         card:juice_up()
+            --     end
+
+            --     if _suitmatch and _rankmatch then
+            --         card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.a_xmult
+
+            --         -- reset card
+            --         card.ability.extra.suspect_suit_revealed = false
+            --         card.ability.extra.suspect_rank_revealed = false
+            --         local _table = Kino.mystery_card_select(card)
+            --         card.ability.extra.suspect_rank = _table.rank
+            --         card.ability.extra.suspect_suit = _table.suit
+            --         card.ability.extra.suspect_rank_visual = _table.rank_visual
+
+            --         check_for_unlock({type="kino_mystery_card_solved"})
+            --     end
+            -- end
         end
     end,
     add_to_deck = function(self, card, from_debuff)
@@ -99,9 +137,6 @@ Kino.mystery_card_select = function(card)
     local _suit = _pickedcard.base.suit
     local _rank = _pickedcard:get_id()
     local _rank_visual = _pickedcard.base.value
-
-    print(_suit)
-    print(_rank)
     
     return {
         suit = _suit,

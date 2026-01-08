@@ -147,8 +147,6 @@ SMODS.Voucher {
                 local _target = pseudorandom_element(_targets, pseudoseed("awards"))
 
                 SMODS.Stickers['kino_award']:apply(_target, true)
-                inc_career_stat("kino_awards_given", 1)
-                check_for_unlock({type = "kino_awards_given"})
             end
         end
     end,
@@ -226,13 +224,13 @@ SMODS.Voucher {
         return {
             vars = {
                 G.PROFILES[G.SETTINGS.profile].voucher_usage['v_kino_media_collection'] and G.PROFILES[G.SETTINGS.profile].voucher_usage['v_kino_media_collection'].count or 0,
-                20
+                5
             }
         }
     end,
     check_for_unlock = function(self, args)
         if args.type == 'kino_media_collection_redeem' then
-            if G.PROFILES[G.SETTINGS.profile].voucher_usage['v_kino_media_collection'] and G.PROFILES[G.SETTINGS.profile].voucher_usage['v_kino_media_collection'].count >= 20 then
+            if G.PROFILES[G.SETTINGS.profile].voucher_usage['v_kino_media_collection'] and G.PROFILES[G.SETTINGS.profile].voucher_usage['v_kino_media_collection'].count >= 5 then
                 unlock_card(self)
             end
         end

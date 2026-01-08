@@ -39,7 +39,7 @@ for _index, _info in ipairs(Kino.deck_list) do
                 _info.genre,
                 3,
                 colours = {
-                    G.ARGS.LOC_COLOURS[_info.genre]
+                    G.ARGS.LOC_COLOURS and G.ARGS.LOC_COLOURS[_info.genre] or nil
                 }
             }
         }
