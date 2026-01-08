@@ -9,7 +9,7 @@ function Card:bb_counter_apply(counter_type, number, no_override, silent)
         return 'joker_only'
     end
 
-    if counter_type and  counter_type.pcard_only and (self.ability.set ~= 'Default' or self.ability.set =='Enhanced') then
+    if counter_type and  counter_type.pcard_only and (self.ability.set ~= 'Default' and self.ability.set ~='Enhanced') then
         return 'pcard_only'
     end
 

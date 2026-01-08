@@ -843,4 +843,4 @@ Kino.award_mult = 2
 Kino.awards_max = 1
 
 Kino.crime_chips = 5
-Kino.bullet_magazine_max = 6
+Kino.bullet_magazine_max = 24

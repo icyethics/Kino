@@ -27,7 +27,7 @@ Balance Changes:
 
 New & Reworked Content:
 
-Jokers (12):
+Jokers (13):
 - Inception
 - Marty
 - 500 Days of Summer
@@ -42,6 +42,7 @@ Jokers (12):
 
 - King Kong (1933)
 - Hardcore Henry
+- Superman (1978)
 
 Reworked Jokers:
 - Her
@@ -67,8 +68,6 @@ Reworked Jokers:
 ENHANCEMENT REWORKS:
 - Action Cards 
 - Mystery Cards
-
-
 
 New Planets:
 - Treasure Planet
