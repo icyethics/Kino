@@ -1,3 +1,8 @@
+V 0.12a:
+
+Bug Fix:
+Fixed crash due to Popeye's unlock condition
+
 V 0.12:
 Bug Fixes:
 - Asteroid City no longer crashes the game and has been reenabled
