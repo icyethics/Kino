@@ -28,6 +28,9 @@ SMODS.Joker {
     },
     k_genre = {"Fantasy", "Animation"},
     in_pool = function(self, args)
+        if not G.jokers or not G.playing_cards then
+            return false
+        end
         -- Check for the right frequency
         local enhancement_gate = false
         if G.playing_cards then

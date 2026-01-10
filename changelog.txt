@@ -1,3 +1,24 @@
+V 0.12b:
+
+Mechanical Changes:
+- Introducing a new keyword: Temporary Hand size
+
+Reworks:
+- The Princess Bride now uses the Temporary Hand Size mechanic
+- The Chocolate Bar Confection now uses the Temporary Hand Size mechanic
+
+Balance Changes:
+- Blinds:
+-- Agent Smith now also cares about adjacent ranks
+-- Beach That Makes You Old now triggers half as often
+
+Bug Fixes:
+- Godzilla's second effect is now properly displayed
+- Fixed 500 Day's of Summer crashing
+- Fixed Fantasia related crash in Main menu
+- Fixed more Cryptlib incompatibilities
+- Chocolate Bar has its localization fixed
+
 V 0.12a:
 
 Bug Fix:

@@ -60,6 +60,7 @@ function Game:start_run(args)
     self.GAME.round_resets.blind_choices.Boss = Kino.get_blind("Boss")
 
     self.jokers.config.card_limit_UI_text = ""
+    self.hand.config.card_limit_UI_text = ""
     
     return ret
 end

@@ -30,6 +30,7 @@ SMODS.Joker {
     k_genre = {"Fantasy", "Romance"},
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = {set = 'Other', key = "keyword_temporary_hand_size"}
         return {
             vars = {
                 card.ability.extra.cards_drawn,
@@ -50,10 +51,10 @@ SMODS.Joker {
             end
 
             if _isHearts then
-                -- G.FUNCS.draw_from_deck_to_hand(card.ability.extra.cards_drawn)
                 card.ability.extra.will_draw = true
                 card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_princess_bride_1'), colour = G.C.KINO.PINK })
+                Kino.prepare_temporary_hand_size(2, "kino_princess_bride")
             end
         end
 
@@ -68,11 +69,7 @@ SMODS.Joker {
                     card_eval_status_text(card, 'extra', nil, nil, nil,
                     { message = localize('k_princess_bride_3'), colour = G.C.PINK })
                 end
-
-                G.FUNCS.draw_from_deck_to_hand(card.ability.extra.cards_drawn)
-                delay(0.23)
             return true end }))
-
         end
 
     end

@@ -274,6 +274,7 @@ function reset_ancient_card()
     reset_bonnieandclyde()
     Kino.reset_source_code()
     Kino.reset_dead_zone()
+    Kino.reset_summer_rank()
 end
 
  -- Indiana Jones checks

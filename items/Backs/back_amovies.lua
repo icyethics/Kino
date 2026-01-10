@@ -446,7 +446,7 @@ SMODS.Back {
 --     end
 -- }
 
-if not Cryptid then
+if not Kino_Cryptidcheck then
 if kino_config.confection_mechanic then
 SMODS.Back {
     name = "Snack Deck",

@@ -377,7 +377,7 @@ if CardSleeves then
     }
     
     
-    if not Cryptid then
+    if not Kino_Cryptidcheck then
         if kino_config.confection_mechanic then
             CardSleeves.Sleeve {
                 key = "snackdeck",

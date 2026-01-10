@@ -1,5 +1,5 @@
 if kino_config.actor_synergy then
-if not Cryptid then
+if not Kino_Cryptidcheck then
     SMODS.Consumable {
         key = "award",
         set = "Spectral",

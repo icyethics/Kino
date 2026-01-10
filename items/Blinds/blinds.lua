@@ -1246,7 +1246,7 @@ SMODS.Blind{
     end
 }
 
--- Cards only score if you've discarded a card with the same rank
+-- Cards only score if you've discarded a card with the same rank or an adjacent rank
 SMODS.Blind{
     key = "agent_smith",
     dollars = 5,
@@ -1271,7 +1271,13 @@ SMODS.Blind{
     end,
     calculate = function(self, blind, context)
         if context.discard then
-            G.GAME.current_round.boss_blind_agent_smith_rank_discards[tostring(context.other_card:get_id())] = true
+            local _rank = context.other_card:get_id()
+            local _rank_lower = math.max(context.other_card:get_id() - 1, 2)
+            local _rank_higher = math.min(context.other_card:get_id() + 1, 14)
+
+            G.GAME.current_round.boss_blind_agent_smith_rank_discards[tostring(_rank)] = true
+            G.GAME.current_round.boss_blind_agent_smith_rank_discards[tostring(_rank_lower)] = true
+            G.GAME.current_round.boss_blind_agent_smith_rank_discards[tostring(_rank_higher)] = true
 
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
                 attention_text({
@@ -1376,7 +1382,7 @@ SMODS.Blind{
     boss = {min = 4, max = 10},
     pos = { x = 0, y = 26},
     debuff = {
-        timer = 2,
+        timer = 4,
         active = false,
         defeated = false
     },

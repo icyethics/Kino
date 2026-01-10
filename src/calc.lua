@@ -156,6 +156,17 @@ SMODS.current_mod.calculate = function(self, context)
                 G.GAME.kino_played_least_played_hand_this_round = true
             end
         end
+
+        -- Temporary Handsize
+        if G.GAME.kino_temporary_handsize and G.GAME.kino_temporary_handsize > 0 then
+            Kino.reset_temporary_hand_size()
+        end
+    end
+
+    if context.hand_drawn then
+        if G.GAME.kino_temporary_handsize_prep and G.GAME.kino_temporary_handsize_prep > 0 then
+            Kino.add_temporary_hand_size()
+        end
     end
 
     if context.setting_blind then

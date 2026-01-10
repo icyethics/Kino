@@ -525,6 +525,7 @@ SMODS.Consumable {
         }
     },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = {set = 'Other', key = "keyword_temporary_hand_size"}
         local _return = card.ability.extra.cards_drawn + G.GAME.confections_powerboost
         if card.ability.kino_choco then
             _return = _return + self.config.choco_bonus
@@ -568,6 +569,9 @@ SMODS.Consumable {
 
             local eval = function(card) return card.active end
             juice_card_until(card, eval, true)
+
+            local _cards_drawn = (card.ability.kino_choco and (card.ability.extra.cards_drawn + card.ability.choco_bonus) or card.ability.extra.cards_drawn) + G.GAME.confections_powerboost
+            Kino.prepare_temporary_hand_size(_cards_drawn, "kino_chocolate")
         end
 
         if G.GAME.blind.in_blind then
@@ -575,9 +579,10 @@ SMODS.Consumable {
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
                 card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_eaten'), colour = G.C.MULT})
-                G.FUNCS.draw_from_deck_to_hand(card.ability.extra.cards_drawn)
+                -- G.FUNCS.draw_from_deck_to_hand(card.ability.extra.cards_drawn)
                 delay(0.23)
             return true end }))
+            
 
             Kino.confection_trigger(card)
         end
@@ -585,11 +590,11 @@ SMODS.Consumable {
     calculate = function(self, card, context)
 
         if context.hand_drawn and card.active then
-            local _cards_drawn = (card.ability.kino_choco and (card.ability.extra.cards_drawn + card.ability.choco_bonus) or card.ability.extra.cards_drawn) + G.GAME.confections_powerboost
+            -- local _cards_drawn = (card.ability.kino_choco and (card.ability.extra.cards_drawn + card.ability.choco_bonus) or card.ability.extra.cards_drawn) + G.GAME.confections_powerboost
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
                 card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_eaten'), colour = G.C.MULT})
-                G.FUNCS.draw_from_deck_to_hand(card.ability.extra.cards_drawn)
+                -- G.FUNCS.draw_from_deck_to_hand(card.ability.extra.cards_drawn)
                 delay(0.23)
             return true end }))
 

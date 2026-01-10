@@ -1539,7 +1539,7 @@ return {
             },
             j_kino_godzilla = {
                 name = "Godzilla (1954)",
-                text = {
+                text = {{
                     "{C:mult}+#1#{} Mult",
                     "Doubled when {C:attention}Boss Blind{}",
                     "is defeated"
@@ -1547,7 +1547,7 @@ return {
                 {
                     "Blinds have a {C:green}1 in 4{} Chance",
                     "to be a Boss Blind"
-                }
+                }}
             },
             j_kino_goodfellas = {
                 name = "Goodfellas",
@@ -2848,8 +2848,7 @@ return {
                 name = "The Princess Bride",
                 text = {
                     "When a played {C:hearts}Hearts{} scores",
-                    "draw {C:attention}#1#{} additional",
-                    "cards on your next draw"
+                    "gain {C:attention}#1#{} Temporary Hand Size"
                 }
             },
             j_kino_psycho = {
@@ -4829,10 +4828,10 @@ return {
                     "next round"
                 }
             },
-            c_kino_choco_bar = {
+            c_kino_chocolate_bar = {
                 name = "Chocolate Bar",
                 text = {
-                    "Draw {C:attention}#1#{} cards"
+                    "Gain {C:attention}#1#{} Temporary Hand Size"
                 }
             },
             c_kino_fries = {
@@ -5751,7 +5750,7 @@ return {
                 text = {
                     "Cards are debuffed",
                     "unless a card of the same",
-                    "rank is discarded"
+                    "or adjacent rank is discarded"
                 }
             },
             bl_kino_anton_chigurh = {
@@ -6242,6 +6241,13 @@ return {
                     "in this joker",
                     "Upon defeating a {C:attention}Boss Blind",
                     "{C:Alien}Abducted{} cards are {C:attention}released"
+                }
+            },
+            keyword_temporary_hand_size = {
+                name = "Temporary Hand Size",
+                text = {
+                    "Temporary Hand Size disappears",
+                    "when a hand is played"
                 }
             },
 
