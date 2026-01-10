@@ -105,6 +105,10 @@ SMODS.current_mod.calculate = function(self, context)
             if rightmost:is_face() and G.hand.highlighted[1]:get_id() == 2 then
                 check_for_unlock({type="kino_shazam_unlock"})
             end
+
+            if G.hand.highlighted[1]:get_id() == G.hand.highlighted[2]:get_id() then
+                check_for_unlock({type="kino_death_on_same_card"})
+            end
         end
 
         if context.consumeable.config.center == G.P_CENTERS.c_emperor then

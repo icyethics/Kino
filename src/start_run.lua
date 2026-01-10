@@ -172,8 +172,15 @@ Game.init_game_object = function(self)
         end
     end
 
-    -- Rotisserie Sprites loading
+    -- Action Card Bullet Sprites
+    self.kino_bullets_ui = {
+        BulletSprite_1 = Sprite(0, 0, self.CARD_W, self.CARD_H, self.ASSET_ATLAS["kino_bullets"], {x = 1, y = 0}),
+        BulletSprite_2 = Sprite(0, 0, self.CARD_W, self.CARD_H, self.ASSET_ATLAS["kino_bullets"], {x = 0, y = 1}),
+        BulletSprite_3 = Sprite(0, 0, self.CARD_W, self.CARD_H, self.ASSET_ATLAS["kino_bullets"], {x = 1, y = 1}),
+        BulletUISprite = UISprite(0, 0, self.CARD_W, self.CARD_H, self.ASSET_ATLAS["kino_bullets"], { x = 0, y = 0 })
+    }
 
+    -- Rotisserie Sprites loading
     self.rotisserie_sprites = {
     }
 

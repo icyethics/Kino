@@ -838,7 +838,8 @@ return {
                     "into the right card"
                 },
                 unlock = {
-                    "Use {C:attention}Death{} 25 times"
+                    "Use {C:attention}Death{} on two",
+                    "cards of the same rank"
                 }
             },
             j_kino_commando = {

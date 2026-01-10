@@ -100,15 +100,15 @@ function Kino:use_bullets(number)
     end
 end
 
--- the canvas
+-- -- the canvas
 local canvas = love.graphics.newCanvas(1920, 1080)
 canvas:renderTo(love.graphics.clear, 0, 0, 0, 0)
 
 
-local bulletSprite1
-local bulletSprite2
-local bulletSprite3
-local bullet_ui
+-- local bulletSprite1
+-- local bulletSprite2
+-- local bulletSprite3
+-- local bullet_ui
 SMODS.DrawStep {
     key = "kino_bullet",
     order = 51,
@@ -119,11 +119,14 @@ SMODS.DrawStep {
             local scale_mod = 0.07 + 0.02*math.sin(1.8*G.TIMERS.REAL) + 0.00*math.sin((G.TIMERS.REAL - math.floor(G.TIMERS.REAL))*math.pi*14)*(1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL)))^3
             local rotate_mod = 0.05*math.sin(1.219*G.TIMERS.REAL) + 0.00*math.sin((G.TIMERS.REAL)*math.pi*5)*(1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL)))^2
 
-            local drawnSprite = bulletSprite1 or Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["kino_bullets"], {x = 1, y = 0})
+            -- local drawnSprite = bulletSprite1 or Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["kino_bullets"], {x = 1, y = 0})
+            local drawnSprite = G.kino_bullets_ui.BulletSprite_1
             if G.GAME.bullet_count > 5 and G.GAME.bullet_count < 15 then
-                drawnSprite = bulletSprite2 or Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["kino_bullets"], {x = 0, y = 1})
+                drawnSprite = G.kino_bullets_ui.BulletSprite_2
+                -- drawnSprite = bulletSprite2 or Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["kino_bullets"], {x = 0, y = 1})
             elseif G.GAME.bullet_count >= 15 then
-                drawnSprite = bulletSprite3 or Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["kino_bullets"], {x = 1, y = 1})
+                drawnSprite = G.kino_bullets_ui.BulletSprite_3
+                -- drawnSprite = bulletSprite3 or Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["kino_bullets"], {x = 1, y = 1})
             end
 
             
@@ -139,10 +142,12 @@ SMODS.DrawStep {
             canvas:renderTo(love.graphics.print, "X" .. tostring(G.GAME.bullet_count), 700, 370, 0, 8)
             love.graphics.pop()
 
-            bullet_ui = bullet_ui or UISprite(0, 0, G.CARD_W, G.CARD_H,
-            G.ASSET_ATLAS["kino_bullets"], { x = 0, y = 0 })
-            bullet_ui.role.draw_major = card
-            bullet_ui:draw_shader(card.children.center, canvas)
+            -- bullet_ui = bullet_ui or UISprite(0, 0, G.CARD_W, G.CARD_H,
+            -- G.ASSET_ATLAS["kino_bullets"], { x = 0, y = 0 })
+            -- bullet_ui.role.draw_major = card
+            -- bullet_ui:draw_shader(card.children.center, canvas)
+            G.kino_bullets_ui.BulletUISprite.role.draw_major = card
+            G.kino_bullets_ui.BulletUISprite:draw_shader(card.children.center, canvas)
         end
     end,
     conditions = {vortex = false, facing = 'front'}
