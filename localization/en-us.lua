@@ -2213,10 +2213,14 @@ return {
             },
             j_kino_man_of_steel = {
                 name = "Man of Steel",
-                text = {
+                text = {{
                     "First {C:attention}King{} held in hand",
                     "gives {X:mult,C:white}x#1#{} Mult"
-                }
+                },
+                {
+                    "Other {C:attention}Kings{} held in hand",
+                    "give {C:mult}+#2#{} Mult"
+                }}
             },
             j_kino_man_who_laughs = {
                 name= "The Man Who Laughs",
@@ -3486,6 +3490,21 @@ return {
                     "{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)"
                 }
             },
+            j_kino_substance = {
+                name = "The Substance",
+                text = {
+                    {
+                        "When you draw a {C:attention}face{} card",
+                        "put {C:attention}#1#{C:mult} Mult Counter{}",
+                        "on it"
+                    },
+                    { 
+                        "Increase {C:mult}Mult Counters{} applied",
+                        "by {C:attention}1{} when a {C:attention}Queen{}",
+                        "is transformed"
+                    }
+                }
+            },
             j_kino_taken_1 = {
                 name = "Taken",
                 text = {
@@ -4157,7 +4176,19 @@ return {
                 unlock={
                     "{E:1,s:1.3}?????",
                 },
-            }
+            },
+            j_kino_godfather = {
+                name = "Godfather",
+                text = {
+                    "Whenever you gain {C:money}money{}",
+                    "during a {C:attention}Blind{},",
+                    "gain {C:attention}x#1#{} that many {C:chips}chips",
+                    "{C:inactive}(Currently: {C:chips}#2#{C:inactive} Chips)"
+                },
+                unlock={
+                    "{E:1,s:1.3}?????",
+                },
+            },
 
         },
         Enhanced = {

@@ -1,3 +1,28 @@
+V 1.0:
+
+New Jokers:
+- Cat People
+- Dr. No
+- Da 5 Bloods
+- Joker
+- Weapons
+
+- 12 Angry Men
+- Tron
+- The Simpsons Movie
+- Zoolander
+- Meet the Parents
+
+- Man of Steel
+- Final Destination
+- Goodburger
+- The Substance
+
+-- PLANNED:
+- Truman Show
+- Pan's Labyrinth
+- 5 Legendaries
+
 V 0.12c:
 
 Bug Fix:

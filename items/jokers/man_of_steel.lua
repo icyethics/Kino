@@ -5,6 +5,7 @@ SMODS.Joker {
     config = {
         extra = {
             x_mult = 1.5,
+            mult = 10,
             triggered = false
         }
     },
@@ -32,7 +33,8 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.x_mult
+                card.ability.extra.x_mult,
+                card.ability.extra.mult
             }
         }
     end,
@@ -47,9 +49,15 @@ SMODS.Joker {
                     break
                 end
             end
-            return {
-                x_mult = card.ability.extra.x_mult
-            }
+            if is_first_king then
+                return {
+                    x_mult = card.ability.extra.x_mult
+                }
+            else
+                return {
+                    mult = card.ability.extra.mult
+                }
+            end
         end
     end
 }

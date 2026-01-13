@@ -7,7 +7,7 @@ SMODS.Joker {
             cards_created = 1
         }
     },
-    rarity = 3,
+    rarity = 2,
     atlas = "kino_atlas_11",
     pos = { x = 4, y = 4},
     cost = 8,
