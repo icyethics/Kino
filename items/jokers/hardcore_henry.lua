@@ -71,7 +71,7 @@ SMODS.Joker {
         return {
             vars = {
                 G.PROFILES[G.SETTINGS.profile].career_stats.kino_action_packs_opened or 0,
-                30
+                10
             }
         }
     end,

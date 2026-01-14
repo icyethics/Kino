@@ -1,3 +1,27 @@
+V 0.12d:
+
+Bug Fixes:
+-- Joker Fixes:
+- Mortal Kombat no longer crashes upon unlocking
+- Guardians of the Galaxy Volume 2 now correctly displays its genres
+- Hardcore Henry's unlock condition has been fixed to reflect the proper number
+- Star Man no longer triggers upon every hand after making a match
+- Turner and Hooch no longer counts every card
+- Turner and Hooch now actually consumes gathered stacks
+- Kraven the Hunter resets its target properly
+- Superman (2025) properly focuses on played, not scored cards
+-- Abduction:
+- Jokers with abducted cards within can now be abducted themselves without crashing the game
+- Abducted playing cards aren't returned to the deck as ghost cards when reloading a run
+-- Misc:
+- Fixed a crash related to timed blinds
+- Genre synergy doesn't disappear when you buy or sell a joker from a non-synergistic genre
+- Additional Boss Blinds no longer half-reset the blind
+- Xenomorph Queen now properly debuffs
+
+Localization Changes:
+- La La Land's description has been fixed
+
 V 0.12c:
 
 Bug Fix:

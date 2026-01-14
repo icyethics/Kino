@@ -64,6 +64,7 @@ SMODS.Joker {
                 for _, _pcard in ipairs(context.scoring_hand) do
                     if _pcard:is_suit(_suitname) then
                         _count = _count + 1
+                        break
                     end
                 end
             end
@@ -72,8 +73,10 @@ SMODS.Joker {
 
         if context.joker_main and G.jokers.cards[1] == card then
             -- Hooch
+            local _cur_evidence = card.ability.extra.evidence_non
+            card.ability.extra.evidence_non = 0
             return {
-                mult = card.ability.extra.evidence_non * card.ability.extra.a_mult
+                mult = _cur_evidence * card.ability.extra.a_mult
             }
         end
     end,

@@ -59,6 +59,7 @@ SMODS.Joker {
                     card_eval_status_text(card, 'extra', nil, nil, nil,
                     { message = localize('k_kraven'), colour = G.C.MULT})
                     card.ability.extra.stacked_x_mult = card.ability.extra.stacked_x_mult + card.ability.extra.a_xmult
+                    card.ability.extra.target = nil
                     break
                 end
             end

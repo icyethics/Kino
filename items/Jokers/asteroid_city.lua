@@ -56,6 +56,7 @@ SMODS.Joker {
             if _mypos and G.jokers.cards[_mypos + 1] and not 
             G.jokers.cards[_mypos + 1].getting_sliced and not
             G.jokers.cards[_mypos + 1].abducted then  
+                print("Will try to abduct")
                 Kino.abduct_card(card, G.jokers.cards[_mypos + 1])
             end
         end

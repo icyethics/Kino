@@ -36,7 +36,7 @@ Kino.abduct_card = function(card, abducted_card)
     if abducted_card.ability.set ~= 'Joker' then
         abducted_card.abducted = true
 
-        if abducted_card.playing_card then abducted_card.playing_card = false end
+        if abducted_card.playing_card then abducted_card.playing_card = nil end
 
         G.GAME.current_round.abduction_waitinglist[#G.GAME.current_round.abduction_waitinglist + 1] = {
             abductor = card,
@@ -46,10 +46,8 @@ Kino.abduct_card = function(card, abducted_card)
     else
 
         abducted_card.abducted = true
-        card:juice_up()
         G.GAME.current_round.cards_abducted = G.GAME.current_round.cards_abducted + 1
-
-        abducted_card.area.config.card_limit = abducted_card.area.config.card_limit - ((abducted_card.edition and abducted_card.edition.negative) and 1 or 0)
+        -- abducted_card.area.config.card_limit = abducted_card.area.config.card_limit - ((abducted_card.edition and abducted_card.edition.negative) and 1 or 0)
         G.GAME.current_round.abduction_waitinglist[#G.GAME.current_round.abduction_waitinglist + 1] = {
             abductor = card,
             abducted_card = abducted_card,
@@ -157,6 +155,13 @@ G.FUNCS.draw_from_area_to_abduction = function(e)
                 if not _abductee then
                     return
                 end
+                if _abductee.ability and 
+                _abductee.ability.extra and 
+                _abductee.ability.extra.cards_abducted then
+                   _abductee.ability.extra.cards_abducted = Kino.unabduct_cards(_abductee)
+                end
+
+                _abductee:juice_up()
 
                 _abductee.area.config.card_limit = _abductee.area.config.card_limit - ((_abductee.edition and _abductee.edition.negative) and 1 or 0)
                 

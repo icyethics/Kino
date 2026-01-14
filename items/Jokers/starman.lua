@@ -51,6 +51,7 @@ SMODS.Joker {
                     { message = localize('k_upgrade_ex'), colour = G.C.MULT})
                 end
             end
+            card.ability.extra.match_made = false
         end
     end
 }

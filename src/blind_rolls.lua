@@ -46,12 +46,26 @@ function Blind.get_type(self)
     local _ret = o_blind_get_type(self)
 
     if G.GAME.blind.boss then
-        if G.GAME.round_resets.blind_states.Small == "Current" then
-            return "Small"
-        elseif G.GAME.round_resets.blind_states.Big == "Current" then
+        if (G.GAME.round_resets.blind_states.Small == "Defeated" or G.GAME.round_resets.blind_states.Small == "Skipped") and (G.GAME.round_resets.blind_states.Big == "Current" or G.GAME.round_resets.blind_states.Big == "Select") then
             return "Big"
+        elseif (G.GAME.round_resets.blind_states.Small == "Current" or G.GAME.round_resets.blind_states.Small == "Select") then
+            return "Small"
         end
+    else
     end
 
     return _ret
+end
+
+local o_end_round = end_round
+end_round = function() --Same effect.
+    if G.GAME.blind:get_type() == "Big" and G.GAME.kino_boss_mode_big_is_boss then
+        G.GAME.round_resets.blind = G.P_BLINDS.bl_big
+    end
+    if G.GAME.blind:get_type() == "Small" and G.GAME.kino_boss_mode_small_is_boss then
+        G.GAME.round_resets.blind = G.P_BLINDS.bl_small
+    end
+
+    local ret = o_end_round()
+    return ret
 end
