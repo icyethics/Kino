@@ -1,6 +1,7 @@
 SMODS.Joker {
     key = "guardians_of_the_galaxy_2",
     order = 153,
+    generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
 

@@ -273,7 +273,6 @@ function Kino.genre_synergy(joker, removed)
         G.GAME.current_round.genre_synergy_count = 0
     end
 
-    local _cur_count = 0
     for i, _genre in ipairs(joker.config.center.k_genre) do
         G.GAME.current_round.owned_genres[_genre] = G.GAME.current_round.owned_genres[_genre] or 0
         if removed then
@@ -281,12 +280,16 @@ function Kino.genre_synergy(joker, removed)
         else
             G.GAME.current_round.owned_genres[_genre] = math.max(G.GAME.current_round.owned_genres[_genre] + 1, 0)
         end
+    end
 
+    local _cur_count = 0
+    for i, _genre in ipairs(kino_genres) do
+        G.GAME.current_round.owned_genres[_genre] = G.GAME.current_round.owned_genres[_genre] or 0
         if G.GAME.current_round.owned_genres[_genre] >= G.GAME.current_round.genre_synergy_treshold then
             _cur_count = _cur_count + 1
-           G.GAME.current_round.threshold_genres[_genre] = true
+            G.GAME.current_round.threshold_genres[_genre] = true
         elseif G.GAME.current_round.owned_genres[_genre] < G.GAME.current_round.genre_synergy_treshold then
-           G.GAME.current_round.threshold_genres[_genre] = false
+            G.GAME.current_round.threshold_genres[_genre] = false
         end
     end
 

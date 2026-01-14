@@ -292,7 +292,8 @@ return {
                 text = {
                     {
                         "{C:Alien}Abduct{} {C:attention}Joker{} to the right",
-                        "if no Joker is abducted"
+                        "if no Joker is abducted",
+                        "when a hand is played"
                     },
                     {"{C:white,X:Alien}Release:{} Return {C:dark_edition}Negative"}
                 },
@@ -2087,7 +2088,7 @@ return {
                     "hand contains only ",
                     "a single card", 
                     "upgrade every card",
-                    "hand with {C:chips}Chips",
+                    "in hand with {C:chips}Chips",
                     "equal to",
                     "played card's rank"
                 },
@@ -3581,10 +3582,10 @@ return {
                 name = "Superman (2025)",
                 text = {
                     {
-                        "Gain {C:attention}#1# Charge{} when",
-                        "a {C:hearts}Hearts{} scores,",
+                        "Gain {C:attention}#1# Charge{} for",
+                        "every {C:hearts}Hearts{} played",
                         "halve current {C:attention}Charges{}",
-                        "if no {C:hearts}Hearts{} scored",
+                        "if no {C:hearts}Hearts{} played",
                         "{C:inactive}(Currently: #2# Charges)"
                     },
                     {
@@ -3594,7 +3595,7 @@ return {
                         "{B:2,C:white}20{}: {C:mult}+#4#{} Mult",
                         "{B:3,C:white}50{}: {X:mult,C:white}x#5#{} Mult",
                         "{B:4,C:white}200{}: This is {C:attention}x#6#{} stronger",
-                        "{B:5,C:white}1000{}: This is {C:attention}x#7#{} stronger",
+                        "{B:5,C:white}500{}: This is {C:attention}x#7#{} stronger",
                     }
                 }
             },
@@ -7849,6 +7850,7 @@ return {
             k_kino_saved = "Saved!",
             k_kino_blind_pale_man = "...",
             k_blind_fabrication_machine = "The machine whirrs. Your deck feels U N S A F E",
+            k_kino_xeno_queen = "Hatch",
             
             -- Tag barks
             k_tag_treat_low_1 = "Edible Money! Eh Eh Eh",

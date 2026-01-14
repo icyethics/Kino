@@ -104,12 +104,7 @@ SMODS.Joker {
                 G.GAME.current_round.discards_left == G.GAME.round_resets.discards and
                 G.GAME.blind:get_type() == 'Boss' and
                 G.P_BLINDS[G.GAME.round_resets.blind_choices.Boss].config.blind.boss.showdown then
-                unlock_card(card)   
-            end
-        end
-        if args.type == 'bb_counters_applied' then
-            if G.PROFILES[G.SETTINGS.profile].bb_counter_application and G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_retrigger and G.PROFILES[G.SETTINGS.profile].bb_counter_application.counter_retrigger.count >= 10 then
-                unlock_card(self)
+                unlock_card(self)   
             end
         end
     end,

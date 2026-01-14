@@ -122,7 +122,7 @@ SMODS.Joker {
             }
             local _modifier = 1
 
-            if card.ability.extra.charges_non >= 1000 then
+            if card.ability.extra.charges_non >= 500 then
                 _modifier = 10
             elseif card.ability.extra.charges_non >= 200 then
                 _modifier = 2
