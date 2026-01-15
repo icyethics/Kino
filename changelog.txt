@@ -1,3 +1,11 @@
+V 0.12e:
+
+Bug Fixes:
+- Fixed Asteroid City
+
+Reworks:
+- Reworked Skyscraper, Double, Lethal Weapon, Monster House, Three Musketeers
+
 V 0.12d:
 
 Bug Fixes:

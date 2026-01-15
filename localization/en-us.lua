@@ -1125,12 +1125,10 @@ return {
             j_kino_double = {
                 name = "The Double",
                 text = {
-                    {"Gain {C:mult}+#1#{} Mult",
-                    "if played hand is a {C:attention}#4#",
-                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",},
-                    {"Upon defeating a {C:attention}Boss Blind",
-                    "reset {C:mult}Mult{} and increase",
-                    "scaling by {C:mult}+#3#",}
+                    "{C:mult}+#2#{} Mult",
+                    "{C:mult}-#3#{} Mult when",
+                    "scoring hand does not", 
+                    "contain a {C:attention}Two Pair"
                 }
             },
             j_kino_dr_strangelove = {
@@ -2109,12 +2107,10 @@ return {
             j_kino_lethal_weapon = {
                 name = "Lethal Weapon",
                 text = {
-                    {"Gain {C:mult}+#1#{} Mult",
-                    "when you play a {C:attention}#4#",
-                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"},
-                    {"Upon defeating a {C:attention}Boss Blind",
-                    "reset {C:mult}Mult{} and increase",
-                    "scaling by {C:mult}+#3#",}
+                    "{C:mult}+#2#{} Mult",
+                    "{C:mult}-#3#{} Mult when",
+                    "scoring hand does not", 
+                    "contain a {C:attention}Pair"
                 }
             },
             j_kino_limitless = {
@@ -2368,12 +2364,10 @@ return {
             j_kino_monster_house = {
                 name = "Monster House",
                 text = {
-                    {"Gain {C:mult}+#1#{} Mult",
-                    "when you play a {C:attention}#4#",
-                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"},
-                    {"Upon defeating a {C:attention}Boss Blind",
-                    "reset {C:mult}Mult{} and increase",
-                    "scaling by {C:mult}+#3#",}
+                    "{C:mult}+#2#{} Mult",
+                    "{C:mult}-#3#{} Mult when",
+                    "scoring hand does not", 
+                    "contain a {C:attention}Full House"
                 }
             },
             j_kino_moonfall = {
@@ -3141,12 +3135,9 @@ return {
             j_kino_skyscraper = {
                 name = "Skyscraper",
                 text = {
-                    "Gain {C:mult}+#1#{} Mult",
-                    "when you play a {C:attention}#4#",
-                    "Upon defeating a {C:attention}Boss Blind",
-                    "reset{C:mult} Mult{} and increase",
-                    "scaling by {C:mult}+#3#",
-                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
+                    "{C:mult}+#2#{} Mult",
+                    "{C:mult}-#3#{} Mult when",
+                    "scoring hand is not a {C:attention}High Card"
                 }
             },
             j_kino_sleepy_hollow = {
@@ -3626,12 +3617,10 @@ return {
             j_kino_three_musketeers_1 = {
                 name = "The Three Musketeers (2011)",
                 text = {
-                    "Gain {C:mult}+#1#{} Mult",
-                    "when you play a {C:attention}#4#",
-                    "Upon defeating a {C:attention}Boss Blind",
-                    "reset {C:mult}Mult{} and increase",
-                    "scaling by {C:mult}+#3#",
-                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
+                    "{C:mult}+#2#{} Mult",
+                    "{C:mult}-#3#{} Mult when",
+                    "scoring hand does not", 
+                    "contain a {C:attention}Three of a Kind"
                 }
             },            
             j_kino_titanic = {
@@ -7660,6 +7649,8 @@ return {
             kino_codex = "Solved",
             k_kino_drained = "Drained!",
             k_kino_bang = "Bang!",
+            k_kino_downgrade_ex = "Value Down",
+            k_kino_perished = "Perished!",
             
             k_longlegs_ex = "Captured",
             k_ghost_rider_1 = "Vengeance!",
