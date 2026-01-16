@@ -638,10 +638,10 @@ return {
             j_kino_breakfast_club = {
                 name = "The Breakfast Club",
                 text = {
-                    "Scored {C:clubs}Clubs{} give {C:mult}+#2#{} Mult",
-                    "for each {C:clubs}Clubs{} card ",
-                    "in your deck above #1#",
-                    "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)",
+                    "{C:mult}+#1#{} Mult",
+                    "{C:attention}Doubled{} for each {C:attention}#2#{} {C:clubs}Clubs",
+                    "in your full deck",
+                    "{C:inactive}(Currently: {C:clubs}#3#{C:inactive} Clubs in deck)"
                 }
             },
             j_kino_bttf = {
@@ -1024,10 +1024,10 @@ return {
             j_kino_dickie_roberts = {
                 name = "Dickie Roberts: Child Star",
                 text = {
-                    "Scored {C:spades}Spades{} give {C:mult}+#2#{} Mult",
-                    "for each {C:spades}Spades{} card", 
-                    "in your full deck above #1#",
-                    "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+                    "{C:mult}+#1#{} Mult",
+                    "{C:attention}Doubled{} for each {C:attention}#2#{} {C:spades}Spades",
+                    "in your full deck",
+                    "{C:inactive}(Currently: {C:spades}#3#{C:inactive} Spades in deck)"
                 }
             },
             j_kino_die_hard_1 = {
@@ -1468,11 +1468,17 @@ return {
             },
             j_kino_gentlemen_prefer_blondes = {
                 name = "Gentlemen Prefer Blondes",
+                -- text = {
+                --     "Scored {C:diamonds}Diamonds{} {C:mult}+#2#{} Mult",
+                --     "for each {C:diamonds}Diamonds{} ",
+                --     "card in your full deck above #1#",
+                --     "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+                -- },
                 text = {
-                    "Scored {C:diamonds}Diamonds{} {C:mult}+#2#{} Mult",
-                    "for each {C:diamonds}Diamonds{} ",
-                    "card in your full deck above #1#",
-                    "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+                    "{C:mult}+#1#{} Mult",
+                    "{C:attention}Doubled{} for each {C:attention}#2#{} {C:diamonds}Diamonds",
+                    "in your full deck",
+                    "{C:inactive}(Currently: {C:diamonds}#3#{C:inactive} Diamonds in deck)"
                 }
             },
             j_kino_get_out = {
@@ -3626,10 +3632,10 @@ return {
             j_kino_titanic = {
                 name = "Titanic",
                 text = {
-                    "Scored {C:hearts}Hearts{} give {C:mult}+#2#{} Mult",
-                    "for each {C:hearts}Hearts{}",
-                    "in your deck above #1#",
-                    "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+                    "{C:mult}+#1#{} Mult",
+                    "{C:attention}Doubled{} for each {C:attention}#2#{} {C:hearts}Hearts",
+                    "in your full deck",
+                    "{C:inactive}(Currently: {C:hearts}#3#{C:inactive} Hearts in deck)"
                 }
             },
             j_kino_tmnt_1 = {

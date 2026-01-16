@@ -1,3 +1,11 @@
+V 0.12f:
+
+Reworks:
+- Breakfast Club
+- Dickie Roberts: Child Star
+- Gentlemen Prefer Blondes
+- Titanic
+
 V 0.12e:
 
 Bug Fixes:
