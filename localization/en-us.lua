@@ -638,10 +638,10 @@ return {
             j_kino_breakfast_club = {
                 name = "The Breakfast Club",
                 text = {
-                    "Scored {C:clubs}Clubs{} give {C:mult}+#2#{} Mult",
-                    "for each {C:clubs}Clubs{} card ",
-                    "in your deck above #1#",
-                    "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)",
+                    "{C:mult}+#1#{} Mult",
+                    "{C:attention}Doubled{} for each {C:attention}#2#{} {C:clubs}Clubs",
+                    "in your full deck",
+                    "{C:inactive}(Currently: {C:clubs}#3#{C:inactive} Clubs in deck)"
                 }
             },
             j_kino_bttf = {
@@ -1024,10 +1024,10 @@ return {
             j_kino_dickie_roberts = {
                 name = "Dickie Roberts: Child Star",
                 text = {
-                    "Scored {C:spades}Spades{} give {C:mult}+#2#{} Mult",
-                    "for each {C:spades}Spades{} card", 
-                    "in your full deck above #1#",
-                    "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+                    "{C:mult}+#1#{} Mult",
+                    "{C:attention}Doubled{} for each {C:attention}#2#{} {C:spades}Spades",
+                    "in your full deck",
+                    "{C:inactive}(Currently: {C:spades}#3#{C:inactive} Spades in deck)"
                 }
             },
             j_kino_die_hard_1 = {
@@ -1125,12 +1125,10 @@ return {
             j_kino_double = {
                 name = "The Double",
                 text = {
-                    {"Gain {C:mult}+#1#{} Mult",
-                    "if played hand is a {C:attention}#4#",
-                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",},
-                    {"Upon defeating a {C:attention}Boss Blind",
-                    "reset {C:mult}Mult{} and increase",
-                    "scaling by {C:mult}+#3#",}
+                    "{C:mult}+#2#{} Mult",
+                    "{C:mult}-#3#{} Mult when",
+                    "scoring hand does not", 
+                    "contain a {C:attention}Two Pair"
                 }
             },
             j_kino_dr_strangelove = {
@@ -1470,11 +1468,17 @@ return {
             },
             j_kino_gentlemen_prefer_blondes = {
                 name = "Gentlemen Prefer Blondes",
+                -- text = {
+                --     "Scored {C:diamonds}Diamonds{} {C:mult}+#2#{} Mult",
+                --     "for each {C:diamonds}Diamonds{} ",
+                --     "card in your full deck above #1#",
+                --     "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+                -- },
                 text = {
-                    "Scored {C:diamonds}Diamonds{} {C:mult}+#2#{} Mult",
-                    "for each {C:diamonds}Diamonds{} ",
-                    "card in your full deck above #1#",
-                    "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+                    "{C:mult}+#1#{} Mult",
+                    "{C:attention}Doubled{} for each {C:attention}#2#{} {C:diamonds}Diamonds",
+                    "in your full deck",
+                    "{C:inactive}(Currently: {C:diamonds}#3#{C:inactive} Diamonds in deck)"
                 }
             },
             j_kino_get_out = {
@@ -2109,12 +2113,10 @@ return {
             j_kino_lethal_weapon = {
                 name = "Lethal Weapon",
                 text = {
-                    {"Gain {C:mult}+#1#{} Mult",
-                    "when you play a {C:attention}#4#",
-                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"},
-                    {"Upon defeating a {C:attention}Boss Blind",
-                    "reset {C:mult}Mult{} and increase",
-                    "scaling by {C:mult}+#3#",}
+                    "{C:mult}+#2#{} Mult",
+                    "{C:mult}-#3#{} Mult when",
+                    "scoring hand does not", 
+                    "contain a {C:attention}Pair"
                 }
             },
             j_kino_limitless = {
@@ -2372,12 +2374,10 @@ return {
             j_kino_monster_house = {
                 name = "Monster House",
                 text = {
-                    {"Gain {C:mult}+#1#{} Mult",
-                    "when you play a {C:attention}#4#",
-                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"},
-                    {"Upon defeating a {C:attention}Boss Blind",
-                    "reset {C:mult}Mult{} and increase",
-                    "scaling by {C:mult}+#3#",}
+                    "{C:mult}+#2#{} Mult",
+                    "{C:mult}-#3#{} Mult when",
+                    "scoring hand does not", 
+                    "contain a {C:attention}Full House"
                 }
             },
             j_kino_moonfall = {
@@ -3145,12 +3145,9 @@ return {
             j_kino_skyscraper = {
                 name = "Skyscraper",
                 text = {
-                    "Gain {C:mult}+#1#{} Mult",
-                    "when you play a {C:attention}#4#",
-                    "Upon defeating a {C:attention}Boss Blind",
-                    "reset{C:mult} Mult{} and increase",
-                    "scaling by {C:mult}+#3#",
-                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
+                    "{C:mult}+#2#{} Mult",
+                    "{C:mult}-#3#{} Mult when",
+                    "scoring hand is not a {C:attention}High Card"
                 }
             },
             j_kino_sleepy_hollow = {
@@ -3645,21 +3642,19 @@ return {
             j_kino_three_musketeers_1 = {
                 name = "The Three Musketeers (2011)",
                 text = {
-                    "Gain {C:mult}+#1#{} Mult",
-                    "when you play a {C:attention}#4#",
-                    "Upon defeating a {C:attention}Boss Blind",
-                    "reset {C:mult}Mult{} and increase",
-                    "scaling by {C:mult}+#3#",
-                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
+                    "{C:mult}+#2#{} Mult",
+                    "{C:mult}-#3#{} Mult when",
+                    "scoring hand does not", 
+                    "contain a {C:attention}Three of a Kind"
                 }
             },            
             j_kino_titanic = {
                 name = "Titanic",
                 text = {
-                    "Scored {C:hearts}Hearts{} give {C:mult}+#2#{} Mult",
-                    "for each {C:hearts}Hearts{}",
-                    "in your deck above #1#",
-                    "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+                    "{C:mult}+#1#{} Mult",
+                    "{C:attention}Doubled{} for each {C:attention}#2#{} {C:hearts}Hearts",
+                    "in your full deck",
+                    "{C:inactive}(Currently: {C:hearts}#3#{C:inactive} Hearts in deck)"
                 }
             },
             j_kino_tmnt_1 = {
@@ -7691,6 +7686,8 @@ return {
             kino_codex = "Solved",
             k_kino_drained = "Drained!",
             k_kino_bang = "Bang!",
+            k_kino_downgrade_ex = "Value Down",
+            k_kino_perished = "Perished!",
             
             k_longlegs_ex = "Captured",
             k_ghost_rider_1 = "Vengeance!",

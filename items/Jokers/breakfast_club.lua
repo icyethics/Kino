@@ -4,9 +4,8 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            starting_amount = 13,
-            mult = 0,
-            a_mult = 1
+            base_mult = 1,
+            threshold = 5,
         }
     },
     rarity = 1,
@@ -29,56 +28,44 @@ SMODS.Joker {
         cast = {},
     },
     k_genre = {"Comedy", "Drama", "Romance"},
-    in_pool = function(self, args)
-        -- Check for the right frequency
-        local suit_count = 0 
-        if G.playing_cards then
-            for k, v in pairs(G.playing_cards) do
-                if v.config.card.suit == "Clubs" and v.config.center ~= G.P_CENTERS.m_stone then
-                    suit_count = suit_count + 1
-                end
-            end
-        end
-
-        return suit_count >= 14 and true or false
-    end,
-
     loc_vars = function(self, info_queue, card)
-
-        local _starting_suits = G.GAME.suit_startingcounts and G.GAME.suit_startingcounts["Clubs"] or 13
-        local suit_count = 0 
+        local _suit_count = 0 
         if G.playing_cards then
             for k, v in pairs(G.playing_cards) do
-                if v.config.card.suit == "Clubs" and v.config.center ~= G.P_CENTERS.m_stone then
-                    suit_count = suit_count + 1
+                if v:is_suit("Clubs") then
+                    _suit_count = _suit_count + 1
                 end
             end
         end
+
+        local _doubling = math.floor(_suit_count / card.ability.extra.threshold)
+
+        local _final_mult = card.ability.extra.base_mult * (2 ^ _doubling)
         return {
             vars = {
-                _starting_suits,
-                card.ability.extra.a_mult,
-                math.max((suit_count - _starting_suits) * card.ability.extra.a_mult, 0)
+                _final_mult,
+                card.ability.extra.threshold,
+                _suit_count,
             }
         }
     end,
     calculate = function(self, card, context)
-
-        if context.individual and context.cardarea == G.play then
-            local suit_count = 0 
+        -- +1 Mult, doubles for every 6 [SUIT] cards in your deck
+        if context.joker_main then
+            local _suit_count = 0 
             for k, v in pairs(G.playing_cards) do
-                if v.config.card.suit == "Clubs" and v.config.center ~= G.P_CENTERS.m_stone then
-                    suit_count = suit_count + 1
+                if v:is_suit("Clubs") then
+                    _suit_count = _suit_count + 1
                 end
             end
-            card.ability.extra.mult = math.max((suit_count - G.GAME.suit_startingcounts["Clubs"]) * card.ability.extra.a_mult, 0)
 
-            if context.other_card:is_suit("Clubs") then
-                return {
-                    mult = card.ability.extra.mult,
-                    card = context.other_card
-                }
-            end
+            local _doubling = math.floor(_suit_count / card.ability.extra.threshold)
+
+            local _final_mult = card.ability.extra.base_mult * (2 ^ _doubling)
+
+            return {
+                mult = _final_mult
+            }
         end
     end
 }

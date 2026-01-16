@@ -23,6 +23,22 @@ New Jokers:
 - Pan's Labyrinth
 - 5 Legendaries
 
+V 0.12f:
+
+Reworks:
+- Breakfast Club
+- Dickie Roberts: Child Star
+- Gentlemen Prefer Blondes
+- Titanic
+
+V 0.12e:
+
+Bug Fixes:
+- Fixed Asteroid City
+
+Reworks:
+- Reworked Skyscraper, Double, Lethal Weapon, Monster House, Three Musketeers
+
 V 0.12d:
 
 Bug Fixes:

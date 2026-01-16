@@ -44,7 +44,7 @@ SMODS.Joker {
         -- Return it Negative
         card.ability.extra.num_cards_abducted = card.ability.extra.cards_abducted and #card.ability.extra.cards_abducted or 0
 
-        if context.setting_blind and card.ability.extra.num_cards_abducted == 0 and not card.getting_sliced then
+        if context.before and card.ability.extra.num_cards_abducted == 0 and not card.getting_sliced then
             -- find position
             local _mypos = nil
             for i = 1, #G.jokers.cards do
@@ -56,7 +56,6 @@ SMODS.Joker {
             if _mypos and G.jokers.cards[_mypos + 1] and not 
             G.jokers.cards[_mypos + 1].getting_sliced and not
             G.jokers.cards[_mypos + 1].abducted then  
-                print("Will try to abduct")
                 Kino.abduct_card(card, G.jokers.cards[_mypos + 1])
             end
         end

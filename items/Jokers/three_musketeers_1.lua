@@ -4,16 +4,16 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            stacked_mult = 0,
-            stacked_mult_mod = 2,
-            a_mult = 2,
+            stacked_mult = 20,
+            mult_decrease_non = 3,
+            factor = 1,
             hand_type = "Three of a Kind"
         }
     },
     rarity = 1,
     atlas = "kino_atlas_1",
     pos = { x = 0, y = 1 },
-    cost = 3,
+    cost = 4,
     blueprint_compat = true,
     perishable_compat = false,
     kino_joker = {
@@ -34,41 +34,37 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.stacked_mult_mod,
+                card.ability.extra.hand_type,
                 card.ability.extra.stacked_mult,
-                card.ability.extra.a_mult,
-                card.ability.extra.hand_type
+                card.ability.extra.mult_decrease_non / card.ability.extra.factor
             }
         }
     end,
     calculate = function(self, card, context)
-
-        if context.before and context.scoring_name == card.ability.extra.hand_type and not context.blueprint then
-            card.ability.extra.stacked_mult = card.ability.extra.stacked_mult + card.ability.extra.stacked_mult_mod
-            return {
-                focus = card,
-                message = localize({type='variable', key='a_mult', vars = {card.ability.extra.stacked_mult}}),
-                colour = G.C.MULT,
-                card = card
-            }
-
-        end
-
-        if context.end_of_round and not context.individual and not context.repetition and G.GAME.blind.boss and not context.blueprint_card and not context.retrigger_joker then
-            card.ability.extra.stacked_mult_mod = card.ability.extra.stacked_mult_mod + card.ability.extra.a_mult
-            card.ability.extra.stacked_mult = 0
-            return {
-                focus = card,
-                message = localize({type='variable', key='k_upgrade_ex', vars = {card.ability.extra.stacked_mult_mod}}),
-                colour = G.C.MULT,
-                card = card
-            }
-        end
-
         if context.joker_main then
             return {
                 mult = card.ability.extra.stacked_mult
             }
+        end
+
+        if context.after and context.cardarea == G.jokers then
+            if not context.blueprint and not context.repetition then
+                if context.poker_hands and next(context.poker_hands[card.ability.extra.hand_type]) then
+
+                else
+                    card.ability.extra.stacked_mult = card.ability.extra.stacked_mult - (card.ability.extra.mult_decrease_non / card.ability.extra.factor)
+                    
+                    if card.ability.extra.stacked_mult <= 0 then
+                    
+                        card_eval_status_text(card, 'extra', nil, nil, nil,
+                        { message = localize('k_kino_perished'), colour = G.C.Mult })
+                        card:start_dissolve()
+                    else
+                        card_eval_status_text(card, 'extra', nil, nil, nil,
+                        { message = localize('k_kino_downgrade_ex'), colour = G.C.Mult })
+                    end
+                end
+            end
         end
     end
 }
