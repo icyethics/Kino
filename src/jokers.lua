@@ -362,7 +362,7 @@ joker_list = {
 "they_live",
 "to_kill_a_mockingbird",
 "tron",
--- "truman_show",
+"truman_show",
 "12_monkeys",
 "wall_e",
 "war_of_the_worlds",
@@ -372,11 +372,16 @@ joker_list = {
 
 ------ Legendary
 
+"bringing_up_baby",
 "citizen_kane",
+-- "strangers on a train"
 "2001_odyssey",
 "godfather",
+
 "indiana_jones_1",
+"forrest_gump",
 "ratatouille",
+-- "avengers: endgame"
 "barbie",
 
 -- "barbie", 2020s

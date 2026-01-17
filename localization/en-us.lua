@@ -4185,6 +4185,27 @@ return {
                     "{E:1,s:1.3}?????",
                 },
             },
+            j_kino_forrest_gump = {
+                name = "Forrest Gump",
+                text = {
+                    {"Before scoring, add {C:attention}Straight{}'s",
+                    "base {C:chips}Chips{} and {C:mult}Mult",},
+                    {"Played hands {C:attention,E:1}ALWAYS{} count as",
+                    "containing a {C:attention}Straight"}
+                },
+                unlock={
+                    "{E:1,s:1.3}?????",
+                },
+            },
+            j_kino_bringing_up_baby = {
+                name = "Bringing Up Baby",
+                text = {
+                    "If played hand contain 2 en"
+                },
+                unlock={
+                    "{E:1,s:1.3}?????",
+                },
+            },
 
         },
         Enhanced = {
@@ -7774,6 +7795,7 @@ return {
             k_kino_hardcore_henry = "Cloned",
             k_kino_james_bond_1 = "Shaken, not stirred",
             k_kino_terminator_destroyed = "I'll be back",
+            k_kino_forrest_gump = "Run, Forrest, Run",
 
             k_kino_heartache_stack = "</3",
 
@@ -7883,14 +7905,14 @@ return {
             -- Legendary Joker Quests
             -- -- 2001: A Space Odyssey
             k_odyssey_quest_1 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "directed by Kubrick"
             },
             k_odyssey_quest_2 = {
                 "Possess 2 Sci-Fi Jokers"
             },
             k_odyssey_quest_3 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "released in the 60s"
             },
             k_odyssey_quest_4 = {
@@ -7908,18 +7930,18 @@ return {
 
             -- -- Raiders of the Lost Ark
             k_indiana_quest_1 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "directed by Spielberg"
             },
             k_indiana_quest_2 = {
-                "Posses 2 Adventure Jokers"
+                "Possess 2 Adventure Jokers"
             },
             k_indiana_quest_3 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "released in the 80s"
             },
             k_indiana_quest_4 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "that shares an actor"
             },
             k_indiana_quest_5 = {
@@ -7927,25 +7949,25 @@ return {
                 "cards in your deck"
             },
             k_indiana_quest_6 = {
-                "Posses a Hieroglyph",
+                "Possess a Hieroglyph",
                 "or Petroglyph Voucher"
             },
 
             -- Barbie Quests
             k_barbie_quest_1 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "directed by a Woman"
             },
             k_barbie_quest_2 = {
-                "Posses 2 Comedy",
+                "Possess 2 Comedy",
                 "or Adventure Jokers"
             },
             k_barbie_quest_3 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "released in the 2020s"
             },
             k_barbie_quest_4 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "that shares an actor"
             },
             k_barbie_quest_5 = {
@@ -7959,7 +7981,7 @@ return {
 
             -- Ratatouille Quests
             k_ratatouille_quest_1 = {
-                "Posses 2 Animation",
+                "Possess 2 Animation",
                 "or Family Jokers"
             },
             k_ratatouille_quest_2 = {
@@ -7971,11 +7993,11 @@ return {
                 "2's in your starting Deck"
             },
             k_ratatouille_quest_4 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "that shares an actor"
             },
             k_ratatouille_quest_5 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "released in the 2000s"
             },
             k_ratatouille_quest_6 = {
@@ -7985,15 +8007,15 @@ return {
 
             -- Citizen Kane Quests
             k_citizen_kane_quest_1 = {
-                "Posses 2 Mystery",
+                "Possess 2 Mystery",
                 "or Drama Jokers"
             },
             k_citizen_kane_quest_2 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "released in the 1940s"
             },
             k_citizen_kane_quest_3 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "that shares an actor"
             },
             k_citizen_kane_quest_4 = {
@@ -8009,6 +8031,80 @@ return {
                 "and The Earth in your inventory"
             },
 
+            -- Godfather Quests
+            k_kino_godfather_quest_1 = {
+                "Possess 2 Crime",
+                "or Drama Jokers"
+            },
+            k_kino_godfather_quest_2 = {
+                "Possess a Movie Joker",
+                "released in the 1970s"
+            },
+            k_kino_godfather_quest_3 = {
+                "Possess a Movie Joker",
+                "that shares an actor"
+            },
+            k_kino_godfather_quest_4 = {
+                "Have stolen {C:money}$25{} or more"
+            },
+            k_kino_godfather_quest_5 = {
+                "Have destroyed {C:attention}5{}", 
+                "playing cards or more"
+            },
+            k_kino_godfather_quest_6 = {
+                "Have a The Emperor, The Gangster,",
+                "and a Slice of Pizza in your inventory"
+            },
+
+            -- Forrest Gump Quests
+            k_kino_forrest_gump_quest_1 = {
+                "Possess 2 Drama Jokers",
+            },
+            k_kino_forrest_gump_quest_2 = {
+                "Possess a Movie Joker",
+                "released in the 1990s"
+            },
+            k_kino_forrest_gump_quest_3 = {
+                "Possess a Movie Joker",
+                "that shares an actor"
+            },
+            k_kino_forrest_gump_quest_4 = {
+                "Have {C:attention}50{} or more", 
+                "numbered cards in your deck"
+            },
+            k_kino_forrest_gump_quest_5 = {
+                "Play a {C:attention}Straight{}", 
+                "at least {C:attention}10{} times"
+            },
+            k_kino_forrest_gump_quest_6 = {
+                "Have a Chocolate Bar, The Fool,",
+                "and Saturn in your inventory"
+            },
+
+            -- Bringing Up Baby Quests
+            k_kino_bringing_up_baby_quest_1 = {
+                "Possess 2 {C:Romance}Romance{}", 
+                "or {C:Comedy}Comedy{} Jokers",
+            },
+            k_kino_bringing_up_baby_quest_2 = {
+                "Possess a Movie Joker",
+                "released in the 1930s"
+            },
+            k_kino_bringing_up_baby_quest_3 = {
+                "Possess a Movie Joker",
+                "that shares an actor"
+            },
+            k_kino_bringing_up_baby_quest_4 = {
+                "Have {C:attention}20{} or more", 
+                "{C:attention}enhanced{} cards in your deck"
+            },
+            k_kino_bringing_up_baby_quest_5 = {
+                "{C:Romance}Make {C:attention}5 or more {C:Romance}Matches"
+            },
+            k_kino_bringing_up_baby_quest_6 = {
+                "Have the Lovers, Venus,",
+                "and a Hot Dog in your inventory"
+            },
 
             -- ========= BLOCKBUSTER API MOD LOCALIZATION ======== --
             bb_counter_tooltip = {

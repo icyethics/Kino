@@ -71,6 +71,11 @@ SMODS.current_mod.calculate = function(self, context)
                 check_for_unlock({type="kino_ten_faces_destroyed"})
             end
         end
+
+        G.GAME.kino_cards_destroyed = G.GAME.kino_cards_destroyed or 0
+        for i = 1, #context.removed do
+            G.GAME.kino_cards_destroyed = G.GAME.kino_cards_destroyed + 1
+        end
     end
 
     if context.using_consumeable then

@@ -356,9 +356,7 @@ end
 function update_matches(num, is_set)
     -- num is the number to increment or set the scrap by
     -- is_set == true will set instead of increment
-    if not G.GAME.current_round.matchmade_total then
-        G.GAME.current_round.matchmade_total = 0
-    end
+    G.GAME.current_round.matchmade_total = G.GAME.current_round.matchmade_total or 0
 
     if is_set then
         G.GAME.current_round.matchmade_total = num

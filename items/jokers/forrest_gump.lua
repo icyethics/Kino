@@ -1,17 +1,15 @@
 SMODS.Joker {
-    key = "godfather",
+    key = "forrest_gump",
     order = 46,
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            a_chips_factor = 4,
-            stacked_chips = 0
         }
     },
     rarity = 4,
     atlas = "kino_atlas_legendary",
-    pos = { x = 5, y = 0},
-    soul_pos = { x = 5, y = 1},
+    pos = { x = 0, y = 2},
+    soul_pos = { x = 0, y = 3},
     cost = 10,
     blueprint_compat = true,
     perishable_compat = true,
@@ -28,26 +26,26 @@ SMODS.Joker {
         directors = {},
         cast = {},
     },
-    k_genre = {"Crime", "Drama"},
+    k_genre = {"Drama"},
 
     legendary_conditions = function(self, card)
         -- Conditions for this legendary
 
         -- 2 Movies that shares a genre
-        -- Have stolen $25 or more
-        -- Have at least 10 2's
+        -- Played 10 Straights
+        -- Have 50 number cards in your deck
         -- Movie that shares a release decade
         -- Movie that shares an actor
-        -- Have a Gangster, Emperor and Slice of Pizza
+        -- Have a Chocolate, Fool and Saturn
         
 
         local _quest_status = {
             false, -- genre
             false, -- release decade
             false, -- actor
-            false, -- Have stolen $25 or more
-            false, -- Have destroyed 5 cards
-            false -- Gangster, Emperor and Slice of Pizza
+            false, -- Have 50 number cards in your deck
+            false, -- Play 10 Straights
+            false -- , Emperor and Slice of Pizza
         }
         if not G.GAME or 
         not G.GAME.probabilities
@@ -56,8 +54,8 @@ SMODS.Joker {
         end
 
         -- Checking other joker matching qualities
-        local _this_card = SMODS.Centers["j_kino_godfather"]
-        local _my_release = "7"
+        local _this_card = SMODS.Centers["j_kino_forrest_gump"]
+        local _my_release = "9"
         local _genre_match = 0
         for _, _joker in ipairs(G.jokers.cards) do
             if _joker.config.center.kino_joker then
@@ -93,27 +91,37 @@ SMODS.Joker {
             _quest_status[1] = true
         end
 
-        -- Checking cards destroyws
-        if G.GAME.kino_cards_destroyed >= 5 then
+        -- Checking straights played
+        if G.GAME.hands["Straight"].played >= 10 then
             _quest_status[5] = true
         end
 
-        -- Checking confection use Conditions
-        if G.GAME.money_stolen and G.GAME.money_stolen >= 25 then
-            _quest_status[4] = true
+        -- Checking number cards in deck
+        if G.playing_cards then
+            local _number_count = 0
+            for i, _pcard in ipairs(G.playing_cards) do
+                if _pcard:get_id() <= 9 then
+                    _number_count = _number_count + 1
+                end
+            end
+
+            if _number_count >= 50 then
+                _quest_status[4] = true
+            end
         end
+
 
         -- Checking items in inventory
 
         local _inventory_check = {false, false, false}
         for _, _consum in ipairs(G.consumeables.cards) do
-            if _consum == G.P_CENTERS.c_kino_gangster then
+            if _consum == G.P_CENTERS.c_kino_chocolate_bar then
                 _inventory_check[1] = true
             end
-            if _consum == G.P_CENTERS.c_kino_pizza then
+            if _consum == G.P_CENTERS.c_fool then
                 _inventory_check[2] = true
             end
-            if _consum == G.P_CENTERS.c_emperor then
+            if _consum == G.P_CENTERS.c_saturn then
                 _inventory_check[3] = true
             end
         end
@@ -144,7 +152,7 @@ SMODS.Joker {
                 trigger = nil,
                 type = nil,
                 condition = nil,
-                alt_text = localize("k_kino_godfather_quest_" .. i),
+                alt_text = localize("k_kino_forrest_gump_quest_" .. i),
                 times = 0,
                 goal = 1, 
                 completion = _quest_results[i]
@@ -162,26 +170,25 @@ SMODS.Joker {
 
         return {
             vars = {
-                card.ability.extra.a_chips_factor,
-                card.ability.extra.stacked_chips
+
             }
         }
     end,
     calculate = function(self, card, context)
         -- When you earn Money during a Blind, gain four times that many chips
-        if G.GAME.blind.in_blind then
-            if context.kino_ease_dollars and to_big(context.kino_ease_dollars) > to_big(0) and not context.blueprint then
-                card.ability.extra.stacked_chips = card.ability.extra.stacked_chips + (card.ability.extra.a_chips_factor * context.kino_ease_dollars)
-                return {
-                    message = localize("k_upgrade_ex"),
-                    colour = G.C.CHIPS,
-                }
-            end
+        if context.evaluate_poker_hand then
+            context.poker_hands["Straight"] = context.scoring_hand
+            return {
+                replace_poker_hands = _poker_hands
+            }
         end
 
-        if context.joker_main then
+        if context.modify_hand then
+            mult = mult + G.GAME.hands["Straight"].mult
+            hand_chips = hand_chips + G.GAME.hands["Straight"].chips
             return {
-                chips = card.ability.extra.stacked_chips
+                message = localize("k_kino_forrest_gump"),
+                colour = G.C.ATTENTION
             }
         end
     end,
