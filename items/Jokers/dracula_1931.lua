@@ -33,7 +33,7 @@ SMODS.Joker {
     in_pool = function(self, args)
         -- Check for the right frequency
         local enhancement_gate = false
-        if G.playing_cards then
+        if G.playing_cards and G.jokers.cards then
             for k, v in ipairs(G.jokers.cards) do
                 if v.config.center.is_vampire then
                     enhancement_gate = true

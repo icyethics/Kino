@@ -556,7 +556,7 @@ return {
                     "contains a {C:attention}Straight{}"
                 },
                 unlock = {
-                    "Scale {C:attention}Runner{} using",
+                    "Play a {C:attention}Straight{} using",
                     "only {C:attention}Sci-Fi Cards"
                 }
             },
@@ -1957,7 +1957,7 @@ return {
             j_kino_john_wick_1 = {
                 name = "John Wick",
                 text = {
-                    "Create {C:Bullet}#2# Bullets{} when",
+                    "Create {C:Bullet}#1# Bullets{} when",
                     "a playing card is destroyed"
                 },
                 unlock = {
@@ -6488,7 +6488,7 @@ return {
                 },
                 unlock = {
                     "Buy {C:attention}Media Collection{} ",
-                    "{C:attention}20{} times",
+                    "{C:attention}5{} times",
                     "{C:inactive}(#1#)"
                 }
             },
@@ -7852,14 +7852,14 @@ return {
             -- Legendary Joker Quests
             -- -- 2001: A Space Odyssey
             k_odyssey_quest_1 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "directed by Kubrick"
             },
             k_odyssey_quest_2 = {
                 "Possess 2 Sci-Fi Jokers"
             },
             k_odyssey_quest_3 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "released in the 60s"
             },
             k_odyssey_quest_4 = {
@@ -7877,18 +7877,18 @@ return {
 
             -- -- Raiders of the Lost Ark
             k_indiana_quest_1 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "directed by Spielberg"
             },
             k_indiana_quest_2 = {
-                "Posses 2 Adventure Jokers"
+                "Possess 2 Adventure Jokers"
             },
             k_indiana_quest_3 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "released in the 80s"
             },
             k_indiana_quest_4 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "that shares an actor"
             },
             k_indiana_quest_5 = {
@@ -7896,25 +7896,25 @@ return {
                 "cards in your deck"
             },
             k_indiana_quest_6 = {
-                "Posses a Hieroglyph",
+                "Possess a Hieroglyph",
                 "or Petroglyph Voucher"
             },
 
             -- Barbie Quests
             k_barbie_quest_1 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "directed by a Woman"
             },
             k_barbie_quest_2 = {
-                "Posses 2 Comedy",
+                "Possess 2 Comedy",
                 "or Adventure Jokers"
             },
             k_barbie_quest_3 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "released in the 2020s"
             },
             k_barbie_quest_4 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "that shares an actor"
             },
             k_barbie_quest_5 = {
@@ -7928,7 +7928,7 @@ return {
 
             -- Ratatouille Quests
             k_ratatouille_quest_1 = {
-                "Posses 2 Animation",
+                "Possess 2 Animation",
                 "or Family Jokers"
             },
             k_ratatouille_quest_2 = {
@@ -7940,11 +7940,11 @@ return {
                 "2's in your starting Deck"
             },
             k_ratatouille_quest_4 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "that shares an actor"
             },
             k_ratatouille_quest_5 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "released in the 2000s"
             },
             k_ratatouille_quest_6 = {
@@ -7954,15 +7954,15 @@ return {
 
             -- Citizen Kane Quests
             k_citizen_kane_quest_1 = {
-                "Posses 2 Mystery",
+                "Possess 2 Mystery",
                 "or Drama Jokers"
             },
             k_citizen_kane_quest_2 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "released in the 1940s"
             },
             k_citizen_kane_quest_3 = {
-                "Posses a Movie Joker",
+                "Possess a Movie Joker",
                 "that shares an actor"
             },
             k_citizen_kane_quest_4 = {

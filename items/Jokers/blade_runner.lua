@@ -57,11 +57,6 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'hand_contents' then
-            local _ownPants = false
-            if next(find_joker("Runner")) then
-                _ownPants = true
-            end
-
             local _isFlush = false
             local eval = evaluate_poker_hand(args.cards)
             
@@ -76,7 +71,7 @@ SMODS.Joker {
                 end
             end
 
-            if _ownPants and _isFlush and _isSciFiOnly then
+            if _isFlush and _isSciFiOnly then
                 unlock_card(self)
             end
         end
