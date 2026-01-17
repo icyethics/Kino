@@ -374,14 +374,14 @@ joker_list = {
 
 "bringing_up_baby",
 "citizen_kane",
--- "strangers on a train"
+"singing_in_the_rain",
 "2001_odyssey",
 "godfather",
 
 "indiana_jones_1",
 "forrest_gump",
 "ratatouille",
--- "avengers: endgame"
+"avengers_endgame",
 "barbie",
 
 -- "barbie", 2020s

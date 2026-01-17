@@ -4206,6 +4206,15 @@ return {
                     "{E:1,s:1.3}?????",
                 },
             },
+            j_kino_avengers_endgame = {
+                name = "Avengers: Endgame",
+                text = {
+                    "*SNAP*"
+                },
+                unlock={
+                    "{E:1,s:1.3}?????",
+                },
+            },
 
         },
         Enhanced = {
