@@ -1350,15 +1350,8 @@ SMODS.Blind{
         }
     end,
     calculate = function(self, blind, context)
-        -- OLD EFFECT
-        -- if context.pre_discard then
-        --     if pseudorandom("anton_chigurh") < (G.GAME.probabilities.normal / blind.debuff.chance) then
-        --         ease_hands_played(-1)
-        --     end
-        -- end
 
         if context.before then
-            -- if pseudorandom("kino_chigurhblind") < G.GAME.probabilities.normal / self.debuff.chance then
             if SMODS.pseudorandom_probability(self, 'kino_chigurhblind', 1, self.debuff.chance, "kino_card_debuff") then
                 if G.jokers then
                     -- find the leftmost non-debuffed joker
@@ -1371,7 +1364,6 @@ SMODS.Blind{
                     end
 
                     if _target then
-                        -- Kino.change_counters(_target, "kino_stun", 3)
                         _target:bb_counter_apply("counter_stun", G.GAME.current_round.hands_left)
                     end
                 end
@@ -1491,12 +1483,10 @@ SMODS.Blind{
     end,
     calculate = function(self, blind, context)
         -- Whenever a card scores, put a poison counter on all cards held in hand
-        -- if context.after and context.cardarea == G.play then
         if context.after then
             for _index, _pcard in ipairs(G.hand.cards) do
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
                     blind:wiggle()
-                    -- Kino.change_counters(_pcard, "kino_poison", 2)
                     _pcard:bb_counter_apply("counter_poison", 2)
                 return true end }))
             end

@@ -31,6 +31,18 @@ New Jokers:
 
 V 0.12f:
 
+Bug Fix:
+- Dracula (1931) crash when leaving a run fixed
+- Trading Places now checks for a value equal to or greater than $6, rather than only greater than
+
+Unlock Requirement Changes:
+- Blade Runner no longer requires you to specifically scale the Runner joker
+
+Localization Fixes:
+- John Wick no longer reads nil
+- Criterion Collection now has the correct unlock requirement
+- Fixed some spelling errors
+
 Reworks:
 - Breakfast Club
 - Dickie Roberts: Child Star

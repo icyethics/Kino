@@ -556,7 +556,7 @@ return {
                     "contains a {C:attention}Straight{}"
                 },
                 unlock = {
-                    "Scale {C:attention}Runner{} using",
+                    "Play a {C:attention}Straight{} using",
                     "only {C:attention}Sci-Fi Cards"
                 }
             },
@@ -1957,7 +1957,7 @@ return {
             j_kino_john_wick_1 = {
                 name = "John Wick",
                 text = {
-                    "Create {C:Bullet}#2# Bullets{} when",
+                    "Create {C:Bullet}#1# Bullets{} when",
                     "a playing card is destroyed"
                 },
                 unlock = {
@@ -6540,7 +6540,7 @@ return {
                 },
                 unlock = {
                     "Buy {C:attention}Media Collection{} ",
-                    "{C:attention}20{} times",
+                    "{C:attention}5{} times",
                     "{C:inactive}(#1#)"
                 }
             },
