@@ -12,7 +12,7 @@ SMODS.Joker {
             x_mult = 2,
             high_level_mult = 2,
             ascension_mult = 10,
-            thresholds = {10, 20, 50, 200, 1000}
+            thresholds = {5, 10, 30, 100, 250}
         }
     },
     rarity = 1,
@@ -122,21 +122,21 @@ SMODS.Joker {
             }
             local _modifier = 1
 
-            if card.ability.extra.charges_non >= 500 then
+            if card.ability.extra.charges_non >= 250 then
                 _modifier = 10
-            elseif card.ability.extra.charges_non >= 200 then
+            elseif card.ability.extra.charges_non >= 100 then
                 _modifier = 2
             end
 
-            if card.ability.extra.charges_non >= 10 then
+            if card.ability.extra.charges_non >= 5 then
                 _returntable.chips = card.ability.extra.chips * _modifier
             end
 
-            if card.ability.extra.charges_non >= 20 then
+            if card.ability.extra.charges_non >= 10 then
                 _returntable.mult = card.ability.extra.mult * _modifier
             end
 
-            if card.ability.extra.charges_non >= 50 then
+            if card.ability.extra.charges_non >= 30 then
                 _returntable.x_mult = card.ability.extra.x_mult * _modifier
             end
 

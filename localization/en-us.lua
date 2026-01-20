@@ -874,7 +874,8 @@ return {
                     "{C:inactive}(Currently: {C:mult}+#2#{C:inactive} Mult)"
                 },
                 unlock = {
-                    "Use the {C:attention}Witch{} 25 times"
+                    "Use the {C:attention}Witch{} 25 times",
+                    "{C:inactive}(#1#)"
                 }
             },
             j_kino_contagion = {
@@ -3569,11 +3570,11 @@ return {
                     {
                         "{C:attention}Gain abilities based on Charges",
                         " ",
-                        "{B:1,C:white}10{}: {C:chips}+#3#{} Chips",
-                        "{B:2,C:white}20{}: {C:mult}+#4#{} Mult",
-                        "{B:3,C:white}50{}: {X:mult,C:white}x#5#{} Mult",
-                        "{B:4,C:white}200{}: This is {C:attention}x#6#{} stronger",
-                        "{B:5,C:white}500{}: This is {C:attention}x#7#{} stronger",
+                        "{B:1,C:white}5{}: {C:chips}+#3#{} Chips",
+                        "{B:2,C:white}10{}: {C:mult}+#4#{} Mult",
+                        "{B:3,C:white}30{}: {X:mult,C:white}x#5#{} Mult",
+                        "{B:4,C:white}100{}: This is {C:attention}x#6#{} stronger",
+                        "{B:5,C:white}250{}: This is {C:attention}x#7#{} stronger",
                     }
                 }
             },

@@ -1,3 +1,19 @@
+V 0.12g:
+
+Bug Fixes:
+- Fixed The Investor?! 45* rotated tarot (MoreFluff crossmod card)
+- Fixed a rare crash related to Dr. Strange
+- Titanic now properly triggers
+- Fixed Sugarland Express unlock condition
+
+Localization & Visual Changes:
+- Added a tracker for the Conjuring's unlock condition
+- Changed the colour associated with the Family genre to improve readability
+
+Balance Changes:
+- Snow Piercer: +4 Mult gained > +6 Mult gained
+- Superman (2025): Lowered thresholds to gain abilities
+
 V 0.12f:
 
 Bug Fix:

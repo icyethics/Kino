@@ -81,7 +81,7 @@ SMODS.Joker {
     end,
     check_for_unlock = function(self, args)
         if args.type == 'career_stat' then
-            if G.PROFILES[G.SETTINGS.profile].career_stats.kino_crime_card_used and G.PROFILES[G.SETTINGS.profile].career_stats.kino_crime_card_used >= 50 then
+            if G.PROFILES[G.SETTINGS.profile].career_stats.kino_crime_card_used and G.PROFILES[G.SETTINGS.profile].career_stats.kino_crime_card_used >= 5 then
                 unlock_card(self)
             end
         end

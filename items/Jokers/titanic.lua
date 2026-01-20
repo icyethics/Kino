@@ -54,7 +54,7 @@ SMODS.Joker {
         if context.joker_main then
             local _suit_count = 0 
             for k, v in pairs(G.playing_cards) do
-                if v:is_suit("Spades") then
+                if v:is_suit("Hearts") then
                     _suit_count = _suit_count + 1
                 end
             end

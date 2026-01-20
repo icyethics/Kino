@@ -335,7 +335,7 @@ if next(SMODS.find_mod("MoreFluff")) then
             }
         end,
         use = function(self, card, area, copier)
-            for i = 1, card.ability.investment_counters do
+            for i = 1, card.ability.debt_counters do
                 local _target = pseudorandom_element(G.playing_cards, pseudoseed("kino_investor"))
                 -- Kino.change_counters(_target, "kino_investment", 1)
                 _target:bb_counter_apply("counter_debt", 1)
