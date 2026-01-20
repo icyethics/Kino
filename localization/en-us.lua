@@ -4200,7 +4200,12 @@ return {
             j_kino_bringing_up_baby = {
                 name = "Bringing Up Baby",
                 text = {
-                    "If played hand contain 2 en"
+                    "Gain {X:mult,C:white}X#1#{} Mult when",
+                    "an {C:attention}enhanced{} card scores",
+                    "If scoring hand contains exactly one",
+                    "other card with the same {C:attention}enhancement",
+                    "gain {X:mult,C:white}X#2#{} Mult instead",
+                    "{C:inactive}(Currently: {X:mult,C:white}X#3#{C:inactive} Mult)"
                 },
                 unlock={
                     "{E:1,s:1.3}?????",
@@ -4209,7 +4214,30 @@ return {
             j_kino_avengers_endgame = {
                 name = "Avengers: Endgame",
                 text = {
-                    "*SNAP*"
+                    {"For each {C:Superhero}Superhero{} Joker you have",
+                    "put #1# {C:attention}Retrigger Counter{}",
+                    "on it and another random joker",
+                    "when you select a blind"},
+                    {"For each {C:Superhero}Superhero Card{} in your deck",
+                    "put #1# {C:attention}Retrigger Counter{}",
+                    "on it and another random card in deck",
+                    "when you select a blind"},
+                },
+                unlock={
+                    "{E:1,s:1.3}?????",
+                },
+            },
+            j_kino_singing_in_the_rain = {
+                name = "Singing In The Rain",
+                text = {
+                    {
+                        "When a {C:attention}Counter{} is applied,",
+                        "apply {C:attention}X#1#{} that many"
+                    },
+                    {
+                        "Put {C:attention}#2#{} random beneficial {C:attention}Counter",
+                        "on each unscored card"
+                    }
                 },
                 unlock={
                     "{E:1,s:1.3}?????",
@@ -7805,6 +7833,7 @@ return {
             k_kino_james_bond_1 = "Shaken, not stirred",
             k_kino_terminator_destroyed = "I'll be back",
             k_kino_forrest_gump = "Run, Forrest, Run",
+            k_kino_singing_in_the_rain = "What a wonderful feeling",
 
             k_kino_heartache_stack = "</3",
 
@@ -8113,6 +8142,57 @@ return {
             k_kino_bringing_up_baby_quest_6 = {
                 "Have the Lovers, Venus,",
                 "and a Hot Dog in your inventory"
+            },
+
+            -- Avengers Endgame Quests
+            k_kino_avengers_endgame_quest_1 = {
+                "Possess 3 Superhero jokers"
+            },
+            k_kino_avengers_endgame_quest_2 = {
+                "Possess a Movie Joker",
+                "released in the 2010s"
+            },
+            k_kino_avengers_endgame_quest_3 = {
+                "Possess 2 Movie Jokers",
+                "that share an actor"
+            },
+            k_kino_avengers_endgame_quest_4 = {
+                "Have 5 or more", 
+                "Superhero Cards in your deck"
+            },
+            k_kino_avengers_endgame_quest_5 = {
+                "Have half or less of",
+                "your starting deck remaining"
+            },
+            k_kino_avengers_endgame_quest_6 = {
+                "Have the Superhero, Ego,",
+                "and Krypton in your inventory"
+            },
+
+            -- Singing in the Rain Quests
+            k_kino_singing_in_the_rain_quest_1 = {
+                "Possess 2 Musical", 
+                "or Romance Jokers"
+            },
+            k_kino_singing_in_the_rain_quest_2 = {
+                "Possess a Movie Joker",
+                "released in the 1950s"
+            },
+            k_kino_singing_in_the_rain_quest_3 = {
+                "Possess 2 Movie Jokers",
+                "that share an actor"
+            },
+            k_kino_singing_in_the_rain_quest_4 = {
+                "Have 20 Counters in",
+                "your full deck"
+            },
+            k_kino_singing_in_the_rain_quest_5 = {
+                "Have played 20 or more",
+                "unscoring cards"
+            },
+            k_kino_singing_in_the_rain_quest_6 = {
+                "Have the Lovers, Popcorn,",
+                "and Mars in your inventory"
             },
 
             -- ========= BLOCKBUSTER API MOD LOCALIZATION ======== --

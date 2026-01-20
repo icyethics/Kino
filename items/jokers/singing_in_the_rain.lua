@@ -4,6 +4,8 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
+            factor = 2,
+            counters_applied = 1
         }
     },
     rarity = 4,
@@ -27,7 +29,6 @@ SMODS.Joker {
         cast = {},
     },
     k_genre = {"Musical", "Romance"},
-
     legendary_conditions = function(self, card)
         -- Conditions for this legendary
 
@@ -43,8 +44,8 @@ SMODS.Joker {
             false, -- genre
             false, -- release decade
             false, -- actor
-            false, -- Have 20 enhanced cards in your deck
-            false, -- Make 5 or more matches
+            false, -- Have 20 Counters
+            false, -- Have played 20 or more unscoring cards
             false -- , Emperor and Slice of Pizza
         }
         if not G.GAME or 
@@ -54,8 +55,8 @@ SMODS.Joker {
         end
 
         -- Checking other joker matching qualities
-        local _this_card = SMODS.Centers["j_kino_forrest_gump"]
-        local _my_release = "3"
+        local _this_card = SMODS.Centers["j_kino_singing_in_the_rain"]
+        local _my_release = "5"
         local _genre_match = 0
         for _, _joker in ipairs(G.jokers.cards) do
             if _joker.config.center.kino_joker then
@@ -92,20 +93,13 @@ SMODS.Joker {
         end
 
         -- Checking straights played
-        if G.GAME.current_round.matchmade_total and G.GAME.current_round.matchmade_total >= 5 then
+        if G.GAME.kino_unscored_cards_played and G.GAME.kino_unscored_cards_played >= 20 then
             _quest_status[5] = true
         end
 
         -- Checking number cards in deck
         if G.playing_cards then
-            local _number_count = 0
-            for i, _pcard in ipairs(G.playing_cards) do
-                if _pcard.config.center ~= G.P_CENTERS.c_base then
-                    _number_count = _number_count + 1
-                end
-            end
-
-            if _number_count >= 20 then
+            if Blockbuster.Counters.get_total_counters(nil, "Full Deck").counter_values >= 20 then
                 _quest_status[4] = true
             end
         end
@@ -115,13 +109,13 @@ SMODS.Joker {
 
         local _inventory_check = {false, false, false}
         for _, _consum in ipairs(G.consumeables.cards) do
-            if _consum == G.P_CENTERS.c_kino_chocolate_bar then
+            if _consum == G.P_CENTERS.c_lovers then
                 _inventory_check[1] = true
             end
-            if _consum == G.P_CENTERS.c_fool then
+            if _consum == G.P_CENTERS.c_kino_popcorn then
                 _inventory_check[2] = true
             end
-            if _consum == G.P_CENTERS.c_saturn then
+            if _consum == G.P_CENTERS.c_mars then
                 _inventory_check[3] = true
             end
         end
@@ -152,7 +146,7 @@ SMODS.Joker {
                 trigger = nil,
                 type = nil,
                 condition = nil,
-                alt_text = localize("k_kino_bringing_up_baby_quest_" .. i),
+                alt_text = localize("k_kino_singing_in_the_rain_quest_" .. i),
                 times = 0,
                 goal = 1, 
                 completion = _quest_results[i]
@@ -164,19 +158,39 @@ SMODS.Joker {
                 key = "kino_legendary_unlock",
                 vars = {
                 }, 
-                -- main_end = Kino.create_legend_ui(card, _legend_quests, _quest_count)
+                main_end = Kino.create_legend_ui(card, _legend_quests, _quest_count)
             }
         end
 
         return {
             vars = {
-
+                card.ability.extra.factor,
+                card.ability.extra.counters_applied
             }
         }
     end,
     calculate = function(self, card, context)
-        -- When an enhanced card scores, gain X0.1 mult
-        -- If played hand only contains 2 enhanced cards
+        if context.individual and context.cardarea == "unscored" then
+            context.other_card.kino_singing_in_the_rain = true
+        end
+        if context.after and context.cardarea == G.jokers then
+            for i, _pcard in ipairs(context.full_hand) do
+                if _pcard.kino_singing_in_the_rain then
+                    local _valid_counter_types = Blockbuster.Counters.get_counter_pool({"beneficial"}, true)
+                    local _target = pseudorandom_element(_valid_counter_types, pseudoseed('kino_singing_in_the_rain'))
+                    _pcard:bb_counter_apply(_target, card.ability.extra.counters_applied)
+                    card_eval_status_text(_pcard, 'extra', nil, nil, nil,
+                    { message = localize('k_kino_singing_in_the_rain'), colour = G.C.ATTENTION})
+                    _pcard.kino_singing_in_the_rain = nil
+                end
+            end            
+        end
+
+        if context.bb_counter_applied then
+            return {
+                bb_counter_number = context.number * card.ability.extra.factor,
+            }
+        end
 
     end,
     -- Unlock Functions

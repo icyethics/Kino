@@ -57,12 +57,14 @@ function Card:bb_counter_apply(counter_type, number, no_override, silent)
         end
     end
 
-    SMODS.calculate_context({bb_counter_applied = true, card = self, counter_type = self.counter, number = number})
     if not silent then
+        local flags = SMODS.calculate_context({bb_counter_applied = true, card = self, counter_type = self.counter, number = number})
+        if flags and flags.bb_counter_number then
+            number = flags.bb_counter_number
+        end
         Blockbuster.set_counter_usage(counter_type.key, number)
         check_for_unlock({type="bb_counters_applied"})
     end
-    
     
     self:bb_increment_counter(number, true, silent)
 end

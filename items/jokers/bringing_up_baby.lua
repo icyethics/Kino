@@ -4,6 +4,9 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
+            a_xmult_normal = 0.1,
+            a_xmult_two = 0.25,
+            stacked_xmult = 1
         }
     },
     rarity = 4,
@@ -170,13 +173,46 @@ SMODS.Joker {
 
         return {
             vars = {
-
+                card.ability.extra.a_xmult_normal,
+                card.ability.extra.a_xmult_two,
+                card.ability.extra.stacked_xmult
             }
         }
     end,
     calculate = function(self, card, context)
         -- When an enhanced card scores, gain X0.1 mult
-        -- If played hand only contains 2 enhanced cards
+        -- If the hand contains exactly 1 other card with that enhancement, gain X0.3 instead
+
+        if context.individual and not context.blueprint and not context.end_of_round and context.cardarea == G.play then
+            if context.other_card.config.center ~= G.P_CENTERS.c_base then
+                
+                -- check other cards
+                local _count = 0
+                for i, _pcard in ipairs(context.scoring_hand) do
+                    if _pcard ~= context.other_card and _pcard.config.center == context.other_card.config.center then
+                        print(_count)
+                        _count = _count + 1
+                    else 
+                        print(i .. " == NO")
+                    end
+                end
+                print("Final: " .. _count)
+
+                if _count == 1 then
+                    card.ability.extra.stacked_xmult = card.ability.extra.stacked_xmult + card.ability.extra.a_xmult_two
+                else
+                    card.ability.extra.stacked_xmult = card.ability.extra.stacked_xmult + card.ability.extra.a_xmult_normal
+                end
+                card_eval_status_text(card, 'extra', nil, nil, nil,
+                { message = localize('k_upgrade_ex'), colour = G.C.MULT })
+            end
+        end
+
+        if context.joker_main then
+            return {
+                x_mult = card.ability.extra.stacked_xmult
+            }
+        end
 
     end,
     -- Unlock Functions

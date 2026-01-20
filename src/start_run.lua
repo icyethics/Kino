@@ -18,6 +18,7 @@ function Game:start_run(args)
             self.GAME.suit_startingcounts[_suitname] = _count
         end
     end
+    self.GAME.full_deck_starting_size = #G.playing_cards
 
     -- DECK behaviours
     -- Empowered Deck
@@ -62,6 +63,8 @@ function Game:start_run(args)
     self.jokers.config.card_limit_UI_text = ""
     self.hand.config.card_limit_UI_text = ""
     
+    SMODS.calculation_keys[#SMODS.calculation_keys +1] = "bb_counter_number"
+
     return ret
 end
 

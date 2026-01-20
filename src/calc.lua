@@ -12,8 +12,10 @@ SMODS.current_mod.calculate = function(self, context)
     if context.individual then
         if context.cardarea == "unscored" then
             G.GAME.kino_played_unscoring_card = true
-
+            G.GAME.kino_unscored_cards_played = G.GAME.kino_unscored_cards_played or 0
+            G.GAME.kino_unscored_cards_played = G.GAME.kino_unscored_cards_played + 1
             inc_career_stat("kino_unscored_cards_played", 1)
+
 
             if context.other_card.config.center == G.P_CENTERS.m_kino_crime then
                 check_for_unlock({type="kino_wanda"})
@@ -182,4 +184,15 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.kino_played_non_faces_this_round = false
         G.GAME.kino_played_least_played_hand_this_round = false
     end
+end
+
+local o_calc_ind_eff = SMODS.calculate_individual_effect
+SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, from_edition)
+    local _ret = o_calc_ind_eff(effect, scored_card, key, amount, from_edition)
+
+    if key == 'bb_counter_number' then
+        return { [key] = amount }
+    end
+
+    return _ret
 end

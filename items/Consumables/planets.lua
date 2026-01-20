@@ -333,7 +333,7 @@ SMODS.Consumable {
         }
     },
     get_weight_mod = function()
-        return 0.8
+        return 0.5
     end,
     loc_vars = function(self, info_queue, card)
         return {

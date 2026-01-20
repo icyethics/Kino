@@ -94,7 +94,7 @@ SMODS.Joker {
         end
 
         -- Checking cards destroyws
-        if G.GAME.kino_cards_destroyed >= 5 then
+        if G.GAME.kino_cards_destroyed and G.GAME.kino_cards_destroyed >= 5 then
             _quest_status[5] = true
         end
 

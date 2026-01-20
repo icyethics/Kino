@@ -21,13 +21,13 @@ New Jokers:
 - The Godfather
 - Forrest Gump
 - Bringing Up Baby
-- Avengers: Endgame (For each Superhero joker you have, put a retrigger counter on it and another joker. For each Superhero card in your deck, put a retrigger counter on it and another card in your deck)
-- Singing In The Rain: When any Positive counter is applied, apply twice that many. When you draw 
+- Avengers: Endgame
+- Singing In The Rain
 
 -- PLANNED:
 - Truman Show
 - Pan's Labyrinth
-- 5 Legendaries
+
 
 V 0.12f:
 
