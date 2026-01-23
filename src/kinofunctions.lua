@@ -785,12 +785,25 @@ G.C.KINO = {
     THRILLER = HEX("078084"),
     WAR = HEX("305e2c"),
     WESTERN = HEX("735b48"),
+    
     PINK = HEX("f7b7f2"),
     MAGIC = HEX("7F00FF"),
     ALIEN = HEX("71d027"),
     CONFECTION = HEX("8e1212"),
     DRAIN = HEX("b52727"),
+    HEARTACHE = HEX("d586c6"),
+    STRANGE_PLANET_COLOUR = HEX("1b9d6e"),
+    BULLET = HEX("899dbb"),
+    POWER = HEX("8862ab")
 }
+
+SMODS.Gradient({
+    key = "STRANGE_PLANET",
+    colours = { G.C.SECONDARY_SET.Planet, G.C.KINO.STRANGE_PLANET_COLOUR},
+    cycle = 2.5,
+})
+
+G.C.KINO.STRANGE_PLANET = SMODS.Gradients.kino_STRANGE_PLANET
 
 local genrecolors = loc_colour
 function loc_colour(_c, _default)
@@ -825,6 +838,10 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS["Alien"] = G.C.KINO.ALIEN
     G.ARGS.LOC_COLOURS["Confection"] = G.C.KINO.CONFECTION
     G.ARGS.LOC_COLOURS["Drain"] = G.C.KINO.DRAIN
+    G.ARGS.LOC_COLOURS["Heartache"] = G.C.KINO.HEARTACHE
+    G.ARGS.LOC_COLOURS["StrangePlanet"] = G.C.KINO.STRANGE_PLANET
+    G.ARGS.LOC_COLOURS["Bullet"] = G.C.KINO.BULLET
+    G.ARGS.LOC_COLOURS["Power"] = G.C.KINO.POWER
 
     return genrecolors(_c, _default)
 end

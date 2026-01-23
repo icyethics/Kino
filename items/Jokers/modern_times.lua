@@ -33,7 +33,7 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         local new_numerator_retrigger, new_denominator_retrigger = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_tarot_creation")
-        local new_numerator_destroy, new_denominator_destroy = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.chance, "kino_tarot_creation")
+        local new_numerator_destroy, new_denominator_destroy = SMODS.get_probability_vars(card, (card.ability.extra.cur_chance), card.ability.extra.destroy_chance_non, "kino_tarot_creation")
         return {
             vars = {
                 card.ability.extra.repetition, 

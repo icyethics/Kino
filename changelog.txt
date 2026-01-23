@@ -1,3 +1,16 @@
+
+V 0.12h:
+
+Bug Fixes:
+- Asteroid City no longer removes joker slots when abducting a negative joker
+- Fixed Ego the Living Planet removing consumable slots if it terraformed a negative card
+- Fixed crossmod related crashes stemming from Spartacus and Shazam
+
+Localization Changes:
+- Fixed some spelling mistakes and repeated sentences
+- Fixed missing colours from descriptions
+- Fixed description errors
+
 V 0.12g:
 
 Bug Fixes:

@@ -64,10 +64,11 @@ SMODS.Joker {
             local _hit_10 = false
             for i, _pcard in ipairs(G.playing_cards) do
                 if not SMODS.has_no_suit(_pcard) and not SMODS.has_any_suit(_pcard) then
+                    local _id = _pcard:get_id()
                     _hash[_pcard.base.suit] = _hash[_pcard.base.suit] or {}
-                    _hash[_pcard.base.suit][tostring(_pcard:get_id())] = _hash[_pcard.base.suit][tostring(_pcard:get_id())] or 0
-                    _hash[_pcard.base.suit][tostring(_pcard:get_id())] = _hash[_pcard.base.suit][tostring(_pcard:get_id())] + 1
-                    if _hash[_pcard.base.suit][tostring(_pcard:get_id())] >= 10 then
+                    _hash[_pcard.base.suit][tostring(_id)] = _hash[_pcard.base.suit][tostring(_id)] or 0
+                    _hash[_pcard.base.suit][tostring(_id)] = _hash[_pcard.base.suit][tostring(_id)] + 1
+                    if _hash[_pcard.base.suit][tostring(_id)] >= 10 then
                         _hit_10 = true
                         break
                     end

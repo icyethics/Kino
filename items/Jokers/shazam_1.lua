@@ -30,7 +30,7 @@ SMODS.Joker {
     in_pool = function(self, args)
         -- Check for the right frequency
         local enhancement_gate = false
-        if G.playing_cards then
+        if G.playing_cards and G.jokers then
             for k, v in pairs(G.playing_cards) do
                 if SMODS.has_enhancement(v, "m_kino_fantasy") then
                     enhancement_gate = true
