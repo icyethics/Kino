@@ -1,3 +1,13 @@
+V 0.12i:
+
+Bug Fixes:
+- Fixed jokers with the Loaded mechanic not triggering
+- Fixed the Bullet consumable not spawning under certain conditions
+- The bullet consumable can no longer be sold
+- Timer jokers no longer are effected by game speed
+
+Balance Changes:
+- Fast Five: $20 money stolen > $10 money stolen
 
 V 0.12h:
 

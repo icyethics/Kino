@@ -9,7 +9,7 @@ SMODS.Joker {
             ticking = true,
             timing_quick_non = kino_config.speed_factor,
             time_spent = 0,
-            timer_num_non = 120
+            timer_num_non = kino_config.speed_factor,
         }
     },
     rarity = 1,
@@ -36,43 +36,54 @@ SMODS.Joker {
     has_timer = true,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_quick", vars = {kino_config.speed_factor}}
+        local _percentage = card.ability.extra.time_spent / card.ability.extra.timing_quick_non
         return {
             vars = {
                 card.ability.extra.start_chips,
-                card.ability.extra.cur_chips,
-                card.ability.extra.time_spent
+                card.ability.extra.start_chips - math.ceil(math.max(card.ability.extra.start_chips * _percentage,0))
             },
         }
     end,
     calculate = function(self, card, context)
-        
-        if context.before and not context.repetition and not context.blueprint then
-            -- stop counter
-            card.ability.extra.ticking = false    
-        end
+        if context.first_hand_drawn then
+            local _timer = 1
+            card.ability.extra.time_spent = 0
+            card.ability.extra.timer_num_non = math.ceil(math.max(card.ability.extra.timer_num_non - card.ability.extra.time_spent, 0))
 
-        if context.start and not context.repetition and not context.blueprint then
-            -- stop counter
-            card.ability.extra.ticking = true    
+            local event
+            event = Event {
+                blockable = false,
+                blocking = false,
+                pause_force = true,
+                no_delete = true,
+                trigger = "after",
+                delay = _timer,
+                timer = "UPTIME",
+                func = function()
+                    card.ability.extra.time_spent = card.ability.extra.time_spent + 1
+                    card.ability.extra.timer_num_non = math.ceil(math.max(card.ability.extra.timer_num_non - card.ability.extra.time_spent, 0))
+                    if card.ability.extra.time_spent <= card.ability.extra.timing_quick_non and G.hand and G.GAME.blind.in_blind then
+                        event.start_timer = false
+                    else
+                        return true
+                    end
+                end
+            }
+            
+
+            G.E_MANAGER:add_event(event)
         end
 
         if context.joker_main then
+            local _percentage = card.ability.extra.time_spent / card.ability.extra.timing_quick_non
+
             return {
-                chips = card.ability.extra.cur_chips
+                chips = card.ability.extra.start_chips - math.ceil(math.max(card.ability.extra.start_chips * _percentage,0))
             }
         end
 
         if context.end_of_round and not context.repetition and not context.blueprint then
-            card.ability.extra.cur_chips = card.ability.extra.start_chips
             card.ability.extra.time_spent = 0
-        end
-    end,
-    update = function(self, card, dt)
-        if G.STATE ~= G.STATES.HAND_PLAYED and
-        not G.SETTINGS.paused and G.GAME.blind and G.GAME.blind.in_blind then
-            card.ability.extra.time_spent = card.ability.extra.time_spent + dt
-            card.ability.extra.cur_chips = math.max(card.ability.extra.start_chips - math.floor(card.ability.extra.start_chips * (card.ability.extra.time_spent / card.ability.extra.timing_quick_non)), 0)
-            card.ability.extra.timer_num_non = card.ability.extra.cur_chips
         end
     end,
     -- Unlock Functions

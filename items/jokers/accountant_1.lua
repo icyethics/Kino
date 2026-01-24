@@ -39,8 +39,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- When Loaded: Earn $1 per Bullet, then consume 1 Bullet
-
-        if context.joker_main and card.counter and card.counter == "counter_kino_bullet" and
+        if context.joker_main and card.counter and G.P_COUNTERS.counter_kino_bullet_joker and
         card.ability.counter and card.ability.counter.counter_num and card.ability.counter.counter_num > 0 then
             local _money = card.ability.counter.counter_num * card.ability.extra.money
 

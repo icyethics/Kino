@@ -40,7 +40,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- When you select a blind, lower it by 10% for every Bullet
         if context.setting_blind and 
-        card.counter and card.counter == "counter_kino_bullet" and
+        card.counter and G.P_COUNTERS.counter_kino_bullet_joker and
         card.ability.counter and card.ability.counter.counter_num and card.ability.counter.counter_num > 0 then
             card:juice_up(0.8, 0.8)
             card_eval_status_text(card, 'extra', nil, nil, nil,

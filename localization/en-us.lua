@@ -1382,7 +1382,10 @@ return {
                 text = {
                     "Add {C:money}$#1#{} to your",
                     "{C:money}Stolen Money{} if you're",
-                    "{C:chips}Quick"
+                    "{C:chips}Quick",
+
+                    "{C:inactive}Will add to {C:money}$#2#{C:inactive} money stolen",
+                    "{C:inactive}(Currently: {C:money}$#3#{C:inactive} money stolen)"
                 },
                 unlock = {
                     "Defeat {C:attention}Deckard Shaw{}"

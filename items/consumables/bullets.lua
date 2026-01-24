@@ -5,11 +5,13 @@ SMODS.Consumable({
     pos = { x = 0, y = 0 },
     config = {
         max_highlighted = 1,
+        extra_slots_used = -1
     },
     cost = 0,
     atlas = "kino_bullets",
     unlocked = true,
     discovered = false,
+    can_be_sold = false,
     keep_on_use = function(self, card)
         return true
     end,
@@ -42,6 +44,7 @@ SMODS.Consumable({
         G.GAME.bullet_buffer = nil
     end,
     remove_from_deck = function(self, card, from_debuff)
+        G.GAME.bullet_buffer = nil
     end,
     can_use = function(self, card)
 
@@ -70,7 +73,8 @@ function Kino:add_bullet(number)
             break
         end
     end
-
+    print(G.GAME.bullet_buffer)
+    print(_bullets_exist)
     if not G.GAME.bullet_buffer and
     _bullets_exist == false then
         G.GAME.bullet_buffer = true
@@ -78,7 +82,8 @@ function Kino:add_bullet(number)
             func = function()
                 local _card = SMODS.create_card({type = "Unique", area = G.consumeables, key = "c_kino_bullets", no_edition = true})
                 _card:add_to_deck()
-                G.consumeables:emplace(_card) 
+                G.consumeables:emplace(_card)
+                G.GAME.bullet_buffer = nil
                 return true
         end}))
     end
