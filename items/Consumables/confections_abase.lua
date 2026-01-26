@@ -2039,7 +2039,7 @@ SMODS.Consumable {
 
                     local _counter_count = card.ability.extra.counters + G.GAME.confections_powerboost
                     if card.ability.kino_choco then
-                        _counter_count = _return + self.config.choco_bonus
+                        _counter_count = _counter_count + card.ability.choco_bonus
                     end
 
                     context.hand_drawn[i]:bb_counter_apply(_random_counter_type, _counter_count)

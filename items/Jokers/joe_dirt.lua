@@ -5,7 +5,7 @@ SMODS.Joker {
     config = {
         extra = {
             stacked_chips = 0,
-            a_chips = 25
+            a_chips = 4
         }
     },
     rarity = 3,
@@ -38,26 +38,38 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        -- Gains 10 chips when you discard a spade
-        if context.discard and not context.other_card.debuff and context.other_card:is_suit("Spades") then
-            card.ability.extra.stacked_chips = card.ability.extra.stacked_chips + card.ability.extra.a_chips
-
-            return {
-                message = localize('k_upgrade_ex'),
-                card = card,
-                colour = G.C.CHIPS
-            }
+        if context.pre_discard then 
+            local _has_triggered = false
+            for _index, _pcard in ipairs(context.full_hand) do
+                if not _pcard.debuff and not _pcard:is_suit("Spades") then
+                    card.ability.extra.stacked_chips = card.ability.extra.stacked_chips + card.ability.extra.a_chips
+                    _has_triggered = true
+                end
+            end
+            
+            if _has_triggered then
+                return {
+                    message = localize('k_upgrade_ex'),
+                    card = card,
+                    colour = G.C.CHIPS
+                }
+            end
         end
 
-        if context.joker_main then
+        if context.individual and context.cardarea == G.play and
+        context.other_card:is_suit("Spades") then
             return {
                 chips = card.ability.extra.stacked_chips,
-                message = localize({ type = 'variable', key = 'a_chips', vars = { card.ability.extra.stacked_chips}})
+                card = card
             }
         end
 
-        if context.end_of_round and not context.individual and not context.repetition and not context.blueprint then
+        if context.end_of_round and context.cardarea == G.jokers and not context.repetition and not context.blueprint then
             card.ability.extra.stacked_chips = 0
+
+            return {
+                message = localize("k_reset")
+            }
         end
     end
 }

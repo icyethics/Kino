@@ -4,12 +4,10 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            x_mult = 1,
-            xrange = 0.05,
-            xrange_int = 1,
-            a_xrange = 2,
-            is_first = true
-
+            chips_non = 30,
+            mult_non = 4,
+            xmult_non = 0.5,
+            factor = 50
         }
     },
     rarity = 2,
@@ -36,38 +34,46 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.x_mult,
-                card.ability.extra.xrange,
-                card.ability.extra.xrange_int,
-                1 - card.ability.extra.xrange * card.ability.extra.xrange_int,
-                1 + card.ability.extra.xrange * card.ability.extra.xrange_int,
-                card.ability.extra.xrange * card.ability.extra.a_xrange,
-                card.ability.extra.a_xrange,
-                card.ability.extra.is_first
+                card.ability.extra.chips_non,
+                card.ability.extra.mult_non,
+                1 + card.ability.extra.xmult_non,
+                card.ability.extra.factor
             }
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
-            if ((context.scoring_name == "Full House" or
-            context.scoring_name == "Flush House") and not context.blueprint) 
-            or card.ability.extra.is_first == true then
-                card.ability.extra.is_first = false
-                card.ability.extra.xrange_int = card.ability.extra.xrange_int + card.ability.extra.a_xrange
-
-                local _min = -1 * card.ability.extra.xrange_int
-                local _max = card.ability.extra.xrange_int
-                local _rand = pseudorandom("krazy", _min, _max)
-
-                card.ability.extra.x_mult = 1 + (_rand * card.ability.extra.xrange)
+        if context.joker_main and next(context.poker_hands['Full House']) then
+            local _randomizer = pseudorandom("kino_krazy_house")
+            local _randomizer2 = pseudorandom("kino_krazy_house_2")
+            local _factor = (1 + (card.ability.extra.factor / 100))
+            if _randomizer > 0.66 then
+                if _randomizer2 > 0.5 then
+                    card.ability.extra.mult_non = card.ability.extra.mult_non * _factor
+                else
+                    card.ability.extra.xmult_non = card.ability.extra.xmult_non * _factor
+                end
+                return {
+                    chips = card.ability.extra.chips_non
+                }
+            elseif _randomizer > 0.33 then
+                if _randomizer2 > 0.5 then
+                    card.ability.extra.chips_non = card.ability.extra.chips_non * _factor
+                else
+                    card.ability.extra.xmult_non = card.ability.extra.xmult_non * _factor
+                end
+                return {
+                    mult = card.ability.extra.mult_non
+                }
+            else
+                if _randomizer2 > 0.5 then
+                    card.ability.extra.chips_non = card.ability.extra.chips_non * _factor
+                else
+                    card.ability.extra.mult_non = card.ability.extra.mult_non * _factor
+                end
+                return {
+                    x_mult = 1 + card.ability.extra.xmult_non
+                }
             end
-
-            return {
-                x_mult = card.ability.extra.x_mult
-            }
         end
-
-        
-
     end
 }

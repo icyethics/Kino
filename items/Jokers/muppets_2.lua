@@ -4,8 +4,8 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            min_mult_non = -5,
-            max_mult = 35
+            mult = 5,
+            reroll_count_non = 0
         }
     },
     rarity = 3,
@@ -32,19 +32,37 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.min_mult_non,
-                card.ability.extra.max_mult
+                card.ability.extra.mult,
+                card.ability.extra.reroll_count_non * card.ability.extra.mult,
             }
         }
     end,
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play and
-        context.other_card:is_suit("Diamonds") then
-            local mult = pseudorandom("muppets_2", card.ability.extra.min_mult_non, card.ability.extra.max_mult)
+        if context.reroll_shop then
+            card:juice_up()
+            card.ability.extra.reroll_count_non = card.ability.extra.reroll_count_non + 1
             return {
-                mult = mult,
-                card = context.other_card
+                message = localize("k_kino_muppets_caper")
             }
         end
+
+        if context.individual and context.cardarea == G.play and
+        context.other_card:is_suit("Diamonds") then
+            local _mult_given = card.ability.extra.reroll_count_non * card.ability.extra.mult
+            return {
+                mult = _mult_given,
+                card = card
+            }
+        end
+
+        if context.end_of_round and context.cardarea == G.jokers and
+        not context.blueprint and
+        not context.repetition then
+            card.ability.extra.reroll_count_non = 0
+            return {
+                message = localize("k_reset")
+            }
+        end
+    
     end
 }

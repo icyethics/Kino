@@ -1,5 +1,17 @@
-V 0.12j:
+V 0.12.1:
 
+Bug Fixes:
+- Fixed Canned Beans crashing upon use
+
+Reworked Content:
+- The Great Muppet Caper
+- Joe Dirt
+- 24 Hour Party People
+- Blank Check
+- Krazy House
+- Polar Express
+
+V 0.12j:
 Localization Fixes:
 - Fixed some localization errors
 - Oscar Tag now displays correct info queue

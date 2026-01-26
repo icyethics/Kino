@@ -576,11 +576,17 @@ return {
             },
             j_kino_blank_check = {
                 name = "Blank Check",
+                -- text = {
+                --     "Gain {C:money}$#1#{} upon",
+                --     "buying this {C:attention}Joker",
+                --     "{C:attention}Bust{} when you",
+                --     "leave the shop"
+                -- }
                 text = {
-                    "Gain {C:money}$#1#{} upon",
-                    "buying this {C:attention}Joker",
-                    "{C:attention}Bust{} when you",
-                    "leave the shop"
+                    "the {C:attention}first{} purchase in each shop",
+                    "costs {C:money}$0{} and puts",
+                    "{C:attention}#1# {C:red}Debt Counters{} per {C:money}$1",
+                    "of its cost in your deck instead"
                 }
             },
             j_kino_bloodshot = {
@@ -1947,11 +1953,17 @@ return {
             },
             j_kino_joe_dirt = {
                 name = "Joe Dirt",
+                -- text = {
+                --     "Gain {C:chips}+#2#{} Chips when",
+                --     "a {C:spades}Spade{} is discarded,",
+                --     "resets at end of round",
+                --     "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+                -- },
                 text = {
-                    "Gain {C:chips}+#2#{} Chips when",
-                    "a {C:spades}Spade{} is discarded,",
-                    "resets at end of round",
-                    "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+                    "Played {C:spades}Spades{} give {C:chips}+#1#{} Chips",
+                    "for each {C:attention}non-Spade{} discarded this round",
+                    "when scored",
+                    "{C:inactive}(Currently: {C:chips}+#2#{C:inactive} Chips)"
                 }
             },
             j_kino_john_wick_1 = {
@@ -2074,10 +2086,10 @@ return {
             j_kino_krazy_house = {
                 name = "Krazy House",
                 text = {
-                    "{X:mult,C:white} X#1#{} Mult",
-                    "When you play a {C:attention}Full House{}, randomize",
-                    "{X:mult,C:white} xMult{} between {X:mult,C:white} x #4#{} & {X:mult,C:white} x #5#{}",
-                    "and increases range by {X:mult,C:white}#5#{}"
+                    "{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult or {X:mult,C:white}X#3#{} Mult",
+                    "if scored hand contains a {C:attention}Full House",
+                    "and increase value of another",
+                    "option by {C:attention}#4#%{}"
                 }
             },
             j_kino_kung_fu_panda_1 = {
@@ -2441,8 +2453,10 @@ return {
             j_kino_muppets_2 = {
                 name = "The Great Muppet Caper",
                 text = {
-                    "{C:diamonds}Diamonds{} give between {C:mult}#1#{} and",
-                    "{C:mult}+#2#{} Mult when scored"
+                    "Played {C:diamonds}Diamonds{} give {C:mult}+#1#{} Mult",
+                    "for each {C:green}Reroll{} last round",
+                    "when scored",
+                    "{C:inactive}(Currently: {C:mult}+#2#{C:inactive} Mult)"
                 }
             },
             j_kino_muppets_treasure_island = {
@@ -2651,9 +2665,11 @@ return {
             j_kino_party_people = {
                 name = "24 Hour Party People",
                 text = {
-                    "Each Scoring {C:clubs}Clubs{}", 
-                    "gives {C:money}$#1#{} for each", 
-                    "{C:money}$#2#{} you have",
+                    "Put {C:attention}#1#{} {C:green}Money Counters{}", 
+                    "on cards in your deck", 
+                    "when a {C:clubs}Clubs{} scores,", 
+                    "if {C:money}interest{} cap is reached",
+                    "double counters applied" 
                 }
             },
             j_kino_paul = {
@@ -2785,10 +2801,25 @@ return {
             },
             j_kino_polar_express = {
                 name = "Polar Express",
+                -- text = {
+                --     "{C:chips}+#1#~+#2#{} Chips & {C:mult}+#3#~+#4#{} Mult",
+                --     "if you have not",
+                --     "{C:mult}Discarded{} since last hand",
+                -- }
                 text = {
-                    "{C:chips}+#1#~+#2#{} Chips & {C:mult}+#3#~+#4#{} Mult",
-                    "if you have not",
-                    "{C:mult}Discarded{} since last hand",
+                    {
+                        "{C:attention}Goodness Rewards:",
+                        "{B:1,C:white}8 Goodness{}: {X:mult,C:white}X#4#{} Mult and",
+                        "{B:2,C:white}6 Goodness{}: {C:money}$#3#{} at end of round and",
+                        "{B:3,C:white}4 Goodness{}: {C:mult}+#2#{} Mult and",
+                        "{B:4,C:white}2 Goodness{}: {C:chips}+#1#{} Chips and",
+                        "{B:5,C:white}0 Goodness{}: {X:dark_edition,C:white,E:1}Nothing{} more than that",
+                    },
+                    {"Gain {C:attention}Goodness{} equal to",
+                    "{C:red}Discards{} remaining and",
+                    "lose a {C:attention}Goodness{} when",
+                    "a discard is used",
+                    "{C:inactive}(Currently: {C:attention}#5#{C:inactive}/{C:attention}10{C:inactive} Goodness)"}
                 }
             },
             j_kino_poltergeist = {
@@ -7735,6 +7766,7 @@ return {
             k_independence_day = "Today, we celebrate our Independence Day!",
             k_polar_express_bad = "You've been a bad gambler",
             k_polar_express_good = "Ho ho ho!",
+            k_kino_goodness_lost = "Bad!",
             k_kraven = "There's an animal in each one of us",
             k_hustle = "Dribble",
             k_terminator = "I'll be back",
@@ -7763,6 +7795,7 @@ return {
             k_kino_paulblart_1 = "Low Blood Sugar :(",
             k_kino_annihilation = "Changed...",
             k_kino_waterworld = "Value Trickled Down",
+            k_kino_muppets_caper = "Hi-ho!",
             k_kino_muppets_treasure_island = "Treasure!",
             k_kino_moulin_rouge = "Hand Size Up!",
             k_kino_pulp_fiction = "Overdose",
