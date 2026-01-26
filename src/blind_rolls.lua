@@ -69,3 +69,16 @@ end_round = function() --Same effect.
     local ret = o_end_round()
     return ret
 end
+
+function Kino.lower_blind(number, is_absolute)
+
+    local _lower_by
+    if is_absolute then
+        _lower_by = number
+    else
+        _lower_by = G.GAME.blind.chips * (number / 100)
+    end
+
+    G.GAME.blind.chips = math.ceil(math.max(G.GAME.blind.chips - _lower_by, 1))
+    G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+end

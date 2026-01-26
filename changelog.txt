@@ -1,3 +1,20 @@
+V 0.12j:
+
+Localization Fixes:
+- Fixed some localization errors
+- Oscar Tag now displays correct info queue
+- Bullet consumable now mentions the maximum number of bullets you can have at a given time
+
+Bug Fixes:
+- Bucket List no longer keeps working when you have 0 charges
+- Taken now only triggers on Queens
+- The Accountant now properly pays out
+- The Quick and the Dead now properly consumes bullets
+
+Mechanical Changes:
+- Jokers with detrimental results based on random rolls (The Great Muppet Caper, Krazy House) no longer have the worst case scenario be affected by value manipulation
+- Blinds can no longer be lowered to values below 1, or non-integer values
+
 V 0.12i:
 
 Bug Fixes:

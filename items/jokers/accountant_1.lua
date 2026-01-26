@@ -46,7 +46,7 @@ SMODS.Joker {
             card:bb_increment_counter(-1)
 
             return {
-                money = _money
+                dollars = _money
             }
 
         end

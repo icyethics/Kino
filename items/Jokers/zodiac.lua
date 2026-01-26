@@ -90,8 +90,10 @@ SMODS.Joker {
         -- lower the blind
         if context.setting_blind and G.GAME.blind.boss and card.ability.extra.stacks > 0 then
             card.ability.extra.stacks = card.ability.extra.stacks - 1
-            G.GAME.blind.chips = math.max((G.GAME.blind.chips * ((card.ability.extra.lower_by) / 100)), 0)
-            G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+            -- G.GAME.blind.chips = math.max((G.GAME.blind.chips * ((card.ability.extra.lower_by) / 100)), 0)
+            -- G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+            local _lower_amount = card.ability.extra.lower_by
+            Kino.lower_blind(_lower_amount)
         end
     end,
     -- Unlock Functions

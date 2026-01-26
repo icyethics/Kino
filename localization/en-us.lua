@@ -660,7 +660,7 @@ return {
                     "consume a {C:attention}Charge{} and",
                     "gain {C:chips}+1{} Hand",
                     "if {C:attention}round{} not yet won",
-                    "{C:inactive}(Currently: {C:attention}#1#{C:{C:inactive,E:1}Do not get them wet!{}} Charges Left)"
+                    "{C:inactive}(Currently: {C:attention}#1#{C:{C:inactive} Charges Left)"
                 },
                 unlock = {
                     "Lose a run",
@@ -1567,7 +1567,7 @@ return {
                     "Gives {X:mult,C:white}X#1#{} Mult and",
                     "loses {C:money}$#2#{} for each",
                     "{C:attention}Joker{} to the left",
-                    "of this {C:attention}debuffedJoker",
+                    "of this {C:attention}Joker",
                     "{C:inactive}(Currently: {X:mult,C:white}X#3#{C:inactive} Mult & {C:money}$#4#{C:inactive})"
                 }
             },
@@ -5898,7 +5898,7 @@ return {
                 text = {
                     "Upgrades all future",
                     "{C:Confection}Confections{} with",
-                    "+1 values"
+                    "{C:attention}+1{} values"
                 }
             },
             tag_kino_snacktag = {
@@ -5911,15 +5911,15 @@ return {
             tag_kino_oscar = {
                 name = "Oscar Tag",
                 text = {
-                    "Upgrades one viable",
-                    "joker with an Award"
+                    "Upgrades a {C:attention}Joker",
+                    "with an {C:money}Award"
                 }
             },
             tag_kino_counter = {
                 name = "Counter Tag",
                 text = {
-                    "Adds 3 {C:green}Money Counters",
-                    "to 5 random cards",
+                    "Adds {C:attention}3 {C:green}Money Counters",
+                    "to {C:attention}5{} random cards",
                     "in your deck"
                 }
             },
@@ -5927,7 +5927,7 @@ return {
                 name = "Trick 'r Treat Tag",
                 text = {
                     "Either gain",
-                    "{C:attention}1{} {C:Horror}Negative{}",
+                    "{C:attention}1{} {X:dark_edition,C:white}Negative{}",
                     "{C:Confection}Confections",
                     "or {C:Horror}Haunt{} your Deck"
                 }
@@ -5936,7 +5936,7 @@ return {
                 name = "Trick 'r Treat Tag",
                 text = {
                     "Either gain",
-                    "{C:attention}3{} {C:Horror}Negative{}",
+                    "{C:attention}3{} {X:dark_edition,C:white}Negative{}",
                     "{C:Confection}Confections",
                     "or {C:Horror}Haunt{} your Deck"
                 }
@@ -5945,7 +5945,7 @@ return {
                 name = "Trick 'r Treat Tag",
                 text = {
                     "Either gain",
-                    "{C:attention}5{} {C:Horror}Negative{}",
+                    "{C:attention}5{} {X:dark_edition,C:white}Negative{}",
                     "{C:Confection}Confections",
                     "or {C:Horror}Haunt{} your Deck"
                 }
@@ -5960,7 +5960,7 @@ return {
                 name = "Value Boost",
                     text = {
                         "Values have been",
-                        "boosted by {C:legendary}#1#x{}"
+                        "boosted by {C:legendary}x#1#{}"
                     }
             },
 
@@ -6288,15 +6288,15 @@ return {
             kino_award = {
                 name = "Awarded",
                 text = {
-                    "Doubles the power",
-                    "of Joker"
+                    "Doubles {C:Power}power",
+                    "of {C:attention}Joker"
                 }
             },
             kino_award_cryptid = {
                 name = "Awarded",
                 text = {
-                    "Doubles the power",
-                    "of a Joker"
+                    "Doubles {C:Power}power",
+                    "of {C:attention}Joker"
                 }
             },
             kino_choco = {
@@ -7430,9 +7430,9 @@ return {
                 }
             },
             counter_kino_bullet_pcard = {
-                name = "Bullet Counter",
+                name = "Bullet Magazine",
                 text = {
-                    "{C:attention}#1# out of #2#{} Bullets",
+                    "Maximum of {C:attention}#2#{} Bullets",
                     "in the magazine",
                     " ",
                     "{C:attention}Retrigger{} this",
@@ -7441,9 +7441,9 @@ return {
                 }
             },
             counter_kino_bullet_joker = {
-                name = "Bullet Counter",
+                name = "Bullet Magazine",
                 text = {
-                    "{C:attention}#1# out of #2#{} Bullets",
+                    "Maximum of {C:attention}#2#{} Bullets",
                     "in the magazine"
                 }
             }
@@ -7598,7 +7598,7 @@ return {
                     "when they are scored",
                     "or into compatible {C:attention}Jokers",
                     "to {C:Bullet}Load{} them",
-                    "{C:inactive}(Currently: {C:attention}#1#{C:inactive} Bullets)"
+                    "{C:inactive}(Currently: {C:attention}#1#{C:inactive}/{C:attention}24{C:inactive} Bullets)"
                 }
             }
         }

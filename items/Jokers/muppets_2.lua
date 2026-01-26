@@ -4,7 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            min_mult = -5,
+            min_mult_non = -5,
             max_mult = 35
         }
     },
@@ -32,7 +32,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.min_mult,
+                card.ability.extra.min_mult_non,
                 card.ability.extra.max_mult
             }
         }
@@ -40,7 +40,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and
         context.other_card:is_suit("Diamonds") then
-            local mult = pseudorandom("muppets_2", card.ability.extra.min_mult, card.ability.extra.max_mult)
+            local mult = pseudorandom("muppets_2", card.ability.extra.min_mult_non, card.ability.extra.max_mult)
             return {
                 mult = mult,
                 card = context.other_card

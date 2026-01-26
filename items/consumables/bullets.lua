@@ -73,8 +73,7 @@ function Kino:add_bullet(number)
             break
         end
     end
-    print(G.GAME.bullet_buffer)
-    print(_bullets_exist)
+
     if not G.GAME.bullet_buffer and
     _bullets_exist == false then
         G.GAME.bullet_buffer = true

@@ -40,7 +40,7 @@ SMODS.Joker {
         -- When you have 0 hands left, but haven't won the round
         -- add 1 hand and consume 1 charge
         -- add 1 charge every 3 antes
-        if context.after and context.cardarea == G.jokers and card.ability.extra.stacks then
+        if context.after and context.cardarea == G.jokers and card.ability.extra.stacks > 0 then
             if G.GAME.current_round.hands_left == 0 then
                 if to_big((hand_chips * mult)) < to_big(G.GAME.blind.chips) then
                     card.ability.extra.stacks = card.ability.extra.stacks - 1
