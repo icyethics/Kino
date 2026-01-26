@@ -41,7 +41,7 @@ SMODS.Joker {
         if context.joker_main then
             local _will_trig = true
             for i = 1, #context.scoring_hand do
-                if context.scoring_hand[i]:get_id() > 5 then
+                if context.scoring_hand[i]:get_id() >= 6 then
                     if context.scoring_hand[i]:get_id() ~= 14 then
                         _will_trig = false
                         break

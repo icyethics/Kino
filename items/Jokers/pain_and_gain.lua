@@ -72,7 +72,7 @@ SMODS.Joker {
         -- end
 
         if context.individual and context.cardarea == G.play and 
-        card.counter and card.counter == "counter_kino_bullet" and
+        card.counter and G.P_COUNTERS.counter_kino_bullet_joker and
         card.ability.counter and card.ability.counter.counter_num and card.ability.counter.counter_num > 0 then
         
             

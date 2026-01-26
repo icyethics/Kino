@@ -73,8 +73,10 @@ SMODS.Joker {
                 card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_btlc'), colour = G.C.BLACK })
                 
-                G.GAME.blind.chips = G.GAME.blind.chips * ((100 - (card.ability.extra.lower_by * card.ability.extra.stacks)) / 100)
-                G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+                -- G.GAME.blind.chips = G.GAME.blind.chips * ((100 - (card.ability.extra.lower_by * card.ability.extra.stacks)) / 100)
+                -- G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+                local _lower_amount = card.ability.extra.lower_by * card.ability.extra.stacks
+                Kino.lower_blind(_lower_amount)
                 card.ability.extra.stacks = 0
             end
         end

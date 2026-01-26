@@ -760,8 +760,11 @@ Blockbuster.Spellcasting.Spell {
     cast = function(self, strength)
         G.E_MANAGER:add_event(Event({
             func = (function()
-                    G.GAME.blind.chips = G.GAME.blind.chips * (1 - (self.config.percentage[strength] / 100))
-                    G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+                    -- G.GAME.blind.chips = G.GAME.blind.chips * (1 - (self.config.percentage[strength] / 100))
+                    -- G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+
+                    local _lower_amount = self.config.percentage[strength]
+                    Kino.lower_blind(_lower_amount)
                     return true
                     end)
                 }))

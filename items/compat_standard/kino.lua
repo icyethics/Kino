@@ -139,5 +139,7 @@ Blockbuster.ValueManipulation.CompatStandard{
         j_kino_thing = true,
         j_kino_your_highness = true,
         j_kino_2001_odyssey = true,
+
+        j_kino_krazy_house = true,
     },
 }

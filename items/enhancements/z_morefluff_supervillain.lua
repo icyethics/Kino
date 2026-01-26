@@ -231,7 +231,7 @@ Kino.table_of_schemes = {
         end,
         foil = function(card, context)
 
-            if next(poker_hands['Flush']) then
+            if next(context.poker_hands['Flush']) then
                 return true
             end
             return false

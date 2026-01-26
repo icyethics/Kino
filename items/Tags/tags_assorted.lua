@@ -74,7 +74,7 @@ SMODS.Tag {
         type = 'new_blind_choice'
     },
     loc_vars = function(self, info_queue)
-        info_queue[#info_queue + 1] = { set = "Other", key = "p_kino_snack_booster_mega", specific_vars = {2, 5}}
+        info_queue[#info_queue + 1] = { set = "Other", key = "kino_award"}
     end,
     apply = function(self, tag, context)
         if context.type == 'immediate' then

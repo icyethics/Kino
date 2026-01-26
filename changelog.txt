@@ -29,6 +29,75 @@ New Jokers:
 - Pan's Labyrinth
 
 
+V 0.12.1:
+
+Bug Fixes:
+- Fixed Canned Beans crashing upon use
+
+Reworked Content:
+- The Great Muppet Caper
+- Joe Dirt
+- 24 Hour Party People
+- Blank Check
+- Krazy House
+- Polar Express
+
+V 0.12j:
+Localization Fixes:
+- Fixed some localization errors
+- Oscar Tag now displays correct info queue
+- Bullet consumable now mentions the maximum number of bullets you can have at a given time
+
+Bug Fixes:
+- Fixed Mortal Kombat crashing the game when trying to unlock (hopefully)
+- Bucket List no longer keeps working when you have 0 charges
+- Taken now only triggers on Queens
+- The Accountant now properly pays out
+- The Quick and the Dead now properly consumes bullets
+
+Mechanical Changes:
+- Jokers with detrimental results based on random rolls (The Great Muppet Caper, Krazy House) no longer have the worst case scenario be affected by value manipulation
+- Blinds can no longer be lowered to values below 1, or non-integer values
+
+V 0.12i:
+
+Bug Fixes:
+- Fixed jokers with the Loaded mechanic not triggering
+- Fixed the Bullet consumable not spawning under certain conditions
+- The bullet consumable can no longer be sold
+- Timer jokers no longer are effected by game speed
+
+Balance Changes:
+- Fast Five: $20 money stolen > $10 money stolen
+
+V 0.12h:
+
+Bug Fixes:
+- Asteroid City no longer removes joker slots when abducting a negative joker
+- Fixed Ego the Living Planet removing consumable slots if it terraformed a negative card
+- Fixed crossmod related crashes stemming from Spartacus and Shazam
+
+Localization Changes:
+- Fixed some spelling mistakes and repeated sentences
+- Fixed missing colours from descriptions
+- Fixed description errors
+
+V 0.12g:
+
+Bug Fixes:
+- Fixed The Investor?! 45* rotated tarot (MoreFluff crossmod card)
+- Fixed a rare crash related to Dr. Strange
+- Titanic now properly triggers
+- Fixed Sugarland Express unlock condition
+
+Localization & Visual Changes:
+- Added a tracker for the Conjuring's unlock condition
+- Changed the colour associated with the Family genre to improve readability
+
+Balance Changes:
+- Snow Piercer: +4 Mult gained > +6 Mult gained
+- Superman (2025): Lowered thresholds to gain abilities
+
 V 0.12f:
 
 Bug Fix:

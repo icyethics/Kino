@@ -103,6 +103,10 @@ SMODS.Joker {
             if G.GAME.current_round.hands_played == 1 and
                 G.GAME.current_round.discards_left == G.GAME.round_resets.discards and
                 G.GAME.blind:get_type() == 'Boss' and
+                G.P_BLINDS[G.GAME.round_resets.blind_choices.Boss] and
+                G.P_BLINDS[G.GAME.round_resets.blind_choices.Boss].config and
+                G.P_BLINDS[G.GAME.round_resets.blind_choices.Boss].config.blind and
+                G.P_BLINDS[G.GAME.round_resets.blind_choices.Boss].config.blind.boss and
                 G.P_BLINDS[G.GAME.round_resets.blind_choices.Boss].config.blind.boss.showdown then
                 unlock_card(self)   
             end

@@ -13,3 +13,21 @@ Kino.Debug.DiscoverUnlocked = function()
     end
     print("Discovered " .. _count .. " Objects")
 end
+
+Kino.Debug.CountGenres = function()
+    print("Counting Every Genre")
+    local _genrecount = {}
+    for _index, _genre in ipairs(kino_genres) do
+      _genrecount[_genre] = 0
+    end
+
+    local _count = 0
+    for _key, _center in pairs(G.P_CENTERS) do
+      if _center.k_genre then 
+        for _index, _genre in ipairs(_center.k_genre) do
+          _genrecount[_genre] = _genrecount[_genre] + 1
+        end
+      end
+    end
+    print(_genrecount)
+end

@@ -78,6 +78,7 @@ SMODS.Consumable {
                         copy_card(card, _target)
                         _target.ability.extra.chips = _target.ability.extra.chips + card.ability.extra.a_chips
                         _target.ability.extra.mult = _target.ability.extra.mult + card.ability.extra.a_mult
+                        _target.ability.card_limit = card.ability.card_limit or 0
                         _target:flip()
                         _target:juice_up()
                         delay(0.1)

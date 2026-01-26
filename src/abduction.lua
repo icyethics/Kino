@@ -47,7 +47,6 @@ Kino.abduct_card = function(card, abducted_card)
 
         abducted_card.abducted = true
         G.GAME.current_round.cards_abducted = G.GAME.current_round.cards_abducted + 1
-        -- abducted_card.area.config.card_limit = abducted_card.area.config.card_limit - ((abducted_card.edition and abducted_card.edition.negative) and 1 or 0)
         G.GAME.current_round.abduction_waitinglist[#G.GAME.current_round.abduction_waitinglist + 1] = {
             abductor = card,
             abducted_card = abducted_card,
@@ -163,7 +162,7 @@ G.FUNCS.draw_from_area_to_abduction = function(e)
 
                 _abductee:juice_up()
 
-                _abductee.area.config.card_limit = _abductee.area.config.card_limit - ((_abductee.edition and _abductee.edition.negative) and 1 or 0)
+                -- _abductee.area.config.card_limit = _abductee.area.config.card_limit - ((_abductee.edition and _abductee.edition.negative) and 1 or 0)
                 
                 if not _abductor.ability.extra.cards_abducted then
                     _abductor.ability.extra.cards_abducted = {

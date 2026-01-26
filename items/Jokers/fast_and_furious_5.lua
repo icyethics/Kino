@@ -7,7 +7,8 @@ SMODS.Joker {
             ticking = true,
             timing_quick_non = kino_config.speed_factor,
             time_spent = 0,
-            money_stolen = 20
+            money_stolen = 10,
+            timer_num_non = kino_config.speed_factor
         }
     },
     rarity = 2,
@@ -32,32 +33,53 @@ SMODS.Joker {
     k_genre = {"Crime", "Action"},
     enhancement_gate = "m_kino_crime",
 
-
+    has_timer = true,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {set = 'Other', key = "gloss_quick", vars = {kino_config.speed_factor}}
+        local _percentage = card.ability.extra.time_spent / card.ability.extra.timing_quick_non
         return {
             vars = {
                 card.ability.extra.money_stolen,
-                card.ability.extra.money_stolen * (1 - (card.ability.extra.time_spent / kino_config.speed_factor))
+                math.ceil(math.max(card.ability.extra.money_stolen * (1 - _percentage),0)),
+                G.GAME.money_stolen,
             }
         }
     end,
     calculate = function(self, card, context)
-        if context.before and not context.repetition and not context.blueprint then
-            -- stop counter
-            card.ability.extra.ticking = false    
-        end
+        if context.first_hand_drawn then
+            local _timer = 1
+            card.ability.extra.time_spent = 0
+            card.ability.extra.timer_num_non = math.ceil(math.max(card.ability.extra.timer_num_non - card.ability.extra.time_spent, 0))
 
-        if context.start and not context.repetition and not context.blueprint then
-            -- stop counter
-            card.ability.extra.ticking = true    
+            local event
+            event = Event {
+                blockable = false,
+                blocking = false,
+                pause_force = true,
+                no_delete = true,
+                trigger = "after",
+                delay = _timer,
+                timer = "UPTIME",
+                func = function()
+                    card.ability.extra.time_spent = card.ability.extra.time_spent + 1
+                    card.ability.extra.timer_num_non = math.ceil(math.max(card.ability.extra.timer_num_non - card.ability.extra.time_spent, 0))
+                    if card.ability.extra.time_spent <= card.ability.extra.timing_quick_non and G.hand and G.GAME.blind.in_blind then
+                        event.start_timer = false
+                    else
+                        return true
+                    end
+                end
+            }
+            
+
+            G.E_MANAGER:add_event(event)
         end
 
         if context.end_of_round and context.cardarea == G.jokers then
-            local _percentage = 1 - (card.ability.extra.time_spent / kino_config.speed_factor)
+            local _percentage = 1 - card.ability.extra.time_spent / card.ability.extra.timing_quick_non
             if _percentage < 0 then _percentage = 0 end
 
-            Kino:increase_money_stolen((card.ability.extra.money_stolen * _percentage))
+            Kino:increase_money_stolen(math.ceil(math.max(card.ability.extra.money_stolen * (1 - _percentage),0)))
 
             card.ability.extra.time_spent = 0
 
@@ -66,11 +88,6 @@ SMODS.Joker {
             }
         end
         
-    end,
-    update = function(self, card, dt)
-        if not G.SETTINGS.paused and G.GAME.blind and G.GAME.blind.in_blind then
-            card.ability.extra.time_spent = card.ability.extra.time_spent + dt
-        end
     end,
     -- Unlock Functions
     unlocked = false,

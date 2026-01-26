@@ -40,7 +40,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         -- Consume 3 Bullets to copy the first scoring card
         if context.before and context.cardarea == G.play and 
-        card.counter and card.counter == "counter_kino_bullet" and
+        card.counter and G.P_COUNTERS.counter_kino_bullet_joker and
         card.ability.counter and card.ability.counter.counter_num and card.ability.counter.counter_num >= card.ability.extra.cost_non then            
             card:bb_increment_counter(-card.ability.extra.cost_non)
 

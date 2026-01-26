@@ -44,7 +44,7 @@ SMODS.Joker {
         if context.hand_drawn and not context.blueprint then
             local _trigger = false
             for i = 1, #context.hand_drawn do
-                if context.hand_drawn[i]:get_id(12) and not context.hand_drawn.debuff then
+                if context.hand_drawn[i]:get_id() == 12 and not context.hand_drawn.debuff then
                     _trigger = true
                     card.ability.extra.stacked_mult = card.ability.extra.stacked_mult + card.ability.extra.a_mult
                 end
@@ -61,7 +61,7 @@ SMODS.Joker {
         if context.pre_discard then
             local _queen_count = 0
             for i, _pcard in ipairs(context.full_hand) do
-                if _pcard:get_id(12) then
+                if _pcard:get_id() == 12 then
                     _queen_count = _queen_count + 1
                     card.ability.extra.stacked_mult = math.max((card.ability.extra.stacked_mult - card.ability.extra.r_mult_non), 0)
                 end

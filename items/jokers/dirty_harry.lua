@@ -40,7 +40,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
          -- When Loaded: Consume all Bullets and give +20 mult per bullet
 
-        if context.joker_main and card.counter and card.counter == "counter_kino_bullet" and
+        if context.joker_main and card.counter and G.P_COUNTERS.counter_kino_bullet_joker and
         card.ability.counter and card.ability.counter.counter_num and card.ability.counter.counter_num > 0 then
             local _mult = card.ability.counter.counter_num * card.ability.extra.mult
 
