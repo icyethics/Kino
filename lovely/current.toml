@@ -921,6 +921,36 @@ overwrite = false
 
 
 ## Main Menu sprite Additions
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+G.SPLASH_BACK:define_draw_steps({{
+    shader = 'splash',
+    send = {
+        {name = 'time', ref_table = G.TIMERS, ref_value = 'REAL_SHADER'},
+        {name = 'vort_speed', val = 0.4},
+        {name = 'colour_1', ref_table = G.C, ref_value = 'RED'},
+        {name = 'colour_2', ref_table = G.C, ref_value = 'BLUE'},
+        {name = 'mid_flash', ref_table = splash_args, ref_value = 'mid_flash'},
+        {name = 'vort_offset', val = 0},
+    }}})
+'''
+position = "at"
+payload = '''
+G.SPLASH_BACK:define_draw_steps({{
+    shader = 'splash',
+    send = {
+        {name = 'time', ref_table = G.TIMERS, ref_value = 'REAL_SHADER'},
+        {name = 'vort_speed', val = 0.4},
+        {name = 'colour_1', ref_table = G.C.KINO, ref_value = 'KINO_ORANGE'},
+        {name = 'colour_2', ref_table = G.C.KINO, ref_value = 'KINO_PURPLE'},
+        {name = 'mid_flash', ref_table = splash_args, ref_value = 'mid_flash'},
+        {name = 'vort_offset', val = 0},
+    }}})
+'''
+match_indent = true
+overwrite = false
 
 [[patches]]
 [patches.pattern]
@@ -1079,3 +1109,7 @@ end
 '''
 match_indent = true
 overwrite = false
+
+
+
+    

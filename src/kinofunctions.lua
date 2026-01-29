@@ -792,7 +792,12 @@ G.C.KINO = {
     HEARTACHE = HEX("d586c6"),
     STRANGE_PLANET_COLOUR = HEX("1b9d6e"),
     BULLET = HEX("899dbb"),
-    POWER = HEX("8862ab")
+    POWER = HEX("8862ab"),
+
+    SILVER_BASE = HEX("d3d3d3"),
+    SILVER_DARK = HEX("8e9393"),
+    KINO_ORANGE = HEX("ff992f"),
+    KINO_PURPLE = HEX("a445db")
 }
 
 SMODS.Gradient({
@@ -801,7 +806,21 @@ SMODS.Gradient({
     cycle = 2.5,
 })
 
+SMODS.Gradient({
+    key = "SILVER_SCREEN",
+    colours = { G.C.KINO.SILVER_BASE, G.C.KINO.SILVER_DARK},
+    cycle = 2.5,
+})
+
+SMODS.Gradient({
+    key = "KINO_GRADIENT",
+    colours = { G.C.KINO.KINO_ORANGE, G.C.KINO.KINO_PURPLE},
+    cycle = 2.5,
+})
+
 G.C.KINO.STRANGE_PLANET = SMODS.Gradients.kino_STRANGE_PLANET
+G.C.KINO.SILVER_SCREEN = SMODS.Gradients.kino_SILVER_SCREEN
+G.C.KINO.KINO_GRADIENT = SMODS.Gradient.kino_KINO_GRADIENT
 
 local genrecolors = loc_colour
 function loc_colour(_c, _default)
@@ -838,6 +857,7 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS["Drain"] = G.C.KINO.DRAIN
     G.ARGS.LOC_COLOURS["Heartache"] = G.C.KINO.HEARTACHE
     G.ARGS.LOC_COLOURS["StrangePlanet"] = G.C.KINO.STRANGE_PLANET
+    G.ARGS.LOC_COLOURS["SilverScreen"] = G.C.KINO.SILVER_SCREEN
     G.ARGS.LOC_COLOURS["Bullet"] = G.C.KINO.BULLET
     G.ARGS.LOC_COLOURS["Power"] = G.C.KINO.POWER
 

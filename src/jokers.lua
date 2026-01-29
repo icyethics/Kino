@@ -340,6 +340,7 @@ joker_list = {
 "oceans_11",
 'oppenheimer',
 "pain_and_gain",
+"pans_labyrinth",
 "party_people",
 "paul",
 "pirates_movie",

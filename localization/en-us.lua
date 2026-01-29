@@ -2666,6 +2666,24 @@ return {
                     "on {C:attention}final hand"
                 }
             },
+            j_kino_pans_labyrinth = {
+                name = "Pan's Labyrinth",
+                -- text = {
+                --     {"Played {C:hearts}Hearts{} give {C:mult}#1#{} Mult"},
+                --     {"Earn {C:money}$#2#{} for each {C:diamonds}Diamonds{} left in deck"},
+                --     {"{C:chips}+#3#{} Chips for each {C:clubs}Clubs{} held in hand"},
+                --     {"{X:mult,C:white}X#4#{} Mult for each {C:spades}Spades{} discarded"}
+                -- },
+                text = {
+                    {"#1#"},
+                    {"#2#"},
+                    {"#3#"},
+                    {"#4#"}
+                },
+                unlock = {
+                    "NOT YET IMPLEMENTED"
+                }
+            },
             j_kino_party_people = {
                 name = "24 Hour Party People",
                 text = {
@@ -6458,6 +6476,15 @@ return {
                 }
             },
 
+            kino_silver_sticker={
+                name="Silver Sticker",
+                text={
+                    "Used this Joker",
+                    "to win on {C:SilverScreen}Silver",
+                    "{C:attention}Stake{} difficulty",
+                },
+            },
+
             -- Consumable Types
             undiscovered_confection = {
                 name = 'Not Discovered',
@@ -7721,6 +7748,15 @@ return {
                     "{C:inactive}(Currently: {C:attention}#1#{C:inactive}/{C:attention}24{C:inactive} Bullets)"
                 }
             }
+        },
+        Stake={
+            stake_kino_silver={
+                name="Silver Stake",
+                text={
+                    "Defeat the {C:attention}Ante 8 Boss Rush",
+                    "to roll {C:attention,E:1}Credits{}",
+                },
+            },
         }
     },
     misc = {
@@ -7904,6 +7940,7 @@ return {
             k_kino_singing_in_the_rain = "What a wonderful feeling",
 
             k_kino_heartache_stack = "</3",
+
 
             -- Enhancement Barks
             k_monster_turn = "ROAR!",
@@ -8311,6 +8348,18 @@ return {
             v_kino_questtimer = {
                 " #1# times"
             },
+
+            -- Pan's Labyrinth text
+                            
+            k_kino_pans_quest_slay_frog = "{C:red}To Unlock{}: Defeat a {C:attention}Boss Blind",
+            k_kino_pans_quest_pale_man = "{C:red}To Unlock{}: Consume {C:attention}5{C:Confection} Confections",
+            k_kino_pans_quest_slay_child = "{C:red}To Unlock{}: Remove a {C:attention}2{} from your deck",
+
+            k_kino_pans_quest_hearts = "Played {C:hearts}Hearts{} give {C:mult}#1#{} Mult",
+            k_kino_pans_quest_diamonds = "Earn {C:money}$#2#{} for each {C:diamonds}Diamonds{} left in deck",
+            k_kino_pans_quest_clubs = "{C:chips}+#3#{} Chips for each {C:clubs}Clubs{} held in hand",
+            k_kino_pans_quest_spades = "{X:mult,C:white}X#4#{} Mult for each {C:spades}Spades{} discarded",
+
         },
         v_text = {
             ch_c_movie_jokers_only = {
