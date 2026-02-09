@@ -1,3 +1,4 @@
+print("TRIED TO LOAD THIS")
 -- Wilds
 Blockbuster.Spellcasting.Spell {
     key = "Wild_Wild",
