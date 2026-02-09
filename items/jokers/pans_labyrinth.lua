@@ -1,7 +1,50 @@
 SMODS.Joker {
     key = "pans_labyrinth",
     order = 0,
-    generate_ui = Kino.generate_info_ui,
+    generate_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+        local _desc_nodes_dummy = {}
+        local _dummy_full_UI_table = copy_table(full_UI_table)
+
+        self.key = "j_kino_pans_labyrinth_locked"
+        Kino.generate_info_ui(self, info_queue, card, _desc_nodes_dummy, specific_vars, _dummy_full_UI_table)
+
+        self.key = "j_kino_pans_labyrinth"
+        Kino.generate_info_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+
+        local _quest_keys = {
+            slay_frog = 1, 
+            pale_man = 2, 
+            slay_child = 3
+        }
+
+        if not card.ability.extra.quest_completed_1 then
+            full_UI_table.multi_box[1] = _dummy_full_UI_table.multi_box[_quest_keys[card.ability.extra.hearts_quest]]
+        end
+
+        if not card.ability.extra.quest_completed_2 then
+            full_UI_table.multi_box[2] = _dummy_full_UI_table.multi_box[_quest_keys[card.ability.extra.diamonds_quest]]
+
+        end
+
+        if not card.ability.extra.quest_completed_3 then
+            full_UI_table.multi_box[3] = _dummy_full_UI_table.multi_box[_quest_keys[card.ability.extra.clubs_quest]]
+        end
+
+        if not card.ability.extra.quest_completed_4 then
+            full_UI_table.multi_box[4] = _dummy_full_UI_table.multi_box[_quest_keys[card.ability.extra.spades_quest]]
+        end
+
+        -- full UI table multiboxes:
+        -- 1 Hearts
+        -- 2 Diamonds
+        -- 3 Chips
+        -- 4 Spades
+
+        -- dummy multiboxes:
+        -- 1 slay frog
+        -- 2 eat dinner
+        -- 3 slay child
+    end,
     config = {
         extra = {
             quest_completed_1 = false, -- Hearts
@@ -18,6 +61,12 @@ SMODS.Joker {
             money = 1,
             chips = 25,
             x_mult = 0.2,
+            payout = 0,
+
+            confections_eaten = 0,
+            slay_frog = false,
+            slay_child = false,
+            pale_man = false
         }
     },
     rarity = 3,
@@ -46,20 +95,30 @@ SMODS.Joker {
             Kino.create_pan_quests(card)
         end
 
-        local _var1, _var2, _var3, _var4
-
-        _var1 = card.ability.extra.quest_completed_1 and 
-        localize({type='variable', key="k_kino_pans_quest_hearts", vars = {card.ability.extra.mult}})
-        or localize({type='variable', key='k_kino_pans_quest_' .. card.ability.extra.hearts_quest})
-        
-        _var2 = card.ability.extra.quest_completed_2 and 
-        localize({type='variable', key="k_kino_pans_quest_diamonds", vars = {card.ability.extra.money}})
-        or localize({type='variable', key='k_kino_pans_quest_' .. card.ability.extra.diamonds_quest})
+        local _count = 0
+        for _index, _pcard in ipairs(G.discard.cards) do
+            if _pcard:is_suit("Spades") then
+                _count = _count + 1
+            end
+        end
 
         return {
             vars = {
-                _var1
+                card.ability.extra.mult,
+                card.ability.extra.money,
+                card.ability.extra.chips,
+                card.ability.extra.x_mult,
+                1 + (card.ability.extra.x_mult * _count),
+                box_colours = {
+                    G.C.FILTER,
+                    not card.ability.extra.quest_completed_1 and G.C.BLACK or G.C.WHITE,
+                    not card.ability.extra.quest_completed_2 and G.C.BLACK or G.C.WHITE,
+                    not card.ability.extra.quest_completed_3 and G.C.BLACK or G.C.WHITE,
+                    not card.ability.extra.quest_completed_4 and G.C.BLACK or G.C.WHITE,
+                    G.C.KINO.STRANGE_PLANET
+                }
             },
+            
         }
     end,
     calculate = function(self, card, context)
@@ -74,7 +133,7 @@ SMODS.Joker {
             --     _ret.dollars = card.ability.extra.money
             -- end
             if context.cardarea == G.hand and context.other_card:is_suit("Clubs") and card.ability.extra.quest_completed_3 then
-                _ret.chips = card.ability.extra.money
+                _ret.chips = card.ability.extra.chips
             end
             
             return _ret
@@ -88,37 +147,80 @@ SMODS.Joker {
                 end
             end
             return {
-                x_mult = 1 + (card.ability.extra.xmult * _count)
+                x_mult = 1 + (card.ability.extra.x_mult * _count)
             }
-    end
+        end
+
+        if context.end_of_round and context.cardarea == G.jokers then
+            local _count = 0
+            for _index, _pcard in ipairs(G.deck.cards) do
+                if _pcard:is_suit("Diamonds") then
+                    _count = _count + 1
+                end
+            end
+            card.ability.extra.payout = _count
+        end
         
+        -- -- Quest unlocking
+
+        -- Slay Frog
+        if context.end_of_round and context.cardarea == G.jokers and G.GAME.blind:get_type() == "Boss" and not card.ability.extra.slay_frog then
+            if card.ability.extra.hearts_quest == "slay_frog" then card.ability.extra.quest_completed_1 = true end
+            if card.ability.extra.diamonds_quest == "slay_frog" then card.ability.extra.quest_completed_2 = true end
+            if card.ability.extra.clubs_quest == "slay_frog" then card.ability.extra.quest_completed_3 = true end
+            if card.ability.extra.spades_quest == "slay_frog" then card.ability.extra.quest_completed_4 = true end
+            card.ability.extra.slay_frog = true
+            card:juice_up()
+            card_eval_status_text(card, 'extra', nil, nil, nil,
+                { message = localize('k_kino_pans_labyrinth'), colour = G.C.FILTER })
+        end
+
+        -- Eat 5 Confections
+        if context.post_confection_used and not card.ability.extra.pale_man then
+            card.ability.extra.confections_eaten = card.ability.extra.confections_eaten + 1
+
+            if card.ability.extra.confections_eaten == 5 then
+                if card.ability.extra.hearts_quest == "pale_man" then card.ability.extra.quest_completed_1 = true end
+                if card.ability.extra.diamonds_quest == "pale_man" then card.ability.extra.quest_completed_2 = true end
+                if card.ability.extra.clubs_quest == "pale_man" then card.ability.extra.quest_completed_3 = true end
+                if card.ability.extra.spades_quest == "pale_man" then card.ability.extra.quest_completed_4 = true end
+                card.ability.extra.pale_man = true
+                card:juice_up()
+            card_eval_status_text(card, 'extra', nil, nil, nil,
+                { message = localize('k_kino_pans_labyrinth'), colour = G.C.FILTER })
+            end
+        end
+
+        if context.remove_playing_cards and not card.ability.extra.slay_child then
+            local _cont = false
+            for i = 1, #context.removed do
+                if context.removed[i]:get_id() == 2 then
+                    _cont = true
+                    break
+                end
+            end
+
+            if card.ability.extra.hearts_quest == "slay_child" then card.ability.extra.quest_completed_1 = true end
+            if card.ability.extra.diamonds_quest == "slay_child" then card.ability.extra.quest_completed_2 = true end
+            if card.ability.extra.clubs_quest == "slay_child" then card.ability.extra.quest_completed_3 = true end
+            if card.ability.extra.spades_quest == "slay_child" then card.ability.extra.quest_completed_4 = true end
+            card.ability.extra.slay_child = true
+            card:juice_up()
+            card_eval_status_text(card, 'extra', nil, nil, nil,
+                { message = localize('k_kino_pans_labyrinth'), colour = G.C.FILTER })
+        end
     end,
     add_to_deck = function(self, card, from_debuff)
         Kino.create_pan_quests(card)
-        -- local _randomselect = pseudorandom("kino_pans_labyrinth")
-        -- local _valid_suits = {}
+    end,
+    calc_dollar_bonus = function(self, card)
+        if card.ability.extra.quest_completed_2 then
+            local _payout = card.ability.extra.payout
 
-        -- if _randomselect > 0.75 then
-        --     card.ability.extra.quest_completed_1 = true
-        --     _valid_suits = {"Diamonds", "Clubs", "Spades"}
-        -- elseif _randomselect > 0.50 then
-        --     card.ability.extra.quest_completed_2 = true
-        --     _valid_suits = {"Hearts", "Clubs", "Spades"}
-        -- elseif _randomselect > 0.25 then
-        --     card.ability.extra.quest_completed_3 = true
-        --     _valid_suits = {"Hearts", "Diamonds", "Spades"}
-        -- else
-        --     card.ability.extra.quest_completed_4 = true
-        --     _valid_suits = {"Hearts", "Diamonds", "Clubs"}
-        -- end
+            card.ability.extra.payout = 0
 
-        -- local _randomselect_quest = pseudorandom("kino_pans_labyrinth_quest", 1, 3)
-        -- local _quest_options = {"slay_frog", "pale_man", "slay_child"}
-        -- for i = 1, 3 do
-        --     card.ability.extra[string.lower(_valid_suits[(i % 3) + 1]) .. "_quest"] = _quest_options[i]
-        -- end
-
-
+            return _payout
+        end
     end,
     -- Unlock Functions
     unlocked = false,
@@ -137,106 +239,6 @@ SMODS.Joker {
         end
     end,
 }
-
-function Kino.create_pan_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
-    if not card then
-        card = self:create_fake_card()
-    end
-    local target = {
-        type = 'descriptions',
-        key = self.key,
-        set = self.set,
-        nodes = desc_nodes,
-        AUT = full_UI_table,
-        vars =
-            specific_vars or {}
-    }
-    local res = {}
-    if self.loc_vars and type(self.loc_vars) == 'function' then
-        res = self:loc_vars(info_queue, card) or {}
-        target.vars = res.vars or target.vars
-        target.key = res.key or target.key
-        target.set = res.set or target.set
-        target.scale = res.scale
-        target.text_colour = res.text_colour
-    end
-
-    if desc_nodes == full_UI_table.main and not full_UI_table.name then
-        full_UI_table.name = localize { type = 'name', set = target.set, key = res.name_key or target.key, nodes = full_UI_table.name, vars = res.name_vars or target.vars or {} }
-    elseif desc_nodes ~= full_UI_table.main and not desc_nodes.name and self.set ~= 'Enhanced' then
-        desc_nodes.name = localize{type = 'name_text', key = res.name_key or target.key, set = target.set }
-    end
-    if specific_vars and specific_vars.debuffed and not res.replace_debuff then
-        target = { type = 'other', key = 'debuffed_' ..
-        (specific_vars.playing_card and 'playing_card' or 'default'), nodes = desc_nodes, AUT = full_UI_table, }
-    end
-    if res.main_start then
-        desc_nodes[#desc_nodes + 1] = res.main_start
-    end
-
-    localize(target)
-    if res.main_end then
-        desc_nodes[#desc_nodes + 1] = res.main_end
-    end
-    desc_nodes.background_colour = res.background_colour
-    
-    -- Identical to Kino.generate_info_ui code, except no 
-    if not card or not card.ability then return end
-
-    if card.ability.multipliers then
-        local _multiplier = 1
-        for _source, _mult in pairs(card.ability.multipliers) do
-            _multiplier = _multiplier * _mult
-        end
-
-        if _multiplier > 1 then
-            info_queue[#info_queue+1] = {set = 'Other', key = "kino_valuechange", vars = {_multiplier}}
-        end
-
-        if card.ability.last_actor_count and card.ability.last_actor_count > 1 then
-            info_queue[#info_queue+1] = {set = 'Other', key = "kino_actor_synergy", vars = {card.ability.last_actor_count}}
-        end
-    end
-
-    if card.ability.kino_additional_genres then
-        
-        if #card.ability.kino_additional_genres > 1 then
-            local _genrestring = ""
-
-            for i = 1, #card.ability.kino_additional_genres do
-                if i == 1 then
-                    _genrestring = _genrestring .. card.ability.kino_additional_genres[i]
-                else
-
-                    _genrestring = _genrestring .. ", " .. card.ability.kino_additional_genres[i]
-                end
-            end
-
-            info_queue[#info_queue+1] = {set = 'Other', key = "kino_additional_genres", vars = {3}}
-        end
-    end
-    
-
-    full_UI_table.name = {
-        {
-            n = G.UIT.C,
-            config = { align = "cm", padding = 0.05 },
-            nodes = {
-                {
-                    n = G.UIT.R,
-                    config = { align = "cm" },
-                    nodes = full_UI_table.name
-                },
-                {
-                    n = G.UIT.R,
-                    config = { align = 'cm'},
-                    nodes = Kino.get_genre_text(card)
-                }
-
-            }
-        }
-    }
-end
 
 function Kino.create_pan_quests(card)
     local _randomselect = pseudorandom("kino_pans_labyrinth")

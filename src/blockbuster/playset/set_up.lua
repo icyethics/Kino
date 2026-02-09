@@ -1,4 +1,5 @@
 -- Code that is ran after the mod is loaded in
+Blockbuster.Playset.startup = {}
 
 Blockbuster.Playset.categories = {
     full = {
@@ -120,7 +121,7 @@ function Blockbuster.Playset.generate_base_playsets()
 
                 
                 local _description = {
-                    "All " .. _category .. "content",
+                    "All " .. _category .. " content",
                     "from " .. _modID
                 }
 

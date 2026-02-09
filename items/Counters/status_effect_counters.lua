@@ -148,7 +148,7 @@ Blockbuster.Counters.Counter {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.counter and card.ability.counter.counter_num or 1
+                card.ability and card.ability.counter and card.ability.counter.counter_num or 1
             }
         }
     end,

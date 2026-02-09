@@ -878,23 +878,26 @@ match_indent = true
 # '''
 # match_indent = true
 
-[[patches]]
-[patches.pattern]
-target = "functions/state_events.lua"
-pattern = '''
-for k, v in ipairs(G.playing_cards) do
-        v.ability.forced_selection = nil
-end
-'''
-position = "after"
-payload = '''
-for _index, _pcard in ipairs(G.hand.highlighted) do
-    if _pcard.ability.cannot_be_discarded then
-        table.remove(G.hand.highlighted, _index)
-    end
-end
-'''
-match_indent = true
+# [[patches]]
+# [patches.pattern]
+# target = "functions/state_events.lua"
+# pattern = '''
+# for k, v in ipairs(G.playing_cards) do
+#         v.ability.forced_selection = nil
+# end
+# '''
+# position = "after"
+# payload = '''
+# for _index, _pcard in ipairs(G.hand.highlighted) do
+#     if _pcard.ability.cannot_be_discarded then
+#         -- table.remove(G.hand.highlighted, _index)
+        
+#         G.hand:remove_from_highlighted(_pcard, true)
+#         _pcard:bb_increment_counter(-1)
+#     end
+# end
+# '''
+# match_indent = true
 
 
 # Add Quest Log UI page
@@ -971,7 +974,7 @@ if G.ASSET_ATLAS["kino_splash_screen"] then
         instance_type = "NODE",
         type = 'cm',
         bond = 'Strong',
-        offset = {x=2.25,y=0.33}
+        offset = {x=1.75,y=1}
     })
     G.KINO_SPLASH_LOGO:define_draw_steps({{
             shader = 'dissolve',

@@ -167,6 +167,7 @@ joker_list = {
 "da_5_bloods",
 "dark_crystal",
 "dark_knight_returns",
+"deadpool",
 "dead_zone",
 "demolition_man",
 "demon_knight",
@@ -408,7 +409,6 @@ joker_list = {
 -- "zodiac",
 -- "young_frankenstein",
 -- "arrival",
-
 
 
 

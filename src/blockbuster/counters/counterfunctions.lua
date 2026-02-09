@@ -14,7 +14,7 @@ function Blockbuster.Counters.get_total_counters(types, targets)
                 end
             end
         else 
-            if type(types) == "string" then
+            if type(types) ~= "string" then
                 countertypestocheck[#countertypestocheck + 1] = G.P_COUNTERS[types]
             else
                 countertypestocheck[#countertypestocheck + 1] = types

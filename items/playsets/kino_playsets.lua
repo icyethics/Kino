@@ -14,6 +14,7 @@ Blockbuster.Playset.Playset {
     name = "standardsize_movies",
     types = {"Standard","Aesthetic"},
     sets = {"Joker"},
+    displayImage = "j_kino_et",
     packages = {
         standard_kino_playset = true, -- 149
         all_kino_enhancements = true, -- 15

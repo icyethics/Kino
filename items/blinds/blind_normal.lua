@@ -7,6 +7,15 @@ SMODS.Atlas {
     frames = 21
 }
 
+SMODS.Atlas {
+    key = "kino_blinds_2",
+    atlas_table = "ANIMATION_ATLAS",
+    path = "kino_blinds_2.png",
+    px = 34,
+    py = 34,
+    frames = 21
+}
+
 --- Final hand is Destroyed
 -- WORKS
 SMODS.Blind{
@@ -188,31 +197,6 @@ SMODS.Blind{
         return (math.max(1, mult - ((G.GAME.cards_destroyed or 0) * self.debuff.mult_debuff))), hand_chips, true
     end
 }
-
--- SMODS.Blind{
---     key = "voldemort",
---     dollars = 5,
---     mult = 2,
---     boss_colour = HEX('a74ce8'),
---     atlas = 'kino_blinds', 
---     boss = {min = 1, max = 10},
---     pos = { x = 0, y = 4},
---     debuff = {
---         chips_debuff = 10,
---         mult_debuff = 1,
---     },
---     loc_vars = function(self)
-
---     end,
---     collection_loc_vars = function(self)
-
---     end,
---     modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
---         local _consumeables_used = G.GAME.consumeable_usage_total.all
---         -- return mult, chips, true
---         return (mult - (_consumeables_used * self.debuff.mult_debuff)), (hand_chips - (_consumeables_used * self.debuff.chips_debuff)), true
---     end
--- }
 
 -- Each card has a 1/4 chance to give $5 or gain 3 debt counters
 SMODS.Blind{
@@ -674,38 +658,6 @@ SMODS.Blind{
     end
 }
 
--- WORKS (--rework)
--- SMODS.Blind{
---     key = "hansgruber",
---     dollars = 5,
---     mult = 2,
---     boss_colour = HEX('4f4858'),
---     atlas = 'kino_blinds', 
---     boss = {min = 1, max = 10},
---     pos = { x = 0, y = 13},
---     debuff = {
---         chips_debuff = 10,
---         mult_debuff = 1,
---     },
---     loc_vars = function(self)
-
---     end,
---     collection_loc_vars = function(self)
-
---     end,
---     in_pool = function(self)
---         if to_big(G.GAME.dollars) > to_big(25) then
---             return true
---         end
---         return false
---     end,
---     press_play = function(self)
---         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
---             ease_dollars(-1 * round_number(G.GAME.dollars / 2, 0))
---             return true end })) 
---     end,
--- }
-
 SMODS.Blind{
     key = "hansgruber",
     dollars = 5,
@@ -901,7 +853,7 @@ SMODS.Blind{
     mult = 2,
     boss_colour = HEX('7fc9d1'),
     atlas = 'kino_blinds', 
-    boss = {min = 4, max = 10},
+    boss = {min = 2, max = 10},
     pos = { x = 0, y = 17},
     debuff = {
         level_down = 2,
@@ -958,7 +910,7 @@ SMODS.Blind{
     mult = 2,
     boss_colour = HEX('cbbf9d'),
     atlas = 'kino_blinds', 
-    boss = {min = 4, max = 10},
+    boss = {min = 1, max = 10},
     pos = { x = 0, y = 18},
     debuff = {
         debt_counters = 2
@@ -986,7 +938,7 @@ SMODS.Blind{
     mult = 2,
     boss_colour = HEX('3d5a82'),
     atlas = 'kino_blinds', 
-    boss = {min = 4, max = 10},
+    boss = {min = 1, max = 10},
     pos = { x = 0, y = 19},
     debuff = {
         timer = 5,
@@ -1050,7 +1002,7 @@ SMODS.Blind{
     mult = 2,
     boss_colour = HEX('403f39'),
     atlas = 'kino_blinds', 
-    boss = {min = 4, max = 10},
+    boss = {min = 1, max = 10},
     pos = { x = 0, y = 20},
     debuff = {
         chance = 3
@@ -1102,7 +1054,7 @@ SMODS.Blind{
     mult = 2,
     boss_colour = HEX('8f6623'),
     atlas = 'kino_blinds', 
-    boss = {min = 2, max = 10},
+    boss = {min = 1, max = 10},
     pos = { x = 0, y = 21},
     debuff = {
         to_discard = 3
@@ -1169,7 +1121,7 @@ SMODS.Blind{
     mult = 2,
     boss_colour = HEX('c3b07d'),
     atlas = 'kino_blinds', 
-    boss = {min = 4, max = 10},
+    boss = {min = 1, max = 10},
     pos = { x = 0, y = 22},
     debuff = {
     },
@@ -1203,7 +1155,7 @@ SMODS.Blind{
     mult = 2,
     boss_colour = HEX('f74a4a'),
     atlas = 'kino_blinds', 
-    boss = {min = 2, max = 10},
+    boss = {min = 1, max = 10},
     pos = { x = 0, y = 23},
     debuff = {
         -- money_earned = 5
@@ -1260,7 +1212,7 @@ SMODS.Blind{
     mult = 2,
     boss_colour = HEX('3f5634'),
     atlas = 'kino_blinds', 
-    boss = {min = 3, max = 10},
+    boss = {min = 1, max = 10},
     pos = { x = 0, y = 24},
     debuff = {
         chips_debuff = 10,
@@ -1325,7 +1277,7 @@ SMODS.Blind{
     mult = 2,
     boss_colour = HEX('228691'),
     atlas = 'kino_blinds', 
-    boss = {min = 3, max = 10},
+    boss = {min = 1, max = 10},
     pos = { x = 0, y = 25},
     debuff = {
         chance = 2
@@ -1378,7 +1330,7 @@ SMODS.Blind{
     mult = 2,
     boss_colour = HEX('8cc8d5'),
     atlas = 'kino_blinds', 
-    boss = {min = 4, max = 10},
+    boss = {min = 1, max = 10},
     pos = { x = 0, y = 26},
     debuff = {
         timer = 4,
@@ -1450,14 +1402,112 @@ SMODS.Blind{
     end
 }
 
+
 SMODS.Blind{
-    key = "pgande",
+    key = "mr_glass",
     dollars = 5,
     mult = 2,
-    boss_colour = HEX('529cb7'),
-    atlas = 'kino_blinds', 
+    boss_colour = HEX('8cc8d5'),
+    atlas = 'kino_blinds_2', 
+    boss = {min = 1, max = 10},
+    pos = { x = 0, y = 19},
+    debuff = {
+        counters_applied = 4
+    },
+    loc_vars = function(self)
+        return {
+            vars = {
+                self.debuff.counters_applied,
+            }
+        }
+    end,
+    collection_loc_vars = function(self)
+        return {
+            vars = {
+                self.debuff.counters_applied,
+            }
+        }
+    end,
+    set_blind = function(self)
+        local _valid_targets = Blockbuster.Counters.get_counter_targets(G.jokers.cards, {"none", "match", "no_match_class"}, "counter_kino_glass", {"beneficial"})
+
+        local _target = pseudorandom_element(_valid_targets)
+        _target:juice_up()
+        _target:bb_counter_apply("counter_kino_glass", self.debuff.counters_applied)
+    end,
+    disable = function(self)
+    end,
+    defeat = function(self)
+    end,
+    calculate = function(self, blind, context)
+
+        if context.end_of_round and not context.individual and not context.blueprint and not context.repetition then
+            if mult * hand_chips > 2 * G.GAME.blind.chips then
+                local _valid_targets = Blockbuster.Counters.get_counter_targets(G.jokers.cards, {"none", "match", "no_match_class"}, "counter_kino_glass", {"beneficial"})
+
+                local _target = pseudorandom_element(_valid_targets)
+                _target:juice_up()
+                _target:bb_counter_apply("counter_kino_glass", self.debuff.counters_applied)
+            end
+        end
+    end
+}
+
+-- Count Rugen
+SMODS.Blind{
+    key = "count_rugen",
+    dollars = 5,
+    mult = 2,
+    boss_colour = HEX('8cc8d5'),
+    atlas = 'kino_blinds_2', 
+    boss = {min = 1, max = 10},
+    pos = { x = 0, y = 23},
+    debuff = {
+        counters_applied = 4
+    },
+    loc_vars = function(self)
+        return {
+            vars = {
+                self.debuff.counters_applied,
+            }
+        }
+    end,
+    collection_loc_vars = function(self)
+        return {
+            vars = {
+                self.debuff.counters_applied,
+            }
+        }
+    end,
+    set_blind = function(self)
+        G.GAME.current_round.count_rugen = true
+        SMODS.change_play_limit(1)
+
+        SMODS.change_discard_limit(1)
+    end,
+    disable = function(self)
+    end,
+    defeat = function(self)
+        G.GAME.current_round.count_rugen = false
+        SMODS.change_play_limit(-1)
+
+        SMODS.change_discard_limit(-1)
+
+        
+    end,
+    calculate = function(self, blind, context)
+    end,
+}
+
+-- Rupert Pupkin
+SMODS.Blind{
+    key = "rupert_pupkin",
+    dollars = 5,
+    mult = 2,
+    boss_colour = HEX('8cc8d5'),
+    atlas = 'kino_blinds_2', 
     boss = {min = 2, max = 10},
-    pos = { x = 0, y = 32},
+    pos = { x = 0, y = 24},
     debuff = {
 
     },
@@ -1475,317 +1525,245 @@ SMODS.Blind{
             }
         }
     end,
+    set_blind = function(self)
+        for _index, _joker in ipairs(G.jokers.cards) do
+            if _index == 1 then
+                SMODS.debuff_card(_joker, false, "kino_blind_pupkin")
+            elseif _index > 1 then
+                SMODS.debuff_card(_joker, true, "kino_blind_pupkin")
+            end
+        end
+    end,
     disable = function(self)
+        for _index, _joker in ipairs(G.jokers.cards) do
+            SMODS.debuff_card(_joker, false, "kino_blind_pupkin")
+        end
+    end,
+    defeat = function(self)
+        for _index, _joker in ipairs(G.jokers.cards) do
+            SMODS.debuff_card(_joker, false, "kino_blind_pupkin")
+        end
+    end,
+    calculate = function(self, blind, context)
+        if context.retrigger_joker_check and 
+        context.other_card and
+        context.other_card ~= self then
+            for _index, _joker in ipairs(G.jokers.cards) do
+                if _index == 1 and #G.jokers.cards > 1 then
+                    return {
+                        message = localize("k_again_ex"),
+                        repetitions = #G.jokers.cards - 1
+                    }
+                end
+            end 
+        end
+    end,
+}
+
+-- Saruman
+SMODS.Blind{
+    key = "saruman",
+    dollars = 5,
+    mult = 2,
+    boss_colour = HEX('8cc8d5'),
+    atlas = 'kino_blinds_2', 
+    boss = {min = 1, max = 10},
+    pos = { x = 0, y = 25},
+    debuff = {
+
+    },
+    loc_vars = function(self)
+        return {
+            vars = {
+
+            }
+        }
+    end,
+    collection_loc_vars = function(self)
+        return {
+            vars = {
+
+            }
+        }
+    end,
+    set_blind = function(self)
+        G.GAME.current_round.saruman_blind = true
+        Blockbuster.initialize_spellslingerdeck_UI()
+        Kino.update_saruman_UI()
+    end,
+    disable = function(self)
+        G.GAME.current_round.saruman_blind = nil
+    end,
+    defeat = function(self)
+        G.GAME.current_round.saruman_blind = nil
+    end,
+    calculate = function(self, blind, context)
+        if context.final_scoring_step and
+        #G.hand.cards > 1 then
+
+            local _result = Kino.cast_evil_spell_using_recipe(context.other_card, G.hand.cards)
+            return _result
+
+        end
+    end,
+}
+
+
+-- Annie Wilkes
+SMODS.Blind{
+    key = "annie_wilkes",
+    dollars = 5,
+    mult = 2,
+    boss_colour = HEX('8cc8d5'),
+    atlas = 'kino_blinds_2', 
+    boss = {min = 1, max = 10},
+    pos = { x = 0, y = 28},
+    debuff = {
+
+    },
+    loc_vars = function(self)
+        return {
+            vars = {
+
+            }
+        }
+    end,
+    collection_loc_vars = function(self)
+        return {
+            vars = {
+
+            }
+        }
+    end,
+    set_blind = function(self)
+
+    end,
+    disable = function(self)
+    end,
+    defeat = function(self)
+    end,
+    calculate = function(self, blind, context)
+        if context.end_of_round and G.GAME.current_round.hands_played <= 2 and
+        to_big((hand_chips * mult)) + to_big(G.GAME.chips) >= to_big(G.GAME.blind.chips) then
+            local _valid_targets = {}
+            for _index, _joker in ipairs(G.jokers.cards) do
+                if _joker:can_calculate() then
+                    _valid_targets[#_valid_targets + 1] = _joker
+                end
+            end
+
+            if #_valid_targets > 0 then
+                local _target = pseudorandom_element(_valid_targets, pseudoseed("k_kino_annie_wilkes"))
+                _target:start_dissolve()
+            end
+            
+        end
+    end,
+}
+
+
+-- slot canyon
+SMODS.Blind{
+    key = "slot_canyon",
+    dollars = 5,
+    mult = 3,
+    boss_colour = HEX('8cc8d5'),
+    atlas = 'kino_blinds_2', 
+    boss = {min = 7, max = 10,},
+    pos = { x = 0, y = 26},
+    debuff = {
+
+    },
+    loc_vars = function(self)
+        return {
+            vars = {
+
+            }
+        }
+    end,
+    collection_loc_vars = function(self)
+        return {
+            vars = {
+
+            }
+        }
+    end,
+    set_blind = function(self)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                local _card = SMODS.create_card({type = "BlindAbility", area = G.consumeables, key = "c_kino_drastic_measure", no_edition = true})
+                _card:add_to_deck()
+                G.consumeables:emplace(_card)
+                return true
+        end}))
 
     end,
     defeat = function(self)
-
-    end,
-    calculate = function(self, blind, context)
-        -- Whenever a card scores, put a poison counter on all cards held in hand
-        if context.after then
-            for _index, _pcard in ipairs(G.hand.cards) do
-                G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
-                    blind:wiggle()
-                    _pcard:bb_counter_apply("counter_poison", 2)
-                return true end }))
+        for _index, _consumable in ipairs(G.consumeables.cards) do
+            if _consumable.ability.set == "BlindAbility" then
+                _consumable:start_dissolve()
             end
         end
+        return true
+    end,
+    calculate = function(self, blind, context)
+        if not blind.disabled then
+            if context.setting_blind then
+                G.GAME.blind.hands_sub = G.GAME.round_resets.hands - 1
+                ease_hands_played(-G.GAME.blind.hands_sub)
+            end
+        end
+    end,
+    disable = function(self)
+        ease_hands_played(G.GAME.blind.hands_sub)
     end
 }
 
--- SMODS.Blind{
---     key = "clubber",
---     dollars = 5,
---     mult = 2,
---     boss_colour = HEX('8cc8d5'),
---     atlas = 'kino_blinds', 
---     boss = {min = 1, max = 10},
---     pos = { x = 0, y = 4},
---     debuff = {
-
---     },
---     loc_vars = function(self)
---         return {
---             vars = {
---             }
---         }
---     end,
---     collection_loc_vars = function(self)
---         return {
---             vars = {
---             }
---         }
---     end,
---     disable = function(self)
---     end,
---     defeat = function(self)
---     end,
---     calculate = function(self, blind, context)
---         if context.pre_discard and context.full_hand then
---             for _index, _pcard in ipairs(G.hand.cards) do
---                 -- check if it's not being discarded
---                 local _match = false
---                 for _index2, _pcard2 in ipairs(G.hand.highlighted) do
---                     if _pcard == _pcard2 then
---                         _match = true
---                         break
---                     end
---                 end
-
---                 if not _match then
---                     Kino.change_counters(_pcard, "kino_chained", 1)
---                 end
---             end
---         end
---     end
--- }
-
--- NO FUNCTIONALITY
+-- pearl
 SMODS.Blind{
-    key = "thanos",
+    key = "pearl",
     dollars = 5,
     mult = 2,
-    boss_colour = HEX('3f5634'),
-    atlas = 'kino_blinds', 
-    boss = {min = 4, max = 10, showdown = true},
-    pos = { x = 0, y = 30},
-    debuff = {
-
-    },
-    loc_vars = function(self)
-
-    end,
-    collection_loc_vars = function(self)
-
-    end,
-    set_blind = function(self)
-        -- separate all cards into two buckets
-        local _tempCards = {}
-
-        for _, _pcard in ipairs(G.playing_cards) do
-            _tempCards[_] = _pcard
-            _pcard.ability.thanos_pool = false
-        end
-
-        for i = 1, #_tempCards / 2 do
-            local chosen, index = pseudorandom_element(_tempCards, pseudoseed("kinoblind_thanos"))
-            chosen.ability.thanos_pool = true
-            table.remove(_tempCards, index)
-        end
-
-    end,
-    press_play = function(self)
-       
-
-    end,
-    calculate = function(self, blind, context)
-        if context.after then
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
-                attention_text({
-                    text = localize('k_kino_blind_thanos'),
-                    scale = 1.3, 
-                    hold = 1.4,
-                    major = G.play,
-                    align = 'tm',
-                    offset = {x = 0, y = -1},
-                    silent = true
-                })
-                blind:wiggle()
-                for _, _pcard in ipairs(G.playing_cards) do
-                    SMODS.recalc_debuff(_pcard)
-                end
-            return true end }))
-        end
-    end,
-    recalc_debuff = function(self, card, from_blind)
-        if card and type(card) == "table" and card.area and card.area ~= G.jokers then
-            local _bool = false
-            if G.GAME.current_round.hands_played % 2 == 0 then
-                _bool = true
-            end
-
-            if card.ability.thanos_pool == true then
-                card:set_debuff(_bool)
-                return _bool
-            else
-                card:set_debuff(not _bool)
-                return not _bool
-            end
-        end
-    end
-}
-
--- When you play or discard, discard that many cards from top of deck
-SMODS.Blind{
-    key = "immortan_joe",
-    dollars = 5,
-    mult = 2,
-    boss_colour = HEX('3f5634'),
-    atlas = 'kino_blinds', 
-    boss = {min = 4, max = 10, showdown = true},
+    boss_colour = HEX('8cc8d5'),
+    atlas = 'kino_blinds_2', 
+    boss = {min = 1, max = 10},
     pos = { x = 0, y = 27},
     debuff = {
+
     },
     loc_vars = function(self)
+        return {
+            vars = {
 
+            }
+        }
     end,
     collection_loc_vars = function(self)
+        return {
+            vars = {
 
-    end,
-    press_play = function(self)
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
-            attention_text({
-                text = localize('k_kino_blind_immortan_1'),
-                scale = 1.3, 
-                hold = 1.4,
-                major = G.play,
-                align = 'tm',
-                offset = {x = 0, y = -1},
-                silent = true
-            })
-            play_sound('tarot2', 1, 0.4)
-            for i = 1, #G.play.cards do
-                draw_card(G.deck,G.discard, 1*100/3,'down', false, v)
-            end
-        return true end }))
-
-
-    end,
-    calculate = function(self, blind, context)
-        if context.pre_discard then
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
-                attention_text({
-                    text = localize('k_kino_blind_immortan_1'),
-                    scale = 1.3, 
-                    hold = 1.4,
-                    major = G.play,
-                    align = 'tm',
-                    offset = {x = 0, y = -1},
-                    silent = true
-                })
-                play_sound('tarot2', 1, 0.4)
-                blind:wiggle()
-                for i = 1, #context.full_hand do
-                    draw_card(G.deck,G.discard, 1*100/3,'down', false, v)
-                end
-            return true end }))
-        end
-    end
-}
-
-SMODS.Blind{
-    key = "palpatine",
-    dollars = 5,
-    mult = 2,
-    boss_colour = HEX('3f5634'),
-    atlas = 'kino_blinds', 
-    boss = {min = 4, max = 10, showdown = true},
-    pos = { x = 0, y = 31},
-    debuff = {
-        palp_damage = 0.2,
-        triggers = 5
-    },
-    loc_vars = function(self)
-        
-    end,
-    collection_loc_vars = function(self)
-
+            }
+        }
     end,
     set_blind = function(self)
-        G.GAME.current_round.boss_blind_indicator = 'kinoblind_palp'
-        if not G.jokers and not G.jokers.cards then return end
+        G.GAME.current_round.pearl_size = G.hand.config.card_limit
 
-        for _, _joker in ipairs(G.jokers.cards) do
-            local _startingvalue = 1
-            _joker.ability.vader_triggers = 1
-            if _joker.ability.output_powerchange and _joker.ability.output_powerchange.kinoblind_palpatine then
-                _startingvalue = _joker.ability.output_powerchange.kinoblind_palpatine
-            end
-            Kino.setpowerchange(_joker, "kinoblind_palpatine", _startingvalue - self.debuff.palp_damage)
-        end
-    end,
-    drawn_to_hand = function(self)
-        
+        G.hand:change_size(-G.hand.config.card_limit + 1)
     end,
     disable = function(self)
-        G.GAME.current_round.boss_blind_indicator = false
+        local _size = G.GAME.current_round.pearl_size - G.hand.config.card_limit
+        G.hand:change_size(_size)
     end,
     defeat = function(self)
-        G.GAME.current_round.boss_blind_indicator = false
-        for _, _joker in ipairs(G.jokers.cards) do
-            Kino.setpowerchange(_joker, "kinoblind_palpatine", 1)
-            G.jokers.cards[1].ability.vader_triggers = nil
-        end
+        local _size = G.GAME.current_round.pearl_size - G.hand.config.card_limit
+        G.hand:change_size(_size)
     end,
     press_play = function(self)
-        
+        G.hand:change_size(2)
     end,
     calculate = function(self, blind, context)
-
-        if context.after then
-            for _, _joker in ipairs(G.jokers.cards) do
-                _joker.ability.vader_triggers = _joker.ability.vader_triggers and _joker.ability.vader_triggers +1 or 1
-
-                if _joker.ability.vader_triggers > 5 then
-                    _joker.getting_sliced = true
-                    
-                    G.E_MANAGER:add_event(Event({func = function()
-                        blind:wiggle()
-                        card_eval_status_text(_joker, 'extra', nil, nil, nil,
-                        { message = localize('k_blind_vader_1'), colour = G.C.BLACK})
-                        _joker.getting_sliced = true
-                        _joker:start_dissolve({G.C.RED}, nil, 1.6)
-                    return true end }))
-                end
-                local _startingvalue = 1
-                if _joker.ability.output_powerchange and _joker.ability.output_powerchange.kinoblind_vader then
-                    _startingvalue = _joker.ability.output_powerchange.kinoblind_vader
-                end
-                Kino.setpowerchange(_joker, "kinoblind_palpatine", _startingvalue - self.debuff.palp_damage)
-            end
-        end
-    end
-}
-
-SMODS.Blind{
-    key = "dr_evil",
-    dollars = 5,
-    mult = 2,
-    boss_colour = HEX('dcdcdc'),
-    atlas = 'kino_blinds', 
-    boss = {min = 4, max = 10},
-    pos = { x = 0, y = 29},
-    debuff = {
-        h_size_le = G.GAME and G.GAME.current_round.boss_blind_blofeld_counter or 100000
-    },
-    loc_vars = function(self)
-
-    end,
-    collection_loc_vars = function(self)
-
-    end,
-    set_blind = function(self)
-        G.GAME.current_round.boss_blind_blofeld_counter = 0
-    end,
-    defeat = function(self)
-        G.GAME.current_round.boss_blind_blofeld_counter = 10000
-    end,
-    disable = function(self)
-        G.GAME.current_round.boss_blind_blofeld_counter = 10000
-    end,
-    calculate = function(self, blind, context)
-        if context.after then
-            G.GAME.current_round.boss_blind_blofeld_counter = #context.full_hand
+        if context.pre_discard and not context.blueprint and not context.repetition then
+            G.hand:change_size(2)
         end
     end,
-    debuff_hand = function(self, cards, hand, handname, check)
-        if (G.GAME.current_round.boss_blind_blofeld_counter or 100000) >= #cards then
-            return true
-        end
-
-        return false
-
-        
-    end
 }

@@ -47,6 +47,7 @@ function Game:start_run(args)
         Kino.kinoween_ban_list()
     end
 
+
     -- Invisible Joker Behaviour Handler
     self.kino_offscreen_area = CardArea(
         G.TILE_W - 600*G.CARD_W - 200.95, -100.1*G.jokers.T.h,
@@ -131,6 +132,21 @@ Game.init_game_object = function(self)
     ret.current_round.boss_blind_agent_smith_rank_discards = {}
     ret.current_round.boss_blind_thanos_cards = {}
 
+    -- Kino counter types
+    local _counter_blinds = {
+        "Burn", "Chain", "Drought",
+        "Frost", "Poison", "Shock",
+        "Sleep"
+    }
+
+    if G.GAME then
+        print("Picking blind types")
+        ret.current_round.boss_blind_selection_1 = pseudorandom_element(_counter_blinds, pseudoseed("kino_blind_type"))
+        ret.current_round.boss_blind_selection_2 = pseudorandom_element(_counter_blinds, pseudoseed("kino_blind_type"))
+        print(ret.current_round.boss_blind_selection_1)
+        print(ret.current_round.boss_blind_selection_2)
+    end
+    
     -- -- Set up visual information 
     self.shared_indicator_sprites = {
         powerchange_sprite = Sprite(0, 0, self.CARD_W, self.CARD_W,

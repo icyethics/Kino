@@ -987,6 +987,14 @@ return {
                     "{C:attention}Mr. Bones"
                 }
             },
+            j_kino_deadpool = {
+                name = "Deadpool",
+                text = {
+                    "I'll give you {C:chips}Chips",
+                    "as long as you give me {C:attention,E:1}attention"
+                    
+                }
+            },
             j_kino_death_race = {
                 name = "Death Race",
                 text = {
@@ -2668,21 +2676,27 @@ return {
             },
             j_kino_pans_labyrinth = {
                 name = "Pan's Labyrinth",
-                -- text = {
-                --     {"Played {C:hearts}Hearts{} give {C:mult}#1#{} Mult"},
-                --     {"Earn {C:money}$#2#{} for each {C:diamonds}Diamonds{} left in deck"},
-                --     {"{C:chips}+#3#{} Chips for each {C:clubs}Clubs{} held in hand"},
-                --     {"{X:mult,C:white}X#4#{} Mult for each {C:spades}Spades{} discarded"}
-                -- },
                 text = {
-                    {"#1#"},
-                    {"#2#"},
-                    {"#3#"},
-                    {"#4#"}
+                    {"{C:white,E:1}Complete the Quests"},
+                    {"Played {C:hearts}Hearts{} give {C:mult}+#1#{} Mult"},
+                    {"Earn {C:money}$#2#{} for each {C:diamonds}Diamonds{} left in deck"},
+                    {"{C:chips}+#3#{} Chips for each {C:clubs}Clubs{} held in hand"},
+                    {"{X:mult,C:white}X#4#{} Mult for each {C:spades}Spades{} discarded",
+                        "{C:inactive}(Currently: {X:mult,C:white}X#5#{C:inactive} Mult)"}
                 },
+
                 unlock = {
                     "NOT YET IMPLEMENTED"
                 }
+            },
+            j_kino_pans_labyrinth_locked = {
+                name = "Pan's Labyrinth BUT CRAZY AND FUCKED UP",
+                text = {
+                    {"{C:white,E:1}Complete the Quests"},
+                    {"{C:red}To Unlock{C:white}: Defeat a {C:attention}Boss Blind"},
+                    {"{C:red}To Unlock{C:white}: Consume {C:attention}5{C:Confection} Confections"},
+                    {"{C:red}To Unlock{C:white}: Remove a {C:attention}2{C:white} from your deck"}
+                },
             },
             j_kino_party_people = {
                 name = "24 Hour Party People",
@@ -3822,15 +3836,18 @@ return {
             j_kino_truman_show = {
                 name = "The Truman Show",
                 text = {
-                    {"Gain the current ratings",
-                    "as {C:chips}Chips"},
-                    {"Ratings improve when",
-                    "you do exciting or",
-                    "flashy plays"},
-                    {"Ratings worsen when",
-                    "you do boring",
-                    "or repeated plays"}
+                    "Below: Ratings:"
                 }
+                -- text = {
+                --     {"Gain the current ratings",
+                --     "as {C:chips}Chips"},
+                --     {"Ratings improve when",
+                --     "you do exciting or",
+                --     "flashy plays"},
+                --     {"Ratings worsen when",
+                --     "you do boring",
+                --     "or repeated plays"}
+                -- }
             },
             j_kino_turner_and_hooch = {
                 name = "Turner & Hooch",
@@ -5941,22 +5958,6 @@ return {
                     "or destroy it if it's an Ace"
                 }
             },
-            bl_kino_pgande = {
-                name = "PG&E",
-                text = {
-                    "Put 2 {C:green}Poison Counters",
-                    "on each card held in hand",
-                    "when a hand is played"
-                }
-            },
-            bl_kino_clubber =  {
-                name = "Clubber Lang",
-                text = {
-                    "When you discard",
-                    "put a Chain card on every",
-                    "card in hand"
-                }
-            },
             bl_kino_thanos = {
                 name = "Thanos",
                 text = {
@@ -5989,6 +5990,73 @@ return {
                     "the previous hand"
                 }
             },
+            
+            bl_kino_godzilla = {
+                name = "Godzilla",
+                text = {
+                    "Enormously large blind and",
+                    "create a {C:attention}Barrage.",
+                    "Lower blind by {C:attention}#1#%{} when",
+                    "a card is discarded"
+                }
+            },
+            bl_kino_mr_glass = {
+                name = "Mr. Glass",
+                text = {
+                    "Put {C:attention}#1#{} Glass Counters",
+                    "on a random Joker and",
+                    "repeat if Blind is beaten",
+                    "with 2x or more of goal"
+                }
+            },
+            bl_kino_count_rugen = {
+                name = "Count Rugen",
+                text = {
+                    "Can select an additional card and",
+                    "deselect a random card",
+                    "when playing or discarding"
+                }
+            },
+            bl_kino_rupert_pupkin = {
+                name = "Rupert Pupkin",
+                text = {
+                    "Debuff all but leftmost Joker",
+                    "and retrigger leftmost Joker",
+                    "once for each debuffed Joker"
+                }
+            },
+            bl_kino_saruman = {
+                name = "Saruman",
+                text = {
+                    "Cast a Villanous Spell",
+                    "based on rank of leftmost card",
+                    "in hand and suit of",
+                    "adjacent card"
+                }
+            },
+            bl_kino_annie_wilkes = {
+                name = "Annie Wilkes",
+                text = {
+                    "Destroy a Joker if blind",
+                    "won on first or second hand"
+                }
+            },
+            bl_kino_slot_canyon = {
+                name = "Slot Canyon",
+                text = {
+                    "Bigger blind and only {C:attention}1{} hand and",
+                    "create {C:attention}Drastic Measures{}"
+                }
+            },
+            bl_kino_pearl = {
+                name = "Pearl",
+                text = {
+                    "Hand size reduced to 1 and",
+                    "gain 2 hand size when hand is",
+                    "played or discarded"
+                }
+            },
+
 
             -- Halloween blinds
             bl_kino_pale_man = {
@@ -6029,6 +6097,290 @@ return {
                     "I can't believe my eyes, this isn't fair!"
                 }
             },
+            bl_kino_kingkong = {
+                name = "King Kong",
+                text = {
+                    "Extra large blind and",
+                    "create a {C:attention}Damsel",
+                }
+            },
+
+            -- Frost Counters
+            bl_kino_elsa = {
+                name = "Elsa",
+                text = {
+                    "Spread {C:attention}10{}",
+                    "{C:Frost}Frost Counters{} across",
+                    "your Jokers"
+                }
+            },
+            bl_kino_jacktorrance = {
+                name = "Jack Torrance",
+                text = {
+                    "When a card scores",
+                    "put {C:attention}2{C:Frost} Frost Counters{}",
+                    "on cards in your deck with the same rank"
+                }
+            },
+            bl_kino_krampus = {
+                name = "Krampus",
+                text = {
+                    "Create a {C:attention}List{} and",
+                    "if played hand contains",
+                    "than {C:attention}#1#{} scoring cards",
+                    "put {C:attention}5{C:Frost} Frost Counters{} on a Joker",
+                    "for each card scored less than {C:attention}#1#",
+                }
+            },
+
+            -- Drought Counters
+            bl_kino_scorpionking = {
+                name = "Scorpion King",
+                text = {
+                    "Put {C:attention}3{C:Drought} Drought Counters{} on",
+                    "every unscoring card"
+                }
+            },
+            bl_kino_imhotep = {
+                name = "Im-Ho-Tep",
+                text = {
+                    "Put {C:attention}2 {C:Drought}Drought Counters{} on every",
+                    "#1# in deck"
+                }
+            },
+            bl_kino_rattlesnake_jake = {
+                name = "Rattlesnake Jake",
+                text = {
+                    "When a card is drawn",
+                    "put {C:Drought}Drought Counters{} on cards",
+                    "until there are 10 counters in hand and",
+                    "create {C:attention}High Noon"
+                }
+            },
+
+            -- Shock Counter
+            bl_kino_zeus = {
+                name = "Zeus",
+                text = {
+                    "When a Joker triggers",
+                    "put {C:attention}1{C:attention} Shock Counter{}",
+                    "on a card in your deck"
+                }
+            },
+            bl_kino_cable_guy = {
+                name = "The Cable Guy",
+                text = {
+                    "Put {C:attention}2{C:attention} Shock Counters{}",
+                    "on each joker",
+                    "when a hand is played"
+                }
+            },
+            bl_kino_electro = {
+                name = "Electro",
+                text = {
+                    "Put 10 {C:attention}Shock Counters{} on",
+                    "each {C:attention}Joker{} and",
+                    "create a {C:attention}Lightning Rod"
+                }
+            },
+
+            -- Fire Blinds
+            bl_kino_ronald_bartel = {
+                name = "Ronald Bartel",
+                text = {
+                    "Put a {C:red}Burn Counter{} on every",
+                    "{C:attention}5th{} card drawn"
+                }
+            },
+            bl_kino_varang = {
+                name = "Varang",
+                text = {
+                    "Put a {C:red}Burn Counter{} on the first",
+                    "{C:attention}5{} cards Played or Discarded"
+                }
+            },
+            bl_kino_te_ka = {
+                name = "Te Kā",
+                text = {
+                    "Set Play and Discard selection limit to 2 and",
+                    "create an {C:attention}Eruption",
+                }
+            },
+
+            -- Poison Counters
+            bl_kino_pgande = {
+                name = "PG&E",
+                text = {
+                    "Put 2 {C:green}Poison Counters",
+                    "on each card held in hand",
+                    "when a hand is played"
+                }
+            },
+            bl_kino_evilqueen = {
+                name = "Evil Queen",
+                text = {
+                    "If played hand is less than 5 cards",
+                    "put a {C:green}Poison Counter{} on scoring",
+                    "cards for each card less"
+                }
+            },
+
+            bl_kino_poppy_adams = {
+                name = "Poppy Adams",
+                text = {
+                    "Put 100 Poison Counters in your deck and",
+                    "create {C:attention}The Cure"
+                }
+            },
+
+            -- Drowsy/Sleep blinds
+            bl_kino_freddy_krueger = {
+                name = "Freddy Krueger",
+                text = {
+                    "When a {C:attention}5 or lower{} is drawn",
+                    "put a {C:red}Drowsy Counter{} on random Joker",
+                }
+            },
+            bl_kino_rose_the_hat = {
+                name = "Rose the Hat",
+                text = {
+                    "Put a {C:red}Drowsy Counter{} on a random Joker",
+                    "for every {C:attention}enhanced{} card in deck"
+                }
+            },
+            bl_kino_flatline = {
+                name = "The Flatline",
+                text = {
+                    "Put a {C:red}Sleep Counter{} on every Joker",
+                    "and create a {C:}Defibrillator"
+                }
+            },
+            -- Chain Blinds
+            bl_kino_jacob_morley =  {
+                name = "Jacob Morley",
+                text = {
+                    "Put {C:attention}2{} Chain Counters on",
+                    "every 3rd card drawn of each suit"
+                }
+            },
+            bl_kino_clubber =  {
+                name = "Clubber Lang",
+                text = {
+                    "When you discard",
+                    "put a Chain card on every",
+                    "card remaining in hand"
+                }
+            },
+            bl_kino_ghost_rider =  {
+                name = "Ghost Rider",
+                text = {
+                    "Put {C:attention}#1#{} Chain Counters on",
+                    "every card in deck and",
+                    "create {C:attention}Penance Stare"
+                }
+            },
+
+        },
+        BlindAbility = {
+            c_kino_damsel = {
+                name = "Damsel",
+                text = {
+                    "Put {C:attention}#3#{C:red} Stun Counters{} on a {C:attention}face{} card",
+                    "to lower {C:attention}Blind{} requirement",
+                    "by {C:attention}#2#%{}"
+                }
+            },
+            c_kino_high_noon = {
+                name = "High Noon",
+                text = {
+                    "Select cards with up to {C:attention}#1#{} counters",
+                    "and remove them",
+                    "Re-enable whenever you discard or play"
+                }
+            },
+            c_kino_list = {
+                name = "List",
+                text = {
+                    "Can use if {C:attention}#1#{} cards",
+                    "have been discarded {C:inactive}(#2#/#1#)",
+                    " ",
+                    "Allow {C:attention}#3#{} less card",
+                    "to be scored"
+                }
+            },
+            c_kino_lightning_rod = {
+                name = "Lightning Rod",
+                text = {
+                    {
+                        "Gain {C:attention}2{} Charges when a",
+                        "card is drawn and lose",
+                        "{C:attention}ALL{} Charges when ability",
+                        "is used",
+                        "{C:inactive}(Currently: {C:attention}#1#{C:inactive} Charges)"
+                    },
+                    {
+                        "Remove {C:attention}1{C:attention} Shock Counter{} per Charge",
+                        "from Jokers",
+                        "and put them on {C:attention}1{} selected",
+                        "playing card without Counters"
+                    }
+                }
+            },
+            c_kino_eruption = {
+                name = "Eruption",
+                text = {
+                    {"Put {C:attention}1 {C:Burn}Burn Counter{} on",
+                    "selected {C:attention}Joker{} or double Counters if",
+                    "already applied"},
+                    {
+                        "Increase {C:attention}Play{} and {C:attention}Discard{}",
+                        "selection limit by {C:attention}1"
+                    }
+                }
+            },
+            c_kino_cure = {
+                name = "Cure",
+                text = {
+                    "Spend {C:money}$#1#{} to halve",
+                    "the {C:green}Poison Counters{} in your deck",
+                    "{C:inactive}(Currently: {C:attention}#2# {C:green}Poison Counters{C:inactive} in deck)"
+                }
+            },
+            c_kino_defibrillator = {
+                name = "Defibrillator",
+                text = {
+                    {"Replace {C:attention}Sleep Counters{} on selected",
+                    "{C:attention}Joker{} with {C:attention}Shock Counters"},
+                    {"Regains charge when hand is played",
+                    "or discarded"}
+                }
+            },
+            c_kino_barrage = {
+                name = "Barrage",
+                text = {
+                    {
+                        "Discard every card held in hand"
+                    }
+                }
+            },
+            c_kino_penance_stare = {
+                name = "Penance Stare",
+                text = {
+                    {
+                        "Double {C:attention}Chain Counters{} on",
+                        "selected card and remove {C:attention}1",
+                        "counter from all cards that share",
+                        "its suit or rank in your full deck"
+                    }
+                }
+            },
+            c_kino_drastic_measure = {
+                name = "Drastic Measures",
+                text = {
+                    "{C:red}Destroy{} selected {C:attention}Joker",
+                    "to gain {C:attention}+1{} hand"
+                }
+            }
         },
         Tag = {
             tag_kino_dinner = {
@@ -6842,6 +7194,43 @@ return {
                     "Gain {C:chips}2 Hands{}"
                 }
             },
+
+            -- Evil Spells
+            spell_kino_evil_Hearts = {
+                name = "Dark Heart",
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult"
+                }
+            },
+
+            spell_kino_evil_Diamonds = {
+                name = "Dark Diamond",
+                text = {
+                    "Lose {X:money,C:white}#1#%{} of {C:money}money"
+                }
+            },
+
+            spell_kino_evil_Clubs = {
+                name = "Dark Club",
+                text = {
+                    "{X:chips,C:white}X#1#{} Chips"
+                }
+            },
+            
+            spell_kino_evil_Spades = {
+                name = "Dark Spade",
+                text = {
+                    "Raise {C:attention}blind{} requirement",
+                    "by {C:attention}#1#%{}"
+                }
+            },
+            spell_kino_evil_Wild = {
+                name = "Dark Wild",
+                text = {
+                    "Cast a random {C:attention}EVIL",
+                    "spell"
+                }
+            }
         },
         Sleeve = {
             -- Genre Sleeves
@@ -7518,7 +7907,7 @@ return {
                 }
             },
             counter_paralysis = {
-                name = "Paralysis Counter",
+                name = "Shock Counter",
                 text = {
                     "{C:attention}Ticks Down 1",
                     " ",
@@ -7592,6 +7981,34 @@ return {
                 text = {
                     "Maximum of {C:attention}#2#{} Bullets",
                     "in the magazine"
+                }
+            },
+            counter_kino_drought = {
+                name = "Drought Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    " ",
+                    "Card cannot score while",
+                    "it has counters on it"
+                }
+            },
+            counter_kino_glass = {
+                name = "Glass Counter",
+                text = {
+                    "{C:attention}Ticks Down 1",
+                    " ",
+                    "{C:green}#1# in #2#{}  chance to", 
+                    "destroy card after",
+                    "all scoring is finished "
+                }
+            },
+            counter_kino_chain = {
+                name = "Chain Counter",
+                text = {
+                    "{C:attention}Ticks Down 1 when discarded",
+                    " ",
+                    "Cannot be discarded",
+                    "while this has counters"
                 }
             }
         },
@@ -7736,6 +8153,37 @@ return {
                 }
             }
         },
+        Playset = {
+            kino_standardsize_movies = {
+                name = "Standardsize Movies",
+                text = {
+                    "150 Jokers, 8 enhancements. Classic Balatro",
+                    "But now it goes Kino"
+                }
+            },
+            kino_science_pack = {
+                name = "Science Pack",
+                text = {
+                    "Science-based Content",
+                    "focused on machinery,",
+                    "robots and space"
+                }
+            },
+            kino_debug_playset_1 = {
+                name = "Very Jimbo",
+                text = {
+                    "Only Jimbo."
+                }
+            },
+            kino_vanilla_basic = {
+                name = "All content",
+                text = {
+                    "All content currently",
+                    "installed"
+                }
+            }
+            
+        },
         Unique = {
             c_kino_bullets = {
                 name = "Bullets",
@@ -7755,6 +8203,7 @@ return {
                 text={
                     "Defeat the {C:attention}Ante 8 Boss Rush",
                     "to roll {C:attention,E:1}Credits{}",
+                    "(Credits aren't implemented yet)"
                 },
             },
         }
@@ -7816,10 +8265,12 @@ return {
             kino_credits_wiki = "Wiki Maintenance Help: ",
             kino_credits_music = "Halloween Deck Music: ",
             ---------------------
+            k_blindability = "Blind Ability",
             k_confection = "Confection",
             k_unique = "Unique",
             b_confection_cards = "Confection Cards",
             b_unique_cards = "Unique Cards",
+            b_blindability_cards = "Blind Abilities",
             k_spell = "Spell",
             k_quest = "Quest",
             k_kino_strange_planet = "Strange Planet",
@@ -7938,6 +8389,8 @@ return {
             k_kino_terminator_destroyed = "I'll be back",
             k_kino_forrest_gump = "Run, Forrest, Run",
             k_kino_singing_in_the_rain = "What a wonderful feeling",
+            k_kino_pans_labyrinth = "Well done, child",
+            k_kino_deadpool = "Back to the start!",
 
             k_kino_heartache_stack = "</3",
 
@@ -8013,6 +8466,14 @@ return {
             k_kino_blind_pale_man = "...",
             k_blind_fabrication_machine = "The machine whirrs. Your deck feels U N S A F E",
             k_kino_xeno_queen = "Hatch",
+            k_kino_bartel = "I burned them...",
+            k_kino_evilqueen = "Mirror, Mirror...",
+            k_kino_freddy = "Nightmare",
+            k_kino_rose = "Shine",
+            k_kino_flatline = "Beeeeeeep",
+            k_kino_morley = "Link by link",
+            k_kino_clubber = "I pity the fool",
+            k_kino_rugen = "I've drained a year of your life",
             
             -- Tag barks
             k_tag_treat_low_1 = "Edible Money! Eh Eh Eh",
@@ -8348,18 +8809,6 @@ return {
             v_kino_questtimer = {
                 " #1# times"
             },
-
-            -- Pan's Labyrinth text
-                            
-            k_kino_pans_quest_slay_frog = "{C:red}To Unlock{}: Defeat a {C:attention}Boss Blind",
-            k_kino_pans_quest_pale_man = "{C:red}To Unlock{}: Consume {C:attention}5{C:Confection} Confections",
-            k_kino_pans_quest_slay_child = "{C:red}To Unlock{}: Remove a {C:attention}2{} from your deck",
-
-            k_kino_pans_quest_hearts = "Played {C:hearts}Hearts{} give {C:mult}#1#{} Mult",
-            k_kino_pans_quest_diamonds = "Earn {C:money}$#2#{} for each {C:diamonds}Diamonds{} left in deck",
-            k_kino_pans_quest_clubs = "{C:chips}+#3#{} Chips for each {C:clubs}Clubs{} held in hand",
-            k_kino_pans_quest_spades = "{X:mult,C:white}X#4#{} Mult for each {C:spades}Spades{} discarded",
-
         },
         v_text = {
             ch_c_movie_jokers_only = {

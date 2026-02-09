@@ -180,7 +180,7 @@ SMODS.Joker {
                     local _target = pseudorandom_element(_valid_counter_types, pseudoseed('kino_singing_in_the_rain'))
                     _pcard:bb_counter_apply(_target, card.ability.extra.counters_applied)
                     card_eval_status_text(_pcard, 'extra', nil, nil, nil,
-                    { message = localize('k_kino_singing_in_the_rain'), colour = G.C.ATTENTION})
+                    { message = localize('k_kino_singing_in_the_rain'), colour = G.C.FILTER})
                     _pcard.kino_singing_in_the_rain = nil
                 end
             end            

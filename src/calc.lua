@@ -6,6 +6,15 @@ SMODS.current_mod.calculate = function(self, context)
         Kino.actor_adjacency_check()
         Kino.genre_adjacency_check()
 
+        if G.GAME.current_round.count_rugen then
+            for _index, _joker in ipairs(G.jokers.cards) do
+                if _index == 1 then
+                    SMODS.debuff_card(_joker, false, "kino_blind_pupkin")
+                elseif _index > 1 then
+                    SMODS.debuff_card(_joker, true, "kino_blind_pupkin")
+                end
+            end
+        end
     end
     
     -- Stat Tracking related Calculations

@@ -697,6 +697,8 @@ Kino.generate_info_ui = function(self, info_queue, card, desc_nodes, specific_va
     }
 end
 
+
+
 -- Confection card UI (Based on Cryptid's Code card implementation and Betmma's reserve implementation)
 local o_uasbs = G.UIDEF.use_and_sell_buttons
 function G.UIDEF.use_and_sell_buttons(card)

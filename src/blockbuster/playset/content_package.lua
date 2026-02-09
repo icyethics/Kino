@@ -56,7 +56,20 @@ Blockbuster.Playset.ContentPackage = SMODS.Center:extend {
     end,
     click = function(self)
         play_sound('button', 1, 0.3)
-        if not Blockbuster.content_package_area or
+        if self.during_galdur then 
+            self:juice_up()
+            local _key = self.config.center.key
+            Blockbuster.Playset.startup.contentPackages = Blockbuster.Playset.startup.contentPackages or {}
+            if Blockbuster.Playset.startup.contentPackages[_key] then
+                if Blockbuster.Playset.startup.contentPackages[_key] == "Ban" then
+                    Blockbuster.Playset.startup.contentPackages[_key] = "Include"
+                else
+                    Blockbuster.Playset.startup.contentPackages[_key] = nil
+                end
+            else
+                Blockbuster.Playset.startup.contentPackages[_key] = "Ban"
+            end
+        elseif not Blockbuster.content_package_area or
         (Blockbuster.content_package_area and (self.area ~= Blockbuster.content_package_area)) then
             G.SETTINGS.paused = true
             G.FUNCS.overlay_menu{
@@ -83,5 +96,57 @@ Blockbuster.Playset.ContentPackage = SMODS.Center:extend {
             card.children.center:reset()
         end
     end,
+    get_name = function()
+        return self.loc_name
+    end
     
+}
+
+local contentPackage
+local inclusionSpriteGood
+local inclusionSpriteBad
+SMODS.DrawStep {
+    key = "bbplayset_contentPackage_layer",
+    order = 51,
+    func = function(card, layer)
+        -- if card and card.config.center == G.P_CENTERS.m_kino_superhero then
+        if card and card.config and card.config.center and card.config.center.set == "ContentPackage" then
+            contentPackage = contentPackage or Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["kino_bbplayset_content_pack_frame"], {x = 0, y = 0})
+            contentPackage.role.draw_major = card
+
+            contentPackage:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, nil, nil)
+            if (Blockbuster.Playset and 
+            Blockbuster.Playset.startup and 
+            Blockbuster.Playset.startup.contentPackages and
+            Blockbuster.Playset.startup.contentPackages[card.config.center.key])
+            or (Blockbuster.Playset and 
+            Blockbuster.Playset.startup and 
+            Blockbuster.Playset.startup.choices and
+            Blockbuster.Playset.startup.choices.playset) then
+
+                local _state = nil
+                if Blockbuster.Playset.startup.contentPackages and Blockbuster.Playset.startup.contentPackages[card.config.center.key] == "Ban" then
+                    _state = "Ban"
+                elseif Blockbuster.Playset.startup.contentPackages and Blockbuster.Playset.startup.contentPackages[card.config.center.key] == "Include" then
+                    _state = "Include"
+                elseif Blockbuster.Playset.startup.choices.playset.packages[card.config.center.key] == true then
+                    _state = "Include"
+                elseif Blockbuster.Playset.startup.choices.playset.packages[card.config.center.key] == false then
+                    _state = "Ban"
+                    
+                end
+
+                if _state == "Ban" then
+                    inclusionSpriteBad = inclusionSpriteBad or Sprite(0,0,0.5,0.5, G.ASSET_ATLAS["kino_ui"], {x=1, y=1})
+                    inclusionSpriteBad.role.draw_major = card
+                    inclusionSpriteBad:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, nil, nil)
+                elseif _state == "Include" then
+                    inclusionSpriteGood = inclusionSpriteGood or Sprite(0,0,0.5,0.5, G.ASSET_ATLAS["kino_ui"], {x=2, y=1})
+                    inclusionSpriteGood.role.draw_major = card
+                    inclusionSpriteGood:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, nil, nil)
+                end
+            end
+        end
+    end,
+    conditions = {vortex = false, facing = 'front'}
 }

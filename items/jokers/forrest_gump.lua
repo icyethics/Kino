@@ -188,7 +188,7 @@ SMODS.Joker {
             hand_chips = hand_chips + G.GAME.hands["Straight"].chips
             return {
                 message = localize("k_kino_forrest_gump"),
-                colour = G.C.ATTENTION
+                colour = G.C.FILTER
             }
         end
     end,

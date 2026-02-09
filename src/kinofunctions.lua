@@ -275,6 +275,7 @@ function reset_ancient_card()
     Kino.reset_source_code()
     Kino.reset_dead_zone()
     Kino.reset_summer_rank()
+    Kino.reset_imhotep()
 end
 
  -- Indiana Jones checks
@@ -330,6 +331,14 @@ end
 
 function Kino.reset_dead_zone()
     G.GAME.current_round.kino_dead_zone_hand = get_random_hand()
+end
+
+function Kino.reset_imhotep()
+    local _suits = SMODS.Suits
+    print(G.GAME.current_round.imhotep_suit)
+    local _picked_key = pseudorandom_element(_suits, pseudoseed("kino_imhotep"))
+    G.GAME.current_round.imhotep_suit = _picked_key.key
+    print(G.GAME.current_round.imhotep_suit)
 end
 
 -- For everything that needs to be done when the shop is closed.
@@ -745,6 +754,108 @@ function SMODS.calculate_context(context, return_table)
     return _o_cc(context, return_table)
 end
 
+local _o_discard = G.FUNCS.discard_cards_from_highlighted
+G.FUNCS.discard_cards_from_highlighted = function(e, hook)
+    local _triggered = true
+    for _index, _pcard in ipairs(G.hand.highlighted) do
+        if _pcard.ability.cannot_be_discarded then
+            -- table.remove(G.hand.highlighted, _index)
+            
+            G.hand:remove_from_highlighted(_pcard, true)
+            _pcard:bb_increment_counter(-1)
+        else
+            _triggered = false
+        end
+    end
+
+    if G.GAME.current_round.count_rugen then
+        local _target = pseudorandom_element(G.hand.highlighted, pseudoseed("kino_count_rugen"))
+        G.hand:remove_from_highlighted(_target, true)
+        card_eval_status_text(_target, 'extra', nil, nil, nil,
+            { message = localize('k_kino_rugen'), colour = G.C.BLACK})
+    end
+
+    local _ret = _o_discard(e,hook)
+
+    if _triggered then
+        G.GAME.round_scores.cards_discarded.amt = G.GAME.round_scores.cards_discarded.amt + 0
+        if not hook then
+            if G.GAME.modifiers.discard_cost then
+                ease_dollars(-G.GAME.modifiers.discard_cost)
+            end
+            ease_discard(-1)
+            G.GAME.current_round.discards_used = G.GAME.current_round.discards_used + 1
+            G.STATE = G.STATES.DRAW_TO_HAND
+            G.E_MANAGER:add_event(Event({
+                trigger = 'immediate',
+                func = function()
+                    if G.SCORING_COROUTINE then return false end 
+                    G.STATE_COMPLETE = false
+                    return true
+                end
+            }))
+        end
+    end
+
+    return _ret 
+end
+
+local _o_play = G.FUNCS.play_cards_from_highlighted
+G.FUNCS.play_cards_from_highlighted = function(e)
+    if G.GAME.current_round.count_rugen then
+        local _target = pseudorandom_element(G.hand.highlighted, pseudoseed("kino_count_rugen"))
+        G.hand:remove_from_highlighted(_target, true)
+        card_eval_status_text(_target, 'extra', nil, nil, nil,
+            { message = localize('k_kino_rugen'), colour = G.C.BLACK})
+    end
+
+    local _ret = _o_play(e)
+    return _ret
+end
+
+local o_hover = Card.hover
+function Card:hover()
+    local _ret = o_hover(self)
+    if self.config.center == G.P_CENTERS.j_kino_deadpool then
+        self.ability.is_currently_timing = true
+        self.ability.extra.timer = 0
+        card_eval_status_text(self, 'extra', nil, nil, nil,
+            { message = localize('k_kino_deadpool'), colour = G.C.RED})
+
+        local _timer = 0.1
+        local event
+            event = Event {
+                blockable = false,
+                blocking = false,
+                pause_force = true,
+                no_delete = true,
+                trigger = "after",
+                delay = _timer,
+                timer = "UPTIME",
+                func = function()
+                    self.ability.extra.timer = self.ability.extra.timer + (self.ability.extra.chips_rate_per_second * _timer)
+                    if self.ability.is_currently_timing == true then
+                        event.start_timer = false
+                    else
+                        return true
+                    end
+                end
+            }
+            
+
+            G.E_MANAGER:add_event(event)
+    end
+end
+
+local o_stop_hover = Card.stop_hover
+function Card:stop_hover()
+    local _ret = o_stop_hover(self)
+    if self.config.center == G.P_CENTERS.j_kino_deadpool then
+        self.ability.is_currently_timing = nil
+        
+    end
+    return _ret
+end
 ----------------------
 to_big = to_big or function(x, y)
     return x
@@ -797,7 +908,13 @@ G.C.KINO = {
     SILVER_BASE = HEX("d3d3d3"),
     SILVER_DARK = HEX("8e9393"),
     KINO_ORANGE = HEX("ff992f"),
-    KINO_PURPLE = HEX("a445db")
+    KINO_PURPLE = HEX("a445db"),
+
+    KINO_FROST_LIGHT = HEX("a1d7e4"),
+    KINO_FROST_DARK = HEX("7dc1d1"),
+    KINO_FIRE_RED = HEX("df6464"),
+    KINO_FIRE_YELLOW = HEX("ffe38a")
+
 }
 
 SMODS.Gradient({
@@ -818,9 +935,23 @@ SMODS.Gradient({
     cycle = 2.5,
 })
 
+SMODS.Gradient({
+    key = "KINO_FROST",
+    colours = { G.C.KINO.KINO_FROST_LIGHT, G.C.KINO.KINO_FROST_DARK},
+    cycle = 0.5,
+})
+
+SMODS.Gradient({
+    key = "KINO_BURN",
+    colours = { G.C.KINO.KINO_FIRE_RED, G.C.KINO.KINO_FIRE_YELLOW},
+    cycle = 2.5,
+})
+
 G.C.KINO.STRANGE_PLANET = SMODS.Gradients.kino_STRANGE_PLANET
 G.C.KINO.SILVER_SCREEN = SMODS.Gradients.kino_SILVER_SCREEN
-G.C.KINO.KINO_GRADIENT = SMODS.Gradient.kino_KINO_GRADIENT
+G.C.KINO.KINO_GRADIENT = SMODS.Gradients.kino_KINO_GRADIENT
+G.C.KINO.KINO_FROST = SMODS.Gradients.kino_KINO_FROST
+G.C.KINO.KINO_BURN = SMODS.Gradients.kino_KINO_BURN
 
 local genrecolors = loc_colour
 function loc_colour(_c, _default)
@@ -860,6 +991,8 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS["SilverScreen"] = G.C.KINO.SILVER_SCREEN
     G.ARGS.LOC_COLOURS["Bullet"] = G.C.KINO.BULLET
     G.ARGS.LOC_COLOURS["Power"] = G.C.KINO.POWER
+    G.ARGS.LOC_COLOURS["Frost"] = G.C.KINO.KINO_FROST
+    G.ARGS.LOC_COLOURS["Burn"] = G.C.KINO.KINO_BURN
 
     return genrecolors(_c, _default)
 end

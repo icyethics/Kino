@@ -446,6 +446,7 @@ SMODS.current_mod.custom_collection_tabs = function()
 	_return_table[#_return_table + 1] = Blockbuster.Spellcasting.CollectionTab()[1]
 	_return_table[#_return_table + 1] = Blockbuster.Counters.CollectionTab()[1]
 	
-	-- _return_table[#_return_table + 1] = Blockbuster.Playset.CollectionTab()[1]
+	_return_table[#_return_table + 1] = Blockbuster.Playset.CollectionTab()[1]
+	_return_table[#_return_table + 1] = Blockbuster.Playset.CollectionTab_Playset()[1]
     return _return_table
 end

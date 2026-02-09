@@ -191,4 +191,8 @@ function CardArea:align_cards()
         Blockbuster.update_spellslingerdeck_UI()
         Blockbuster.update_spellslingerdeck_UI_sleeve()
     end
+
+    if self == G.deck and G.GAME.current_round.saruman_blind and Kino then
+        Kino.update_saruman_UI()
+    end
 end

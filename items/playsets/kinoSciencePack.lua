@@ -6,6 +6,7 @@ Blockbuster.Playset.Playset {
     name = "Science & Machines",
     types = {"Large","Aesthetic"},
     sets = {"Joker", "Enhanced", "Tarot", "Spectral", "Voucher", "Booster"},
+    displayImage = "j_rocket",
     packages = {
         -- 200~ jokers
         -- 10~ enhancements

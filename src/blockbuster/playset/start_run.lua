@@ -2,20 +2,37 @@ local _o_gsr = Game.start_run
 function Game:start_run(args)
     local ret = _o_gsr(self, args)
 
-    -- args.playset = Blockbuster.Playset.Playsets["kino_standardsize_movies"]
+    if Blockbuster.Playset.startup and Blockbuster.Playset.startup.choices and
+    Blockbuster.Playset.startup.choices.playset then
+        args.playset = Blockbuster.Playset.startup.choices.playset
+    end
     -- args.playset = Blockbuster.Playset.Playsets["kino_science_pack"]
 
     if args.playset then
+
         -- load in item legality
         local _playset = args.playset
         local _legal_items = {}
         local _banned_items = {}
         local _DEBUG_count = 0
         local _legal_sets = args.playset.sets or {}
-
+        local _modifications_legal = {}
+        local _modifications_banned = {}
         local DEBUG_hash = {}
+        
+        if Blockbuster.Playset.startup.contentPackages then
+            for _key, _state in pairs(Blockbuster.Playset.startup.contentPackages) do
+                local _bool = true
+                if _state == "Ban" then _bool = false end
+                _playset.packages[_key] = _bool
+                print(_playset.packages[_key])
+            end
+        end
 
+        print("-----")
         for _package_key, _bool in pairs(_playset.packages) do
+            print(_package_key)
+            print(_bool)
             local _content_package = Blockbuster.Playset.ContentPackages[_package_key]
             if _content_package ~= nil then
             else

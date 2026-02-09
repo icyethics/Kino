@@ -1,4 +1,4 @@
-V 1.0:
+V 0.13:
 
 New Jokers:
 - Cat People
@@ -27,6 +27,53 @@ New Jokers:
 -- PLANNED:
 - Truman Show
 - Pan's Labyrinth
+
+- New Counters:
+- Shock Counters
+- Frost Counters
+- Drought Counters
+
+- New Blinds (29):
+
+- Mr. Glass
+- Count Rugen
+- Rupert Pupkin
+- Saruman
+- Annie Wilkes
+- Pearl
+- Slot Canyon (Ability Blind)
+- King Kong (Ability Blind)
+- Godzilla (Showdown Ability Blind)
+
+- Elsa
+- Jack Torrance
+- Krampus (Ability Blind)
+
+- Zeus
+- The Cable Guy
+- Electro (Ability Blind)
+
+- Scorpion King
+- Im-Ho-Tep
+- Rattlesnake Jake (Ability Blind)
+
+- Ronald Bartel
+- Varang
+- Te Ka (Ability Blind)
+
+- Evil Queen
+- Poppy Adams (Ability Blind)
+
+- Freddy Krueger
+- Rose the Hat
+- The Flatline (Ability Blind)
+
+- Jacob Morley
+- Clubber Lang
+- Ghost Rider (Ability Blind)
+
+Bug Fixes:
+- Sleep Counters no longer crash the game when examined in the collection
 
 
 V 0.12.1:

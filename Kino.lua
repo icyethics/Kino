@@ -44,7 +44,8 @@ local non_jokeratlases =
     {"kino_seg_display", 71, 95, "kino_seg_display.png"},
     {"kino_counters_jokers", 71, 95, "kino_retrigger_info.png"},
     {"kino_counters_pcards", 71, 95, "kino_counters_pcards.png"},
-    {"kino_splash_screen", 409, 211, "kino_splash_sprite.png"},
+    -- {"kino_splash_screen", 409, 211, "kino_splash_sprite.png"},
+    {"kino_splash_screen", 420, 211, "kino_splash_sprite_v2.png"},
     {'kino_atlas_legendary', 71, 95, 'kino_jokers_legendary.png'},
     {'non_suit_spells', 71, 95, 'non_suit_spells.png'},
     {'kino_bullets', 71, 95, 'kino_bullets.png'},
@@ -258,16 +259,39 @@ for _, file in ipairs(files) do
     assert(SMODS.load_file("items/stakes/" .. file))()
 end
 
--- local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/playsets")
--- for _, file in ipairs(files) do
---     assert(SMODS.load_file("items/playsets/" .. file))()
--- end
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/playsets")
+for _, file in ipairs(files) do
+    assert(SMODS.load_file("items/playsets/" .. file))()
+end
 
--- local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/content_packages")
--- for _, file in ipairs(files) do
---     assert(SMODS.load_file("items/content_packages/" .. file))()
--- end
+local files = NFS.getDirectoryItems(Kino.mod_dir .. "items/content_packages")
+for _, file in ipairs(files) do
+    assert(SMODS.load_file("items/content_packages/" .. file))()
+end
 
+-- Load Shaders
+SMODS.Shader {
+    key = 'kino_steel',
+    path = 'kino_steel.fs',
+    send_vars = function(sprite, card)
+        return {
+            -- allowed_colours = {
+            --     HEX("a1aaab"),
+            --     HEX("c6cbcb"),
+            --     HEX("7e898b"),
+            --     HEX("4f6367"),
+            -- },
+            -- -- allowed_colours = {
+            -- --     vec3(0.631, 0.667, 0.671),
+            -- --     vec3(0.773, 0.792, 0.792),
+            -- --     vec3(0.486, 0.535, 0.543),
+            -- --     vec3(0.301, 0.387, 0.402)
+            -- -- },
+            -- allowed_colour_count = 4,
+            -- colour_tolerance = 0.03
+        }
+    end,
+}
 
 kino_genre_init()
 Kino.metadata()
