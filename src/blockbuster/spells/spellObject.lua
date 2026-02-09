@@ -1,5 +1,5 @@
 Blockbuster.Spellcasting.Spells = {}
-
+print("LOADED")
 Blockbuster.Spellcasting.Spell = SMODS.Center:extend({
     obj_table = Blockbuster.Spellcasting.Spells,
     obj_buffer = {},

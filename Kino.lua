@@ -80,18 +80,18 @@ function Kino.load_file(file_address)
     end
 end
 
-local _list_of_files = {
+-- local _list_of_files = {
    
-    "card_ui.lua",
-    "kinofunctions.lua",
-    "jokers.lua",
-    "Kinogenres.lua",
-    "movie_info.lua",
-}
+--     "card_ui.lua",
+--     "kinofunctions.lua",
+--     "jokers.lua",
+--     "Kinogenres.lua",
+--     "movie_info.lua",
+-- }
 
-for _index, _filename in ipairs(_list_of_files) do
-    Kino.load_file(_filename)
-end
+-- for _index, _filename in ipairs(_list_of_files) do
+--     Kino.load_file(_filename)
+-- end
 
 -- Read in Files
 local _list_of_folders = {
