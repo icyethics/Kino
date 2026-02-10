@@ -34,7 +34,6 @@ joker_list = {
 "con_air",
 "cronos",
 "dark_knight",
--- "death_race",
 "dickie_roberts",
 "james_bond_dr_no",
 "double_dragon",
@@ -258,6 +257,7 @@ joker_list = {
 "simpsons",
 "sinners",
 "smile",
+"snakes_on_a_plane",
 "snow_white_1",
 "solo",
 "sound_of_music",
@@ -289,7 +289,6 @@ joker_list = {
 "wizard_of_oz",
 "wolf_man_1",
 "yes_man",
--- "young_frankenstein",
 "your_highness",
 "zardoz",
 'zodiac',
@@ -386,37 +385,7 @@ joker_list = {
 "avengers_endgame",
 "barbie",
 
--- "barbie", 2020s
--- UNIMPLEMENTED The Avengers 2010s
--- "rattatouille", 2000s
--- UNIMPLEMENTED Forrest Gump 1990s
--- "indiana_jones_1", 1980s
--- The Godfather 1970s 
--- "2001_odyssey", 1960s
--- UNIMPLEMENTED A Streetcar Named Desire 1950s STRANGERS ON A TRAIN
--- Citizen Kane 1940s
--- UNIMPLEMENTED Bringing Up Baby 1930s
--- UNIMPLEMENTED Wings 1920s
-
--- 7.1 Jokers
-
--- "inception",
--- "frankenstein"
--- "when_harry_met_sally"
-
-
------- Uncategorized
--- "zodiac",
--- "young_frankenstein",
--- "arrival",
-
-
-
-
-
-
-
-
+----- Exotics
 'shrek_1',
 'beemovie',
 'beemovie_honeygrate'

@@ -3252,6 +3252,13 @@ return {
                     "{C:inactive}(Currently: {C:chips}+#2#{C:inactive} Chips)"
                 }
             },
+            j_kino_snakes_on_a_plane = {
+                name = "Snakes on a Plane",
+                text = {
+                    "When you discard",
+                    "always draw {C:attention}#1#{} cards"
+                }
+            },
             j_kino_snow_white_1 = {
                 name = "Snow White & the 7 Dwarves",
                 text = {
@@ -8391,6 +8398,7 @@ return {
             k_kino_singing_in_the_rain = "What a wonderful feeling",
             k_kino_pans_labyrinth = "Well done, child",
             k_kino_deadpool = "Back to the start!",
+            k_kino_snakes_on_a_plane = "Snakes! On a Plane?!",
 
             k_kino_heartache_stack = "</3",
 
