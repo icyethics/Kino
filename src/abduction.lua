@@ -113,7 +113,7 @@ end
 
 Kino.gather_abducted_cards_by_abductor = function(card)
     local _id = card.ability.kino_abductor_id
-    if not _id then
+    if not _id and card.area == G.jokers then
         print("Set up incorrectly, internal ID for this joker is missing")
     end
 

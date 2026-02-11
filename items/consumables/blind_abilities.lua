@@ -609,7 +609,7 @@ SMODS.Consumable({
     object_type = "Consumable",
     set = "BlindAbility",
     key = "drastic_measure",
-    pos = { x = 1, y = 1 },
+    pos = { x = 3, y = 1 },
     config = {
         max_highlighted = 1,
         extra_slots_used = -1,

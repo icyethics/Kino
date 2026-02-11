@@ -218,6 +218,7 @@ joker_list = {
 "man_who_laughs",
 "mars_attacks",
 "marty",
+"marty_supreme",
 "matrix_1",
 "men_in_black_1",
 "minecraft",
@@ -304,6 +305,7 @@ joker_list = {
 "batman_returns",
 "batmanvsuperman",
 "beetlejuice_1988",
+"black_panther",
 "blade_runner",
 "blair_witch",
 "blank_check",
@@ -646,9 +648,15 @@ timer_objects = {
 }
 
 Kino.legendaries = {
+    "bringing_up_baby",
     "citizen_kane",
+    "singing_in_the_rain",
     "2001_odyssey",
+    "godfather",
+
     "indiana_jones_1",
+    "forrest_gump",
     "ratatouille",
-    "barbie"
+    "avengers_endgame",
+    "barbie",
 }

@@ -267,7 +267,6 @@ SMODS.Blind{
                         offset = {x = 0, y = -1},
                         silent = true
                     })
-                    -- Kino.change_counters(_target, "kino_debt", 3)
                     _target:bb_counter_apply("counter_debt", 3)
                     play_sound('tarot2', 1, 0.4)
                     blind:wiggle()

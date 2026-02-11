@@ -23,6 +23,11 @@ function Kino.get_small_blind()
         end
     end
 
+    if G.GAME.modifiers.kino_boss_rush and G.GAME.round_resets.ante == G.GAME.win_ante then
+        _blind = get_new_boss()
+        G.GAME.kino_boss_mode_small_is_boss = true
+    end
+
     return _blind
 end
 
@@ -35,6 +40,11 @@ function Kino.get_big_blind()
             _blind = get_new_boss()
             G.GAME.kino_boss_mode_big_is_boss = true
         end
+    end
+
+    if G.GAME.modifiers.kino_boss_rush and G.GAME.round_resets.ante == G.GAME.win_ante then
+        _blind = get_new_boss()
+        G.GAME.kino_boss_mode_big_is_boss = true
     end
 
     return _blind
@@ -81,4 +91,13 @@ function Kino.lower_blind(number, is_absolute)
 
     G.GAME.blind.chips = math.ceil(math.max(G.GAME.blind.chips - _lower_by, 1))
     G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+end
+
+local o_create_uibox_blind_tag = create_UIBox_blind_tag
+function create_UIBox_blind_tag(blind_choice, run_info)
+    if G.GAME.modifiers.kino_boss_rush and G.GAME.round_resets.ante == G.GAME.win_ante then
+
+    else
+        return o_create_uibox_blind_tag(blind_choice, run_info)
+    end
 end

@@ -51,6 +51,7 @@ local non_jokeratlases =
     {'kino_bullets', 71, 95, 'kino_bullets.png'},
     {'kino_stakes', 29, 29, 'kino_stakes.png'},
     {'kino_blind_consumables', 71, 95, 'kino_blind_consumables.png'},
+    {'kino_black_panther_sprite', 29, 29, 'kino_black_panther_sprite.png'},
 
     -- -- Crossmod
     -- Cryptid

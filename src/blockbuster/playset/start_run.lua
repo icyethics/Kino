@@ -25,14 +25,10 @@ function Game:start_run(args)
                 local _bool = true
                 if _state == "Ban" then _bool = false end
                 _playset.packages[_key] = _bool
-                print(_playset.packages[_key])
             end
         end
 
-        print("-----")
         for _package_key, _bool in pairs(_playset.packages) do
-            print(_package_key)
-            print(_bool)
             local _content_package = Blockbuster.Playset.ContentPackages[_package_key]
             if _content_package ~= nil then
             else

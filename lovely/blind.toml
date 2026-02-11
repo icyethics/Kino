@@ -17,3 +17,21 @@ G.GAME.round_resets.blind_choices.Big = Kino.get_blind("Big")
 G.GAME.round_resets.blind_choices.Boss = Kino.get_blind("Boss")
 '''
 match_indent = true
+
+# [[patches]]
+# [patches.pattern]
+# target = "functions/UI_definitions.lua"
+# pattern = '''
+# if type == 'Small' then
+#     extras = create_UIBox_blind_tag(type, run_info)
+#   elseif type == 'Big' then
+#     extras = create_UIBox_blind_tag(type, run_info)
+# '''
+# position = "at"
+# payload = '''
+# if type == 'Small' then
+#     extras = create_UIBox_blind_tag(type, run_info)
+#   elseif type == 'Big' then
+#     extras = create_UIBox_blind_tag(type, run_info)
+# '''
+# match_indent = true

@@ -525,6 +525,27 @@ return {
                     "{C:Magic}Cast a Spell"
                 }
             },
+            j_kino_black_panther = {
+                name = "Black Panther",
+                text = {
+                    {
+                        "{X:attention,C:white}Active{}: Score is played",
+                        "against this Joker instead of blind,",
+                        "increase blind and lose stored score",
+                        "at end of ante"
+                    },
+                    {
+                        "Gain {C:attention}#1#{} Charge when",
+                        "requirement is beaten",
+                        "{C:inactive}(Currently: {C:attention}#2#{C:inactive}/{C:attention}#3#{C:inactive} Score)"
+                    },
+                    {
+                        "{X:inactive,C:white}Inactive{}: Gives {X:mult,C:white}X#4#{} Mult",
+                        "per {C:attention}Charge",
+                        "{C:inactive}(Currently: {X:mult,C:white}X#5#{C:inactive} Mult)"
+                    }
+                }
+            },
             j_kino_black_swan = {
                 name = "Black Swan",
                 text = {
@@ -1961,12 +1982,6 @@ return {
             },
             j_kino_joe_dirt = {
                 name = "Joe Dirt",
-                -- text = {
-                --     "Gain {C:chips}+#2#{} Chips when",
-                --     "a {C:spades}Spade{} is discarded,",
-                --     "resets at end of round",
-                --     "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
-                -- },
                 text = {
                     "Played {C:spades}Spades{} give {C:chips}+#1#{} Chips",
                     "for each {C:attention}non-Spade{} discarded this round",
@@ -2277,6 +2292,15 @@ return {
                 unlock = {
                     "Level up {C:attention}Four of a Kind",
                     "to level {C:attention}10{} or higher"
+                }
+            },
+            j_kino_marty_supreme = {
+                name = "Marty Supreme",
+                text = {
+                    "If {C:attention}first{} hand of round",
+                    "contains exactly {C:attention}2{} cards",
+                    "increase rank of leftmost card by 1",
+                    "and lower rank of rightmost card by 1"
                 }
             },
             j_kino_marty = {
@@ -8222,7 +8246,7 @@ return {
             b_kino_pull = "TAKE",
             b_questlog = "Quests",
             kino_select_playset = "Playset",
-
+            k_kino_legendary = "Legendaries",
             -- Actor UI
             k_kino_shared_cast = "Jokers with Shared Cast",
             k_kino_directed_by = "Directed by: ",
@@ -8399,6 +8423,8 @@ return {
             k_kino_pans_labyrinth = "Well done, child",
             k_kino_deadpool = "Back to the start!",
             k_kino_snakes_on_a_plane = "Snakes! On a Plane?!",
+            k_kino_marty_supreme_1 = "Ping",
+            k_kino_marty_supreme_2 = "Pong",
 
             k_kino_heartache_stack = "</3",
 
@@ -8511,8 +8537,8 @@ return {
 
             k_kino_legendary_quest_tutorial = {
                 "Quest jokers will lower in rarity",
-                "for each quest condition you",
-                "are currently meeting"
+                "for each condition you're meeting",
+                "after the 2nd one"
             },
             -- Legendary Joker Quests
             -- -- 2001: A Space Odyssey

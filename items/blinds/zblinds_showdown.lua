@@ -2,7 +2,7 @@ SMODS.Blind{
     key = "thanos",
     dollars = 5,
     mult = 2,
-    boss_colour = HEX('3f5634'),
+    boss_colour = HEX('815e88'),
     atlas = 'kino_blinds', 
     boss = {min = 4, max = 10, showdown = true},
     pos = { x = 0, y = 30},

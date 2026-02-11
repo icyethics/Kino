@@ -22,7 +22,6 @@ end
 function create_UIBox_playsets()
     local _pool = {}
     for i, v in pairs(Blockbuster.Playset.Playsets) do
-        print(i)
         _pool[i] = v
     end
     

@@ -1,6 +1,6 @@
 V 0.13:
 
-New Jokers:
+New Jokers (25):
 - Cat People
 - Dr. No
 - Da 5 Bloods
@@ -17,6 +17,13 @@ New Jokers:
 - Final Destination
 - Goodburger
 - The Substance
+- Deadpool
+
+- Black Panther
+- The Truman Show
+- Pan's Labyrinth
+- Marty Supreme
+- Snakes on a Plane
 
 - The Godfather
 - Forrest Gump
@@ -24,16 +31,12 @@ New Jokers:
 - Avengers: Endgame
 - Singing In The Rain
 
--- PLANNED:
-- Truman Show
-- Pan's Labyrinth
-
-- New Counters:
+New Counters:
 - Shock Counters
 - Frost Counters
 - Drought Counters
 
-- New Blinds (29):
+New Blinds (29):
 
 - Mr. Glass
 - Count Rugen
@@ -74,7 +77,7 @@ New Jokers:
 
 Bug Fixes:
 - Sleep Counters no longer crash the game when examined in the collection
-
+- Abduction Jokers no longer print a debug statement when hovered over in the collection
 
 V 0.12.1:
 

@@ -301,31 +301,31 @@ end
 -- Dragging a card around all over the place: ++
 -- mouse motion: +0.5
 
-local TV_Sprite
-local UI_Sprite
-local canvas = love.graphics.newCanvas(1920, 1080)
-canvas:renderTo(love.graphics.clear, 0, 0, 0, 0)
-SMODS.DrawStep {
-    key = "kino_truman_show",
-    order = 50,
-    func = function(card, layer)
-        if card and card.config.center == G.P_CENTERS.j_kino_truman_show then
-            TV_Sprite = TV_Sprite or Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["kino_ui"], {x = 8, y = 0})
-            TV_Sprite.role.draw_major = card
-            TV_Sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, 0.5,2)
+-- local TV_Sprite
+-- local UI_Sprite
+-- local canvas = love.graphics.newCanvas(1920, 1080)
+-- canvas:renderTo(love.graphics.clear, 0, 0, 0, 0)
+-- SMODS.DrawStep {
+--     key = "kino_truman_show",
+--     order = 50,
+--     func = function(card, layer)
+--         if card and card.config.center == G.P_CENTERS.j_kino_truman_show then
+--             TV_Sprite = TV_Sprite or Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["kino_ui"], {x = 8, y = 0})
+--             TV_Sprite.role.draw_major = card
+--             TV_Sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, 0.5,2)
 
-            love.graphics.push()
-            love.graphics.origin()
-            canvas:renderTo(love.graphics.clear, 0, 0, 0, 0)
-            love.graphics.setColor(1, 1, 1)
-            canvas:renderTo(love.graphics.print, card.ability.extra.current_rating_non, 175, 50, 0, 1.5)
-            love.graphics.pop()
+--             love.graphics.push()
+--             love.graphics.origin()
+--             canvas:renderTo(love.graphics.clear, 0, 0, 0, 0)
+--             love.graphics.setColor(1, 1, 1)
+--             canvas:renderTo(love.graphics.print, card.ability.extra.current_rating_non, 175, 50, 0, 1.5)
+--             love.graphics.pop()
 
-            UI_Sprite = UI_Sprite or UISprite(0, 0, G.CARD_W, G.CARD_H,
-            G.ASSET_ATLAS["kino_ui"], { x = 0, y = 0 })
-            UI_Sprite.role.draw_major = card
-            UI_Sprite:draw_shader(card.children.center, canvas)
-        end
-    end,
-    conditions = {vortex = false, facing = 'front'}
-}
+--             UI_Sprite = UI_Sprite or UISprite(0, 0, G.CARD_W, G.CARD_H,
+--             G.ASSET_ATLAS["kino_ui"], { x = 0, y = 0 })
+--             UI_Sprite.role.draw_major = card
+--             UI_Sprite:draw_shader(card.children.center, canvas)
+--         end
+--     end,
+--     conditions = {vortex = false, facing = 'front'}
+-- }

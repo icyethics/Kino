@@ -5,116 +5,153 @@ function create_UIBox_quest_log(simple)
 
 	-- Gather legendary jokers
 	local _questjokers_ui_elements = {}
+	local _questjokers_ui_elements_2 = {}
 	local questjokerpages = {}
-	local questjokers_per_page = 4
+	local questjokers_per_page = 5
 
-	
+	Kino.list_of_legendary_centers = {}
+	for _index, _key in ipairs(Kino.legendaries) do
+		Kino.list_of_legendary_centers[_index] = G.P_CENTERS["j_kino_" .. _key]
+	end
 
-	for i = 1, 5 do
-	
-		-- Create Card Area to place card
-		local _questarea = CardArea(
+	Kino.run_info_showcase_jokers = {}
+
+
+	local _legendary_pages = {}
+    for i = 1, math.ceil(#Kino.legendaries/questjokers_per_page) do
+        table.insert(_legendary_pages, localize('k_kino_legendary')..' '..tostring(i)..'/'..tostring(math.ceil(#Kino.legendaries/questjokers_per_page)))
+    end
+
+	Kino.runinfo_showcase_areas_top = {}
+	for i = 1, questjokers_per_page do
+		Kino.runinfo_showcase_areas_top[i] = CardArea(
 			G.ROOM.T.x + 0.2*G.ROOM.T.w/2,
 			G.ROOM.T.h,
 			G.CARD_W, 
 			G.CARD_H,  
 			{card_limit = 1, type = 'title', highlight_limit = 0, collection = true}
 		)
-
-		-- Gather card
-		local _center = G.P_CENTERS["j_kino_" .. Kino.legendaries[i]]
-		-- local _center = G.P_CENTERS.j_kino_barbie
-		local _card =  Card(
-			_questarea.T.x + _questarea.T.w/2, 
-			_questarea.T.y, 
+	end
+	Kino.runinfo_showcase_areas_bot = {}
+	for i = 1, questjokers_per_page do
+		Kino.runinfo_showcase_areas_bot[i] = CardArea(
+			G.ROOM.T.x + 0.2*G.ROOM.T.w/2,
+			G.ROOM.T.h,
 			G.CARD_W, 
-			G.CARD_H, 
-			nil, 
-			_center,
-			{bypass_discovery_center=true,bypass_discovery_ui=true,bypass_lock=true}
+			G.CARD_H,  
+			{card_limit = 1, type = 'title', highlight_limit = 0, collection = true}
 		)
-		-- 
-		_card.ambient_tilt = 0
-		_card.states.visible = true
-		_card:start_materialize(nil, true)
-		_questarea:emplace(_card)
+	end
 
-		local _questcompletion = 0
-		local garbage = nil
-		if _center then
-			garbage, _questcompletion = _center:legendary_conditions(self, _center)
-		end
+	Kino.runinfo_showcase_areas_both = {Kino.runinfo_showcase_areas_top, Kino.runinfo_showcase_areas_bot}
+	
+	for j = 1, 2 do
+		for i = 1, questjokers_per_page do
 		
-		local _text = _questcompletion .. " / 6"
-		local _textcolour = G.C.WHITE
-		local current_rarity = 6 - _questcompletion
-		-- DEBUG COLOURS
-		local _colourdebug = G.C.CLEAR
-		local _aligndebug = "cm"
-		if current_rarity > 3 then
-			current_rarity = 4
-		elseif current_rarity <= 0 then
-			current_rarity = 1
-		end
+			-- Create Card Area to place card
+			-- local _questarea = CardArea(
+			-- 	G.ROOM.T.x + 0.2*G.ROOM.T.w/2,
+			-- 	G.ROOM.T.h,
+			-- 	G.CARD_W, 
+			-- 	G.CARD_H,  
+			-- 	{card_limit = 1, type = 'title', highlight_limit = 0, collection = true}
+			-- )
 
-		-- Create UI object
-		local _questjokerobject = {
-			n = G.UIT.C,
-			config = {
-				align = "cm", 
-				padding = 0,
-				no_fill = true,
-				colour = G.C.CLEAR
-			},
-			nodes = {
-				-- Joker
-				{
-					n = G.UIT.R,
-					config = 
-						{ 
-							align = "cm", 
-							padding = 0.04, 
-							colour = G.C.CLEAR
-						},
-					nodes = {
-						{
-							n=G.UIT.O,
-							config = {
-								object = _questarea
+			-- Gather card
+			local _center = Kino.list_of_legendary_centers[i + ((j - 1) * 5)]
+			-- local _center = G.P_CENTERS.j_kino_barbie
+			local _card =  Card(
+				Kino.runinfo_showcase_areas_top[i].T.x + Kino.runinfo_showcase_areas_top[i].T.w/2, 
+				Kino.runinfo_showcase_areas_top[i].T.y, 
+				G.CARD_W, 
+				G.CARD_H, 
+				nil, 
+				_center,
+				{bypass_discovery_center=true,bypass_discovery_ui=true,bypass_lock=true}
+			)
+			-- 
+			_card.ambient_tilt = 0
+			_card.states.visible = true
+			_card:start_materialize(nil, true)
+			Kino.runinfo_showcase_areas_both[j][i]:emplace(_card)
+
+			local _questcompletion = 0
+			local garbage = nil
+			if _center then
+				garbage, _questcompletion = _center:legendary_conditions(self, _center)
+			end
+			
+			local _text = _questcompletion .. " / 6"
+			local _textcolour = G.C.WHITE
+			local current_rarity = 6 - _questcompletion
+			-- DEBUG COLOURS
+			local _colourdebug = G.C.CLEAR
+			local _aligndebug = "cm"
+			if current_rarity > 3 then
+				current_rarity = 4
+			elseif current_rarity <= 0 then
+				current_rarity = 1
+			end
+
+			-- Create UI object
+			local _questjokerobject = {
+				n = G.UIT.C,
+				config = {
+					align = "cm", 
+					padding = 0,
+					no_fill = true,
+					colour = G.C.CLEAR
+				},
+				nodes = {
+					-- Joker
+					{
+						n = G.UIT.R,
+						config = 
+							{ 
+								align = "cm", 
+								padding = 0.04, 
+								colour = G.C.CLEAR
+							},
+						nodes = {
+							{
+								n=G.UIT.O,
+								config = {
+									object = Kino.runinfo_showcase_areas_both[j][i]
+								}
 							}
 						}
-					}
-				},
-				-- Quest button 
-				{
-					n = G.UIT.R,
-					config = 
-						{ 
-							minw = G.CARD_W,
-							align = _aligndebug, 
-							colour = G.C.CLEAR
-						},
-					nodes = {
-						{
-							n = G.UIT.C,
-							config = 
-								{ 
-									align = _aligndebug, 
-									padding = 0.1,
-									minw = 1.7,
-									minh = 0.4,
-									r = 0.1, 
-									colour = G.C.RARITY[current_rarity]
-								},
-							nodes = {
-								-- Text object
-								{
-									n = G.UIT.T,
-									config = {
-										text = _text,
-										colour = _textcolour, 
-										scale = 0.5, 
-										shadow = false
+					},
+					-- Quest button 
+					{
+						n = G.UIT.R,
+						config = 
+							{ 
+								minw = G.CARD_W,
+								align = _aligndebug, 
+								colour = G.C.CLEAR
+							},
+						nodes = {
+							{
+								n = G.UIT.C,
+								config = 
+									{ 
+										align = _aligndebug, 
+										padding = 0.1,
+										minw = 1.7,
+										minh = 0.4,
+										r = 0.1, 
+										colour = G.C.RARITY[current_rarity]
+									},
+								nodes = {
+									-- Text object
+									{
+										n = G.UIT.T,
+										config = {
+											text = _text,
+											colour = _textcolour, 
+											scale = 0.5, 
+											shadow = false
+										}
 									}
 								}
 							}
@@ -122,9 +159,13 @@ function create_UIBox_quest_log(simple)
 					}
 				}
 			}
-		}
 
-		table.insert(_questjokers_ui_elements, _questjokerobject)
+			if j == 1 then 
+				table.insert(_questjokers_ui_elements, _questjokerobject)
+			else
+				table.insert(_questjokers_ui_elements_2, _questjokerobject)
+			end
+		end
 	end
 
 	local _textobjects = {}
@@ -141,7 +182,7 @@ function create_UIBox_quest_log(simple)
 				config = {
 					text = _text,
 					colour = G.C.WHITE, 
-					scale = 0.6, 
+					scale = 0.3, 
 					shadow = false
 				}}
 			}  
@@ -167,7 +208,7 @@ function create_UIBox_quest_log(simple)
 					align = "cm", 
 					minw = 10,
 					minh = 7.7, 
-					colour = G.C.BLACK, 
+					colour = G.C.CLEAR, 
 					r = 1, 
 					padding = 0.15, 
 					emboss = 0.05
@@ -178,7 +219,9 @@ function create_UIBox_quest_log(simple)
 						n=G.UIT.R, 
 						config = {
 							align = "tm",
-							colour = G.C.CLEAR
+							-- colour = G.C.WHITE,
+							colour = G.C.L_BLACK, 
+							r = 1, 
 						}, 
 						nodes = _textobjects
 					},
@@ -192,6 +235,18 @@ function create_UIBox_quest_log(simple)
 						}, 
 						nodes = _questjokers_ui_elements
 					},
+					{
+						n=G.UIT.R, 
+						config = {
+							align = "cm",
+							colour = G.C.CLEAR
+						}, 
+						nodes = _questjokers_ui_elements_2
+					},
+
+					-- {n=G.UIT.R, config={align = "cm"}, nodes={
+					-- create_option_cycle({options = _legendary_pages, w = 4.5, cycle_shoulders = true, opt_callback = 'kino_legendary_page', current_option = 1, colour = G.C.RED, no_pips = true, focus_args = {snap_to = true, nav = 'wide'}})
+					-- }}
 				}
 			}
 		}
@@ -205,3 +260,5 @@ G.FUNCS.quest_log = function(e, simple)
     definition = create_UIBox_quest_log(simple),
   }
 end
+
+

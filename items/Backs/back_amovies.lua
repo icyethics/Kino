@@ -678,20 +678,3 @@ SMODS.Back {
     end,
 }
 
--- SMODS.Back {
---     name = "DEBUG DECK",
---     key = "debug_deck",
---     atlas = "kino_backs",
---     pos = {x = 1, y = 1},
---     config = {
---         vouchers = {
---         }
---     },
---     apply = function()
---         G.GAME.kino_boss_mode.Big = true
---         G.GAME.kino_boss_mode_odds.Big = 0.5
---         G.GAME.kino_boss_mode.Small = true
---         G.GAME.kino_boss_mode_odds.Small = 1
---     end
--- }
-

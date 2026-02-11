@@ -140,11 +140,8 @@ Game.init_game_object = function(self)
     }
 
     if G.GAME then
-        print("Picking blind types")
         ret.current_round.boss_blind_selection_1 = pseudorandom_element(_counter_blinds, pseudoseed("kino_blind_type"))
         ret.current_round.boss_blind_selection_2 = pseudorandom_element(_counter_blinds, pseudoseed("kino_blind_type"))
-        print(ret.current_round.boss_blind_selection_1)
-        print(ret.current_round.boss_blind_selection_2)
     end
     
     -- -- Set up visual information 
