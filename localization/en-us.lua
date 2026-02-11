@@ -3867,7 +3867,10 @@ return {
             j_kino_truman_show = {
                 name = "The Truman Show",
                 text = {
-                    "Below: Ratings:"
+                    "Gives {C:chips}Chips{} equal",
+                    "to your {C:attention,E:1}ratings",
+                    " ",
+                    "{C:attention}Current Ratings:"
                 }
                 -- text = {
                 --     {"Gain the current ratings",
