@@ -8248,7 +8248,6 @@ return {
             b_confection_rate = "Confection Rate",
             b_kino_pull = "TAKE",
             b_questlog = "Quests",
-            kino_select_playset = "Playset",
             k_kino_legendary = "Legendaries",
             -- Actor UI
             k_kino_shared_cast = "Jokers with Shared Cast",
@@ -8260,6 +8259,9 @@ return {
 
             -- Blockbuster: Playset UI
             k_blockbuster_included_cards = "Included Cards",
+            k_playset = "Playset",
+            k_contentpackage = "Content Pack",
+            kino_select_playset = "Playset",
 
 
 

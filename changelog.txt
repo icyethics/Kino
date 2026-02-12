@@ -1,3 +1,8 @@
+V 0.13a:
+
+- Fixed Playset module intergration
+- Fixed missing metadata entries
+
 V 0.13:
 
 New Jokers (25):
