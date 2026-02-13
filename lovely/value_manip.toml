@@ -1,0 +1,60 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+localize{type = 'other', key = 'card_chips', nodes = desc_nodes, vars = {specific_vars.nominal_chips}}
+'''
+position = "at"
+payload = '''
+local _total_chips = specific_vars.nominal_chips
+if specific_vars.bb_nominal_multiplier and specific_vars.bb_nominal_multiplier ~= 1 then
+    _total_chips = _total_chips + ((specific_vars.bb_nominal_multiplier * specific_vars.nominal_chips) - specific_vars.nominal_chips)
+end
+
+localize{type = 'other', key = 'card_chips', nodes = desc_nodes, vars = {_total_chips}}
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+loc_vars = { playing_card = not not self.base.colour, value = self.base.value, suit = self.base.suit, colour = self.base.colour,
+                    nominal_chips = self.base.nominal > 0 and self.base.nominal or nil,
+                    bonus_x_chips = self.ability.perma_x_chips ~= 0 and (self.ability.perma_x_chips + 1) or nil,
+                    bonus_mult = self.ability.perma_mult ~= 0 and self.ability.perma_mult or nil,
+                    bonus_x_mult = self.ability.perma_x_mult ~= 0 and (self.ability.perma_x_mult + 1) or nil,
+                    bonus_h_chips = self.ability.perma_h_chips ~= 0 and self.ability.perma_h_chips or nil,
+                    bonus_h_x_chips = self.ability.perma_h_x_chips ~= 0 and (self.ability.perma_h_x_chips + 1) or nil,
+                    bonus_h_mult = self.ability.perma_h_mult ~= 0 and self.ability.perma_h_mult or nil,
+                    bonus_h_x_mult = self.ability.perma_h_x_mult ~= 0 and (self.ability.perma_h_x_mult + 1) or nil,
+                    bonus_p_dollars = self.ability.perma_p_dollars ~= 0 and self.ability.perma_p_dollars or nil,
+                    bonus_h_dollars = self.ability.perma_h_dollars ~= 0 and self.ability.perma_h_dollars or nil,
+                    total_h_dollars = total_h_dollars ~= 0 and total_h_dollars or nil,
+                    bonus_chips = bonus_chips ~= 0 and bonus_chips or nil,
+                    bonus_repetitions = self.ability.perma_repetitions ~= 0 and self.ability.perma_repetitions or nil,
+                }
+'''
+position = "after"
+payload = '''
+print("this path works")
+loc_vars.bb_nominal_multiplier = self.ability.bb_nominal_multiplier ~= 1 and (self.ability.bb_nominal_multiplier) or 1
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "perma_bonus = self.ability and self.ability.perma_bonus or 0,"
+position = "after"
+payload = '''
+bb_nominal_multiplier = 1,
+'''
+match_indent = true
+overwrite = false

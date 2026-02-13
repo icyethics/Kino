@@ -1,3 +1,9 @@
+V 0.13b:
+
+- Fixed issues with Value Manipulation module
+- Added features to Value Manipulation API
+- Fixed issues regarding Cryptid compatibility and value manipulation
+
 V 0.13a:
 
 - Fixed Playset module intergration

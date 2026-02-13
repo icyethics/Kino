@@ -26,6 +26,7 @@ function Card:bb_set_multiplication_bonus(card, source, num, include_layers)
         return true
     end
 
+    print("triggered")
     local _standardObj = Blockbuster.ValueManipulation.CompatStandards[_standard]
 
     if not card.ability.blockbuster_multipliers then
@@ -85,10 +86,19 @@ function Card:bb_set_multiplication_bonus(card, source, num, include_layers)
     end
 
     -- Logic to handle base card bonuses
-    if card and card.ability and (include_layers.All or include_layers.Base or include_layers.Bonus) then
+    if card and card.ability and (include_layers.All or include_layers.Bonus) then
         local _reference_config = card.ability.base_bonus_table or Blockbuster.construct_perma_bonus_table(card)
         _tables_to_check[#_tables_to_check + 1] = {target = card.ability, base = _reference_config}
     end
+
+    -- Logic to handle base card values
+    if card and card.ability and (include_layers.All or include_layers.Base) then
+        local _reference_config = card.ability.playing_card_base_table or Blockbuster.construct_playing_card_base_table(card)
+        _tables_to_check[#_tables_to_check + 1] = {target = card.ability, base = _reference_config}
+    end
+
+    
+    
 
     -- Logic to handle seals (Unfinished)
     -- if card and card.ability and card.ability.seal ~= nil then
@@ -112,7 +122,6 @@ function Card:bb_set_multiplication_bonus(card, source, num, include_layers)
     if Blockbuster.ValueManipulation.vanilla_exemption_joker_list[card.config.center.key] then
         Blockbuster.value_manipulation_vanilla_card(card, source, num)
     end
-
     return true
 end
 
@@ -128,14 +137,15 @@ function Blockbuster.change_values_in_table(card, value_table, reference_table, 
 
     if type(value_table) ~= 'table' then
         if Blockbuster.check_variable_validity_for_mult("extra", standard, override) and type(value_table) == "number" then
-
             if type(reference_table) == 'table' then print("emergency, something is going wrong here!") end
             value_table = reference_table
-
+            
             for source, mult in pairs(multiplier_table) do
                 value_table = value_table * mult
-                card.ability.extra = value_table
+
             end
+            card.ability.extra = value_table
+
         end
     else
         
@@ -204,8 +214,10 @@ function Card:get_total_multiplier(card)
     local _total = 1
 
     for _source, _mult in pairs(card.ability.blockbuster_multipliers) do
+        print(_source .. ":" .. _mult)
         if _mult ~= 1 then
             _total = _total * _mult
+            print("total:" .. _total)
         end
     end
     return _total
@@ -300,7 +312,6 @@ end
 ---@param card Card target card
 ---@return table
 function Blockbuster.construct_perma_bonus_table(card)
-
     local _perma_table = {
         perma_x_chips = card.ability.perma_x_chips ~= 0 and (card.ability.perma_x_chips + 1) or 0,
         perma_mult = card.ability.perma_mult ~= 0 and card.ability.perma_mult or 0,
@@ -314,9 +325,32 @@ function Blockbuster.construct_perma_bonus_table(card)
         bonus = card.ability.bonus ~= 0 and card.ability.bonus or 0,
         perma_bonus = card.ability.perma_bonus ~= 0 and card.ability.perma_bonus or 0,
         bonus_repetitions = card.ability.perma_repetitions ~= 0 and card.ability.perma_repetitions or 0,
+        bb_nominal_multiplier = card.ability.bb_nominal_multiplier ~= 1 and (card.ability.bb_nominal_multiplier) or 1
     }
 
     card.ability.base_bonus_table = _perma_table   
 
     return _perma_table
+end
+
+---Constructs the table of relevant values for base value manipulation (currently only nominal value)
+---@param card Card target card
+---@return table
+function Blockbuster.construct_playing_card_base_table(card)
+    local playing_card_base_table = {
+        bb_nominal_multiplier = card.ability.bb_nominal_multiplier ~= 1 and (card.ability.bb_nominal_multiplier) or 1
+    }
+
+    card.ability.playing_card_base_table = playing_card_base_table   
+
+    return playing_card_base_table
+end
+
+local o_get_chip_bonus = Card.get_chip_bonus
+function Card:get_chip_bonus()
+    local _ret = o_get_chip_bonus(self)
+    if self.ability and self.ability.bb_nominal_multiplier and self.ability.bb_nominal_multiplier ~= 1 then
+        _ret = _ret + ((self.base.nominal * self.ability.bb_nominal_multiplier) - self.base.nominal)
+    end
+    return _ret
 end

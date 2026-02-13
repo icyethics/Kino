@@ -1,8 +1,8 @@
 -- This is a function to account for loading priority
 function Blockbuster.cryptid_crossmod()
-if Kino_Cryptidcheck then
+if Cryptid and Talisman then
 
-    Cryptid.misprintize_value_blacklist.multipliers = false
+    Cryptid.misprintize_value_blacklist.blockbuster_multipliers = false
 
     local o_crypt_man = Cryptid.manipulate
     function Cryptid.manipulate(card, args)
@@ -37,9 +37,10 @@ if Kino_Cryptidcheck then
                 if not card.ability.blockbuster_multipliers then
                     card.ability.blockbuster_multipliers = {}
                 end
-                local _cur_mult = card:get_multiplier_by_source(card, source) or 0
-                local _multiplier_total = Card:get_total_multiplier(card)
+                local _cur_mult = card:get_multiplier_by_source(card, source) or 1
                 
+                local _multiplier_total = Card:get_total_multiplier(card)
+
                 if source and num then
                     if card.ability.blockbuster_multipliers[source] == num then
                         return false
@@ -51,7 +52,7 @@ if Kino_Cryptidcheck then
                         end
                     end 
 
-                    card.ability.blockbuster_multipliers[source] = num        
+                    card.ability.blockbuster_multipliers[source] = num      
                 end
 
                 
@@ -59,9 +60,10 @@ if Kino_Cryptidcheck then
 
                 if _multiplier_total == 0 then _multiplier_total = 1 end
 
-                local _val = _new / _multiplier_total
-
+                local _val = (_new / _multiplier_total)
+                -- local _val = _multiplier_total / _new
                 o_crypt_man(card, {value = _val})
+                
                 return true
             end
         end

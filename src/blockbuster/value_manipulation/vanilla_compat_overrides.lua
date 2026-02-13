@@ -365,3 +365,11 @@ function Blockbuster.vanilla_joker_qualities()
     
     
 end
+
+-- Jokers that don't function properly
+    -- Stencil doesn't increase its xmult
+    -- Banner doesn't increase its chips
+
+    -- RESET ISSUES
+    -- Fibonacci doesn't reset
+    -- Blue Joker doesn't reset

@@ -185,6 +185,12 @@ function bb_handtest2(val)
    
 end
 
+DebugMode = true
+function DebugPrint(args)
+    if DebugMode then
+        print(args)
+    end
+end
 -- SMODS.Keybind({
 --     key_pressed = "k",
 --     held_keys = { "space" },
