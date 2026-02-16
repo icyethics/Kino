@@ -234,10 +234,12 @@ SMODS.Consumable({
                     _valid_targets[#_valid_targets + 1] = _joker
                 end
             end
-            local _joker_target = pseudorandom_element(_valid_targets, pseudoseed("kino_rod"))
-            _joker_target:bb_increment_counter(-1)
-            _counter_types[#_counter_types + 1] = Blockbuster.Counters.get_counter(_joker_target)
-            _counter_total = _counter_total + 1
+            if #_valid_targets > 0 then 
+                local _joker_target = pseudorandom_element(_valid_targets, pseudoseed("kino_rod"))
+                _joker_target:bb_increment_counter(-1)
+                _counter_types[#_counter_types + 1] = Blockbuster.Counters.get_counter(_joker_target)
+                _counter_total = _counter_total + 1
+            end
         end
 
         local _counter = pseudorandom_element(_counter_types, pseudoseed("kino_rod_counter"))

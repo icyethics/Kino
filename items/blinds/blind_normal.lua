@@ -1172,7 +1172,8 @@ SMODS.Blind{
     collection_loc_vars = function(self)
         return {
             vars = {
-                self.debuff.money_earned
+                self.debuff.debt_earned,
+                self.debuff.targets
             }
         }
     end,

@@ -14,6 +14,12 @@ Blockbuster.Spellcasting.Spell = SMODS.Center:extend({
     required_params = {
         "key",
     },
+    inject = function(self)
+        if not G.P_CENTER_POOLS[self.set] then
+            G.P_CENTER_POOLS[self.set] = {}
+        end
+        SMODS.Center.inject(self)
+    end,
     suit_recipe = {
         -- Suit1 (string),
         -- Suit2 (string)
