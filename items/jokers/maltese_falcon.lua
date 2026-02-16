@@ -27,6 +27,7 @@ SMODS.Joker {
         cast = {},
     },
     k_genre = {"Mystery"},
+    enhancement_gate = "m_kino_mystery",
 
     loc_vars = function(self, info_queue, card)
         local _count = 0

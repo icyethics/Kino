@@ -6,6 +6,7 @@ SMODS.ConsumableType {
         name = "Blind Ability",
         collection = "Blind Ability Cards"
     },
+    immune_to_change = true,
     shop_rate = 0,
     default = "c_kino_damsel",
 }

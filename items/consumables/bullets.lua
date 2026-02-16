@@ -12,6 +12,7 @@ SMODS.Consumable({
     unlocked = true,
     discovered = false,
     can_be_sold = false,
+    immune_to_change = true,
     keep_on_use = function(self, card)
         return true
     end,

@@ -2251,6 +2251,7 @@ SMODS.Consumable {
     hidden = true,
     can_be_sold = false,
     is_snackbag = true,
+    immune_to_change = true,
     soul_rate = 0,
     can_use = function(self, card)
         return true

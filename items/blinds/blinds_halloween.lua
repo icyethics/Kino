@@ -19,7 +19,7 @@ SMODS.Atlas {
 
 SMODS.Blind{
     key = "fabrication_machine",
-    dollars = 5,
+    dollars = 10,
     mult = 2,
     boss_colour = HEX('90866d'),
     atlas = 'kinoween_fabrication_machine', 
@@ -302,7 +302,7 @@ SMODS.Atlas {
 
 SMODS.Blind{
     key = "pale_man",
-    dollars = 5,
+    dollars = 10,
     mult = 2,
     boss_colour = HEX('F0cdcd'),
     atlas = 'kinoween_pale_man', 
@@ -477,7 +477,7 @@ SMODS.Atlas {
 
 SMODS.Blind{
     key = "pennywise",
-    dollars = 5,
+    dollars = 10,
     mult = 2,
     boss_colour = HEX('c92828'),
     atlas = 'kinoween_pennywise', 
@@ -618,7 +618,7 @@ SMODS.Atlas {
 
 SMODS.Blind{
     key = "jack_skellington",
-    dollars = 5,
+    dollars = 10,
     mult = 2,
     boss_colour = HEX('c38639'),
     atlas = 'kinoween_jack', 

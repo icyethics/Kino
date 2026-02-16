@@ -1,7 +1,7 @@
 
 SMODS.Blind{
     key = "scorpionking",
-    dollars = 4,
+    dollars = 5,
     mult = 2,
     boss_colour = HEX("8a6848"),
     atlas = 'kino_blinds_2', 
@@ -53,7 +53,7 @@ SMODS.Blind{
 
 SMODS.Blind{
     key = "imhotep",
-    dollars = 4,
+    dollars = 5,
     mult = 2,
     boss_colour = HEX("a29c8f"),
     atlas = 'kino_blinds_2', 
@@ -74,6 +74,9 @@ SMODS.Blind{
         return {
             vars = {
                 localize(G.GAME.current_round.imhotep_suit, 'suits_plural'),
+                colours = {
+                    G.C.SUITS[G.GAME.current_round.imhotep_suit]
+                }
             }
         }
     end,
@@ -81,6 +84,9 @@ SMODS.Blind{
         return {
             vars = {
                 localize("Hearts", 'suits_plural'),
+                colours = {
+                    G.C.SUITS["Hearts"]
+                }
             }
         }
     end,
@@ -104,7 +110,7 @@ SMODS.Blind{
 
 SMODS.Blind{
     key = "rattlesnake_jake",
-    dollars = 5,
+    dollars = 7,
     mult = 2,
     boss_colour = HEX("808a6d"),
     atlas = 'kino_blinds_2', 
@@ -115,7 +121,8 @@ SMODS.Blind{
     },
     in_pool = function(self)
         if G.GAME.current_round.boss_blind_selection_1 == self.debuff.counter_type or
-        G.GAME.current_round.boss_blind_selection_2 == self.debuff.counter_type then
+        G.GAME.current_round.boss_blind_selection_2 == self.debuff.counter_type and
+        (4 <= math.max(1, G.GAME.round_resets.ante)) then
             return true
         end
 

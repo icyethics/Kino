@@ -64,7 +64,7 @@ SMODS.Consumable {
         if G.consumeables and G.consumeables.cards and #G.consumeables.cards > 0 then
             local _valid_targets = {}
             for _index, _cons in ipairs(G.consumeables.cards) do
-                if not _cons.ability.eternal and _cons:can_calculate() then
+                if not _cons.ability.eternal and _cons:can_calculate() and not _cons.config.center.immune_to_change then
                     _valid_targets[#_valid_targets + 1] = _cons
                 end
             end
@@ -76,15 +76,16 @@ SMODS.Consumable {
                         _target:flip()
                         delay(0.1)
                         copy_card(card, _target)
-                        _target.ability.extra.chips = _target.ability.extra.chips + card.ability.extra.a_chips
-                        _target.ability.extra.mult = _target.ability.extra.mult + card.ability.extra.a_mult
-                        _target.ability.card_limit = card.ability.card_limit or 0
-                        _target:flip()
-                        _target:juice_up()
-                        delay(0.1)
-                        card_eval_status_text(_target, 'extra', nil, nil, nil,
-                            { message = localize('k_kino_ego_planet'), colour = G.C.LEGENDARY})
-                        
+                        if _target == G.P_CENTERS.c_kino_ego then
+                            _target.ability.extra.chips = _target.ability.extra.chips + card.ability.extra.a_chips
+                            _target.ability.extra.mult = _target.ability.extra.mult + card.ability.extra.a_mult
+                            _target.ability.card_limit = card.ability.card_limit or 0
+                            _target:flip()
+                            _target:juice_up()
+                            delay(0.1)
+                            card_eval_status_text(_target, 'extra', nil, nil, nil,
+                                { message = localize('k_kino_ego_planet'), colour = G.C.LEGENDARY})
+                        end
                         return true
                     end
                 }))
