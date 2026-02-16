@@ -1,3 +1,9 @@
+V 0.13c:
+
+- Fixed a temporary issue where Kino is unable to load on development versions of SMODS. (Thanks to Myst for her solution)
+- Fixed a crash with Electro's Blind Ability
+- Fixed some localization issues
+
 V 0.13b:
 
 - Fixed issues with Value Manipulation module
