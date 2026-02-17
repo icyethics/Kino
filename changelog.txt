@@ -1,3 +1,9 @@
+V 0.13e:
+
+Bug Fix:
+- Fixed crash when opening deck or copying a card
+- Removed leftover print statements
+
 V 0.13d:
 
 New Content:

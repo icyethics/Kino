@@ -856,16 +856,6 @@ function Card:stop_hover()
     end
     return _ret
 end
-
-local o_copy_card = copy_card
-function copy_card(other, new_card, card_scale, playing_card, strip_edition)
-    if new_card.ability.set == "BlindAbility" or new_card.config.center.immune_to_change then
-        return other
-    end
-    new_card = o_copy_card(other, new_card, card_scale, playing_card, strip_edition)
-
-    return new_card
-end
 ----------------------
 to_big = to_big or function(x, y)
     return x
