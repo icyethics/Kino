@@ -1,3 +1,9 @@
+V 0.13f:
+
+Bug Fixes:
+- Mystery Cards now drain less resources to render
+- School of Rock's animation is now properly timed
+
 V 0.13e:
 
 Bug Fix:
