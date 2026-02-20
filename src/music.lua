@@ -12,6 +12,7 @@ SMODS.Sound {
 
 -- Sounds
 
+-- Confection related sounds
 SMODS.Sound({
   key = "bite",
   path = "bite.ogg"
@@ -20,4 +21,26 @@ SMODS.Sound({
 SMODS.Sound({
   key = "gulp",
   path = "gulp.ogg"
+})
+
+-- Jumpscare & Horror Cards
+SMODS.Sound({
+  key = "boo_1",
+  path = "boo_1.ogg",
+  vol = 2,
+})
+SMODS.Sound({
+  key = "boo_2",
+  path = "boo_2.ogg",
+  vol = 5,
+})
+SMODS.Sound({
+  key = "boo_3",
+  path = "boo_2_2.ogg",
+  vol = 1,
+})
+SMODS.Sound({
+  key = "monster_awaken",
+  path = "monster_awaken.ogg",
+  vol = 2,
 })

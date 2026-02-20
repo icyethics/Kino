@@ -1,3 +1,43 @@
+V 1.0:
+
+TO DO LIST:
+
+Implement Sounds for:
+- Spellcasting
+- Earning Money
+- Jumpscares
+- Abduction
+- Applying Counters
+- Removing Counters (default sound)
+- Drain
+
+Implement Shaders for:
+- Abduction (Star Trek transporter)
+- Burn (Dissolve Effect)
+- Spellcasting
+
+Add particles for:
+- Spellcasting
+
+Implement CanvasSprites For:
+- Various UI objects
+- Timers
+- Truman Show
+
+Boss Blind targeting sprites:
+
+
+Playsets:
+- Thematic Playsets
+- Content Packages of ~15 Jokers (Both thematic and mechanical)
+- Content Package sorting (Player relevant packages should be first in the list, while )
+
+Credit Screen:
+
+
+Rework Boss Blinds:
+- Bonnie & Clyde
+
 V 0.13b:
 
 - Fixed issues with Value Manipulation module
