@@ -19,6 +19,7 @@ local joker_mechanics_toggles = {
 }
 local mod_mechanics_toggles = {
 	-- Mod Mechanics
+	{ref_value = "feedback_box", label = "kino_settings_feedback_box"},
 	{ref_value = "actor_synergy", label = "kino_settings_actor_synergy"},
 	{ref_value = "genre_synergy", label = "kino_settings_genre_synergy"},
 	{ref_value = "movie_jokers_only", label = "kino_settings_movie_jokers_only"},
@@ -36,6 +37,7 @@ local create_menu_toggles = function (parent, toggles)
 	for k, v in ipairs(toggles) do
 		parent.nodes[#parent.nodes + 1] = create_toggle({
 				label = localize(v.label),
+				scale = 0.4,
 				ref_table = kino_config,
 				ref_value = v.ref_value,
 				callback = function(_set_toggle)
@@ -433,6 +435,9 @@ end
 function G.FUNCS.kino_discord(e)
 	love.system.openURL("https://discord.gg/jQQKUurk8K")
 end
+function G.FUNCS.kino_discord_feedback(e)
+	love.system.openURL("https://discord.com/channels/1344729833564934154/1472951673654743204")
+end
 function G.FUNCS.kino_wiki(e)
 	love.system.openURL("https://balatromods.miraheze.org/wiki/Balatro_Goes_Kino")
 end
@@ -450,3 +455,33 @@ SMODS.current_mod.custom_collection_tabs = function()
 	_return_table[#_return_table + 1] = Blockbuster.Playset.CollectionTab_Playset()[1]
     return _return_table
 end
+
+-- Win Feedback UI
+Kino.Victory_feedback_UI = {
+	n = G.UIT.R,
+	config = {
+		align = "cm",
+		padding = 0.08
+	},
+	nodes = {
+		-- {
+		-- 	n = G.UIT.T,
+		-- 	config = {
+		-- 		text = "Want to improve Kino? Give feedback here: ",
+		-- 		shadow = true,
+		-- 		scale = 0.3,
+		-- 		colour = G.C.KINO.KINO_GRADIENT
+		-- 	}
+		-- },
+		UIBox_button({
+			minw = 6, 
+			maxw = 4, 
+			minh = 0.5, 
+			scale = 0.6,
+			-- colour = mix_colours(G.C.BLUE, G.C.GREY, 0.4),
+			colour = G.C.KINO.KINO_GRADIENT,
+			button = "kino_discord_feedback",
+			label = {"Click here to give feedback on Balatro Goes Kino"}
+		}),	
+	}
+}

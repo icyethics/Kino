@@ -15,8 +15,6 @@ kino_genres = {
     "Drama",
     "Family",
     "Fantasy",
-    "Gangster",
-    "Heist",
     "Historical",
     "Horror",
     "Musical",
@@ -27,7 +25,6 @@ kino_genres = {
     "Sports",
     "Superhero",
     "Thriller",
-    "War",
     "Western"
 }
 

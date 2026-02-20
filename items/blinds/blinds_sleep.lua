@@ -1,12 +1,13 @@
 SMODS.Blind{
     key = "freddy_krueger",
-    dollars = 4,
+    dollars = 5,
     mult = 2,
     boss_colour = HEX("aa5858"),
     atlas = 'kino_blinds_2', 
     boss = {min = 1, max = 10},
     pos = { x = 0, y = 16},
     debuff = {
+        chance = 2,
         counter_type = "Sleep"
     },
     in_pool = function(self)
@@ -18,16 +19,19 @@ SMODS.Blind{
         return false
     end,
     loc_vars = function(self)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(self, 1, self.debuff.chance, "kino_boss_blind")
         return {
             vars = {
-
+                new_numerator,
+                new_denominator
             }
         }
     end,
     collection_loc_vars = function(self)
         return {
             vars = {
-
+                1,
+                2
             }
         }
     end,
@@ -44,11 +48,13 @@ SMODS.Blind{
         if context.hand_drawn and not context.blueprint then
             for i = 1, #context.hand_drawn do
                 if context.hand_drawn[i]:get_id() <= 5 then
-                    local _valid_targets = Blockbuster.Counters.get_counter_targets(G.jokers.cards, {"none", "match", "no_match_class"}, "counter_drowsy", {"beneficial"})
-                    local _target = pseudorandom_element(_valid_targets, pseudoseed("kino_freddy"))
-                    _target:bb_counter_apply("counter_drowsy", 1)
-                    card_eval_status_text(context.hand_drawn[i], 'extra', nil, nil, nil,
-                    { message = localize("k_kino_freddy"), colour = G.C.BLACK})
+                    if SMODS.pseudorandom_probability(self, 'kino_freddy_krueger', 1, self.debuff.chance, "kino_boss_blind") then   
+                        local _valid_targets = Blockbuster.Counters.get_counter_targets(G.jokers.cards, {"none", "match", "no_match_class"}, "counter_drowsy", {"beneficial"})
+                        local _target = pseudorandom_element(_valid_targets, pseudoseed("kino_freddy"))
+                        _target:bb_counter_apply("counter_drowsy", 1)
+                        card_eval_status_text(context.hand_drawn[i], 'extra', nil, nil, nil,
+                        { message = localize("k_kino_freddy"), colour = G.C.BLACK})
+                    end
                 end
             end
         end
@@ -57,7 +63,7 @@ SMODS.Blind{
 
 SMODS.Blind{
     key = "rose_the_hat",
-    dollars = 4,
+    dollars = 5,
     mult = 2,
     boss_colour = HEX("9ae4e7"),
     atlas = 'kino_blinds_2', 
@@ -118,18 +124,21 @@ SMODS.Blind{
 
 SMODS.Blind{
     key = "flatline",
-    dollars = 5,
+    dollars = 7,
     mult = 2,
     boss_colour = HEX("74db6c"),
     atlas = 'kino_blinds_2', 
     boss = {min = 4, max = 10},
     pos = { x = 0, y = 15},
     debuff = {
+        min_counters = 1,
+        max_counters = 4,
         counter_type = "Sleep"
     },
     in_pool = function(self)
         if G.GAME.current_round.boss_blind_selection_1 == self.debuff.counter_type or
-        G.GAME.current_round.boss_blind_selection_2 == self.debuff.counter_type then
+        G.GAME.current_round.boss_blind_selection_2 == self.debuff.counter_type and
+        (4 <= math.max(1, G.GAME.round_resets.ante)) then
             return true
         end
 
@@ -160,7 +169,8 @@ SMODS.Blind{
     end,
     set_blind = function(self)
         for _index, _joker in ipairs(G.jokers.cards) do
-            _joker:bb_counter_apply("counter_sleep", 1)
+            local _num = pseudorandom("kino_flatline", 1, 4)
+            _joker:bb_counter_apply("counter_sleep", _num)
             card_eval_status_text(_joker, 'extra', nil, nil, nil,
             { message = localize("k_kino_flatline"), colour = G.C.BLACK})
         end

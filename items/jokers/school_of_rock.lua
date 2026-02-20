@@ -38,7 +38,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- Turn every scoring card of 5 or lower into a Stone card before scoring
-        if context.before and not context.blueprint and not context.retrigger then
+        if context.after and not context.blueprint and not context.retrigger then
             for _index, _pcard in ipairs(context.scoring_hand) do
                 if _pcard:get_id() <= 5 then
                     local _target_card = _pcard
@@ -46,9 +46,13 @@ SMODS.Joker {
                                 trigger = "after",
                                 delay = 0.4,
                                 func = function()
+                                    local percent = 0.85 + (1-0.999)/(1-0.998)*0.3
+                                    _target_card:flip()
+                                    play_sound('tarot2', percent, 0.6)
                                     card:juice_up(0.3, 0.4)
                                     _target_card:juice_up(0.3, 0.4)
                                     _target_card:set_ability("m_stone")
+                                    _target_card:flip()
                                     return true
                                 end,
                             }))

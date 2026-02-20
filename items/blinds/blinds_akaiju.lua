@@ -4,7 +4,7 @@ SMODS.Blind{
     mult = 5,
     boss_colour = HEX('cdc770'),
     atlas = 'kino_blinds_2', 
-    boss = {min = 3, max = 10},
+    boss = {min = 4, max = 10},
     pos = { x = 0, y = 0},
     debuff = {
 

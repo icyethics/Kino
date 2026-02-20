@@ -38,6 +38,42 @@ Credit Screen:
 Rework Boss Blinds:
 - Bonnie & Clyde
 
+V 0.13f:
+
+Bug Fixes:
+- Mystery Cards now drain less resources to render
+- School of Rock's animation is now properly timed
+
+V 0.13e:
+
+Bug Fix:
+- Fixed crash when opening deck or copying a card
+- Removed leftover print statements
+
+V 0.13d:
+
+New Content:
+- Added a feedback button below the endless button (You can disable this in the config menu)
+
+Bug Fixes:
+- Rogue One no longer triggers on consumable destruction
+- Ego no longer can terraform gameplay-critical consumables, like Bullets
+- Ability Blinds can no longer spawn before ante 4
+
+Gameplay Changes & Fixes:
+- Added spawn conditions to some jokers that were missing them
+- Fixed inconsistent wording related to Stun counters
+- Properly set up pay outs for boss blinds
+- Added a specific text colour for Jumpscare
+- Boss Blind localization updated
+- Removed 'War' and 'Heist' from genre pool
+
+V 0.13c:
+
+- Fixed a temporary issue where Kino is unable to load on development versions of SMODS. (Thanks to Myst for her solution)
+- Fixed a crash with Electro's Blind Ability
+- Fixed some localization issues
+
 V 0.13b:
 
 - Fixed issues with Value Manipulation module

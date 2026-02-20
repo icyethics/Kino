@@ -408,8 +408,10 @@ SMODS.Blind{
         return {
             vars = {
                 localize(_rankasvalue, 'ranks'),
-                localize(G.GAME.current_round.clydesuit, 'suits_plural')
-                
+                localize(G.GAME.current_round.clydesuit, 'suits_plural'),
+                colours = {
+                    G.C.SUITS[G.GAME.current_round.clydesuit]
+                }
             }
         }
     end,
@@ -417,7 +419,10 @@ SMODS.Blind{
         return {
             vars = {
                 localize("2", 'ranks'),
-                localize("Spades", 'suits_plural')
+                localize("Spades", 'suits_plural'),
+                colours = {
+                    G.C.SUITS["Spades"]
+                }
             }
         }
     end,
@@ -940,7 +945,7 @@ SMODS.Blind{
     boss = {min = 1, max = 10},
     pos = { x = 0, y = 19},
     debuff = {
-        timer = 5,
+        timer = 5 * (kino_config.speed_factor / 60),
         active = false,
         defeated = false
     },
@@ -1333,7 +1338,7 @@ SMODS.Blind{
     boss = {min = 1, max = 10},
     pos = { x = 0, y = 26},
     debuff = {
-        timer = 4,
+        timer = 4 * (kino_config.speed_factor / 60),
         active = false,
         defeated = false
     },

@@ -125,7 +125,7 @@ return {
                 name = "The Abyss",
                 text = {
                     "Cards held in hand have",
-                    "a {C:green}#1# in #2#{} chance to {C:attention}Jumpscare",
+                    "a {C:green}#1# in #2#{} chance to {C:Jumpscare}Jumpscare",
                     "increased by {C:green}#3#{} per",
                     "Unscoring card"
                 }
@@ -227,7 +227,7 @@ return {
                     "Each {C:attention}5 or lower{}",
                     "held in hand has",
                     "a {C:green}X in #2#{} chance",
-                    "to {C:attention}Jumpscare{}",
+                    "to {C:Jumpscare}Jumpscare{}",
                     "with X being equal to its rank"
                 }
             },
@@ -1680,8 +1680,8 @@ return {
                 name = "Guardians of the Galaxy Vol. 3",
                 text = {
                     "Turn every {C:planet}Planet",
-                    "owned {X:dark_edition,C:white}Negative",
-                    "at the end of the {C:attention}shop",
+                    "owned {C:dark_edition,E:1}negative",
+                    "at end of {C:attention}shop",
                 },
                 unlock = {
                     "Use {C:StrangePlanet}Ego the Living Planet{}",
@@ -2057,7 +2057,7 @@ return {
                 name = "Killer Klowns from Outer Space",
                 text = {
                     "Destroy a random {C:attention}Joker",
-                    "and create {X:dark_edition,C:white}negative {C:planet}Planets{}",
+                    "and create {C:dark_edition,E:1}negative{C:planet} Planets{}",
                     "for each {C:money}$#1#{} of {C:attention}sell value"
                 },
                 unlock = {
@@ -2957,7 +2957,7 @@ return {
                 text = {
                     "{C:attention}Face Cards{} held in hand",
                     "have a {C:green}#1# in #2#{} chance",
-                    "to {C:attention}Jump Scare"
+                    "to {C:Jumpscare}Jumpscare"
                 }
             },
             j_kino_pulp_fiction = {
@@ -3709,7 +3709,7 @@ return {
                     "Each card held in hand",
                     "that shares a rank",
                     "with a scoring card has a",
-                    "{C:green}#1# in #2#{} chance to {C:attention}Jumpscare"
+                    "{C:green}#1# in #2#{} chance to {C:Jumpscare}Jumpscare"
                 }
             },
             j_kino_they_live = {
@@ -4172,7 +4172,7 @@ return {
                 text = {
                     "After obtaining {C:attention}#3#{} consumables",
                     "the next consumable obtained",
-                    "will become {X:dark_edition,C:white}negative",
+                    "will become {C:dark_edition,E:1}negative",
                     "{C:inactive}(Will trigger after #4# cards)"
                 },
                 unlock = {
@@ -5111,9 +5111,9 @@ return {
                 text = {
                     "Cards held in hand have",
                     "a {C:green}#1# in #2#{} chance to",
-                    "{C:attention}Jumpscare",
+                    "{C:Jumpscare}Jumpscare",
                     "{C:inactive}(Does not get eaten if",
-                    "{C:inactive}no cards Jumpscare)"
+                    "{C:inactive}no cards {C:Jumpscare}Jumpscare{C:inactive})"
                 }
             },
             c_kino_dno_nugget = {
@@ -5764,21 +5764,21 @@ return {
             bl_kino_hannibal = {
                 name = "Dr. Hannibal Lecter",
                 text = {
-                    "Destroy all cards",
+                    "{C:red}Destroy{} all cards",
                     "held in hand",
                     "when you defeat",
-                    "this blind"
+                    "this {C:attention}Blind"
                 }
             },
             bl_kino_vader = {
                 name = "Darth Vader",
                 text = {
                     "{C:attention}Force Choke{} the",
-                    "joker in your Active slot",
+                    "Active {C:attention}Joker",
                     "weakening it by {C:attention}33%",
                     "each round",
                     "After being {C:attention}Force Choked",
-                    "three times, destroy the joker"
+                    "three times, {C:red}destroy{} {C:attention}Joker"
                 }
             },
             bl_kino_mama = {
@@ -5796,44 +5796,31 @@ return {
                 text = {
                     "Decrease base mult",
                     "by {C:mult}#1# for",
-                    "each card destroyed",
+                    "each card {C:red}destroyed",
                     "this run"
-                }
-            },
-            bl_kino_voldemort = {
-                name = "Voldemort",
-                text = {
-                    "Cast an {C:green}Evil Spell",
-                    "based on the first",
-                    "three cards held",
-                    "in hand"
                 }
             },
             bl_kino_gekko = {
                 name = "Gordon Gekko",
                 text = {
-                    "Each card scored",
-                    "has a {C:green}#1# in #2#{}",
-                    "chance to either earn $5",
-                    "or gain 3 {C:attention}Debt Counters{}"
+                    "{C:green}#1# in #2#{} chance to",
+                    "earn {C:money}$5{} or gain 3 {C:attention}Debt Counters{}",
+                    "when card scores"
                 }
             },
             bl_kino_pazuzu = {
                 name = "Pazuzu",
                 text = {
-                    "Possesses the last",
-                    "hand type you played",
-                    "When you play a Possessed",
-                    "hand type, set its level",
-                    "to 1"
+                    "Possesses last played poker hand",
+                    "Possessed poker hand's level",
+                    "is set to 1 when played"
                 }
             },
             bl_kino_xenomorph = {
                 name = "Xenomorph Queen",
                 text = {
-                    "Each card has a ",
                     "{C:green}#1# in #2#{} chance",
-                    "to be debuffed when Scored"
+                    "to debuff cards when scored"
                 }
             },
             bl_kino_bonnieandclyde = {
@@ -5855,24 +5842,23 @@ return {
             bl_kino_wickedwitch = {
                 name = "The Wicked Witch",
                 text = {
-                    "Whenever you discard",
-                    "add 2 Flying Monkeys",
-                    "to your deck"
+                    "Add 2 {C:attention}Flying Monkeys",
+                    "to deck after {C:red}discard"
                 }
             },
             bl_kino_frankbooth = {
                 name = "Frank Booth",
                 text = {
-                    "After your first hand",
-                    "destroy your third Joker",
-                    "after you play a hand"
+                    "After first hand",
+                    "destroy third {C:attention}Joker",
+                    "after hand is played"
                 }
             },
             bl_kino_joker = {
                 name = "The Joker",
                 text = {
-                    "A random Joker",
-                    "becomes {C:attention}Joker",
+                    "A random {C:attention}Joker",
+                    "becomes {C:attention,E:1}Joker",
                     "every second hand",
                     "played"
                 }
@@ -5881,19 +5867,19 @@ return {
                 name = "Hans Gruber",
                 text = {
                     "Joker lose {C:money}$2{}",
-                    "Sell Value when triggered",
-                    "If their value is {C:money}$0",
-                    "or lower, put a Debuff Counter",
+                    "sell value when triggered,",
+                    "if their value is {C:money}$0",
+                    "or lower, put a {C:red}Stun Counter",
                     "on it instead"
                 }
             },
             bl_kino_blofeld = {
                 name = "Ernst Stavro Blofeld",
                 text = {
-                    "If your played hand",
+                    "If played hand",
                     "is as big or larger than",
-                    "your previous hand",
-                    "it doesn't score"
+                    "previous hand",
+                    "it does not score"
                 }
             },
             bl_kino_loki = {
@@ -5907,7 +5893,7 @@ return {
                 name = "Nurse Ratched",
                 text = {
                     "Played hands only score",
-                    "if you hold {C:attention}3{} different",
+                    "if there are {C:attention}3{} different",
                     "suits in hand"
                 }
             },
@@ -5923,46 +5909,46 @@ return {
                 name = "Mr. Chow",
                 text = {
                     "Each scoring card",
-                    "gains 2 {C:attention}Debt counters"
+                    "gains 2 {C:red}Debt counters"
                 }
             },
             bl_kino_deckard_shaw = {
                 name = "Deckard Shaw",
                 text = {
-                    "Discards a random card from hand",
-                    "every 5 seconds"
+                    "{C:red}Discards{} a random card from hand",
+                    "every {C:attention}5 seconds"
                 }
             },
             bl_kino_entity = {
                 name = "An Entity",
                 text = {
-                    "Cards have a {C:green}#1# in #2#{}", 
-                    "chance to become a",
+                    "Scored cards have a {C:green}#1# in #2#{}", 
+                    "chance to change to",
                     "random rank and suit"
                 }
             },
             bl_kino_humungus = {
                 name = "Lord Humungus",
                 text = {
-                    "Discard #1# cards from top",
-                    "of deck when you Play or Discard"
+                    "{C:red}Discard{} #1# cards from top",
+                    "of deck when hand is played or discarded"
                 }
             },
             bl_kino_amadeus = {
                 name = "W. Amadeus Mozart",
                 text = {
                     "Lower base mult",
-                    "by the combined levels",
+                    "by combined levels",
                     "of all hands besides",
-                    "the played hand"
+                    "played poker hand"
                 }
             },
             bl_kino_sallie_tomato = {
                 name = "Sallie Tomato",
                 text = {
-                    "When you discard",
+                    "After discarding",
                     "put #1# {C:attention}Debt Counter",
-                    "on #2# cards held",
+                    "on {C:attention}#2#{} cards held",
                     "in hand"
                 }
             },
@@ -5970,7 +5956,7 @@ return {
                 name = "Agent Smith",
                 text = {
                     "Cards are debuffed",
-                    "unless a card of the same",
+                    "unless a card of same",
                     "or adjacent rank is discarded"
                 }
             },
@@ -5979,31 +5965,32 @@ return {
                 text = {
                     "{C:green}#1# in #2#{} chance to",
                     "put {C:attention}Stun Counters{} equal",
-                    "to your current hands",
-                    "on your left-most Joker",
-                    "when a hand is played"
+                    "to current hands",
+                    "on first {C:attention}Joker",
+                    "when hand is played"
                 }
             },
             bl_kino_beachthatmakesyouold = {
                 name = "Beach That Makes You Old",
                 text = {
-                    "Every #1# seconds, increase the rank",
-                    "of a random card in your hand",
+                    "Every {C:attention}#1# seconds{}", 
+                    "increase the rank",
+                    "of a random card in hand",
                     "or destroy it if it's an Ace"
                 }
             },
             bl_kino_thanos = {
                 name = "Thanos",
                 text = {
-                    "Half your cards are debuffed",
+                    "Half of all cards are debuffed",
                     "and alternate each hand"
                 }
             },
             bl_kino_immortan_joe = {
                 name = "Immortan Joe",
                 text = {
-                    "Discard a card from top",
-                    "of deck for each card Played or Discarded"
+                    "{C:red}Discard{} a card from top",
+                    "of deck for each card played or discarded"
                 }
             },
             bl_kino_palpatine = {
@@ -6011,7 +5998,7 @@ return {
                 text = {
                     "{C:attention}Force Choke{} every",
                     "joker, weakening it",
-                    "by {C:attention}20% each round",
+                    "by {C:attention}20%{} each round",
                     "After being {C:attention}Force Choked",
                     "five times, destroy the joker"
                 }
@@ -6021,7 +6008,7 @@ return {
                 text = {
                     "Each subsequent hand",
                     "must be larger than",
-                    "the previous hand"
+                    "previous hand"
                 }
             },
             
@@ -6038,9 +6025,9 @@ return {
                 name = "Mr. Glass",
                 text = {
                     "Put {C:attention}#1#{} Glass Counters",
-                    "on a random Joker and",
-                    "repeat if Blind is beaten",
-                    "with 2x or more of goal"
+                    "on a random {C:attention}Joker{} and",
+                    "repeat if {C:attention}Blind{} is beaten",
+                    "with {C:red}2x{} or more of goal"
                 }
             },
             bl_kino_count_rugen = {
@@ -6054,15 +6041,15 @@ return {
             bl_kino_rupert_pupkin = {
                 name = "Rupert Pupkin",
                 text = {
-                    "Debuff all but leftmost Joker",
-                    "and retrigger leftmost Joker",
-                    "once for each debuffed Joker"
+                    "{C:red}Debuff{} all but leftmost {C:attention}Joker",
+                    "and {C:attention}retrigger{} leftmost {C:attention}Joker",
+                    "once for each debuffed {C:attention}Joker"
                 }
             },
             bl_kino_saruman = {
                 name = "Saruman",
                 text = {
-                    "Cast a Villanous Spell",
+                    "Cast a {C:Magic}Villanous Spell",
                     "based on rank of leftmost card",
                     "in hand and suit of",
                     "adjacent card"
@@ -6071,7 +6058,7 @@ return {
             bl_kino_annie_wilkes = {
                 name = "Annie Wilkes",
                 text = {
-                    "Destroy a Joker if blind",
+                    "{C:red}Destroy{} a {C:attention}Joker if Blind",
                     "won on first or second hand"
                 }
             },
@@ -6085,8 +6072,8 @@ return {
             bl_kino_pearl = {
                 name = "Pearl",
                 text = {
-                    "Hand size reduced to 1 and",
-                    "gain 2 hand size when hand is",
+                    "Hand size reduced to {C:attention}1{} and",
+                    "gain {C:attention}2{} hand size when hand is",
                     "played or discarded"
                 }
             },
@@ -6102,7 +6089,7 @@ return {
             bl_kino_pale_man_awoken = {
                 name = "The Pale Man",
                 text = {
-                    "Destroy a buffed Joker",
+                    "Destroy a buffed {C:attention}Joker",
                     "whenever a hand is played"
                 }
             },
@@ -6110,7 +6097,7 @@ return {
                 name = "Pennywise",
                 text = {
                     "He he he he he he!",
-                    "WE. ALL.",
+                    "WE. {C:attention,E:1}ALL.",
                     "FLOAT. DOWN. HERE."
                 }
             },
@@ -6145,7 +6132,7 @@ return {
                 text = {
                     "Spread {C:attention}10{}",
                     "{C:Frost}Frost Counters{} across",
-                    "your Jokers"
+                    "your {C:attention}Jokers"
                 }
             },
             bl_kino_jacktorrance = {
@@ -6153,23 +6140,23 @@ return {
                 text = {
                     "When a card scores",
                     "put {C:attention}2{C:Frost} Frost Counters{}",
-                    "on cards in your deck with the same rank"
+                    "on cards in deck with same rank"
                 }
             },
             bl_kino_krampus = {
                 name = "Krampus",
                 text = {
                     "Create a {C:attention}List{} and",
-                    "if played hand contains",
+                    "if played hand contains less",
                     "than {C:attention}#1#{} scoring cards",
-                    "put {C:attention}5{C:Frost} Frost Counters{} on a Joker",
+                    "put {C:attention}5{C:Frost} Frost Counters{} on a {C:attention}Joker",
                     "for each card scored less than {C:attention}#1#",
                 }
             },
 
             -- Drought Counters
             bl_kino_scorpionking = {
-                name = "Scorpion King",
+                name = "The Scorpion King",
                 text = {
                     "Put {C:attention}3{C:Drought} Drought Counters{} on",
                     "every unscoring card"
@@ -6179,16 +6166,17 @@ return {
                 name = "Im-Ho-Tep",
                 text = {
                     "Put {C:attention}2 {C:Drought}Drought Counters{} on every",
-                    "#1# in deck"
+                    "{V:1}#1# in deck"
                 }
             },
             bl_kino_rattlesnake_jake = {
                 name = "Rattlesnake Jake",
                 text = {
-                    "When a card is drawn",
+                    "Create {C:attention}High Noon and",
+                    "when a card is drawn",
                     "put {C:Drought}Drought Counters{} on cards",
-                    "until there are 10 counters in hand and",
-                    "create {C:attention}High Noon"
+                    "until there are {C:attention}10{} Counters in hand",
+                    
                 }
             },
 
@@ -6196,17 +6184,17 @@ return {
             bl_kino_zeus = {
                 name = "Zeus",
                 text = {
-                    "When a Joker triggers",
+                    "When a {C:attention}Joker{} triggers",
                     "put {C:attention}1{C:attention} Shock Counter{}",
-                    "on a card in your deck"
+                    "on a card in deck"
                 }
             },
             bl_kino_cable_guy = {
                 name = "The Cable Guy",
                 text = {
                     "Put {C:attention}2{C:attention} Shock Counters{}",
-                    "on each joker",
-                    "when a hand is played"
+                    "on each {C:attention}Joker",
+                    "when hand is played"
                 }
             },
             bl_kino_electro = {
@@ -6222,21 +6210,21 @@ return {
             bl_kino_ronald_bartel = {
                 name = "Ronald Bartel",
                 text = {
-                    "Put a {C:red}Burn Counter{} on every",
+                    "Put a {C:Burn}Burn Counter{} on every",
                     "{C:attention}5th{} card drawn"
                 }
             },
             bl_kino_varang = {
                 name = "Varang",
                 text = {
-                    "Put a {C:red}Burn Counter{} on the first",
-                    "{C:attention}5{} cards Played or Discarded"
+                    "Put a {C:Burn}Burn Counter{} on first",
+                    "{C:attention}5{} cards played or discarded"
                 }
             },
             bl_kino_te_ka = {
                 name = "Te Kā",
                 text = {
-                    "Set Play and Discard selection limit to 2 and",
+                    "Set play and discard selection limit to 2 and",
                     "create an {C:attention}Eruption",
                 }
             },
@@ -6245,15 +6233,15 @@ return {
             bl_kino_pgande = {
                 name = "PG&E",
                 text = {
-                    "Put 2 {C:green}Poison Counters",
+                    "Put {C:attention}2 {C:green}Poison Counters",
                     "on each card held in hand",
-                    "when a hand is played"
+                    "when hand is played"
                 }
             },
             bl_kino_evilqueen = {
                 name = "Evil Queen",
                 text = {
-                    "If played hand is less than 5 cards",
+                    "If played hand is less than {C:attention}5{} cards",
                     "put a {C:green}Poison Counter{} on scoring",
                     "cards for each card less"
                 }
@@ -6262,7 +6250,7 @@ return {
             bl_kino_poppy_adams = {
                 name = "Poppy Adams",
                 text = {
-                    "Put 100 Poison Counters in your deck and",
+                    "Put 100 {C:green}Poison Counters{} in deck and",
                     "create {C:attention}The Cure"
                 }
             },
@@ -6271,21 +6259,23 @@ return {
             bl_kino_freddy_krueger = {
                 name = "Freddy Krueger",
                 text = {
-                    "When a {C:attention}5 or lower{} is drawn",
-                    "put a {C:red}Drowsy Counter{} on random Joker",
+                    "{C:green}#1# in #2#{} chance when",
+                    "a {C:attention}5 or lower{} is drawn to",
+                    "put a {C:red}Drowsy Counter{} on random {C:attention}Joker",
                 }
             },
             bl_kino_rose_the_hat = {
                 name = "Rose the Hat",
                 text = {
-                    "Put a {C:red}Drowsy Counter{} on a random Joker",
+                    "Put a {C:red}Drowsy Counter{} on a random {C:attention}Joker",
                     "for every {C:attention}enhanced{} card in deck"
                 }
             },
             bl_kino_flatline = {
                 name = "The Flatline",
                 text = {
-                    "Put a {C:red}Sleep Counter{} on every Joker",
+                    "Put between {C:attention}#1# and #2#{} {C:red}Sleep Counters{}", 
+                    "on every {C:attention}Joker",
                     "and create a {C:}Defibrillator"
                 }
             },
@@ -6293,22 +6283,22 @@ return {
             bl_kino_jacob_morley =  {
                 name = "Jacob Morley",
                 text = {
-                    "Put {C:attention}2{} Chain Counters on",
-                    "every 3rd card drawn of each suit"
+                    "Put {C:attention}2{} {C:Chain}Chain Counters{} on",
+                    "every {C:attention}3rd{} card drawn of each suit"
                 }
             },
             bl_kino_clubber =  {
                 name = "Clubber Lang",
                 text = {
-                    "When you discard",
-                    "put a Chain card on every",
+                    "When you {C:red}discard",
+                    "put a {C:Chain}Chain Counter{} on every",
                     "card remaining in hand"
                 }
             },
             bl_kino_ghost_rider =  {
                 name = "Ghost Rider",
                 text = {
-                    "Put {C:attention}#1#{} Chain Counters on",
+                    "Put {C:attention}#1#{} {C:Chain}Chain Counters{} on",
                     "every card in deck and",
                     "create {C:attention}Penance Stare"
                 }
@@ -6327,19 +6317,20 @@ return {
             c_kino_high_noon = {
                 name = "High Noon",
                 text = {
-                    "Select cards with up to {C:attention}#1#{} counters",
-                    "and remove them",
-                    "Re-enable whenever you discard or play"
+                    {"Select cards with up to {C:attention}#1#{} counters",
+                    "and remove them",},
+                    {"Re-enable whenever you discard or play"}
                 }
             },
             c_kino_list = {
                 name = "List",
                 text = {
-                    "Can use if {C:attention}#1#{} cards",
-                    "have been discarded {C:inactive}(#2#/#1#)",
-                    " ",
-                    "Allow {C:attention}#3#{} less card",
-                    "to be scored"
+                    { "Allow {C:attention}#3#{} less card",
+                    "to be scored"},
+                    {
+                        "Can use if {C:attention}#1#{} cards",
+                        "have been discarded {C:inactive}(#2#/#1#)",
+                    }
                 }
             },
             c_kino_lightning_rod = {
@@ -6354,7 +6345,7 @@ return {
                     },
                     {
                         "Remove {C:attention}1{C:attention} Shock Counter{} per Charge",
-                        "from Jokers",
+                        "from {C:attention}Jokers",
                         "and put them on {C:attention}1{} selected",
                         "playing card without Counters"
                     }
@@ -6376,7 +6367,7 @@ return {
                 name = "Cure",
                 text = {
                     "Spend {C:money}$#1#{} to halve",
-                    "the {C:green}Poison Counters{} in your deck",
+                    "the {C:green}Poison Counters{} in deck",
                     "{C:inactive}(Currently: {C:attention}#2# {C:green}Poison Counters{C:inactive} in deck)"
                 }
             },
@@ -6393,7 +6384,7 @@ return {
                 name = "Barrage",
                 text = {
                     {
-                        "Discard every card held in hand"
+                        "{C:red}Discard{} every card held in hand"
                     }
                 }
             },
@@ -6401,10 +6392,10 @@ return {
                 name = "Penance Stare",
                 text = {
                     {
-                        "Double {C:attention}Chain Counters{} on",
+                        "Double {C:Chain}Chain Counters{} on",
                         "selected card and remove {C:attention}1",
                         "counter from all cards that share",
-                        "its suit or rank in your full deck"
+                        "its suit or rank in full deck"
                     }
                 }
             },
@@ -6751,7 +6742,7 @@ return {
                 name = "Jumpscare",
                 text = {
                     "Give {X:mult,C:white}X#1#{} and",
-                    "puts 2 {C:red}Debuff Counters{}",
+                    "puts 2 {C:red}Stun Counters{}",
                     "on the card"
                 }
             },
@@ -6916,7 +6907,7 @@ return {
                 name = "Thriller Seal",
                 text = {
                     "Has a {C:green}#1# in #2#{} chance",
-                    "to {C:attention}Jumpscare{} while",
+                    "to {C:Jumpscare}Jumpscare{} while",
                     "held in hand"
                 }
             },
@@ -7954,7 +7945,7 @@ return {
                 name = "Sleep Counter",
                 text = {
                     "{C:attention}Ticks Down 1",
-                    "{C:attention}1 in Total Counters (#1#) chance",
+                    "{C:green}1 in #1#{} (Total Counters) chance",
                     "to clear all Counters",
                     " ",
                     "Debuffed while this",
@@ -8285,6 +8276,7 @@ return {
             kino_settings_speed_factor = "Quick Timer",
             kino_settings_confection_mechanic = "Confections?", 
 
+            kino_settings_feedback_box = "Feedback Box on Run End",
             kino_settings_actor_synergy = "Actors?",
             kino_settings_self_synergize = "Jokers can synergize with themselves?",
             kino_settings_genre_synergy = "Genre?",

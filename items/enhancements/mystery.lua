@@ -150,7 +150,8 @@ SMODS.DrawStep {
     key = "kino_enhancement_mystery_step",
     order = 50,
     func = function(card, layer)
-        if card and SMODS.has_enhancement(card, 'm_kino_mystery') then
+        -- if card and SMODS.has_enhancement(card, 'm_kino_mystery') then
+        if card and card.config.center == G.P_CENTERS.m_kino_mystery then
             MysterySprite = MysterySprite or Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["kino_enhancements"], {x = 5, y = 1})
             MysterySprite.role.draw_major = card
             MysterySprite:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, nil, 1)

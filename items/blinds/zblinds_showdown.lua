@@ -1,6 +1,6 @@
 SMODS.Blind{
     key = "thanos",
-    dollars = 5,
+    dollars = 8,
     mult = 2,
     boss_colour = HEX('815e88'),
     atlas = 'kino_blinds', 
@@ -75,7 +75,7 @@ SMODS.Blind{
 -- When you play or discard, discard that many cards from top of deck
 SMODS.Blind{
     key = "immortan_joe",
-    dollars = 5,
+    dollars = 8,
     mult = 2,
     boss_colour = HEX('3f5634'),
     atlas = 'kino_blinds', 
@@ -132,7 +132,7 @@ SMODS.Blind{
 
 SMODS.Blind{
     key = "palpatine",
-    dollars = 5,
+    dollars = 8,
     mult = 2,
     boss_colour = HEX('3f5634'),
     atlas = 'kino_blinds', 
@@ -206,7 +206,7 @@ SMODS.Blind{
 
 SMODS.Blind{
     key = "dr_evil",
-    dollars = 5,
+    dollars = 8,
     mult = 2,
     boss_colour = HEX('dcdcdc'),
     atlas = 'kino_blinds', 
@@ -249,7 +249,7 @@ SMODS.Blind{
 
 SMODS.Blind{
     key = "godzilla",
-    dollars = 5,
+    dollars = 8,
     mult = 10,
     boss_colour = HEX('6fd0f7'),
     atlas = 'kino_blinds_2', 

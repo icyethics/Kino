@@ -52,7 +52,7 @@ SMODS.Blind{
 
 SMODS.Blind{
     key = "evilqueen",
-    dollars = 4,
+    dollars = 5,
     mult = 2,
     boss_colour = HEX("4d754d"),
     atlas = 'kino_blinds_2', 
@@ -114,7 +114,7 @@ SMODS.Blind{
 
 SMODS.Blind{
     key = "poppy_adams",
-    dollars = 5,
+    dollars = 7,
     mult = 2,
     boss_colour = HEX("fbf236"),
     atlas = 'kino_blinds_2', 
@@ -125,7 +125,8 @@ SMODS.Blind{
     },
     in_pool = function(self)
         if G.GAME.current_round.boss_blind_selection_1 == self.debuff.counter_type or
-        G.GAME.current_round.boss_blind_selection_2 == self.debuff.counter_type then
+        G.GAME.current_round.boss_blind_selection_2 == self.debuff.counter_type and
+        (4 <= math.max(1, G.GAME.round_resets.ante)) then
             return true
         end
 

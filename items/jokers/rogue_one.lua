@@ -40,7 +40,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         -- When a joker is destroyed, create a Death Star
-        if context.joker_type_destroyed then
+        if context.joker_type_destroyed and context.card.ability.set == "Joker" and context.card ~= card then
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 G.E_MANAGER:add_event(Event({
                     func = function()

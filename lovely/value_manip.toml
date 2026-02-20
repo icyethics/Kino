@@ -43,7 +43,6 @@ loc_vars = { playing_card = not not self.base.colour, value = self.base.value, s
 '''
 position = "after"
 payload = '''
-print("this path works")
 loc_vars.bb_nominal_multiplier = self.ability.bb_nominal_multiplier ~= 1 and (self.ability.bb_nominal_multiplier) or 1
 '''
 match_indent = true
