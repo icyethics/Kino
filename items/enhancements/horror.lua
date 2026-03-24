@@ -44,6 +44,11 @@ SMODS.Enhancement {
                 G.GAME.current_round.horror_transform = G.GAME.current_round.horror_transform + 1
                 card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_monster_turn'), colour = G.C.BLACK })
+                G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+                    play_sound("kino_monster_awaken", 1, 2)
+                return true end }))
+    
+                
                 card:set_ability(G.P_CENTERS.m_kino_monster, nil, true)
                 SMODS.calculate_context({monster_awaken = true})
 

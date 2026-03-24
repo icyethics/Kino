@@ -9,7 +9,7 @@
     "display_name": "Kino",
     "priority": -1,
     "version": "0.13e",
-    "dependencies": ["Steamodded (>=1.0.0~BETA-1221a)", "Lovely (>=0.8)"],
+    "dependencies": ["Steamodded (>=1.0.0~BETA-1408)", "Lovely (>=0.8)"],
     "provides": [
 		"Blockbuster-Counters",
     "Blockbuster-Spellcasting",

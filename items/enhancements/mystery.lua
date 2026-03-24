@@ -1,3 +1,14 @@
+SMODS.Font {
+    key = "handwriting",
+    path = "bradley-hand-itc-regular.ttf",
+}
+
+SMODS.Font {
+    key = "handwriting_bold",
+    path = "bradley-hand-itc-tt-bold.ttf",
+}
+
+
 SMODS.Enhancement {
     key = "mystery",
     atlas = "kino_enhancements",
@@ -6,6 +17,8 @@ SMODS.Enhancement {
         extra = {
             suspect_rank = nil,
             suspect_suit = nil,
+            suspect_rank_ui = "of rank ???",
+            suspect_suit_ui = "suit is ???",
             suspect_rank_revealed = false,
             suspect_suit_revealed = false,
             suspect_rank_visual = "",
@@ -26,6 +39,37 @@ SMODS.Enhancement {
                 }
             }
         }
+    end,
+    set_sprites = function(self, card, front)
+        G.E_MANAGER:add_event(Event({
+            blockable = false,
+            func = function()
+                card.canvas_text = {}
+                card.canvas_text[1] = SMODS.CanvasSprite {
+                    canvasW = 71, canvasH = 95,
+                    text_offset = { x = 33, y = 45 },
+                    text_colour = HEX("74a9b4"),
+                    text_width = 30,
+                    text_height = 20,
+                    text_font = "kino_handwriting_bold",
+                    ref_table = card.ability.extra,
+                    ref_value = "suspect_suit_ui",
+                }
+
+                card.canvas_text[2] = SMODS.CanvasSprite {
+                    canvasW = 71, canvasH = 95,
+                    text_offset = { x = 35, y = 56 },
+                    text_colour = HEX("74a9b4"),
+                    text_width = 30,
+                    text_height = 20,
+                    text_font = "kino_handwriting_bold",
+                    ref_table = card.ability.extra,
+                    ref_value = "suspect_rank_ui",
+
+                }
+                return true
+            end
+        }))
     end,
     calculate = function(self, card, context, effect)
         -- Gain 0.75 mult if you find your suspect
@@ -48,12 +92,14 @@ SMODS.Enhancement {
                 if _suspect:is_suit(card.ability.extra.suspect_suit) then
                     _suitmatch = true
                     card.ability.extra.suspect_suit_revealed = true
+                    card.ability.extra.suspect_suit_ui = "suit is " .. localize(card.ability.extra.suspect_suit, "suits_plural")
                     card:juice_up()
                 end
 
                 if _suspect:get_id() == card.ability.extra.suspect_rank then
                     _rankmatch = true
                     card.ability.extra.suspect_rank_revealed = true
+                    card.ability.extra.suspect_rank_ui = "of rank " .. tostring(card.ability.extra.suspect_rank)
                     card:juice_up()
                 end
 
@@ -81,41 +127,6 @@ SMODS.Enhancement {
                     x_mult = card.ability.extra.x_mult
                 }
             end
-
-
-
-            -- OLD FUNCTIONALITY
-            -- if context.scoring_hand[_mypos + 1] then
-            --     local _suspect = context.scoring_hand[_mypos + 1]
-            --     local _suitmatch = false
-            --     local _rankmatch = false
-
-            --     if _suspect:is_suit(card.ability.extra.suspect_suit) then
-            --         _suitmatch = true
-            --         card.ability.extra.suspect_suit_revealed = true
-            --         card:juice_up()
-            --     end
-
-            --     if _suspect:get_id() == card.ability.extra.suspect_rank then
-            --         _rankmatch = true
-            --         card.ability.extra.suspect_rank_revealed = true
-            --         card:juice_up()
-            --     end
-
-            --     if _suitmatch and _rankmatch then
-            --         card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.a_xmult
-
-            --         -- reset card
-            --         card.ability.extra.suspect_suit_revealed = false
-            --         card.ability.extra.suspect_rank_revealed = false
-            --         local _table = Kino.mystery_card_select(card)
-            --         card.ability.extra.suspect_rank = _table.rank
-            --         card.ability.extra.suspect_suit = _table.suit
-            --         card.ability.extra.suspect_rank_visual = _table.rank_visual
-
-            --         check_for_unlock({type="kino_mystery_card_solved"})
-            --     end
-            -- end
         end
     end,
     add_to_deck = function(self, card, from_debuff)
@@ -124,6 +135,8 @@ SMODS.Enhancement {
         card.ability.extra.suspect_rank = _table.rank
         card.ability.extra.suspect_suit = _table.suit
         card.ability.extra.suspect_rank_visual = _table.rank_visual
+        card.ability.extra.suspect_suit_ui = "suit is ???"
+        card.ability.extra.suspect_rank_ui = "of rank ???"
     end
 }
 
@@ -148,14 +161,15 @@ end
 local MysterySprite
 SMODS.DrawStep {
     key = "kino_enhancement_mystery_step",
-    order = 50,
+    order = 44,
     func = function(card, layer)
         -- if card and SMODS.has_enhancement(card, 'm_kino_mystery') then
         if card and card.config.center == G.P_CENTERS.m_kino_mystery then
             MysterySprite = MysterySprite or Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS["kino_enhancements"], {x = 5, y = 1})
             MysterySprite.role.draw_major = card
-            MysterySprite:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, nil, 1)
+            MysterySprite:draw_shader('dissolve', nil, nil, nil, card.children.center)
         end
     end,
     conditions = {vortex = false, facing = 'front'}
 }
+
