@@ -26,7 +26,6 @@ function Card:bb_set_multiplication_bonus(card, source, num, include_layers)
         return true
     end
 
-    print("triggered")
     local _standardObj = Blockbuster.ValueManipulation.CompatStandards[_standard]
 
     if not card.ability.blockbuster_multipliers then
@@ -214,10 +213,8 @@ function Card:get_total_multiplier(card)
     local _total = 1
 
     for _source, _mult in pairs(card.ability.blockbuster_multipliers) do
-        print(_source .. ":" .. _mult)
         if _mult ~= 1 then
             _total = _total * _mult
-            print("total:" .. _total)
         end
     end
     return _total

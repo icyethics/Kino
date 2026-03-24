@@ -44,7 +44,6 @@ Kino.confection_trigger = function(card)
     end
 
     if card.ability.kino_choco then
-        print("Kino Chocolate should trigger, innit")
         check_for_unlock({type="chocolate_confection_eaten"})
     end
 

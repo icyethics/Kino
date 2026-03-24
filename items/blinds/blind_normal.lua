@@ -372,21 +372,12 @@ SMODS.Blind{
     end,
     calculate = function(self, blind, context)
         if context.individual and context.cardarea == G.play then
-            -- if pseudorandom("alien_blind") < (G.GAME.probabilities.normal / blind.debuff.chance) then
             if SMODS.pseudorandom_probability(self, 'kino_alien_blind', 1, self.debuff.chance, "kino_card_debuff") then    
                 SMODS.debuff_card(context.other_card, true, "xenomorph_blind")
                 return {
                     message = localize("k_kino_xeno_queen")
                 }
             end
-            --     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
-            --         print("This is triggering")
-            --         if context.other_card then
-            --             print("Should debuff")
-                        
-            --         end
-            --     return true end }))
-            -- end
         end
     end
 }

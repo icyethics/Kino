@@ -69,6 +69,5 @@ local _list_of_new_object_types = {
 }
 
 for i, item in ipairs(_list_of_new_object_types) do
-    -- print(item)
     Blockbuster.Playset.register_new_Blockbuster(item[1], item[2], item[3], item[4])
 end

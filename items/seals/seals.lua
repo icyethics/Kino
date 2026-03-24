@@ -94,18 +94,6 @@ SMODS.Seal{
         a_stacks = 1
     },
     loc_vars = function(self, info_queue, card)
-        if card.fake_card then
-            print("FAKE CARD")
-        end
-        if card then
-            print("A")
-            if card.ability then
-                print("B")
-                if card.ability.counter then
-                    print("C")
-                end
-            end
-        end
         return {
             vars = {
                 card.ability.seal.stacks

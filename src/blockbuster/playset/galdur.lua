@@ -200,8 +200,7 @@ Galdur.add_new_page({
 end
 
 function Blockbuster.Playset.display_playset_preview()
-    -- print(Blockbuster.Playset.startup.choices.playset)
-    
+
     local texts = split_string_2(Blockbuster.Playset.startup.choices.playset:get_name())
     -- prints(texts)
     Blockbuster.Playset.preview_texts = {

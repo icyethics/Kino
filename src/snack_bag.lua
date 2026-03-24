@@ -51,11 +51,3 @@ function G.FUNCS.check_for_buy_space(card)
     return o_cfbs(card)
   
 end
-
-function debugcardareaprint(area)
-    if area == Kino.snackbag then print('snack') end
-    if area == G.kino_snackbag then print('snackbag in G') end
-    if area == G.jokers then print('jokers') end
-    if area == G.consumeables then print('consum') end
-    if not area then print('nil') end
-end

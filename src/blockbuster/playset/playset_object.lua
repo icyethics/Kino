@@ -60,8 +60,6 @@ Blockbuster.Playset.Playset = SMODS.Center:extend {
         if self.displayImage or true then
             local _sourceObject = G.P_CENTERS[self.displayImage]
             if not _sourceObject then
-                -- print("MISSING " .. self.displayImage)
-                -- return
                 _sourceObject = G.P_CENTERS.j_joker
             end
 
@@ -79,7 +77,6 @@ Blockbuster.Playset.Playset = SMODS.Center:extend {
     inject = function(self)
     end,
     get_name = function(self)
-        -- print(G.localization.descriptions.Playset[self.key])
         return G.localization.descriptions.Playset[self.key].name
     end
 }

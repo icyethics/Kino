@@ -104,8 +104,6 @@ function Kino.supervillain_level_all_hands(card)
 end
 
 function Kino.supervillain_enact_scheme(card, context, scheme)
-    -- if context then print("context exist") end
-    -- if context.poker_hands then print(context.poker_hands) end
 
    return Kino.table_of_schemes[scheme].enact(card, context)
 

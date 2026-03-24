@@ -37,14 +37,6 @@ SMODS.Joker {
     k_genre = {"Drama", "Sci-fi", "Comedy"},
 
     loc_vars = function(self, info_queue, card)
-        -- local _colour = G.C.GREY
-        -- if card.ability.extra.current_rating_non > card.ability.extra.past_ten_ratings[1] then
-        --     print("GREEN")
-        --     _colour = G.C.GREEN
-        -- elseif card.ability.extra.current_rating_non < card.ability.extra.past_ten_ratings[1] then
-        --     print("RED")
-        --     _colour = G.C.RED
-        -- end
 
         local main_end = {
             -- {n=G.UIT.T, config={text = '  +',colour = G.C.CHIPS, scale = 0.32}},
