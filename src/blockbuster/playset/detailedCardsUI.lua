@@ -98,7 +98,6 @@ function Blockbuster.Playset.create_content_showcase(content_package)
         }
 
     local _description_text = localize({type='description_text', set='ContentPackage', key=Blockbuster.showcase_package_image.key})
-    print(_description_text)
     table.insert(_metadata_nodes, _infonode)
 
     for _, _key in ipairs(_metadata_entries) do

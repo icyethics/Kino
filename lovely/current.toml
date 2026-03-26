@@ -1040,7 +1040,6 @@ end
 position = "before"
 payload = '''
 if G.KINO_SPLASH_LOGO then
-    print("test true") 
     G.KINO_SPLASH_LOGO.states.visible = true
 end
 '''

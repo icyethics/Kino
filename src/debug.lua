@@ -31,3 +31,30 @@ Kino.Debug.CountGenres = function()
     end
     print(_genrecount)
 end
+
+function Kino.Debug.last_played_hand(inc)
+    print(G.GAME.last_played_hand[inc])
+end
+
+function Kino.Debug.ID_check()
+    for _index, _card in ipairs(G.hand.cards) do
+        print("Card #".. _index)
+        print(_card.ID)
+        print(_card.ability.unique_val)
+        print(_card.ability.unique_val__saved_ID)
+    end
+end
+
+function Kino.Debug.print_contexts(context)
+    for _key, _value in pairs(context) do
+        print(_key)
+    end
+end
+
+function Kino.Debug.cardareaprint(area)
+    if area == Kino.snackbag then print('snack') end
+    if area == G.kino_snackbag then print('snackbag in G') end
+    if area == G.jokers then print('jokers') end
+    if area == G.consumeables then print('consum') end
+    if not area then print('nil') end
+end

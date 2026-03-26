@@ -1,17 +1,4 @@
 function Kino.metadata()
--- Load files
--- local Kino.movies, load_error = assert(SMODS.load_file("moviedata/Kino.movies.lua"))()
--- if load_error then
---   sendDebugMessage ("The error is: "..load_error)
--- end
-
--- print(Kino.movies.ID_653.name)
-
--- local Kino.actors, load_error = SMODS.load_file("moviedata/Kino.actors.lua")
--- if load_error then
---   sendDebugMessage ("The error is: "..load_error)
--- end
-
 
 -- Load files
 Kino.movies, load_error = assert(SMODS.load_file("moviedata/movies.lua"))()

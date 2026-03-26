@@ -190,13 +190,9 @@ SMODS.Joker {
                 local _count = 0
                 for i, _pcard in ipairs(context.scoring_hand) do
                     if _pcard ~= context.other_card and _pcard.config.center == context.other_card.config.center then
-                        print(_count)
                         _count = _count + 1
-                    else 
-                        print(i .. " == NO")
                     end
                 end
-                print("Final: " .. _count)
 
                 if _count == 1 then
                     card.ability.extra.stacked_xmult = card.ability.extra.stacked_xmult + card.ability.extra.a_xmult_two

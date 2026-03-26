@@ -151,11 +151,6 @@ function Blockbuster.Playset.register_new_Blockbuster(key, prefix, set, is_consu
     
     local _temp = "NONE"
     if key and type(key) == 'string' then _temp = key end
-    print("Registering " .. _temp .. " as new object type")
-    print(key)
-    print(prefix)
-    print(set)
-    print(is_consumable)
     
     local _ret = {
         Prefix = {},

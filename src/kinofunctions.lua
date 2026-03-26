@@ -335,10 +335,8 @@ end
 
 function Kino.reset_imhotep()
     local _suits = SMODS.Suits
-    print(G.GAME.current_round.imhotep_suit)
     local _picked_key = pseudorandom_element(_suits, pseudoseed("kino_imhotep"))
     G.GAME.current_round.imhotep_suit = _picked_key.key
-    print(G.GAME.current_round.imhotep_suit)
 end
 
 -- For everything that needs to be done when the shop is closed.
@@ -380,7 +378,6 @@ end
 -- Booster:Set_cost hook for oceans_11	
 local b_sc = Card.set_cost
 function Card:set_cost()
-    -- print("entered: " .. (oceans or ""))
     b_sc(self)
     if (self.ability and self.ability.set == "Booster" and G.GAME.kino_oceans_11) then
         self.cost = 0
@@ -623,24 +620,6 @@ function Tag:set_chocolate_bonus(chocolate_bonus)
 end
 
 ------------ Helpers ------------
-function Kino.debugfunc(inc)
-    print(G.GAME.last_played_hand[inc])
-end
-
-function Kino.debugfunc_ID_check()
-    for _index, _card in ipairs(G.hand.cards) do
-        print("Card #".. _index)
-        print(_card.ID)
-        print(_card.ability.unique_val)
-        print(_card.ability.unique_val__saved_ID)
-    end
-end
-
-function Kino.print_contexts(context)
-    for _key, _value in pairs(context) do
-        print(_key)
-    end
-end
 
 function Kino.rank_to_string(rank)
 

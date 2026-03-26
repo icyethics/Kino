@@ -146,15 +146,6 @@ Blockbuster.Counters.Counter {
         cap = 10
     },
     loc_vars = function(self, info_queue, card)
-        if card then
-            print("A")
-            if card.ability then
-                print("B")
-                if card.ability.counter then
-                    print("C")
-                end
-            end
-        end
         return {
             vars = {
                 card.ability and card.ability.counter and card.ability.counter.counter_num or 99

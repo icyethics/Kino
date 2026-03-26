@@ -67,17 +67,6 @@ function Game:start_run(args)
                 end
             end
         end
-
-        -- DEBUG ONLY: REMOVE
-        -- Prints keys included but not found in the check
-        -- print("DEBUG CHECK: tested for each of these sets: ")
-        -- print(_legal_sets)
-        -- print("DEBUG COUNT: Playset should include " .. _DEBUG_count .. " items")
-        -- for _key, _bool in pairs(_legal_items) do
-        --     if not DEBUG_hash[_key] then print("DEBUG CHECK: " .. _key .. " was included in the playset but does not exist") end
-        -- end
-
-
     end
 
     return ret

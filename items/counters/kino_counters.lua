@@ -142,8 +142,6 @@ Blockbuster.Counters.Counter {
 
     end,
     loc_vars = function(self, info_queue, card)
-
-        if card.ability then print(card.ability) end
         return {
             vars = {
                 (card.ability and card.ability.counter) and card.ability.counter.counter_num or 0,
@@ -186,8 +184,6 @@ Blockbuster.Counters.Counter {
 
     end,
     loc_vars = function(self, info_queue, card)
-
-        if card.ability then print(card.ability) end
         return {
             vars = {
 
@@ -257,17 +253,7 @@ Blockbuster.Counters.Counter {
         "detrimental",
     },
     calculate = function(self, card, context)
-        -- if context.pre_discard then
-        --     card:bb_increment_counter(-1)
-        -- end
-        -- if context.pre_discard then
-        --     for _index, _pcard in ipairs(G.hand.highlighted) do
-        --         if _pcard == card then
-        --             G.hand:remove_from_highlighted(_pcard, true)
-        --         end
-        --     end
-        --     print("testing testing testing")
-        -- end
+
     end,
     loc_vars = function(self, info_queue, card)
         return {
