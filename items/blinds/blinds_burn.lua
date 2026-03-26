@@ -30,8 +30,8 @@ SMODS.Blind{
 
     end,
     in_pool = function(self)
-        if G.GAME.current_round.boss_blind_selection_1 == self.debuff.counter_type or
-        G.GAME.current_round.boss_blind_selection_2 == self.debuff.counter_type then
+        if (G.GAME.current_round.boss_blind_selection_1 == self.debuff.counter_type or
+        G.GAME.current_round.boss_blind_selection_2 == self.debuff.counter_type) then
             return true
         end
 
@@ -154,8 +154,8 @@ SMODS.Blind{
         }
     end,
     in_pool = function(self)
-        if G.GAME.current_round.boss_blind_selection_1 == self.debuff.counter_type or
-        G.GAME.current_round.boss_blind_selection_2 == self.debuff.counter_type  and
+        if (G.GAME.current_round.boss_blind_selection_1 == self.debuff.counter_type or
+        G.GAME.current_round.boss_blind_selection_2 == self.debuff.counter_type)  and
         (4 <= math.max(1, G.GAME.round_resets.ante)) then
             return true
         end
