@@ -30,6 +30,8 @@ SMODS.Joker {
     k_genre = {"Drama", "Fantasy", "Mystery"},
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_stun
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_retrigger
         return {
             vars = {
                 card.ability.extra.debuff_counters_non,
@@ -54,11 +56,9 @@ SMODS.Joker {
 
             for _index, _pcard in ipairs(context.scoring_hand) do
                 if not context.blueprint and not context.retrigger then
-                    -- Kino.change_counters(_pcard, "kino_stun", card.ability.extra.debuff_counters_non)
                     _pcard:bb_counter_apply("counter_stun", card.ability.extra.debuff_counters_non)
                 end
 
-                -- Kino.change_counters(_target, "kino_retrigger", card.ability.extra.retrigger_counters)
                 _target:bb_counter_apply("counter_retrigger", card.ability.extra.retrigger_counters)
                 
             end

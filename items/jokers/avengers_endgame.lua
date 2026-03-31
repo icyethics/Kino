@@ -180,7 +180,7 @@ SMODS.Joker {
         end
 
         info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_superhero
-        info_queue[#info_queue + 1] = {key = 'counter_retrigger', set = 'Counter'}
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_retrigger
 
         return {
             vars = {

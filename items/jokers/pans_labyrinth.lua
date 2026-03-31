@@ -96,12 +96,13 @@ SMODS.Joker {
         end
 
         local _count = 0
-        for _index, _pcard in ipairs(G.discard.cards) do
-            if _pcard:is_suit("Spades") then
-                _count = _count + 1
+        if G.discard and G.discard.cards and #G.discard.cards >= 0 then
+            for _index, _pcard in ipairs(G.discard.cards) do
+                if _pcard:is_suit("Spades") then
+                    _count = _count + 1
+                end
             end
         end
-
         return {
             vars = {
                 card.ability.extra.mult,

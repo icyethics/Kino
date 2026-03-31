@@ -46,6 +46,7 @@ SMODS.Joker {
     end,
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_kino_blood
         info_queue[#info_queue + 1]  = {set = 'Other', key = "keyword_drain"}
         return {
             vars = {

@@ -45,6 +45,7 @@ function Kino.drain_property(target, source, property_table)
                 end
                 
                 target:juice_up()
+                play_sound("kino_drain")
                 target.drained_enhancement = nil
                 delay(0.2)
 

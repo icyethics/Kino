@@ -147,12 +147,16 @@ SMODS.Blind{
     loc_vars = function(self)
         return {
             vars = {
+                self.debuff.min_counters,
+                self.debuff.max_counters,
             }
         }
     end,
     collection_loc_vars = function(self)
         return {
             vars = {
+                self.debuff.min_counters,
+                self.debuff.max_counters,
             }
         }
     end,

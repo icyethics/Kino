@@ -95,6 +95,7 @@ Game.init_game_object = function(self)
     ret.money_stolen = 0
     ret.cards_destroyed = 0
     ret.jumpscare_triggers = 0
+    ret.kino_most_recent_playing_card_destroyed = {rank = 0, suit = "none"}
 
     ret.current_round.actors_check = 3
     ret.current_round.actors_table_offset = 0

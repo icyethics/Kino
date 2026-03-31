@@ -28,6 +28,7 @@ SMODS.Joker {
     k_genre = {"Drama"},
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_retrigger
         return {
             vars = {
 

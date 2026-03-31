@@ -62,6 +62,7 @@ function Card:bb_counter_apply(counter_type, number, no_override, silent)
         if flags and flags.bb_counter_number then
             number = flags.bb_counter_number
         end
+        play_sound("kino_counter_apply", 1, 2)
         Blockbuster.set_counter_usage(counter_type.key, number)
         check_for_unlock({type="bb_counters_applied"})
     end
@@ -127,7 +128,7 @@ function Card:bb_remove_counter(removal_method)
 
     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
         if self.counter_config and removal_method ~= "overwrite" then
-
+            play_sound("kino_counter_remove", 1, 2)
             self:juice_up()
             self.counter_config = nil
         end

@@ -44,3 +44,21 @@ SMODS.Sound({
   path = "monster_awaken.ogg",
   vol = 2,
 })
+
+SMODS.Sound({
+  key = "counter_apply",
+  path = "counter_apply.ogg",
+  vol = 2,
+})
+
+SMODS.Sound({
+  key = "counter_remove",
+  path = "counter_remove.ogg",
+  vol = 2,
+})
+
+SMODS.Sound({
+  key = "drain",
+  path = "drain.ogg",
+  vol = 2,
+})

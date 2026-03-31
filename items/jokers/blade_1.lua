@@ -4,10 +4,7 @@ SMODS.Joker {
     generate_ui = Kino.generate_info_ui,
     config = {
         extra = {
-            x_mult = 1,
-            x_chips = 1,
-            chips = 0,
-            mult = 0
+            mult = 2
         }
     },
     rarity = 2,
@@ -32,12 +29,14 @@ SMODS.Joker {
     k_genre = {"Superhero", "Horror"},
 
     loc_vars = function(self, info_queue, card)
-        return {
+        local _count = 0
+        if G.playing_cards and #G.playing_cards > 0 then
+         _count = Blockbuster.Counters.get_total_counters("counter_kino_blood", "Full Deck").counter_values
+        end
+         return {
             vars = {
-                card.ability.extra.x_mult,
-                card.ability.extra.x_chips,
-                card.ability.extra.chips,
-                card.ability.extra.mult
+                card.ability.extra.mult,
+                card.ability.extra.mult * _count
             }
         }
     end,
@@ -53,56 +52,36 @@ SMODS.Joker {
                 end
             end
 
+            print(_my_pos)
             if _my_pos and G.jokers.cards[_my_pos + 1] and not 
             G.jokers.cards[_my_pos + 1].getting_sliced and not
-            -- G.jokers.cards[_my_pos + 1].ability.eternal then
             SMODS.is_eternal(G.jokers.cards[_my_pos + 1], {kino_blade = true, joker = true}) then
-                if G.jokers.cards[_my_pos + 1].config.center.is_vampire or G.jokers.cards[_my_pos + 1].config.center.key == "j_vampire" then
+                local _val = G.jokers.cards[_my_pos + 1].sell_cost
+                    local _isvamp = false
                     if G.jokers.cards[_my_pos + 1].config.center.is_vampire or G.jokers.cards[_my_pos + 1].config.center.key == "j_vampire" then
-
-                        
-                        -- steals x_mult
-                        if G.jokers.cards[_my_pos + 1].ability.extra.x_mult then
-                            card.ability.extra.x_mult = card.ability.extra.x_mult + G.jokers.cards[_my_pos + 1].ability.extra.x_mult
-                        end
-
-                        --
-                        if G.jokers.cards[_my_pos + 1].ability.extra.x_chips then
-                            card.ability.extra.x_chips = card.ability.extra.x_chips + G.jokers.cards[_my_pos + 1].ability.extra.x_chips
-                        end
-
-                        if G.jokers.cards[_my_pos + 1].ability.extra.mult then
-                            card.ability.extra.mult = card.ability.extra.mult + G.jokers.cards[_my_pos + 1].ability.extra.mult
-                        end
-
-                        if G.jokers.cards[_my_pos + 1].ability.extra.chips then
-                            card.ability.extra.chips = card.ability.extra.chips + G.jokers.cards[_my_pos + 1].ability.extra.chips
-                        end
-
-                        if G.jokers.cards[_my_pos + 1].ability.extra.romance_bonus then
-                            card.ability.extra.x_chips = card.ability.extra.x_chips + G.jokers.cards[_my_pos + 1].ability.extra.romance_bonus
-                        end
-
-                        G.jokers.cards[_my_pos + 1].getting_sliced = true
-                        G.E_MANAGER:add_event(Event({func = function()
-                            (context.blueprint_card or card):juice_up(0.8, 0.8)
-                            G.jokers.cards[_my_pos + 1]:start_dissolve({G.C.RED}, nil, 1.6)
-                            return true end }))
-
-                        card_eval_status_text(card, 'extra', nil, nil, nil,
-                        { message = localize('k_blade_ex'), colour = G.C.BLACK })
+                        _val = _val * 2
                     end
+                    G.jokers.cards[_my_pos + 1].getting_sliced = true
+                    G.E_MANAGER:add_event(Event({func = function()
+                        (context.blueprint_card or card):juice_up(0.8, 0.8)
+                        G.jokers.cards[_my_pos + 1]:start_dissolve({G.C.RED}, nil, 1.6)
+                        return true end }))
+
+                    card_eval_status_text(card, 'extra', nil, nil, nil,
+                    { message = localize(_isvamp and '_isvamp' or 'k_blade_reg'), colour = G.C.BLACK })
+                    
+                    for i = 1, _val do
+                        local _target = pseudorandom_element(G.playing_cards, pseudoseed("kino_blade"))
+                        _target:bb_counter_apply("counter_kino_blood", 1)
                 end
             end
             
         end
 
         if context.joker_main then
+            local _count = Blockbuster.Counters.get_total_counters("counter_kino_blood", "Full Deck").counter_values
             return {
-                x_mult = card.ability.extra.x_mult,
-                x_chips = card.ability.extra.x_chips,
-                chips = card.ability.extra.chips,
-                mult = card.ability.extra.mult
+                mult = _count * card.ability.extra.mult
             }
         end
     end,

@@ -5,10 +5,10 @@ TO DO LIST:
 Implement Sounds for:
 - Spellcasting
 - Earning Money
-- Jumpscares
-- Abduction
-- Applying Counters
-- Removing Counters (default sound)
+- Jumpscares <
+- Abduction <
+- Applying Counters <
+- Removing Counters (default sound) <
 - Drain
 
 Implement Shaders for:
@@ -35,17 +35,30 @@ Playsets:
 Credit Screen:
 
 
-Rework Boss Blinds:
-- Bonnie & Clyde
+V 0.13f:
 
-V 0.13g:
+Updates:
+- Added additional sound effects
+
+Reworks:
+- Jokers:
+-- Blade
+-- Frankenstein
+-- Longlegs
+
+- Blinds:
+-- Bonnie & Clyde
+
+Balance Changes:
+- Jokers:
+-- Zodiac: 10% blind requirement change -> 33% blind requirement change
+
+Localization Changes:
+- Added proper info queues for counters
 
 Bug Fixes:
 - Removed various leftover debug print statements clogging the console
-
-V 0.13f:
-
-Bug Fixes:
+- Fixed instances of jokers being in the wrong rarity in the collection
 - Mystery Cards now drain less resources to render
 - School of Rock's animation is now properly timed
 

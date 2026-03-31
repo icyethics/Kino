@@ -87,6 +87,21 @@ SMODS.current_mod.calculate = function(self, context)
         for i = 1, #context.removed do
             G.GAME.kino_cards_destroyed = G.GAME.kino_cards_destroyed + 1
         end
+
+        if #context.removed > 0 then
+            local _pcard = context.removed[#context.removed]
+
+            local _id = _pcard:get_id()
+            G.GAME.kino_most_recent_playing_card_destroyed.rank = _id
+
+            local _suit = _pcard.config.card.suit
+            print("AA")
+            if SMODS.has_no_suit(_pcard) then _suit = "none" end
+            print("BB")
+            if SMODS.has_any_suit(_pcard) then _suit = "any" end
+            print("CC")
+            G.GAME.kino_most_recent_playing_card_destroyed.suit = _suit
+        end
     end
 
     if context.using_consumeable then

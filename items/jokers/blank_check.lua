@@ -31,7 +31,7 @@ SMODS.Joker {
     k_genre = {"Comedy", "Family"},
 
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = {set = 'Other', key = "bust_econ"}
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_debt
         return {
             vars = {
                 card.ability.extra.counters_applied,

@@ -31,6 +31,7 @@ SMODS.Joker {
     k_genre = {"Drama", "Romance"},
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_kino_heartbreak
         return {
             vars = {
                 G.GAME.current_round.summer_card and G.GAME.current_round.summer_card.rank or "2",

@@ -29,6 +29,7 @@ SMODS.Joker {
     k_genre = {"Biopic", "Comedy"},
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_money
         return {
             vars = {
                 card.ability.extra.counters_applied,
@@ -36,25 +37,6 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        -- OLD EFFECT
-        -- Gives money equal to interest when scoring a club card.
-        -- if context.individual and context.cardarea == G.play then
-        --     if context.other_card:is_suit("Clubs") then
-        --         local money = math.floor((G.GAME.dollars + (G.GAME.dollar_buffer or 0)) / card.ability.extra.threshold)
-        --         local max_money = (G.GAME.interest_cap / 5) * G.GAME.interest_amount
-        --         if to_big(max_money) < money then
-        --             money = max_money
-        --         end
-        --         if to_number then
-        --             money = to_number(money)
-        --         end
-        --         return {
-        --             dollars = money,
-        --             card = context.other_card
-        --         }
-        --     end
-        -- end
-
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Clubs") then
                 local _counters_applied = card.ability.extra.counters_applied

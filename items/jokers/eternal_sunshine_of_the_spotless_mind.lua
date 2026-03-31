@@ -30,6 +30,7 @@ SMODS.Joker {
     },
     k_genre = {"Drama", "Sci-fi"},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_kino_heartbreak
         return {
             vars = {
                 card.ability.extra.heartache,

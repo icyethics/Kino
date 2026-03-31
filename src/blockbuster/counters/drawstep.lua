@@ -116,9 +116,9 @@ SMODS.DrawStep {
                 text_colour = G.C.WHITE,
                 text_width = 20,
                 text_height = 13,
-                -- ref_table = card.counter_config,
-                -- ref_value = "counter_num_ui",
-                text = "999"
+                ref_table = card.counter_config,
+                ref_value = "counter_num_ui",
+                -- text = "999"
             }
         end
     end,

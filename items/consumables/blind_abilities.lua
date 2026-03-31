@@ -20,6 +20,7 @@ SMODS.Consumable({
         return true
     end,
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_stun
         return { 
             vars = { 
                card.ability.max_highlighted,
@@ -213,6 +214,7 @@ SMODS.Consumable({
         return true
     end,
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_shock
         return { 
             vars = { 
                card.ability.extra.charges,
@@ -289,6 +291,7 @@ SMODS.Consumable({
         return true
     end,
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_burn
         return { 
             vars = { 
 
@@ -353,6 +356,7 @@ SMODS.Consumable({
         return true
     end,
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_poison
         local _total = {counter_values = 0}
         if G.playing_cards then
             _total = Blockbuster.Counters.get_total_counters("counter_poison", "Full Deck")
@@ -415,6 +419,8 @@ SMODS.Consumable({
         return true
     end,
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_sleep
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_shock
         return { 
             vars = { 
             } 
@@ -488,6 +494,7 @@ SMODS.Consumable({
         return true
     end,
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_COUNTERS.counter_kino_chain
         return { 
             vars = { 
 

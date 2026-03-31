@@ -10,7 +10,7 @@ SMODS.Joker {
             codex_type = 'rank',
             codex_length = 5,
             solved = false,
-            lower_by = 10,
+            lower_by = 33.33,
             stacks = 0
         }
     },

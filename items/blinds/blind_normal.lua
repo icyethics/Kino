@@ -393,6 +393,8 @@ SMODS.Blind{
     boss = {min = 1, max = 10},
     pos = { x = 0, y = 8},
     debuff = {
+        xmult = 0.5,
+        xchips = 0.5
     },
     loc_vars = function(self)
         local _rankasvalue = Kino.rank_to_value(G.GAME.current_round.bonnierank)
@@ -402,7 +404,9 @@ SMODS.Blind{
                 localize(G.GAME.current_round.clydesuit, 'suits_plural'),
                 colours = {
                     G.C.SUITS[G.GAME.current_round.clydesuit]
-                }
+                },
+                self.debuff.xchips,
+                self.debuff.xmult,
             }
         }
     end,
@@ -413,21 +417,40 @@ SMODS.Blind{
                 localize("Spades", 'suits_plural'),
                 colours = {
                     G.C.SUITS["Spades"]
-                }
+                },
+                self.debuff.xchips,
+                self.debuff.xmult,
             }
         }
     end,
+    calculate = function(self, blind, context)
+        if context.final_scoring_step then
+            local _ret = {}
+            for _, _card in ipairs(context.scoring_hand) do
+                if (not _ret.x_chips) and _card:get_id() == G.GAME.current_round.bonnierank then
+                    _ret.x_chips = 0.5
+                end 
 
-	debuff_hand = function(self, cards, hand, handname, check)
-        for _, _card in ipairs(cards) do
-            if _card:get_id() == G.GAME.current_round.bonnierank or 
-            _card:is_suit(G.GAME.current_round.clydesuit) then
-                return true
+                if (not _ret.x_mult) and _card:is_suit(G.GAME.current_round.clydesuit) then
+                    _ret.x_mult = 0.5
+                end
+            end
+
+            if _ret.x_chips or _ret.x_mult then
+                return _ret
             end
         end
-
-        return false
     end
+	-- debuff_hand = function(self, cards, hand, handname, check)
+    --     for _, _card in ipairs(cards) do
+    --         if _card:get_id() == G.GAME.current_round.bonnierank or 
+    --         _card:is_suit(G.GAME.current_round.clydesuit) then
+    --             return true
+    --         end
+    --     end
+
+    --     return false
+    -- end
 }
 
 -- WORKS
