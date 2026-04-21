@@ -1,3 +1,8 @@
+V 0.13h:
+
+Bug Fixes:
+- Fixed pages for actor UI
+
 V 0.13g:
 
 Bug Fixes:

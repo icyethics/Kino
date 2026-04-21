@@ -186,7 +186,7 @@ function Blockbuster.Playset.create_content_showcase(content_package)
                         nodes = {
                             {n=G.UIT.R, config={align = "cm", r = 0.1, colour = G.C.BLACK, emboss = 0.05}, nodes=deck_tables}, 
                             {n=G.UIT.R, config={align = "cm"}, nodes={
-                            create_option_cycle({options = joker_options, w = 4.5, cycle_shoulders = true, opt_callback = 'kino_actor_matching_joker_page', current_option = 1, colour = G.C.RED, no_pips = true, focus_args = {snap_to = true, nav = 'wide'}})
+                            create_option_cycle({options = joker_options, w = 4.5, cycle_shoulders = true, opt_callback = 'kino_playset_options', current_option = 1, colour = G.C.RED, no_pips = true, focus_args = {snap_to = true, nav = 'wide'}})
                             }}
                         }
                     },
@@ -198,7 +198,7 @@ function Blockbuster.Playset.create_content_showcase(content_package)
     return t
 end
 
-G.FUNCS.kino_actor_matching_joker_page = function(args)
+G.FUNCS.kino_playset_options = function(args)
   if not args or not args.cycle_config then return end
 
   for j = 1, #Blockbuster.card_center_card_area do
