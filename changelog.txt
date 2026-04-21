@@ -2,6 +2,16 @@ V 0.13h:
 
 Bug Fixes:
 - Fixed pages for actor UI
+V 0.14:
+
+Updated SMODS dependency to 1620a.
+
+Changes:
+- File loading updated to allow mod loading while zipped
+- Object weight system shifted over to SMODS provided one for compatibility
+
+Reworks:
+- Cine2Nerdle Sleeve and Deck have been changed
 
 V 0.13g:
 

@@ -59,12 +59,14 @@ SMODS.Back {
     atlas = "kino_backs",
     pos = {x = 1, y = 3},
     config = {
+        factor = 2,
     },
-    apply = function()
-
-        G.GAME.modifiers.kino_vampiredeck = true
-        G.GAME.modifiers.kino_vampiredeck_rarity = 2
-
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                self.config.factor
+            }
+        }
     end,
     calculate = function(self, card, context)
         -- When you play a single enhanced card, Drain it and give a random joker +20% power
@@ -86,6 +88,15 @@ SMODS.Back {
                     Blockbuster.manipulate_value(_target, "kinoween_vampire_deck", 0.2, nil, true)
                 end
              end
+        end
+
+        if context.modify_weights then
+            for _, _object in ipairs(context.pool) do
+                local _center = G.P_CENTERS[_object.key]
+                if _center and _center.config.is_vampire then
+                    _object.weight = _object.weight * card.effect.center.config.factor
+                end
+            end
         end
     end,
     -- Unlock Functions

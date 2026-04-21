@@ -13,7 +13,7 @@ local create_menu_toggles = function (parent, toggles)
 				ref_table = Blockbuster.ValueManipulation_config,
 				ref_value = v.ref_value,
 				callback = function(_set_toggle)
-				NFS.write(Blockbuster.ValueManipulation.mod_dir.."/config.lua", STR_PACK(Blockbuster.ValueManipulation_config))
+				SMODS.NFS.write(Blockbuster.ValueManipulation.mod_dir.."/config.lua", STR_PACK(Blockbuster.ValueManipulation_config))
 				end,
 		})
 		if v.tooltip then

@@ -53,7 +53,7 @@ local _list_of_folders = {
 }
 
 for _index, _folder in ipairs(_list_of_folders) do
-    local files = NFS.getDirectoryItems(Blockbuster.mod_dir .. _folder)
+    local files = SMODS.NFS.getDirectoryItems(Blockbuster.mod_dir .. _folder)
     for _, _filename in ipairs(files) do
         Blockbuster.load_file(_folder .. "/" .. _filename)
     end

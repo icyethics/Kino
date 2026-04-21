@@ -208,6 +208,23 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.kino_played_non_faces_this_round = false
         G.GAME.kino_played_least_played_hand_this_round = false
     end
+
+    -- Weight Modification System (SMODS)
+    if context.modify_weights then
+        -- for _, _object in ipairs(context.pool) do
+        --     local _center = G.P_CENTERS[_object.key]
+
+        --     -- Genre modification
+        --     if _center and _center.k_genre then
+        --         for _, _genre in ipairs(_center.k_genre) do
+        --             if G.GAME.kino_genre_weight[_genre] > 0 then
+        --                 _object.weight = _object.weight * G.GAME.kino_genre_weight[_genre]
+        --                 print("FROM CALC // " .. _object.key .. " : " .. _object.weight)
+        --             end
+        --         end
+        --     end
+        -- end
+    end
 end
 
 local o_calc_ind_eff = SMODS.calculate_individual_effect

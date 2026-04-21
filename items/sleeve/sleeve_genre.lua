@@ -30,7 +30,19 @@ for _index, _info in ipairs(Kino.sleeve_list) do
     config = {
         genre_bonus = _info.genre,
         consumables = _info.consumables,
+        factor = 3
     },
+    loc_vars = function(self, info_queue, card)
+        local _return = self.config.factor
+        if self.get_current_deck_key() == _key then
+            _return = _return * self.config.factor
+        end
+        return {
+            vars = {
+                _return
+            }
+        }
+    end,
     apply = function(self, sleeve)
         CardSleeves.Sleeve.apply(self)
         G.GAME.modifiers.genre_bonus[#G.GAME.modifiers.genre_bonus + 1] = _info.genre

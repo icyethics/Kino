@@ -26,10 +26,32 @@ for _index, _info in ipairs(Kino.deck_list) do
     config = {
         genre_bonus = _info.genre,
         consumables = _info.consumables,
+        factor = 3
     },
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                self.config.factor
+            }
+        }
+    end,
     apply = function()
         G.GAME.modifiers.genre_bonus[#G.GAME.modifiers.genre_bonus + 1] = _info.genre
         G.GAME.kino_genre_weight[_info.genre] = (1 + G.GAME.kino_genre_weight[_info.genre]) * 3
+    end,
+    calculate = function(self, card, context)
+        if context.modify_weights then
+            for _, _object in ipairs(context.pool) do
+                local _center = G.P_CENTERS[_object.key]
+                if _center and _center.k_genre then
+                    for _, _genre in ipairs(_center.k_genre) do
+                        if _genre == card.effect.center.config.genre_bonus then
+                            _object.weight = _object.weight * card.effect.center.config.factor
+                        end
+                    end
+                end
+            end
+        end
     end,
     -- Unlock Functions
     unlocked = false,

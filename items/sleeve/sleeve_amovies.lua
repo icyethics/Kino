@@ -4,24 +4,28 @@ if CardSleeves then
         atlas = "kino_sleeves",
         pos = { x = 2, y = 3},
         config = {
-            kino_bonus = 2
+            factor = 2
         },
         loc_vars = function(self)
             local key, vars
             if self.get_current_deck_key() == "b_kino_videostore" then
                 key = self.key .. "_alt"
-                self.config = { kino_bonus = 4 }
-                vars = { self.config.kino_bonus }
+                vars = { self.config.factor * self.config.factor }
             else
                 key = self.key
-                self.config = { kino_bonus = 2 }
                 vars = { self.config.kino_bonus }
             end
             return { key = key, vars = vars }
         end,
-        apply = function(self, sleeve)
-            G.GAME.modifiers.kino_videostore = true
-            G.GAME.modifiers.kino_videostore_rarity = self.config.kino_bonus
+        calculate = function(self, card, context)
+            if context.modify_weights then
+                for _, _object in ipairs(context.pool) do
+                    local _center = G.P_CENTERS[_object.key]
+                    if _center.original_mod.id == "Kino" then
+                        _object.weight = _object.weight * card.effect.center.config.factor
+                    end
+                end
+            end
         end,
         -- Unlock Functions
         unlocked = false,
@@ -63,9 +67,34 @@ if CardSleeves then
         atlas = "kino_sleeves",
         pos = { x = 2, y = 1 },
         config = {
+            factor = 4
         },
-        apply = function()
-            G.GAME.modifiers.kino_back_c2n = true
+        loc_vars = function(self, info_queue, card)
+            local _return = self.config.factor
+            if self.get_current_deck_key() == "b_kino_c2n" then
+                _return = _return * self.config.factor
+            end
+            return {
+                vars = {
+                    _return
+                }
+            }
+        end,
+        calculate = function(self, card, context)
+            if context.modify_weights then
+                if G.jokers and #G.jokers.cards > 0 then
+                    local _castlist = create_cast_list()
+
+                    if _castlist then
+                        for _, _object in ipairs(context.pool) do
+                            local _center = G.P_CENTERS[_object.key]
+                            if _center and _center.original_mod.id == "Kino" and has_cast_from_table(_center, _castlist) then
+                                _object.weight = _object.weight * card.effect.center.config.factor
+                            end
+                        end
+                    end
+                end
+            end
         end,
         -- Unlock Functions
         unlocked = false,
@@ -256,22 +285,32 @@ if CardSleeves then
         atlas = "kino_sleeves",
         pos = { x = 4, y = 2},
         config = {
-            
+            factor = 2
         },
         loc_vars = function(self)
             local key, vars
             if self.get_current_deck_key() == "b_kino_darkknight" then
                 key = self.key .. "_alt"
-                vars = {}
+                vars = {
+                    self.config.factor + self.config.factor
+                }
             else
                 key = self.key
-                vars = {}
+                vars = {
+                    self.config.factor
+                }
             end
             return { key = key, vars = vars }
         end,
-        apply = function(self, sleeve)
-            G.GAME.modifiers.kino_batmandeck = true
-            G.GAME.modifiers.kino_batmandeck_rarity = G.GAME.modifiers.kino_batmandeck_rarity and 4 or 2
+        calculate = function(self, card, context)
+            if context.modify_weights then
+                for _, _object in ipairs(context.pool) do
+                    local _center = G.P_CENTERS[_object.key]
+                    if _center and _center.config.is_batman then
+                        _object.weight = _object.weight * card.effect.center.config.factor
+                    end
+                end
+            end
         end,
         -- Unlock Functions
         unlocked = false,
@@ -284,34 +323,43 @@ if CardSleeves then
         atlas = "kino_sleeves",
         pos = { x = 2, y = 0},
         config = {
-            
+            factor = 2
         },
         loc_vars = function(self)
             local key, vars
             if self.get_current_deck_key() == "b_kino_alderaan" then
                 key = self.key .. "_alt"
-                vars = {}
+                vars = {
+                    self.config.factor + self.config.factor
+                }
             else
                 key = self.key
-                vars = {}
+                vars = {
+                    self.config.factor
+                }
             end
             return { key = key, vars = vars }
         end,
-        apply = function(self, sleeve)
-            G.GAME.modifiers.kino_starwarsdeck = true
-            G.GAME.modifiers.kino_starwardsdeck_rarity = G.GAME.modifiers.kino_starwardsdeck_rarity and 4 or 2
-        end,
         calculate = function(self, card, context)
-        -- When a round ends, level up a random hand for each remaining discard
-        if context.end_of_round
-        and not context.individual and not context.repetition and not context.blueprint then
-            local _count = G.GAME.current_round.discards_left + G.GAME.current_round.hands_left
-            
-            for i = 1, _count do
-                local _hand = get_random_hand()
-                SMODS.smart_level_up_hand(nil, _hand, nil, 1)
+            -- When a round ends, level up a random hand for each remaining discard
+            if context.end_of_round
+            and not context.individual and not context.repetition and not context.blueprint then
+                local _count = G.GAME.current_round.discards_left + G.GAME.current_round.hands_left
+                
+                for i = 1, _count do
+                    local _hand = get_random_hand()
+                    SMODS.smart_level_up_hand(nil, _hand, nil, 1)
+                end
             end
-        end
+
+            if context.modify_weights then
+                for _, _object in ipairs(context.pool) do
+                    local _center = G.P_CENTERS[_object.key]
+                    if _center and _center.config.is_starwars then
+                        _object.weight = _object.weight * card.effect.center.config.factor
+                    end
+                end
+            end
         end,
         -- Unlock Functions
         unlocked = false,
@@ -324,23 +372,36 @@ if CardSleeves then
         atlas = "kino_sleeves",
         pos = { x = 1, y = 0},
         config = {
-            
+            factor = 4
         },
         loc_vars = function(self)
             local key, vars
             if self.get_current_deck_key() == "b_kino_cosmonaut" then
                 key = self.key .. "_alt"
-                vars = {}
+                vars = {
+                    self.config.factor * self.config.factor
+                }
             else
                 key = self.key
-                vars = {}
+                vars = {
+                    self.config.factor
+                }
             end
             return { key = key, vars = vars }
         end,
         apply = function()
 
             G.GAME.modifiers.kino_cosmonaut = true
-            G.GAME.modifiers.kino_cosmonaut_rarity = G.GAME.modifiers.kino_cosmonaut_rarity and 16 or 4
+        end,
+        calculate = function(self, card, context)
+            if context.modify_weights then
+                for _, _object in ipairs(context.pool) do
+                    local _center = G.P_CENTERS[_object.key]
+                    if _center and _center.set == "Planet" and _center.strange_planet then
+                        _object.weight = _object.weight * card.effect.center.config.factor
+                    end
+                end
+            end
         end,
         -- Unlock Functions
         unlocked = false,

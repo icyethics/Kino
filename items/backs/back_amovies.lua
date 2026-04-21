@@ -4,11 +4,25 @@ SMODS.Back {
     atlas = "kino_backs",
     pos = {x = 2, y = 3},
     config = {
+        factor = 2
     },
-    apply = function()
-        G.GAME.modifiers.kino_videostore = true
-        G.GAME.modifiers.kino_videostore_rarity = 2
-    end
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                self.config.factor
+            }
+        }
+    end,
+    calculate = function(self, card, context)
+        if context.modify_weights then
+            for _, _object in ipairs(context.pool) do
+                local _center = G.P_CENTERS[_object.key]
+                if _center.original_mod.id == "Kino" then
+                    _object.weight = _object.weight * card.effect.center.config.factor
+                end
+            end
+        end
+    end,
 }
 
 SMODS.Back {
@@ -64,9 +78,30 @@ SMODS.Back {
     atlas = "kino_backs",
     pos = {x = 2, y = 1},
     config = {
+        factor = 4
     },
-    apply = function()
-        G.GAME.modifiers.kino_back_c2n = true
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                self.config.factor
+            }
+        }
+    end,
+    calculate = function(self, card, context)
+        if context.modify_weights then
+            if G.jokers and #G.jokers.cards > 0 then
+                local _castlist = create_cast_list()
+
+                if _castlist then
+                    for _, _object in ipairs(context.pool) do
+                        local _center = G.P_CENTERS[_object.key]
+                        if _center and has_cast_from_table(_center, _castlist) then
+                            _object.weight = _object.weight * card.effect.center.config.factor
+                        end
+                    end
+                end
+            end
+        end
     end,
     
     -- Unlock Functions
@@ -248,10 +283,24 @@ SMODS.Back {
     atlas = "kino_backs",
     pos = {x = 4, y = 2},
     config = {
+        factor = 2
     },
-    apply = function()
-        G.GAME.modifiers.kino_batmandeck = true
-        G.GAME.modifiers.kino_batmandeck_rarity = 2
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                self.config.factor
+            }
+        }
+    end,
+    calculate = function(self, card, context)
+        if context.modify_weights then
+            for _, _object in ipairs(context.pool) do
+                local _center = G.P_CENTERS[_object.key]
+                if _center and _center.config.is_batman then
+                    _object.weight = _object.weight * card.effect.center.config.factor
+                end
+            end
+        end
     end,
     -- Unlock Functions
     unlocked = false,
@@ -287,10 +336,14 @@ SMODS.Back {
     atlas = "kino_backs",
     pos = {x = 2, y = 0},
     config = {
+        factor = 2
     },
-    apply = function()
-        G.GAME.modifiers.kino_starwarsdeck = true
-        G.GAME.modifiers.kino_starwarsdeck_rarity = 2
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                self.config.factor
+            }
+        }
     end,
     calculate = function(self, card, context)
         -- When a round ends, level up a random hand for each remaining discard
@@ -300,12 +353,15 @@ SMODS.Back {
                 local _hand = get_random_hand()
                 SMODS.smart_level_up_hand(nil, _hand, nil, 1)
             end
-            -- local _card = SMODS.create_card({
-            --     area = G.consumeables, 
-            --     key = "c_kino_death_star", 
-            --     edition = {negative = true}
-            -- })
-            -- G.consumeables:emplace(_card)
+        end
+
+        if context.modify_weights then
+            for _, _object in ipairs(context.pool) do
+                local _center = G.P_CENTERS[_object.key]
+                if _center and _center.config.is_starwars then
+                    _object.weight = _object.weight * card.effect.center.config.factor
+                end
+            end
         end
     end,
     -- Unlock Functions
@@ -342,11 +398,27 @@ SMODS.Back {
     atlas = "kino_backs",
     pos = {x = 1, y = 0},
     config = {
+        factor = 4
     },
     apply = function()
-
         G.GAME.modifiers.kino_cosmonaut = true
-        G.GAME.modifiers.kino_cosmonaut_rarity = 4
+    end,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                self.config.factor
+            }
+        }
+    end,
+    calculate = function(self, card, context)
+        if context.modify_weights then
+            for _, _object in ipairs(context.pool) do
+                local _center = G.P_CENTERS[_object.key]
+                if _center and _center.set == "Planet" and _center.strange_planet then
+                    _object.weight = _object.weight * card.effect.center.config.factor
+                end
+            end
+        end
     end,
     -- Unlock Functions
     unlocked = false,
