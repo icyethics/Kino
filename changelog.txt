@@ -1,3 +1,8 @@
+V 0.13g:
+
+Bug Fixes:
+- Fixed actor data not being loaded
+
 V 0.13f:
 
 Updates:
