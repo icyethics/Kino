@@ -69,10 +69,10 @@ SMODS.Joker {
         if args.type == 'win' then
             local _batman, _superman
             for _, _joker in ipairs(G.jokers.cards) do
-                if kino_quality_check(_joker, 'is_batman') then
+                if kino_quality_check(_joker, 'batman') then
                     _batman = true
                 end
-                if kino_quality_check(_joker, 'is_superman') then
+                if kino_quality_check(_joker, 'superman') then
                     _superman = true
                 end
             end

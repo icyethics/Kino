@@ -7,7 +7,7 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
             table.remove(G.GAME.current_round.joker_queue[_type], 1)
         end
     end
-    
+
     local _card = _occ(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
     -- Confection Changes --
     if G.GAME.used_vouchers.v_kino_special_treats and _type == "confection" then
@@ -23,6 +23,12 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
         if pseudorandom("snack_boost_XL") < Kino.xl_chance/10 then
             SMODS.Stickers['kino_extra_large']:apply(_card, true)
         end
+    end
+
+    if forced_key then
+        print("true")
+        print(_card.ability.set)
+        _type = _card.ability.set
     end
 
     if next(find_joker("j_kino_charlie_and_the_chocolate_factory")) and _type == "confection" then

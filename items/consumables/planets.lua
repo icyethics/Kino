@@ -13,6 +13,7 @@ SMODS.Consumable {
     atlas = "kino_tarot",
     pull_button = true,
     strange_planet = true,
+    attributes = {strangeplanet = true},
     can_use = function(self, card)
 		return true
 	end,
@@ -104,6 +105,7 @@ SMODS.Consumable {
     atlas = "kino_tarot",
     pull_button = true,
     strange_planet = true,
+    attributes = {strangeplanet = true},
     can_use = function(self, card)
 		return true
 	end,
@@ -151,6 +153,7 @@ SMODS.Consumable {
     atlas = "kino_tarot",
     pull_button = true,
     strange_planet = true,
+    attributes = {strangeplanet = true},
     can_use = function(self, card)
 		return true
 	end,
@@ -214,6 +217,7 @@ SMODS.Consumable {
     atlas = "kino_tarot",
     pull_button = true,
     strange_planet = true,
+    attributes = {strangeplanet = true},
     can_use = function(self, card)
 		return true
 	end,
@@ -282,6 +286,7 @@ SMODS.Consumable {
     atlas = "kino_tarot",
     pull_button = true,
     strange_planet = true,
+    attributes = {strangeplanet = true},
     enhancement_gate = "m_kino_sci_fi",
     can_use = function(self, card)
 		return true
@@ -326,6 +331,7 @@ SMODS.Consumable {
     atlas = "kino_tarot",
     pull_button = true,
     strange_planet = true,
+    attributes = {strangeplanet = true},
     can_use = function(self, card)
 		return true
 	end,
@@ -395,6 +401,7 @@ SMODS.Consumable {
     atlas = "kino_tarot",
     pull_button = true,
     strange_planet = true,
+    attributes = {strangeplanet = true},
     can_use = function(self, card)
         if card.ability.extra.money_seen_non < card.ability.extra.money_threshold then
             return false
@@ -452,6 +459,7 @@ SMODS.Consumable {
     atlas = "kino_tarot",
     pull_button = true,
     strange_planet = true,
+    attributes = {strangeplanet = true},
     can_use = function(self, card)
 		return true
 	end,
@@ -515,6 +523,7 @@ SMODS.Consumable {
     atlas = "kino_tarot",
     pull_button = true,
     strange_planet = true,
+    attributes = {strangeplanet = true},
     can_use = function(self, card)
 		return true
 	end,
@@ -594,6 +603,7 @@ SMODS.Consumable {
     atlas = "kino_tarot",
     pull_button = true,
     strange_planet = true,
+    attributes = {strangeplanet = true},
     can_use = function(self, card)
 		return true
 	end,
@@ -727,6 +737,7 @@ SMODS.Consumable {
     atlas = "kino_tarot",
     pull_button = true,
     strange_planet = true,
+    attributes = {strangeplanet = true},
     can_use = function(self, card)
 		return true
 	end,
@@ -803,6 +814,7 @@ SMODS.Consumable {
     atlas = "kino_tarot",
     pull_button = true,
     strange_planet = true,
+    attributes = {strangeplanet = true},
     can_use = function(self, card)
         local _eligible_targets = {}
 

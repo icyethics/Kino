@@ -43,12 +43,10 @@ for _index, _info in ipairs(Kino.deck_list) do
         if context.modify_weights then
             for _, _object in ipairs(context.pool) do
                 local _center = G.P_CENTERS[_object.key]
-                if _center and _center.k_genre then
-                    for _, _genre in ipairs(_center.k_genre) do
-                        if _genre == card.effect.center.config.genre_bonus then
-                            _object.weight = _object.weight * card.effect.center.config.factor
-                        end
-                    end
+                local _genre = string.lower(card.effect.center.config.genre_bonus)
+                if _center and _center.attributes and _center.attributes[_genre] then
+                    print(_object.key .. " Adjusted")
+                    _object.weight = _object.weight * card.effect.center.config.factor
                 end
             end
         end

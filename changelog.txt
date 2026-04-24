@@ -1,22 +1,31 @@
-V 0.13h:
-
-Bug Fixes:
-- Fixed pages for actor UI
 V 0.14:
 
 Updated SMODS dependency to 1620a.
 
+Bug Fixes:
+- Fixed Silver Stake
+
 Changes:
 - File loading updated to allow mod loading while zipped
 - Object weight system shifted over to SMODS provided one for compatibility
+- Added the following attribute categories: Batman, Superman, Alien (Franchise), Pirate, Vampire, Wet
 
 Reworks:
 - Cine2Nerdle Sleeve and Deck have been changed
+
+Removed:
+- All challenges have been removed. New challenges will be added for the 1.0 release
 
 V 0.13g:
 
 Bug Fixes:
 - Fixed actor data not being loaded
+
+
+V 0.13h:
+
+Bug Fixes:
+- Fixed pages for actor UI
 
 V 0.13f:
 

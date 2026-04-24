@@ -1329,7 +1329,7 @@ return {
             j_kino_et = {
                 name = "E.T. The Extra-Terrestrial",
                 text = {
-                    "Create {C:attention}#1#{} {X:dark_edition,C:white}Negative {C:planet}Planets{}",
+                    "Create {C:attention}#1#{} {X:dark_edition,C:white}Negative{C:planet} Planets{}",
                     "when {C:attention}Boss Blind{} is defeated",
                 },
                 unlock = {
@@ -5666,8 +5666,8 @@ return {
                 text = {
                     "{C:attention}Batman Jokers{} are {C:attention}X#1#{}",
                     "as common",
-                    "{C:attention}Jokers{} have a {green}1 in 4{}",
-                    "chance to spawn with a {C:attention}Robin sticker"
+                    "{C:green}1 in 4{} chance for {C:attention}Jokers",
+                    "to have a {C:attention}Robin sticker"
                 },
                 unlock = {
                     "Unlock all {C:attention}Batman Jokers"
@@ -6865,7 +6865,7 @@ return {
             kino_robin = {
                 name = "Robin Sticker",
                 text = {
-                    "This joker counts as",
+                    "This {C:attention}Joker{} counts as",
                     "{C:attention}Batman"
                 }
             },
@@ -6904,7 +6904,7 @@ return {
                     "If this card is the only",
                     "played card then increase",
                     "the rank of every card in hand",
-                    "lower than this card by {C:attention}1 "
+                    "lower than this card by {C:attention}1"
                 },
             },
             kino_family_seal={
@@ -7607,8 +7607,8 @@ return {
                 text = {
                     "{C:attention}Batman Jokers{} are {C:attention}X#1#{}",
                     "as common",
-                    "{C:attention}Jokers{} have a {C:green}1 in 4{}",
-                    "chance to spawn with a {C:attention}Robin sticker"
+                    "{C:green}1 in 4{} chance for {C:attention}Jokers",
+                    "to have a {C:attention}Robin sticker"
                 },
                 unlock = {
                     "Defeat {C:black}Black Stake{} using",
@@ -7620,8 +7620,8 @@ return {
                 text = {
                     "{C:attention}Batman Jokers{} are {C:attention}X#1#{}",
                     "as common",
-                    "{C:attention}Jokers{} have a {C:green}1 in 4{}",
-                    "chance to spawn with a {C:attention}Robin sticker"
+                    "{C:green}1 in 4{} chance for {C:attention}Jokers",
+                    "to have a {C:attention}Robin sticker"
                 },
                 unlock = {
                     "Defeat {C:black}Black Stake{} using",

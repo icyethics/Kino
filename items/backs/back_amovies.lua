@@ -17,7 +17,7 @@ SMODS.Back {
         if context.modify_weights then
             for _, _object in ipairs(context.pool) do
                 local _center = G.P_CENTERS[_object.key]
-                if _center.original_mod.id == "Kino" then
+                if _center and _center.original_mod and _center.original_mod.id == "Kino" then
                     _object.weight = _object.weight * card.effect.center.config.factor
                 end
             end
@@ -285,6 +285,9 @@ SMODS.Back {
     config = {
         factor = 2
     },
+    apply = function()
+        G.GAME.modifiers.kino_batmandeck = true
+    end,
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -296,7 +299,7 @@ SMODS.Back {
         if context.modify_weights then
             for _, _object in ipairs(context.pool) do
                 local _center = G.P_CENTERS[_object.key]
-                if _center and _center.config.is_batman then
+                if _center and _center.attributes and _center.attributes["batman"] then
                     _object.weight = _object.weight * card.effect.center.config.factor
                 end
             end
@@ -358,7 +361,7 @@ SMODS.Back {
         if context.modify_weights then
             for _, _object in ipairs(context.pool) do
                 local _center = G.P_CENTERS[_object.key]
-                if _center and _center.config.is_starwars then
+                if _center and _center.attributes and _center.attributes["starwars"] then
                     _object.weight = _object.weight * card.effect.center.config.factor
                 end
             end

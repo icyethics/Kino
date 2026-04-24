@@ -206,6 +206,19 @@ SMODS.Booster {
         return false
     end,
     create_card = function(self, card)
-        return create_card({"actor"}, G.pack_cards, nil, nil, true, true, nil, "buf")
+        local _castlist = create_cast_list()
+        local _pool = {}
+
+        for _key, _object in pairs(G.P_CENTERS) do
+            if _object.set == "Joker" and _object.k_genre then
+                if _object and has_cast_from_table(_object, _castlist) then
+                    _pool[#_pool + 1] = _key
+                end
+            end
+        end
+
+
+        local _key = SMODS.poll_object({pool = _pool})
+        return SMODS.create_card({type = "Joker", area = G.pack_cards, key = _key})
     end
 }

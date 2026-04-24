@@ -165,7 +165,8 @@ SMODS.current_mod.calculate = function(self, context)
     end
 
     if context.card_added then
-        if kino_quality_check(context.card, "is_vampire") then
+        -- if kino_quality_check(context.card, "is_vampire") then
+        if context.card:has_attribute("vampire") then
             inc_career_stat("kino_vampire_jokers_obtained", 1)
         end
     end

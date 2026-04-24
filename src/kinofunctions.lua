@@ -182,23 +182,6 @@ function display_egg_message()
     end
 end
 
-function kino_quality_check(card, quality)
-    -- Hardcode in some specific vanilla jokers to count
-    if quality == "is_wet" and 
-    (card.config.center == G.P_CENTERS.j_selzer or
-    card.config.center == G.P_CENTERS.j_splash or
-    card.config.center == G.P_CENTERS.j_diet_cola) then
-        return true
-    end
-    if card and card.config and card.config[quality] and card.config[quality] ~= false then
-        return true
-    end
-    if card and card.ability and card.ability[quality] and card.ability[quality] ~= false then
-        return true
-    end
-    return false
-end
-
 -- Get Random hand type (Based on the neutronstarrandomhand function from Cryptid. (Planets.lua - line 830 - 853))
 function get_random_hand()
     local rand_hand

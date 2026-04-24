@@ -21,7 +21,7 @@ if CardSleeves then
             if context.modify_weights then
                 for _, _object in ipairs(context.pool) do
                     local _center = G.P_CENTERS[_object.key]
-                    if _center.original_mod.id == "Kino" then
+                    if _center and _center.original_mod and _center.original_mod.id == "Kino" then
                         _object.weight = _object.weight * card.effect.center.config.factor
                     end
                 end
@@ -88,7 +88,7 @@ if CardSleeves then
                     if _castlist then
                         for _, _object in ipairs(context.pool) do
                             local _center = G.P_CENTERS[_object.key]
-                            if _center and _center.original_mod.id == "Kino" and has_cast_from_table(_center, _castlist) then
+                            if _center and _center.original_mod and _center.original_mod.id == "Kino" and has_cast_from_table(_center, _castlist) then
                                 _object.weight = _object.weight * card.effect.center.config.factor
                             end
                         end
@@ -306,7 +306,7 @@ if CardSleeves then
             if context.modify_weights then
                 for _, _object in ipairs(context.pool) do
                     local _center = G.P_CENTERS[_object.key]
-                    if _center and _center.config.is_batman then
+                    if _center and _center.attributes and _center.attributes["batman"] then
                         _object.weight = _object.weight * card.effect.center.config.factor
                     end
                 end
@@ -355,7 +355,7 @@ if CardSleeves then
             if context.modify_weights then
                 for _, _object in ipairs(context.pool) do
                     local _center = G.P_CENTERS[_object.key]
-                    if _center and _center.config.is_starwars then
+                    if _center and _center.attributes and _center.attributes["starwars"] then
                         _object.weight = _object.weight * card.effect.center.config.factor
                     end
                 end

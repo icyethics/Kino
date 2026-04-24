@@ -99,6 +99,14 @@ if CardSleeves then
                     _target:bb_counter_apply("counter_kino_blood", 1)
                 end
             end
+            if context.modify_weights then
+                for _, _object in ipairs(context.pool) do
+                    local _center = G.P_CENTERS[_object.key]
+                    if _center and _center.config.is_vampire then
+                        _object.weight = _object.weight * card.effect.center.config.factor
+                    end
+                end
+            end
         end,
         -- Unlock Functions
         unlocked = false,

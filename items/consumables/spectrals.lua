@@ -64,7 +64,7 @@ SMODS.Consumable {
     pos = {x = 1, y = 2},
     atlas = "kino_tarot",
     cost = 4,
-    
+    attributes = {sports = true},
     discovered = false,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {key = 'kino_sports_seal', set = 'Other'}
@@ -102,7 +102,7 @@ SMODS.Consumable {
     pos = {x = 2, y = 2},
     atlas = "kino_tarot",
     cost = 4,
-    
+    attributes = {family = true},
     discovered = false,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {key = 'kino_family_seal', set = 'Other'}
@@ -140,7 +140,7 @@ SMODS.Consumable {
     pos = {x = 3, y = 2},
     atlas = "kino_tarot",
     cost = 4,
-    
+    attributes = {adventure = true},
     discovered = false,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {key = 'kino_adventure_seal', set = 'Other', vars = {0}}
@@ -178,7 +178,7 @@ SMODS.Consumable {
     pos = {x = 4, y = 2},
     atlas = "kino_tarot",
     cost = 4,
-    
+    attributes = {thriller = true},
     discovered = false,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {key = 'kino_thriller_seal', set = 'Other', vars = {1, 3}}
@@ -208,6 +208,45 @@ SMODS.Consumable {
                 end
             }))
         end
+    end
+}
+
+
+SMODS.Consumable {
+    key = "whimsy",
+    set = "Spectral",
+    config = {max_highlighted = 3},
+    pos = {x = 0, y = 3},
+    atlas = "kino_tarot",
+    cost = 4,
+    attributes = {comedy = true},
+    discovered = false,
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = {key = 'kino_comedy_seal', set = 'Other'}
+        return {
+            vars = {
+                self.config.max_highlighted
+            }
+        }
+    end,
+    use = function(self, card, area, copier)
+        local conv_card = G.hand.highlighted[1]
+        G.E_MANAGER:add_event(Event({func = function()
+        play_sound('tarot1')
+        return true end }))
+        
+        G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function()
+            conv_card:set_seal("kino_comedy", nil, true)
+            return true end }))
+        
+        delay(0.5)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                G.hand:unhighlight_all(); return true
+            end
+        }))
     end
 }
 
@@ -251,43 +290,6 @@ SMODS.Consumable {
 }
 end
 
-SMODS.Consumable {
-    key = "whimsy",
-    set = "Spectral",
-    config = {max_highlighted = 3},
-    pos = {x = 0, y = 3},
-    atlas = "kino_tarot",
-    cost = 4,
-    
-    discovered = false,
-    loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = {key = 'kino_comedy_seal', set = 'Other'}
-        return {
-            vars = {
-                self.config.max_highlighted
-            }
-        }
-    end,
-    use = function(self, card, area, copier)
-        local conv_card = G.hand.highlighted[1]
-        G.E_MANAGER:add_event(Event({func = function()
-        play_sound('tarot1')
-        return true end }))
-        
-        G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function()
-            conv_card:set_seal("kino_comedy", nil, true)
-            return true end }))
-        
-        delay(0.5)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.2,
-            func = function()
-                G.hand:unhighlight_all(); return true
-            end
-        }))
-    end
-}
 
 
 -- CONFECTION RARE SPECTRAL

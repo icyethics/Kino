@@ -5,15 +5,11 @@ if kino_config.horror_enhancement then
         order = 1,
         pos = {x = 0, y = 0},
         atlas = "kino_tarot",
+        attributes = {horror = true},
         config = {
             mod_conv = 'm_kino_horror', 
             max_highlighted = 2,
         },
-        get_weight_mod = function()
-            if G.GAME.kino_genre_weight["Horror"] and G.GAME.kino_genre_weight["Horror"] > 0 then
-                return 2
-            end
-        end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_horror
             return {
@@ -32,15 +28,11 @@ if kino_config.sci_fi_enhancement then
         order = 2,
         pos = {x = 1, y = 0},
         atlas = "kino_tarot",
+        attributes = {['sci-fi'] = true},
         config = {
             mod_conv = 'm_kino_sci_fi', 
             max_highlighted = 1,
         },
-        get_weight_mod = function()
-            if G.GAME.kino_genre_weight["Sci-fi"] and G.GAME.kino_genre_weight["Sci-fi"] > 0 then
-                return 2
-            end
-        end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_sci_fi
             return {
@@ -59,15 +51,11 @@ if kino_config.demonic_enhancement then
         order = 3,
         pos = {x = 2, y = 0},
         atlas = "kino_tarot",
+        attributes = {horror = true},
         config = {
             mod_conv = 'm_kino_demonic', 
             max_highlighted = 1,
         },
-        get_weight_mod = function()
-            if G.GAME.kino_genre_weight["Horror"] and G.GAME.kino_genre_weight["Horror"] > 0 then
-                return 2
-            end
-        end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_demonic
             return {
@@ -86,15 +74,11 @@ if kino_config.romance_enhancement then
         order = 4,
         pos = {x = 3, y = 0},
         atlas = "kino_tarot",
+        attributes = {romance = true},
         config = {
             mod_conv = 'm_kino_romance', 
             max_highlighted = 2,
         },
-        get_weight_mod = function()
-            if G.GAME.kino_genre_weight["Romance"] and G.GAME.kino_genre_weight["Romance"] > 0 then
-                return 2
-            end
-        end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_romance
             return {
@@ -112,6 +96,7 @@ SMODS.Consumable {
     order = 5,
     pos = {x = 4, y = 0},
     atlas = "kino_tarot",
+    attributes = {mystery = true},
     config = {
         mod_conv = 'm_kino_mystery', 
         max_highlighted = 2,
@@ -133,15 +118,11 @@ if kino_config.spellcasting then
         order = 6,
         pos = {x = 5, y = 0},
         atlas = "kino_tarot",
+        attributes = {fantasy = true},
         config = {
             mod_conv = 'm_kino_fantasy', 
             max_highlighted = 1,
         },
-        get_weight_mod = function()
-            if G.GAME.kino_genre_weight["Fantasy"] and G.GAME.kino_genre_weight["Fantasy"] > 0 then
-                return 2
-            end
-        end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_fantasy
             return {
@@ -159,6 +140,7 @@ SMODS.Consumable {
     order = 7,
     pos = {x = 0, y = 1},
     atlas = "kino_tarot",
+    attributes = {crime = true},
     config = {
         mod_conv = 'm_kino_crime', 
         max_highlighted = 2,
@@ -183,11 +165,7 @@ SMODS.Consumable {
         mod_conv = 'm_kino_action', 
         max_highlighted = 3,
     },
-    get_weight_mod = function()
-        if G.GAME.kino_genre_weight["Crime"] and G.GAME.kino_genre_weight["Crime"] > 0 then
-            return 2
-        end
-    end,
+    attributes = {action = true},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_action
         return {
@@ -204,15 +182,11 @@ SMODS.Consumable {
     order = 9,
     pos = {x = 2, y = 1},
     atlas = "kino_tarot",
+    attributes = {superhero = true},
     config = {
         mod_conv = 'm_kino_superhero', 
         max_highlighted = 1,
     },
-    get_weight_mod = function()
-        if G.GAME.kino_genre_weight["Superhero"] and G.GAME.kino_genre_weight["Superhero"] > 0 then
-            return 2
-        end
-    end,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_kino_superhero
         return {

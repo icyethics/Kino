@@ -48,6 +48,16 @@ for _index, _info in ipairs(Kino.sleeve_list) do
         G.GAME.modifiers.genre_bonus[#G.GAME.modifiers.genre_bonus + 1] = _info.genre
         G.GAME.kino_genre_weight[_info.genre] = (1 + G.GAME.kino_genre_weight[_info.genre]) * 3
     end,
+    calculate = function(self, card, context)
+        if context.modify_weights then
+            for _, _object in ipairs(context.pool) do
+                local _center = G.P_CENTERS[_object.key]
+                if _center and _center.attributes and _center.attributes[string.lower(card.effect.center.config.genre_bonus)] then
+                    _object.weight = _object.weight * card.effect.center.config.factor
+                end
+            end
+        end
+    end,
     -- Unlock Functions
     unlocked = false,
     unlock_condition = { deck = _key, stake = "stake_black" },
