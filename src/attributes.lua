@@ -84,5 +84,5 @@ SMODS.Attribute {
         "j_kino_pirates_of_the_caribbean_3", "j_kino_treasure_island", "j_kino_treasure_planet",
         "j_swashbuckler"
     },
-    alias = "is_pirate"
+    alias = {"is_pirate"}
 }

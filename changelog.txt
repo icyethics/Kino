@@ -4,6 +4,9 @@ Updated SMODS dependency to 1620a.
 
 Bug Fixes:
 - Fixed Silver Stake
+- Actor Packs no longer spawn when there are not enough jokers to match criteria
+- Codex jokers now properly indicate match status
+- Longlegs no longer crashes when no cards have been destroyed yet
 
 Changes:
 - File loading updated to allow mod loading while zipped
@@ -12,6 +15,7 @@ Changes:
 
 Reworks:
 - Cine2Nerdle Sleeve and Deck have been changed
+- Bloodlust Deck & Bloodlust Sleeve have been changed
 
 Removed:
 - All challenges have been removed. New challenges will be added for the 1.0 release

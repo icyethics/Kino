@@ -941,16 +941,33 @@ G.SPLASH_BACK:define_draw_steps({{
 '''
 position = "at"
 payload = '''
-G.SPLASH_BACK:define_draw_steps({{
-    shader = 'splash',
-    send = {
-        {name = 'time', ref_table = G.TIMERS, ref_value = 'REAL_SHADER'},
-        {name = 'vort_speed', val = 0.4},
-        {name = 'colour_1', ref_table = G.C.KINO, ref_value = 'KINO_ORANGE'},
-        {name = 'colour_2', ref_table = G.C.KINO, ref_value = 'KINO_PURPLE'},
-        {name = 'mid_flash', ref_table = splash_args, ref_value = 'mid_flash'},
-        {name = 'vort_offset', val = 0},
-    }}})
+if Trance_config then
+    if Trance_config.palette == "Base Game" then
+        G.C.SPLASH[1] = G.C.KINO.KINO_ORANGE
+        G.C.SPLASH[2] = G.C.KINO.KINO_PURPLE
+    end
+    G.SPLASH_BACK:define_draw_steps({{
+        shader = 'splash',
+        send = {
+            {name = 'time', ref_table = G.TIMERS, ref_value = 'REAL_SHADER'},
+            {name = 'vort_speed', val = 0.4},
+            {name = 'colour_1', ref_table = G.C.SPLASH, ref_value = 1},
+            {name = 'colour_2', ref_table = G.C.SPLASH, ref_value = 2},
+            {name = 'mid_flash', ref_table = splash_args, ref_value = 'mid_flash'},
+            {name = 'vort_offset', val = 0},
+        }}})
+else
+    G.SPLASH_BACK:define_draw_steps({{
+        shader = 'splash',
+        send = {
+            {name = 'time', ref_table = G.TIMERS, ref_value = 'REAL_SHADER'},
+            {name = 'vort_speed', val = 0.4},
+            {name = 'colour_1', ref_table = G.C.KINO, ref_value = 'KINO_ORANGE'},
+            {name = 'colour_2', ref_table = G.C.KINO, ref_value = 'KINO_PURPLE'},
+            {name = 'mid_flash', ref_table = splash_args, ref_value = 'mid_flash'},
+            {name = 'vort_offset', val = 0},
+        }}})
+end
 '''
 match_indent = true
 overwrite = false

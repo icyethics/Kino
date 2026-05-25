@@ -59,35 +59,24 @@ SMODS.Back {
     atlas = "kino_backs",
     pos = {x = 1, y = 3},
     config = {
-        factor = 2,
+        blood_counters = 5,
+        factor = 3,
     },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                self.config.factor
+                self.config.factor,
+                self.config.blood_counters
             }
         }
     end,
     calculate = function(self, card, context)
         -- When you play a single enhanced card, Drain it and give a random joker +20% power
-        if context.before
-        and context.full_hand
-        and #context.full_hand == 1
-        and not context.blueprint and not context.repetition then
-            local _target = context.full_hand[1]
-             if Kino.drain_property(_target, card, {Enhancement = {true}}) then
-                local _valid_targets = {}
-                for _index, _joker in ipairs(G.jokers.cards) do
-                    if Blockbuster.is_value_manip_compatible(_joker) then
-                        _valid_targets[#_valid_targets + 1] = _joker
-                    end
-                end
-
-                if #_valid_targets > 0 then
-                    local _target = pseudorandom_element(_valid_targets, pseudoseed("kinoween_vampire_deck"))
-                    Blockbuster.manipulate_value(_target, "kinoween_vampire_deck", 0.2, nil, true)
-                end
-             end
+        if context.setting_blind  then
+            for i = 1, card.effect.center.config.blood_counters do
+                local _target = pseudorandom_element(G.playing_cards, pseudoseed("kino_vampire_deck"))
+                _target:bb_counter_apply("counter_kino_blood", 1)
+            end
         end
 
         if context.modify_weights then

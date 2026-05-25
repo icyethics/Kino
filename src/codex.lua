@@ -30,6 +30,7 @@ function Kino.compare_hand_to_codex(card, codex, checked_hand, solved_codex, cod
 
     local _solved_codex = solved_codex
     local _last_played_hand_match = {}
+    local _codex_solved_marker = {}
     local _result = true
 
     -- set checked hand to last hand
@@ -38,13 +39,15 @@ function Kino.compare_hand_to_codex(card, codex, checked_hand, solved_codex, cod
             _last_played_hand_match[#_last_played_hand_match + 1] = {
                 suit = checked_hand[i].base.suit,
                 rank = checked_hand[i]:get_id(),
-                is_match = nil
+                is_match = nil,
+                match_with_pos = nil
             }
         else
             _last_played_hand_match[#_last_played_hand_match + 1] = {
                 suit = nil,
                 rank = nil,
-                is_match = nil
+                is_match = nil,
+                match_with_pos = nil
             }
         end
     end
@@ -83,15 +86,33 @@ function Kino.compare_hand_to_codex(card, codex, checked_hand, solved_codex, cod
                 _solved_codex[i].rank = codex[i].rank
             end
 
-            -- Iterate through all options and mark if there's a match, and whether it's exact
+
+            if _last_played_hand_match[i].rank == _solved_codex[i].rank and
+            _last_played_hand_match[i].is_match ~= "Match" then
+                _last_played_hand_match[i].is_match = "Match"
+                _codex_solved_marker[i] = true
+            end
+        end
+
+        if not _match then
+            _result = false
+        end
+    end
+
+    -- Check if near matches
+    for i = 1, 5 do
+        local _pcard = checked_hand[i]
+        local _match = false
+        -- checking for suit type code
+        if codex_type == "rank" and not _last_played_hand_match[i].is_match then
             for j = 1, #_last_played_hand_match do
                 if _last_played_hand_match[j].rank == _solved_codex[i].rank and
                 _last_played_hand_match[j].is_match ~= "Match" then
                     if i == j then
-                        _last_played_hand_match[j].is_match = "Match"
                     else
                         _last_played_hand_match[j].is_match = "Near-Match"
                     end
+                    break
                 end
             end
         end
@@ -100,6 +121,8 @@ function Kino.compare_hand_to_codex(card, codex, checked_hand, solved_codex, cod
             _result = false
         end
     end
+
+            
 
     return _result, _solved_codex, _last_played_hand_match
 end

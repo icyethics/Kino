@@ -52,7 +52,6 @@ SMODS.Joker {
                 end
             end
 
-            print(_my_pos)
             if _my_pos and G.jokers.cards[_my_pos + 1] and not 
             G.jokers.cards[_my_pos + 1].getting_sliced and not
             SMODS.is_eternal(G.jokers.cards[_my_pos + 1], {kino_blade = true, joker = true}) then

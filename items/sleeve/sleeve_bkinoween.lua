@@ -45,56 +45,35 @@ if CardSleeves then
         atlas = "kino_sleeves",
         pos = { x = 1, y = 3},
         config = {
-            blood_counters = 10,
-            vampire_rarity = 2
+            blood_counters = 5,
+            factor = 3
         },
         loc_vars = function(self)
             local key, vars
+
             if self.get_current_deck_key() == "b_kino_kinoween_vampire" then
                 key = self.key .. "_alt"
                 self.config = {
                     blood_counters = 10,
-                    vampire_rarity = 4
+                    factor = 3
                 }
             else
                 key = self.key
                 self.config = {
-                    blood_counters = 10,
-                    vampire_rarity = 2
+                    blood_counters = 5,
+                    factor = 3
                 }
             end
+            vars = {
+                self.config.factor,
+                self.config.blood_counters
+            }
+
             return { key = key, vars = vars }
         end,
-        apply = function(self, sleeve)
-            G.GAME.modifiers.kino_vampiredeck = true
-            G.GAME.modifiers.kino_vampiredeck_rarity = self.config.vampire_rarity
-
-        end,
         calculate = function(self, card, context)
-            -- When you play a single enhanced card, Drain it and give a random joker +20% power
-            if context.before
-            and context.full_hand
-            and #context.full_hand == 1
-            and not context.blueprint and not context.repetition and
-            self.get_current_deck_key() ~= "b_kino_kinoween_vampire" then
-                local _target = context.full_hand[1]
-                if Kino.drain_property(_target, card, {Enhancement = {true}}) then
-                    local _valid_targets = {}
-                    for _index, _joker in ipairs(G.jokers.cards) do
-                        if Blockbuster.is_value_manip_compatible(_joker) then
-                            _valid_targets[#_valid_targets + 1] = _joker
-                        end
-                    end
-
-                    if #_valid_targets > 0 then
-                        local _target = pseudorandom_element(_valid_targets, pseudoseed("kinoween_vampire_deck"))
-                        Blockbuster.manipulate_value(_target, "kinoween_vampire_deck", 0.2, nil, true)
-                    end
-                end
-            end
-
-            if context.setting_blind and self.get_current_deck_key() == "b_kino_kinoween_vampire" then
-                for i = 1, self.config.blood_counters do
+            if context.setting_blind then
+                for i = 1, card.effect.center.config.blood_counters do
                     local _target = pseudorandom_element(G.playing_cards, pseudoseed("kino_vampire_sleeve"))
                     _target:bb_counter_apply("counter_kino_blood", 1)
                 end

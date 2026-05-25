@@ -45,7 +45,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.joker_main and G.GAME.kino_cards_destroyed >= 1 then
+        if context.joker_main and G.GAME.kino_cards_destroyed and G.GAME.kino_cards_destroyed >= 1 then
             local _rankmatch = false
             local _suitmatch = false
 
@@ -59,7 +59,6 @@ SMODS.Joker {
                 elseif G.GAME.kino_most_recent_playing_card_destroyed.suit == 'any' then
                     if SMODS.has_any_suit(_pcard) then _suitmatch = true end
                 elseif _pcard:is_suit(G.GAME.kino_most_recent_playing_card_destroyed.suit) then
-                    print("suit_match")
                     _suitmatch = true
                 end
             end

@@ -5182,8 +5182,8 @@ return {
                 name = "Fully Loaded Nachos",
                 text = {
                     "Give a random",
-                    "Enhancement, Edition",
-                    "and Seal",
+                    "{C:attention}Enhancement{}, {C:attention}Edition",
+                    "and {C:attention}Seal",
                     "to next scoring card"
                 }
             },
@@ -5752,9 +5752,8 @@ return {
                 text = {
                     "{C:Drain}Vampire Jokers{} are {C:attention}X#1#",
                     "as common",
-                    "Playing a single {C:attention}enhanced{}",
-                    "card {C:Drain}drains{} it and boosts",
-                    "a random joker with {C:Power}20% Power{}"
+                    "Put {C:attention}#2#{C:Drain} Blood Counters{}",
+                    "in your deck when {C:attention}Blind{} is selected" 
                 },
                 unlock = {
                     "Discover every {C:Drain}Vampire{} Joker"
@@ -7804,9 +7803,8 @@ return {
                 text = {
                     "{C:Drain}Vampire Jokers{} are {C:attention}X#1#",
                     "as common",
-                    "Playing a single {C:attention}enhanced{}",
-                    "card {C:Drain}drains{} it and boosts",
-                    "a random joker with {C:Power}20% Power{}"
+                    "Put {C:attention}#2#{C:Drain} Blood Counters{}",
+                    "in your deck when {C:attention}Blind{} is selected" 
                 },
             },
             sleeve_kino_kinoween_vampire_alt = {
@@ -7814,8 +7812,8 @@ return {
                 text = {
                     "{C:Drain}Vampire Jokers{} are {C:attention}X#1#",
                     "as common",
-                    "Put {C:attention}10{C:Drain} Blood Counters{}",
-                    "in your deck when blind is selected" 
+                    "Put {C:attention}#2#{C:Drain} Blood Counters{}",
+                    "in your deck when {C:attention}Blind{} is selected" 
                 },
             },
 

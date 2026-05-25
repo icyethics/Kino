@@ -200,9 +200,20 @@ SMODS.Booster {
         end
         
         local _castlist = create_cast_list()
-        if #_castlist >= 10 then
-            return true
+        local _pool = {}
+
+        for _key, _object in pairs(G.P_CENTERS) do
+            if _object.set == "Joker" and _object.k_genre then
+                if _object and has_cast_from_table(_object, _castlist) then
+                    _pool[#_pool + 1] = _key
+                end
+            end
+
+            if #_pool >= 6 then
+                return true
+            end
         end
+
         return false
     end,
     create_card = function(self, card)

@@ -95,11 +95,8 @@ SMODS.current_mod.calculate = function(self, context)
             G.GAME.kino_most_recent_playing_card_destroyed.rank = _id
 
             local _suit = _pcard.config.card.suit
-            print("AA")
             if SMODS.has_no_suit(_pcard) then _suit = "none" end
-            print("BB")
             if SMODS.has_any_suit(_pcard) then _suit = "any" end
-            print("CC")
             G.GAME.kino_most_recent_playing_card_destroyed.suit = _suit
         end
     end
@@ -208,23 +205,6 @@ SMODS.current_mod.calculate = function(self, context)
     if context.setting_blind then
         G.GAME.kino_played_non_faces_this_round = false
         G.GAME.kino_played_least_played_hand_this_round = false
-    end
-
-    -- Weight Modification System (SMODS)
-    if context.modify_weights then
-        -- for _, _object in ipairs(context.pool) do
-        --     local _center = G.P_CENTERS[_object.key]
-
-        --     -- Genre modification
-        --     if _center and _center.k_genre then
-        --         for _, _genre in ipairs(_center.k_genre) do
-        --             if G.GAME.kino_genre_weight[_genre] > 0 then
-        --                 _object.weight = _object.weight * G.GAME.kino_genre_weight[_genre]
-        --                 print("FROM CALC // " .. _object.key .. " : " .. _object.weight)
-        --             end
-        --         end
-        --     end
-        -- end
     end
 end
 

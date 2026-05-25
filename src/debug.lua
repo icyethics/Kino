@@ -58,3 +58,15 @@ function Kino.Debug.cardareaprint(area)
     if area == G.consumeables then print('consum') end
     if not area then print('nil') end
 end
+
+function Kino.Debug.getallcodex()
+  if not G.jokers and G.jokers.cards then
+    print("Unable to function")
+    return false
+  end
+  for _, _joker in ipairs(G.jokers.cards) do
+    if _joker and _joker.ability and _joker.ability.extra and _joker.ability.extra.codex then
+      print(_joker.ability.extra.codex)
+    end
+  end
+end

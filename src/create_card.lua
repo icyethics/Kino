@@ -26,8 +26,6 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
     end
 
     if forced_key then
-        print("true")
-        print(_card.ability.set)
         _type = _card.ability.set
     end
 
