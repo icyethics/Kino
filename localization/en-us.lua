@@ -5810,11 +5810,10 @@ return {
             bl_kino_mama = {
                 name = "Ma-Ma",
                 text = {
-                    "Decrease base mult",
-                    "by {C:mult}#1#{} and",
-                    "chips by {C:chips}#2#{}",
-                    "for each {C:attention}Consumable{}",
-                    "used this run"
+                    "Put #1# {C:attention}Debt Counter{}",
+                    "in your deck for every",
+                    "{C:attention}Consumable{} used this run",
+                    "{C:inactive}(Currently: {C:attention}#2#{C:inactive} Debt Counters)"
                 }
             },
             bl_kino_cruella = {

@@ -141,28 +141,38 @@ SMODS.Blind{
     debuff = {
         chips_debuff = 10,
         mult_debuff = 1,
+        counters_applied = 1
     },
     loc_vars = function(self)
+        local _consumeables_used = G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.all or 0
         return {
             vars = {
-                10,
-                1
+                1,
+                _consumeables_used
             }
         }
     end,
     collection_loc_vars = function(self)
         return {
             vars = {
-                10,
-                1
+                1,
+                0
             }
         }
     end,
-    modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
+    set_blind = function(self)
+        local _valid_targets = Blockbuster.Counters.get_counter_targets(G.deck.cards, {"none", "match", "no_match_class"}, "counter_debt", {"beneficial"})
         local _consumeables_used = G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.all or 0
-        -- return mult, chips, true
-        return (math.max(1, mult - (_consumeables_used * self.debuff.mult_debuff))), math.max(1, (hand_chips - (_consumeables_used * self.debuff.chips_debuff))), true
-    end
+        for i = 1, _consumeables_used do
+            local _target = pseudorandom_element(_valid_targets)
+            _target:bb_counter_apply("counter_debt", 1)
+        end
+    end,
+    -- modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
+    --     local _consumeables_used = G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.all or 0
+    --     -- return mult, chips, true
+    --     return (math.max(1, mult - (_consumeables_used * self.debuff.mult_debuff))), math.max(1, (hand_chips - (_consumeables_used * self.debuff.chips_debuff))), true
+    -- end
 }
 
 -- WORKS

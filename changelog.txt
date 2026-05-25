@@ -16,6 +16,7 @@ Changes:
 Reworks:
 - Cine2Nerdle Sleeve and Deck have been changed
 - Bloodlust Deck & Bloodlust Sleeve have been changed
+- Ma-Ma (Blind) has been changed
 
 Removed:
 - All challenges have been removed. New challenges will be added for the 1.0 release
