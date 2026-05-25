@@ -1,3 +1,25 @@
+V 0.14.1:
+
+Changes:
+- Changed default playset to all content
+
+Balance Changes:
+- Vulcan: +0.5 Mult changed to +0.25 Mult
+
+Bug Fixes:
+- X works on newer SMODS versions
+- Burger (Confection) works on newer SMODS versions
+- Chocolate (Confection) works on newer SMODS versions
+- Pride & Prejudice works on newer SMODS versions
+- Count Rugen (Blind) no longer crashes when hand contains 1 card
+- Vulcan's (Planet) localization is fixed
+- Mr Glass (Blind) no longer fails when no valid targets exist
+- Freddy (Blind) no longer fails when no valid targets exist
+- Rose the Hat (Blind) no longer fails when no valid targets exist
+- Pan's Labyrinth made to be compatible with other mod's systems
+- Annie Wilkes (Blind) no longer retriggers itself
+- Genre Synergy no longer breaks with specific other modded content
+
 V 0.14:
 
 Updated SMODS dependency to 1620a.

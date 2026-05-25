@@ -579,7 +579,6 @@ SMODS.Consumable {
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
                 card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_eaten'), colour = G.C.MULT})
-                -- G.FUNCS.draw_from_deck_to_hand(card.ability.extra.cards_drawn)
                 delay(0.23)
             return true end }))
             
@@ -594,7 +593,6 @@ SMODS.Consumable {
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
                 card_eval_status_text(card, 'extra', nil, nil, nil,
                 { message = localize('k_eaten'), colour = G.C.MULT})
-                -- G.FUNCS.draw_from_deck_to_hand(card.ability.extra.cards_drawn)
                 delay(0.23)
             return true end }))
 
@@ -1034,7 +1032,7 @@ SMODS.Consumable {
                         G.deck.cards[#G.deck.cards] = _enhanced_card
                         G.deck.cards[_enhanced_spot] = _buffer_card
 
-                        G.FUNCS.draw_from_deck_to_hand(1)
+                        SMODS.draw_cards(1)
                     end
 
                     delay(0.1)
@@ -1069,7 +1067,7 @@ SMODS.Consumable {
                         G.deck.cards[#G.deck.cards] = _enhanced_card
                         G.deck.cards[_enhanced_spot] = _buffer_card
 
-                        G.FUNCS.draw_from_deck_to_hand(1)
+                        SMODS.draw_cards(1)
                     end
 
                     delay(0.1)

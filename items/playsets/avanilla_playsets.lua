@@ -3,6 +3,7 @@ Blockbuster.Playset.Playset {
     types = {"Standard"},
     sets = {},
     displayImage = "c_fool",
+    order = 0,
     packages = {
 
     },

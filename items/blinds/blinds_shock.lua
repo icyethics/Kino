@@ -42,7 +42,8 @@ SMODS.Blind{
 
     end,
     calculate = function(self, blind, context)
-        if context.post_trigger and
+        if context.post_trigger and context.other_context and context.other_context.cardarea == G.jokers and
+        context.other_card and context.other_card.area == G.jokers and
         not context.other_context.destroying_card then
             local _valid_targets = Blockbuster.Counters.get_counter_targets(G.deck.cards, {"none", "match", "no_match_class"}, "counter_frost", {"beneficial"})
             local _target = pseudorandom_element(_valid_targets)

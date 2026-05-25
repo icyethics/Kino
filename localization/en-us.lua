@@ -4987,7 +4987,7 @@ return {
                 name = "Vulcan",
                 text = {
                     "Upgrade every hand with {C:mult}+#2#{} Mult",
-                    "Increase by {C:attention}1{} for",
+                    "Increase by {C:mult}+#1#{} Mult for",
                     "every {C:mult}Discard{} remaining",
                     "at the end of round"
                 }

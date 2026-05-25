@@ -37,7 +37,7 @@ function is_genre(joker, genre, debug)
         return true
     end
 
-    if joker.config.center.k_genre then
+    if joker.config and joker.config.center and joker.config.center.k_genre then
         for i = 1, #joker.config.center.k_genre do
             if debug then
             
@@ -730,7 +730,7 @@ G.FUNCS.discard_cards_from_highlighted = function(e, hook)
         end
     end
 
-    if G.GAME.current_round.count_rugen then
+    if G.GAME.current_round.count_rugen and #G.hand.highlighted > 1 then
         local _target = pseudorandom_element(G.hand.highlighted, pseudoseed("kino_count_rugen"))
         G.hand:remove_from_highlighted(_target, true)
         card_eval_status_text(_target, 'extra', nil, nil, nil,
@@ -764,7 +764,7 @@ end
 
 local _o_play = G.FUNCS.play_cards_from_highlighted
 G.FUNCS.play_cards_from_highlighted = function(e)
-    if G.GAME.current_round.count_rugen then
+    if G.GAME.current_round.count_rugen and #G.hand.highlighted > 1 then
         local _target = pseudorandom_element(G.hand.highlighted, pseudoseed("kino_count_rugen"))
         G.hand:remove_from_highlighted(_target, true)
         card_eval_status_text(_target, 'extra', nil, nil, nil,

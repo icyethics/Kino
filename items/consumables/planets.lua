@@ -466,7 +466,7 @@ SMODS.Consumable {
     
     config = {
         extra = {
-            mult = 0.5,
+            mult = 0.25,
             stacks = 0
         }
     },
@@ -477,7 +477,7 @@ SMODS.Consumable {
         return {
             vars = {
                 card.ability.extra.mult,
-                card.ability.extra.stacks
+                card.ability.extra.mult * card.ability.extra.stacks
             }
         }
     end,

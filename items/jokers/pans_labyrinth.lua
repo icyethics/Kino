@@ -2,6 +2,7 @@ SMODS.Joker {
     key = "pans_labyrinth",
     order = 0,
     generate_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+        if not card then return end
         local _desc_nodes_dummy = {}
         local _dummy_full_UI_table = copy_table(full_UI_table)
 

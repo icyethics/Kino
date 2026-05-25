@@ -29,7 +29,7 @@ Blockbuster.Playset.Playset = SMODS.Center:extend {
     mods = {
         "vanilla"
     },
-    order = 0,
+    order = 1,
     config = {
 
     },

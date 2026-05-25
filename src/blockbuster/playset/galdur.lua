@@ -18,12 +18,19 @@ function Blockbuster.kino_galdur_select_playset()
     Blockbuster.Playset.run_setup = {}
     Blockbuster.Playset.run_setup.pool = {}
     Blockbuster.Playset.run_setup.playset_pool = {}
+
+    local function sort_playsets(entry_1, entry_2)
+        return entry_1.order < entry_2.order
+    end
+
     for i, v in pairs(Blockbuster.Playset.ContentPackages) do
         Blockbuster.Playset.run_setup.pool[#Blockbuster.Playset.run_setup.pool + 1] = v
     end
     for i, v in pairs(Blockbuster.Playset.Playsets) do
         Blockbuster.Playset.run_setup.playset_pool[#Blockbuster.Playset.run_setup.playset_pool + 1] = v
     end
+
+    table.sort(Blockbuster.Playset.run_setup.playset_pool, sort_playsets)
 
     Blockbuster.Playset.startup.choices = {
         playset = Blockbuster.Playset.Playsets["kino_standardsize_movies"]

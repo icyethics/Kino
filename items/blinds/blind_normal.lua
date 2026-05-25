@@ -1475,8 +1475,10 @@ SMODS.Blind{
                 local _valid_targets = Blockbuster.Counters.get_counter_targets(G.jokers.cards, {"none", "match", "no_match_class"}, "counter_kino_glass", {"beneficial"})
 
                 local _target = pseudorandom_element(_valid_targets)
-                _target:juice_up()
-                _target:bb_counter_apply("counter_kino_glass", self.debuff.counters_applied)
+                if _target then
+                    _target:juice_up()
+                    _target:bb_counter_apply("counter_kino_glass", self.debuff.counters_applied)
+                end
             end
         end
     end
@@ -1574,9 +1576,10 @@ SMODS.Blind{
         end
     end,
     calculate = function(self, blind, context)
-        if context.retrigger_joker_check and 
-        context.other_card and
-        context.other_card ~= self then
+        if context.retrigger_joker_check and
+        context.other_card == G.jokers.cards[1] and
+        not context.other_context.retrigger_joker and
+        #G.jokers.cards > 1 then
             for _index, _joker in ipairs(G.jokers.cards) do
                 if _index == 1 and #G.jokers.cards > 1 then
                     return {
@@ -1672,7 +1675,7 @@ SMODS.Blind{
     defeat = function(self)
     end,
     calculate = function(self, blind, context)
-        if context.end_of_round and G.GAME.current_round.hands_played <= 2 and
+        if context.end_of_round and context.main_eval and G.GAME.current_round.hands_played <= 2 and
         to_big((hand_chips * mult)) + to_big(G.GAME.chips) >= to_big(G.GAME.blind.chips) then
             local _valid_targets = {}
             for _index, _joker in ipairs(G.jokers.cards) do

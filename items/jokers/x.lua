@@ -44,8 +44,7 @@ SMODS.Joker {
             if #context.hand_drawn >= 1 then
                 G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
                     card:juice_up()
-
-                    G.FUNCS.draw_from_deck_to_hand(card.ability.extra.cards_drawn)
+                    SMODS.draw_cards(card.ability.extra.cards_drawn)
                     delay(0.23)
                 return true end }))
                 

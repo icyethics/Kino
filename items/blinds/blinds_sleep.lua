@@ -51,9 +51,11 @@ SMODS.Blind{
                     if SMODS.pseudorandom_probability(self, 'kino_freddy_krueger', 1, self.debuff.chance, "kino_boss_blind") then   
                         local _valid_targets = Blockbuster.Counters.get_counter_targets(G.jokers.cards, {"none", "match", "no_match_class"}, "counter_drowsy", {"beneficial"})
                         local _target = pseudorandom_element(_valid_targets, pseudoseed("kino_freddy"))
-                        _target:bb_counter_apply("counter_drowsy", 1)
-                        card_eval_status_text(context.hand_drawn[i], 'extra', nil, nil, nil,
-                        { message = localize("k_kino_freddy"), colour = G.C.BLACK})
+                        if _target then
+                            _target:bb_counter_apply("counter_drowsy", 1)
+                            card_eval_status_text(context.hand_drawn[i], 'extra', nil, nil, nil,
+                            { message = localize("k_kino_freddy"), colour = G.C.BLACK})
+                        end
                     end
                 end
             end
@@ -111,9 +113,11 @@ SMODS.Blind{
         for i = 1, _enhanced_count do
             local _valid_targets = Blockbuster.Counters.get_counter_targets(G.jokers.cards, {"none", "match", "no_match_class"}, "counter_drowsy", {"beneficial"})
             local _target = pseudorandom_element(_valid_targets, pseudoseed("kino_rose_the_hat"))
-            _target:bb_counter_apply("counter_drowsy", 1)
-            card_eval_status_text(_target, 'extra', nil, nil, nil,
-            { message = localize("k_kino_rose"), colour = G.C.BLACK})
+            if _target then
+                _target:bb_counter_apply("counter_drowsy", 1)
+                card_eval_status_text(_target, 'extra', nil, nil, nil,
+                { message = localize("k_kino_rose"), colour = G.C.BLACK})
+            end
         end
 
     end,

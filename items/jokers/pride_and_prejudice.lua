@@ -67,7 +67,7 @@ SMODS.Joker {
                     G.deck.cards[#G.deck.cards] = _rom_card
                     G.deck.cards[_rom_spot] = _buffer_card
 
-                    G.FUNCS.draw_from_deck_to_hand(1)
+                    SMODS.draw_cards(1)
                 end
             end
         end

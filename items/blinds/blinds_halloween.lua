@@ -201,6 +201,7 @@ SMODS.Enhancement {
             G.E_MANAGER:add_event(Event({
             func = function()
                 card:flip()
+                if not (card.ability and card.ability.extra and card.ability.extra.level_non) then return true end
                 card.ability.extra.level_non = card.ability.extra.level_non -1
 
                 if card.ability.extra.level_non == 0 then
